@@ -1,0 +1,10 @@
+.DS_Store
+Thumbs.db
+node_modules/
+.vscode/
+.idea/
+Dat Evraklar/
+*kopyası*
+*kopyas*
+WhatsApp Image*
+_archive_raw/

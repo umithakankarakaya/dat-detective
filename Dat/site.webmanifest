@@ -1,0 +1,16 @@
+{
+  "name": "DAT Özel Dedektiflik Bürosu",
+  "short_name": "DAT Dedektiflik",
+  "description": "2005'ten bugüne ispat ve delil garantili resmi özel dedektiflik bürosu.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#F38020",
+  "icons": [
+    {
+      "src": "dat-logo.png",
+      "sizes": "320x320",
+      "type": "image/png"
+    }
+  ]
+}
