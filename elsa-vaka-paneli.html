@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tr" class="h-full bg-[#E8EAED]">
+<html lang="tr" class="min-h-full lg:h-full bg-[#E8EAED]">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -111,13 +111,13 @@
         }
     </style>
 </head>
-<body class="h-full antialiased selection:bg-[#F48120] selection:text-[#FFFFFF] lg:overflow-hidden p-1.5 sm:p-3 lg:p-4 flex items-center justify-center">
+<body class="min-h-screen lg:h-full antialiased selection:bg-[#F48120] selection:text-[#FFFFFF] lg:overflow-hidden p-1.5 sm:p-3 lg:p-4 block lg:flex lg:items-center lg:justify-center">
 
     <!-- Metallic Apple/Cloudflare Architectural Outer Chassis -->
-    <div class="w-full lg:h-full max-w-[1620px] min-h-[calc(100vh-0.75rem)] lg:min-h-0 rounded-[22px] sm:rounded-[28px] bg-gradient-to-b from-[#E2E5E9] via-[#D1D5DC] to-[#B8BCC6] p-1.5 sm:p-2 shadow-[0_25px_70px_rgba(0,0,0,0.16)] border border-white/80 flex flex-col overflow-hidden">
+    <div class="w-full lg:h-full max-w-[1620px] min-h-[calc(100vh-0.75rem)] lg:min-h-0 rounded-[20px] sm:rounded-[28px] bg-gradient-to-b from-[#E2E5E9] via-[#D1D5DC] to-[#B8BCC6] p-1.5 sm:p-2 shadow-[0_25px_70px_rgba(0,0,0,0.16)] border border-white/80 lg:flex lg:flex-col lg:overflow-hidden">
 
         <!-- Inner Display Shell -->
-        <div class="w-full flex-1 min-h-0 rounded-[18px] sm:rounded-[22px] bg-[#FFFFFF] flex flex-col lg:flex-row overflow-hidden relative shadow-inner">
+        <div class="w-full lg:flex-1 lg:min-h-0 rounded-[16px] sm:rounded-[22px] bg-[#FFFFFF] flex flex-col lg:flex-row lg:overflow-hidden relative shadow-inner">
 
             <!-- Mobile Drawer Backdrop -->
             <div id="mobileNavBackdrop" onclick="toggleMobileNav(false)" class="hidden fixed inset-0 bg-black/50 z-30 lg:hidden"></div>
@@ -220,10 +220,10 @@
             </aside>
 
             <!-- 2. MAIN ELSA WORKSPACE -->
-            <main id="elsaWorkspaceMain" class="elsa-workspace-main flex-1 flex flex-col min-w-0 lg:h-full overflow-hidden bg-[#FFFFFF]">
+            <main id="elsaWorkspaceMain" class="elsa-workspace-main w-full lg:w-auto flex-1 flex flex-col min-w-0 lg:h-full lg:overflow-hidden bg-[#FFFFFF]">
 
                 <!-- Top Bar -->
-                <header class="h-16 shrink-0 border-b border-[rgba(0,0,0,0.08)] px-3 sm:px-5 lg:px-6 flex items-center justify-between gap-2 sm:gap-3 bg-[#FFFFFF] overflow-hidden">
+                <header class="sticky top-0 z-20 lg:static h-16 shrink-0 border-b border-[rgba(0,0,0,0.08)] px-3 sm:px-5 lg:px-6 flex items-center justify-between gap-2 sm:gap-3 bg-[#FFFFFF] overflow-hidden">
                     <div class="flex items-center gap-2 min-w-0 flex-1">
                         <button type="button" onclick="toggleMobileNav(true)" class="lg:hidden p-2 rounded-xl bg-[#F3F4F4] text-[#000000] shrink-0">
                             <i class="hgi hgi-stroke hgi-menu-01 w-4 h-4"></i>
@@ -257,7 +257,7 @@
                 </header>
 
                 <!-- Mobile Quick Tab Bar -->
-                <div class="lg:hidden flex items-center gap-1.5 px-3 py-2 border-b border-[rgba(0,0,0,0.06)] bg-[#FAFAFA] overflow-x-auto no-scrollbar">
+                <div class="sticky top-16 z-10 lg:hidden flex items-center gap-1.5 px-3 py-2 border-b border-[rgba(0,0,0,0.06)] bg-[#FAFAFA] overflow-x-auto no-scrollbar">
                     <button type="button" onclick="switchTab('evidence')" data-mobile-tab="evidence" class="elsa-mob-btn px-3 py-1.5 rounded-full text-[11px] font-medium whitespace-nowrap bg-[#000000] text-white">Kanıt Duvarı</button>
                     <button type="button" onclick="switchTab('cases')" data-mobile-tab="cases" class="elsa-mob-btn px-3 py-1.5 rounded-full text-[11px] font-medium whitespace-nowrap bg-[#F3F4F4] text-[#3A3E42]">Vaka Dosyaları</button>
                     <button type="button" onclick="switchTab('suspects')" data-mobile-tab="suspects" class="elsa-mob-btn px-3 py-1.5 rounded-full text-[11px] font-medium whitespace-nowrap bg-[#F3F4F4] text-[#3A3E42]">Şüpheli Matrisi</button>
@@ -265,7 +265,7 @@
                 </div>
 
                 <!-- Scrollable Main Content -->
-                <div id="elsaScrollBody" class="flex-1 overflow-y-auto px-3 sm:px-6 lg:px-8 py-5 space-y-6">
+                <div id="elsaScrollBody" class="flex-1 lg:overflow-y-auto px-3 sm:px-6 lg:px-8 py-5 space-y-6">
 
                     <!-- ELSA SIGNATURE HERO BANNER -->
                     <section class="rounded-2xl elsa-gradient text-[#FFFFFF] p-5 sm:p-7 relative overflow-hidden shadow-lg border border-white/10">
