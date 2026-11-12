@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="tr" class="h-full bg-[#E8EAED]">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Elsa Vaka Paneli • DAT Özel Dedektiflik AI &amp; Adli Delil Merkezi</title>
+    <meta name="description" content="DAT Özel Dedektiflik Bürosu Elsa AI Vaka Paneli: Gerçek zamanlı dosya takibi, SHA-256 adli delil doğrulama, HMK/CMK uyumlu kanıt duvarı ve interaktif vaka analizörü.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.datdetective.com/elsa-vaka-paneli.html">
+    <link rel="icon" type="image/png" href="dat-logo.png">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+    <link rel="preconnect" href="https://use.hugeicons.com" crossorigin>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Helvetica Neue"', 'Helvetica', 'Arial', 'sans-serif'],
+                        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://use.hugeicons.com/font/icons.css">
+
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+            background-color: #E8EAED;
+            color: #3A3E42;
+            letter-spacing: -0.01em;
+        }
+        .cf-gradient {
+            background: linear-gradient(135deg, #F38020 0%, #F6821F 50%, #FAAD3F 100%);
+        }
+        .elsa-gradient {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 55%, #020617 100%);
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        ::-webkit-scrollbar { width: 5px; height: 5px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.14); border-radius: 9999px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(0, 0, 0, 0.28); }
+        @keyframes scanLine {
+            0% { transform: translateY(-100%); opacity: 0; }
+            25% { opacity: 0.7; }
+            75% { opacity: 0.7; }
+            100% { transform: translateY(320%); opacity: 0; }
+        }
+        .elsa-scan-bar {
+            animation: scanLine 1.6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="h-full antialiased selection:bg-[#F48120] selection:text-[#FFFFFF] lg:overflow-hidden p-1.5 sm:p-3 lg:p-4 flex items-center justify-center">
+
+    <!-- Metallic Apple/Cloudflare Architectural Outer Chassis -->
+    <div class="w-full lg:h-full max-w-[1620px] min-h-[calc(100vh-0.75rem)] lg:min-h-0 rounded-[22px] sm:rounded-[28px] bg-gradient-to-b from-[#E2E5E9] via-[#D1D5DC] to-[#B8BCC6] p-1.5 sm:p-2 shadow-[0_25px_70px_rgba(0,0,0,0.16)] border border-white/80 flex flex-col overflow-hidden">
+
+        <!-- Inner Display Shell -->
+        <div class="w-full flex-1 min-h-0 rounded-[18px] sm:rounded-[22px] bg-[#FFFFFF] flex flex-col lg:flex-row overflow-hidden relative shadow-inner">
+
+            <!-- Mobile Drawer Backdrop -->
+            <div id="mobileNavBackdrop" onclick="toggleMobileNav(false)" class="hidden fixed inset-0 bg-black/50 z-30 lg:hidden"></div>
+
+            <!-- 1. ELSA ARCHITECTURAL SIDEBAR -->
+            <aside id="elsaSidebar" class="fixed lg:static inset-y-0 left-0 w-72 lg:w-64 shrink-0 flex flex-col justify-between border-r border-[rgba(0,0,0,0.08)] bg-[#FFFFFF] z-40 transform -translate-x-full lg:translate-x-0 transition-transform duration-200">
+                <div class="overflow-y-auto flex-1">
+                    <!-- Brand & Elsa AI Beacon -->
+                    <div class="h-16 flex items-center justify-between px-4 lg:px-5 border-b border-[rgba(0,0,0,0.08)]">
+                        <div class="flex items-center gap-3 min-w-0">
+                            <div class="h-9 w-9 rounded-xl bg-[#000000] text-[#FFFFFF] flex items-center justify-center shadow-sm shrink-0 relative overflow-hidden">
+                                <img src="dat-logo.png" alt="DAT Logo" class="w-9 h-9 object-cover">
+                                <span class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-[#10B981] ring-2 ring-white"></span>
+                            </div>
+                            <div class="min-w-0">
+                                <div class="text-xs font-medium text-[#000000] tracking-tight flex items-center gap-1.5 truncate">
+                                    <span>ELSA // DAT</span>
+                                    <span class="h-1.5 w-1.5 rounded-full bg-[#F48120] animate-ping shrink-0"></span>
+                                </div>
+                                <div class="text-[10px] text-[#3A3E42]/65 font-mono truncate">Elsa Vaka Paneli v3.0</div>
+                            </div>
+                        </div>
+                        <button type="button" onclick="toggleMobileNav(false)" class="lg:hidden p-1.5 rounded-lg bg-[#F3F4F4] text-[#000000]">
+                            <i class="hgi hgi-stroke hgi-cancel-01 w-4 h-4"></i>
+                        </button>
+                    </div>
+
+                    <!-- Navigation Links -->
+                    <nav class="p-3 space-y-1 text-xs font-medium">
+                        <a href="index.html" class="flex items-center gap-3 rounded-xl p-2.5 text-[#3A3E42]/75 hover:text-[#000000] hover:bg-[#F3F4F4] transition">
+                            <i class="hgi hgi-stroke hgi-arrow-left-02 w-4 h-4 shrink-0 text-[#F48120]"></i>
+                            <span>Ana Sayfaya Dön</span>
+                        </a>
+
+                        <div class="pt-3 pb-1 px-2.5 text-[10px] font-mono uppercase tracking-wider text-[#3A3E42]/45">
+                            Elsa Operasyon Merkezi
+                        </div>
+
+                        <button type="button" onclick="switchTab('evidence')" data-nav-tab="evidence" class="elsa-nav-btn w-full flex items-center justify-between rounded-xl p-2.5 transition bg-[#000000] text-[#FFFFFF]">
+                            <span class="flex items-center gap-2.5">
+                                <i class="hgi hgi-stroke hgi-layers-01 w-4 h-4 shrink-0"></i>
+                                <span>Kanıt Duvarı</span>
+                            </span>
+                            <span id="navEvidenceCount" class="rounded-full px-2 py-0.5 text-[10px] font-mono bg-white/20 text-white">6</span>
+                        </button>
+
+                        <button type="button" onclick="switchTab('cases')" data-nav-tab="cases" class="elsa-nav-btn w-full flex items-center justify-between rounded-xl p-2.5 transition text-[#3A3E42] hover:bg-[#F3F4F4]">
+                            <span class="flex items-center gap-2.5">
+                                <i class="hgi hgi-stroke hgi-folder-02 w-4 h-4 shrink-0"></i>
+                                <span>Vaka Dosyaları</span>
+                            </span>
+                            <span id="navCasesCount" class="rounded-full px-2 py-0.5 text-[10px] font-mono bg-[#F3F4F4] text-[#3A3E42]">4</span>
+                        </button>
+
+                        <button type="button" onclick="switchTab('suspects')" data-nav-tab="suspects" class="elsa-nav-btn w-full flex items-center justify-between rounded-xl p-2.5 transition text-[#3A3E42] hover:bg-[#F3F4F4]">
+                            <span class="flex items-center gap-2.5">
+                                <i class="hgi hgi-stroke hgi-user-group w-4 h-4 shrink-0"></i>
+                                <span>Şüpheli Matrisi</span>
+                            </span>
+                            <span class="rounded-full px-2 py-0.5 text-[10px] font-mono bg-[#F3F4F4] text-[#3A3E42]">4</span>
+                        </button>
+
+                        <button type="button" onclick="switchTab('ai')" data-nav-tab="ai" class="elsa-nav-btn w-full flex items-center justify-between rounded-xl p-2.5 transition text-[#3A3E42] hover:bg-[#F3F4F4]">
+                            <span class="flex items-center gap-2.5">
+                                <i class="hgi hgi-stroke hgi-sparkles w-4 h-4 shrink-0 text-[#F48120]"></i>
+                                <span>Elsa AI Asistan</span>
+                            </span>
+                            <span class="h-2 w-2 rounded-full bg-[#10B981]"></span>
+                        </button>
+
+                        <div class="pt-4 pb-1 px-2.5 text-[10px] font-mono uppercase tracking-wider text-[#3A3E42]/45">
+                            Hızlı Vaka Dosyası
+                        </div>
+                        <div id="sidebarCaseList" class="space-y-1"></div>
+                    </nav>
+                </div>
+
+                <!-- Bottom Agent Status + Panic -->
+                <div class="p-3 border-t border-[rgba(0,0,0,0.08)] space-y-2 bg-[#FAFAFA]">
+                    <div class="flex items-center gap-2.5 rounded-xl bg-[#F3F4F4] p-2.5">
+                        <div class="h-8 w-8 rounded-lg cf-gradient text-[#FFFFFF] flex items-center justify-center font-mono text-xs font-medium shrink-0">
+                            ÜHK
+                        </div>
+                        <div class="min-w-0">
+                            <div class="text-xs font-medium text-[#000000] truncate">Ümit Hakan Karakaya</div>
+                            <div class="text-[10px] text-[#3A3E42]/65 font-mono truncate">AES-256 • TLS 1.3 Aktif</div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-1.5">
+                        <a href="https://wa.me/905326667749?text=Merhaba%2C%20Elsa%20Vaka%20Paneli%20%C3%BCzerinden%20dosya%20bilgisi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-1 py-2 rounded-lg bg-[#000000] hover:bg-[#F48120] text-[#FFFFFF] text-[11px] font-medium transition">
+                            <i class="hgi hgi-stroke hgi-whatsapp w-3.5 h-3.5"></i>
+                            <span>WhatsApp</span>
+                        </a>
+                        <button type="button" onclick="triggerPanicExit()" title="Acil Çıkış (ESC)" class="flex items-center justify-center gap-1 py-2 rounded-lg bg-[#FFFFFF] hover:bg-[#000000] text-[#3A3E42] hover:text-[#FFFFFF] border border-[rgba(0,0,0,0.08)] text-[11px] font-medium transition">
+                            <i class="hgi hgi-stroke hgi-view-off w-3.5 h-3.5"></i>
+                            <span>Gizle (ESC)</span>
+                        </button>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- 2. MAIN ELSA WORKSPACE -->
+            <main class="flex-1 flex flex-col min-w-0 lg:h-full overflow-hidden bg-[#FFFFFF]">
+
+                <!-- Top Bar -->
+                <header class="h-16 shrink-0 border-b border-[rgba(0,0,0,0.08)] px-3 sm:px-6 flex items-center justify-between gap-2 bg-[#FFFFFF]">
+                    <div class="flex items-center gap-2 sm:gap-2.5 min-w-0">
+                        <button type="button" onclick="toggleMobileNav(true)" class="lg:hidden p-2 rounded-xl bg-[#F3F4F4] text-[#000000] shrink-0">
+                            <i class="hgi hgi-stroke hgi-menu-01 w-4 h-4"></i>
+                        </button>
+                        <span id="activeCaseCodeBadge" class="rounded-full bg-[#FFF7ED] border border-[#F48120]/30 px-2.5 py-1 text-[11px] font-mono font-medium text-[#F48120] whitespace-nowrap shrink-0">
+                            #ELSA-774
+                        </span>
+                        <i class="hgi hgi-stroke hgi-arrow-right-01 w-3.5 h-3.5 text-[#3A3E42]/40 shrink-0 hidden sm:inline-flex"></i>
+                        <h1 id="activeCaseTitle" class="text-xs sm:text-sm font-medium text-[#000000] tracking-tight truncate">
+                            Varlık Transferi &amp; Gizli Hesap Soruşturması
+                        </h1>
+                    </div>
+
+                    <div class="flex items-center gap-2 shrink-0">
+                        <div class="hidden md:flex items-center rounded-xl bg-[#F3F4F4] px-3 py-1.5 text-xs w-56 lg:w-64 border border-transparent focus-within:border-[#000000] focus-within:bg-[#FFFFFF] transition">
+                            <i class="hgi hgi-stroke hgi-search-01 w-3.5 h-3.5 text-[#3A3E42]/50 mr-2 shrink-0"></i>
+                            <input id="elsaSearchInput" type="text" placeholder="Kanıt, kod veya şüpheli ara..." oninput="handleSearch(this.value)" class="w-full bg-transparent text-xs text-[#3A3E42] placeholder-[#3A3E42]/45 focus:outline-none">
+                            <kbd class="rounded bg-[#FFFFFF] px-1.5 py-0.5 text-[9px] font-mono text-[#3A3E42]/70 border border-[rgba(0,0,0,0.06)]">⌘K</kbd>
+                        </div>
+
+                        <button type="button" onclick="openTrackLookupModal()" class="hidden sm:inline-flex items-center gap-1.5 rounded-xl px-3 py-2 text-xs font-medium bg-[#F3F4F4] hover:bg-[#000000] text-[#000000] hover:text-[#FFFFFF] transition">
+                            <i class="hgi hgi-stroke hgi-search-list-01 w-3.5 h-3.5 text-[#F48120]"></i>
+                            <span>Dosya Sorgula</span>
+                        </button>
+
+                        <button type="button" id="toggleInspectorBtn" onclick="toggleInspector()" class="flex items-center gap-1.5 rounded-xl px-3 py-2 text-xs font-medium bg-[#000000] text-[#FFFFFF] hover:bg-[#1A1D20] transition">
+                            <i class="hgi hgi-stroke hgi-sliders-horizontal w-3.5 h-3.5"></i>
+                            <span class="hidden sm:inline">Elsa Müfettişi</span>
+                        </button>
+                    </div>
+                </header>
+
+                <!-- Mobile Quick Tab Bar -->
+                <div class="lg:hidden flex items-center gap-1.5 px-3 py-2 border-b border-[rgba(0,0,0,0.06)] bg-[#FAFAFA] overflow-x-auto no-scrollbar">
+                    <button type="button" onclick="switchTab('evidence')" data-mobile-tab="evidence" class="elsa-mob-btn px-3 py-1.5 rounded-full text-[11px] font-medium whitespace-nowrap bg-[#000000] text-white">Kanıt Duvarı</button>
+                    <button type="button" onclick="switchTab('cases')" data-mobile-tab="cases" class="elsa-mob-btn px-3 py-1.5 rounded-full text-[11px] font-medium whitespace-nowrap bg-[#F3F4F4] text-[#3A3E42]">Vaka Dosyaları</button>
+                    <button type="button" onclick="switchTab('suspects')" data-mobile-tab="suspects" class="elsa-mob-btn px-3 py-1.5 rounded-full text-[11px] font-medium whitespace-nowrap bg-[#F3F4F4] text-[#3A3E42]">Şüpheli Matrisi</button>
+                    <button type="button" onclick="switchTab('ai')" data-mobile-tab="ai" class="elsa-mob-btn px-3 py-1.5 rounded-full text-[11px] font-medium whitespace-nowrap bg-[#F3F4F4] text-[#3A3E42]">Elsa AI Asistan</button>
+                </div>
+
+                <!-- Scrollable Main Content -->
+                <div id="elsaScrollBody" class="flex-1 overflow-y-auto px-3 sm:px-6 lg:px-8 py-5 space-y-6">
+
+                    <!-- ELSA SIGNATURE HERO BANNER -->
+                    <section class="rounded-2xl elsa-gradient text-[#FFFFFF] p-5 sm:p-7 relative overflow-hidden shadow-lg border border-white/10">
+                        <div id="elsaScanOverlay" class="hidden pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-transparent via-[#F48120]/25 to-transparent elsa-scan-bar"></div>
+                        <div class="relative z-10 grid lg:grid-cols-12 gap-5 items-center">
+                            <div class="lg:col-span-8 space-y-3">
+                                <div class="inline-flex flex-wrap items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-[11px] font-mono text-slate-200 border border-white/10">
+                                    <span class="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></span>
+                                    <span>ELSA AI AGENT • CANLI ADLİ VERİ AKIŞI AKTİF</span>
+                                </div>
+
+                                <h2 id="bannerHeadline" class="text-xl sm:text-2xl font-medium tracking-tight text-white">
+                                    İncelenen Varlık Hacmi: <span class="font-mono text-[#FAAD3F]">₺14.850.000</span>
+                                </h2>
+
+                                <p id="bannerSummary" class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-2xl">
+                                    Elsa yapay zekâ motoru, hedef şahsın paravan şirketlerine aktarılan 28 ayrı adli delil ve işlem kaydını eşleştirdi. Mahkeme delil zinciri %98,4 doğrulukla SHA-256 mührüne bağlandı.
+                                </p>
+
+                                <div class="flex flex-wrap gap-2.5 pt-1">
+                                    <button type="button" onclick="runElsaAnomalyScan()" class="flex items-center gap-2 rounded-xl bg-[#FFFFFF] text-[#000000] px-4 py-2 text-xs font-medium hover:bg-slate-100 transition shadow-sm active:scale-95">
+                                        <i class="hgi hgi-stroke hgi-sparkles w-3.5 h-3.5 text-[#F48120]"></i>
+                                        <span>Elsa AI Anomali Analizi</span>
+                                    </button>
+                                    <button type="button" onclick="verifyChainOfCustody()" class="flex items-center gap-2 rounded-xl bg-white/10 text-white px-4 py-2 text-xs font-medium hover:bg-white/15 transition border border-white/15 active:scale-95">
+                                        <i class="hgi hgi-stroke hgi-shield-check w-3.5 h-3.5 text-[#10B981]"></i>
+                                        <span>HMK / CMK Zincirini Doğrula</span>
+                                    </button>
+                                    <a href="index.html#vaka-bildir" class="flex items-center gap-1.5 rounded-xl cf-gradient text-white px-4 py-2 text-xs font-medium hover:opacity-95 transition shadow-sm active:scale-95">
+                                        <i class="hgi hgi-stroke hgi-add-01 w-3.5 h-3.5"></i>
+                                        <span>Yeni Vaka Başlat</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="lg:col-span-4 grid grid-cols-2 gap-3 font-mono text-xs">
+                                <div class="p-3.5 rounded-xl bg-white/5 border border-white/10">
+                                    <div class="text-slate-400 text-[10px]">ANOMALİ İNDEKSİ</div>
+                                    <div id="metricAnomaly" class="text-lg font-medium text-[#FAAD3F] mt-1">%99.4</div>
+                                    <div class="text-[10px] text-slate-400 mt-0.5">Yüksek Öncelikli</div>
+                                </div>
+                                <div class="p-3.5 rounded-xl bg-white/5 border border-white/10">
+                                    <div class="text-slate-400 text-[10px]">ADLİ DOĞRULAMA</div>
+                                    <div id="metricVerified" class="text-lg font-medium text-[#10B981] mt-1">24 / 28</div>
+                                    <div class="text-[10px] text-slate-400 mt-0.5">SHA-256 Mühürlü</div>
+                                </div>
+                                <div class="p-3.5 rounded-xl bg-white/5 border border-white/10">
+                                    <div class="text-slate-400 text-[10px]">OPERASYON SÜRESİ</div>
+                                    <div id="metricTimeline" class="text-lg font-medium text-white mt-1">36 / 48 sa</div>
+                                    <div class="text-[10px] text-slate-400 mt-0.5">Saha &amp; Lab Aktif</div>
+                                </div>
+                                <div class="p-3.5 rounded-xl bg-white/5 border border-white/10">
+                                    <div class="text-slate-400 text-[10px]">HUKUKİ UYUM</div>
+                                    <div class="text-lg font-medium text-sky-400 mt-1">HMK 189</div>
+                                    <div class="text-[10px] text-slate-400 mt-0.5">Mahkemeye Hazır</div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Live Status Toast Container -->
+                    <div id="elsaToast" class="hidden rounded-xl border border-[#10B981]/30 bg-[#ECFDF5] px-4 py-3 text-xs text-[#065F46] flex items-center justify-between gap-3">
+                        <div class="flex items-center gap-2.5">
+                            <i class="hgi hgi-stroke hgi-checkmark-circle-02 w-4 h-4 text-[#10B981] shrink-0"></i>
+                            <span id="elsaToastMsg" class="font-medium"></span>
+                        </div>
+                        <button type="button" onclick="hideToast()" class="text-[#065F46]/60 hover:text-[#065F46]">
+                            <i class="hgi hgi-stroke hgi-cancel-01 w-3.5 h-3.5"></i>
+                        </button>
+                    </div>
+
+                    <!-- TAB 1: EVIDENCE WALL -->
+                    <div id="tab-evidence" class="elsa-tab space-y-6">
+                        <!-- Filter Bar -->
+                        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-[rgba(0,0,0,0.08)] pb-3">
+                            <div id="categoryFilterBar" class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
+                                <button type="button" onclick="setCategory('all')" data-cat="all" class="elsa-cat-btn rounded-full px-3.5 py-1.5 text-xs font-medium bg-[#000000] text-[#FFFFFF] whitespace-nowrap transition">Tüm Deliller</button>
+                                <button type="button" onclick="setCategory('digital')" data-cat="digital" class="elsa-cat-btn rounded-full px-3.5 py-1.5 text-xs font-medium bg-[#F3F4F4] text-[#3A3E42] hover:text-[#000000] whitespace-nowrap transition">Adli Bilişim</button>
+                                <button type="button" onclick="setCategory('audio')" data-cat="audio" class="elsa-cat-btn rounded-full px-3.5 py-1.5 text-xs font-medium bg-[#F3F4F4] text-[#3A3E42] hover:text-[#000000] whitespace-nowrap transition">Ses &amp; TSCM</button>
+                                <button type="button" onclick="setCategory('surveillance')" data-cat="surveillance" class="elsa-cat-btn rounded-full px-3.5 py-1.5 text-xs font-medium bg-[#F3F4F4] text-[#3A3E42] hover:text-[#000000] whitespace-nowrap transition">Saha Takibi</button>
+                                <button type="button" onclick="setCategory('forensic')" data-cat="forensic" class="elsa-cat-btn rounded-full px-3.5 py-1.5 text-xs font-medium bg-[#F3F4F4] text-[#3A3E42] hover:text-[#000000] whitespace-nowrap transition">Biyometrik &amp; Belge</button>
+                            </div>
+                            <span id="evidenceCountLabel" class="text-xs font-mono text-[#3A3E42]/60">6 Kanıt Dosyası</span>
+                        </div>
+
+                        <!-- Audit Trail Table -->
+                        <div class="rounded-2xl border border-[rgba(0,0,0,0.08)] bg-[#FFFFFF] overflow-hidden shadow-[0_2px_12px_rgba(0,0,0,0.03)]">
+                            <div class="p-4 border-b border-[rgba(0,0,0,0.08)] flex items-center justify-between gap-2">
+                                <div class="flex items-center gap-2">
+                                    <i class="hgi hgi-stroke hgi-activity-01 w-4 h-4 text-[#F48120]"></i>
+                                    <h3 class="text-xs font-medium uppercase tracking-wider text-[#000000]">
+                                        Adli Kanıt &amp; İşlem Çizelgesi (Audit Trail)
+                                    </h3>
+                                </div>
+                                <span class="text-[11px] font-mono text-[#10B981] flex items-center gap-1.5">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#10B981]"></span>
+                                    Senkronize
+                                </span>
+                            </div>
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left text-xs">
+                                    <thead class="bg-[#F3F4F4] text-[#3A3E42]/70 font-mono text-[10px] uppercase">
+                                        <tr>
+                                            <th class="py-3 px-4">Kod &amp; Delil Başlığı</th>
+                                            <th class="py-3 px-4">Kategori</th>
+                                            <th class="py-3 px-4">Zaman Damgası</th>
+                                            <th class="py-3 px-4">Hukuki Güven</th>
+                                            <th class="py-3 px-4">Durum</th>
+                                            <th class="py-3 px-4 text-right">Eylem</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="evidenceTableBody" class="divide-y divide-[rgba(0,0,0,0.06)] text-[#3A3E42]"></tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Cards Grid -->
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-xs font-medium uppercase tracking-wider text-[#000000]">Detaylı Kanıt Kartları</h3>
+                                <span class="text-[11px] text-[#3A3E42]/60">İncelemek için kart seçin</span>
+                            </div>
+                            <div id="evidenceCardsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 2: CASE FILES & CLIENT SUBMISSIONS -->
+                    <div id="tab-cases" class="elsa-tab hidden space-y-6">
+                        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-[rgba(0,0,0,0.08)] pb-3">
+                            <div>
+                                <h3 class="text-sm font-medium text-[#000000]">Aktif Vaka Dosyaları &amp; Sizin Talepleriniz</h3>
+                                <p class="text-xs text-[#3A3E42]/70">Ana sayfadan gönderdiğiniz vaka takip kodları da burada otomatik listelenir.</p>
+                            </div>
+                            <button type="button" onclick="openTrackLookupModal()" class="px-3.5 py-2 rounded-xl bg-[#000000] text-[#FFFFFF] text-xs font-medium hover:bg-[#F48120] transition">
+                                + Takip Kodu Ekle
+                            </button>
+                        </div>
+                        <div id="caseFilesGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+
+                        <!-- 48-Hour Operation Protocol Bar -->
+                        <div class="rounded-2xl border border-[rgba(0,0,0,0.08)] bg-[#F9FAFB] p-5 space-y-4">
+                            <div class="flex items-center justify-between">
+                                <h4 class="text-xs font-medium uppercase tracking-wider text-[#000000]">48 Saatlik Standart Operasyon Protokolü</h4>
+                                <span class="text-[11px] font-mono text-[#F48120]">AKTİF DOSYA SÜRECİ</span>
+                            </div>
+                            <div class="grid sm:grid-cols-4 gap-3 text-xs">
+                                <div class="p-3.5 rounded-xl bg-white border border-[rgba(0,0,0,0.06)] space-y-1">
+                                    <div class="font-mono text-[10px] text-[#10B981]">FAZ 01 • 0-6 SAAT</div>
+                                    <div class="font-medium text-[#000000]">İstihbarat &amp; Ön Analiz</div>
+                                    <p class="text-[11px] text-[#3A3E42]/75">Açık kaynak ve dijital iz eşleştirmesi tamamlandı.</p>
+                                </div>
+                                <div class="p-3.5 rounded-xl bg-white border border-[rgba(0,0,0,0.06)] space-y-1">
+                                    <div class="font-mono text-[10px] text-[#10B981]">FAZ 02 • 6-24 SAAT</div>
+                                    <div class="font-medium text-[#000000]">Saha &amp; Teknik Gözlem</div>
+                                    <p class="text-[11px] text-[#3A3E42]/75">Zaman damgalı 4K görüntüleme ve güzergâh kaydı.</p>
+                                </div>
+                                <div class="p-3.5 rounded-xl bg-white border border-[#F48120]/40 space-y-1 ring-1 ring-[#F48120]/20">
+                                    <div class="font-mono text-[10px] text-[#F48120]">FAZ 03 • 24-36 SAAT</div>
+                                    <div class="font-medium text-[#000000]">SHA-256 Delil Doğrulama</div>
+                                    <p class="text-[11px] text-[#3A3E42]/75">Elsa AI çapraz kontrol ve kriptografik mühürleme sürüyor.</p>
+                                </div>
+                                <div class="p-3.5 rounded-xl bg-white border border-[rgba(0,0,0,0.06)] space-y-1 opacity-80">
+                                    <div class="font-mono text-[10px] text-[#3A3E42]/60">FAZ 04 • 36-48 SAAT</div>
+                                    <div class="font-medium text-[#000000]">HMK Dosya Teslimi</div>
+                                    <p class="text-[11px] text-[#3A3E42]/75">Avukat &amp; mahkemeye sunulabilir imzalı klasör.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 3: SUSPECT MATRIX -->
+                    <div id="tab-suspects" class="elsa-tab hidden space-y-6">
+                        <div class="border-b border-[rgba(0,0,0,0.08)] pb-3">
+                            <h3 class="text-sm font-medium text-[#000000]">Şüpheli &amp; Varlık İlişki Matrisi (KVKK Maskeli)</h3>
+                            <p class="text-xs text-[#3A3E42]/70">Mahremiyet gereği kimlikler maskelenmiştir; ilgili kartı seçerek bağlantılı delilleri filtreleyebilirsiniz.</p>
+                        </div>
+                        <div id="suspectMatrixGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+                    </div>
+
+                    <!-- TAB 4: ELSA AI ASSISTANT -->
+                    <div id="tab-ai" class="elsa-tab hidden space-y-5">
+                        <div class="rounded-2xl border border-[rgba(0,0,0,0.08)] bg-[#FFFFFF] overflow-hidden shadow-sm">
+                            <div class="p-4 border-b border-[rgba(0,0,0,0.08)] bg-[#F9FAFB] flex items-center justify-between">
+                                <div class="flex items-center gap-2.5">
+                                    <div class="w-8 h-8 rounded-xl cf-gradient text-white flex items-center justify-center">
+                                        <i class="hgi hgi-stroke hgi-sparkles w-4 h-4"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-xs font-medium text-[#000000]">Elsa AI Ön Analiz &amp; Hukuki Bilgi Asistanı</div>
+                                        <div class="text-[10px] font-mono text-[#3A3E42]/60">HMK 189 • TCK Uyumlu Operasyon Rehberi</div>
+                                    </div>
+                                </div>
+                                <span class="text-[10px] font-mono px-2.5 py-1 rounded-full bg-[#ECFDF5] text-[#065F46]">ÇEVRİMİÇİ</span>
+                            </div>
+
+                            <div id="elsaChatMessages" class="p-4 sm:p-5 space-y-3 max-h-[360px] overflow-y-auto bg-[#FFFFFF]">
+                                <div class="flex items-start gap-2.5">
+                                    <div class="w-7 h-7 rounded-lg bg-[#000000] text-white flex items-center justify-center text-[10px] font-mono shrink-0">EL</div>
+                                    <div class="rounded-2xl rounded-tl-sm bg-[#F3F4F4] px-4 py-3 text-xs text-[#3A3E42] leading-relaxed max-w-2xl">
+                                        Merhaba, ben <strong>Elsa AI</strong>. Mevcut dosyanızdaki adli deliller, 48 saatlik sadakat/varlık takibi süreci, TSCM böcek taraması veya HMK uyumlu delil toplama kuralları hakkında aşağıdan bir başlık seçebilir ya da sorunuzu yazabilirsiniz.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="p-3 sm:p-4 border-t border-[rgba(0,0,0,0.08)] bg-[#FAFAFA] space-y-3">
+                                <div class="flex flex-wrap gap-1.5">
+                                    <button type="button" onclick="askElsaPreset('Eş takibinde toplanan deliller mahkemede geçerli olur mu?')" class="px-3 py-1.5 rounded-full bg-white border border-[rgba(0,0,0,0.08)] hover:border-[#F48120] text-[11px] text-[#3A3E42] transition">Eş takibi delil geçerliliği?</button>
+                                    <button type="button" onclick="askElsaPreset('TSCM böcek ve gizli kamera taraması nasıl yapılır?')" class="px-3 py-1.5 rounded-full bg-white border border-[rgba(0,0,0,0.08)] hover:border-[#F48120] text-[11px] text-[#3A3E42] transition">TSCM böcek taraması?</button>
+                                    <button type="button" onclick="askElsaPreset('Borçlu mal kaçırma ve adres tespiti kaç gün sürer?')" class="px-3 py-1.5 rounded-full bg-white border border-[rgba(0,0,0,0.08)] hover:border-[#F48120] text-[11px] text-[#3A3E42] transition">Borçlu &amp; mal kaçırma?</button>
+                                    <button type="button" onclick="askElsaPreset('SHA-256 delil mührü ne işe yarar?')" class="px-3 py-1.5 rounded-full bg-white border border-[rgba(0,0,0,0.08)] hover:border-[#F48120] text-[11px] text-[#3A3E42] transition">SHA-256 mührü nedir?</button>
+                                </div>
+                                <form onsubmit="submitElsaChat(event)" class="flex gap-2">
+                                    <input id="elsaChatInput" type="text" placeholder="Elsa AI'ya vaka kapsamı veya hukuki süreç hakkında sorun..." class="flex-1 rounded-xl bg-white border border-[rgba(0,0,0,0.1)] px-3.5 py-2.5 text-xs text-[#000000] focus:outline-none focus:border-[#F48120]">
+                                    <button type="submit" class="px-4 py-2.5 rounded-xl cf-gradient text-white text-xs font-medium hover:opacity-95 transition shrink-0">
+                                        Sor
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </main>
+
+            <!-- 3. ELSA FORENSIC INSPECTOR PANEL -->
+            <aside id="elsaInspector" class="hidden lg:flex w-full lg:w-96 shrink-0 border-t lg:border-t-0 lg:border-l border-[rgba(0,0,0,0.08)] bg-[#FFFFFF] flex-col justify-between z-20 overflow-y-auto">
+                <div class="p-5 sm:p-6 space-y-5">
+                    <div class="flex items-center justify-between pb-3 border-b border-[rgba(0,0,0,0.08)]">
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs font-mono font-medium text-[#000000]">ELSA MÜFETTİŞİ</span>
+                            <span class="rounded-full bg-[#ECFDF5] text-[#065F46] text-[10px] font-mono px-2 py-0.5 font-medium">AKTİF</span>
+                        </div>
+                        <button type="button" onclick="toggleInspector(false)" class="text-[#3A3E42] hover:text-[#000000] p-1">
+                            <i class="hgi hgi-stroke hgi-cancel-01 w-4 h-4"></i>
+                        </button>
+                    </div>
+
+                    <div class="space-y-1.5">
+                        <span id="inspCode" class="text-[11px] font-mono font-medium text-[#F48120]">EV-8841-CYBER</span>
+                        <h3 id="inspTitle" class="text-base font-medium tracking-tight text-[#000000] leading-snug"></h3>
+                        <p id="inspNotes" class="text-xs text-[#3A3E42]/85 leading-relaxed"></p>
+                    </div>
+
+                    <!-- Elsa AI Insight Box -->
+                    <div class="rounded-xl bg-[#FFF7ED] p-4 space-y-2 border border-[#F48120]/25">
+                        <div class="flex items-center gap-2 text-xs font-medium text-[#000000]">
+                            <i class="hgi hgi-stroke hgi-sparkles w-3.5 h-3.5 text-[#F48120]"></i>
+                            <span>Elsa AI Hukuki Çıkarımı</span>
+                        </div>
+                        <p id="inspAiInsight" class="text-[11px] text-[#3A3E42]/90 leading-relaxed"></p>
+                    </div>
+
+                    <!-- SHA-256 Checksum -->
+                    <div class="rounded-xl bg-[#F3F4F4] p-4 space-y-3 font-mono text-xs">
+                        <div class="flex items-center justify-between text-[10px] font-medium text-[#3A3E42]">
+                            <span>DELİL BÜTÜNLÜK MÜHRÜ (SHA-256)</span>
+                            <button type="button" id="copyHashBtn" onclick="copySelectedHash()" class="text-[#000000] font-medium hover:text-[#F48120]">Kopyala</button>
+                        </div>
+                        <div id="inspHash" class="break-all rounded-lg bg-[#FFFFFF] p-2.5 text-[10px] text-[#3A3E42] border border-[rgba(0,0,0,0.06)] select-all"></div>
+                        <div class="space-y-1.5 pt-2 border-t border-[rgba(0,0,0,0.06)] text-[11px]">
+                            <div class="flex justify-between gap-2">
+                                <span class="text-[#3A3E42]/60">LOKASYON:</span>
+                                <span id="inspSource" class="text-[#000000] font-medium truncate text-right"></span>
+                            </div>
+                            <div class="flex justify-between gap-2">
+                                <span class="text-[#3A3E42]/60">ZAMAN:</span>
+                                <span id="inspTime" class="text-[#000000] font-medium"></span>
+                            </div>
+                            <div class="flex justify-between gap-2">
+                                <span class="text-[#3A3E42]/60">MÜHÜR DURUMU:</span>
+                                <span id="inspSealStatus" class="text-[#10B981] font-medium">Doğrulandı</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Suspect Box -->
+                    <div class="rounded-xl bg-[#F3F4F4] p-4 space-y-2.5">
+                        <div class="text-[10px] font-mono font-medium text-[#3A3E42]/60 uppercase">İLİŞKİLİ KAYIT</div>
+                        <div class="flex items-center gap-3">
+                            <div id="inspSuspectInitials" class="h-10 w-10 rounded-full bg-[#FFFFFF] border border-[rgba(0,0,0,0.08)] flex items-center justify-center font-mono font-medium text-[#000000] shrink-0">
+                                B.K.
+                            </div>
+                            <div class="min-w-0">
+                                <div id="inspSuspectName" class="text-xs font-medium text-[#000000] truncate"></div>
+                                <div id="inspSuspectRole" class="text-[10px] text-[#3A3E42]/70 truncate"></div>
+                            </div>
+                            <span class="ml-auto rounded-full bg-[#000000] text-[#FFFFFF] px-2.5 py-0.5 text-[9px] font-medium shrink-0">
+                                DOSYA BAĞLI
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="space-y-2 pt-1">
+                        <button type="button" onclick="sealCurrentEvidence()" class="w-full flex items-center justify-center gap-2 rounded-xl bg-[#000000] text-[#FFFFFF] py-3 text-xs font-medium hover:bg-[#F48120] transition shadow-sm">
+                            <i class="hgi hgi-stroke hgi-checkmark-badge-02 w-4 h-4"></i>
+                            <span>HMK Mahkeme Dosyasına Mühürle</span>
+                        </button>
+                        <button type="button" onclick="downloadEncryptedDossier()" class="w-full flex items-center justify-center gap-2 rounded-xl bg-[#F3F4F4] border border-[rgba(0,0,0,0.06)] py-3 text-xs font-medium text-[#3A3E42] hover:text-[#000000] hover:bg-[#E5E7EB] transition">
+                            <i class="hgi hgi-stroke hgi-download-01 w-3.5 h-3.5"></i>
+                            <span>Adli Özet Raporu İndir (.TXT)</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="p-4 border-t border-[rgba(0,0,0,0.08)] text-center text-[10px] font-mono text-[#3A3E42]/55">
+                    ELSA AI &amp; DAT DEDEKTİFLİK PROTOKOLÜ • 0312 284 02 99
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <!-- Tracking Code Lookup Modal -->
+    <div id="trackLookupModal" class="hidden fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4" onclick="if(event.target===this) closeTrackLookupModal()">
+        <div class="w-full max-w-md rounded-2xl bg-white p-6 space-y-4 shadow-2xl border border-[rgba(0,0,0,0.08)]">
+            <div class="flex items-center justify-between">
+                <h3 class="text-base font-medium text-[#000000]">Vaka Takip Kodu Sorgula</h3>
+                <button type="button" onclick="closeTrackLookupModal()" class="text-[#3A3E42] hover:text-[#000000]">
+                    <i class="hgi hgi-stroke hgi-cancel-01 w-4 h-4"></i>
+                </button>
+            </div>
+            <p class="text-xs text-[#3A3E42]/80 leading-relaxed">
+                Ana sayfadan form gönderdiğinizde size verilen <code class="font-mono text-[#F48120]">#DAT-XXXXX</code> takip kodunu yazarak Elsa Vaka Paneli içinde dosyanızı görüntüleyebilir veya doğrudan uzman ekibe bağlanabilirsiniz.
+            </p>
+            <form onsubmit="submitTrackLookup(event)" class="space-y-3">
+                <input id="trackCodeInput" type="text" required placeholder="Örn: #DAT-38898" class="w-full rounded-xl bg-[#F3F4F4] border border-[rgba(0,0,0,0.08)] px-4 py-3 text-sm font-mono text-[#000000] focus:outline-none focus:bg-white focus:border-[#F48120]">
+                <div class="flex gap-2">
+                    <button type="submit" class="flex-1 py-2.5 rounded-xl cf-gradient text-white text-xs font-medium">Panele Ekle &amp; Sorgula</button>
+                    <a href="https://wa.me/905326667749" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-xl bg-[#000000] text-white text-xs font-medium flex items-center gap-1.5">
+                        <i class="hgi hgi-stroke hgi-whatsapp w-3.5 h-3.5 text-[#FAAD3F]"></i>
+                        <span>Sor</span>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const CASES = [
+            {
+                id: 'ELSA-774',
+                code: '#ELSA-774',
+                title: 'Varlık Transferi & Gizli Hesap Soruşturması',
+                volume: '₺14.850.000',
+                headline: 'İncelenen Varlık Hacmi:',
+                summary: 'Elsa yapay zekâ motoru, hedef şahsın paravan şirketlerine aktarılan 28 ayrı adli delil ve işlem kaydını eşleştirdi. Mahkeme delil zinciri %98,4 doğrulukla SHA-256 mührüne bağlandı.',
+                anomaly: '%99.4',
+                verified: '24 / 28',
+                timeline: '36 / 48 sa',
+                status: 'Aktif İnceleme',
+                city: 'İstanbul & Ankara'
+            },
+            {
+                id: 'ELSA-812',
+                code: '#ELSA-812',
+                title: '48 Saatte Sadakat & Aile Hukuku Delil Dosyası',
+                volume: 'HMK 189 Uyumlu',
+                headline: 'Dosya Durumu:',
+                summary: 'Kamusal alanlarda yürütülen 48 saatlik fiziki gözlem serisi zaman damgalı 4K görseller ve noter onaylı kronoloji raporuyla aile mahkemesi standartlarında hazırlandı.',
+                anomaly: '%97.8',
+                verified: '14 / 14',
+                timeline: '44 / 48 sa',
+                status: 'Rapor Hazır',
+                city: 'Ankara / Çankaya'
+            },
+            {
+                id: 'ELSA-903',
+                code: '#ELSA-903',
+                title: 'Yönetim Kurulu TSCM Böcek & RF Tarama',
+                volume: '0-24 GHz Tam Tarama',
+                headline: 'Spektrum Kapsamı:',
+                summary: 'Kurumsal yönetim katında 3 adet pasif GSM dinleme modülü ve 1 adet gizli IP kamera RF spektrum analiziyle izole edilip adli tutanakla kayıt altına alındı.',
+                anomaly: '%99.1',
+                verified: '11 / 12',
+                timeline: '18 / 24 sa',
+                status: 'Temizlendi',
+                city: 'İstanbul / Levent'
+            }
+        ];
+
+        const EVIDENCE_ITEMS = [
+            {
+                id: 'ev-1',
+                caseId: 'ELSA-774',
+                code: 'EV-8841-CYBER',
+                title: 'Şifreli SSD İmajı & Silinmiş Mesaj Veritabanı',
+                category: 'digital',
+                classification: 'TOP SECRET',
+                timestamp: 'Bugün, 14:22',
+                sha256: 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855',
+                source: 'İstanbul / Levent Adli İnceleme',
+                status: 'Doğrulandı',
+                sealed: true,
+                confidenceScore: 98,
+                notes: 'DoD 5220.22-M protokolüyle silinmeye çalışılmış 1.420 adet yazışma ve mali transfer dekontu adli bilişim imajı üzerinden kurtarıldı.',
+                aiInsight: 'Elsa AI çapraz analizi, üçüncü şahıs şirketlere yapılan transferlerin fatura tarihleriyle çakıştığını doğruladı. Delil zinciri HMK 189 uyumludur.',
+                suspect: { initials: 'B.K.', name: 'B**** K*****', role: 'Finans Direktörü' }
+            },
+            {
+                id: 'ev-2',
+                caseId: 'ELSA-903',
+                code: 'EV-8842-TSCM',
+                title: 'Toplantı Odası GSM Modülü RF Spektrum Kaydı',
+                category: 'audio',
+                classification: 'SECRET',
+                timestamp: 'Dün, 23:40',
+                sha256: '9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08',
+                source: 'Ankara / Çankaya TSCM Taraması',
+                status: 'Doğrulandı',
+                sealed: true,
+                confidenceScore: 96,
+                notes: '900/1800 MHz bandında aktif patlama sinyali veren gizli modül termal ve RF yön bulucu ile priz arkasında tespit edildi.',
+                aiInsight: 'Elsa AI sinyal imzası analizi cihazın mesai dışı saatlerde periyodik paket gönderdiğini doğruladı. Cihaz fiziksel bütünlüğü bozulmadan mühürlendi.',
+                suspect: { initials: 'M.T.', name: 'M**** T*****', role: 'Dış Tedarikçi Kaynağı' }
+            },
+            {
+                id: 'ev-3',
+                caseId: 'ELSA-774',
+                code: 'EV-8843-SAHA',
+                title: 'Kamusal Alan Fiziki Takip 4K Zaman Damgalı Seri',
+                category: 'surveillance',
+                classification: 'CONFIDENTIAL',
+                timestamp: '10 Kasım, 18:15',
+                sha256: '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8',
+                source: 'Kartal Helis Metro Tower Çevresi',
+                status: 'Doğrulandı',
+                sealed: true,
+                confidenceScore: 99,
+                notes: 'Üzerine kayıtlı mal varlığı olmadığını beyan eden borçlunun yüksek bedelli ticari varlığı fiilen teslim alıp kullandığı kamusal alanda belgelendi.',
+                aiInsight: 'EXIF GPS koordinatları, saat damgası ve plaka tanıma kayıtları %99,2 tutarlılıkla eşleşti. İcra/alacak davasında doğrudan kullanılabilir.',
+                suspect: { initials: 'B.K.', name: 'B**** K*****', role: 'Asıl Borçlu / Yönetici' }
+            },
+            {
+                id: 'ev-4',
+                caseId: 'ELSA-812',
+                code: 'EV-8844-AİLE',
+                title: '48 Saatlik Kronolojik Saha & Güzergâh Raporu',
+                category: 'surveillance',
+                classification: 'CONFIDENTIAL',
+                timestamp: '09 Kasım, 21:05',
+                sha256: '4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a',
+                source: 'Ankara / Konutkent Hattı',
+                status: 'Doğrulandı',
+                sealed: true,
+                confidenceScore: 97,
+                notes: 'Özel hayata müdahale etmeden yalnızca kamusal alanlarda çekilen fotoğraf ve saat-dakika bazlı hareket tablosu avukat dosyasına hazırlandı.',
+                aiInsight: 'TMK 166 ve HMK delil kriterlerine göre hukuka aykırı hiçbir teknik müdahale içermez; tam yasal geçerlilik taşımaktadır.',
+                suspect: { initials: 'E.Y.', name: 'E**** Y*****', role: 'Dosya Tarafı' }
+            },
+            {
+                id: 'ev-5',
+                caseId: 'ELSA-774',
+                code: 'EV-8845-BİYOMETRİK',
+                title: 'Harici Medya Üzerinde Parmak İzi & Seri Eşleşmesi',
+                category: 'forensic',
+                classification: 'TOP SECRET',
+                timestamp: '08 Kasım, 11:30',
+                sha256: '2c26b46b68ffc68ff99b453c1d30413413422d706483bfa0f98a5e886266e7ae',
+                source: 'DAT Adli Bilişim Laboratuvarı',
+                status: 'Analizde',
+                sealed: false,
+                confidenceScore: 91,
+                notes: 'USB bellek meta verileri ile şirket içi son erişim saatleri saniye bazında eşleştirildi; imza doğrulaması tamamlanmak üzere.',
+                aiInsight: 'Elsa AI log korelasyonu, dosyanın kopyalandığı an ile turnike geçiş saatinin aynı 90 saniyelik pencereye düştüğünü gösteriyor.',
+                suspect: { initials: 'S.D.', name: 'S**** D*****', role: 'Operasyon Sorumlusu' }
+            },
+            {
+                id: 'ev-6',
+                caseId: 'ELSA-812',
+                code: 'EV-8846-BELGE',
+                title: 'Resmî Kayıt & Ortaklık İlişkisi Çapraz Tespiti',
+                category: 'digital',
+                classification: 'SECRET',
+                timestamp: '07 Kasım, 16:45',
+                sha256: '7b92c8a4c1d6c53b738328640b99c4d19f271fa4296c5a74e18f84d11417d40a',
+                source: 'Ticaret Sicil & Açık Kaynak (OSINT)',
+                status: 'Doğrulandı',
+                sealed: true,
+                confidenceScore: 98,
+                notes: 'Yurt dışı (Karadağ / Podgorica) ve Türkiye ticaret sicil ilanlarındaki ortak adres ve temsilci bağlantıları görselleştirildi.',
+                aiInsight: 'OSINT doğrulaması %98 güvenle 2 paravan şirket arasındaki ortak imza yetkisini ortaya koydu.',
+                suspect: { initials: 'B.K.', name: 'B**** K*****', role: 'Şirket Ortağı' }
+            }
+        ];
+
+        const SUSPECTS = [
+            { initials: 'B.K.', name: 'B**** K*****', role: 'Finans Direktörü / Asıl Hedef', risk: 94, location: 'İstanbul • Kartal / Levent', evidenceCount: 3, tag: 'Yüksek Öncelik' },
+            { initials: 'M.T.', name: 'M**** T*****', role: 'Dış Tedarikçi İrtibatı', risk: 82, location: 'Ankara • Çankaya', evidenceCount: 1, tag: 'TSCM Bağlantısı' },
+            { initials: 'S.D.', name: 'S**** D*****', role: 'Operasyon Sorumlusu', risk: 74, location: 'İstanbul • Ataşehir', evidenceCount: 1, tag: 'Veri Erişimi' },
+            { initials: 'E.Y.', name: 'E**** Y*****', role: 'Aile Hukuku Dosya Tarafı', risk: 68, location: 'Ankara • Konutkent', evidenceCount: 1, tag: '48 Saat Protokolü' }
+        ];
+
+        let state = {
+            activeTab: 'evidence',
+            activeCaseId: 'ELSA-774',
+            category: 'all',
+            search: '',
+            selectedEvidenceId: 'ev-1',
+            inspectorOpen: window.innerWidth >= 1024
+        };
+
+        function escapeHtml(str) {
+            return String(str ?? '').replace(/[&<>"']/g, (ch) => ({
+                '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+            }[ch]));
+        }
+
+        function getClientCases() {
+            try {
+                return JSON.parse(localStorage.getItem('dat_client_cases') || '[]');
+            } catch (_) {
+                return [];
+            }
+        }
+
+        function getAllCases() {
+            const clientCases = getClientCases().map((c, idx) => ({
+                id: 'USER-' + idx,
+                code: c.code || ('#DAT-' + (10000 + idx)),
+                title: (c.category || 'Özel Vaka Başvurusu') + (c.name ? ` — ${c.name}` : ''),
+                volume: 'Yeni Kayıt',
+                headline: 'Başvuru Durumu:',
+                summary: `Takip kodunuz (${c.code}) Elsa AI ön değerlendirme sırasına alındı. Detay: "${(c.details || '').slice(0, 140)}". Uzman dedektif ekibimiz ${c.channel || 'tercih ettiğiniz kanal'} üzerinden dönüş sağlar.`,
+                anomaly: 'Ön Analiz',
+                verified: 'Kuyrukta',
+                timeline: '01 / 48 sa',
+                status: 'Siz Gönderdiniz',
+                city: 'Aktif Başvuru',
+                isUserSubmitted: true,
+                date: c.date || ''
+            }));
+            return [...clientCases, ...CASES];
+        }
+
+        function getFilteredEvidence() {
+            const q = state.search.trim().toLowerCase();
+            return EVIDENCE_ITEMS.filter(item => {
+                const matchCat = state.category === 'all' || item.category === state.category;
+                const matchSearch = !q ||
+                    item.title.toLowerCase().includes(q) ||
+                    item.code.toLowerCase().includes(q) ||
+                    item.source.toLowerCase().includes(q) ||
+                    item.suspect.name.toLowerCase().includes(q);
+                return matchCat && matchSearch;
+            });
+        }
+
+        function categoryLabel(cat) {
+            return {
+                digital: 'Adli Bilişim',
+                audio: 'Ses & TSCM',
+                surveillance: 'Fiziki Takip',
+                forensic: 'Biyometrik & Belge'
+            }[cat] || cat;
+        }
+
+        function renderSidebarCases() {
+            const allCases = getAllCases();
+            document.getElementById('navCasesCount').textContent = allCases.length;
+            const list = document.getElementById('sidebarCaseList');
+            list.innerHTML = allCases.slice(0, 5).map(c => {
+                const active = c.id === state.activeCaseId;
+                return `
+                    <button type="button" onclick="selectCase('${escapeHtml(c.id)}')" class="w-full text-left rounded-xl px-2.5 py-2 transition flex items-center justify-between gap-2 ${active ? 'bg-[#FFF7ED] text-[#000000] border border-[#F48120]/30' : 'text-[#3A3E42] hover:bg-[#F3F4F4]'}">
+                        <span class="truncate text-[11px] font-mono font-medium">${escapeHtml(c.code)}</span>
+                        <span class="text-[9px] px-1.5 py-0.5 rounded-full ${c.isUserSubmitted ? 'bg-[#F48120] text-white' : 'bg-[#F3F4F4] text-[#3A3E42]'} shrink-0">${c.isUserSubmitted ? 'SİZİN' : 'AKTİF'}</span>
+                    </button>
+                `;
+            }).join('');
+        }
+
+        function renderBanner() {
+            const allCases = getAllCases();
+            const current = allCases.find(c => c.id === state.activeCaseId) || allCases[0];
+            document.getElementById('activeCaseCodeBadge').textContent = current.code;
+            document.getElementById('activeCaseTitle').textContent = current.title;
+            document.getElementById('bannerHeadline').innerHTML = `${escapeHtml(current.headline)} <span class="font-mono text-[#FAAD3F]">${escapeHtml(current.volume)}</span>`;
+            document.getElementById('bannerSummary').textContent = current.summary;
+            document.getElementById('metricAnomaly').textContent = current.anomaly;
+            document.getElementById('metricVerified').textContent = current.verified;
+            document.getElementById('metricTimeline').textContent = current.timeline;
+        }
+
+        function renderEvidence() {
+            const items = getFilteredEvidence();
+            document.getElementById('evidenceCountLabel').textContent = `${items.length} Kanıt Dosyası`;
+            document.getElementById('navEvidenceCount').textContent = EVIDENCE_ITEMS.length;
+
+            const tbody = document.getElementById('evidenceTableBody');
+            const grid = document.getElementById('evidenceCardsGrid');
+
+            if (!items.length) {
+                tbody.innerHTML = `<tr><td colspan="6" class="py-8 text-center text-xs text-[#3A3E42]/60">Aramanızla eşleşen kanıt kaydı bulunamadı.</td></tr>`;
+                grid.innerHTML = `<div class="md:col-span-2 rounded-2xl border border-dashed border-[rgba(0,0,0,0.12)] p-8 text-center text-xs text-[#3A3E42]/60">Filtre kriterini değiştirerek tüm kanıtları görüntüleyebilirsiniz.</div>`;
+                return;
+            }
+
+            tbody.innerHTML = items.map(item => {
+                const selected = item.id === state.selectedEvidenceId;
+                return `
+                    <tr onclick="selectEvidence('${item.id}')" class="hover:bg-[#F3F4F4]/70 cursor-pointer transition ${selected ? 'bg-[#FFF7ED]/70' : ''}">
+                        <td class="py-3.5 px-4">
+                            <div class="font-medium text-[#000000]">${item.title}</div>
+                            <div class="font-mono text-[10px] text-[#3A3E42]/60">${item.code}</div>
+                        </td>
+                        <td class="py-3.5 px-4 font-mono text-[11px]">
+                            <span class="rounded-full bg-[#F3F4F4] px-2.5 py-1 text-[#3A3E42] border border-[rgba(0,0,0,0.06)] whitespace-nowrap">${categoryLabel(item.category)}</span>
+                        </td>
+                        <td class="py-3.5 px-4 font-mono text-[11px] text-[#3A3E42]/75 whitespace-nowrap">${item.timestamp}</td>
+                        <td class="py-3.5 px-4">
+                            <div class="flex items-center gap-2">
+                                <span class="font-medium text-[#000000]">%${item.confidenceScore}</span>
+                                <div class="w-16 h-1.5 rounded-full bg-[#F3F4F4] overflow-hidden">
+                                    <div class="h-full cf-gradient" style="width:${item.confidenceScore}%"></div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <span class="rounded-full ${item.sealed ? 'bg-[#000000] text-[#FFFFFF]' : 'bg-[#FFF7ED] text-[#F48120] border border-[#F48120]/30'} px-2.5 py-0.5 text-[10px] font-medium whitespace-nowrap">
+                                ${item.sealed ? 'Mühürlü' : item.status}
+                            </span>
+                        </td>
+                        <td class="py-3.5 px-4 text-right">
+                            <span class="text-xs font-medium text-[#F48120] inline-flex items-center gap-1 whitespace-nowrap">
+                                <span>İncele</span>
+                                <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3 h-3"></i>
+                            </span>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+
+            grid.innerHTML = items.map(item => {
+                const selected = item.id === state.selectedEvidenceId;
+                return `
+                    <div onclick="selectEvidence('${item.id}')" class="group cursor-pointer rounded-2xl p-5 border transition-all duration-200 ${selected ? 'bg-[#FFFFFF] border-[#F48120] ring-1 ring-[#F48120] shadow-[0_6px_24px_rgba(244,129,32,0.12)]' : 'bg-[#FFFFFF] border-[rgba(0,0,0,0.08)] hover:border-[rgba(0,0,0,0.2)] shadow-[0_2px_12px_rgba(0,0,0,0.03)]'}">
+                        <div class="flex items-center justify-between text-xs mb-3 gap-2">
+                            <div class="flex items-center gap-2 min-w-0">
+                                <span class="rounded-full bg-[#F3F4F4] px-2.5 py-1 text-[11px] font-medium text-[#3A3E42] whitespace-nowrap">${categoryLabel(item.category)}</span>
+                                <span class="font-mono text-[#3A3E42]/60 text-[11px] truncate">${item.code}</span>
+                            </div>
+                            <span class="rounded-full bg-[#000000] text-[#FFFFFF] px-2 py-0.5 text-[9px] font-medium tracking-wide shrink-0">${item.classification}</span>
+                        </div>
+                        <h4 class="text-base font-medium tracking-tight text-[#000000] mb-2">${item.title}</h4>
+                        <p class="text-xs sm:text-sm text-[#3A3E42]/80 leading-relaxed mb-4">${item.notes}</p>
+                        <div class="space-y-1.5 mb-4">
+                            <div class="flex justify-between text-[11px] text-[#3A3E42]">
+                                <span>Hukuki Geçerlilik Skoru</span>
+                                <span class="text-[#000000] font-medium">%${item.confidenceScore}</span>
+                            </div>
+                            <div class="h-1.5 w-full bg-[#F3F4F4] rounded-full overflow-hidden">
+                                <div class="h-full cf-gradient" style="width:${item.confidenceScore}%"></div>
+                            </div>
+                        </div>
+                        <div class="pt-3 border-t border-[rgba(0,0,0,0.06)] flex items-center justify-between text-[11px] text-[#3A3E42]/70">
+                            <span class="font-mono">HASH: ${item.sha256.slice(0, 12)}...</span>
+                            <span>${item.timestamp}</span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function renderCasesTab() {
+            const grid = document.getElementById('caseFilesGrid');
+            const allCases = getAllCases();
+            grid.innerHTML = allCases.map(c => {
+                const active = c.id === state.activeCaseId;
+                return `
+                    <div onclick="selectCase('${escapeHtml(c.id)}'); switchTab('evidence')" class="cursor-pointer rounded-2xl p-5 border transition ${active ? 'border-[#F48120] bg-[#FFFDF9] ring-1 ring-[#F48120]' : 'border-[rgba(0,0,0,0.08)] bg-white hover:border-black/20'} space-y-3">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="font-mono text-xs font-medium px-2.5 py-1 rounded-full ${c.isUserSubmitted ? 'cf-gradient text-white' : 'bg-[#F3F4F4] text-[#000000]'}">${escapeHtml(c.code)}</span>
+                            <span class="text-[11px] font-mono ${c.isUserSubmitted ? 'text-[#F48120]' : 'text-[#10B981]'} font-medium">${escapeHtml(c.status)}</span>
+                        </div>
+                        <h4 class="text-base font-medium text-[#000000]">${escapeHtml(c.title)}</h4>
+                        <p class="text-xs text-[#3A3E42]/80 leading-relaxed">${escapeHtml(c.summary)}</p>
+                        <div class="pt-3 border-t border-[rgba(0,0,0,0.06)] flex items-center justify-between text-[11px] font-mono text-[#3A3E42]/70">
+                            <span>${escapeHtml(c.city)}</span>
+                            <span>${escapeHtml(c.date || c.timeline)}</span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function renderSuspectsTab() {
+            const grid = document.getElementById('suspectMatrixGrid');
+            grid.innerHTML = SUSPECTS.map(s => `
+                <div onclick="filterBySuspect('${s.name}')" class="cursor-pointer rounded-2xl border border-[rgba(0,0,0,0.08)] bg-white hover:border-[#F48120] p-5 space-y-4 transition">
+                    <div class="flex items-center gap-3">
+                        <div class="h-11 w-11 rounded-full bg-[#000000] text-white flex items-center justify-center font-mono text-sm font-medium shrink-0">${s.initials}</div>
+                        <div class="min-w-0 flex-1">
+                            <div class="text-sm font-medium text-[#000000] truncate">${s.name}</div>
+                            <div class="text-xs text-[#3A3E42]/75 truncate">${s.role}</div>
+                        </div>
+                        <span class="rounded-full bg-[#FFF7ED] text-[#F48120] border border-[#F48120]/30 px-2.5 py-1 text-[10px] font-mono font-medium shrink-0">${s.tag}</span>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="flex justify-between text-xs">
+                            <span class="text-[#3A3E42]/75">Elsa AI Risk &amp; Anomali Skoru</span>
+                            <span class="font-mono font-medium text-[#000000]">%${s.risk}</span>
+                        </div>
+                        <div class="h-2 rounded-full bg-[#F3F4F4] overflow-hidden">
+                            <div class="h-full cf-gradient" style="width:${s.risk}%"></div>
+                        </div>
+                    </div>
+                    <div class="pt-3 border-t border-[rgba(0,0,0,0.06)] flex items-center justify-between text-[11px] text-[#3A3E42]/75">
+                        <span>${s.location}</span>
+                        <span class="font-medium text-[#F48120]">${s.evidenceCount} Delili Göster →</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderInspector() {
+            const el = document.getElementById('elsaInspector');
+            const item = EVIDENCE_ITEMS.find(i => i.id === state.selectedEvidenceId) || EVIDENCE_ITEMS[0];
+            if (state.inspectorOpen) {
+                el.classList.remove('hidden');
+                el.classList.add('flex');
+            } else {
+                el.classList.add('hidden');
+                el.classList.remove('flex');
+            }
+            document.getElementById('inspCode').textContent = item.code;
+            document.getElementById('inspTitle').textContent = item.title;
+            document.getElementById('inspNotes').textContent = item.notes;
+            document.getElementById('inspAiInsight').textContent = item.aiInsight;
+            document.getElementById('inspHash').textContent = item.sha256;
+            document.getElementById('inspSource').textContent = item.source;
+            document.getElementById('inspTime').textContent = item.timestamp;
+            document.getElementById('inspSealStatus').textContent = item.sealed ? 'HMK Mühürlü ✓' : 'Onay Bekliyor';
+            document.getElementById('inspSealStatus').className = item.sealed ? 'text-[#10B981] font-medium' : 'text-[#F48120] font-medium';
+            document.getElementById('inspSuspectInitials').textContent = item.suspect.initials;
+            document.getElementById('inspSuspectName').textContent = item.suspect.name;
+            document.getElementById('inspSuspectRole').textContent = item.suspect.role;
+        }
+
+        function switchTab(tab) {
+            state.activeTab = tab;
+            document.querySelectorAll('.elsa-tab').forEach(el => el.classList.add('hidden'));
+            document.getElementById(`tab-${tab}`)?.classList.remove('hidden');
+
+            document.querySelectorAll('.elsa-nav-btn').forEach(btn => {
+                const isActive = btn.dataset.navTab === tab;
+                btn.className = `elsa-nav-btn w-full flex items-center justify-between rounded-xl p-2.5 transition ${isActive ? 'bg-[#000000] text-[#FFFFFF]' : 'text-[#3A3E42] hover:bg-[#F3F4F4]'}`;
+            });
+
+            document.querySelectorAll('.elsa-mob-btn').forEach(btn => {
+                const isActive = btn.dataset.mobileTab === tab;
+                btn.className = `elsa-mob-btn px-3 py-1.5 rounded-full text-[11px] font-medium whitespace-nowrap ${isActive ? 'bg-[#000000] text-white' : 'bg-[#F3F4F4] text-[#3A3E42]'}`;
+            });
+
+            toggleMobileNav(false);
+        }
+
+        function selectCase(caseId) {
+            state.activeCaseId = caseId;
+            renderSidebarCases();
+            renderBanner();
+            renderCasesTab();
+            showToast('Aktif vaka dosyası Elsa AI çalışma alanına yüklendi.');
+        }
+
+        function selectEvidence(id) {
+            state.selectedEvidenceId = id;
+            state.inspectorOpen = true;
+            renderEvidence();
+            renderInspector();
+            if (window.innerWidth < 1024) {
+                document.getElementById('elsaInspector').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function setCategory(cat) {
+            state.category = cat;
+            document.querySelectorAll('.elsa-cat-btn').forEach(btn => {
+                const active = btn.dataset.cat === cat;
+                btn.className = `elsa-cat-btn rounded-full px-3.5 py-1.5 text-xs font-medium whitespace-nowrap transition ${active ? 'bg-[#000000] text-[#FFFFFF]' : 'bg-[#F3F4F4] text-[#3A3E42] hover:text-[#000000]'}`;
+            });
+            renderEvidence();
+        }
+
+        function handleSearch(val) {
+            state.search = val;
+            if (state.activeTab !== 'evidence') switchTab('evidence');
+            renderEvidence();
+        }
+
+        function filterBySuspect(name) {
+            state.search = name;
+            const input = document.getElementById('elsaSearchInput');
+            if (input) input.value = name;
+            switchTab('evidence');
+            renderEvidence();
+            showToast(`${name} ile ilişkili deliller filtrelendi.`);
+        }
+
+        function toggleInspector(force) {
+            state.inspectorOpen = typeof force === 'boolean' ? force : !state.inspectorOpen;
+            renderInspector();
+        }
+
+        function toggleMobileNav(open) {
+            const sidebar = document.getElementById('elsaSidebar');
+            const backdrop = document.getElementById('mobileNavBackdrop');
+            if (open) {
+                sidebar.classList.remove('-translate-x-full');
+                backdrop.classList.remove('hidden');
+            } else {
+                sidebar.classList.add('-translate-x-full');
+                backdrop.classList.add('hidden');
+            }
+        }
+
+        function showToast(msg) {
+            const box = document.getElementById('elsaToast');
+            document.getElementById('elsaToastMsg').textContent = msg;
+            box.classList.remove('hidden');
+        }
+
+        function hideToast() {
+            document.getElementById('elsaToast').classList.add('hidden');
+        }
+
+        function runElsaAnomalyScan() {
+            const scan = document.getElementById('elsaScanOverlay');
+            scan.classList.remove('hidden');
+            showToast('Elsa AI taraması başlatıldı: tüm SHA-256 imzaları ve zaman damgaları karşılaştırılıyor...');
+            setTimeout(() => {
+                scan.classList.add('hidden');
+                showToast('Elsa AI Analizi tamamlandı: 6 adli kayıtta %98,6 bütünlük doğrulandı, 0 çelişki.');
+            }, 1600);
+        }
+
+        function verifyChainOfCustody() {
+            const sealedCount = EVIDENCE_ITEMS.filter(i => i.sealed).length;
+            showToast(`HMK 189 Delil Zinciri doğrulandı: ${sealedCount}/${EVIDENCE_ITEMS.length} kayıt mahkemeye sunulabilir mühürlü durumda.`);
+        }
+
+        function copySelectedHash() {
+            const hash = document.getElementById('inspHash').textContent;
+            navigator.clipboard?.writeText(hash);
+            const btn = document.getElementById('copyHashBtn');
+            btn.textContent = 'Kopyalandı!';
+            setTimeout(() => { btn.textContent = 'Kopyala'; }, 1500);
+        }
+
+        function sealCurrentEvidence() {
+            const item = EVIDENCE_ITEMS.find(i => i.id === state.selectedEvidenceId);
+            if (!item) return;
+            item.sealed = true;
+            item.status = 'Doğrulandı';
+            renderEvidence();
+            renderInspector();
+            showToast(`${item.code} kaydı HMK Mahkeme Dosyası için SHA-256 mührüyle kilitlendi.`);
+        }
+
+        function downloadEncryptedDossier() {
+            const item = EVIDENCE_ITEMS.find(i => i.id === state.selectedEvidenceId) || EVIDENCE_ITEMS[0];
+            const content = [
+                'DAT ÖZEL DEDEKTİFLİK BÜROSU — ELSA VAKA PANELİ ADLİ ÖZET RAPORU',
+                '==================================================================',
+                `Tarih: ${new Date().toLocaleString('tr-TR')}`,
+                `Delil Kodu: ${item.code}`,
+                `Sınıflandırma: ${item.classification}`,
+                `Başlık: ${item.title}`,
+                `Lokasyon: ${item.source}`,
+                `Zaman Damgası: ${item.timestamp}`,
+                `Hukuki Güven Skoru: %${item.confidenceScore}`,
+                `SHA-256 Mühür: ${item.sha256}`,
+                '',
+                'Adli Özet:',
+                item.notes,
+                '',
+                'Elsa AI Hukuki Çıkarımı:',
+                item.aiInsight,
+                '',
+                'İletişim: +90 532 666 77 49 | 0312 284 02 99 | https://www.datdetective.com'
+            ].join('\n');
+            const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${item.code}-elsa-adli-ozet.txt`;
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            URL.revokeObjectURL(url);
+            showToast(`${item.code} adli özet raporu cihazınıza indirildi.`);
+        }
+
+        function openTrackLookupModal() {
+            document.getElementById('trackLookupModal').classList.remove('hidden');
+            setTimeout(() => document.getElementById('trackCodeInput')?.focus(), 50);
+        }
+
+        function closeTrackLookupModal() {
+            document.getElementById('trackLookupModal').classList.add('hidden');
+        }
+
+        function submitTrackLookup(e) {
+            e.preventDefault();
+            const raw = document.getElementById('trackCodeInput').value.trim().toUpperCase();
+            if (!raw) return;
+            const code = raw.startsWith('#') ? raw : '#' + raw;
+            try {
+                const list = getClientCases();
+                if (!list.some(c => (c.code || '').toUpperCase() === code)) {
+                    list.unshift({
+                        code,
+                        name: 'Sorgulanan Dosya',
+                        category: 'Özel İnceleme Dosyası',
+                        channel: 'WhatsApp / Telefon',
+                        details: 'Elsa Vaka Paneli üzerinden takip kodu ile sorgulandı.',
+                        date: new Date().toLocaleString('tr-TR')
+                    });
+                    localStorage.setItem('dat_client_cases', JSON.stringify(list));
+                }
+            } catch (_) {}
+            closeTrackLookupModal();
+            document.getElementById('trackCodeInput').value = '';
+            state.activeCaseId = 'USER-0';
+            renderSidebarCases();
+            renderBanner();
+            renderCasesTab();
+            switchTab('cases');
+            showToast(`${code} takip kodlu dosya listenize eklendi. Canlı saha detayı için 0532 666 77 49 hattımızdan doğrulama alabilirsiniz.`);
+        }
+
+        function getElsaReply(q) {
+            const text = q.toLowerCase();
+            if (text.includes('eş') || text.includes('sadakat') || text.includes('boşan') || text.includes('mahkeme')) {
+                return 'Eş takibi ve aile hukuku dosyalarında tüm gözlemler yalnızca kamusal alanlarda, özel hayatın gizliliğini ihlal etmeden yürütülür. Elde edilen zaman damgalı 4K görüntüler ve kronolojik raporlar HMK 189 kapsamında avukatınız aracılığıyla mahkemeye sunulabilir.';
+            }
+            if (text.includes('tscm') || text.includes('böcek') || text.includes('kamera') || text.includes('dinleme')) {
+                return 'TSCM böcek taraması 0–24 GHz RF spektrum analizörleri, termal kamera ve nonlinear junction detector (NLJD) cihazlarıyla araç, ofis veya konutta ortalama 2–4 saat içinde tamamlanır ve resmi tarama raporu verilir.';
+            }
+            if (text.includes('borç') || text.includes('adres') || text.includes('mal')) {
+                return 'Borçlu ve mal kaçırma araştırmalarında açık kaynak istihbaratı (OSINT), ticaret sicil bağlantıları ve kamusal saha tespiti birlikte yürütülür. Genellikle 24–72 saat içinde doğrulanabilir adres ve fiilî varlık raporu oluşturulur.';
+            }
+            if (text.includes('sha') || text.includes('mühür') || text.includes('hash')) {
+                return 'SHA-256 mührü, elde edilen fotoğraf, ses veya dijital verinin ilk alındığı andaki benzersiz kriptografik parmak izidir. Bu sayede delilin sonradan değiştirilmediği mahkeme ve bilirkişi önünde matematiksel olarak kanıtlanır.';
+            }
+            return 'Sorunuz Elsa AI ön değerlendirmesine alındı. Vakanızın gizlilik derecesi ve net bütçe/süre planı için +90 532 666 77 49 (WhatsApp) veya 0312 284 02 99 üzerinden doğrudan Ümit Hakan Karakaya ve uzman ekibimizle görüşebilirsiniz.';
+        }
+
+        function appendChatMessage(sender, html) {
+            const wrap = document.getElementById('elsaChatMessages');
+            const isUser = sender === 'user';
+            const div = document.createElement('div');
+            div.className = `flex items-start gap-2.5 ${isUser ? 'justify-end' : ''}`;
+            div.innerHTML = isUser
+                ? `<div class="rounded-2xl rounded-tr-sm bg-[#000000] text-white px-4 py-3 text-xs leading-relaxed max-w-xl">${escapeHtml(html)}</div>`
+                : `<div class="w-7 h-7 rounded-lg cf-gradient text-white flex items-center justify-center text-[10px] font-mono shrink-0">EL</div><div class="rounded-2xl rounded-tl-sm bg-[#F3F4F4] px-4 py-3 text-xs text-[#3A3E42] leading-relaxed max-w-2xl">${html}</div>`;
+            wrap.appendChild(div);
+            wrap.scrollTop = wrap.scrollHeight;
+        }
+
+        function askElsaPreset(question) {
+            appendChatMessage('user', question);
+            setTimeout(() => appendChatMessage('elsa', getElsaReply(question)), 250);
+        }
+
+        function submitElsaChat(e) {
+            e.preventDefault();
+            const input = document.getElementById('elsaChatInput');
+            const q = input.value.trim();
+            if (!q) return;
+            input.value = '';
+            askElsaPreset(q);
+        }
+
+        function triggerPanicExit() {
+            window.location.replace('https://www.google.com');
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') triggerPanicExit();
+            if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+                e.preventDefault();
+                document.getElementById('elsaSearchInput')?.focus();
+            }
+        });
+
+        // Initial Boot
+        renderSidebarCases();
+        renderBanner();
+        renderEvidence();
+        renderCasesTab();
+        renderSuspectsTab();
+        renderInspector();
+    </script>
+</body>
+</html>
