@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /yonetim-paneli.html
+Disallow: /yonetim
+Disallow: /admin
+Disallow: /api/
 
 Sitemap: https://www.datdedektiflik.com/sitemap.xml

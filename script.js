@@ -439,6 +439,27 @@ async function handleFormSubmit(e) {
             localStorage.setItem('dat_client_cases', JSON.stringify(savedCases));
         } catch (_) {}
 
+        // Record into Executive Dashboard Leads Store
+        try {
+            if (window.DATAnalytics && typeof window.DATAnalytics.trackLead === 'function') {
+                window.DATAnalytics.trackLead({
+                    code: randomCode,
+                    name: clientName,
+                    contact: clientContact,
+                    category: categoryText,
+                    channel: channelText,
+                    urgency: urgencyVal,
+                    details: caseDetails
+                });
+                window.DATAnalytics.trackEvent('form_submit', {
+                    code: randomCode,
+                    name: clientName,
+                    category: categoryText,
+                    urgency: urgencyVal
+                });
+            }
+        } catch (_) {}
+
         const smTitle = document.getElementById('successModalTitle');
         const smDesc = document.getElementById('successModalDesc');
         const smLabel = document.getElementById('successCodeLabel');
@@ -1501,3 +1522,166 @@ function ackCookieBanner() {
 
 // Initial cart render
 renderCart();
+
+// ========================================================
+// 12. DAT Executive Analytics & Interaction Tracking Engine
+// ========================================================
+const DATAnalytics = (function() {
+    const EVENTS_KEY = 'dat_analytics_log_v2';
+    const LEADS_KEY = 'dat_admin_leads_v2';
+    const SESSION_KEY = 'dat_analytics_sid_v2';
+
+    function getSessionId() {
+        try {
+            let sid = sessionStorage.getItem(SESSION_KEY);
+            if (!sid) {
+                sid = 'sid_' + Math.random().toString(36).substring(2, 9) + '_' + Date.now();
+                sessionStorage.setItem(SESSION_KEY, sid);
+            }
+            return sid;
+        } catch (_) {
+            return 'sid_default_' + Date.now();
+        }
+    }
+
+    function getDeviceType() {
+        const ua = navigator.userAgent || '';
+        if (/tablet|ipad|playbook|silk/i.test(ua)) return 'Tablet';
+        if (/mobile|iphone|ipod|android|blackberry|iemobile|kindle/i.test(ua)) return 'Mobil';
+        return 'Masaüstü';
+    }
+
+    function getReferrerSource() {
+        const ref = document.referrer || '';
+        if (!ref) return 'Doğrudan (Direct)';
+        if (ref.includes('google.')) return 'Google Organik';
+        if (ref.includes('instagram.')) return 'Instagram';
+        if (ref.includes('facebook.')) return 'Facebook';
+        if (ref.includes('whatsapp') || ref.includes('wa.me')) return 'WhatsApp';
+        if (ref.includes('t.co') || ref.includes('twitter') || ref.includes('x.com')) return 'Twitter / X';
+        return 'Diğer Web Siteleri';
+    }
+
+    function trackEvent(type, data) {
+        const event = {
+            id: 'ev_' + Date.now() + '_' + Math.random().toString(36).substring(2, 7),
+            type: type || 'page_view',
+            timestamp: Date.now(),
+            dateStr: new Date().toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit', second: '2-digit' }),
+            page: window.location.pathname || '/',
+            title: document.title ? document.title.split('—')[0].trim() : 'Ana Sayfa',
+            device: getDeviceType(),
+            source: getReferrerSource(),
+            sid: getSessionId(),
+            ...(data || {})
+        };
+
+        // 1. Save to local log
+        try {
+            const raw = localStorage.getItem(EVENTS_KEY);
+            const events = raw ? JSON.parse(raw) : [];
+            events.unshift(event);
+            if (events.length > 500) events.length = 500;
+            localStorage.setItem(EVENTS_KEY, JSON.stringify(events));
+        } catch (_) {}
+
+        // 2. Transmit to serverless analytics endpoint
+        try {
+            const payload = JSON.stringify(event);
+            if (navigator.sendBeacon) {
+                navigator.sendBeacon('/api/analytics', payload);
+            } else {
+                fetch('/api/analytics', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: payload,
+                    keepalive: true
+                }).catch(() => {});
+            }
+        } catch (_) {}
+
+        return event;
+    }
+
+    function trackLead(leadData) {
+        try {
+            const raw = localStorage.getItem(LEADS_KEY);
+            const leads = raw ? JSON.parse(raw) : [];
+            const lead = {
+                id: 'lead_' + Date.now() + '_' + Math.floor(1000 + Math.random() * 9000),
+                status: 'new', // new, reviewing, contacted, closed
+                timestamp: Date.now(),
+                dateStr: new Date().toLocaleString('tr-TR', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }),
+                page: window.location.pathname || '/',
+                device: getDeviceType(),
+                ...(leadData || {})
+            };
+            leads.unshift(lead);
+            if (leads.length > 300) leads.length = 300;
+            localStorage.setItem(LEADS_KEY, JSON.stringify(leads));
+
+            // Also send to analytics API
+            fetch('/api/analytics', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ type: 'lead_captured', lead }),
+                keepalive: true
+            }).catch(() => {});
+        } catch (_) {}
+    }
+
+    function initAutoTracking() {
+        // Track page view
+        trackEvent('page_view', {
+            path: window.location.pathname || '/',
+            screenWidth: window.innerWidth
+        });
+
+        // Track clicks
+        document.addEventListener('click', function(e) {
+            const el = e.target.closest('a, button');
+            if (!el) return;
+
+            const href = el.getAttribute('href') || '';
+            const text = (el.textContent || '').trim().replace(/\s+/g, ' ').substring(0, 50);
+
+            // WhatsApp button
+            if (href.includes('wa.me') || href.includes('whatsapp.com')) {
+                trackEvent('whatsapp_click', {
+                    label: text || 'WhatsApp İletişim',
+                    targetUrl: href,
+                    page: window.location.pathname || '/'
+                });
+            }
+            // Phone call button
+            else if (href.startsWith('tel:')) {
+                trackEvent('phone_click', {
+                    number: href.replace('tel:', ''),
+                    label: text || 'Telefonla Arama',
+                    page: window.location.pathname || '/'
+                });
+            }
+            // Service click / exploration
+            else if (el.getAttribute('onclick')?.includes('openServiceModal') || href.includes('/hizmetler/')) {
+                trackEvent('service_click', {
+                    service: text || href,
+                    page: window.location.pathname || '/'
+                });
+            }
+        }, { passive: true });
+    }
+
+    return {
+        trackEvent,
+        trackLead,
+        init: initAutoTracking
+    };
+})();
+
+// Attach to window and initialize
+window.DATAnalytics = DATAnalytics;
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', DATAnalytics.init);
+} else {
+    DATAnalytics.init();
+}

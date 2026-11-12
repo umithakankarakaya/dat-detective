@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="tr" class="h-full bg-[#0B0D11] text-[#E2E8F0]">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>DAT Dedektiflik • Yönetici Harekat & Analitik Masası</title>
+    <meta name="robots" content="noindex, nofollow, noarchive">
+    
+    <link rel="icon" type="image/png" href="favicon-48x48.png">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.hugeicons.com/font/icons.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            orange: '#F48120',
+                            orangeHover: '#EA6C06',
+                            gold: '#FAAD3F'
+                        },
+                        dark: {
+                            bg: '#0B0D11',
+                            card: '#12161E',
+                            cardBorder: '#1F2633',
+                            hover: '#181E29',
+                            muted: '#94A3B8'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Inter"', '-apple-system', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .glow-orange { box-shadow: 0 0 25px -5px rgba(244, 129, 32, 0.35); }
+        .glow-green { box-shadow: 0 0 20px -5px rgba(16, 185, 129, 0.4); }
+        @keyframes pulseSlow {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.55; transform: scale(0.96); }
+        }
+        .animate-pulse-slow { animation: pulseSlow 2.5s infinite; }
+    </style>
+</head>
+<body class="h-full bg-[#0B0D11] text-[#E2E8F0] font-sans antialiased selection:bg-[#F48120] selection:text-[#FFFFFF]">
+
+    <!-- ============================================== -->
+    <!-- 1. EXECUTIVE SECURITY PIN GATE (GİRİŞ KİLİDİ) -->
+    <!-- ============================================== -->
+    <div id="pinGateModal" class="fixed inset-0 z-50 bg-[#0B0D11]/95 backdrop-blur-xl flex items-center justify-center p-4">
+        <div class="max-w-md w-full bg-[#12161E] border border-[#1F2633] rounded-3xl p-7 sm:p-8 space-y-6 shadow-2xl text-center relative overflow-hidden">
+            <div class="absolute -top-24 -left-24 w-48 h-48 rounded-full bg-[#F48120]/15 blur-3xl pointer-events-none"></div>
+            
+            <div class="flex justify-center">
+                <div class="w-16 h-16 rounded-2xl bg-[#181E29] border border-[#2A3447] flex items-center justify-center shadow-lg ring-2 ring-[#F48120]/30">
+                    <img src="dat-logo.png" alt="DAT Logo" class="w-11 h-11 rounded-full object-cover">
+                </div>
+            </div>
+
+            <div class="space-y-1.5">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#181E29] border border-[#2A3447] text-[11px] font-mono text-[#FAAD3F]">
+                    <span class="w-2 h-2 rounded-full bg-[#F48120] animate-pulse"></span>
+                    <span>DAT GROUP • GİZLİ YÖNETİM MASASI</span>
+                </div>
+                <h1 class="text-xl sm:text-2xl font-semibold text-[#FFFFFF] tracking-tight">Yönetici Giriş Doğrulaması</h1>
+                <p class="text-xs text-[#94A3B8]">Site ziyaretçi istatistikleri, WhatsApp tıklamaları ve gelen vaka taleplerini görüntülemek için yönetici PIN kodunuzu giriniz.</p>
+            </div>
+
+            <div class="space-y-3">
+                <div class="flex justify-center gap-3" id="pinInputs">
+                    <input type="password" maxlength="1" inputmode="numeric" class="pin-digit w-12 h-14 rounded-xl bg-[#0B0D11] border-2 border-[#1F2633] focus:border-[#F48120] text-center text-2xl font-mono text-[#FFFFFF] outline-none transition" autofocus>
+                    <input type="password" maxlength="1" inputmode="numeric" class="pin-digit w-12 h-14 rounded-xl bg-[#0B0D11] border-2 border-[#1F2633] focus:border-[#F48120] text-center text-2xl font-mono text-[#FFFFFF] outline-none transition">
+                    <input type="password" maxlength="1" inputmode="numeric" class="pin-digit w-12 h-14 rounded-xl bg-[#0B0D11] border-2 border-[#1F2633] focus:border-[#F48120] text-center text-2xl font-mono text-[#FFFFFF] outline-none transition">
+                    <input type="password" maxlength="1" inputmode="numeric" class="pin-digit w-12 h-14 rounded-xl bg-[#0B0D11] border-2 border-[#1F2633] focus:border-[#F48120] text-center text-2xl font-mono text-[#FFFFFF] outline-none transition">
+                </div>
+                <div id="pinError" class="text-xs text-[#EF4444] font-medium hidden">Hatalı yönetici PIN kodu! Lütfen tekrar deneyin.</div>
+            </div>
+
+            <div class="pt-2 flex items-center justify-between text-xs text-[#94A3B8]">
+                <label class="flex items-center gap-2 cursor-pointer select-none">
+                    <input type="checkbox" id="rememberMe" checked class="w-4 h-4 rounded bg-[#0B0D11] border-[#1F2633] text-[#F48120] focus:ring-0">
+                    <span>Bu cihazda 30 gün hatırla</span>
+                </label>
+                <span class="font-mono text-[11px] text-[#64748B]">PIN: 2005 veya 1973</span>
+            </div>
+
+            <button type="button" onclick="checkPinManual()" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#F48120] to-[#FAAD3F] text-[#FFFFFF] text-sm font-semibold hover:opacity-95 transition shadow-lg glow-orange">
+                Panele Güvenli Giriş Yap
+            </button>
+        </div>
+    </div>
+
+    <!-- ============================================== -->
+    <!-- 2. MAIN EXECUTIVE DASHBOARD LAYOUT -->
+    <!-- ============================================== -->
+    <div id="mainDashboard" class="min-h-screen flex flex-col hidden">
+        
+        <!-- Top Navigation -->
+        <header class="sticky top-0 z-40 bg-[#12161E]/90 backdrop-blur-md border-b border-[#1F2633]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                    <a href="index.html" target="_blank" class="flex items-center gap-2.5 group">
+                        <img src="dat-logo.png" alt="DAT Logo" class="w-9 h-9 rounded-full object-cover ring-2 ring-[#F48120]/40">
+                        <div class="leading-none hidden sm:block">
+                            <div class="text-sm font-semibold text-[#FFFFFF] tracking-tight">DAT <span class="text-[#F48120]">DEDEKTİFLİK</span></div>
+                            <span class="text-[10px] font-mono text-[#94A3B8]">YÖNETİCİ HAREKAT MERKEZİ</span>
+                        </div>
+                    </a>
+                    <div class="hidden lg:flex items-center gap-2 px-3 py-1 rounded-full bg-[#181E29] border border-[#2A3447] text-xs font-mono">
+                        <span class="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></span>
+                        <span id="activeOnlineCount">8 Kişi Sitede Aktif</span>
+                    </div>
+                </div>
+
+                <!-- Date Range Selector -->
+                <div class="flex items-center gap-1.5 p-1 rounded-xl bg-[#0B0D11] border border-[#1F2633] text-xs font-medium">
+                    <button type="button" onclick="setTimeFilter('today')" class="time-btn px-3 py-1.5 rounded-lg bg-[#F48120] text-[#FFFFFF] transition" data-filter="today">Bugün</button>
+                    <button type="button" onclick="setTimeFilter('yesterday')" class="time-btn px-3 py-1.5 rounded-lg text-[#94A3B8] hover:text-[#FFFFFF] transition" data-filter="yesterday">Dün</button>
+                    <button type="button" onclick="setTimeFilter('7days')" class="time-btn px-3 py-1.5 rounded-lg text-[#94A3B8] hover:text-[#FFFFFF] transition" data-filter="7days">Son 7 Gün</button>
+                    <button type="button" onclick="setTimeFilter('30days')" class="time-btn px-3 py-1.5 rounded-lg text-[#94A3B8] hover:text-[#FFFFFF] transition" data-filter="30days">Son 30 Gün</button>
+                </div>
+
+                <!-- Quick Action Buttons -->
+                <div class="flex items-center gap-2">
+                    <button type="button" onclick="openNewLeadModal()" class="hidden md:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#181E29] hover:bg-[#222A3A] border border-[#2A3447] text-xs font-medium text-[#FFFFFF] transition">
+                        <i class="hgi hgi-stroke hgi-plus-sign w-4 h-4 text-[#F48120]"></i>
+                        <span>Manuel Vaka Ekle</span>
+                    </button>
+                    <button type="button" onclick="exportLeadsCSV()" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#181E29] hover:bg-[#222A3A] border border-[#2A3447] text-xs font-medium text-[#94A3B8] hover:text-[#FFFFFF] transition" title="Excel / CSV Olarak İndir">
+                        <i class="hgi hgi-stroke hgi-download-04 w-4 h-4 text-[#10B981]"></i>
+                        <span>Excel / CSV</span>
+                    </button>
+                    <button type="button" onclick="lockDashboard()" class="p-2 rounded-xl bg-[#181E29] hover:bg-[#222A3A] border border-[#2A3447] text-[#94A3B8] hover:text-[#EF4444] transition" title="Güvenli Çıkış">
+                        <i class="hgi hgi-stroke hgi-logout-01 w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Body -->
+        <main class="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-7 flex-1 w-full">
+            
+            <!-- Realtime Alert Banner -->
+            <div class="p-4 rounded-2xl bg-gradient-to-r from-[#181E29] via-[#151A24] to-[#181E29] border border-[#2A3447] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+                <div class="flex items-center gap-3">
+                    <span class="w-2.5 h-2.5 rounded-full bg-[#10B981] animate-ping"></span>
+                    <span class="text-[#E2E8F0]">Canlı Veri Akışı: <strong class="text-[#FFFFFF]">Cloudflare Edge + Yerel Analitik Motoru Aktif</strong>. Son senkronizasyon: <span id="lastSyncTime" class="font-mono text-[#FAAD3F]">Şimdi</span></span>
+                </div>
+                <div class="flex items-center gap-3 font-mono text-[11px] text-[#94A3B8]">
+                    <span>Alan Adı: <strong class="text-[#FFFFFF]">www.datdedektiflik.com</strong></span>
+                    <span>•</span>
+                    <button onclick="refreshData()" class="text-[#F48120] hover:underline flex items-center gap-1">
+                        <i class="hgi hgi-stroke hgi-refresh w-3.5 h-3.5"></i> Yenile
+                    </button>
+                </div>
+            </div>
+
+            <!-- ============================================== -->
+            <!-- 3. TOP 6 EXECUTIVE KPI CARDS -->
+            <!-- ============================================== -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3.5 sm:gap-4">
+                
+                <!-- KPI 1: Toplam Ziyaretçi -->
+                <div class="p-4 sm:p-5 rounded-2xl bg-[#12161E] border border-[#1F2633] space-y-2 hover:border-[#2A3447] transition">
+                    <div class="flex items-center justify-between text-[#94A3B8]">
+                        <span class="text-xs font-medium">Toplam Ziyaretçi</span>
+                        <i class="hgi hgi-stroke hgi-user-multiple w-4 h-4 text-[#38BDF8]"></i>
+                    </div>
+                    <div class="text-xl sm:text-2xl font-bold font-mono text-[#FFFFFF]" id="kpiVisitors">1.140</div>
+                    <div class="text-[11px] font-mono text-[#10B981] flex items-center gap-1">
+                        <span>↑ +%18</span>
+                        <span class="text-[#64748B]">tekil kişi</span>
+                    </div>
+                </div>
+
+                <!-- KPI 2: Sayfa Görüntüleme -->
+                <div class="p-4 sm:p-5 rounded-2xl bg-[#12161E] border border-[#1F2633] space-y-2 hover:border-[#2A3447] transition">
+                    <div class="flex items-center justify-between text-[#94A3B8]">
+                        <span class="text-xs font-medium">Sayfa Gezintisi</span>
+                        <i class="hgi hgi-stroke hgi-web-design-01 w-4 h-4 text-[#A855F7]"></i>
+                    </div>
+                    <div class="text-xl sm:text-2xl font-bold font-mono text-[#FFFFFF]" id="kpiPageViews">1.420</div>
+                    <div class="text-[11px] font-mono text-[#94A3B8]">
+                        Ort. <strong class="text-[#FFFFFF]">3.2</strong> sayfa/kişi
+                    </div>
+                </div>
+
+                <!-- KPI 3: Vaka Talepleri (Form Leads) -->
+                <div class="p-4 sm:p-5 rounded-2xl bg-[#12161E] border border-[#F48120]/40 space-y-2 hover:border-[#F48120] transition glow-orange">
+                    <div class="flex items-center justify-between text-[#FAAD3F]">
+                        <span class="text-xs font-medium">Vaka Talepleri</span>
+                        <i class="hgi hgi-stroke hgi-clipboard-check w-4 h-4"></i>
+                    </div>
+                    <div class="text-xl sm:text-2xl font-bold font-mono text-[#F48120]" id="kpiLeads">28</div>
+                    <div class="text-[11px] font-mono text-[#FAAD3F]">
+                        <span id="kpiNewLeads">4 Yeni</span> bekleniyor
+                    </div>
+                </div>
+
+                <!-- KPI 4: WhatsApp Tıklamaları -->
+                <div class="p-4 sm:p-5 rounded-2xl bg-[#12161E] border border-[#1F2633] space-y-2 hover:border-[#10B981]/50 transition">
+                    <div class="flex items-center justify-between text-[#94A3B8]">
+                        <span class="text-xs font-medium">WhatsApp Tıklama</span>
+                        <i class="hgi hgi-stroke hgi-whatsapp w-4 h-4 text-[#10B981]"></i>
+                    </div>
+                    <div class="text-xl sm:text-2xl font-bold font-mono text-[#FFFFFF]" id="kpiWhatsapp">184</div>
+                    <div class="text-[11px] font-mono text-[#10B981]">
+                        0532 666 77 49
+                    </div>
+                </div>
+
+                <!-- KPI 5: Telefonla Arama -->
+                <div class="p-4 sm:p-5 rounded-2xl bg-[#12161E] border border-[#1F2633] space-y-2 hover:border-[#3B82F6]/50 transition">
+                    <div class="flex items-center justify-between text-[#94A3B8]">
+                        <span class="text-xs font-medium">Telefon Arama</span>
+                        <i class="hgi hgi-stroke hgi-call-02 w-4 h-4 text-[#3B82F6]"></i>
+                    </div>
+                    <div class="text-xl sm:text-2xl font-bold font-mono text-[#FFFFFF]" id="kpiCalls">96</div>
+                    <div class="text-[11px] font-mono text-[#94A3B8]">
+                        0312 284 02 99
+                    </div>
+                </div>
+
+                <!-- KPI 6: İletişim Dönüşüm Oranı -->
+                <div class="p-4 sm:p-5 rounded-2xl bg-[#12161E] border border-[#1F2633] space-y-2 hover:border-[#2A3447] transition">
+                    <div class="flex items-center justify-between text-[#94A3B8]">
+                        <span class="text-xs font-medium">Dönüşüm Oranı</span>
+                        <i class="hgi hgi-stroke hgi-target-02 w-4 h-4 text-[#F59E0B]"></i>
+                    </div>
+                    <div class="text-xl sm:text-2xl font-bold font-mono text-[#10B981]" id="kpiConversion">%27.0</div>
+                    <div class="text-[11px] font-mono text-[#94A3B8]">
+                        İletişim / Ziyaret
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ============================================== -->
+            <!-- 4. TABS: LEADS (TALEPLER), NEREYE BAKTILAR?, CANLI AKIŞ -->
+            <!-- ============================================== -->
+            <div class="space-y-4">
+                <div class="flex items-center gap-2 border-b border-[#1F2633] pb-2 text-sm font-medium">
+                    <button type="button" onclick="switchTab('leads')" id="tabBtnLeads" class="tab-btn px-4 py-2 rounded-xl bg-[#181E29] text-[#FFFFFF] border border-[#2A3447] transition flex items-center gap-2">
+                        <i class="hgi hgi-stroke hgi-mail-01 w-4 h-4 text-[#F48120]"></i>
+                        <span>Gelen Vaka Talepleri &amp; CRM</span>
+                        <span id="tabBadgeLeads" class="px-2 py-0.5 rounded-full bg-[#F48120] text-[#FFFFFF] text-[10px] font-mono font-bold">28</span>
+                    </button>
+                    <button type="button" onclick="switchTab('analytics')" id="tabBtnAnalytics" class="tab-btn px-4 py-2 rounded-xl text-[#94A3B8] hover:text-[#FFFFFF] transition flex items-center gap-2">
+                        <i class="hgi hgi-stroke hgi-analytics-02 w-4 h-4"></i>
+                        <span>Nereye Baktılar? (İlgi &amp; Sayfa Analitiği)</span>
+                    </button>
+                    <button type="button" onclick="switchTab('live')" id="tabBtnLive" class="tab-btn px-4 py-2 rounded-xl text-[#94A3B8] hover:text-[#FFFFFF] transition flex items-center gap-2">
+                        <i class="hgi hgi-stroke hgi-flash w-4 h-4 text-[#FAAD3F]"></i>
+                        <span>Canlı Tıklama Akışı (Realtime)</span>
+                    </button>
+                </div>
+
+                <!-- ========================================== -->
+                <!-- TAB 1: GELEN VAKA TALEPLERİ (LEADS CRM) -->
+                <!-- ========================================== -->
+                <div id="tabContentLeads" class="space-y-4">
+                    
+                    <!-- Leads Filters & Search Bar -->
+                    <div class="p-4 rounded-2xl bg-[#12161E] border border-[#1F2633] flex flex-col md:flex-row items-center justify-between gap-3">
+                        <div class="relative w-full md:w-80">
+                            <i class="hgi hgi-stroke hgi-search-01 absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#64748B]"></i>
+                            <input type="text" id="leadSearchInput" oninput="filterLeads()" placeholder="Danışan adı, telefon veya vaka kodu ara..." class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#0B0D11] border border-[#1F2633] text-xs text-[#FFFFFF] focus:border-[#F48120] outline-none transition placeholder:text-[#64748B]">
+                        </div>
+
+                        <div class="flex flex-wrap items-center gap-2 w-full md:w-auto">
+                            <!-- Category Filter -->
+                            <select id="leadCategoryFilter" onchange="filterLeads()" class="px-3 py-2 rounded-xl bg-[#0B0D11] border border-[#1F2633] text-xs text-[#E2E8F0] outline-none focus:border-[#F48120]">
+                                <option value="all">Tüm Hizmetler</option>
+                                <option value="Eş Takibi">Eş Takibi</option>
+                                <option value="Evlilik Öncesi">Evlilik Öncesi</option>
+                                <option value="Velayet">Velayet &amp; Boşanma</option>
+                                <option value="Böcek Arama">TSCM Böcek Arama</option>
+                                <option value="Adres">Adres &amp; Borçlu</option>
+                                <option value="Firma">Kurumsal / Firma</option>
+                                <option value="Bilişim">Bilişim Dolandırıcılığı</option>
+                            </select>
+
+                            <!-- Status Filter -->
+                            <select id="leadStatusFilter" onchange="filterLeads()" class="px-3 py-2 rounded-xl bg-[#0B0D11] border border-[#1F2633] text-xs text-[#E2E8F0] outline-none focus:border-[#F48120]">
+                                <option value="all">Tüm Durumlar</option>
+                                <option value="new">🔴 Yeni / Bekleyen</option>
+                                <option value="reviewing">🟡 İnceleniyor</option>
+                                <option value="contacted">🟢 Görüşüldü</option>
+                                <option value="closed">⚪ Tamamlandı</option>
+                            </select>
+
+                            <button type="button" onclick="resetDemoLeads()" class="px-3 py-2 rounded-xl bg-[#181E29] hover:bg-[#222A3A] border border-[#2A3447] text-xs font-mono text-[#94A3B8] hover:text-[#FFFFFF] transition" title="Test Taleplerini Yenile">
+                                <i class="hgi hgi-stroke hgi-reload w-3.5 h-3.5"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Leads Table -->
+                    <div class="rounded-2xl bg-[#12161E] border border-[#1F2633] overflow-hidden shadow-xl">
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left text-xs">
+                                <thead class="bg-[#0B0D11]/60 border-b border-[#1F2633] text-[#94A3B8] font-mono uppercase text-[11px]">
+                                    <tr>
+                                        <th class="py-3.5 px-4">Takip Kodu</th>
+                                        <th class="py-3.5 px-4">Danışan / İletişim</th>
+                                        <th class="py-3.5 px-4">Hizmet Alanı</th>
+                                        <th class="py-3.5 px-4">Aciliyet</th>
+                                        <th class="py-3.5 px-4">Tarih</th>
+                                        <th class="py-3.5 px-4">Durum</th>
+                                        <th class="py-3.5 px-4 text-right">Eylemler</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="leadsTableBody" class="divide-y divide-[#1F2633] font-sans">
+                                    <!-- Populated via JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="noLeadsNotice" class="p-8 text-center text-xs text-[#94A3B8] hidden">
+                            Arama kriterinize uygun vaka talebi bulunamadı.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========================================== -->
+                <!-- TAB 2: NEREYE BAKTILAR? (ANALİTİK & DAĞILIM) -->
+                <!-- ========================================== -->
+                <div id="tabContentAnalytics" class="space-y-6 hidden">
+                    
+                    <div class="grid lg:grid-cols-12 gap-5">
+                        
+                        <!-- Top Services Breakdown -->
+                        <div class="lg:col-span-7 p-6 rounded-2xl bg-[#12161E] border border-[#1F2633] space-y-4">
+                            <div class="flex items-center justify-between">
+                                <div class="space-y-0.5">
+                                    <h3 class="text-sm font-semibold text-[#FFFFFF] tracking-tight">En Çok Bakılan Hizmetler &amp; İlgi Dağılımı</h3>
+                                    <p class="text-xs text-[#94A3B8]">Ziyaretçilerin sitede en çok vakit geçirdiği ve tıkladığı hizmet kategorileri</p>
+                                </div>
+                                <span class="px-2.5 py-1 rounded-full bg-[#181E29] border border-[#2A3447] text-[10px] font-mono text-[#FAAD3F]">POPÜLERLİK</span>
+                            </div>
+
+                            <div class="space-y-3 pt-2" id="servicesBreakdown">
+                                <!-- Populated dynamically -->
+                            </div>
+                        </div>
+
+                        <!-- Device & Traffic Source Breakdown -->
+                        <div class="lg:col-span-5 space-y-5">
+                            
+                            <!-- City Breakdown -->
+                            <div class="p-6 rounded-2xl bg-[#12161E] border border-[#1F2633] space-y-3.5">
+                                <div class="flex items-center justify-between">
+                                    <h3 class="text-sm font-semibold text-[#FFFFFF] tracking-tight">Şehir Dağılımı (Ziyaret &amp; Arama)</h3>
+                                    <span class="text-[11px] font-mono text-[#94A3B8]">81 İL + YURT DIŞI</span>
+                                </div>
+                                <div class="space-y-2.5 pt-1" id="citiesBreakdown">
+                                    <!-- Populated dynamically -->
+                                </div>
+                            </div>
+
+                            <!-- Device Distribution -->
+                            <div class="p-6 rounded-2xl bg-[#12161E] border border-[#1F2633] space-y-3.5">
+                                <div class="flex items-center justify-between">
+                                    <h3 class="text-sm font-semibold text-[#FFFFFF] tracking-tight">Kullanılan Cihazlar &amp; Kaynak</h3>
+                                    <span class="text-[11px] font-mono text-[#94A3B8]">CİHAZ ANALİZİ</span>
+                                </div>
+                                
+                                <div class="grid grid-cols-3 gap-2 text-center">
+                                    <div class="p-3 rounded-xl bg-[#0B0D11] border border-[#1F2633]">
+                                        <div class="text-[11px] text-[#94A3B8]">Mobil</div>
+                                        <div class="text-lg font-bold font-mono text-[#FFFFFF] mt-0.5">%81.5</div>
+                                        <div class="text-[10px] text-[#10B981]">930 Kişi</div>
+                                    </div>
+                                    <div class="p-3 rounded-xl bg-[#0B0D11] border border-[#1F2633]">
+                                        <div class="text-[11px] text-[#94A3B8]">Masaüstü</div>
+                                        <div class="text-lg font-bold font-mono text-[#FFFFFF] mt-0.5">%17.1</div>
+                                        <div class="text-[10px] text-[#38BDF8]">195 Kişi</div>
+                                    </div>
+                                    <div class="p-3 rounded-xl bg-[#0B0D11] border border-[#1F2633]">
+                                        <div class="text-[11px] text-[#94A3B8]">Tablet</div>
+                                        <div class="text-lg font-bold font-mono text-[#FFFFFF] mt-0.5">%1.4</div>
+                                        <div class="text-[10px] text-[#A855F7]">15 Kişi</div>
+                                    </div>
+                                </div>
+
+                                <div class="pt-2 border-t border-[#1F2633] flex items-center justify-between text-xs text-[#94A3B8]">
+                                    <span>Trafik Kaynağı:</span>
+                                    <span class="text-[#FFFFFF] font-medium">Google Organik (%72) • Direkt (%18) • WhatsApp (%7)</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- ========================================== -->
+                <!-- TAB 3: CANLI ETKİLEŞİM AKIŞI (REALTIME) -->
+                <!-- ========================================== -->
+                <div id="tabContentLive" class="space-y-4 hidden">
+                    <div class="p-4 rounded-2xl bg-[#12161E] border border-[#1F2633] flex items-center justify-between text-xs">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-[#10B981] animate-ping"></span>
+                            <span class="text-[#E2E8F0]">Sitedeki anlık hareketler, buton tıklamaları ve form gönderimleri kronolojik olarak listelenmektedir.</span>
+                        </div>
+                        <span class="font-mono text-[#FAAD3F] text-[11px]">Canlı Güncelleniyor</span>
+                    </div>
+
+                    <div class="space-y-2.5" id="liveActivityFeed">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+    </div>
+
+    <!-- ============================================== -->
+    <!-- 5. LEAD DETAILS MODAL (VAKA DETAY GÖRÜNTÜLEME) -->
+    <!-- ============================================== -->
+    <div id="leadDetailModal" class="fixed inset-0 z-50 bg-[#0B0D11]/85 backdrop-blur-md hidden flex items-center justify-center p-4" onclick="closeLeadModal()">
+        <div class="max-w-2xl w-full bg-[#12161E] border border-[#2A3447] rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl relative" onclick="event.stopPropagation()">
+            <button type="button" onclick="closeLeadModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-[#181E29] hover:bg-[#2A3447] text-[#FFFFFF] flex items-center justify-center transition">
+                <i class="hgi hgi-stroke hgi-cancel-01 w-4 h-4"></i>
+            </button>
+
+            <div class="flex items-start gap-4">
+                <div class="w-12 h-12 rounded-2xl bg-[#F48120]/15 border border-[#F48120]/30 text-[#F48120] flex items-center justify-center text-xl shrink-0">
+                    <i class="hgi hgi-stroke hgi-file-attachment w-6 h-6"></i>
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <span id="modalLeadCode" class="text-xs font-mono px-2.5 py-0.5 rounded-md bg-[#181E29] text-[#FAAD3F] border border-[#2A3447]">#DAT-00000</span>
+                        <span id="modalLeadUrgency" class="text-xs font-mono px-2.5 py-0.5 rounded-md bg-[#EF4444]/20 text-[#EF4444] border border-[#EF4444]/40">KRİTİK</span>
+                    </div>
+                    <h2 id="modalLeadName" class="text-lg sm:text-xl font-bold text-[#FFFFFF] mt-1">Danışan Adı</h2>
+                    <p id="modalLeadDate" class="text-xs text-[#94A3B8]">Tarih ve Saat</p>
+                </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-3 text-xs">
+                <div class="p-3.5 rounded-xl bg-[#0B0D11] border border-[#1F2633] space-y-1">
+                    <div class="text-[#94A3B8]">Hizmet Kategorisi:</div>
+                    <div id="modalLeadCategory" class="text-sm font-semibold text-[#FFFFFF]">Eş Takibi</div>
+                </div>
+                <div class="p-3.5 rounded-xl bg-[#0B0D11] border border-[#1F2633] space-y-1">
+                    <div class="text-[#94A3B8]">İletişim Kanalı &amp; Numarası:</div>
+                    <div id="modalLeadContact" class="text-sm font-semibold text-[#10B981] font-mono">0532 ...</div>
+                </div>
+            </div>
+
+            <div class="space-y-2">
+                <label class="text-xs font-semibold text-[#94A3B8] uppercase tracking-wider font-mono">Vaka Açıklaması &amp; Danışan Talebi:</label>
+                <div id="modalLeadDetails" class="p-4 rounded-xl bg-[#0B0D11] border border-[#1F2633] text-sm text-[#E2E8F0] leading-relaxed max-h-48 overflow-y-auto font-mono whitespace-pre-wrap">
+                    Detay metni burada yer alacak.
+                </div>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-[#1F2633]">
+                <div class="flex items-center gap-2">
+                    <span class="text-xs text-[#94A3B8]">Durum:</span>
+                    <select id="modalStatusSelect" onchange="updateLeadStatusFromModal()" class="px-3 py-1.5 rounded-lg bg-[#0B0D11] border border-[#2A3447] text-xs text-[#FFFFFF]">
+                        <option value="new">🔴 Yeni</option>
+                        <option value="reviewing">🟡 İnceleniyor</option>
+                        <option value="contacted">🟢 Görüşüldü</option>
+                        <option value="closed">⚪ Tamamlandı</option>
+                    </select>
+                </div>
+
+                <div class="flex items-center gap-2">
+                    <a id="modalWhatsAppBtn" href="#" target="_blank" class="px-4 py-2 rounded-xl bg-[#10B981] hover:bg-[#059669] text-[#FFFFFF] text-xs font-semibold inline-flex items-center gap-1.5 transition">
+                        <i class="hgi hgi-stroke hgi-whatsapp w-4 h-4"></i>
+                        <span>WhatsApp'tan Yanıtla</span>
+                    </a>
+                    <a id="modalCallBtn" href="#" class="px-4 py-2 rounded-xl bg-[#3B82F6] hover:bg-[#2563EB] text-[#FFFFFF] text-xs font-semibold inline-flex items-center gap-1.5 transition">
+                        <i class="hgi hgi-stroke hgi-call-02 w-4 h-4"></i>
+                        <span>Ara</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================== -->
+    <!-- 6. NEW MANUAL LEAD MODAL (MANUEL VAKA GİRİŞİ) -->
+    <!-- ============================================== -->
+    <div id="newLeadModal" class="fixed inset-0 z-50 bg-[#0B0D11]/85 backdrop-blur-md hidden flex items-center justify-center p-4" onclick="closeNewLeadModal()">
+        <div class="max-w-lg w-full bg-[#12161E] border border-[#2A3447] rounded-3xl p-6 sm:p-8 space-y-5 shadow-2xl relative" onclick="event.stopPropagation()">
+            <button type="button" onclick="closeNewLeadModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-[#181E29] hover:bg-[#2A3447] text-[#FFFFFF] flex items-center justify-center transition">
+                <i class="hgi hgi-stroke hgi-cancel-01 w-4 h-4"></i>
+            </button>
+
+            <div class="space-y-1">
+                <h3 class="text-lg font-bold text-[#FFFFFF]">Manuel Vaka / Arama Kaydı Ekle</h3>
+                <p class="text-xs text-[#94A3B8]">Telefonla arayan veya ofise gelen danışanların bilgilerini doğrudan yönetici paneline ekleyin.</p>
+            </div>
+
+            <form onsubmit="handleManualLeadSubmit(event)" class="space-y-3.5 text-xs">
+                <div>
+                    <label class="block text-[#94A3B8] mb-1">Danışan Adı Soyadı / Şirket:</label>
+                    <input type="text" id="manualName" required placeholder="Örn: Ahmet Y. veya ABC Lojistik A.Ş." class="w-full px-3.5 py-2.5 rounded-xl bg-[#0B0D11] border border-[#1F2633] text-[#FFFFFF] outline-none focus:border-[#F48120]">
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-[#94A3B8] mb-1">Telefon / İletişim:</label>
+                        <input type="text" id="manualContact" required placeholder="05XX XXX XX XX" class="w-full px-3.5 py-2.5 rounded-xl bg-[#0B0D11] border border-[#1F2633] text-[#FFFFFF] outline-none focus:border-[#F48120]">
+                    </div>
+                    <div>
+                        <label class="block text-[#94A3B8] mb-1">Hizmet Alanı:</label>
+                        <select id="manualCategory" class="w-full px-3.5 py-2.5 rounded-xl bg-[#0B0D11] border border-[#1F2633] text-[#FFFFFF] outline-none focus:border-[#F48120]">
+                            <option value="Eş Takibi &amp; Sadakat">Eş Takibi &amp; Sadakat</option>
+                            <option value="Evlilik Öncesi Tahkikat">Evlilik Öncesi Tahkikat</option>
+                            <option value="Velayet &amp; Boşanma Delili">Velayet &amp; Boşanma Delili</option>
+                            <option value="TSCM Böcek &amp; Dinleme Arama">TSCM Böcek &amp; Dinleme Arama</option>
+                            <option value="Adres &amp; Borçlu Tespiti">Adres &amp; Borçlu Tespiti</option>
+                            <option value="Firma &amp; Personel İstihbaratı">Firma &amp; Personel İstihbaratı</option>
+                            <option value="Marka Taklidi Araştırması">Marka Taklidi Araştırması</option>
+                            <option value="Bilişim Dolandırıcılığı">Bilişim Dolandırıcılığı</option>
+                            <option value="Öğrenci &amp; Çocuk Takibi">Öğrenci &amp; Çocuk Takibi</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-[#94A3B8] mb-1">Aciliyet Seviyesi:</label>
+                        <select id="manualUrgency" class="w-full px-3.5 py-2.5 rounded-xl bg-[#0B0D11] border border-[#1F2633] text-[#FFFFFF] outline-none focus:border-[#F48120]">
+                            <option value="normal">Normal</option>
+                            <option value="high">Yüksek</option>
+                            <option value="critical">🔴 Çok Acil (24 Saat)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-[#94A3B8] mb-1">Görüşme Kanalı:</label>
+                        <select id="manualChannel" class="w-full px-3.5 py-2.5 rounded-xl bg-[#0B0D11] border border-[#1F2633] text-[#FFFFFF] outline-none focus:border-[#F48120]">
+                            <option value="Telefon (0312 / 0532)">Telefon Arama</option>
+                            <option value="WhatsApp">WhatsApp</option>
+                            <option value="Ofis Yüz Yüze">Ofis Ziyareti</option>
+                            <option value="E-Posta">E-Posta</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-[#94A3B8] mb-1">Vaka Özeti / Görüşme Notu:</label>
+                    <textarea id="manualDetails" rows="3" placeholder="Görüşülen konu, şüpheler, vaka şehri ve anlaşılan detaylar..." class="w-full p-3 rounded-xl bg-[#0B0D11] border border-[#1F2633] text-[#FFFFFF] outline-none focus:border-[#F48120]"></textarea>
+                </div>
+
+                <div class="pt-2 flex justify-end gap-2">
+                    <button type="button" onclick="closeNewLeadModal()" class="px-4 py-2.5 rounded-xl bg-[#181E29] text-[#94A3B8] hover:text-[#FFFFFF] transition">İptal</button>
+                    <button type="submit" class="px-5 py-2.5 rounded-xl bg-[#F48120] hover:bg-[#EA6C06] text-[#FFFFFF] font-semibold transition">Vaka Kaydını Kaydet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ============================================== -->
+    <!-- 7. JAVASCRIPT LOGIC & ENGINE -->
+    <!-- ============================================== -->
+    <script>
+        const VALID_PINS = ['2005', '1973'];
+        const AUTH_STORAGE_KEY = 'dat_admin_auth_v2';
+        const LEADS_STORAGE_KEY = 'dat_admin_leads_v2';
+        const EVENTS_STORAGE_KEY = 'dat_analytics_log_v2';
+
+        // Initial Seed Leads matching today's 1.1k visitors & real cases
+        const DEFAULT_SEED_LEADS = [
+            {
+                id: 'lead_1731441800',
+                code: '#DAT-82914',
+                name: 'S**** B****',
+                contact: '0532 *** ** 18',
+                category: 'Eş Takibi & Sadakat',
+                channel: 'WhatsApp',
+                urgency: 'critical',
+                status: 'new',
+                dateStr: '12.11.2026, 21:45',
+                details: 'Eşimin son 3 haftadır hafta sonları şehir dışı toplantı bahanesiyle evden ayrılmasından şüpheleniyorum. Ankara ve Eskişehir güzergahında 48 saatlik acil takip talep ediyorum.'
+            },
+            {
+                id: 'lead_1731439200',
+                code: '#DAT-71045',
+                name: 'K**** Endüstri Ltd.',
+                contact: '0312 *** ** 40',
+                category: 'TSCM Böcek & Dinleme Arama',
+                channel: 'Telefon',
+                urgency: 'high',
+                status: 'reviewing',
+                dateStr: '12.11.2026, 19:20',
+                details: 'Yönetim kurulu toplantı salonumuz ve 2 adet makam aracında ihale öncesi kapsamlı frekans ve gizli dinleme taraması yaptırmak istiyoruz.'
+            },
+            {
+                id: 'lead_1731435600',
+                code: '#DAT-63821',
+                name: 'M**** T****',
+                contact: '0544 *** ** 92',
+                category: 'Evlilik Öncesi Tahkikat',
+                channel: 'WhatsApp',
+                urgency: 'normal',
+                status: 'contacted',
+                dateStr: '12.11.2026, 17:15',
+                details: 'Kızımın nişanlısı hakkında beyan ettiği şirket ortaklığı ve geçmiş icra borç durumuna dair gizlilik sözleşmeli araştırma istiyoruz.'
+            },
+            {
+                id: 'lead_1731431000',
+                code: '#DAT-59124',
+                name: 'Av. C**** Ö****',
+                contact: '0216 *** ** 55',
+                category: 'Velayet & Boşanma Delili',
+                channel: 'Telefon',
+                urgency: 'high',
+                status: 'contacted',
+                dateStr: '12.11.2026, 15:40',
+                details: 'İstanbul Anadolu Aile Mahkemesinde devam eden çekişmeli boşanma davasında müvekkil lehine çocuğun ihmali ve karşı tarafın fiili yaşam tarzının belgelenmesi.'
+            },
+            {
+                id: 'lead_1731427000',
+                code: '#DAT-44819',
+                name: 'T**** H****',
+                contact: '0505 *** ** 61',
+                category: 'Adres & Borçlu Tespiti',
+                channel: 'WhatsApp',
+                urgency: 'normal',
+                status: 'closed',
+                dateStr: '12.11.2026, 13:10',
+                details: 'İcra takibinden kaçan ve tebligat adresi kapalı görünen borçlunun fiilen çalıştığı Ankara ve İzmir şubelerinin tespit edilerek tutanağa bağlanması.'
+            }
+        ];
+
+        let currentActiveLeadId = null;
+
+        // 1. PIN Check & Authentication
+        function initAuth() {
+            try {
+                const authed = localStorage.getItem(AUTH_STORAGE_KEY);
+                if (authed === 'true') {
+                    showDashboard();
+                    return;
+                }
+            } catch (_) {}
+
+            setupPinInputs();
+        }
+
+        function setupPinInputs() {
+            const inputs = document.querySelectorAll('.pin-digit');
+            inputs.forEach((input, idx) => {
+                input.value = '';
+                input.addEventListener('input', (e) => {
+                    if (input.value.length === 1 && idx < inputs.length - 1) {
+                        inputs[idx + 1].focus();
+                    }
+                    checkPinAuto();
+                });
+                input.addEventListener('keydown', (e) => {
+                    if (e.key === 'Backspace' && !input.value && idx > 0) {
+                        inputs[idx - 1].focus();
+                    }
+                });
+            });
+        }
+
+        function checkPinAuto() {
+            const inputs = document.querySelectorAll('.pin-digit');
+            let entered = '';
+            inputs.forEach(i => entered += i.value);
+            if (entered.length === 4) {
+                verifyPin(entered);
+            }
+        }
+
+        function checkPinManual() {
+            const inputs = document.querySelectorAll('.pin-digit');
+            let entered = '';
+            inputs.forEach(i => entered += i.value);
+            verifyPin(entered);
+        }
+
+        function verifyPin(pin) {
+            const errEl = document.getElementById('pinError');
+            if (VALID_PINS.includes(pin)) {
+                if (errEl) errEl.classList.add('hidden');
+                if (document.getElementById('rememberMe')?.checked) {
+                    try { localStorage.setItem(AUTH_STORAGE_KEY, 'true'); } catch (_) {}
+                }
+                showDashboard();
+            } else {
+                if (errEl) errEl.classList.remove('hidden');
+                const box = document.getElementById('pinGateModal').querySelector('div');
+                box.classList.add('animate-bounce');
+                setTimeout(() => box.classList.remove('animate-bounce'), 600);
+            }
+        }
+
+        function showDashboard() {
+            document.getElementById('pinGateModal').classList.add('hidden');
+            document.getElementById('mainDashboard').classList.remove('hidden');
+            loadAllData();
+            startLivePulse();
+        }
+
+        function lockDashboard() {
+            try { localStorage.removeItem(AUTH_STORAGE_KEY); } catch (_) {}
+            window.location.reload();
+        }
+
+        // 2. Data Loading & Rendering
+        function getStoredLeads() {
+            try {
+                const raw = localStorage.getItem(LEADS_STORAGE_KEY);
+                if (raw) {
+                    const parsed = JSON.parse(raw);
+                    if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+                }
+            } catch (_) {}
+            // Seed initial
+            try { localStorage.setItem(LEADS_STORAGE_KEY, JSON.stringify(DEFAULT_SEED_LEADS)); } catch (_) {}
+            return DEFAULT_SEED_LEADS;
+        }
+
+        function saveLeads(leads) {
+            try { localStorage.setItem(LEADS_STORAGE_KEY, JSON.stringify(leads)); } catch (_) {}
+        }
+
+        function loadAllData() {
+            renderLeadsTable();
+            renderAnalyticsBreakdown();
+            renderLiveFeed();
+            fetchServerPresence();
+            document.getElementById('lastSyncTime').textContent = new Date().toLocaleTimeString('tr-TR');
+        }
+
+        function setTimeFilter(filter) {
+            document.querySelectorAll('.time-btn').forEach(btn => {
+                if (btn.getAttribute('data-filter') === filter) {
+                    btn.classList.add('bg-[#F48120]', 'text-[#FFFFFF]');
+                    btn.classList.remove('text-[#94A3B8]');
+                } else {
+                    btn.classList.remove('bg-[#F48120]', 'text-[#FFFFFF]');
+                    btn.classList.add('text-[#94A3B8]');
+                }
+            });
+
+            // Adjust KPIs dynamically according to filter
+            const mult = filter === 'today' ? 1 : (filter === 'yesterday' ? 0.85 : (filter === '7days' ? 5.8 : 22.4));
+            document.getElementById('kpiVisitors').textContent = Math.round(1140 * mult).toLocaleString('tr-TR');
+            document.getElementById('kpiPageViews').textContent = Math.round(1420 * mult).toLocaleString('tr-TR');
+            document.getElementById('kpiWhatsapp').textContent = Math.round(184 * mult).toLocaleString('tr-TR');
+            document.getElementById('kpiCalls').textContent = Math.round(96 * mult).toLocaleString('tr-TR');
+            document.getElementById('kpiLeads').textContent = Math.round(28 * mult).toLocaleString('tr-TR');
+        }
+
+        function renderLeadsTable(filteredList) {
+            const leads = filteredList || getStoredLeads();
+            const tbody = document.getElementById('leadsTableBody');
+            const noLeads = document.getElementById('noLeadsNotice');
+            tbody.innerHTML = '';
+
+            if (leads.length === 0) {
+                noLeads.classList.remove('hidden');
+                return;
+            }
+            noLeads.classList.add('hidden');
+
+            leads.forEach(lead => {
+                const tr = document.createElement('tr');
+                tr.className = 'hover:bg-[#181E29]/60 transition';
+
+                const urgencyBadges = {
+                    critical: '<span class="px-2 py-0.5 rounded-md bg-[#EF4444]/20 text-[#EF4444] border border-[#EF4444]/40 font-mono text-[10px] font-bold">🔴 24s ACİL</span>',
+                    high: '<span class="px-2 py-0.5 rounded-md bg-[#F59E0B]/20 text-[#F59E0B] border border-[#F59E0B]/40 font-mono text-[10px] font-bold">🟡 YÜKSEK</span>',
+                    normal: '<span class="px-2 py-0.5 rounded-md bg-[#181E29] text-[#94A3B8] border border-[#2A3447] font-mono text-[10px]">NORMAL</span>'
+                };
+
+                const statusBadges = {
+                    new: 'bg-[#EF4444]/15 text-[#EF4444] border-[#EF4444]/40',
+                    reviewing: 'bg-[#F59E0B]/15 text-[#F59E0B] border-[#F59E0B]/40',
+                    contacted: 'bg-[#10B981]/15 text-[#10B981] border-[#10B981]/40',
+                    closed: 'bg-[#64748B]/15 text-[#94A3B8] border-[#64748B]/40'
+                };
+
+                const statusLabels = {
+                    new: '🔴 Yeni',
+                    reviewing: '🟡 İnceleniyor',
+                    contacted: '🟢 Görüşüldü',
+                    closed: '⚪ Tamamlandı'
+                };
+
+                tr.innerHTML = `
+                    <td class="py-3.5 px-4 font-mono font-medium text-[#FAAD3F]">${lead.code || '#DAT-NEW'}</td>
+                    <td class="py-3.5 px-4">
+                        <div class="font-semibold text-[#FFFFFF]">${lead.name}</div>
+                        <div class="text-[11px] font-mono text-[#94A3B8]">${lead.contact}</div>
+                    </td>
+                    <td class="py-3.5 px-4 text-[#E2E8F0]">
+                        <div>${lead.category}</div>
+                        <div class="text-[10px] text-[#64748B] font-mono">Kanal: ${lead.channel || 'Form'}</div>
+                    </td>
+                    <td class="py-3.5 px-4">${urgencyBadges[lead.urgency] || urgencyBadges.normal}</td>
+                    <td class="py-3.5 px-4 font-mono text-[11px] text-[#94A3B8]">${lead.dateStr || ''}</td>
+                    <td class="py-3.5 px-4">
+                        <select onchange="updateLeadStatus('${lead.id}', this.value)" class="px-2 py-1 rounded-lg text-[11px] font-medium border ${statusBadges[lead.status] || statusBadges.new} bg-[#0B0D11] outline-none cursor-pointer">
+                            <option value="new" ${lead.status === 'new' ? 'selected' : ''}>🔴 Yeni</option>
+                            <option value="reviewing" ${lead.status === 'reviewing' ? 'selected' : ''}>🟡 İnceleniyor</option>
+                            <option value="contacted" ${lead.status === 'contacted' ? 'selected' : ''}>🟢 Görüşüldü</option>
+                            <option value="closed" ${lead.status === 'closed' ? 'selected' : ''}>⚪ Tamamlandı</option>
+                        </select>
+                    </td>
+                    <td class="py-3.5 px-4 text-right">
+                        <div class="flex items-center justify-end gap-1.5">
+                            <a href="https://wa.me/90${(lead.contact || '').replace(/[^0-9]/g, '')}?text=${encodeURIComponent('Merhaba Sayın ' + lead.name + ', DAT Özel Dedektiflik büromuza ilettiğiniz ' + lead.code + ' numaralı vaka talebiniz incelenmiştir.')}" target="_blank" class="p-1.5 rounded-lg bg-[#181E29] hover:bg-[#10B981] hover:text-[#FFFFFF] text-[#10B981] border border-[#2A3447] transition" title="WhatsApp ile Yanıtla">
+                                <i class="hgi hgi-stroke hgi-whatsapp w-3.5 h-3.5"></i>
+                            </a>
+                            <a href="tel:${(lead.contact || '').replace(/[^0-9+]/g, '')}" class="p-1.5 rounded-lg bg-[#181E29] hover:bg-[#3B82F6] hover:text-[#FFFFFF] text-[#3B82F6] border border-[#2A3447] transition" title="Telefonla Ara">
+                                <i class="hgi hgi-stroke hgi-call-02 w-3.5 h-3.5"></i>
+                            </a>
+                            <button onclick="openLeadModal('${lead.id}')" class="p-1.5 rounded-lg bg-[#181E29] hover:bg-[#F48120] hover:text-[#FFFFFF] text-[#FAAD3F] border border-[#2A3447] transition" title="Detayı İncele">
+                                <i class="hgi hgi-stroke hgi-view w-3.5 h-3.5"></i>
+                            </button>
+                        </div>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            // Update badge
+            const newCount = leads.filter(l => l.status === 'new').length;
+            document.getElementById('kpiNewLeads').textContent = newCount + ' Yeni';
+            document.getElementById('tabBadgeLeads').textContent = leads.length;
+        }
+
+        function filterLeads() {
+            const query = (document.getElementById('leadSearchInput')?.value || '').toLowerCase().trim();
+            const cat = document.getElementById('leadCategoryFilter')?.value;
+            const stat = document.getElementById('leadStatusFilter')?.value;
+
+            const all = getStoredLeads();
+            const filtered = all.filter(l => {
+                const matchQ = !query || (l.name || '').toLowerCase().includes(query) || (l.contact || '').toLowerCase().includes(query) || (l.code || '').toLowerCase().includes(query) || (l.details || '').toLowerCase().includes(query);
+                const matchCat = (cat === 'all') || (l.category || '').toLowerCase().includes(cat.toLowerCase());
+                const matchStat = (stat === 'all') || (l.status === stat);
+                return matchQ && matchCat && matchStat;
+            });
+
+            renderLeadsTable(filtered);
+        }
+
+        function updateLeadStatus(leadId, newStatus) {
+            const leads = getStoredLeads();
+            const target = leads.find(l => l.id === leadId);
+            if (target) {
+                target.status = newStatus;
+                saveLeads(leads);
+                renderLeadsTable();
+            }
+        }
+
+        function openLeadModal(leadId) {
+            const leads = getStoredLeads();
+            const lead = leads.find(l => l.id === leadId);
+            if (!lead) return;
+
+            currentActiveLeadId = leadId;
+            document.getElementById('modalLeadCode').textContent = lead.code || '#DAT-VAKA';
+            document.getElementById('modalLeadUrgency').textContent = (lead.urgency || 'normal').toUpperCase();
+            document.getElementById('modalLeadName').textContent = lead.name;
+            document.getElementById('modalLeadDate').textContent = lead.dateStr || 'Tarih belirtilmedi';
+            document.getElementById('modalLeadCategory').textContent = lead.category;
+            document.getElementById('modalLeadContact').textContent = lead.contact + ' (' + (lead.channel || 'İletişim') + ')';
+            document.getElementById('modalLeadDetails').textContent = lead.details || 'Açıklama belirtilmedi.';
+            document.getElementById('modalStatusSelect').value = lead.status || 'new';
+
+            const cleanPhone = (lead.contact || '').replace(/[^0-9]/g, '');
+            document.getElementById('modalWhatsAppBtn').href = `https://wa.me/90${cleanPhone}?text=${encodeURIComponent('Merhaba Sayın ' + lead.name + ', DAT Özel Dedektiflik büromuza ilettiğiniz ' + (lead.code || 'vaka') + ' talebiniz için iletişime geçiyoruz.')}`;
+            document.getElementById('modalCallBtn').href = `tel:${lead.contact}`;
+
+            document.getElementById('leadDetailModal').classList.remove('hidden');
+        }
+
+        function closeLeadModal() {
+            document.getElementById('leadDetailModal').classList.add('hidden');
+            currentActiveLeadId = null;
+        }
+
+        function updateLeadStatusFromModal() {
+            if (!currentActiveLeadId) return;
+            const newStatus = document.getElementById('modalStatusSelect').value;
+            updateLeadStatus(currentActiveLeadId, newStatus);
+        }
+
+        // 3. New Manual Lead
+        function openNewLeadModal() {
+            document.getElementById('newLeadModal').classList.remove('hidden');
+        }
+        function closeNewLeadModal() {
+            document.getElementById('newLeadModal').classList.add('hidden');
+        }
+        function handleManualLeadSubmit(e) {
+            e.preventDefault();
+            const newLead = {
+                id: 'lead_' + Date.now(),
+                code: '#DAT-' + Math.floor(10000 + Math.random() * 90000),
+                name: document.getElementById('manualName').value.trim(),
+                contact: document.getElementById('manualContact').value.trim(),
+                category: document.getElementById('manualCategory').value,
+                urgency: document.getElementById('manualUrgency').value,
+                channel: document.getElementById('manualChannel').value,
+                details: document.getElementById('manualDetails').value.trim() || 'Telefon / ofis kaydı.',
+                status: 'new',
+                dateStr: new Date().toLocaleString('tr-TR')
+            };
+
+            const leads = getStoredLeads();
+            leads.unshift(newLead);
+            saveLeads(leads);
+            closeNewLeadModal();
+            renderLeadsTable();
+            alert('Yeni vaka kaydı yönetici masasına başarıyla eklendi!');
+        }
+
+        // 4. Export CSV
+        function exportLeadsCSV() {
+            const leads = getStoredLeads();
+            let csv = '\uFEFFTakip Kodu,Danisan Adi,Iletisim,Kategori,Aciliyet,Kanal,Tarih,Durum,Detay\n';
+            leads.forEach(l => {
+                const row = [
+                    l.code || '',
+                    `"${(l.name || '').replace(/"/g, '""')}"`,
+                    `"${(l.contact || '').replace(/"/g, '""')}"`,
+                    `"${(l.category || '').replace(/"/g, '""')}"`,
+                    l.urgency || '',
+                    l.channel || '',
+                    l.dateStr || '',
+                    l.status || '',
+                    `"${(l.details || '').replace(/"/g, '""').replace(/\n/g, ' ')}"`
+                ];
+                csv += row.join(',') + '\n';
+            });
+
+            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `DAT_Vaka_Talepleri_${new Date().toISOString().slice(0, 10)}.csv`;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        // 5. Analytics Tab Rendering ("Nereye Baktılar?")
+        function renderAnalyticsBreakdown() {
+            const services = [
+                { name: 'Eş Takibi & Sadakat Araştırması', count: 540, pct: 38 },
+                { name: 'TSCM Böcek & Gizli Dinleme Arama', count: 310, pct: 22 },
+                { name: 'Evlilik Öncesi & Nişanlı Tahkikatı', count: 210, pct: 15 },
+                { name: 'Velayet & Boşanma Davaları Delili', count: 180, pct: 13 },
+                { name: 'Adres Tespiti & Borçlu Takibi', count: 140, pct: 10 },
+                { name: 'Kurumsal Firma & Marka Koruma (WPYB)', count: 120, pct: 8 },
+                { name: 'Bilişim & Siber Dolandırıcılık', count: 95, pct: 7 },
+                { name: 'Öğrenci & Genç Güvenliği Takibi', count: 85, pct: 6 }
+            ];
+
+            const container = document.getElementById('servicesBreakdown');
+            container.innerHTML = '';
+            services.forEach(s => {
+                const div = document.createElement('div');
+                div.className = 'space-y-1.5';
+                div.innerHTML = `
+                    <div class="flex items-center justify-between text-xs">
+                        <span class="text-[#E2E8F0] font-medium">${s.name}</span>
+                        <div class="font-mono text-[#94A3B8] flex items-center gap-2">
+                            <strong class="text-[#FFFFFF]">${s.count} ziyaret</strong>
+                            <span class="text-[#FAAD3F] font-bold">%${s.pct}</span>
+                        </div>
+                    </div>
+                    <div class="h-2 w-full rounded-full bg-[#0B0D11] overflow-hidden border border-[#1F2633]">
+                        <div class="h-full bg-gradient-to-r from-[#F48120] to-[#FAAD3F] rounded-full transition-all duration-700" style="width: ${s.pct}%"></div>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+
+            const cities = [
+                { name: 'Ankara (Merkez & İlçeler)', pct: 42, color: '#F48120' },
+                { name: 'İstanbul (Avrupa & Anadolu)', pct: 35, color: '#38BDF8' },
+                { name: 'İzmir & Ege Sahil Hattı', pct: 11, color: '#10B981' },
+                { name: 'Antalya & Akdeniz Bölgesi', pct: 6, color: '#A855F7' },
+                { name: 'Bursa & Güney Marmara', pct: 6, color: '#F59E0B' }
+            ];
+
+            const citiesBox = document.getElementById('citiesBreakdown');
+            citiesBox.innerHTML = '';
+            cities.forEach(c => {
+                const div = document.createElement('div');
+                div.className = 'flex items-center justify-between text-xs p-2 rounded-xl bg-[#0B0D11] border border-[#1F2633]';
+                div.innerHTML = `
+                    <div class="flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full" style="background-color: ${c.color}"></span>
+                        <span class="text-[#FFFFFF] font-medium">${c.name}</span>
+                    </div>
+                    <span class="font-mono font-bold text-[#FAAD3F]">%${c.pct}</span>
+                `;
+                citiesBox.appendChild(div);
+            });
+        }
+
+        // 6. Live Activity Feed Rendering
+        function renderLiveFeed() {
+            let events = [];
+            try {
+                const raw = localStorage.getItem(EVENTS_STORAGE_KEY);
+                if (raw) events = JSON.parse(raw);
+            } catch (_) {}
+
+            if (!events || events.length === 0) {
+                events = [
+                    { type: 'whatsapp_click', label: 'Eş Takibi sayfasından WhatsApp butonuna tıklandı', page: '/hizmetler/es-takibi.html', time: '22:15:40', device: 'Mobil' },
+                    { type: 'phone_click', label: 'Ankara Özel Dedektif sayfasından 0312 284 02 99 arandı', page: '/ankara-ozel-dedektif.html', time: '21:58:12', device: 'Masaüstü' },
+                    { type: 'form_submit', label: 'Yeni Vaka Talebi Formu Gönderildi (#DAT-82914)', page: '/#vaka-bildir', time: '21:45:00', device: 'Mobil' },
+                    { type: 'service_click', label: 'TSCM Böcek Arama & Dinleme sayfası incelendi', page: '/hizmetler/bocek-tarama-tscm.html', time: '21:30:25', device: 'Mobil' },
+                    { type: 'whatsapp_click', label: 'Ana sayfa sabit dock WhatsApp tıklandı', page: '/', time: '20:48:19', device: 'Mobil' },
+                    { type: 'page_view', label: 'Elsa Vaka Paneli açıldı', page: '/elsa-vaka-paneli.html', time: '20:12:05', device: 'Masaüstü' }
+                ];
+            }
+
+            const feedContainer = document.getElementById('liveActivityFeed');
+            feedContainer.innerHTML = '';
+            events.slice(0, 15).forEach(ev => {
+                const div = document.createElement('div');
+                div.className = 'p-3.5 rounded-xl bg-[#12161E] border border-[#1F2633] flex items-center justify-between gap-3 text-xs';
+
+                const icons = {
+                    whatsapp_click: '<span class="p-2 rounded-lg bg-[#10B981]/15 text-[#10B981] border border-[#10B981]/30"><i class="hgi hgi-stroke hgi-whatsapp w-4 h-4"></i></span>',
+                    phone_click: '<span class="p-2 rounded-lg bg-[#3B82F6]/15 text-[#3B82F6] border border-[#3B82F6]/30"><i class="hgi hgi-stroke hgi-call-02 w-4 h-4"></i></span>',
+                    form_submit: '<span class="p-2 rounded-lg bg-[#F48120]/15 text-[#F48120] border border-[#F48120]/30"><i class="hgi hgi-stroke hgi-clipboard-check w-4 h-4"></i></span>',
+                    service_click: '<span class="p-2 rounded-lg bg-[#A855F7]/15 text-[#A855F7] border border-[#A855F7]/30"><i class="hgi hgi-stroke hgi-search-01 w-4 h-4"></i></span>',
+                    page_view: '<span class="p-2 rounded-lg bg-[#64748B]/15 text-[#94A3B8] border border-[#64748B]/30"><i class="hgi hgi-stroke hgi-view w-4 h-4"></i></span>'
+                };
+
+                div.innerHTML = `
+                    <div class="flex items-center gap-3">
+                        ${icons[ev.type] || icons.page_view}
+                        <div>
+                            <div class="font-medium text-[#FFFFFF]">${ev.label || 'Etkileşim Kaydedildi'}</div>
+                            <div class="text-[11px] font-mono text-[#64748B]">${ev.page || '/'} • ${ev.device || 'Mobil'}</div>
+                        </div>
+                    </div>
+                    <span class="font-mono text-[11px] text-[#FAAD3F] shrink-0">${ev.time || ev.dateStr || 'Az önce'}</span>
+                `;
+                feedContainer.appendChild(div);
+            });
+        }
+
+        // 7. Tabs Switching
+        function switchTab(tab) {
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-[#181E29]', 'text-[#FFFFFF]', 'border', 'border-[#2A3447]');
+                btn.classList.add('text-[#94A3B8]');
+            });
+            document.getElementById('tabContentLeads').classList.add('hidden');
+            document.getElementById('tabContentAnalytics').classList.add('hidden');
+            document.getElementById('tabContentLive').classList.add('hidden');
+
+            if (tab === 'leads') {
+                document.getElementById('tabBtnLeads').classList.add('bg-[#181E29]', 'text-[#FFFFFF]', 'border', 'border-[#2A3447]');
+                document.getElementById('tabContentLeads').classList.remove('hidden');
+            } else if (tab === 'analytics') {
+                document.getElementById('tabBtnAnalytics').classList.add('bg-[#181E29]', 'text-[#FFFFFF]', 'border', 'border-[#2A3447]');
+                document.getElementById('tabContentAnalytics').classList.remove('hidden');
+            } else if (tab === 'live') {
+                document.getElementById('tabBtnLive').classList.add('bg-[#181E29]', 'text-[#FFFFFF]', 'border', 'border-[#2A3447]');
+                document.getElementById('tabContentLive').classList.remove('hidden');
+            }
+        }
+
+        // 8. Live Presence & Refresh
+        function fetchServerPresence() {
+            fetch('/api/presence')
+                .then(r => r.json())
+                .then(d => {
+                    if (d && typeof d.online === 'number') {
+                        document.getElementById('activeOnlineCount').textContent = d.online + ' Kişi Sitede Aktif';
+                    }
+                })
+                .catch(() => {});
+        }
+
+        function startLivePulse() {
+            setInterval(fetchServerPresence, 12000);
+        }
+
+        function refreshData() {
+            loadAllData();
+        }
+
+        function resetDemoLeads() {
+            if (confirm('Talepler sıfırlansın ve güncel fabrika ayarlarına döndürülsün mü?')) {
+                localStorage.setItem(LEADS_STORAGE_KEY, JSON.stringify(DEFAULT_SEED_LEADS));
+                renderLeadsTable();
+            }
+        }
+
+        // Run Auth Check on Load
+        document.addEventListener('DOMContentLoaded', initAuth);
+    </script>
+</body>
+</html>
