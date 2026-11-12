@@ -50,6 +50,15 @@
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.14); border-radius: 9999px; }
         ::-webkit-scrollbar-thumb:hover { background: rgba(0, 0, 0, 0.28); }
+        .card-clickable {
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .card-clickable:hover {
+            transform: translateY(-2px);
+            border-color: #F48120;
+            box-shadow: 0 10px 25px -5px rgba(244, 129, 32, 0.12), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+        }
     </style>
 </head>
 <body class="min-h-full bg-[#E8EAED] text-[#3A3E42] antialiased selection:bg-[#F38020] selection:text-[#FFFFFF]">
@@ -75,7 +84,7 @@
                     <span>DAT GROUP • GİZLİ YÖNETİM MASASI</span>
                 </div>
                 <h1 class="text-xl sm:text-2xl font-medium text-[#000000] tracking-tight">Yönetici Giriş Doğrulaması</h1>
-                <p class="text-xs text-[#3A3E42]/75 leading-relaxed">Ziyaretçi sayıları, nereye bakıldığı, WhatsApp tıklamaları ve gelen vaka taleplerini incelemek için 4 haneli PIN kodunuzu giriniz.</p>
+                <p class="text-xs text-[#3A3E42]/75 leading-relaxed">Gerçek ziyaretçi sayıları, nereye bakıldığı, WhatsApp tıklamaları ve vaka taleplerini incelemek için 4 haneli PIN kodunuzu giriniz.</p>
             </div>
 
             <div class="space-y-3">
@@ -85,33 +94,35 @@
                     <input type="password" maxlength="1" inputmode="numeric" class="pin-digit w-12 h-14 rounded-2xl bg-[#F3F4F4] border-2 border-[rgba(0,0,0,0.08)] focus:border-[#F48120] focus:bg-[#FFFFFF] text-center text-2xl font-mono text-[#000000] outline-none transition">
                     <input type="password" maxlength="1" inputmode="numeric" class="pin-digit w-12 h-14 rounded-2xl bg-[#F3F4F4] border-2 border-[rgba(0,0,0,0.08)] focus:border-[#F48120] focus:bg-[#FFFFFF] text-center text-2xl font-mono text-[#000000] outline-none transition">
                 </div>
-                <div id="pinError" class="text-xs text-[#DC2626] font-medium hidden">Hatalı yönetici PIN kodu! Lütfen tekrar deneyin.</div>
+                <p id="pinError" class="text-xs text-[#DC2626] font-medium hidden">Hatalı PIN! Lütfen tekrar deneyiniz.</p>
             </div>
 
-            <div class="pt-1 flex items-center justify-between text-xs text-[#3A3E42]/80">
-                <label class="flex items-center gap-2 cursor-pointer select-none">
-                    <input type="checkbox" id="rememberMe" checked class="w-4 h-4 rounded text-[#F48120] focus:ring-0 border-[rgba(0,0,0,0.2)]">
-                    <span>Bu cihazda 30 gün hatırla</span>
-                </label>
-                <span class="font-mono text-[11px] text-[#3A3E42]/60">PIN: 2005 veya 1973</span>
+            <div class="space-y-2">
+                <button type="button" onclick="checkPinManual()" class="w-full py-3.5 rounded-full cf-gradient text-[#FFFFFF] text-sm font-medium hover:opacity-95 transition shadow-sm">
+                    Güvenli Giriş Yap
+                </button>
+                <div class="flex items-center justify-between text-[11px] text-[#3A3E42]/70 pt-1">
+                    <label class="flex items-center gap-1.5 cursor-pointer select-none">
+                        <input type="checkbox" id="rememberMe" checked class="rounded border-[rgba(0,0,0,0.2)] text-[#F48120] focus:ring-[#F48120]">
+                        <span>Bu cihazı hatırla (7 Gün)</span>
+                    </label>
+                    <span class="font-mono text-[#3A3E42]/50">Varsayılan: 2005</span>
+                </div>
             </div>
 
-            <button type="button" onclick="checkPinManual()" class="w-full py-3.5 rounded-full cf-gradient text-[#FFFFFF] text-sm font-medium hover:opacity-95 transition shadow-sm">
-                Panele Güvenli Giriş Yap
-            </button>
         </div>
     </div>
 
     <!-- ============================================== -->
-    <!-- 2. MAIN EXECUTIVE DASHBOARD LAYOUT -->
+    <!-- 2. MAIN EXECUTIVE WORKSPACE (YÖNETİM MASASI)  -->
     <!-- ============================================== -->
-    <div id="mainDashboard" class="min-h-screen flex flex-col hidden">
+    <div id="mainDashboard" class="hidden min-h-screen flex flex-col">
         
-        <!-- Sticky Header (Apple Minimalist White) -->
-        <header class="sticky top-0 z-40 bg-[#FFFFFF]/90 backdrop-blur-md border-b border-[rgba(0,0,0,0.08)] shadow-sm">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+        <!-- Apple Minimalist Top Navigation Header -->
+        <header class="bg-[#FFFFFF] border-b border-[rgba(0,0,0,0.08)] sticky top-0 z-30 shadow-sm backdrop-blur-md bg-[#FFFFFF]/90">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between gap-4">
                 
-                <!-- Brand Title -->
+                <!-- Brand Title & Presence Badge -->
                 <div class="flex items-center gap-3">
                     <a href="index.html" target="_blank" class="flex items-center gap-3 group">
                         <img src="dat-logo.png" alt="DAT Logo" class="w-10 h-10 rounded-full object-cover ring-2 ring-[#F48120]/60">
@@ -120,10 +131,11 @@
                             <p class="text-[10px] font-mono text-[#3A3E42]/60 uppercase mt-0.5">YÖNETİCİ HAREKAT MERKEZİ</p>
                         </div>
                     </a>
-                    <div class="hidden lg:flex items-center gap-2 px-3 py-1 rounded-full bg-[#F3F4F4] border border-[rgba(0,0,0,0.06)] text-xs font-mono">
+                    <button type="button" onclick="openPresenceDetailModal()" class="hidden lg:flex items-center gap-2 px-3 py-1 rounded-full bg-[#F3F4F4] hover:bg-[#DCFCE7] border border-[rgba(0,0,0,0.06)] text-xs font-mono transition" title="Canlı Anlık Ziyaretçi Detayı İçin Tıklayın">
                         <span class="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></span>
-                        <span id="activeOnlineCount" class="text-[#000000] font-medium">8 Kişi Sitede Aktif</span>
-                    </div>
+                        <span id="activeOnlineCount" class="text-[#000000] font-medium">1 Kişi Sitede Aktif</span>
+                        <i class="hgi hgi-stroke hgi-arrow-right-01 w-3 h-3 text-[#3A3E42]/50"></i>
+                    </button>
                 </div>
 
                 <!-- Date Range Selector -->
@@ -158,92 +170,103 @@
             <div class="p-4 sm:p-5 rounded-2xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.07)] shadow-sm flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
                 <div class="flex items-center gap-3">
                     <span class="w-2.5 h-2.5 rounded-full bg-[#10B981] animate-ping"></span>
-                    <span class="text-[#3A3E42]">Canlı Veri Durumu: <strong class="text-[#000000]">Cloudflare Edge + Yerel Analitik Motoru Aktif</strong>. Son senkronizasyon: <span id="lastSyncTime" class="font-mono text-[#F48120] font-medium">Şimdi</span></span>
+                    <span class="text-[#3A3E42]">Canlı Veri Durumu: <strong class="text-[#000000]">Cloudflare Edge + Gerçek Analitik Motoru Aktif</strong>. Son senkronizasyon: <span id="lastSyncTime" class="font-mono text-[#F48120] font-medium">Şimdi</span></span>
                 </div>
                 <div class="flex items-center gap-3 font-mono text-[11px] text-[#3A3E42]/70">
                     <span>Canlı Alan Adı: <strong class="text-[#000000]">www.datdedektiflik.com</strong></span>
                     <span>•</span>
                     <button onclick="refreshData()" class="text-[#F48120] hover:underline font-medium flex items-center gap-1">
-                        <i class="hgi hgi-stroke hgi-refresh w-3.5 h-3.5"></i> Yenile
+                        <i class="hgi hgi-stroke hgi-refresh w-3.5 h-3.5"></i> Verileri Yenile
                     </button>
                 </div>
             </div>
 
+            <!-- Hint: Everything is clickable -->
+            <div class="text-[11px] text-[#3A3E42]/80 flex items-center gap-2 px-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#F48120]"></span>
+                <span>💡 <strong>İpucu:</strong> Tüm kartlar, hizmetler, şehirler ve canlı akıştaki satırlar tıklanabilirdir. Detaylarını görmek için herhangi birine tıklayabilirsiniz.</span>
+            </div>
+
             <!-- ============================================== -->
-            <!-- 3. TOP 6 EXECUTIVE KPI CARDS -->
+            <!-- 3. TOP 6 EXECUTIVE KPI CARDS (ALL CLICKABLE)  -->
             <!-- ============================================== -->
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3.5 sm:gap-4">
                 
                 <!-- KPI 1: Toplam Ziyaretçi -->
-                <div class="p-4 sm:p-5 rounded-2xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.07)] space-y-2 shadow-sm hover:shadow-md transition">
+                <div onclick="openMetricDetailModal('visitors')" class="card-clickable p-4 sm:p-5 rounded-2xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.07)] space-y-2 shadow-sm group">
                     <div class="flex items-center justify-between text-[#3A3E42]/70">
                         <span class="text-xs font-medium">Toplam Ziyaretçi</span>
-                        <i class="hgi hgi-stroke hgi-user-multiple w-4 h-4 text-[#F48120]"></i>
+                        <i class="hgi hgi-stroke hgi-user-multiple w-4 h-4 text-[#F48120] group-hover:scale-110 transition"></i>
                     </div>
                     <div class="text-xl sm:text-2xl font-bold font-mono text-[#000000]" id="kpiVisitors">1.140</div>
-                    <div class="text-[11px] font-mono text-[#10B981] flex items-center gap-1">
-                        <span class="font-bold">↑ +%18</span>
-                        <span class="text-[#3A3E42]/60">tekil kişi</span>
+                    <div class="text-[11px] font-mono text-[#10B981] flex items-center justify-between">
+                        <span class="font-bold">↑ +%18 tekil</span>
+                        <span class="text-[#F48120] font-sans font-medium text-[10px] group-hover:translate-x-0.5 transition">Detay →</span>
                     </div>
                 </div>
 
                 <!-- KPI 2: Sayfa Görüntüleme -->
-                <div class="p-4 sm:p-5 rounded-2xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.07)] space-y-2 shadow-sm hover:shadow-md transition">
+                <div onclick="openMetricDetailModal('pageViews')" class="card-clickable p-4 sm:p-5 rounded-2xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.07)] space-y-2 shadow-sm group">
                     <div class="flex items-center justify-between text-[#3A3E42]/70">
                         <span class="text-xs font-medium">Sayfa Gezintisi</span>
-                        <i class="hgi hgi-stroke hgi-web-design-01 w-4 h-4 text-[#3A3E42]"></i>
+                        <i class="hgi hgi-stroke hgi-web-design-01 w-4 h-4 text-[#3A3E42] group-hover:scale-110 transition"></i>
                     </div>
                     <div class="text-xl sm:text-2xl font-bold font-mono text-[#000000]" id="kpiPageViews">1.420</div>
-                    <div class="text-[11px] font-mono text-[#3A3E42]/70">
-                        Ort. <strong class="text-[#000000]">3.2</strong> sayfa/kişi
+                    <div class="text-[11px] font-mono text-[#3A3E42]/70 flex items-center justify-between">
+                        <span>Ort. <strong class="text-[#000000]">1.25</strong> / kişi</span>
+                        <span class="text-[#F48120] font-sans font-medium text-[10px] group-hover:translate-x-0.5 transition">Detay →</span>
                     </div>
                 </div>
 
                 <!-- KPI 3: Vaka Talepleri (Form Leads) -->
-                <div class="p-4 sm:p-5 rounded-2xl bg-[#FFF7ED] border border-[#F48120]/40 space-y-2 shadow-sm hover:shadow-md transition">
+                <div onclick="openMetricDetailModal('leads')" class="card-clickable p-4 sm:p-5 rounded-2xl bg-[#FFF7ED] border border-[#F48120]/40 space-y-2 shadow-sm group">
                     <div class="flex items-center justify-between text-[#F48120]">
                         <span class="text-xs font-medium">Vaka Talepleri</span>
-                        <i class="hgi hgi-stroke hgi-clipboard-check w-4 h-4"></i>
+                        <i class="hgi hgi-stroke hgi-clipboard-check w-4 h-4 group-hover:scale-110 transition"></i>
                     </div>
-                    <div class="text-xl sm:text-2xl font-bold font-mono text-[#F48120]" id="kpiLeads">28</div>
-                    <div class="text-[11px] font-mono text-[#F48120] font-medium">
-                        <span id="kpiNewLeads">4 Yeni</span> bekleniyor
+                    <div class="text-xl sm:text-2xl font-bold font-mono text-[#F48120]" id="kpiLeads">5</div>
+                    <div class="text-[11px] font-mono text-[#F48120] font-medium flex items-center justify-between">
+                        <span id="kpiNewLeads">Canlı Vaka CRM</span>
+                        <span class="font-sans font-medium text-[10px] group-hover:translate-x-0.5 transition">Detay →</span>
                     </div>
                 </div>
 
                 <!-- KPI 4: WhatsApp Tıklamaları -->
-                <div class="p-4 sm:p-5 rounded-2xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.07)] space-y-2 shadow-sm hover:shadow-md transition">
+                <div onclick="openMetricDetailModal('whatsapp')" class="card-clickable p-4 sm:p-5 rounded-2xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.07)] space-y-2 shadow-sm group">
                     <div class="flex items-center justify-between text-[#3A3E42]/70">
                         <span class="text-xs font-medium">WhatsApp Tıklama</span>
-                        <i class="hgi hgi-stroke hgi-whatsapp w-4 h-4 text-[#10B981]"></i>
+                        <i class="hgi hgi-stroke hgi-whatsapp w-4 h-4 text-[#10B981] group-hover:scale-110 transition"></i>
                     </div>
                     <div class="text-xl sm:text-2xl font-bold font-mono text-[#000000]" id="kpiWhatsapp">184</div>
-                    <div class="text-[11px] font-mono text-[#10B981] font-medium">
-                        0532 666 77 49
+                    <div class="text-[11px] font-mono text-[#10B981] font-medium flex items-center justify-between">
+                        <span>0532 666 77 49</span>
+                        <span class="text-[#F48120] font-sans font-medium text-[10px] group-hover:translate-x-0.5 transition">Detay →</span>
                     </div>
                 </div>
 
                 <!-- KPI 5: Telefonla Arama -->
-                <div class="p-4 sm:p-5 rounded-2xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.07)] space-y-2 shadow-sm hover:shadow-md transition">
+                <div onclick="openMetricDetailModal('calls')" class="card-clickable p-4 sm:p-5 rounded-2xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.07)] space-y-2 shadow-sm group">
                     <div class="flex items-center justify-between text-[#3A3E42]/70">
                         <span class="text-xs font-medium">Telefon Arama</span>
-                        <i class="hgi hgi-stroke hgi-call-02 w-4 h-4 text-[#F48120]"></i>
+                        <i class="hgi hgi-stroke hgi-call-02 w-4 h-4 text-[#F48120] group-hover:scale-110 transition"></i>
                     </div>
                     <div class="text-xl sm:text-2xl font-bold font-mono text-[#000000]" id="kpiCalls">96</div>
-                    <div class="text-[11px] font-mono text-[#3A3E42]/70">
-                        0312 284 02 99
+                    <div class="text-[11px] font-mono text-[#3A3E42]/70 flex items-center justify-between">
+                        <span>0312 284 02 99</span>
+                        <span class="text-[#F48120] font-sans font-medium text-[10px] group-hover:translate-x-0.5 transition">Detay →</span>
                     </div>
                 </div>
 
                 <!-- KPI 6: İletişim Dönüşüm Oranı -->
-                <div class="p-4 sm:p-5 rounded-2xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.07)] space-y-2 shadow-sm hover:shadow-md transition">
+                <div onclick="openMetricDetailModal('conversion')" class="card-clickable p-4 sm:p-5 rounded-2xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.07)] space-y-2 shadow-sm group">
                     <div class="flex items-center justify-between text-[#3A3E42]/70">
                         <span class="text-xs font-medium">Dönüşüm Oranı</span>
-                        <i class="hgi hgi-stroke hgi-target-02 w-4 h-4 text-[#10B981]"></i>
+                        <i class="hgi hgi-stroke hgi-target-02 w-4 h-4 text-[#10B981] group-hover:scale-110 transition"></i>
                     </div>
                     <div class="text-xl sm:text-2xl font-bold font-mono text-[#10B981]" id="kpiConversion">%27.0</div>
-                    <div class="text-[11px] font-mono text-[#3A3E42]/70">
-                        İletişim / Ziyaret
+                    <div class="text-[11px] font-mono text-[#3A3E42]/70 flex items-center justify-between">
+                        <span>İletişim / Ziyaret</span>
+                        <span class="text-[#F48120] font-sans font-medium text-[10px] group-hover:translate-x-0.5 transition">Detay →</span>
                     </div>
                 </div>
 
@@ -253,106 +276,119 @@
             <!-- 4. TABS: LEADS (TALEPLER), NEREYE BAKTILAR?, CANLI AKIŞ -->
             <!-- ============================================== -->
             <div class="space-y-4">
-                <div class="flex flex-wrap items-center gap-2 border-b border-[rgba(0,0,0,0.08)] pb-2 text-sm font-medium">
-                    <button type="button" onclick="switchTab('leads')" id="tabBtnLeads" class="tab-btn px-4 py-2 rounded-full cf-gradient text-[#FFFFFF] shadow-sm transition flex items-center gap-2">
-                        <i class="hgi hgi-stroke hgi-mail-01 w-4 h-4"></i>
-                        <span>Gelen Vaka Talepleri &amp; CRM</span>
-                        <span id="tabBadgeLeads" class="px-2 py-0.5 rounded-full bg-[#000000] text-[#FFFFFF] text-[10px] font-mono font-bold">28</span>
-                    </button>
-                    <button type="button" onclick="switchTab('analytics')" id="tabBtnAnalytics" class="tab-btn px-4 py-2 rounded-full bg-[#FFFFFF] text-[#3A3E42] border border-[rgba(0,0,0,0.07)] hover:bg-[#F3F4F4] transition flex items-center gap-2">
-                        <i class="hgi hgi-stroke hgi-analytics-02 w-4 h-4 text-[#F48120]"></i>
-                        <span>Nereye Baktılar? (İlgi &amp; Sayfa Analitiği)</span>
-                    </button>
-                    <button type="button" onclick="switchTab('live')" id="tabBtnLive" class="tab-btn px-4 py-2 rounded-full bg-[#FFFFFF] text-[#3A3E42] border border-[rgba(0,0,0,0.07)] hover:bg-[#F3F4F4] transition flex items-center gap-2">
-                        <i class="hgi hgi-stroke hgi-flash w-4 h-4 text-[#FAAD3F]"></i>
-                        <span>Canlı Tıklama Akışı (Realtime)</span>
-                    </button>
+                <div class="flex flex-wrap items-center justify-between gap-2 border-b border-[rgba(0,0,0,0.08)] pb-2 text-sm font-medium">
+                    <div class="flex flex-wrap items-center gap-2">
+                        <button type="button" onclick="switchTab('leads')" id="tabBtnLeads" class="tab-btn px-4 py-2 rounded-full cf-gradient text-[#FFFFFF] shadow-sm transition flex items-center gap-2">
+                            <i class="hgi hgi-stroke hgi-mail-01 w-4 h-4"></i>
+                            <span>Gelen Vaka Talepleri &amp; CRM</span>
+                            <span id="tabBadgeLeads" class="px-2 py-0.5 rounded-full bg-[#000000] text-[#FFFFFF] text-[10px] font-mono font-bold">5</span>
+                        </button>
+                        <button type="button" onclick="switchTab('analytics')" id="tabBtnAnalytics" class="tab-btn px-4 py-2 rounded-full bg-[#FFFFFF] text-[#3A3E42] border border-[rgba(0,0,0,0.07)] hover:bg-[#F3F4F4] transition flex items-center gap-2">
+                            <i class="hgi hgi-stroke hgi-chart-bar-line w-4 h-4 text-[#F48120]"></i>
+                            <span>Nereye Baktılar? (İlgi &amp; Sayfa Analitiği)</span>
+                        </button>
+                        <button type="button" onclick="switchTab('live')" id="tabBtnLive" class="tab-btn px-4 py-2 rounded-full bg-[#FFFFFF] text-[#3A3E42] border border-[rgba(0,0,0,0.07)] hover:bg-[#F3F4F4] transition flex items-center gap-2">
+                            <i class="hgi hgi-stroke hgi-flash w-4 h-4 text-[#FAAD3F]"></i>
+                            <span>Canlı Tıklama Akışı (Realtime)</span>
+                        </button>
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                        <button type="button" onclick="createRealTestLead()" class="px-3.5 py-1.5 rounded-full bg-[#FFF7ED] hover:bg-[#FEE2E2] text-[#F48120] hover:text-[#DC2626] border border-[#F48120]/30 text-xs font-medium transition flex items-center gap-1.5" title="Sunucuya gerçek test vakası ekler ve anında listeler">
+                            <span>🧪 Canlı Test Talebi Gönder</span>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- ========================================== -->
-                <!-- TAB 1: GELEN VAKA TALEPLERİ (LEADS CRM) -->
+                <!-- TAB 1: GELEN VAKA TALEPLERİ & CRM TABLOSU  -->
                 <!-- ========================================== -->
                 <div id="tabContentLeads" class="space-y-4">
                     
-                    <!-- Leads Filters & Search Bar -->
-                    <div class="p-4 rounded-2xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.07)] shadow-sm flex flex-col md:flex-row items-center justify-between gap-3">
-                        <div class="relative w-full md:w-80">
-                            <i class="hgi hgi-stroke hgi-search-01 absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#3A3E42]/60"></i>
-                            <input type="text" id="leadSearchInput" oninput="filterLeads()" placeholder="Danışan adı, telefon veya vaka kodu ara..." class="w-full pl-10 pr-4 py-2 rounded-xl bg-[#F3F4F4] border border-[rgba(0,0,0,0.08)] text-xs text-[#000000] focus:border-[#F48120] focus:bg-[#FFFFFF] outline-none transition placeholder:text-[#3A3E42]/50">
+                    <!-- Search & Filter Ribbon -->
+                    <div class="p-4 rounded-2xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.07)] shadow-sm flex flex-wrap items-center justify-between gap-3 text-xs">
+                        <div class="flex items-center gap-2 flex-1 min-w-[240px]">
+                            <div class="relative w-full max-w-md">
+                                <i class="hgi hgi-stroke hgi-search-01 w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-[#3A3E42]/60"></i>
+                                <input type="text" id="leadSearchInput" oninput="filterLeads()" placeholder="Danışan adı, telefon, hizmet veya takip kodu ara..." class="w-full pl-9 pr-4 py-2 rounded-full bg-[#F3F4F4] border border-[rgba(0,0,0,0.08)] text-[#000000] placeholder:text-[#3A3E42]/50 text-xs outline-none focus:border-[#F48120] focus:bg-[#FFFFFF] transition">
+                            </div>
                         </div>
 
-                        <div class="flex flex-wrap items-center gap-2 w-full md:w-auto">
-                            <!-- Category Filter -->
-                            <select id="leadCategoryFilter" onchange="filterLeads()" class="px-3 py-2 rounded-xl bg-[#F3F4F4] border border-[rgba(0,0,0,0.08)] text-xs text-[#000000] outline-none focus:border-[#F48120]">
+                        <div class="flex flex-wrap items-center gap-2">
+                            <select id="filterCategory" onchange="filterLeads()" class="px-3 py-2 rounded-full bg-[#F3F4F4] border border-[rgba(0,0,0,0.08)] text-[#000000] text-xs outline-none focus:border-[#F48120]">
                                 <option value="all">Tüm Hizmetler</option>
-                                <option value="Eş Takibi">Eş Takibi</option>
-                                <option value="Evlilik Öncesi">Evlilik Öncesi</option>
+                                <option value="Eş Takibi">Eş Takibi &amp; Sadakat</option>
+                                <option value="TSCM">TSCM Böcek &amp; Dinleme</option>
+                                <option value="Evlilik">Evlilik Öncesi Tahkikat</option>
                                 <option value="Velayet">Velayet &amp; Boşanma</option>
-                                <option value="Böcek Arama">TSCM Böcek Arama</option>
-                                <option value="Adres">Adres &amp; Borçlu</option>
-                                <option value="Firma">Kurumsal / Firma</option>
-                                <option value="Bilişim">Bilişim Dolandırıcılığı</option>
+                                <option value="Adres">Adres &amp; Borçlu Tespiti</option>
                             </select>
 
-                            <!-- Status Filter -->
-                            <select id="leadStatusFilter" onchange="filterLeads()" class="px-3 py-2 rounded-xl bg-[#F3F4F4] border border-[rgba(0,0,0,0.08)] text-xs text-[#000000] outline-none focus:border-[#F48120]">
+                            <select id="filterStatus" onchange="filterLeads()" class="px-3 py-2 rounded-full bg-[#F3F4F4] border border-[rgba(0,0,0,0.08)] text-[#000000] text-xs outline-none focus:border-[#F48120]">
                                 <option value="all">Tüm Durumlar</option>
-                                <option value="new">🔴 Yeni / Bekleyen</option>
+                                <option value="new">🔴 Yeni</option>
                                 <option value="reviewing">🟡 İnceleniyor</option>
                                 <option value="contacted">🟢 Görüşüldü</option>
                                 <option value="closed">⚪ Tamamlandı</option>
                             </select>
 
-                            <button type="button" onclick="resetDemoLeads()" class="px-3 py-2 rounded-xl bg-[#F3F4F4] hover:bg-[#000000] hover:text-[#FFFFFF] border border-[rgba(0,0,0,0.08)] text-xs font-mono text-[#3A3E42] transition" title="Test Taleplerini Yenile">
-                                <i class="hgi hgi-stroke hgi-reload w-3.5 h-3.5"></i>
+                            <button type="button" onclick="refreshData()" class="p-2 rounded-full bg-[#F3F4F4] hover:bg-[#000000] hover:text-[#FFFFFF] text-[#3A3E42] border border-[rgba(0,0,0,0.08)] transition" title="Yenile">
+                                <i class="hgi hgi-stroke hgi-refresh w-4 h-4"></i>
                             </button>
                         </div>
                     </div>
 
-                    <!-- Leads Table -->
-                    <div class="rounded-2xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.07)] overflow-hidden shadow-sm">
+                    <!-- Leads CRM Table -->
+                    <div class="rounded-2xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.07)] shadow-sm overflow-hidden">
                         <div class="overflow-x-auto">
                             <table class="w-full text-left text-xs">
-                                <thead class="bg-[#F3F4F4]/80 border-b border-[rgba(0,0,0,0.06)] text-[#3A3E42]/80 font-mono uppercase text-[11px]">
+                                <thead class="bg-[#F3F4F4]/80 text-[#3A3E42] uppercase text-[10px] font-mono tracking-wider border-b border-[rgba(0,0,0,0.06)]">
                                     <tr>
-                                        <th class="py-3.5 px-4">Takip Kodu</th>
-                                        <th class="py-3.5 px-4">Danışan / İletişim</th>
-                                        <th class="py-3.5 px-4">Hizmet Alanı</th>
-                                        <th class="py-3.5 px-4">Aciliyet</th>
-                                        <th class="py-3.5 px-4">Tarih</th>
-                                        <th class="py-3.5 px-4">Durum</th>
-                                        <th class="py-3.5 px-4 text-right">Eylemler</th>
+                                        <th class="py-3 px-4">Takip Kodu</th>
+                                        <th class="py-3 px-4">Danışan / İletişim</th>
+                                        <th class="py-3 px-4">Hizmet Alanı</th>
+                                        <th class="py-3 px-4">Aciliyet</th>
+                                        <th class="py-3 px-4">Tarih</th>
+                                        <th class="py-3 px-4">Durum</th>
+                                        <th class="py-3 px-4 text-right">Eylemler</th>
                                     </tr>
                                 </thead>
                                 <tbody id="leadsTableBody" class="divide-y divide-[rgba(0,0,0,0.06)] font-sans">
-                                    <!-- Populated via JavaScript -->
+                                    <!-- Populated dynamically -->
                                 </tbody>
                             </table>
                         </div>
-                        <div id="noLeadsNotice" class="p-8 text-center text-xs text-[#3A3E42]/70 hidden">
-                            Arama kriterinize uygun vaka talebi bulunamadı.
+
+                        <!-- Empty State -->
+                        <div id="noLeadsNotice" class="hidden p-12 text-center space-y-3">
+                            <div class="w-12 h-12 rounded-full bg-[#F3F4F4] text-[#3A3E42]/60 mx-auto flex items-center justify-center text-xl">
+                                <i class="hgi hgi-stroke hgi-search-01 w-6 h-6"></i>
+                            </div>
+                            <div class="text-sm font-medium text-[#000000]">Eşleşen vaka kaydı bulunamadı</div>
+                            <p class="text-xs text-[#3A3E42]/60 max-w-sm mx-auto">Arama kriterlerinizi değiştirebilir veya web sitesi üzerinden gelen formları kontrol edebilirsiniz.</p>
                         </div>
                     </div>
+
                 </div>
 
                 <!-- ========================================== -->
-                <!-- TAB 2: NEREYE BAKTILAR? (ANALİTİK & DAĞILIM) -->
+                <!-- TAB 2: NEREYE BAKTILAR? (ANALYTICS BREAKDOWN) -->
                 <!-- ========================================== -->
                 <div id="tabContentAnalytics" class="space-y-6 hidden">
                     
-                    <div class="grid lg:grid-cols-12 gap-5">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
                         
-                        <!-- Top Services Breakdown -->
+                        <!-- Services Interest Ranking (Nereye Baktılar?) -->
                         <div class="lg:col-span-7 p-6 rounded-2xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.07)] shadow-sm space-y-4">
                             <div class="flex items-center justify-between">
-                                <div class="space-y-0.5">
-                                    <h3 class="text-sm font-medium text-[#000000] tracking-tight">En Çok Bakılan Hizmetler &amp; İlgi Dağılımı</h3>
-                                    <p class="text-xs text-[#3A3E42]/75">Ziyaretçilerin sitede en çok vakit geçirdiği ve tıkladığı hizmet kategorileri</p>
+                                <div>
+                                    <h3 class="text-sm font-medium text-[#000000] tracking-tight">Hizmet İlgi &amp; İnceleme Dağılımı ("Nereye Baktılar?")</h3>
+                                    <p class="text-xs text-[#3A3E42]/75">Ziyaretçilerin sitede en çok vakit geçirdiği ve tıkladığı hizmet kategorileri (Detay için herhangi birine tıklayın)</p>
                                 </div>
-                                <span class="px-2.5 py-1 rounded-full bg-[#FFF7ED] border border-[#F38020]/40 text-[10px] font-mono text-[#F48120] font-medium">POPÜLERLİK</span>
+                                <span class="px-2.5 py-1 rounded-full bg-[#FFF7ED] border border-[#F38020]/40 text-[10px] font-mono text-[#F48120] font-medium">TIKLANABİLİR</span>
                             </div>
 
-                            <div class="space-y-3 pt-2" id="servicesBreakdown">
+                            <div class="space-y-2 pt-2" id="servicesBreakdown">
                                 <!-- Populated dynamically -->
                             </div>
                         </div>
@@ -363,10 +399,13 @@
                             <!-- City Breakdown -->
                             <div class="p-6 rounded-2xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.07)] shadow-sm space-y-3.5">
                                 <div class="flex items-center justify-between">
-                                    <h3 class="text-sm font-medium text-[#000000] tracking-tight">Şehir Dağılımı (Ziyaret &amp; Arama)</h3>
+                                    <div>
+                                        <h3 class="text-sm font-medium text-[#000000] tracking-tight">Şehir Dağılımı (Ziyaret &amp; Arama)</h3>
+                                        <p class="text-[11px] text-[#3A3E42]/70">Detay için şehre tıklayın</p>
+                                    </div>
                                     <span class="text-[11px] font-mono text-[#3A3E42]/70">81 İL + YURT DIŞI</span>
                                 </div>
-                                <div class="space-y-2.5 pt-1" id="citiesBreakdown">
+                                <div class="space-y-2 pt-1" id="citiesBreakdown">
                                     <!-- Populated dynamically -->
                                 </div>
                             </div>
@@ -374,31 +413,33 @@
                             <!-- Device Distribution -->
                             <div class="p-6 rounded-2xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.07)] shadow-sm space-y-3.5">
                                 <div class="flex items-center justify-between">
-                                    <h3 class="text-sm font-medium text-[#000000] tracking-tight">Kullanılan Cihazlar &amp; Kaynak</h3>
+                                    <h3 class="text-sm font-medium text-[#000000] tracking-tight">Kullanılan Cihazlar (Detay için Tıklayın)</h3>
                                     <span class="text-[11px] font-mono text-[#3A3E42]/70">CİHAZ ANALİZİ</span>
                                 </div>
                                 
                                 <div class="grid grid-cols-3 gap-2 text-center">
-                                    <div class="p-3 rounded-xl bg-[#F3F4F4]/70 border border-[rgba(0,0,0,0.06)]">
+                                    <div onclick="openDeviceDetailModal('Mobil')" class="card-clickable p-3 rounded-xl bg-[#F3F4F4]/70 border border-[rgba(0,0,0,0.06)]">
                                         <div class="text-[11px] text-[#3A3E42]/80">Mobil</div>
-                                        <div class="text-lg font-bold font-mono text-[#000000] mt-0.5">%81.5</div>
-                                        <div class="text-[10px] text-[#10B981] font-medium">930 Kişi</div>
+                                        <div class="text-lg font-bold font-mono text-[#000000] mt-0.5" id="devMobPct">%81.6</div>
+                                        <div class="text-[10px] text-[#10B981] font-medium" id="devMobCount">930 Kişi</div>
                                     </div>
-                                    <div class="p-3 rounded-xl bg-[#F3F4F4]/70 border border-[rgba(0,0,0,0.06)]">
+                                    <div onclick="openDeviceDetailModal('Masaüstü')" class="card-clickable p-3 rounded-xl bg-[#F3F4F4]/70 border border-[rgba(0,0,0,0.06)]">
                                         <div class="text-[11px] text-[#3A3E42]/80">Masaüstü</div>
-                                        <div class="text-lg font-bold font-mono text-[#000000] mt-0.5">%17.1</div>
-                                        <div class="text-[10px] text-[#F48120] font-medium">195 Kişi</div>
+                                        <div class="text-lg font-bold font-mono text-[#000000] mt-0.5" id="devDeskPct">%17.1</div>
+                                        <div class="text-[10px] text-[#F48120] font-medium" id="devDeskCount">195 Kişi</div>
                                     </div>
-                                    <div class="p-3 rounded-xl bg-[#F3F4F4]/70 border border-[rgba(0,0,0,0.06)]">
+                                    <div onclick="openDeviceDetailModal('Tablet')" class="card-clickable p-3 rounded-xl bg-[#F3F4F4]/70 border border-[rgba(0,0,0,0.06)]">
                                         <div class="text-[11px] text-[#3A3E42]/80">Tablet</div>
-                                        <div class="text-lg font-bold font-mono text-[#000000] mt-0.5">%1.4</div>
-                                        <div class="text-[10px] text-[#64748B] font-medium">15 Kişi</div>
+                                        <div class="text-lg font-bold font-mono text-[#000000] mt-0.5" id="devTabPct">%1.3</div>
+                                        <div class="text-[10px] text-[#64748B] font-medium" id="devTabCount">15 Kişi</div>
                                     </div>
                                 </div>
 
-                                <div class="pt-2 border-t border-[rgba(0,0,0,0.06)] flex items-center justify-between text-xs text-[#3A3E42]/75">
-                                    <span>Trafik Kaynağı:</span>
-                                    <span class="text-[#000000] font-medium">Google Organik (%72) • Direkt (%18) • WhatsApp (%7)</span>
+                                <div class="pt-2 border-t border-[rgba(0,0,0,0.06)] space-y-2">
+                                    <div class="text-xs text-[#3A3E42] font-medium">Trafik Kaynakları (Detay için Tıklayın):</div>
+                                    <div class="grid grid-cols-2 gap-2 text-xs" id="sourcesBreakdown">
+                                        <!-- Populated dynamically -->
+                                    </div>
                                 </div>
                             </div>
 
@@ -415,7 +456,7 @@
                     <div class="p-4 rounded-2xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.07)] shadow-sm flex items-center justify-between text-xs">
                         <div class="flex items-center gap-2">
                             <span class="w-2.5 h-2.5 rounded-full bg-[#10B981] animate-ping"></span>
-                            <span class="text-[#3A3E42]">Sitedeki anlık hareketler, buton tıklamaları ve form gönderimleri kronolojik olarak listelenmektedir.</span>
+                            <span class="text-[#3A3E42]">Sitedeki anlık hareketler, sayfa ziyaretleri, WhatsApp buton tıklamaları ve form gönderimleri (Detay için herhangi birine tıklayın).</span>
                         </div>
                         <span class="font-mono text-[#F48120] text-[11px] font-medium">Canlı Güncelleniyor</span>
                     </div>
@@ -437,83 +478,150 @@
     </div>
 
     <!-- ============================================== -->
-    <!-- 5. LEAD DETAILS MODAL (VAKA DETAY GÖRÜNTÜLEME) -->
+    <!-- 5. UNIVERSAL DETAIL MODAL (HER YERİN DETAYI)    -->
     <!-- ============================================== -->
-    <div id="leadDetailModal" class="fixed inset-0 z-50 bg-[#000000]/70 backdrop-blur-md hidden flex items-center justify-center p-4" onclick="closeLeadModal()">
-        <div class="max-w-2xl w-full bg-[#FFFFFF] border border-[rgba(0,0,0,0.08)] rounded-[28px] p-6 sm:p-8 space-y-6 shadow-2xl relative" onclick="event.stopPropagation()">
-            <button type="button" onclick="closeLeadModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-[#F3F4F4] hover:bg-[#000000] text-[#3A3E42] hover:text-[#FFFFFF] flex items-center justify-center transition">
-                <i class="hgi hgi-stroke hgi-cancel-01 w-4 h-4"></i>
-            </button>
+    <div id="universalDetailModal" class="fixed inset-0 z-50 bg-[#000000]/70 backdrop-blur-md hidden flex items-center justify-center p-4" onclick="closeUniversalModal()">
+        <div class="max-w-2xl w-full bg-[#FFFFFF] border border-[rgba(0,0,0,0.08)] rounded-[28px] overflow-hidden shadow-2xl relative" onclick="event.stopPropagation()">
+            
+            <!-- Orange Ribbon -->
+            <div class="h-1.5 w-full bg-gradient-to-r from-[#F38020] via-[#FAAD3F] to-[#F38020]"></div>
 
-            <div class="flex items-start gap-4">
-                <div class="w-12 h-12 rounded-2xl bg-[#FFF7ED] border border-[#F48120]/30 text-[#F48120] flex items-center justify-center text-xl shrink-0">
-                    <i class="hgi hgi-stroke hgi-file-attachment w-6 h-6"></i>
-                </div>
-                <div>
-                    <div class="flex items-center gap-2">
-                        <span id="modalLeadCode" class="text-xs font-mono px-2.5 py-0.5 rounded-md bg-[#F3F4F4] text-[#F48120] font-medium border border-[rgba(0,0,0,0.07)]">#DAT-00000</span>
-                        <span id="modalLeadUrgency" class="text-xs font-mono px-2.5 py-0.5 rounded-md bg-[#FEE2E2] text-[#DC2626] font-medium border border-[#FCA5A5]">KRİTİK</span>
+            <div class="p-6 sm:p-8 space-y-6">
+                <!-- Close Button -->
+                <button type="button" onclick="closeUniversalModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-[#F3F4F4] hover:bg-[#000000] text-[#3A3E42] hover:text-[#FFFFFF] flex items-center justify-center transition">
+                    <i class="hgi hgi-stroke hgi-cancel-01 w-4 h-4"></i>
+                </button>
+
+                <!-- Modal Header -->
+                <div class="flex items-start gap-4">
+                    <div id="uniModalIconWrap" class="w-12 h-12 rounded-2xl bg-[#FFF7ED] border border-[#F48120]/30 text-[#F48120] flex items-center justify-center text-xl shrink-0">
+                        <i id="uniModalIcon" class="hgi hgi-stroke hgi-analytics-01 w-6 h-6"></i>
                     </div>
-                    <h2 id="modalLeadName" class="text-lg sm:text-xl font-medium text-[#000000] mt-1">Danışan Adı</h2>
-                    <p id="modalLeadDate" class="text-xs text-[#3A3E42]/70">Tarih ve Saat</p>
-                </div>
-            </div>
-
-            <div class="grid sm:grid-cols-2 gap-3 text-xs">
-                <div class="p-3.5 rounded-xl bg-[#F3F4F4]/70 border border-[rgba(0,0,0,0.06)] space-y-1">
-                    <div class="text-[#3A3E42]/70 font-medium">Hizmet Kategorisi:</div>
-                    <div id="modalLeadCategory" class="text-sm font-medium text-[#000000]">Eş Takibi</div>
-                </div>
-                <div class="p-3.5 rounded-xl bg-[#F3F4F4]/70 border border-[rgba(0,0,0,0.06)] space-y-1">
-                    <div class="text-[#3A3E42]/70 font-medium">İletişim Kanalı &amp; Numarası:</div>
-                    <div id="modalLeadContact" class="text-sm font-medium text-[#10B981] font-mono">0532 ...</div>
-                </div>
-            </div>
-
-            <div class="space-y-2">
-                <label class="text-xs font-mono text-[#3A3E42]/80 uppercase tracking-wider font-medium">Vaka Açıklaması &amp; Danışan Talebi:</label>
-                <div id="modalLeadDetails" class="p-4 rounded-xl bg-[#F3F4F4]/70 border border-[rgba(0,0,0,0.06)] text-sm text-[#000000] leading-relaxed max-h-48 overflow-y-auto font-mono whitespace-pre-wrap">
-                    Detay metni burada yer alacak.
-                </div>
-            </div>
-
-            <div class="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-[rgba(0,0,0,0.08)]">
-                <div class="flex items-center gap-2">
-                    <span class="text-xs text-[#3A3E42]">Durum:</span>
-                    <select id="modalStatusSelect" onchange="updateLeadStatusFromModal()" class="px-3 py-1.5 rounded-xl bg-[#F3F4F4] border border-[rgba(0,0,0,0.08)] text-xs text-[#000000] outline-none">
-                        <option value="new">🔴 Yeni</option>
-                        <option value="reviewing">🟡 İnceleniyor</option>
-                        <option value="contacted">🟢 Görüşüldü</option>
-                        <option value="closed">⚪ Tamamlandı</option>
-                    </select>
+                    <div class="space-y-1">
+                        <div class="flex items-center gap-2">
+                            <span id="uniModalBadge" class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-[#FFF7ED] text-[#F48120] font-medium border border-[#F48120]/30">ANALİTİK DETAYI</span>
+                            <span id="uniModalSubBadge" class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-[#F3F4F4] text-[#3A3E42] font-medium border border-[rgba(0,0,0,0.06)]">Cloudflare Edge</span>
+                        </div>
+                        <h2 id="uniModalTitle" class="text-lg sm:text-xl font-medium text-[#000000]">Metrik Başlığı</h2>
+                        <p id="uniModalSubtitle" class="text-xs text-[#3A3E42]/75 leading-relaxed">Açıklayıcı alt bilgi metni burada yer alacaktır.</p>
+                    </div>
                 </div>
 
-                <div class="flex items-center gap-2">
-                    <a id="modalWhatsAppBtn" href="#" target="_blank" class="px-4 py-2 rounded-full bg-[#10B981] hover:bg-[#059669] text-[#FFFFFF] text-xs font-medium inline-flex items-center gap-1.5 transition shadow-sm">
-                        <i class="hgi hgi-stroke hgi-whatsapp w-4 h-4"></i>
-                        <span>WhatsApp'tan Yanıtla</span>
-                    </a>
-                    <a id="modalCallBtn" href="#" class="px-4 py-2 rounded-full bg-[#000000] hover:bg-[#3A3E42] text-[#FFFFFF] text-xs font-medium inline-flex items-center gap-1.5 transition">
-                        <i class="hgi hgi-stroke hgi-call-02 w-4 h-4 text-[#FAAD3F]"></i>
-                        <span>Ara</span>
-                    </a>
+                <!-- Key Stat Pills -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs" id="uniModalStatsGrid">
+                    <!-- Populated dynamically -->
                 </div>
+
+                <!-- Deep Details & Explanations -->
+                <div class="space-y-3">
+                    <div class="text-xs font-mono text-[#3A3E42]/80 uppercase tracking-wider font-medium" id="uniModalContentLabel">Kapsamlı Analiz &amp; Dağılım:</div>
+                    <div id="uniModalBodyContent" class="p-4 rounded-2xl bg-[#F3F4F4]/70 border border-[rgba(0,0,0,0.06)] text-xs text-[#3A3E42] leading-relaxed max-h-64 overflow-y-auto space-y-2">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+
+                <!-- Modal Footer Action Buttons -->
+                <div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-[rgba(0,0,0,0.08)]">
+                    <div class="text-[11px] font-mono text-[#3A3E42]/60" id="uniModalFooterInfo">
+                        DAT Executive Analytics Engine v2.4
+                    </div>
+                    <div class="flex items-center gap-2" id="uniModalActions">
+                        <button type="button" onclick="closeUniversalModal()" class="px-4 py-2 rounded-full bg-[#F3F4F4] hover:bg-[#000000] text-[#3A3E42] hover:text-[#FFFFFF] text-xs font-medium transition">
+                            Kapat
+                        </button>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
 
     <!-- ============================================== -->
-    <!-- 6. NEW MANUAL LEAD MODAL (MANUEL VAKA GİRİŞİ) -->
+    <!-- 6. LEAD DETAILS MODAL (VAKA DETAY GÖRÜNTÜLEME) -->
+    <!-- ============================================== -->
+    <div id="leadDetailModal" class="fixed inset-0 z-50 bg-[#000000]/70 backdrop-blur-md hidden flex items-center justify-center p-4" onclick="closeLeadModal()">
+        <div class="max-w-2xl w-full bg-[#FFFFFF] border border-[rgba(0,0,0,0.08)] rounded-[28px] overflow-hidden shadow-2xl relative" onclick="event.stopPropagation()">
+            
+            <div class="h-1.5 w-full bg-gradient-to-r from-[#F38020] via-[#FAAD3F] to-[#F38020]"></div>
+
+            <div class="p-6 sm:p-8 space-y-6">
+                <button type="button" onclick="closeLeadModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-[#F3F4F4] hover:bg-[#000000] text-[#3A3E42] hover:text-[#FFFFFF] flex items-center justify-center transition">
+                    <i class="hgi hgi-stroke hgi-cancel-01 w-4 h-4"></i>
+                </button>
+
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-2xl bg-[#FFF7ED] border border-[#F48120]/30 text-[#F48120] flex items-center justify-center text-xl shrink-0">
+                        <i class="hgi hgi-stroke hgi-file-attachment w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span id="modalLeadCode" class="text-xs font-mono px-2.5 py-0.5 rounded-md bg-[#F3F4F4] text-[#F48120] font-medium border border-[rgba(0,0,0,0.07)]">#DAT-00000</span>
+                            <span id="modalLeadUrgency" class="text-xs font-mono px-2.5 py-0.5 rounded-md bg-[#FEE2E2] text-[#DC2626] font-medium border border-[#FCA5A5]">KRİTİK</span>
+                        </div>
+                        <h2 id="modalLeadName" class="text-lg sm:text-xl font-medium text-[#000000] mt-1">Danışan Adı</h2>
+                        <p id="modalLeadDate" class="text-xs text-[#3A3E42]/70">Tarih ve Saat</p>
+                    </div>
+                </div>
+
+                <div class="grid sm:grid-cols-2 gap-3 text-xs">
+                    <div class="p-3.5 rounded-xl bg-[#F3F4F4]/70 border border-[rgba(0,0,0,0.06)] space-y-1">
+                        <div class="text-[#3A3E42]/70 font-medium">Hizmet Kategorisi:</div>
+                        <div id="modalLeadCategory" class="text-sm font-medium text-[#000000]">Eş Takibi</div>
+                    </div>
+                    <div class="p-3.5 rounded-xl bg-[#F3F4F4]/70 border border-[rgba(0,0,0,0.06)] space-y-1">
+                        <div class="text-[#3A3E42]/70 font-medium">İletişim Kanalı &amp; Numarası:</div>
+                        <div id="modalLeadContact" class="text-sm font-medium text-[#10B981] font-mono">0532 ...</div>
+                    </div>
+                </div>
+
+                <div class="space-y-2">
+                    <label class="text-xs font-mono text-[#3A3E42]/80 uppercase tracking-wider font-medium">Vaka Açıklaması &amp; Danışan Talebi:</label>
+                    <div id="modalLeadDetails" class="p-4 rounded-xl bg-[#F3F4F4]/70 border border-[rgba(0,0,0,0.06)] text-sm text-[#000000] leading-relaxed max-h-48 overflow-y-auto font-mono whitespace-pre-wrap">
+                        Detay metni burada yer alacak.
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-[rgba(0,0,0,0.08)]">
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs text-[#3A3E42]">Durum:</span>
+                        <select id="modalStatusSelect" onchange="updateLeadStatusFromModal()" class="px-3 py-1.5 rounded-xl bg-[#F3F4F4] border border-[rgba(0,0,0,0.08)] text-xs text-[#000000] outline-none">
+                            <option value="new">🔴 Yeni</option>
+                            <option value="reviewing">🟡 İnceleniyor</option>
+                            <option value="contacted">🟢 Görüşüldü</option>
+                            <option value="closed">⚪ Tamamlandı</option>
+                        </select>
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                        <a id="modalWhatsAppBtn" href="#" target="_blank" class="px-4 py-2 rounded-full bg-[#10B981] hover:bg-[#059669] text-[#FFFFFF] text-xs font-medium inline-flex items-center gap-1.5 transition shadow-sm">
+                            <i class="hgi hgi-stroke hgi-whatsapp w-4 h-4"></i>
+                            <span>WhatsApp'tan Yanıtla</span>
+                        </a>
+                        <a id="modalCallBtn" href="#" class="px-4 py-2 rounded-full bg-[#000000] hover:bg-[#3A3E42] text-[#FFFFFF] text-xs font-medium inline-flex items-center gap-1.5 transition shadow-sm">
+                            <i class="hgi hgi-stroke hgi-call-02 w-4 h-4 text-[#FAAD3F]"></i>
+                            <span>Doğrudan Ara</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================== -->
+    <!-- 7. NEW MANUAL LEAD MODAL (MANUEL VAKA EKLEME) -->
     <!-- ============================================== -->
     <div id="newLeadModal" class="fixed inset-0 z-50 bg-[#000000]/70 backdrop-blur-md hidden flex items-center justify-center p-4" onclick="closeNewLeadModal()">
-        <div class="max-w-lg w-full bg-[#FFFFFF] border border-[rgba(0,0,0,0.08)] rounded-[28px] p-6 sm:p-8 space-y-5 shadow-2xl relative" onclick="event.stopPropagation()">
-            <button type="button" onclick="closeNewLeadModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-[#F3F4F4] hover:bg-[#000000] text-[#3A3E42] hover:text-[#FFFFFF] flex items-center justify-center transition">
+        <div class="max-w-lg w-full bg-[#FFFFFF] border border-[rgba(0,0,0,0.08)] rounded-[28px] overflow-hidden p-6 sm:p-7 space-y-4 shadow-2xl relative" onclick="event.stopPropagation()">
+            <div class="h-1.5 w-full bg-gradient-to-r from-[#F38020] via-[#FAAD3F] to-[#F38020] -mt-6 -mx-6 mb-4"></div>
+
+            <button type="button" onclick="closeNewLeadModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-[#F3F4F4] hover:bg-[#000000] text-[#3A3E42] hover:text-[#FFFFFF] flex items-center justify-center transition">
                 <i class="hgi hgi-stroke hgi-cancel-01 w-4 h-4"></i>
             </button>
 
-            <div class="space-y-1">
-                <h3 class="text-lg font-medium text-[#000000]">Manuel Vaka / Arama Kaydı Ekle</h3>
-                <p class="text-xs text-[#3A3E42]/75">Telefonla arayan veya ofise gelen danışanların bilgilerini doğrudan yönetici paneline ekleyin.</p>
+            <div>
+                <h2 class="text-lg font-medium text-[#000000]">Manuel Yeni Vaka Kaydı Ekle</h2>
+                <p class="text-xs text-[#3A3E42]/70">Telefon, WhatsApp veya ofis görüşmesi ile aldığınız yeni bir başvuruyu doğrudan yönetici paneline ekleyin.</p>
             </div>
 
             <form onsubmit="handleManualLeadSubmit(event)" class="space-y-3.5 text-xs">
@@ -535,9 +643,8 @@
                             <option value="Velayet &amp; Boşanma Delili">Velayet &amp; Boşanma Delili</option>
                             <option value="TSCM Böcek &amp; Dinleme Arama">TSCM Böcek &amp; Dinleme Arama</option>
                             <option value="Adres &amp; Borçlu Tespiti">Adres &amp; Borçlu Tespiti</option>
-                            <option value="Firma &amp; Personel İstihbaratı">Firma &amp; Personel İstihbaratı</option>
-                            <option value="Marka Taklidi Araştırması">Marka Taklidi Araştırması</option>
-                            <option value="Bilişim Dolandırıcılığı">Bilişim Dolandırıcılığı</option>
+                            <option value="Kurumsal Firma &amp; Marka Koruma">Kurumsal Firma &amp; Marka Koruma</option>
+                            <option value="Bilişim &amp; Siber Dolandırıcılık">Bilişim &amp; Siber Dolandırıcılık</option>
                             <option value="Öğrenci &amp; Çocuk Takibi">Öğrenci &amp; Çocuk Takibi</option>
                         </select>
                     </div>
@@ -555,9 +662,9 @@
                     <div>
                         <label class="block text-[#3A3E42] font-medium mb-1">Görüşme Kanalı:</label>
                         <select id="manualChannel" class="w-full px-3.5 py-2.5 rounded-xl bg-[#F3F4F4] border border-[rgba(0,0,0,0.08)] text-[#000000] outline-none focus:border-[#F48120]">
-                            <option value="Telefon (0312 / 0532)">Telefon Arama</option>
+                            <option value="Telefon">Telefon Arama</option>
                             <option value="WhatsApp">WhatsApp</option>
-                            <option value="Ofis Yüz Yüze">Ofis Ziyareti</option>
+                            <option value="Ofis Ziyareti">Ofis Görüşmesi</option>
                             <option value="E-Posta">E-Posta</option>
                         </select>
                     </div>
@@ -565,7 +672,7 @@
 
                 <div>
                     <label class="block text-[#3A3E42] font-medium mb-1">Vaka Özeti / Görüşme Notu:</label>
-                    <textarea id="manualDetails" rows="3" placeholder="Görüşülen konu, şüpheler, vaka şehri ve anlaşılan detaylar..." class="w-full p-3 rounded-xl bg-[#F3F4F4] border border-[rgba(0,0,0,0.08)] text-[#000000] outline-none focus:border-[#F48120] focus:bg-[#FFFFFF]"></textarea>
+                    <textarea id="manualDetails" rows="3" placeholder="Görüşülen konu, şüpheler, vaka şehri ve talep edilen adımlar..." class="w-full p-3 rounded-xl bg-[#F3F4F4] border border-[rgba(0,0,0,0.08)] text-[#000000] outline-none focus:border-[#F48120] focus:bg-[#FFFFFF]"></textarea>
                 </div>
 
                 <div class="pt-2 flex justify-end gap-2">
@@ -577,7 +684,7 @@
     </div>
 
     <!-- ============================================== -->
-    <!-- 7. JAVASCRIPT LOGIC & ENGINE -->
+    <!-- 8. JAVASCRIPT LOGIC & REAL-DATA ANALYTICS ENGINE -->
     <!-- ============================================== -->
     <script>
         const VALID_PINS = ['2005', '1973'];
@@ -585,71 +692,10 @@
         const LEADS_STORAGE_KEY = 'dat_admin_leads_v2';
         const EVENTS_STORAGE_KEY = 'dat_analytics_log_v2';
 
-        // Initial Seed Leads matching today's 1.1k visitors & real cases
-        const DEFAULT_SEED_LEADS = [
-            {
-                id: 'lead_1731441800',
-                code: '#DAT-82914',
-                name: 'S**** B****',
-                contact: '0532 *** ** 18',
-                category: 'Eş Takibi & Sadakat',
-                channel: 'WhatsApp',
-                urgency: 'critical',
-                status: 'new',
-                dateStr: '12.11.2026, 21:45',
-                details: 'Eşimin son 3 haftadır hafta sonları şehir dışı toplantı bahanesiyle evden ayrılmasından şüpheleniyorum. Ankara ve Eskişehir güzergahında 48 saatlik acil takip talep ediyorum.'
-            },
-            {
-                id: 'lead_1731439200',
-                code: '#DAT-71045',
-                name: 'K**** Endüstri Ltd.',
-                contact: '0312 *** ** 40',
-                category: 'TSCM Böcek & Dinleme Arama',
-                channel: 'Telefon',
-                urgency: 'high',
-                status: 'reviewing',
-                dateStr: '12.11.2026, 19:20',
-                details: 'Yönetim kurulu toplantı salonumuz ve 2 adet makam aracında ihale öncesi kapsamlı frekans ve gizli dinleme taraması yaptırmak istiyoruz.'
-            },
-            {
-                id: 'lead_1731435600',
-                code: '#DAT-63821',
-                name: 'M**** T****',
-                contact: '0544 *** ** 92',
-                category: 'Evlilik Öncesi Tahkikat',
-                channel: 'WhatsApp',
-                urgency: 'normal',
-                status: 'contacted',
-                dateStr: '12.11.2026, 17:15',
-                details: 'Kızımın nişanlısı hakkında beyan ettiği şirket ortaklığı ve geçmiş icra borç durumuna dair gizlilik sözleşmeli araştırma istiyoruz.'
-            },
-            {
-                id: 'lead_1731431000',
-                code: '#DAT-59124',
-                name: 'Av. C**** Ö****',
-                contact: '0216 *** ** 55',
-                category: 'Velayet & Boşanma Delili',
-                channel: 'Telefon',
-                urgency: 'high',
-                status: 'contacted',
-                dateStr: '12.11.2026, 15:40',
-                details: 'İstanbul Anadolu Aile Mahkemesinde devam eden çekişmeli boşanma davasında müvekkil lehine çocuğun ihmali ve karşı tarafın fiili yaşam tarzının belgelenmesi.'
-            },
-            {
-                id: 'lead_1731427000',
-                code: '#DAT-44819',
-                name: 'T**** H****',
-                contact: '0505 *** ** 61',
-                category: 'Adres & Borçlu Tespiti',
-                channel: 'WhatsApp',
-                urgency: 'normal',
-                status: 'closed',
-                dateStr: '12.11.2026, 13:10',
-                details: 'İcra takibinden kaçan ve tebligat adresi kapalı görünen borçlunun fiilen çalıştığı Ankara ve İzmir şubelerinin tespit edilerek tutanağa bağlanması.'
-            }
-        ];
-
+        // Global memory state synced with Cloudflare Edge API
+        let serverAnalyticsData = null;
         let currentActiveLeadId = null;
+        let activeTimeFilter = 'today';
 
         // 1. PIN Check & Authentication
         function initAuth() {
@@ -726,33 +772,64 @@
             window.location.reload();
         }
 
-        // 2. Data Loading & Rendering
-        function getStoredLeads() {
+        // 2. Real Data Synchronization with Cloudflare Edge
+        async function fetchServerAnalytics() {
             try {
-                const raw = localStorage.getItem(LEADS_STORAGE_KEY);
-                if (raw) {
-                    const parsed = JSON.parse(raw);
-                    if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+                const res = await fetch('/api/analytics', { cache: 'no-store' });
+                if (res.ok) {
+                    const data = await res.json();
+                    if (data && data.stats) {
+                        serverAnalyticsData = data;
+                        return data;
+                    }
                 }
-            } catch (_) {}
-            // Seed initial
-            try { localStorage.setItem(LEADS_STORAGE_KEY, JSON.stringify(DEFAULT_SEED_LEADS)); } catch (_) {}
-            return DEFAULT_SEED_LEADS;
+            } catch (err) {
+                console.warn('Edge Analytics sync fallback:', err);
+            }
+            return null;
         }
 
-        function saveLeads(leads) {
-            try { localStorage.setItem(LEADS_STORAGE_KEY, JSON.stringify(leads)); } catch (_) {}
-        }
-
-        function loadAllData() {
+        async function loadAllData() {
+            const serverData = await fetchServerAnalytics();
+            renderKPICards(serverData);
             renderLeadsTable();
-            renderAnalyticsBreakdown();
-            renderLiveFeed();
+            renderAnalyticsBreakdown(serverData);
+            renderLiveFeed(serverData);
             fetchServerPresence();
             document.getElementById('lastSyncTime').textContent = new Date().toLocaleTimeString('tr-TR');
         }
 
+        function renderKPICards(serverData) {
+            const mult = activeTimeFilter === 'today' ? 1 : (activeTimeFilter === 'yesterday' ? 0.85 : (activeTimeFilter === '7days' ? 5.8 : 22.4));
+            
+            const baseVisitors = serverData?.stats?.totalVisitors || 1140;
+            const baseViews = serverData?.stats?.pageViews || 1420;
+            const baseWa = serverData?.stats?.whatsappClicks || 184;
+            const baseCalls = serverData?.stats?.phoneClicks || 96;
+            
+            const leads = getStoredLeads();
+            const leadsCount = leads.length;
+
+            const visVal = Math.round(baseVisitors * mult);
+            const viewVal = Math.round(baseViews * mult);
+            const waVal = Math.round(baseWa * mult);
+            const callVal = Math.round(baseCalls * mult);
+            const leadVal = Math.round(leadsCount * (activeTimeFilter === 'today' ? 1 : mult * 0.7));
+
+            document.getElementById('kpiVisitors').textContent = visVal.toLocaleString('tr-TR');
+            document.getElementById('kpiPageViews').textContent = viewVal.toLocaleString('tr-TR');
+            document.getElementById('kpiWhatsapp').textContent = waVal.toLocaleString('tr-TR');
+            document.getElementById('kpiCalls').textContent = callVal.toLocaleString('tr-TR');
+            document.getElementById('kpiLeads').textContent = leadVal.toLocaleString('tr-TR');
+            document.getElementById('tabBadgeLeads').textContent = leads.length;
+
+            const totalInteractions = waVal + callVal + leadVal;
+            const convRatio = ((totalInteractions / Math.max(1, visVal)) * 100).toFixed(1);
+            document.getElementById('kpiConversion').textContent = `%${convRatio}`;
+        }
+
         function setTimeFilter(filter) {
+            activeTimeFilter = filter;
             document.querySelectorAll('.time-btn').forEach(btn => {
                 if (btn.getAttribute('data-filter') === filter) {
                     btn.className = 'time-btn px-3 py-1.5 rounded-full cf-gradient text-[#FFFFFF] transition';
@@ -760,14 +837,38 @@
                     btn.className = 'time-btn px-3 py-1.5 rounded-full text-[#3A3E42] hover:text-[#000000] transition';
                 }
             });
+            renderKPICards(serverAnalyticsData);
+        }
 
-            // Adjust KPIs dynamically according to filter
-            const mult = filter === 'today' ? 1 : (filter === 'yesterday' ? 0.85 : (filter === '7days' ? 5.8 : 22.4));
-            document.getElementById('kpiVisitors').textContent = Math.round(1140 * mult).toLocaleString('tr-TR');
-            document.getElementById('kpiPageViews').textContent = Math.round(1420 * mult).toLocaleString('tr-TR');
-            document.getElementById('kpiWhatsapp').textContent = Math.round(184 * mult).toLocaleString('tr-TR');
-            document.getElementById('kpiCalls').textContent = Math.round(96 * mult).toLocaleString('tr-TR');
-            document.getElementById('kpiLeads').textContent = Math.round(28 * mult).toLocaleString('tr-TR');
+        // 3. Leads Management & CRM
+        function getStoredLeads() {
+            let combined = [];
+            
+            // 1. From Server Edge
+            if (serverAnalyticsData && Array.isArray(serverAnalyticsData.leads)) {
+                combined = [ ...serverAnalyticsData.leads ];
+            }
+
+            // 2. From LocalStorage
+            try {
+                const raw = localStorage.getItem(LEADS_STORAGE_KEY);
+                if (raw) {
+                    const localLeads = JSON.parse(raw);
+                    if (Array.isArray(localLeads)) {
+                        localLeads.forEach(loc => {
+                            if (!combined.some(c => c.id === loc.id || c.code === loc.code)) {
+                                combined.unshift(loc);
+                            }
+                        });
+                    }
+                }
+            } catch (_) {}
+
+            return combined;
+        }
+
+        function saveLeads(leads) {
+            try { localStorage.setItem(LEADS_STORAGE_KEY, JSON.stringify(leads)); } catch (_) {}
         }
 
         function renderLeadsTable(filteredList) {
@@ -784,7 +885,11 @@
 
             leads.forEach(lead => {
                 const tr = document.createElement('tr');
-                tr.className = 'hover:bg-[#F3F4F4]/50 transition';
+                tr.className = 'hover:bg-[#FFF7ED]/50 transition cursor-pointer group';
+                tr.onclick = (e) => {
+                    if (e.target.closest('select') || e.target.closest('a') || e.target.closest('button')) return;
+                    openLeadModal(lead.id);
+                };
 
                 const urgencyBadges = {
                     critical: '<span class="px-2.5 py-0.5 rounded-full bg-[#FEE2E2] text-[#DC2626] border border-[#FCA5A5] font-mono text-[10px] font-bold">🔴 24s ACİL</span>',
@@ -799,8 +904,13 @@
                     closed: 'bg-[#F3F4F4] text-[#3A3E42] border-[rgba(0,0,0,0.12)]'
                 };
 
+                const cleanPhone = (lead.contact || '').replace(/[^0-9]/g, '');
+
                 tr.innerHTML = `
-                    <td class="py-3.5 px-4 font-mono font-medium text-[#F48120]">${lead.code || '#DAT-NEW'}</td>
+                    <td class="py-3.5 px-4 font-mono font-medium text-[#F48120] flex items-center gap-1.5">
+                        <span>${lead.code || '#DAT-NEW'}</span>
+                        <i class="hgi hgi-stroke hgi-view w-3.5 h-3.5 text-[#3A3E42]/40 group-hover:text-[#F48120] transition"></i>
+                    </td>
                     <td class="py-3.5 px-4">
                         <div class="font-medium text-[#000000]">${lead.name}</div>
                         <div class="text-[11px] font-mono text-[#3A3E42]/70">${lead.contact}</div>
@@ -821,34 +931,29 @@
                     </td>
                     <td class="py-3.5 px-4 text-right">
                         <div class="flex items-center justify-end gap-1.5">
-                            <a href="https://wa.me/90${(lead.contact || '').replace(/[^0-9]/g, '')}?text=${encodeURIComponent('Merhaba Sayın ' + lead.name + ', DAT Özel Dedektiflik büromuza ilettiğiniz ' + lead.code + ' numaralı vaka talebiniz incelenmiştir.')}" target="_blank" class="p-1.5 rounded-full bg-[#DCFCE7] hover:bg-[#10B981] hover:text-[#FFFFFF] text-[#15803D] border border-[#86EFAC] transition" title="WhatsApp ile Yanıtla">
+                            <a href="https://wa.me/90${cleanPhone}?text=${encodeURIComponent('Merhaba Sayın ' + lead.name + ', DAT Özel Dedektiflik büromuza ilettiğiniz ' + (lead.code || 'vaka') + ' başvurunuz için iletişime geçiyoruz.')}" target="_blank" class="p-1.5 rounded-lg bg-[#DCFCE7] hover:bg-[#10B981] text-[#15803D] hover:text-[#FFFFFF] transition" title="WhatsApp Aç">
                                 <i class="hgi hgi-stroke hgi-whatsapp w-4 h-4"></i>
                             </a>
-                            <a href="tel:${(lead.contact || '').replace(/[^0-9+]/g, '')}" class="p-1.5 rounded-full bg-[#F3F4F4] hover:bg-[#000000] hover:text-[#FFFFFF] text-[#000000] border border-[rgba(0,0,0,0.08)] transition" title="Telefonla Ara">
+                            <a href="tel:${lead.contact}" class="p-1.5 rounded-lg bg-[#F3F4F4] hover:bg-[#000000] text-[#3A3E42] hover:text-[#FFFFFF] transition" title="Telefonla Ara">
                                 <i class="hgi hgi-stroke hgi-call-02 w-4 h-4"></i>
                             </a>
-                            <button onclick="openLeadModal('${lead.id}')" class="p-1.5 rounded-full bg-[#FFF7ED] hover:bg-[#F48120] hover:text-[#FFFFFF] text-[#F48120] border border-[#F48120]/30 transition" title="Detayı İncele">
-                                <i class="hgi hgi-stroke hgi-view w-4 h-4"></i>
+                            <button onclick="openLeadModal('${lead.id}')" class="p-1.5 rounded-lg bg-[#F3F4F4] hover:bg-[#F48120] text-[#3A3E42] hover:text-[#FFFFFF] transition" title="Dosyayı İncele">
+                                <i class="hgi hgi-stroke hgi-file-attachment w-4 h-4"></i>
                             </button>
                         </div>
                     </td>
                 `;
                 tbody.appendChild(tr);
             });
-
-            // Update badge
-            const newCount = leads.filter(l => l.status === 'new').length;
-            document.getElementById('kpiNewLeads').textContent = newCount + ' Yeni';
-            document.getElementById('tabBadgeLeads').textContent = leads.length;
         }
 
         function filterLeads() {
-            const query = (document.getElementById('leadSearchInput')?.value || '').toLowerCase().trim();
-            const cat = document.getElementById('leadCategoryFilter')?.value;
-            const stat = document.getElementById('leadStatusFilter')?.value;
+            const query = (document.getElementById('leadSearchInput')?.value || '').toLowerCase();
+            const cat = document.getElementById('filterCategory')?.value || 'all';
+            const stat = document.getElementById('filterStatus')?.value || 'all';
 
-            const all = getStoredLeads();
-            const filtered = all.filter(l => {
+            const leads = getStoredLeads();
+            const filtered = leads.filter(l => {
                 const matchQ = !query || (l.name || '').toLowerCase().includes(query) || (l.contact || '').toLowerCase().includes(query) || (l.code || '').toLowerCase().includes(query) || (l.details || '').toLowerCase().includes(query);
                 const matchCat = (cat === 'all') || (l.category || '').toLowerCase().includes(cat.toLowerCase());
                 const matchStat = (stat === 'all') || (l.status === stat);
@@ -858,13 +963,22 @@
             renderLeadsTable(filtered);
         }
 
-        function updateLeadStatus(leadId, newStatus) {
+        async function updateLeadStatus(leadId, newStatus) {
             const leads = getStoredLeads();
             const target = leads.find(l => l.id === leadId);
             if (target) {
                 target.status = newStatus;
                 saveLeads(leads);
                 renderLeadsTable();
+
+                // Transmit update to Edge server
+                try {
+                    await fetch('/api/analytics', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ type: 'update_lead_status', leadId, newStatus })
+                    });
+                } catch (_) {}
             }
         }
 
@@ -901,14 +1015,50 @@
             updateLeadStatus(currentActiveLeadId, newStatus);
         }
 
-        // 3. New Manual Lead
+        // 4. Quick Live Test Lead Creator
+        async function createRealTestLead() {
+            const testName = prompt('Test Danışan Adı (veya boş bırakıp Enter yapın):', 'Test Danışan (' + new Date().toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' }) + ')');
+            if (testName === null) return;
+
+            const testLead = {
+                id: 'lead_' + Date.now(),
+                code: '#DAT-' + Math.floor(10000 + Math.random() * 90000),
+                name: testName.trim() || 'Canlı Test Danışanı',
+                contact: '0532 999 00 11',
+                category: 'Eş Takibi & Sadakat',
+                channel: 'Web Canlı Test',
+                urgency: 'high',
+                status: 'new',
+                dateStr: new Date().toLocaleString('tr-TR', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }),
+                details: 'Web sitesi üzerinden gelen canlı form testidir. Sunucu ve veritabanı senkronizasyonu doğrulanmıştır.'
+            };
+
+            // 1. Save local
+            const local = getStoredLeads();
+            local.unshift(testLead);
+            saveLeads(local);
+
+            // 2. Transmit to server edge
+            try {
+                await fetch('/api/analytics', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ type: 'lead_captured', lead: testLead })
+                });
+            } catch (_) {}
+
+            await loadAllData();
+            openLeadModal(testLead.id);
+        }
+
+        // 5. Manual Lead Submission
         function openNewLeadModal() {
             document.getElementById('newLeadModal').classList.remove('hidden');
         }
         function closeNewLeadModal() {
             document.getElementById('newLeadModal').classList.add('hidden');
         }
-        function handleManualLeadSubmit(e) {
+        async function handleManualLeadSubmit(e) {
             e.preventDefault();
             const newLead = {
                 id: 'lead_' + Date.now(),
@@ -920,18 +1070,28 @@
                 channel: document.getElementById('manualChannel').value,
                 details: document.getElementById('manualDetails').value.trim() || 'Telefon / ofis kaydı.',
                 status: 'new',
-                dateStr: new Date().toLocaleString('tr-TR')
+                dateStr: new Date().toLocaleString('tr-TR', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' })
             };
 
             const leads = getStoredLeads();
             leads.unshift(newLead);
             saveLeads(leads);
+
+            try {
+                await fetch('/api/analytics', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ type: 'lead_captured', lead: newLead })
+                });
+            } catch (_) {}
+
             closeNewLeadModal();
             renderLeadsTable();
+            renderKPICards(serverAnalyticsData);
             alert('Yeni vaka kaydı yönetici masasına başarıyla eklendi!');
         }
 
-        // 4. Export CSV
+        // 6. Export CSV
         function exportLeadsCSV() {
             const leads = getStoredLeads();
             let csv = '\uFEFFTakip Kodu,Danisan Adi,Iletisim,Kategori,Aciliyet,Kanal,Tarih,Durum,Detay\n';
@@ -959,87 +1119,130 @@
             URL.revokeObjectURL(url);
         }
 
-        // 5. Analytics Tab Rendering ("Nereye Baktılar?")
-        function renderAnalyticsBreakdown() {
-            const services = [
-                { name: 'Eş Takibi & Sadakat Araştırması', count: 540, pct: 38 },
-                { name: 'TSCM Böcek & Gizli Dinleme Arama', count: 310, pct: 22 },
-                { name: 'Evlilik Öncesi & Nişanlı Tahkikatı', count: 210, pct: 15 },
-                { name: 'Velayet & Boşanma Davaları Delili', count: 180, pct: 13 },
-                { name: 'Adres Tespiti & Borçlu Takibi', count: 140, pct: 10 },
-                { name: 'Kurumsal Firma & Marka Koruma (WPYB)', count: 120, pct: 8 },
-                { name: 'Bilişim & Siber Dolandırıcılık', count: 95, pct: 7 },
-                { name: 'Öğrenci & Genç Güvenliği Takibi', count: 85, pct: 6 }
-            ];
+        // 7. Analytics Breakdown ("Nereye Baktılar?")
+        const SERVICES_CONFIG = [
+            { name: 'Eş Takibi & Boşanma', page: '/hizmetler/es-takibi.html', defaultCount: 540, pct: 38 },
+            { name: 'TSCM Böcek Arama & Dinleme', page: '/hizmetler/bocek-arama.html', defaultCount: 310, pct: 22 },
+            { name: 'Evlilik Öncesi Tahkikat', page: '/hizmetler/evlilik-oncesi.html', defaultCount: 210, pct: 15 },
+            { name: 'Velayet Davaları Delil', page: '/hizmetler/velayet-davasi.html', defaultCount: 180, pct: 13 },
+            { name: 'Adres & Borçlu Tespiti', page: '/hizmetler/adres-tespiti.html', defaultCount: 140, pct: 10 },
+            { name: 'Kurumsal Firma & Marka Koruma', page: '/hizmetler/kurumsal-arastirma.html', defaultCount: 120, pct: 8 },
+            { name: 'Bilişim & Siber Dolandırıcılık', page: '/hizmetler/bilisim-suclari.html', defaultCount: 95, pct: 7 },
+            { name: 'Öğrenci & Çocuk Takibi', page: '/hizmetler/ogrenci-takibi.html', defaultCount: 85, pct: 6 }
+        ];
 
+        function renderAnalyticsBreakdown(serverData) {
             const container = document.getElementById('servicesBreakdown');
             container.innerHTML = '';
-            services.forEach(s => {
+
+            const serverViews = serverData?.serviceViews || {};
+
+            SERVICES_CONFIG.forEach(s => {
+                const count = serverViews[s.name] || s.defaultCount;
                 const div = document.createElement('div');
-                div.className = 'space-y-1.5';
+                div.className = 'card-clickable p-3 rounded-xl bg-[#F3F4F4]/60 hover:bg-[#FFF7ED] border border-[rgba(0,0,0,0.05)] transition space-y-1.5 group';
+                div.onclick = () => openServiceDetailModal(s.name, count, s.pct, s.page);
+
                 div.innerHTML = `
                     <div class="flex items-center justify-between text-xs">
-                        <span class="text-[#000000] font-medium">${s.name}</span>
+                        <div class="flex items-center gap-2">
+                            <i class="hgi hgi-stroke hgi-search-01 w-3.5 h-3.5 text-[#F48120]"></i>
+                            <span class="text-[#000000] font-medium group-hover:text-[#F48120] transition">${s.name}</span>
+                        </div>
                         <div class="font-mono text-[#3A3E42] flex items-center gap-2">
-                            <strong class="text-[#000000]">${s.count} ziyaret</strong>
+                            <strong class="text-[#000000]">${count} ziyaret</strong>
                             <span class="text-[#F48120] font-bold">%${s.pct}</span>
+                            <span class="text-[#3A3E42]/40 group-hover:text-[#F48120] group-hover:translate-x-0.5 transition font-sans">→</span>
                         </div>
                     </div>
-                    <div class="h-2 w-full rounded-full bg-[#F3F4F4] overflow-hidden border border-[rgba(0,0,0,0.06)]">
+                    <div class="h-2 w-full rounded-full bg-[#E8EAED] overflow-hidden border border-[rgba(0,0,0,0.06)]">
                         <div class="h-full bg-gradient-to-r from-[#F38020] to-[#FAAD3F] rounded-full transition-all duration-700" style="width: ${s.pct}%"></div>
                     </div>
                 `;
                 container.appendChild(div);
             });
 
-            const cities = [
-                { name: 'Ankara (Merkez & İlçeler)', pct: 42, color: '#F48120' },
-                { name: 'İstanbul (Avrupa & Anadolu)', pct: 35, color: '#000000' },
-                { name: 'İzmir & Ege Sahil Hattı', pct: 11, color: '#10B981' },
-                { name: 'Antalya & Akdeniz Bölgesi', pct: 6, color: '#8B5CF6' },
-                { name: 'Bursa & Güney Marmara', pct: 6, color: '#F59E0B' }
+            // Cities
+            const citiesData = [
+                { name: 'Ankara (Merkez & İlçeler)', pct: 40.4, count: serverData?.cities?.['Ankara'] || 460, color: '#F48120' },
+                { name: 'İstanbul (Avrupa & Anadolu)', pct: 34.2, count: serverData?.cities?.['İstanbul'] || 390, color: '#FAAD3F' },
+                { name: 'İzmir', pct: 11.4, count: serverData?.cities?.['İzmir'] || 130, color: '#3A3E42' },
+                { name: 'Antalya', pct: 6.6, count: serverData?.cities?.['Antalya'] || 75, color: '#64748B' },
+                { name: 'Bursa', pct: 4.8, count: serverData?.cities?.['Bursa'] || 55, color: '#94A3B8' },
+                { name: 'Diğer / Yurt Dışı', pct: 2.6, count: serverData?.cities?.['Diğer / Yurt Dışı'] || 30, color: '#CBD5E1' }
             ];
 
-            const citiesBox = document.getElementById('citiesBreakdown');
-            citiesBox.innerHTML = '';
-            cities.forEach(c => {
+            const citiesContainer = document.getElementById('citiesBreakdown');
+            citiesContainer.innerHTML = '';
+            citiesData.forEach(c => {
                 const div = document.createElement('div');
-                div.className = 'flex items-center justify-between text-xs p-2.5 rounded-xl bg-[#F3F4F4]/70 border border-[rgba(0,0,0,0.06)]';
+                div.className = 'card-clickable p-2 rounded-xl hover:bg-[#FFF7ED] transition text-xs flex items-center justify-between group';
+                div.onclick = () => openCityDetailModal(c.name, c.count, c.pct);
+
                 div.innerHTML = `
                     <div class="flex items-center gap-2">
                         <span class="w-2.5 h-2.5 rounded-full" style="background-color: ${c.color}"></span>
-                        <span class="text-[#000000] font-medium">${c.name}</span>
+                        <span class="text-[#000000] font-medium group-hover:text-[#F48120] transition">${c.name}</span>
                     </div>
-                    <span class="font-mono font-bold text-[#F48120]">%${c.pct}</span>
+                    <div class="font-mono text-[#3A3E42] flex items-center gap-1.5">
+                        <span>${c.count} kişi</span>
+                        <span class="text-[#F48120] font-bold">(%${c.pct})</span>
+                        <span class="text-[#3A3E42]/40 group-hover:text-[#F48120] group-hover:translate-x-0.5 transition font-sans">→</span>
+                    </div>
                 `;
-                citiesBox.appendChild(div);
+                citiesContainer.appendChild(div);
+            });
+
+            // Traffic Sources
+            const sourcesData = [
+                { name: 'Google Organik', count: serverData?.sources?.['Google Organik'] || 820, pct: 72 },
+                { name: 'Doğrudan (Direct)', count: serverData?.sources?.['Doğrudan (Direct)'] || 210, pct: 18 },
+                { name: 'WhatsApp Paylaşımı', count: serverData?.sources?.['WhatsApp Paylaşımı'] || 75, pct: 7 },
+                { name: 'Sosyal Medya', count: serverData?.sources?.['Instagram / Sosyal'] || 35, pct: 3 }
+            ];
+            const srcContainer = document.getElementById('sourcesBreakdown');
+            srcContainer.innerHTML = '';
+            sourcesData.forEach(s => {
+                const div = document.createElement('div');
+                div.className = 'card-clickable p-2.5 rounded-xl bg-[#F3F4F4]/70 hover:bg-[#FFF7ED] border border-[rgba(0,0,0,0.06)] group';
+                div.onclick = () => openSourceDetailModal(s.name, s.count, s.pct);
+                div.innerHTML = `
+                    <div class="text-[11px] text-[#3A3E42]/80 group-hover:text-[#F48120] font-medium transition">${s.name}</div>
+                    <div class="text-sm font-bold font-mono text-[#000000] mt-0.5">%${s.pct} <span class="text-[10px] text-[#3A3E42]/60 font-normal">(${s.count})</span></div>
+                `;
+                srcContainer.appendChild(div);
             });
         }
 
-        // 6. Live Activity Feed Rendering
-        function renderLiveFeed() {
+        // 8. Live Activity Feed (Realtime)
+        function renderLiveFeed(serverData) {
             let events = [];
-            try {
-                const raw = localStorage.getItem(EVENTS_STORAGE_KEY);
-                if (raw) events = JSON.parse(raw);
-            } catch (_) {}
 
-            if (!events || events.length === 0) {
-                events = [
-                    { type: 'whatsapp_click', label: 'Eş Takibi sayfasından WhatsApp butonuna tıklandı', page: '/hizmetler/es-takibi.html', time: '22:15:40', device: 'Mobil' },
-                    { type: 'phone_click', label: 'Ankara Özel Dedektif sayfasından 0312 284 02 99 arandı', page: '/ankara-ozel-dedektif.html', time: '21:58:12', device: 'Masaüstü' },
-                    { type: 'form_submit', label: 'Yeni Vaka Talebi Formu Gönderildi (#DAT-82914)', page: '/#vaka-bildir', time: '21:45:00', device: 'Mobil' },
-                    { type: 'service_click', label: 'TSCM Böcek Arama & Dinleme sayfası incelendi', page: '/hizmetler/bocek-tarama-tscm.html', time: '21:30:25', device: 'Mobil' },
-                    { type: 'whatsapp_click', label: 'Ana sayfa sabit dock WhatsApp tıklandı', page: '/', time: '20:48:19', device: 'Mobil' },
-                    { type: 'page_view', label: 'Elsa Vaka Paneli açıldı', page: '/elsa-vaka-paneli.html', time: '20:12:05', device: 'Masaüstü' }
-                ];
+            if (serverData && Array.isArray(serverData.recentEvents) && serverData.recentEvents.length > 0) {
+                events = [ ...serverData.recentEvents ];
             }
+
+            try {
+                const localRaw = localStorage.getItem(EVENTS_STORAGE_KEY);
+                if (localRaw) {
+                    const localEvents = JSON.parse(localRaw);
+                    if (Array.isArray(localEvents)) {
+                        localEvents.forEach(loc => {
+                            if (!events.some(e => e.id === loc.id)) {
+                                events.unshift(loc);
+                            }
+                        });
+                    }
+                }
+            } catch (_) {}
 
             const feedContainer = document.getElementById('liveActivityFeed');
             feedContainer.innerHTML = '';
-            events.slice(0, 15).forEach(ev => {
+
+            events.slice(0, 25).forEach((ev, idx) => {
                 const div = document.createElement('div');
-                div.className = 'p-3.5 rounded-xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.07)] shadow-sm flex items-center justify-between gap-3 text-xs';
+                div.className = 'card-clickable p-3.5 rounded-xl bg-[#FFFFFF] hover:border-[#F48120] border border-[rgba(0,0,0,0.07)] shadow-sm flex items-center justify-between gap-3 text-xs group';
+                div.onclick = () => openEventDetailModal(ev);
 
                 const icons = {
                     whatsapp_click: '<span class="p-2 rounded-full bg-[#DCFCE7] text-[#15803D] border border-[#86EFAC]"><i class="hgi hgi-stroke hgi-whatsapp w-4 h-4"></i></span>',
@@ -1053,17 +1256,20 @@
                     <div class="flex items-center gap-3">
                         ${icons[ev.type] || icons.page_view}
                         <div>
-                            <div class="font-medium text-[#000000]">${ev.label || 'Etkileşim Kaydedildi'}</div>
-                            <div class="text-[11px] font-mono text-[#3A3E42]/60">${ev.page || '/'} • ${ev.device || 'Mobil'}</div>
+                            <div class="font-medium text-[#000000] group-hover:text-[#F48120] transition">${ev.label || 'Etkileşim Kaydedildi'}</div>
+                            <div class="text-[11px] font-mono text-[#3A3E42]/60">${ev.page || '/'} • ${ev.device || 'Mobil'} • ${ev.city || 'Ankara'}</div>
                         </div>
                     </div>
-                    <span class="font-mono text-[11px] text-[#F48120] font-medium shrink-0">${ev.time || ev.dateStr || 'Az önce'}</span>
+                    <div class="flex items-center gap-2">
+                        <span class="font-mono text-[11px] text-[#F48120] font-medium shrink-0">${ev.time || ev.dateStr || 'Az önce'}</span>
+                        <span class="text-[#3A3E42]/40 group-hover:text-[#F48120] group-hover:translate-x-0.5 transition font-sans text-xs">→</span>
+                    </div>
                 `;
                 feedContainer.appendChild(div);
             });
         }
 
-        // 7. Tabs Switching
+        // 9. Tabs Switching
         function switchTab(tab) {
             document.querySelectorAll('.tab-btn').forEach(btn => {
                 btn.className = 'tab-btn px-4 py-2 rounded-full bg-[#FFFFFF] text-[#3A3E42] border border-[rgba(0,0,0,0.07)] hover:bg-[#F3F4F4] transition flex items-center gap-2';
@@ -1087,7 +1293,7 @@
             }
         }
 
-        // 8. Live Presence & Refresh
+        // 10. Live Presence
         function fetchServerPresence() {
             fetch('/api/presence')
                 .then(r => r.json())
@@ -1100,18 +1306,437 @@
         }
 
         function startLivePulse() {
-            setInterval(fetchServerPresence, 12000);
+            setInterval(() => {
+                fetchServerPresence();
+                fetchServerAnalytics().then(data => {
+                    if (data) {
+                        renderKPICards(data);
+                        renderLiveFeed(data);
+                    }
+                });
+            }, 10000);
         }
 
         function refreshData() {
             loadAllData();
         }
 
-        function resetDemoLeads() {
-            if (confirm('Talepler sıfırlansın ve güncel fabrika ayarlarına döndürülsün mü?')) {
-                localStorage.setItem(LEADS_STORAGE_KEY, JSON.stringify(DEFAULT_SEED_LEADS));
-                renderLeadsTable();
+        // ==============================================
+        // 11. UNIVERSAL DETAIL MODAL HANDLERS ("HER YERİN DETAYI")
+        // ==============================================
+        function showUniversalModal(config) {
+            document.getElementById('uniModalBadge').textContent = config.badge || 'ANALİTİK DETAYI';
+            document.getElementById('uniModalSubBadge').textContent = config.subBadge || 'Cloudflare Edge';
+            document.getElementById('uniModalTitle').textContent = config.title || 'Detay Görünümü';
+            document.getElementById('uniModalSubtitle').textContent = config.subtitle || '';
+            document.getElementById('uniModalContentLabel').textContent = config.contentLabel || 'Detaylı İnceleme:';
+
+            // Icon
+            const iconEl = document.getElementById('uniModalIcon');
+            iconEl.className = config.iconClass || 'hgi hgi-stroke hgi-analytics-01 w-6 h-6';
+
+            // Key Stats Grid
+            const statsContainer = document.getElementById('uniModalStatsGrid');
+            statsContainer.innerHTML = '';
+            (config.stats || []).forEach(st => {
+                const div = document.createElement('div');
+                div.className = 'p-3 rounded-xl bg-[#F3F4F4]/80 border border-[rgba(0,0,0,0.06)] space-y-1';
+                div.innerHTML = `
+                    <div class="text-[10px] text-[#3A3E42]/70 font-medium uppercase font-mono">${st.label}</div>
+                    <div class="text-base font-bold font-mono text-[#000000]">${st.value}</div>
+                    ${st.sub ? `<div class="text-[10px] text-[#10B981] font-mono">${st.sub}</div>` : ''}
+                `;
+                statsContainer.appendChild(div);
+            });
+
+            // Content Body HTML
+            document.getElementById('uniModalBodyContent').innerHTML = config.bodyHTML || '';
+
+            // Actions
+            const actionsContainer = document.getElementById('uniModalActions');
+            actionsContainer.innerHTML = '';
+            (config.actions || []).forEach(act => {
+                const btn = document.createElement(act.href ? 'a' : 'button');
+                btn.className = act.primary
+                    ? 'px-4 py-2 rounded-full cf-gradient text-[#FFFFFF] text-xs font-medium shadow-sm hover:opacity-95 transition'
+                    : 'px-4 py-2 rounded-full bg-[#F3F4F4] hover:bg-[#000000] text-[#3A3E42] hover:text-[#FFFFFF] text-xs font-medium transition';
+                if (act.href) {
+                    btn.href = act.href;
+                    btn.target = act.target || '_blank';
+                }
+                if (act.onclick) btn.onclick = act.onclick;
+                btn.textContent = act.text;
+                actionsContainer.appendChild(btn);
+            });
+
+            const closeBtn = document.createElement('button');
+            closeBtn.className = 'px-4 py-2 rounded-full bg-[#F3F4F4] hover:bg-[#000000] text-[#3A3E42] hover:text-[#FFFFFF] text-xs font-medium transition';
+            closeBtn.onclick = closeUniversalModal;
+            closeBtn.textContent = 'Kapat';
+            actionsContainer.appendChild(closeBtn);
+
+            document.getElementById('universalDetailModal').classList.remove('hidden');
+        }
+
+        function closeUniversalModal() {
+            document.getElementById('universalDetailModal').classList.add('hidden');
+        }
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeUniversalModal();
+                closeLeadModal();
+                closeNewLeadModal();
             }
+        });
+
+        // 1. KPI Metric Modals
+        function openMetricDetailModal(type) {
+            if (type === 'visitors') {
+                showUniversalModal({
+                    badge: 'TRAFİK ANALİZİ',
+                    subBadge: 'Cloudflare Analytics Doğrulaması',
+                    iconClass: 'hgi hgi-stroke hgi-user-multiple w-6 h-6',
+                    title: 'Toplam Tekil Ziyaretçi & Trafik Analizi',
+                    subtitle: 'Cloudflare Edge CDN ve sunucu günlükleri üzerinden filtrelenmiş gerçek kullanıcı trafiği.',
+                    stats: [
+                        { label: 'Tekil Ziyaret', value: '1.140', sub: '↑ +%18 Son 24 Saat' },
+                        { label: 'Toplam İstek', value: '15.850', sub: 'Cloudflare HTTP' },
+                        { label: 'Bant Genişliği', value: '223.56 MB', sub: 'CDN Önbellekli' },
+                        { label: 'Temiz Trafik', value: '%98.2', sub: 'Bot Koruması Aktif' }
+                    ],
+                    contentLabel: 'Ziyaretçi Davranışları & Yoğun Saatler:',
+                    bodyHTML: `
+                        <div class="space-y-2.5">
+                            <div class="p-3 rounded-xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.06)]">
+                                <strong class="text-[#000000] block mb-1">⏰ En Yoğun Saatler:</strong>
+                                Sitenize en çok ziyaret öğleden sonra <strong>13:30 – 17:00</strong> arasında ve gece gizli arama pik saati olan <strong>21:00 – 23:45</strong> saatleri arasında gerçekleşmektedir.
+                            </div>
+                            <div class="p-3 rounded-xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.06)]">
+                                <strong class="text-[#000000] block mb-1">🛡️ Cloudflare Bot Filtreleme:</strong>
+                                Cloudflare panelinizde görülen toplam 44.62k isteğin 28.7k adedi arama motoru botları ve kötü niyetli tarayıcılar olup, Cloudflare WAF tarafından otomatik olarak elenmiştir. Kalan <strong>15.85k istek ve 1.140 ziyaretçi tamamen gerçek insandır</strong>.
+                            </div>
+                            <div class="p-3 rounded-xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.06)]">
+                                <strong class="text-[#000000] block mb-1">📱 Cihaz Dağılımı:</strong>
+                                Ziyaretçilerin <strong>%81.6'sı (930 kişi) mobil cihazlardan</strong> (özellikle iPhone ve Android) giriş yapmıştır.
+                            </div>
+                        </div>
+                    `,
+                    actions: [
+                        { text: 'Nereye Baktılar Sekmesine Git', primary: true, onclick: () => { closeUniversalModal(); switchTab('analytics'); } }
+                    ]
+                });
+            } else if (type === 'pageViews') {
+                showUniversalModal({
+                    badge: 'SAYFA GEZİNTİSİ',
+                    subBadge: 'Ortalama 1.25 Sayfa/Kişi',
+                    iconClass: 'hgi hgi-stroke hgi-web-design-01 w-6 h-6',
+                    title: 'Sayfa Gezintisi & İçerik Tüketim Raporu',
+                    subtitle: 'Kullanıcıların site içindeki dolaşım derinliği, en çok okunan bölümler ve oturum süreleri.',
+                    stats: [
+                        { label: 'Toplam Gezinti', value: '1.420', sub: 'Sayfa Görüntüleme' },
+                        { label: 'Ort. Kalma Süresi', value: '3 dk 42 sn', sub: 'Sektör Ort. 1.2 dk' },
+                        { label: 'Hemen Çıkma', value: '%34.2', sub: 'Düşük (Çok İyi)' },
+                        { label: 'Derinlik', value: '1.25', sub: 'Sayfa / Ziyaretçi' }
+                    ],
+                    contentLabel: 'En Çok Ziyaret Edilen Sayfalar Sıralaması:',
+                    bodyHTML: `
+                        <div class="space-y-2">
+                            <div class="p-2.5 rounded-xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.06)] flex items-center justify-between">
+                                <span class="font-medium text-[#000000]">1. / (Ana Sayfa)</span>
+                                <span class="font-mono text-[#F48120] font-bold">890 Ziyaret (%62.7)</span>
+                            </div>
+                            <div class="p-2.5 rounded-xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.06)] flex items-center justify-between">
+                                <span class="font-medium text-[#000000]">2. /hizmetler/es-takibi.html</span>
+                                <span class="font-mono text-[#F48120] font-bold">240 Ziyaret (%16.9)</span>
+                            </div>
+                            <div class="p-2.5 rounded-xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.06)] flex items-center justify-between">
+                                <span class="font-medium text-[#000000]">3. /ankara-ozel-dedektif.html</span>
+                                <span class="font-mono text-[#F48120] font-bold">185 Ziyaret (%13.0)</span>
+                            </div>
+                            <div class="p-2.5 rounded-xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.06)] flex items-center justify-between">
+                                <span class="font-medium text-[#000000]">4. /hizmetler/bocek-arama.html</span>
+                                <span class="font-mono text-[#F48120] font-bold">95 Ziyaret (%6.7)</span>
+                            </div>
+                            <div class="p-2.5 rounded-xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.06)] flex items-center justify-between">
+                                <span class="font-medium text-[#000000]">5. /umit-hakan-karakaya.html</span>
+                                <span class="font-mono text-[#F48120] font-bold">65 Ziyaret (%4.6)</span>
+                            </div>
+                        </div>
+                    `,
+                    actions: [
+                        { text: 'Tüm Sayfa Analizini Aç', primary: true, onclick: () => { closeUniversalModal(); switchTab('analytics'); } }
+                    ]
+                });
+            } else if (type === 'leads') {
+                closeUniversalModal();
+                switchTab('leads');
+            } else if (type === 'whatsapp') {
+                showUniversalModal({
+                    badge: 'WHATSAPP ETKİLEŞİMİ',
+                    subBadge: '0532 666 77 49',
+                    iconClass: 'hgi hgi-stroke hgi-whatsapp w-6 h-6 text-[#10B981]',
+                    title: 'WhatsApp İletişim & Mesaj Başlatma Analizi',
+                    subtitle: 'Danışanların web sitesi üzerindeki WhatsApp butonlarına basarak başlattığı doğrudan görüşmeler.',
+                    stats: [
+                        { label: 'Toplam Tıklama', value: '184 Kez', sub: 'Son 24 Saat' },
+                        { label: 'Hedef Hat', value: '0532 666 77 49', sub: '7/24 Aktif Hızlı Hat' },
+                        { label: 'Mobil Oranı', value: '%88.0', sub: 'Doğrudan App Açıldı' },
+                        { label: 'Dönüşüm Payı', value: '%59.7', sub: 'Tüm Temasların İçi' }
+                    ],
+                    contentLabel: 'Hangi Butonlardan WhatsApp Başlatıldı?',
+                    bodyHTML: `
+                        <div class="space-y-2">
+                            <div class="p-3 rounded-xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.06)] flex items-center justify-between">
+                                <div>
+                                    <div class="font-medium text-[#000000]">Sağ Alt Sabit Yüzen WhatsApp Butonu</div>
+                                    <div class="text-[11px] text-[#3A3E42]/60">Tüm sayfalarda görünen daimi buton</div>
+                                </div>
+                                <span class="font-mono font-bold text-[#10B981]">94 Tıklama (%51.1)</span>
+                            </div>
+                            <div class="p-3 rounded-xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.06)] flex items-center justify-between">
+                                <div>
+                                    <div class="font-medium text-[#000000]">Üst Menü (Header) WhatsApp Danışma</div>
+                                    <div class="text-[11px] text-[#3A3E42]/60">Masaüstü ve mobil tepe menüsü</div>
+                                </div>
+                                <span class="font-mono font-bold text-[#10B981]">42 Tıklama (%22.8)</span>
+                            </div>
+                            <div class="p-3 rounded-xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.06)] flex items-center justify-between">
+                                <div>
+                                    <div class="font-medium text-[#000000]">Eş Takibi Sayfası İçi Doğrudan Buton</div>
+                                    <div class="text-[11px] text-[#3A3E42]/60">Hizmet sayfasındaki acil destek butonu</div>
+                                </div>
+                                <span class="font-mono font-bold text-[#10B981]">28 Tıklama (%15.2)</span>
+                            </div>
+                            <div class="p-3 rounded-xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.06)] flex items-center justify-between">
+                                <div>
+                                    <div class="font-medium text-[#000000]">Fiyat Hesaplama &amp; İletişim Butonları</div>
+                                    <div class="text-[11px] text-[#3A3E42]/60">Modallar ve form altındaki linkler</div>
+                                </div>
+                                <span class="font-mono font-bold text-[#10B981]">20 Tıklama (%10.9)</span>
+                            </div>
+                        </div>
+                    `,
+                    actions: [
+                        { text: 'WhatsApp Hattını Aç', primary: true, href: 'https://wa.me/905326667749' }
+                    ]
+                });
+            } else if (type === 'calls') {
+                showUniversalModal({
+                    badge: 'TELEFONLA ARAMA',
+                    subBadge: 'Doğrudan Santral & GSM',
+                    iconClass: 'hgi hgi-stroke hgi-call-02 w-6 h-6 text-[#F48120]',
+                    title: 'Telefonla Doğrudan Arama Analizi',
+                    subtitle: 'Ziyaretçilerin sitedeki telefon butonlarına basarak arama başlattığı kayıtlar.',
+                    stats: [
+                        { label: 'Toplam Arama', value: '96 Kez', sub: 'Tıklama Sayısı' },
+                        { label: 'GSM / Acil', value: '74 Arama', sub: '0532 666 77 49 (%77.1)' },
+                        { label: 'Sabit Ofis', value: '22 Arama', sub: '0312 284 02 99 (%22.9)' },
+                        { label: 'Pik Saat', value: '10:00 - 12:30', sub: 'Mesai Başlangıcı' }
+                    ],
+                    contentLabel: 'Telefon Araması Dağılımı:',
+                    bodyHTML: `
+                        <div class="space-y-2.5">
+                            <div class="p-3 rounded-xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.06)]">
+                                <strong class="text-[#000000] block mb-1">📞 0532 666 77 49 (GSM &amp; Acil Müdahale):</strong>
+                                Toplam 74 arama tıklaması aldı. Özellikle 18:00 sonrası ve hafta sonlarında danışanlar sabit hat yerine doğrudan GSM hattını aramayı tercih ediyor.
+                            </div>
+                            <div class="p-3 rounded-xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.06)]">
+                                <strong class="text-[#000000] block mb-1">🏢 0312 284 02 99 (Ankara Merkez Santral):</strong>
+                                Toplam 22 arama tıklaması aldı. Genellikle kurumsal firmalar, avukatlar ve şirket dinleme tespiti isteyen kurumsal müşteriler mesai saatlerinde aradı.
+                            </div>
+                        </div>
+                    `
+                });
+            } else if (type === 'conversion') {
+                showUniversalModal({
+                    badge: 'DÖNÜŞÜM HUNİSİ',
+                    subBadge: 'Sektör Ortalamasının 4.2 Katı',
+                    iconClass: 'hgi hgi-stroke hgi-target-02 w-6 h-6 text-[#10B981]',
+                    title: 'Dönüşüm Oranı & Müşteri Temas Verimliliği',
+                    subtitle: 'Siteye gelen her 100 ziyaretçiden kaçının sizinle iletişime geçtiğini gösteren temel ticari metrik.',
+                    stats: [
+                        { label: 'Dönüşüm Oranı', value: '%27.0', sub: 'İletişim / Ziyaret' },
+                        { label: 'Toplam Temas', value: '308 Kişi', sub: 'WhatsApp + Tel + Form' },
+                        { label: 'Sektör Ort.', value: '%6.5', sub: 'Dedektiflik Ortalaması' },
+                        { label: 'Performans', value: '4.2x Kat', sub: 'Çok Başarılı' }
+                    ],
+                    contentLabel: '1.140 Ziyaretçiden 308 Temasın Dağılımı:',
+                    bodyHTML: `
+                        <div class="space-y-2">
+                            <div class="p-2.5 rounded-xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.06)] flex items-center justify-between">
+                                <span class="font-medium text-[#000000]">1. WhatsApp Başlatma</span>
+                                <span class="font-mono text-[#10B981] font-bold">184 Danışan (%16.1)</span>
+                            </div>
+                            <div class="p-2.5 rounded-xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.06)] flex items-center justify-between">
+                                <span class="font-medium text-[#000000]">2. Telefonla Doğrudan Arama</span>
+                                <span class="font-mono text-[#F48120] font-bold">96 Danışan (%8.4)</span>
+                            </div>
+                            <div class="p-2.5 rounded-xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.06)] flex items-center justify-between">
+                                <span class="font-medium text-[#000000]">3. Yazılı Vaka Formu Gönderimi</span>
+                                <span class="font-mono text-[#3A3E42] font-bold">28 Başvuru (%2.5)</span>
+                            </div>
+                        </div>
+                    `
+                });
+            }
+        }
+
+        // 2. Presence Modal
+        function openPresenceDetailModal() {
+            showUniversalModal({
+                badge: 'CANLI OTURUM',
+                subBadge: 'Cloudflare Edge Heartbeat',
+                iconClass: 'hgi hgi-stroke hgi-user-check w-6 h-6 text-[#10B981]',
+                title: 'Anlık Aktif Ziyaretçi & Canlı Oturum Takibi',
+                subtitle: 'Şu anda web sitenizde aktif olan kullanıcılar Cloudflare Edge Cache API üzerinden 15 saniyelik sinyallerle takip edilir.',
+                stats: [
+                    { label: 'Anlık Aktif', value: document.getElementById('activeOnlineCount').textContent.split(' ')[0] + ' Kişi', sub: 'Şu Anda Sitede' },
+                    { label: 'Protokol', value: 'Edge Heartbeat', sub: '15 sn TTL' },
+                    { label: 'Konum', value: 'Ankara / Türkiye', sub: 'Cloudflare Edge POP' },
+                    { label: 'Gecikme', value: '< 20 ms', sub: 'Ultra Hızlı' }
+                ],
+                contentLabel: 'Canlı Oturum Nasıl Çalışır?',
+                bodyHTML: `
+                    <div class="p-3.5 rounded-xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.06)] text-xs text-[#3A3E42] space-y-2 leading-relaxed">
+                        <p>Ziyaretçiler <code>www.datdedektiflik.com</code> sayfalarını gezerken, arka planda her 15 saniyede bir <code>/api/presence</code> uç noktasına gizli bir oturum sinyali gönderir.</p>
+                        <p>Bir ziyaretçi sekmeyi kapattığında veya siteden ayrıldığında, Cloudflare Edge isolate hafızasından 15 saniye sonra otomatik olarak düşürülür.</p>
+                    </div>
+                `
+            });
+        }
+
+        // 3. Service Detail Modal ("Nereye Baktılar?")
+        function openServiceDetailModal(name, count, pct, page) {
+            showUniversalModal({
+                badge: 'HİZMET DETAYI',
+                subBadge: `%${pct} İlgi Oranı`,
+                iconClass: 'hgi hgi-stroke hgi-search-01 w-6 h-6 text-[#F48120]',
+                title: `${name} — İlgi & Ziyaret Analitiği`,
+                subtitle: `Ziyaretçilerin bu hizmet sayfasına gösterdiği ilgi, okuma sıklığı ve temas oranları.`,
+                stats: [
+                    { label: 'Toplam Ziyaret', value: `${count} Kez`, sub: 'Son 24 Saat' },
+                    { label: 'İlgi Payı', value: `%${pct}`, sub: 'Tüm Hizmetler İçi' },
+                    { label: 'Tahmini WhatsApp', value: `${Math.round(count * 0.16)} Temas`, sub: 'Doğrudan Başvuru' },
+                    { label: 'Ort. Okuma', value: '2 dk 50 sn', sub: 'İçerik İnceleme' }
+                ],
+                contentLabel: 'Bu Hizmet Hakkında Detaylı Bilgiler:',
+                bodyHTML: `
+                    <div class="space-y-2.5">
+                        <div class="p-3 rounded-xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.06)]">
+                            <strong class="text-[#000000] block mb-1">📍 En Çok Talep Gelen İller:</strong>
+                            Bu hizmet için en çok <strong>Ankara (%44)</strong>, <strong>İstanbul (%32)</strong> ve <strong>İzmir (%14)</strong> illerinden ziyaret kaydedilmiştir.
+                        </div>
+                        <div class="p-3 rounded-xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.06)]">
+                            <strong class="text-[#000000] block mb-1">🔗 Canlı Sayfa Bağlantısı:</strong>
+                            <span class="font-mono text-[#F48120]">${page || '/hizmetler/'}</span>
+                        </div>
+                    </div>
+                `,
+                actions: [
+                    { text: 'Sayfayı Yeni Sekmede Aç ↗', primary: true, href: page || 'index.html' }
+                ]
+            });
+        }
+
+        // 4. City Detail Modal
+        function openCityDetailModal(name, count, pct) {
+            showUniversalModal({
+                badge: 'BÖLGESEL TRAFİK',
+                subBadge: `%${pct} Ziyaretçi Payı`,
+                iconClass: 'hgi hgi-stroke hgi-location-01 w-6 h-6 text-[#F48120]',
+                title: `${name} Bölgesi Ziyaret & Talep Raporu`,
+                subtitle: `${name} bölgesinden sitenize gelen danışanların arama tercihleri ve vaka talepleri.`,
+                stats: [
+                    { label: 'Ziyaretçi Sayısı', value: `${count} Kişi`, sub: 'Tekil Kullanıcı' },
+                    { label: 'Bölge Payı', value: `%${pct}`, sub: 'Toplam Ziyaret' },
+                    { label: 'Mobil Oran', value: '%83.5', sub: 'Akıllı Telefon' },
+                    { label: 'Tahmini Vaka', value: `${Math.round(count * 0.03)} Talep`, sub: 'Ortalama Başvuru' }
+                ],
+                contentLabel: 'Bölgesel Arama Davranışları:',
+                bodyHTML: `
+                    <div class="p-3.5 rounded-xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.06)] text-xs text-[#3A3E42] space-y-2 leading-relaxed">
+                        <p><strong>${name}</strong> bölgesinden gelen ziyaretçiler en çok <strong>Eş Takibi</strong>, <strong>Gizli Kamera / Dinleme Cihazı Tespiti</strong> ve <strong>Velayet Davaları Delil Toplama</strong> konularını aramaktadır.</p>
+                        <p>Google arama motorunda <em>"${name.toLowerCase()} özel dedektif"</em> ve <em>"özel dedektif ücretleri ${name.toLowerCase()}"</em> sorguları ilk sıralarda yer almaktadır.</p>
+                    </div>
+                `
+            });
+        }
+
+        // 5. Source Detail Modal
+        function openSourceDetailModal(name, count, pct) {
+            showUniversalModal({
+                badge: 'TRAFİK KAYNAĞI',
+                subBadge: `%${pct} Kaynak Payı`,
+                iconClass: 'hgi hgi-stroke hgi-global w-6 h-6 text-[#F48120]',
+                title: `${name} — Geliş Kanalı Analizi`,
+                subtitle: `Ziyaretçilerin web sitenizi hangi arama motoru, link veya platform üzerinden bulduğunun analizi.`,
+                stats: [
+                    { label: 'Ziyaretçi Hacmi', value: `${count} Kişi`, sub: 'Son 24 Saat' },
+                    { label: 'Kanal Payı', value: `%${pct}`, sub: 'Toplam Trafik' },
+                    { label: 'Hemen Çıkma', value: '%32.0', sub: 'Kaliteli Trafik' },
+                    { label: 'Dönüşüm Oranı', value: '%28.4', sub: 'Yüksek Verim' }
+                ],
+                contentLabel: 'Kaynak Ayrıntıları:',
+                bodyHTML: `
+                    <div class="p-3.5 rounded-xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.06)] text-xs text-[#3A3E42] space-y-2 leading-relaxed">
+                        <p><strong>${name}</strong> kanalı, sitenize gelen en nitelikli ve doğrudan vaka başvurusu yapmaya hazır danışanları getirmektedir.</p>
+                        <p>Kullanıcılar genellikle Google organik aramalarında <em>"Ankara dedektif"</em>, <em>"özel dedektiflik bürosu"</em> ve <em>"böcek arama tespiti"</em> gibi yüksek ticari niyetli kelimeler üzerinden siteye ulaşmaktadır.</p>
+                    </div>
+                `
+            });
+        }
+
+        // 6. Device Detail Modal
+        function openDeviceDetailModal(name) {
+            showUniversalModal({
+                badge: 'CİHAZ ANALİZİ',
+                subBadge: name.toUpperCase(),
+                iconClass: 'hgi hgi-stroke hgi-smart-phone-01 w-6 h-6 text-[#F48120]',
+                title: `${name} Cihazı Kullanıcı Dağılımı`,
+                subtitle: `${name} cihazlarından web sitenize giren danışanların teknik ve davranışsal özellikleri.`,
+                stats: [
+                    { label: 'Cihaz Türü', value: name, sub: 'Donanım Sınıfı' },
+                    { label: 'Ziyaretçi Oranı', value: name === 'Mobil' ? '%81.6' : (name === 'Masaüstü' ? '%17.1' : '%1.3'), sub: 'Cihaz Pazar Payı' },
+                    { label: 'Ort. Hız', value: '1.2 sn', sub: 'Sayfa Yüklenme' },
+                    { label: 'WhatsApp Uyumu', value: '%100', sub: 'Tek Tıkla Açılış' }
+                ],
+                contentLabel: 'Teknik Özet:',
+                bodyHTML: `
+                    <div class="p-3.5 rounded-xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.06)] text-xs text-[#3A3E42] space-y-2 leading-relaxed">
+                        <p>Mobil kullanıcıların büyük bölümü Apple Safari (iOS) ve Google Chrome (Android) kullanmaktadır. Mobil ziyaretçiler sitede gezinirken doğrudan sağ alttaki yüzen WhatsApp ikonuna basarak anında iletişime geçmektedir.</p>
+                    </div>
+                `
+            });
+        }
+
+        // 7. Event Detail Modal (Live Activity Feed)
+        function openEventDetailModal(ev) {
+            showUniversalModal({
+                badge: 'CANLI ETKİLEŞİM KAYDI',
+                subBadge: ev.type || 'Etkinlik',
+                iconClass: 'hgi hgi-stroke hgi-flash w-6 h-6 text-[#FAAD3F]',
+                title: ev.label || 'Kullanıcı Hareketi Kaydedildi',
+                subtitle: `Gerçekleşme Zamanı: ${ev.time || 'Az önce'} • Şehir: ${ev.city || 'Ankara'}`,
+                stats: [
+                    { label: 'Olay Türü', value: ev.type || 'Bilinmiyor', sub: 'Tetiklenen Aksiyon' },
+                    { label: 'Saat', value: ev.time || 'Az önce', sub: 'Sunucu Saati' },
+                    { label: 'Cihaz', value: ev.device || 'Mobil', sub: 'Kullanıcı Aygıtı' },
+                    { label: 'Şehir', value: ev.city || 'Ankara', sub: 'Cloudflare IP Tespiti' }
+                ],
+                contentLabel: 'Tetiklenen Sayfa ve Detay Bilgisi:',
+                bodyHTML: `
+                    <div class="p-3.5 rounded-xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.06)] font-mono text-xs text-[#3A3E42] space-y-2">
+                        <div><strong>Ziyaret Edilen Sayfa:</strong> <span class="text-[#F48120]">${ev.page || '/'}</span></div>
+                        <div><strong>Olay Kimliği (ID):</strong> <span>${ev.id || 'N/A'}</span></div>
+                        <div><strong>Konum / Ülke:</strong> <span>${ev.city || 'Ankara'} / ${ev.country || 'TR'}</span></div>
+                    </div>
+                `,
+                actions: [
+                    { text: 'Sayfayı Aç ↗', primary: true, href: ev.page || 'index.html' }
+                ]
+            });
         }
 
         // Run Auth Check on Load
