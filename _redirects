@@ -7,6 +7,8 @@ https://www.datdetective.com/* https://www.datdedektiflik.com/:splat 301!
 http://www.datdetective.com/* https://www.datdedektiflik.com/:splat 301!
 
 # Panel kisa yollari
+/images/favicon.png /favicon-96x96.png 301
+/images/favicon.ico /favicon.ico 301
 /dashboard /elsa-vaka-paneli.html 301
 /elsa /elsa-vaka-paneli.html 301
 
