@@ -383,9 +383,14 @@
         .pulse-dot {
             animation: pulseSlow 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
         }
+        header.sticky {
+            transform: translateZ(0);
+            backface-visibility: hidden;
+            will-change: transform;
+        }
     </style>
 </head>
-<body id="top" class="bg-[#FFFFFF] text-[#3A3E42] font-sans antialiased selection:bg-[#F38020] selection:text-[#FFFFFF] relative overflow-x-hidden">
+<body id="top" class="bg-[#FFFFFF] text-[#3A3E42] font-sans antialiased selection:bg-[#F38020] selection:text-[#FFFFFF] relative overflow-x-clip">
 
     <!-- Cloudflare Signature Dual-Tone Top Bar (#F38020 -> #FAAD3F) -->
     <div class="h-1.5 w-full bg-gradient-to-r from-[#F38020] via-[#FAAD3F] to-[#F38020] relative z-50"></div>
@@ -503,7 +508,7 @@
     </aside>
 
     <!-- Sticky Apple Glassmorphic Navigation Header -->
-    <header class="sticky top-0 z-40 apple-glass border-b border-[rgba(0,0,0,0.06)] transition-all duration-300">
+    <header class="sticky top-0 z-40 apple-glass border-b border-[rgba(0,0,0,0.06)]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20 gap-2">
                 <!-- Brand Identity -->
