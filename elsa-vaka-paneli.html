@@ -56,6 +56,59 @@
         .elsa-scan-bar {
             animation: scanLine 1.6s ease-in-out infinite;
         }
+        .elsa-workspace-main {
+            container-type: inline-size;
+            container-name: workspace;
+        }
+        .elsa-hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            gap: 1.25rem;
+            align-items: center;
+        }
+        .elsa-stat-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.75rem;
+        }
+        .elsa-cards-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            gap: 1rem;
+        }
+        .elsa-header-search {
+            display: none;
+        }
+        .elsa-inline-search {
+            display: flex;
+        }
+        @container workspace (min-width: 560px) {
+            .elsa-stat-grid {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+        }
+        @container workspace (min-width: 640px) {
+            .elsa-cards-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+        @container workspace (min-width: 760px) {
+            .elsa-header-search {
+                display: flex;
+            }
+            .elsa-inline-search {
+                display: none;
+            }
+        }
+        @container workspace (min-width: 840px) {
+            .elsa-hero-grid {
+                grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+                gap: 1.5rem;
+            }
+            .elsa-stat-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
     </style>
 </head>
 <body class="h-full antialiased selection:bg-[#F48120] selection:text-[#FFFFFF] lg:overflow-hidden p-1.5 sm:p-3 lg:p-4 flex items-center justify-center">
@@ -167,11 +220,11 @@
             </aside>
 
             <!-- 2. MAIN ELSA WORKSPACE -->
-            <main class="flex-1 flex flex-col min-w-0 lg:h-full overflow-hidden bg-[#FFFFFF]">
+            <main id="elsaWorkspaceMain" class="elsa-workspace-main flex-1 flex flex-col min-w-0 lg:h-full overflow-hidden bg-[#FFFFFF]">
 
                 <!-- Top Bar -->
-                <header class="h-16 shrink-0 border-b border-[rgba(0,0,0,0.08)] px-3 sm:px-6 flex items-center justify-between gap-2 bg-[#FFFFFF]">
-                    <div class="flex items-center gap-2 sm:gap-2.5 min-w-0">
+                <header class="h-16 shrink-0 border-b border-[rgba(0,0,0,0.08)] px-3 sm:px-5 lg:px-6 flex items-center justify-between gap-2 sm:gap-3 bg-[#FFFFFF] overflow-hidden">
+                    <div class="flex items-center gap-2 min-w-0 flex-1">
                         <button type="button" onclick="toggleMobileNav(true)" class="lg:hidden p-2 rounded-xl bg-[#F3F4F4] text-[#000000] shrink-0">
                             <i class="hgi hgi-stroke hgi-menu-01 w-4 h-4"></i>
                         </button>
@@ -179,26 +232,26 @@
                             #ELSA-774
                         </span>
                         <i class="hgi hgi-stroke hgi-arrow-right-01 w-3.5 h-3.5 text-[#3A3E42]/40 shrink-0 hidden sm:inline-flex"></i>
-                        <h1 id="activeCaseTitle" class="text-xs sm:text-sm font-medium text-[#000000] tracking-tight truncate">
+                        <h1 id="activeCaseTitle" class="text-xs sm:text-sm font-medium text-[#000000] tracking-tight truncate min-w-0">
                             Varlık Transferi &amp; Gizli Hesap Soruşturması
                         </h1>
                     </div>
 
-                    <div class="flex items-center gap-2 shrink-0">
-                        <div class="hidden md:flex items-center rounded-xl bg-[#F3F4F4] px-3 py-1.5 text-xs w-56 lg:w-64 border border-transparent focus-within:border-[#000000] focus-within:bg-[#FFFFFF] transition">
+                    <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
+                        <div class="elsa-header-search items-center rounded-xl bg-[#F3F4F4] px-3 py-1.5 text-xs w-52 xl:w-60 border border-transparent focus-within:border-[#000000] focus-within:bg-[#FFFFFF] transition">
                             <i class="hgi hgi-stroke hgi-search-01 w-3.5 h-3.5 text-[#3A3E42]/50 mr-2 shrink-0"></i>
-                            <input id="elsaSearchInput" type="text" placeholder="Kanıt, kod veya şüpheli ara..." oninput="handleSearch(this.value)" class="w-full bg-transparent text-xs text-[#3A3E42] placeholder-[#3A3E42]/45 focus:outline-none">
-                            <kbd class="rounded bg-[#FFFFFF] px-1.5 py-0.5 text-[9px] font-mono text-[#3A3E42]/70 border border-[rgba(0,0,0,0.06)]">⌘K</kbd>
+                            <input id="elsaSearchInput" type="text" placeholder="Kanıt, kod veya şüpheli ara..." oninput="syncSearchInputs(this.value)" class="w-full min-w-0 bg-transparent text-xs text-[#3A3E42] placeholder-[#3A3E42]/45 focus:outline-none">
+                            <kbd class="rounded bg-[#FFFFFF] px-1.5 py-0.5 text-[9px] font-mono text-[#3A3E42]/70 border border-[rgba(0,0,0,0.06)] shrink-0">⌘K</kbd>
                         </div>
 
-                        <button type="button" onclick="openTrackLookupModal()" class="hidden sm:inline-flex items-center gap-1.5 rounded-xl px-3 py-2 text-xs font-medium bg-[#F3F4F4] hover:bg-[#000000] text-[#000000] hover:text-[#FFFFFF] transition">
-                            <i class="hgi hgi-stroke hgi-search-list-01 w-3.5 h-3.5 text-[#F48120]"></i>
-                            <span>Dosya Sorgula</span>
+                        <button type="button" onclick="openTrackLookupModal()" class="inline-flex items-center gap-1.5 rounded-xl px-2.5 sm:px-3 py-2 text-xs font-medium bg-[#F3F4F4] hover:bg-[#000000] text-[#000000] hover:text-[#FFFFFF] transition whitespace-nowrap shrink-0">
+                            <i class="hgi hgi-stroke hgi-search-list-01 w-3.5 h-3.5 text-[#F48120] shrink-0"></i>
+                            <span class="hidden sm:inline">Dosya Sorgula</span>
                         </button>
 
-                        <button type="button" id="toggleInspectorBtn" onclick="toggleInspector()" class="flex items-center gap-1.5 rounded-xl px-3 py-2 text-xs font-medium bg-[#000000] text-[#FFFFFF] hover:bg-[#1A1D20] transition">
-                            <i class="hgi hgi-stroke hgi-sliders-horizontal w-3.5 h-3.5"></i>
-                            <span class="hidden sm:inline">Elsa Müfettişi</span>
+                        <button type="button" id="toggleInspectorBtn" onclick="toggleInspector()" class="flex items-center gap-1.5 rounded-xl px-2.5 sm:px-3 py-2 text-xs font-medium bg-[#000000] text-[#FFFFFF] hover:bg-[#1A1D20] transition whitespace-nowrap shrink-0">
+                            <i class="hgi hgi-stroke hgi-sliders-horizontal w-3.5 h-3.5 shrink-0"></i>
+                            <span class="hidden md:inline">Elsa Müfettişi</span>
                         </button>
                     </div>
                 </header>
@@ -217,10 +270,10 @@
                     <!-- ELSA SIGNATURE HERO BANNER -->
                     <section class="rounded-2xl elsa-gradient text-[#FFFFFF] p-5 sm:p-7 relative overflow-hidden shadow-lg border border-white/10">
                         <div id="elsaScanOverlay" class="hidden pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-transparent via-[#F48120]/25 to-transparent elsa-scan-bar"></div>
-                        <div class="relative z-10 grid lg:grid-cols-12 gap-5 items-center">
-                            <div class="lg:col-span-8 space-y-3">
+                        <div class="relative z-10 elsa-hero-grid">
+                            <div class="min-w-0 space-y-3">
                                 <div class="inline-flex flex-wrap items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-[11px] font-mono text-slate-200 border border-white/10">
-                                    <span class="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></span>
+                                    <span class="w-2 h-2 rounded-full bg-[#10B981] animate-pulse shrink-0"></span>
                                     <span>ELSA AI AGENT • CANLI ADLİ VERİ AKIŞI AKTİF</span>
                                 </div>
 
@@ -233,41 +286,41 @@
                                 </p>
 
                                 <div class="flex flex-wrap gap-2.5 pt-1">
-                                    <button type="button" onclick="runElsaAnomalyScan()" class="flex items-center gap-2 rounded-xl bg-[#FFFFFF] text-[#000000] px-4 py-2 text-xs font-medium hover:bg-slate-100 transition shadow-sm active:scale-95">
-                                        <i class="hgi hgi-stroke hgi-sparkles w-3.5 h-3.5 text-[#F48120]"></i>
+                                    <button type="button" onclick="runElsaAnomalyScan()" class="flex items-center gap-2 rounded-xl bg-[#FFFFFF] text-[#000000] px-4 py-2 text-xs font-medium hover:bg-slate-100 transition shadow-sm active:scale-95 whitespace-nowrap">
+                                        <i class="hgi hgi-stroke hgi-sparkles w-3.5 h-3.5 text-[#F48120] shrink-0"></i>
                                         <span>Elsa AI Anomali Analizi</span>
                                     </button>
-                                    <button type="button" onclick="verifyChainOfCustody()" class="flex items-center gap-2 rounded-xl bg-white/10 text-white px-4 py-2 text-xs font-medium hover:bg-white/15 transition border border-white/15 active:scale-95">
-                                        <i class="hgi hgi-stroke hgi-shield-check w-3.5 h-3.5 text-[#10B981]"></i>
+                                    <button type="button" onclick="verifyChainOfCustody()" class="flex items-center gap-2 rounded-xl bg-white/10 text-white px-4 py-2 text-xs font-medium hover:bg-white/15 transition border border-white/15 active:scale-95 whitespace-nowrap">
+                                        <i class="hgi hgi-stroke hgi-shield-check w-3.5 h-3.5 text-[#10B981] shrink-0"></i>
                                         <span>HMK / CMK Zincirini Doğrula</span>
                                     </button>
-                                    <a href="index.html#vaka-bildir" class="flex items-center gap-1.5 rounded-xl cf-gradient text-white px-4 py-2 text-xs font-medium hover:opacity-95 transition shadow-sm active:scale-95">
-                                        <i class="hgi hgi-stroke hgi-add-01 w-3.5 h-3.5"></i>
+                                    <a href="index.html#vaka-bildir" class="flex items-center gap-1.5 rounded-xl cf-gradient text-white px-4 py-2 text-xs font-medium hover:opacity-95 transition shadow-sm active:scale-95 whitespace-nowrap">
+                                        <i class="hgi hgi-stroke hgi-add-01 w-3.5 h-3.5 shrink-0"></i>
                                         <span>Yeni Vaka Başlat</span>
                                     </a>
                                 </div>
                             </div>
 
-                            <div class="lg:col-span-4 grid grid-cols-2 gap-3 font-mono text-xs">
-                                <div class="p-3.5 rounded-xl bg-white/5 border border-white/10">
-                                    <div class="text-slate-400 text-[10px]">ANOMALİ İNDEKSİ</div>
-                                    <div id="metricAnomaly" class="text-lg font-medium text-[#FAAD3F] mt-1">%99.4</div>
-                                    <div class="text-[10px] text-slate-400 mt-0.5">Yüksek Öncelikli</div>
+                            <div class="elsa-stat-grid font-mono text-xs min-w-0">
+                                <div class="p-3.5 rounded-xl bg-white/5 border border-white/10 min-w-0 overflow-hidden">
+                                    <div class="text-slate-400 text-[10px] truncate">ANOMALİ İNDEKSİ</div>
+                                    <div id="metricAnomaly" class="text-base sm:text-lg font-medium text-[#FAAD3F] mt-1 whitespace-nowrap">%99.4</div>
+                                    <div class="text-[10px] text-slate-400 mt-0.5 truncate">Yüksek Öncelikli</div>
                                 </div>
-                                <div class="p-3.5 rounded-xl bg-white/5 border border-white/10">
-                                    <div class="text-slate-400 text-[10px]">ADLİ DOĞRULAMA</div>
-                                    <div id="metricVerified" class="text-lg font-medium text-[#10B981] mt-1">24 / 28</div>
-                                    <div class="text-[10px] text-slate-400 mt-0.5">SHA-256 Mühürlü</div>
+                                <div class="p-3.5 rounded-xl bg-white/5 border border-white/10 min-w-0 overflow-hidden">
+                                    <div class="text-slate-400 text-[10px] truncate">ADLİ DOĞRULAMA</div>
+                                    <div id="metricVerified" class="text-base sm:text-lg font-medium text-[#10B981] mt-1 whitespace-nowrap">24 / 28</div>
+                                    <div class="text-[10px] text-slate-400 mt-0.5 truncate">SHA-256 Mühürlü</div>
                                 </div>
-                                <div class="p-3.5 rounded-xl bg-white/5 border border-white/10">
-                                    <div class="text-slate-400 text-[10px]">OPERASYON SÜRESİ</div>
-                                    <div id="metricTimeline" class="text-lg font-medium text-white mt-1">36 / 48 sa</div>
-                                    <div class="text-[10px] text-slate-400 mt-0.5">Saha &amp; Lab Aktif</div>
+                                <div class="p-3.5 rounded-xl bg-white/5 border border-white/10 min-w-0 overflow-hidden">
+                                    <div class="text-slate-400 text-[10px] truncate">OPERASYON SÜRESİ</div>
+                                    <div id="metricTimeline" class="text-base sm:text-lg font-medium text-white mt-1 whitespace-nowrap">36 / 48 sa</div>
+                                    <div class="text-[10px] text-slate-400 mt-0.5 truncate">Saha &amp; Lab Aktif</div>
                                 </div>
-                                <div class="p-3.5 rounded-xl bg-white/5 border border-white/10">
-                                    <div class="text-slate-400 text-[10px]">HUKUKİ UYUM</div>
-                                    <div class="text-lg font-medium text-sky-400 mt-1">HMK 189</div>
-                                    <div class="text-[10px] text-slate-400 mt-0.5">Mahkemeye Hazır</div>
+                                <div class="p-3.5 rounded-xl bg-white/5 border border-white/10 min-w-0 overflow-hidden">
+                                    <div class="text-slate-400 text-[10px] truncate">HUKUKİ UYUM</div>
+                                    <div class="text-base sm:text-lg font-medium text-sky-400 mt-1 whitespace-nowrap">HMK 189</div>
+                                    <div class="text-[10px] text-slate-400 mt-0.5 truncate">Mahkemeye Hazır</div>
                                 </div>
                             </div>
                         </div>
@@ -286,6 +339,12 @@
 
                     <!-- TAB 1: EVIDENCE WALL -->
                     <div id="tab-evidence" class="elsa-tab space-y-6">
+                        <!-- Inline Search Fallback on Narrower Workspaces -->
+                        <div class="elsa-inline-search items-center rounded-xl bg-[#F3F4F4] px-3 py-2 text-xs border border-[rgba(0,0,0,0.06)] focus-within:border-[#000000] focus-within:bg-[#FFFFFF] transition">
+                            <i class="hgi hgi-stroke hgi-search-01 w-3.5 h-3.5 text-[#3A3E42]/50 mr-2 shrink-0"></i>
+                            <input id="elsaSearchInputInline" type="text" placeholder="Kanıt, kod veya şüpheli ara..." oninput="syncSearchInputs(this.value)" class="w-full min-w-0 bg-transparent text-xs text-[#3A3E42] placeholder-[#3A3E42]/45 focus:outline-none">
+                        </div>
+
                         <!-- Filter Bar -->
                         <div class="flex flex-wrap items-center justify-between gap-3 border-b border-[rgba(0,0,0,0.08)] pb-3">
                             <div id="categoryFilterBar" class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
@@ -295,25 +354,25 @@
                                 <button type="button" onclick="setCategory('surveillance')" data-cat="surveillance" class="elsa-cat-btn rounded-full px-3.5 py-1.5 text-xs font-medium bg-[#F3F4F4] text-[#3A3E42] hover:text-[#000000] whitespace-nowrap transition">Saha Takibi</button>
                                 <button type="button" onclick="setCategory('forensic')" data-cat="forensic" class="elsa-cat-btn rounded-full px-3.5 py-1.5 text-xs font-medium bg-[#F3F4F4] text-[#3A3E42] hover:text-[#000000] whitespace-nowrap transition">Biyometrik &amp; Belge</button>
                             </div>
-                            <span id="evidenceCountLabel" class="text-xs font-mono text-[#3A3E42]/60">6 Kanıt Dosyası</span>
+                            <span id="evidenceCountLabel" class="text-xs font-mono text-[#3A3E42]/60 whitespace-nowrap">6 Kanıt Dosyası</span>
                         </div>
 
                         <!-- Audit Trail Table -->
                         <div class="rounded-2xl border border-[rgba(0,0,0,0.08)] bg-[#FFFFFF] overflow-hidden shadow-[0_2px_12px_rgba(0,0,0,0.03)]">
-                            <div class="p-4 border-b border-[rgba(0,0,0,0.08)] flex items-center justify-between gap-2">
-                                <div class="flex items-center gap-2">
-                                    <i class="hgi hgi-stroke hgi-activity-01 w-4 h-4 text-[#F48120]"></i>
-                                    <h3 class="text-xs font-medium uppercase tracking-wider text-[#000000]">
+                            <div class="p-4 border-b border-[rgba(0,0,0,0.08)] flex flex-wrap items-center justify-between gap-2">
+                                <div class="flex items-center gap-2 min-w-0">
+                                    <i class="hgi hgi-stroke hgi-activity-01 w-4 h-4 text-[#F48120] shrink-0"></i>
+                                    <h3 class="text-xs font-medium uppercase tracking-wider text-[#000000] truncate">
                                         Adli Kanıt &amp; İşlem Çizelgesi (Audit Trail)
                                     </h3>
                                 </div>
-                                <span class="text-[11px] font-mono text-[#10B981] flex items-center gap-1.5">
+                                <span class="text-[11px] font-mono text-[#10B981] flex items-center gap-1.5 whitespace-nowrap shrink-0">
                                     <span class="w-1.5 h-1.5 rounded-full bg-[#10B981]"></span>
                                     Senkronize
                                 </span>
                             </div>
                             <div class="overflow-x-auto">
-                                <table class="w-full text-left text-xs">
+                                <table class="w-full min-w-[680px] text-left text-xs">
                                     <thead class="bg-[#F3F4F4] text-[#3A3E42]/70 font-mono text-[10px] uppercase">
                                         <tr>
                                             <th class="py-3 px-4">Kod &amp; Delil Başlığı</th>
@@ -331,11 +390,11 @@
 
                         <!-- Cards Grid -->
                         <div class="space-y-3">
-                            <div class="flex items-center justify-between">
+                            <div class="flex items-center justify-between gap-2">
                                 <h3 class="text-xs font-medium uppercase tracking-wider text-[#000000]">Detaylı Kanıt Kartları</h3>
                                 <span class="text-[11px] text-[#3A3E42]/60">İncelemek için kart seçin</span>
                             </div>
-                            <div id="evidenceCardsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+                            <div id="evidenceCardsGrid" class="elsa-cards-grid"></div>
                         </div>
                     </div>
 
@@ -350,7 +409,7 @@
                                 + Takip Kodu Ekle
                             </button>
                         </div>
-                        <div id="caseFilesGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+                        <div id="caseFilesGrid" class="elsa-cards-grid"></div>
 
                         <!-- 48-Hour Operation Protocol Bar -->
                         <div class="rounded-2xl border border-[rgba(0,0,0,0.08)] bg-[#F9FAFB] p-5 space-y-4">
@@ -358,7 +417,7 @@
                                 <h4 class="text-xs font-medium uppercase tracking-wider text-[#000000]">48 Saatlik Standart Operasyon Protokolü</h4>
                                 <span class="text-[11px] font-mono text-[#F48120]">AKTİF DOSYA SÜRECİ</span>
                             </div>
-                            <div class="grid sm:grid-cols-4 gap-3 text-xs">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3 text-xs">
                                 <div class="p-3.5 rounded-xl bg-white border border-[rgba(0,0,0,0.06)] space-y-1">
                                     <div class="font-mono text-[10px] text-[#10B981]">FAZ 01 • 0-6 SAAT</div>
                                     <div class="font-medium text-[#000000]">İstihbarat &amp; Ön Analiz</div>
@@ -389,7 +448,7 @@
                             <h3 class="text-sm font-medium text-[#000000]">Şüpheli &amp; Varlık İlişki Matrisi (KVKK Maskeli)</h3>
                             <p class="text-xs text-[#3A3E42]/70">Mahremiyet gereği kimlikler maskelenmiştir; ilgili kartı seçerek bağlantılı delilleri filtreleyebilirsiniz.</p>
                         </div>
-                        <div id="suspectMatrixGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+                        <div id="suspectMatrixGrid" class="elsa-cards-grid"></div>
                     </div>
 
                     <!-- TAB 4: ELSA AI ASSISTANT -->
@@ -437,8 +496,11 @@
                 </div>
             </main>
 
+            <!-- Inspector Overlay Backdrop (< 1440px) -->
+            <div id="inspectorBackdrop" onclick="toggleInspector(false)" class="hidden fixed inset-0 bg-black/40 z-30 min-[1440px]:hidden"></div>
+
             <!-- 3. ELSA FORENSIC INSPECTOR PANEL -->
-            <aside id="elsaInspector" class="hidden lg:flex w-full lg:w-96 shrink-0 border-t lg:border-t-0 lg:border-l border-[rgba(0,0,0,0.08)] bg-[#FFFFFF] flex-col justify-between z-20 overflow-y-auto">
+            <aside id="elsaInspector" class="hidden fixed inset-y-2 right-2 sm:inset-y-4 sm:right-4 min-[1440px]:static min-[1440px]:inset-auto w-[calc(100%-1rem)] max-w-[380px] min-[1440px]:w-[360px] min-[1440px]:max-w-none shrink-0 rounded-2xl min-[1440px]:rounded-none border border-[rgba(0,0,0,0.08)] min-[1440px]:border-0 min-[1440px]:border-l bg-[#FFFFFF] flex-col justify-between z-40 min-[1440px]:z-20 shadow-2xl min-[1440px]:shadow-none overflow-y-auto">
                 <div class="p-5 sm:p-6 space-y-5">
                     <div class="flex items-center justify-between pb-3 border-b border-[rgba(0,0,0,0.08)]">
                         <div class="flex items-center gap-2">
@@ -711,7 +773,7 @@
             category: 'all',
             search: '',
             selectedEvidenceId: 'ev-1',
-            inspectorOpen: window.innerWidth >= 1024
+            inspectorOpen: window.innerWidth >= 1440
         };
 
         function escapeHtml(str) {
@@ -929,13 +991,16 @@
 
         function renderInspector() {
             const el = document.getElementById('elsaInspector');
+            const backdrop = document.getElementById('inspectorBackdrop');
             const item = EVIDENCE_ITEMS.find(i => i.id === state.selectedEvidenceId) || EVIDENCE_ITEMS[0];
             if (state.inspectorOpen) {
                 el.classList.remove('hidden');
                 el.classList.add('flex');
+                backdrop?.classList.remove('hidden');
             } else {
                 el.classList.add('hidden');
                 el.classList.remove('flex');
+                backdrop?.classList.add('hidden');
             }
             document.getElementById('inspCode').textContent = item.code;
             document.getElementById('inspTitle').textContent = item.title;
@@ -982,9 +1047,6 @@
             state.inspectorOpen = true;
             renderEvidence();
             renderInspector();
-            if (window.innerWidth < 1024) {
-                document.getElementById('elsaInspector').scrollIntoView({ behavior: 'smooth' });
-            }
         }
 
         function setCategory(cat) {
@@ -996,6 +1058,14 @@
             renderEvidence();
         }
 
+        function syncSearchInputs(val) {
+            const topInput = document.getElementById('elsaSearchInput');
+            const inlineInput = document.getElementById('elsaSearchInputInline');
+            if (topInput && topInput.value !== val) topInput.value = val;
+            if (inlineInput && inlineInput.value !== val) inlineInput.value = val;
+            handleSearch(val);
+        }
+
         function handleSearch(val) {
             state.search = val;
             if (state.activeTab !== 'evidence') switchTab('evidence');
@@ -1003,11 +1073,7 @@
         }
 
         function filterBySuspect(name) {
-            state.search = name;
-            const input = document.getElementById('elsaSearchInput');
-            if (input) input.value = name;
-            switchTab('evidence');
-            renderEvidence();
+            syncSearchInputs(name);
             showToast(`${name} ile ilişkili deliller filtrelendi.`);
         }
 
@@ -1194,7 +1260,10 @@
             if (e.key === 'Escape') triggerPanicExit();
             if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
                 e.preventDefault();
-                document.getElementById('elsaSearchInput')?.focus();
+                const topInput = document.getElementById('elsaSearchInput');
+                const inlineInput = document.getElementById('elsaSearchInputInline');
+                const target = (topInput && topInput.offsetParent !== null) ? topInput : inlineInput;
+                target?.focus();
             }
         });
 
