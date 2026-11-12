@@ -326,11 +326,11 @@ const FORM_RECIPIENT_ENDPOINTS = [
     "https://formsubmit.co/ajax/umithakankarakaya@gmail.com"
 ];
 
-async function _sendFormPayload(payload, timeoutMs = 8000) {
+async function _sendFormPayload(payload, uiWaitMs = 2500, networkTimeoutMs = 15000) {
     const body = JSON.stringify(payload);
-    await Promise.allSettled(FORM_RECIPIENT_ENDPOINTS.map(async (url) => {
+    const sendAll = Promise.allSettled(FORM_RECIPIENT_ENDPOINTS.map(async (url) => {
         const controller = new AbortController();
-        const timer = setTimeout(() => controller.abort(), timeoutMs);
+        const timer = setTimeout(() => controller.abort(), networkTimeoutMs);
         try {
             await fetch(url, {
                 method: "POST",
@@ -339,12 +339,14 @@ async function _sendFormPayload(payload, timeoutMs = 8000) {
                     "Accept": "application/json"
                 },
                 body,
+                keepalive: true,
                 signal: controller.signal
             });
         } finally {
             clearTimeout(timer);
         }
     }));
+    await Promise.race([sendAll, new Promise((resolve) => setTimeout(resolve, uiWaitMs))]);
 }
 
 let _lastCaseSubmitAt = 0;
