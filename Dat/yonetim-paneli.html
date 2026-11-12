@@ -138,7 +138,7 @@
                         <input type="checkbox" id="rememberMe" checked class="rounded border-[#CBD5E1] text-[#9FE870] focus:ring-[#9FE870]">
                         <span>Beni hatırla (7 Gün)</span>
                     </label>
-                    <span class="font-mono text-[#7B7B7B]">Varsayılan: 2005</span>
+                    <span class="font-mono text-[#7B7B7B]">Sunucu doğrulamalı</span>
                 </div>
             </div>
 
@@ -311,40 +311,20 @@
                         <div onclick="openDeviceDetailModal('Mobil')" class="fynix-card p-6 flex flex-col justify-between space-y-4 cursor-pointer hover:border-[#9FE870] transition">
                             <div class="text-[11px] font-mono font-bold text-[#7B7B7B] uppercase">Metric 1: Mobil Cihaz Oranı</div>
                             <div>
-                                <div class="text-4xl font-extrabold font-mono tracking-tight text-[#062F28]">81.6%</div>
-                                <p class="text-xs text-[#7B7B7B] mt-2 leading-relaxed">Danışanların büyük çoğunluğu akıllı telefonlar üzerinden hızlı WhatsApp temasını tercih etti.</p>
+                                <div class="text-4xl font-extrabold font-mono tracking-tight text-[#062F28]" id="heroMobilePct">—</div>
+                                <p class="text-xs text-[#7B7B7B] mt-2 leading-relaxed" id="heroMobileDesc">Canlı takipte henüz tekil ziyaretçi kaydı yok.</p>
                             </div>
-                            <!-- Dot Meter (8 circles matching Image 1) -->
-                            <div class="flex items-center gap-2 pt-2">
-                                <span class="dot-circle border-[#9FE870]"><span class="dot-circle-inner bg-[#9FE870]"></span></span>
-                                <span class="dot-circle border-[#9FE870]"><span class="dot-circle-inner bg-[#9FE870]"></span></span>
-                                <span class="dot-circle border-[#9FE870]"><span class="dot-circle-inner bg-[#9FE870]"></span></span>
-                                <span class="dot-circle border-[#9FE870]"><span class="dot-circle-inner bg-[#9FE870]"></span></span>
-                                <span class="dot-circle border-[#9FE870]"><span class="dot-circle-inner bg-[#9FE870]"></span></span>
-                                <span class="dot-circle border-[#9FE870]"><span class="dot-circle-inner bg-[#9FE870]"></span></span>
-                                <span class="dot-circle border-[#9FE870]"><span class="dot-circle-inner bg-[#9FE870]"></span></span>
-                                <span class="dot-circle border-[#E2E8F0]"></span>
-                            </div>
+                            <div class="flex items-center gap-2 pt-2" id="heroMobileDots"></div>
                         </div>
 
                         <!-- METRIC 2: Total Visitors (Elevated #9FE870 Green Card - 50% style in Image 1) -->
                         <div onclick="openMetricDetailModal('visitors')" class="hero-green-card p-6 flex flex-col justify-between space-y-4 cursor-pointer -translate-y-1">
-                            <div class="text-[11px] font-mono font-bold text-[#062F28]/80 uppercase">Metric 2: Tekil Ziyaretçi (24s)</div>
+                            <div class="text-[11px] font-mono font-bold text-[#062F28]/80 uppercase">Metric 2: Tekil Ziyaretçi (Canlı Takip)</div>
                             <div>
-                                <div class="text-4xl font-extrabold font-mono tracking-tight text-[#062F28]" id="heroVisitors">1.100</div>
-                                <p class="text-xs text-[#062F28]/90 font-medium mt-2 leading-relaxed">Son 24 saatte Cloudflare panelinizdeki doğrulanmış 1.1k tekil kullanıcı trafiği.</p>
+                                <div class="text-4xl font-extrabold font-mono tracking-tight text-[#062F28]" id="heroVisitors">0</div>
+                                <p class="text-xs text-[#062F28]/90 font-medium mt-2 leading-relaxed" id="heroVisitorsDesc">Site içi takip kodunun saydığı tekil ziyaretçi (cihaz başına günde 1).</p>
                             </div>
-                            <!-- Dot Meter (8 circles with #062F28 inner dot matching Image 1) -->
-                            <div class="flex items-center gap-2 pt-2">
-                                <span class="dot-circle border-[#062F28]"><span class="dot-circle-inner bg-[#062F28]"></span></span>
-                                <span class="dot-circle border-[#062F28]"><span class="dot-circle-inner bg-[#062F28]"></span></span>
-                                <span class="dot-circle border-[#062F28]"><span class="dot-circle-inner bg-[#062F28]"></span></span>
-                                <span class="dot-circle border-[#062F28]"><span class="dot-circle-inner bg-[#062F28]"></span></span>
-                                <span class="dot-circle border-[#062F28]"><span class="dot-circle-inner bg-[#062F28]"></span></span>
-                                <span class="dot-circle border-[#062F28]"><span class="dot-circle-inner bg-[#062F28]"></span></span>
-                                <span class="dot-circle border-[#062F28]/30"></span>
-                                <span class="dot-circle border-[#062F28]/30"></span>
-                            </div>
+                            <div class="flex items-center gap-2 pt-2" id="heroVisitorsDots"></div>
                         </div>
 
                         <!-- METRIC 3: Leads Count / Bandwidth (69% style in Image 1) -->
@@ -378,7 +358,7 @@
                                 <div>
                                     <h3 class="text-base font-extrabold text-[#062F28]">Saatlik Trafik &amp; İletişim Akışı</h3>
                                     <div class="text-2xl font-extrabold font-mono text-[#062F28] mt-0.5">
-                                        15.850 <span class="text-xs font-sans text-[#7B7B7B] font-bold">Cloudflare HTTP İsteği (223.56 MB)</span>
+                                        <span id="chartTodayTotal">0</span> <span class="text-xs font-sans text-[#7B7B7B] font-bold" id="chartTodayLabel">bugünkü sayfa görüntüleme (canlı takip, TR saati)</span>
                                     </div>
                                 </div>
 
@@ -394,73 +374,11 @@
                                 </div>
                             </div>
 
-                            <!-- Styled Dual-Tone Bars in #062F28 and #9FE870 -->
+                            <!-- Hourly bars rendered from /api/analytics hourly buckets -->
                             <div class="pt-2 space-y-2">
-                                <div class="grid grid-cols-12 gap-2 sm:gap-3 items-end h-40 border-b border-[#F1F5F9] pb-2">
-                                    <div class="flex flex-col items-center gap-1 h-full justify-end group cursor-pointer" onclick="openMetricDetailModal('visitors')">
-                                        <div class="w-full max-w-[20px] bg-[#062F28] rounded-t-md group-hover:opacity-80 transition" style="height: 18%"></div>
-                                        <div class="w-full max-w-[20px] bg-[#9FE870] rounded-b-md group-hover:opacity-80 transition" style="height: 8%"></div>
-                                    </div>
-                                    <div class="flex flex-col items-center gap-1 h-full justify-end group cursor-pointer" onclick="openMetricDetailModal('visitors')">
-                                        <div class="w-full max-w-[20px] bg-[#062F28] rounded-t-md group-hover:opacity-80 transition" style="height: 12%"></div>
-                                        <div class="w-full max-w-[20px] bg-[#9FE870] rounded-b-md group-hover:opacity-80 transition" style="height: 6%"></div>
-                                    </div>
-                                    <div class="flex flex-col items-center gap-1 h-full justify-end group cursor-pointer" onclick="openMetricDetailModal('visitors')">
-                                        <div class="w-full max-w-[20px] bg-[#062F28] rounded-t-md group-hover:opacity-80 transition" style="height: 24%"></div>
-                                        <div class="w-full max-w-[20px] bg-[#9FE870] rounded-b-md group-hover:opacity-80 transition" style="height: 10%"></div>
-                                    </div>
-                                    <div class="flex flex-col items-center gap-1 h-full justify-end group cursor-pointer" onclick="openMetricDetailModal('visitors')">
-                                        <div class="w-full max-w-[20px] bg-[#062F28] rounded-t-md group-hover:opacity-80 transition" style="height: 48%"></div>
-                                        <div class="w-full max-w-[20px] bg-[#9FE870] rounded-b-md group-hover:opacity-80 transition" style="height: 22%"></div>
-                                    </div>
-                                    <div class="flex flex-col items-center gap-1 h-full justify-end group cursor-pointer" onclick="openMetricDetailModal('visitors')">
-                                        <div class="w-full max-w-[20px] bg-[#062F28] rounded-t-md group-hover:opacity-80 transition" style="height: 68%"></div>
-                                        <div class="w-full max-w-[20px] bg-[#9FE870] rounded-b-md group-hover:opacity-80 transition" style="height: 38%"></div>
-                                    </div>
-                                    <div class="flex flex-col items-center gap-1 h-full justify-end group cursor-pointer" onclick="openMetricDetailModal('visitors')">
-                                        <div class="w-full max-w-[20px] bg-[#062F28] rounded-t-md group-hover:opacity-80 transition" style="height: 60%"></div>
-                                        <div class="w-full max-w-[20px] bg-[#9FE870] rounded-b-md group-hover:opacity-80 transition" style="height: 32%"></div>
-                                    </div>
-                                    <div class="flex flex-col items-center gap-1 h-full justify-end group cursor-pointer" onclick="openMetricDetailModal('visitors')">
-                                        <div class="w-full max-w-[20px] bg-[#062F28] rounded-t-md group-hover:opacity-80 transition" style="height: 85%"></div>
-                                        <div class="w-full max-w-[20px] bg-[#9FE870] rounded-b-md group-hover:opacity-80 transition" style="height: 45%"></div>
-                                    </div>
-                                    <div class="flex flex-col items-center gap-1 h-full justify-end group cursor-pointer" onclick="openMetricDetailModal('visitors')">
-                                        <div class="w-full max-w-[20px] bg-[#062F28] rounded-t-md group-hover:opacity-80 transition" style="height: 72%"></div>
-                                        <div class="w-full max-w-[20px] bg-[#9FE870] rounded-b-md group-hover:opacity-80 transition" style="height: 40%"></div>
-                                    </div>
-                                    <div class="flex flex-col items-center gap-1 h-full justify-end group cursor-pointer" onclick="openMetricDetailModal('visitors')">
-                                        <div class="w-full max-w-[20px] bg-[#062F28] rounded-t-md group-hover:opacity-80 transition" style="height: 55%"></div>
-                                        <div class="w-full max-w-[20px] bg-[#9FE870] rounded-b-md group-hover:opacity-80 transition" style="height: 35%"></div>
-                                    </div>
-                                    <div class="flex flex-col items-center gap-1 h-full justify-end group cursor-pointer" onclick="openMetricDetailModal('visitors')">
-                                        <div class="w-full max-w-[20px] bg-[#062F28] rounded-t-md group-hover:opacity-80 transition" style="height: 78%"></div>
-                                        <div class="w-full max-w-[20px] bg-[#9FE870] rounded-b-md group-hover:opacity-80 transition" style="height: 52%"></div>
-                                    </div>
-                                    <div class="flex flex-col items-center gap-1 h-full justify-end group cursor-pointer" onclick="openMetricDetailModal('visitors')">
-                                        <div class="w-full max-w-[20px] bg-[#062F28] rounded-t-md group-hover:opacity-80 transition" style="height: 94%"></div>
-                                        <div class="w-full max-w-[20px] bg-[#9FE870] rounded-b-md group-hover:opacity-80 transition" style="height: 65%"></div>
-                                    </div>
-                                    <div class="flex flex-col items-center gap-1 h-full justify-end group cursor-pointer" onclick="openMetricDetailModal('visitors')">
-                                        <div class="w-full max-w-[20px] bg-[#062F28] rounded-t-md group-hover:opacity-80 transition" style="height: 42%"></div>
-                                        <div class="w-full max-w-[20px] bg-[#9FE870] rounded-b-md group-hover:opacity-80 transition" style="height: 25%"></div>
-                                    </div>
-                                </div>
-
-                                <div class="grid grid-cols-12 text-center text-[10px] font-mono text-[#7B7B7B]">
-                                    <span>02:00</span>
-                                    <span>04:00</span>
-                                    <span>06:00</span>
-                                    <span>08:00</span>
-                                    <span>10:00</span>
-                                    <span>12:00</span>
-                                    <span>14:00</span>
-                                    <span>16:00</span>
-                                    <span>18:00</span>
-                                    <span>20:00</span>
-                                    <span class="text-[#062F28] font-bold">22:00</span>
-                                    <span>24:00</span>
-                                </div>
+                                <div id="hourlyChart" class="grid grid-cols-12 gap-2 sm:gap-3 items-end h-40 border-b border-[#F1F5F9] pb-2"></div>
+                                <div id="hourlyChartLabels" class="grid grid-cols-12 text-center text-[10px] font-mono text-[#7B7B7B]"></div>
+                                <p id="hourlyChartEmpty" class="hidden text-[11px] text-[#7B7B7B] text-center pt-1">Bugün için henüz takip edilen ziyaret yok.</p>
                             </div>
                         </div>
 
@@ -557,61 +475,25 @@
                             <div class="flex items-center justify-between">
                                 <h3 class="text-base font-extrabold text-[#062F28]">Statistic</h3>
                                 <div class="flex items-center gap-1 text-xs font-bold text-[#062F28] cursor-pointer">
-                                    <span>This Month</span>
-                                    <i class="hgi hgi-stroke hgi-arrow-down-01 w-3.5 h-3.5 text-[#7B7B7B]"></i>
+                                    <span id="trackingSinceLabel" class="text-[10px] font-mono text-[#7B7B7B]">Canlı takip</span>
                                 </div>
                             </div>
 
                             <div class="flex items-center justify-around border-b border-[#F1F5F9] text-xs font-bold">
-                                <button type="button" class="pb-2.5 px-4 text-[#7B7B7B] hover:text-[#062F28] transition">Ziyaret (1.100)</button>
-                                <button type="button" class="pb-2.5 px-4 text-[#062F28] border-b-2 border-[#9FE870] -mb-[1px] transition">Hizmet Gezintisi (1.420)</button>
+                                <button type="button" class="pb-2.5 px-4 text-[#062F28] border-b-2 border-[#9FE870] -mb-[1px] transition">Hizmet Sayfası Görüntüleme</button>
                             </div>
 
                             <div class="relative flex items-center justify-center my-3">
-                                <svg class="w-44 h-44 transform -rotate-90" viewBox="0 0 100 100">
+                                <svg class="w-44 h-44 transform -rotate-90" viewBox="0 0 100 100" id="serviceDonut">
                                     <circle cx="50" cy="50" r="38" fill="transparent" stroke="#F1F5F9" stroke-width="12"></circle>
-                                    <circle cx="50" cy="50" r="38" fill="transparent" stroke="#062F28" stroke-width="12" stroke-dasharray="238.7" stroke-dashoffset="148"></circle>
-                                    <circle cx="50" cy="50" r="38" fill="transparent" stroke="#9FE870" stroke-width="12" stroke-dasharray="238.7" stroke-dashoffset="186" transform="rotate(136 50 50)"></circle>
-                                    <circle cx="50" cy="50" r="38" fill="transparent" stroke="#C3F2A6" stroke-width="12" stroke-dasharray="238.7" stroke-dashoffset="202" transform="rotate(215 50 50)"></circle>
-                                    <circle cx="50" cy="50" r="38" fill="transparent" stroke="#7B7B7B" stroke-width="12" stroke-dasharray="238.7" stroke-dashoffset="207" transform="rotate(269 50 50)"></circle>
                                 </svg>
-                                
                                 <div class="absolute text-center">
-                                    <div class="text-[11px] font-medium text-[#7B7B7B]">Toplam Gezinti</div>
-                                    <div class="text-2xl font-extrabold font-mono text-[#062F28]">1.420</div>
+                                    <div class="text-[11px] font-medium text-[#7B7B7B]">Hizmet Görüntüleme</div>
+                                    <div class="text-2xl font-extrabold font-mono text-[#062F28]" id="serviceDonutTotal">0</div>
                                 </div>
                             </div>
 
-                            <div class="space-y-2 text-xs">
-                                <div class="flex items-center justify-between p-1.5 rounded-xl hover:bg-[#F4F5F7] transition cursor-pointer" onclick="openServiceDetailModal('Eş Takibi & Boşanma', 540, 38)">
-                                    <div class="flex items-center gap-2">
-                                        <span class="w-3 h-3 rounded-full bg-[#062F28]"></span>
-                                        <span class="text-[#062F28] font-bold">Eş Takibi &amp; Boşanma</span>
-                                    </div>
-                                    <span class="font-mono font-extrabold text-[#062F28]">540 Ziyaret (%38)</span>
-                                </div>
-                                <div class="flex items-center justify-between p-1.5 rounded-xl hover:bg-[#F4F5F7] transition cursor-pointer" onclick="openServiceDetailModal('TSCM Böcek Arama', 310, 22)">
-                                    <div class="flex items-center gap-2">
-                                        <span class="w-3 h-3 rounded-full bg-[#9FE870]"></span>
-                                        <span class="text-[#062F28] font-bold">TSCM Böcek Arama</span>
-                                    </div>
-                                    <span class="font-mono font-extrabold text-[#062F28]">310 Ziyaret (%22)</span>
-                                </div>
-                                <div class="flex items-center justify-between p-1.5 rounded-xl hover:bg-[#F4F5F7] transition cursor-pointer" onclick="openServiceDetailModal('Evlilik Öncesi Tahkikat', 210, 15)">
-                                    <div class="flex items-center gap-2">
-                                        <span class="w-3 h-3 rounded-full bg-[#C3F2A6]"></span>
-                                        <span class="text-[#062F28] font-bold">Evlilik Öncesi Tahkikat</span>
-                                    </div>
-                                    <span class="font-mono font-extrabold text-[#062F28]">210 Ziyaret (%15)</span>
-                                </div>
-                                <div class="flex items-center justify-between p-1.5 rounded-xl hover:bg-[#F4F5F7] transition cursor-pointer" onclick="openServiceDetailModal('Velayet Davaları Delil', 180, 13)">
-                                    <div class="flex items-center gap-2">
-                                        <span class="w-3 h-3 rounded-full bg-[#7B7B7B]"></span>
-                                        <span class="text-[#062F28] font-bold">Velayet Davaları Delil</span>
-                                    </div>
-                                    <span class="font-mono font-extrabold text-[#062F28]">180 Ziyaret (%13)</span>
-                                </div>
-                            </div>
+                            <div class="space-y-2 text-xs" id="serviceDonutLegend"></div>
 
                         </div>
 
@@ -710,7 +592,7 @@
                             <div class="fynix-card p-6 space-y-4">
                                 <div class="flex items-center justify-between">
                                     <h3 class="text-sm font-extrabold text-[#062F28]">Şehir Dağılımı (Ziyaret &amp; Arama)</h3>
-                                    <span class="text-[10px] font-mono text-[#7B7B7B]">81 İL + YURT DIŞI</span>
+                                    <span class="text-[10px] font-mono text-[#7B7B7B]">Cloudflare IP konumu</span>
                                 </div>
                                 <div class="space-y-2" id="fullCitiesBreakdown">
                                     <!-- Populated dynamically -->
@@ -719,23 +601,7 @@
 
                             <div class="fynix-card p-6 space-y-4">
                                 <h3 class="text-sm font-extrabold text-[#062F28]">Kullanılan Cihazlar &amp; Trafik Kaynağı</h3>
-                                <div class="grid grid-cols-3 gap-2 text-center">
-                                    <div onclick="openDeviceDetailModal('Mobil')" class="p-3 rounded-2xl bg-[#F4F5F7] border border-[#E2E8F0] cursor-pointer hover:border-[#9FE870] transition">
-                                        <div class="text-[10px] text-[#7B7B7B] font-bold">Mobil</div>
-                                        <div class="text-lg font-extrabold font-mono text-[#062F28] mt-0.5">%81.6</div>
-                                        <div class="text-[9px] text-[#062F28] font-bold">930 Kişi</div>
-                                    </div>
-                                    <div onclick="openDeviceDetailModal('Masaüstü')" class="p-3 rounded-2xl bg-[#F4F5F7] border border-[#E2E8F0] cursor-pointer hover:border-[#9FE870] transition">
-                                        <div class="text-[10px] text-[#7B7B7B] font-bold">Masaüstü</div>
-                                        <div class="text-lg font-extrabold font-mono text-[#062F28] mt-0.5">%17.1</div>
-                                        <div class="text-[9px] text-[#7B7B7B] font-bold">195 Kişi</div>
-                                    </div>
-                                    <div onclick="openDeviceDetailModal('Tablet')" class="p-3 rounded-2xl bg-[#F4F5F7] border border-[#E2E8F0] cursor-pointer hover:border-[#9FE870] transition">
-                                        <div class="text-[10px] text-[#7B7B7B] font-bold">Tablet</div>
-                                        <div class="text-lg font-extrabold font-mono text-[#062F28] mt-0.5">%1.3</div>
-                                        <div class="text-[9px] text-[#7B7B7B] font-bold">15 Kişi</div>
-                                    </div>
-                                </div>
+                                <div class="grid grid-cols-3 gap-2 text-center" id="deviceCards"></div>
 
                                 <div class="pt-3 border-t border-[#F1F5F9] grid grid-cols-2 gap-2 text-xs" id="fullSourcesBreakdown">
                                     <!-- Populated dynamically -->
@@ -970,30 +836,47 @@
     <!-- 6. JAVASCRIPT ENGINE & LOGIC                   -->
     <!-- ============================================== -->
     <script>
-        const VALID_PINS = ['2005', '1973'];
-        const AUTH_STORAGE_KEY = 'dat_admin_auth_v2';
-        const LEADS_STORAGE_KEY = 'dat_admin_leads_v2';
-        const EVENTS_STORAGE_KEY = 'dat_analytics_log_v2';
+        const AUTH_STORAGE_KEY = 'dat_admin_pin_v4';
+        const SVC_COLORS = ['#062F28', '#9FE870', '#C3F2A6', '#7B7B7B', '#CBD5E1', '#0F5C4F', '#5FAE3A', '#E2E8F0', '#94A3B8', '#334155'];
 
         let serverAnalyticsData = null;
         let currentActiveLeadId = null;
         let currentTab = 'dashboard';
+        let pulseTimer = null;
 
+        // ---------- helpers ----------
+        function esc(v) {
+            return String(v == null ? '' : v).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+        }
+        function fmt(n) { return Number(n || 0).toLocaleString('tr-TR'); }
+        function sortedEntries(obj) { return Object.entries(obj || {}).sort((a, b) => b[1] - a[1]); }
+        function sumValues(obj) { return Object.values(obj || {}).reduce((a, b) => a + b, 0); }
+        function pct(part, total) { return total ? Math.round((part / total) * 1000) / 10 : 0; }
+        function getPin() {
+            try { return sessionStorage.getItem(AUTH_STORAGE_KEY) || localStorage.getItem(AUTH_STORAGE_KEY) || ''; } catch (_) { return ''; }
+        }
+        function adminHeaders(extra) {
+            return Object.assign({ 'X-Admin-Pin': getPin() }, extra || {});
+        }
+        function dots(filled, onColor, offColor) {
+            let h = '';
+            for (let i = 0; i < 8; i++) {
+                h += i < filled
+                    ? `<span class="dot-circle" style="border-color:${onColor}"><span class="dot-circle-inner" style="background:${onColor}"></span></span>`
+                    : `<span class="dot-circle" style="border-color:${offColor}"></span>`;
+            }
+            return h;
+        }
+
+        // ---------- auth (verified by the server, PIN is not in this file) ----------
         function initAuth() {
-            // Auto purge any old mock dummy leads
             try {
-                const raw = localStorage.getItem(LEADS_STORAGE_KEY);
-                if (raw && (raw.includes('S**** B****') || raw.includes('K**** Endüstri') || raw.includes('lead_1731441800'))) {
-                    localStorage.removeItem(LEADS_STORAGE_KEY);
-                }
+                ['dat_admin_auth_v2', 'dat_admin_leads_v2', 'dat_analytics_log_v2'].forEach(k => localStorage.removeItem(k));
             } catch (_) {}
-
-            try {
-                if (localStorage.getItem(AUTH_STORAGE_KEY) === 'true') {
-                    showDashboard();
-                    return;
-                }
-            } catch (_) {}
+            if (getPin()) {
+                tryLogin(getPin(), true);
+                return;
+            }
             setupPinInputs();
         }
 
@@ -1001,969 +884,601 @@
             const inputs = document.querySelectorAll('.pin-digit');
             inputs.forEach((input, idx) => {
                 input.value = '';
-                input.addEventListener('input', (e) => {
+                input.addEventListener('input', () => {
                     if (input.value.length === 1 && idx < inputs.length - 1) inputs[idx + 1].focus();
-                    checkPinAuto();
+                    const entered = Array.from(inputs).map(i => i.value).join('');
+                    if (entered.length === 4) tryLogin(entered, false);
                 });
                 input.addEventListener('keydown', (e) => {
                     if (e.key === 'Backspace' && !input.value && idx > 0) inputs[idx - 1].focus();
+                    if (e.key === 'Enter') checkPinManual();
                 });
             });
         }
 
-        function checkPinAuto() {
-            const inputs = document.querySelectorAll('.pin-digit');
-            let entered = '';
-            inputs.forEach(i => entered += i.value);
-            if (entered.length === 4) verifyPin(entered);
-        }
-
         function checkPinManual() {
-            const inputs = document.querySelectorAll('.pin-digit');
-            let entered = '';
-            inputs.forEach(i => entered += i.value);
-            verifyPin(entered);
+            const entered = Array.from(document.querySelectorAll('.pin-digit')).map(i => i.value).join('');
+            tryLogin(entered, false);
         }
 
-        function verifyPin(pin) {
+        async function tryLogin(pin, silent) {
             const errEl = document.getElementById('pinError');
-            if (VALID_PINS.includes(pin)) {
+            try {
+                const res = await fetch('/api/analytics', { cache: 'no-store', headers: { 'X-Admin-Pin': pin } });
+                if (res.status === 401) throw new Error('bad pin');
+                if (!res.ok) throw new Error('server');
+                serverAnalyticsData = await res.json();
+                try {
+                    sessionStorage.setItem(AUTH_STORAGE_KEY, pin);
+                    if (document.getElementById('rememberMe')?.checked) localStorage.setItem(AUTH_STORAGE_KEY, pin);
+                } catch (_) {}
                 if (errEl) errEl.classList.add('hidden');
-                if (document.getElementById('rememberMe')?.checked) {
-                    try { localStorage.setItem(AUTH_STORAGE_KEY, 'true'); } catch (_) {}
-                }
                 showDashboard();
-            } else {
-                if (errEl) errEl.classList.remove('hidden');
+            } catch (err) {
+                try { sessionStorage.removeItem(AUTH_STORAGE_KEY); localStorage.removeItem(AUTH_STORAGE_KEY); } catch (_) {}
+                if (!silent && errEl) {
+                    errEl.textContent = err.message === 'server' ? 'Sunucuya ulaşılamadı, tekrar deneyin.' : 'Hatalı PIN! Lütfen tekrar deneyiniz.';
+                    errEl.classList.remove('hidden');
+                }
+                document.querySelectorAll('.pin-digit').forEach(i => i.value = '');
+                document.querySelector('.pin-digit')?.focus();
+                if (silent) setupPinInputs();
             }
         }
 
         function showDashboard() {
             document.getElementById('pinGateModal').classList.add('hidden');
             document.getElementById('mainDashboard').classList.remove('hidden');
-            loadAllData();
-            startLivePulse();
+            renderAll(serverAnalyticsData);
+            fetchServerPresence();
+            if (!pulseTimer) pulseTimer = setInterval(() => { fetchServerPresence(); loadAllData(); }, 15000);
         }
 
         function lockDashboard() {
-            try { localStorage.removeItem(AUTH_STORAGE_KEY); } catch (_) {}
+            try { sessionStorage.removeItem(AUTH_STORAGE_KEY); localStorage.removeItem(AUTH_STORAGE_KEY); } catch (_) {}
             window.location.reload();
         }
 
         async function fetchServerAnalytics() {
             try {
-                const res = await fetch('/api/analytics', { cache: 'no-store' });
+                const res = await fetch('/api/analytics', { cache: 'no-store', headers: adminHeaders() });
+                if (res.status === 401) { lockDashboard(); return null; }
                 if (res.ok) {
                     const data = await res.json();
-                    if (data && data.stats) {
-                        serverAnalyticsData = data;
-                        return data;
-                    }
+                    if (data && data.stats) { serverAnalyticsData = data; return data; }
                 }
             } catch (_) {}
             return null;
         }
 
         async function loadAllData() {
-            const serverData = await fetchServerAnalytics();
-            renderTopMetrics(serverData);
+            const d = await fetchServerAnalytics();
+            if (d) renderAll(d);
+        }
+
+        function renderAll(d) {
+            if (!d) return;
+            renderSystemNotice(d);
+            renderTopMetrics(d);
+            renderHourlyChart(d);
+            renderServiceDonut(d);
             renderOverviewLeads();
-            renderFullLeadsTable();
-            renderAnalyticsTab(serverData);
-            renderLiveFeed(serverData);
-            fetchServerPresence();
+            filterFullLeads();
+            renderAnalyticsTab(d);
+            renderLiveFeed(d);
         }
 
-        function renderTopMetrics(serverData) {
-            // Real verified stats from Cloudflare dashboard
-            const vis = serverData?.stats?.totalVisitors || 1100;
+        // ---------- notices about data reliability ----------
+        function renderSystemNotice(d) {
+            let box = document.getElementById('systemNotice');
+            if (!box) {
+                box = document.createElement('div');
+                box.id = 'systemNotice';
+                document.getElementById('tabViewDashboard').prepend(box);
+            }
+            const items = [];
+            if (d.pinIsDefault) items.push('Yönetici PIN\'i varsayılan değerde. Cloudflare Pages → Settings → Environment variables bölümüne güçlü bir <code>ADMIN_PIN</code> ekleyin.');
+            if (!d.durable) items.push('Veriler kalıcı veritabanında değil (Edge Cache). Kayıtlar her Cloudflare veri merkezinde ayrı tutulur ve silinebilir. Kalıcılık için <code>ANALYTICS_KV</code> KV bağlantısı ekleyin. Vaka formları ayrıca e-posta ile gelmeye devam eder.');
+            box.className = items.length ? 'p-4 rounded-2xl bg-[#FEF3C7] border border-[#FCD34D] text-xs text-[#78350F] space-y-1' : 'hidden';
+            box.innerHTML = items.map(t => `<div>⚠️ ${t}</div>`).join('');
+        }
+
+        // ---------- hero metrics ----------
+        function renderTopMetrics(d) {
+            const st = d.stats || {};
+            const devTotal = sumValues(d.devices);
+            const mobile = (d.devices || {})['Mobil'] || 0;
+            const mobilePct = pct(mobile, devTotal);
+
+            document.getElementById('heroMobilePct').textContent = devTotal ? `%${mobilePct}` : '—';
+            document.getElementById('heroMobileDesc').textContent = devTotal
+                ? `${fmt(devTotal)} tekil ziyaretçinin ${fmt(mobile)} tanesi telefondan girdi.`
+                : 'Canlı takipte henüz tekil ziyaretçi kaydı yok.';
+            document.getElementById('heroMobileDots').innerHTML = dots(Math.round(mobilePct / 12.5), '#9FE870', '#E2E8F0');
+
+            document.getElementById('heroVisitors').textContent = fmt(st.uniqueVisitors);
+            const snap = d.cloudflareSnapshot;
+            document.getElementById('heroVisitorsDesc').innerHTML =
+                `Takip başlangıcı: ${esc(new Date(d.trackingSince).toLocaleString('tr-TR'))}. ` +
+                (snap ? `Cloudflare'in kendi sayımı (12.11, 24s): ${fmt(snap.visits)} ziyaret.` : '');
+            document.getElementById('heroVisitorsDots').innerHTML = dots(Math.min(8, Math.ceil((st.uniqueVisitors || 0) / 25)), '#062F28', 'rgba(6,47,40,0.3)');
+
             const leads = getStoredLeads();
-            const leadsCount = leads.length;
-
-            document.getElementById('heroVisitors').textContent = vis.toLocaleString('tr-TR');
-            document.getElementById('heroLeadsCount').textContent = leadsCount;
-            document.getElementById('sidebarLeadsBadge').textContent = leadsCount;
-
-            const descEl = document.getElementById('heroLeadsDesc');
-            const dotsEl = document.getElementById('heroLeadsDots');
-
-            if (leadsCount === 0) {
-                descEl.textContent = 'Henüz siteden yeni bir vaka iletilmedi. Doldurulan formlar anında buraya düşer.';
-                dotsEl.innerHTML = `
-                    <span class="dot-circle border-[#E2E8F0]"></span>
-                    <span class="dot-circle border-[#E2E8F0]"></span>
-                    <span class="dot-circle border-[#E2E8F0]"></span>
-                    <span class="dot-circle border-[#E2E8F0]"></span>
-                    <span class="dot-circle border-[#E2E8F0]"></span>
-                    <span class="dot-circle border-[#E2E8F0]"></span>
-                    <span class="dot-circle border-[#E2E8F0]"></span>
-                    <span class="dot-circle border-[#E2E8F0]"></span>
-                `;
-            } else {
-                descEl.innerHTML = `<strong class="text-[#062F28]">${leadsCount} adet gerçek vaka</strong> başvurusu inceleme ve aksiyon bekliyor.`;
-                let dotsHtml = '';
-                for (let i = 0; i < 8; i++) {
-                    if (i < leadsCount) {
-                        dotsHtml += `<span class="dot-circle border-[#9FE870]"><span class="dot-circle-inner bg-[#9FE870]"></span></span>`;
-                    } else {
-                        dotsHtml += `<span class="dot-circle border-[#E2E8F0]"></span>`;
-                    }
-                }
-                dotsEl.innerHTML = dotsHtml;
-            }
+            const newCount = leads.filter(l => l.status === 'new').length;
+            document.getElementById('heroLeadsCount').textContent = leads.length;
+            document.getElementById('sidebarLeadsBadge').textContent = leads.length;
+            document.getElementById('heroLeadsDesc').innerHTML = leads.length
+                ? `<strong class="text-[#062F28]">${newCount} yeni</strong> başvuru aksiyon bekliyor. WhatsApp tıklaması: ${fmt(st.whatsappClicks)}, arama: ${fmt(st.phoneClicks)}.`
+                : `Henüz siteden vaka iletilmedi. WhatsApp tıklaması: ${fmt(st.whatsappClicks)}, arama: ${fmt(st.phoneClicks)}.`;
+            document.getElementById('heroLeadsDots').innerHTML = dots(Math.min(8, leads.length), '#9FE870', '#E2E8F0');
         }
 
+        // ---------- hourly chart (12 two-hour buckets, TR time) ----------
+        function renderHourlyChart(d) {
+            const b = (d.hourly && d.hourly.buckets) || [];
+            const groups = [];
+            for (let i = 0; i < 12; i++) {
+                const a = b[i * 2] || { v: 0, c: 0 }, c = b[i * 2 + 1] || { v: 0, c: 0 };
+                groups.push({ v: a.v + c.v, c: a.c + c.c, label: String(i * 2).padStart(2, '0') + ':00' });
+            }
+            const max = Math.max(1, ...groups.map(g => g.v + g.c));
+            const totalV = groups.reduce((s, g) => s + g.v, 0);
+            document.getElementById('chartTodayTotal').textContent = fmt(totalV);
+            document.getElementById('hourlyChart').innerHTML = groups.map(g => `
+                <div class="flex flex-col items-center gap-1 h-full justify-end" title="${g.label}: ${g.v} görüntüleme, ${g.c} WhatsApp/arama">
+                    <div class="w-full max-w-[20px] bg-[#062F28] rounded-t-md" style="height:${(g.v / max) * 85}%"></div>
+                    <div class="w-full max-w-[20px] bg-[#9FE870] rounded-b-md" style="height:${(g.c / max) * 85}%"></div>
+                </div>`).join('');
+            document.getElementById('hourlyChartLabels').innerHTML = groups.map(g => `<span>${g.label}</span>`).join('');
+            document.getElementById('hourlyChartEmpty').classList.toggle('hidden', totalV > 0);
+        }
+
+        // ---------- service donut ----------
+        function renderServiceDonut(d) {
+            const entries = sortedEntries(d.serviceViews);
+            const total = sumValues(d.serviceViews);
+            const svg = document.getElementById('serviceDonut');
+            const C = 2 * Math.PI * 38;
+            let offset = 0, arcs = '<circle cx="50" cy="50" r="38" fill="transparent" stroke="#F1F5F9" stroke-width="12"></circle>';
+            entries.slice(0, 6).forEach(([, v], i) => {
+                const len = (v / total) * C;
+                arcs += `<circle cx="50" cy="50" r="38" fill="transparent" stroke="${SVC_COLORS[i]}" stroke-width="12" stroke-dasharray="${len} ${C - len}" stroke-dashoffset="${-offset}"></circle>`;
+                offset += len;
+            });
+            svg.innerHTML = arcs;
+            document.getElementById('serviceDonutTotal').textContent = fmt(total);
+            const legend = document.getElementById('serviceDonutLegend');
+            if (!entries.length) {
+                legend.innerHTML = '<p class="text-[11px] text-[#7B7B7B] text-center">Henüz hizmet sayfası ziyareti kaydedilmedi.</p>';
+                return;
+            }
+            legend.innerHTML = entries.slice(0, 6).map(([name, v], i) => `
+                <div class="flex items-center justify-between p-1.5 rounded-xl hover:bg-[#F4F5F7] transition cursor-pointer" onclick="openServiceDetailModal('${esc(name).replace(/'/g, '&#39;')}')">
+                    <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full" style="background:${SVC_COLORS[i]}"></span><span class="text-[#062F28] font-bold">${esc(name)}</span></div>
+                    <span class="font-mono font-extrabold text-[#062F28]">${fmt(v)} (%${pct(v, total)})</span>
+                </div>`).join('');
+        }
+
+        // ---------- leads ----------
         function getStoredLeads() {
-            let combined = [];
-            if (serverAnalyticsData && Array.isArray(serverAnalyticsData.leads)) {
-                // Filter out any mock leads
-                combined = serverAnalyticsData.leads.filter(l => !l.name.includes('****'));
-            }
-            try {
-                const raw = localStorage.getItem(LEADS_STORAGE_KEY);
-                if (raw) {
-                    const localLeads = JSON.parse(raw);
-                    if (Array.isArray(localLeads)) {
-                        localLeads.forEach(loc => {
-                            if (!loc.name.includes('****') && !combined.some(c => c.id === loc.id || c.code === loc.code)) {
-                                combined.unshift(loc);
-                            }
-                        });
-                    }
-                }
-            } catch (_) {}
-            return combined;
+            return (serverAnalyticsData && Array.isArray(serverAnalyticsData.leads)) ? serverAnalyticsData.leads : [];
         }
 
-        function saveLeads(leads) {
-            try { localStorage.setItem(LEADS_STORAGE_KEY, JSON.stringify(leads)); } catch (_) {}
+        const STATUS_BADGES = {
+            new: '<span class="px-2.5 py-0.5 rounded-full bg-[#FEE2E2] text-[#DC2626] font-mono text-[10px] font-bold">🔴 Yeni</span>',
+            reviewing: '<span class="px-2.5 py-0.5 rounded-full bg-[#FEF3C7] text-[#D97706] font-mono text-[10px] font-bold">🟡 İnceleniyor</span>',
+            contacted: '<span class="px-2.5 py-0.5 rounded-full bg-[#EAF9DE] text-[#062F28] font-mono text-[10px] font-extrabold">🟢 Görüşüldü</span>',
+            closed: '<span class="px-2.5 py-0.5 rounded-full bg-[#F4F5F7] text-[#7B7B7B] font-mono text-[10px] font-bold">⚪ Tamamlandı</span>'
+        };
+        const URGENCY_BADGES = {
+            critical: '<span class="px-2.5 py-0.5 rounded-full bg-[#FEE2E2] text-[#DC2626] font-mono text-[10px] font-bold">🔴 24s ACİL</span>',
+            high: '<span class="px-2.5 py-0.5 rounded-full bg-[#FEF3C7] text-[#D97706] font-mono text-[10px] font-bold">🟡 YÜKSEK</span>',
+            normal: '<span class="px-2.5 py-0.5 rounded-full bg-[#F4F5F7] text-[#7B7B7B] font-mono text-[10px]">NORMAL</span>'
+        };
+
+        function emptyLeadsRow(colspan) {
+            return `<tr><td colspan="${colspan}" class="py-10 text-center"><div class="space-y-2">
+                <div class="text-3xl">📭</div>
+                <div class="text-xs font-extrabold text-[#062F28]">Henüz Gelen Vaka Talebi Yok</div>
+                <p class="text-[11px] text-[#7B7B7B] max-w-xs mx-auto">Sitedeki vaka formu doldurulduğunda talep e-postanıza gider ve burada da listelenir.</p>
+                <button type="button" onclick="createRealTestLead()" class="mt-2 px-3.5 py-1.5 rounded-full bg-[#EAF9DE] text-[#062F28] font-extrabold text-xs hover:bg-[#9FE870] transition shadow-sm">🧪 Test kaydı oluştur</button>
+            </div></td></tr>`;
         }
 
         function renderOverviewLeads() {
             const tbody = document.getElementById('overviewLeadsTableBody');
-            tbody.innerHTML = '';
             const leads = getStoredLeads().slice(0, 6);
-
-            if (leads.length === 0) {
-                tbody.innerHTML = `
-                    <tr>
-                        <td colspan="4" class="py-10 text-center">
-                            <div class="space-y-2">
-                                <div class="text-3xl">📭</div>
-                                <div class="text-xs font-extrabold text-[#062F28]">Henüz Gelen Yeni Vaka Talebi Yok</div>
-                                <p class="text-[11px] text-[#7B7B7B] max-w-xs mx-auto">
-                                    Web sitenizden (<strong>datdedektiflik.com</strong>) danışanlar form doldurduğunda talepler anında şifreli olarak buraya düşer.
-                                </p>
-                                <button type="button" onclick="createRealTestLead()" class="mt-2 px-3.5 py-1.5 rounded-full bg-[#EAF9DE] text-[#062F28] font-extrabold text-xs hover:bg-[#9FE870] transition shadow-sm">
-                                    🧪 Siteden Canlı Test Talebi Gönder
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                `;
-                return;
-            }
-
-            leads.forEach(lead => {
-                const tr = document.createElement('tr');
-                tr.className = 'hover:bg-[#F4F5F7] transition cursor-pointer';
-                tr.onclick = () => openLeadModal(lead.id);
-
-                const statusBadges = {
-                    new: '<span class="px-2.5 py-0.5 rounded-full bg-[#FEE2E2] text-[#DC2626] font-mono text-[10px] font-bold">🔴 Yeni</span>',
-                    reviewing: '<span class="px-2.5 py-0.5 rounded-full bg-[#FEF3C7] text-[#D97706] font-mono text-[10px] font-bold">🟡 İnceleniyor</span>',
-                    contacted: '<span class="px-2.5 py-0.5 rounded-full bg-[#EAF9DE] text-[#062F28] font-mono text-[10px] font-extrabold">🟢 Görüşüldü</span>',
-                    closed: '<span class="px-2.5 py-0.5 rounded-full bg-[#F4F5F7] text-[#7B7B7B] font-mono text-[10px] font-bold">⚪ Tamamlandı</span>'
-                };
-
-                tr.innerHTML = `
-                    <td class="py-3.5 px-3">
-                        <div class="font-extrabold text-[#062F28]">${lead.name}</div>
-                        <div class="text-[11px] text-[#7B7B7B]">${lead.category}</div>
-                    </td>
-                    <td class="py-3.5 px-3">
-                        <span class="font-mono text-[#062F28] font-bold">${lead.channel || 'Form'}</span>
-                    </td>
-                    <td class="py-3.5 px-3 font-mono text-[#7B7B7B] text-[11px]">
-                        ${lead.dateStr ? lead.dateStr.split(',')[0] : 'Bugün'}
-                    </td>
-                    <td class="py-3.5 px-3">
-                        ${statusBadges[lead.status] || statusBadges.new}
-                    </td>
-                `;
-                tbody.appendChild(tr);
-            });
+            if (!leads.length) { tbody.innerHTML = emptyLeadsRow(4); return; }
+            tbody.innerHTML = leads.map(l => `
+                <tr class="hover:bg-[#F4F5F7] transition cursor-pointer" data-lead="${esc(l.id)}">
+                    <td class="py-3.5 px-3"><div class="font-extrabold text-[#062F28]">${esc(l.name)}${l.isTest ? ' <span class="text-[9px] px-1.5 rounded bg-[#F4F5F7] text-[#7B7B7B]">TEST</span>' : ''}</div><div class="text-[11px] text-[#7B7B7B]">${esc(l.category)}</div></td>
+                    <td class="py-3.5 px-3"><span class="font-mono text-[#062F28] font-bold">${esc(l.channel || 'Form')}</span></td>
+                    <td class="py-3.5 px-3 font-mono text-[#7B7B7B] text-[11px]">${esc(l.dateStr || '')}</td>
+                    <td class="py-3.5 px-3">${STATUS_BADGES[l.status] || STATUS_BADGES.new}</td>
+                </tr>`).join('');
+            tbody.querySelectorAll('tr[data-lead]').forEach(tr => tr.onclick = () => openLeadModal(tr.dataset.lead));
         }
 
-        function renderFullLeadsTable(filteredList) {
+        function waLink(lead) {
+            let digits = (lead.contact || '').replace(/\D/g, '');
+            if (digits.startsWith('0')) digits = '90' + digits.slice(1);
+            else if (digits.length === 10) digits = '90' + digits;
+            const msg = `Merhaba Sayın ${lead.name}, DAT Dedektiflik'e ilettiğiniz ${lead.code || ''} başvurunuz için iletişime geçiyoruz.`;
+            return `https://wa.me/${digits}?text=${encodeURIComponent(msg)}`;
+        }
+
+        function renderFullLeadsTable(list) {
             const tbody = document.getElementById('fullLeadsTableBody');
-            tbody.innerHTML = '';
-            const leads = filteredList || getStoredLeads();
-
-            if (leads.length === 0) {
-                tbody.innerHTML = `
-                    <tr>
-                        <td colspan="7" class="py-12 text-center">
-                            <div class="space-y-2">
-                                <div class="text-3xl">📭</div>
-                                <div class="text-sm font-extrabold text-[#062F28]">Henüz Gelen Yeni Vaka Talebi Yok</div>
-                                <p class="text-xs text-[#7B7B7B] max-w-sm mx-auto">
-                                    Web siteniz üzerinden iletilen gerçek başvurular listelenecektir. Sistemi test etmek için butona basabilirsiniz.
-                                </p>
-                                <button type="button" onclick="createRealTestLead()" class="mt-2 px-4 py-2 rounded-full bg-[#9FE870] hover:bg-[#8BD85B] text-[#062F28] font-extrabold text-xs transition shadow-sm">
-                                    🧪 Siteden Canlı Test Talebi Gönder
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                `;
-                return;
-            }
-
-            leads.forEach(lead => {
-                const tr = document.createElement('tr');
-                tr.className = 'hover:bg-[#F4F5F7] transition cursor-pointer';
-                tr.onclick = (e) => {
-                    if (e.target.closest('select') || e.target.closest('a') || e.target.closest('button')) return;
-                    openLeadModal(lead.id);
-                };
-
-                const urgencyBadges = {
-                    critical: '<span class="px-2.5 py-0.5 rounded-full bg-[#FEE2E2] text-[#DC2626] font-mono text-[10px] font-bold">🔴 24s ACİL</span>',
-                    high: '<span class="px-2.5 py-0.5 rounded-full bg-[#FEF3C7] text-[#D97706] font-mono text-[10px] font-bold">🟡 YÜKSEK</span>',
-                    normal: '<span class="px-2.5 py-0.5 rounded-full bg-[#F4F5F7] text-[#7B7B7B] font-mono text-[10px]">NORMAL</span>'
-                };
-
-                const cleanPhone = (lead.contact || '').replace(/[^0-9]/g, '');
-
-                tr.innerHTML = `
-                    <td class="py-3.5 px-3 font-mono font-extrabold text-[#062F28]">${lead.code || '#DAT-VAKA'}</td>
+            const leads = list || getStoredLeads();
+            if (!leads.length) { tbody.innerHTML = emptyLeadsRow(7); return; }
+            tbody.innerHTML = leads.map(l => `
+                <tr class="hover:bg-[#F4F5F7] transition cursor-pointer" data-lead="${esc(l.id)}">
+                    <td class="py-3.5 px-3 font-mono font-extrabold text-[#062F28]">${esc(l.code)}</td>
+                    <td class="py-3.5 px-3"><div class="font-extrabold text-[#062F28]">${esc(l.name)}</div><div class="text-[11px] font-mono text-[#7B7B7B]">${esc(l.contact)}</div></td>
+                    <td class="py-3.5 px-3 text-[#062F28] font-bold">${esc(l.category)}</td>
+                    <td class="py-3.5 px-3">${URGENCY_BADGES[l.urgency] || URGENCY_BADGES.normal}</td>
+                    <td class="py-3.5 px-3 font-mono text-[11px] text-[#7B7B7B]">${esc(l.dateStr)}</td>
                     <td class="py-3.5 px-3">
-                        <div class="font-extrabold text-[#062F28]">${lead.name}</div>
-                        <div class="text-[11px] font-mono text-[#7B7B7B]">${lead.contact}</div>
-                    </td>
-                    <td class="py-3.5 px-3 text-[#062F28] font-bold">${lead.category}</td>
-                    <td class="py-3.5 px-3">${urgencyBadges[lead.urgency] || urgencyBadges.normal}</td>
-                    <td class="py-3.5 px-3 font-mono text-[11px] text-[#7B7B7B]">${lead.dateStr || ''}</td>
-                    <td class="py-3.5 px-3">
-                        <select onchange="updateLeadStatus('${lead.id}', this.value)" class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-[#F4F5F7] border border-[#E2E8F0] outline-none cursor-pointer">
-                            <option value="new" ${lead.status === 'new' ? 'selected' : ''}>🔴 Yeni</option>
-                            <option value="reviewing" ${lead.status === 'reviewing' ? 'selected' : ''}>🟡 İnceleniyor</option>
-                            <option value="contacted" ${lead.status === 'contacted' ? 'selected' : ''}>🟢 Görüşüldü</option>
-                            <option value="closed" ${lead.status === 'closed' ? 'selected' : ''}>⚪ Tamamlandı</option>
+                        <select data-status-for="${esc(l.id)}" class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-[#F4F5F7] border border-[#E2E8F0] outline-none cursor-pointer">
+                            ${['new', 'reviewing', 'contacted', 'closed'].map(s => `<option value="${s}" ${l.status === s ? 'selected' : ''}>${{ new: '🔴 Yeni', reviewing: '🟡 İnceleniyor', contacted: '🟢 Görüşüldü', closed: '⚪ Tamamlandı' }[s]}</option>`).join('')}
                         </select>
                     </td>
-                    <td class="py-3.5 px-3 text-right">
-                        <div class="flex items-center justify-end gap-1.5">
-                            <a href="https://wa.me/90${cleanPhone}?text=${encodeURIComponent('Merhaba Sayın ' + lead.name + ', DAT Özel Dedektiflik büromuza ilettiğiniz ' + (lead.code || 'vaka') + ' başvurunuz için iletişime geçiyoruz.')}" target="_blank" class="p-1.5 rounded-xl bg-[#EAF9DE] text-[#062F28] hover:bg-[#9FE870] transition" title="WhatsApp Aç">
-                                <i class="hgi hgi-stroke hgi-whatsapp w-4 h-4"></i>
-                            </a>
-                            <a href="tel:${lead.contact}" class="p-1.5 rounded-xl bg-[#F4F5F7] text-[#062F28] hover:bg-[#062F28] hover:text-[#FFFFFF] transition" title="Telefonla Ara">
-                                <i class="hgi hgi-stroke hgi-call-02 w-4 h-4"></i>
-                            </a>
-                            <button onclick="openLeadModal('${lead.id}')" class="p-1.5 rounded-xl bg-[#F4F5F7] text-[#7B7B7B] hover:bg-[#9FE870] hover:text-[#062F28] transition" title="Dosyayı İncele">
-                                <i class="hgi hgi-stroke hgi-file-attachment w-4 h-4"></i>
-                            </button>
-                        </div>
-                    </td>
-                `;
-                tbody.appendChild(tr);
+                    <td class="py-3.5 px-3 text-right"><div class="flex items-center justify-end gap-1.5">
+                        <a href="${esc(waLink(l))}" target="_blank" rel="noopener" class="p-1.5 rounded-xl bg-[#EAF9DE] text-[#062F28] hover:bg-[#9FE870] transition" title="WhatsApp"><i class="hgi hgi-stroke hgi-whatsapp w-4 h-4"></i></a>
+                        <a href="tel:${esc((l.contact || '').replace(/[^\d+]/g, ''))}" class="p-1.5 rounded-xl bg-[#F4F5F7] text-[#062F28] hover:bg-[#062F28] hover:text-[#FFFFFF] transition" title="Ara"><i class="hgi hgi-stroke hgi-call-02 w-4 h-4"></i></a>
+                    </div></td>
+                </tr>`).join('');
+            tbody.querySelectorAll('tr[data-lead]').forEach(tr => {
+                tr.onclick = (e) => { if (!e.target.closest('select, a, button')) openLeadModal(tr.dataset.lead); };
             });
+            tbody.querySelectorAll('select[data-status-for]').forEach(sel => sel.onchange = () => updateLeadStatus(sel.dataset.statusFor, sel.value));
         }
 
         function filterFullLeads() {
-            const query = (document.getElementById('crmSearchInput')?.value || '').toLowerCase();
+            const q = (document.getElementById('crmSearchInput')?.value || '').toLowerCase();
             const cat = document.getElementById('crmCategorySelect')?.value || 'all';
             const stat = document.getElementById('crmStatusSelect')?.value || 'all';
-
-            const leads = getStoredLeads();
-            const filtered = leads.filter(l => {
-                const matchQ = !query || (l.name || '').toLowerCase().includes(query) || (l.contact || '').toLowerCase().includes(query) || (l.code || '').toLowerCase().includes(query);
-                const matchCat = (cat === 'all') || (l.category || '').toLowerCase().includes(cat.toLowerCase());
-                const matchStat = (stat === 'all') || (l.status === stat);
-                return matchQ && matchCat && matchStat;
-            });
-
-            renderFullLeadsTable(filtered);
+            renderFullLeadsTable(getStoredLeads().filter(l =>
+                (!q || [l.name, l.contact, l.code].some(v => (v || '').toLowerCase().includes(q))) &&
+                (cat === 'all' || (l.category || '').toLowerCase().includes(cat.toLowerCase())) &&
+                (stat === 'all' || l.status === stat)));
         }
 
         async function updateLeadStatus(leadId, newStatus) {
-            const leads = getStoredLeads();
-            const target = leads.find(l => l.id === leadId);
-            if (target) {
-                target.status = newStatus;
-                saveLeads(leads);
-                renderOverviewLeads();
-                renderFullLeadsTable();
-
-                try {
-                    await fetch('/api/analytics', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ type: 'update_lead_status', leadId, newStatus })
-                    });
-                } catch (_) {}
-            }
+            const target = getStoredLeads().find(l => l.id === leadId);
+            if (target) target.status = newStatus;
+            renderOverviewLeads();
+            try {
+                const res = await fetch('/api/analytics', {
+                    method: 'POST', headers: adminHeaders({ 'Content-Type': 'application/json' }),
+                    body: JSON.stringify({ type: 'update_lead_status', leadId, newStatus })
+                });
+                if (!res.ok) alert('Durum sunucuya kaydedilemedi.');
+            } catch (_) { alert('Durum sunucuya kaydedilemedi.'); }
         }
 
         function openLeadModal(leadId) {
-            const leads = getStoredLeads();
-            const lead = leads.find(l => l.id === leadId);
+            const lead = getStoredLeads().find(l => l.id === leadId);
             if (!lead) return;
-
             currentActiveLeadId = leadId;
-            document.getElementById('modalLeadCode').textContent = lead.code || '#DAT-VAKA';
+            document.getElementById('modalLeadCode').textContent = lead.code || '';
             document.getElementById('modalLeadUrgency').textContent = (lead.urgency || 'normal').toUpperCase();
             document.getElementById('modalLeadName').textContent = lead.name;
-            document.getElementById('modalLeadDate').textContent = lead.dateStr || 'Tarih belirtilmedi';
+            document.getElementById('modalLeadDate').textContent = (lead.dateStr || '') + (lead.city ? ' • ' + lead.city : '');
             document.getElementById('modalLeadCategory').textContent = lead.category;
-            document.getElementById('modalLeadContact').textContent = lead.contact + ' (' + (lead.channel || 'İletişim') + ')';
+            document.getElementById('modalLeadContact').textContent = `${lead.contact} (${lead.channel || 'İletişim'})`;
             document.getElementById('modalLeadDetails').textContent = lead.details || 'Açıklama belirtilmedi.';
             document.getElementById('modalStatusSelect').value = lead.status || 'new';
-
-            const cleanPhone = (lead.contact || '').replace(/[^0-9]/g, '');
-            document.getElementById('modalWhatsAppBtn').href = `https://wa.me/90${cleanPhone}?text=${encodeURIComponent('Merhaba Sayın ' + lead.name + ', DAT Özel Dedektiflik büromuza ilettiğiniz ' + (lead.code || 'vaka') + ' başvurunuz için iletişime geçiyoruz.')}`;
-            document.getElementById('modalCallBtn').href = `tel:${lead.contact}`;
-
+            document.getElementById('modalWhatsAppBtn').href = waLink(lead);
+            document.getElementById('modalCallBtn').href = 'tel:' + (lead.contact || '').replace(/[^\d+]/g, '');
             document.getElementById('leadDetailModal').classList.remove('hidden');
         }
-
-        function closeLeadModal() {
-            document.getElementById('leadDetailModal').classList.add('hidden');
-            currentActiveLeadId = null;
+        function closeLeadModal() { document.getElementById('leadDetailModal').classList.add('hidden'); currentActiveLeadId = null; }
+        function updateLeadStatusFromModal() {
+            if (currentActiveLeadId) { updateLeadStatus(currentActiveLeadId, document.getElementById('modalStatusSelect').value); filterFullLeads(); }
         }
 
-        function updateLeadStatusFromModal() {
-            if (!currentActiveLeadId) return;
-            const newStatus = document.getElementById('modalStatusSelect').value;
-            updateLeadStatus(currentActiveLeadId, newStatus);
+        async function postAdminLead(lead) {
+            const res = await fetch('/api/analytics', {
+                method: 'POST', headers: adminHeaders({ 'Content-Type': 'application/json' }),
+                body: JSON.stringify({ type: 'admin_lead', lead })
+            });
+            if (!res.ok) throw new Error('save failed');
         }
 
         async function createRealTestLead() {
-            const testName = prompt('Test Danışan Adı Soyadı:', 'Hakan K. (Test Danışan)');
-            if (testName === null) return;
-
-            const testLead = {
-                id: 'lead_' + Date.now(),
-                code: '#DAT-' + Math.floor(10000 + Math.random() * 90000),
-                name: testName.trim() || 'Hakan K.',
-                contact: '0532 666 77 49',
-                category: 'Eş Takibi & Sadakat',
-                channel: 'Web Canlı Test Formu',
-                urgency: 'high',
-                status: 'new',
-                dateStr: new Date().toLocaleString('tr-TR', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }),
-                details: 'Web sitesi üzerinden gelen canlı form testidir. Sunucu ve veritabanı senkronizasyonu doğrulanmıştır.'
+            const name = prompt('Test kaydı için isim:', 'Test Danışan');
+            if (name === null) return;
+            const lead = {
+                id: 'lead_' + Date.now(), code: '#TEST-' + Math.floor(1000 + Math.random() * 9000),
+                name: (name.trim() || 'Test Danışan'), contact: '0000 000 00 00', category: 'Test', channel: 'Panel Testi',
+                urgency: 'normal', isTest: true, details: 'Panelden oluşturulan test kaydıdır, gerçek başvuru değildir.'
             };
-
-            const local = getStoredLeads();
-            local.unshift(testLead);
-            saveLeads(local);
-
-            try {
-                await fetch('/api/analytics', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ type: 'lead_captured', lead: testLead })
-                });
-            } catch (_) {}
-
+            try { await postAdminLead(lead); } catch (_) { alert('Test kaydı sunucuya yazılamadı.'); return; }
             await loadAllData();
-            openLeadModal(testLead.id);
+            openLeadModal(lead.id);
         }
 
-        function openNewLeadModal() {
-            document.getElementById('newLeadModal').classList.remove('hidden');
-        }
-        function closeNewLeadModal() {
-            document.getElementById('newLeadModal').classList.add('hidden');
-        }
+        function openNewLeadModal() { document.getElementById('newLeadModal').classList.remove('hidden'); }
+        function closeNewLeadModal() { document.getElementById('newLeadModal').classList.add('hidden'); }
         async function handleManualLeadSubmit(e) {
             e.preventDefault();
-            const newLead = {
-                id: 'lead_' + Date.now(),
-                code: '#DAT-' + Math.floor(10000 + Math.random() * 90000),
+            const lead = {
+                id: 'lead_' + Date.now(), code: '#DAT-' + Math.floor(10000 + Math.random() * 90000),
                 name: document.getElementById('manualName').value.trim(),
                 contact: document.getElementById('manualContact').value.trim(),
                 category: document.getElementById('manualCategory').value,
                 urgency: document.getElementById('manualUrgency').value,
                 channel: document.getElementById('manualChannel').value,
-                details: document.getElementById('manualDetails').value.trim() || 'Telefon / ofis kaydı.',
-                status: 'new',
-                dateStr: new Date().toLocaleString('tr-TR', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' })
+                details: document.getElementById('manualDetails').value.trim() || 'Telefon / ofis kaydı.'
             };
-
-            const leads = getStoredLeads();
-            leads.unshift(newLead);
-            saveLeads(leads);
-
-            try {
-                await fetch('/api/analytics', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ type: 'lead_captured', lead: newLead })
-                });
-            } catch (_) {}
-
+            try { await postAdminLead(lead); } catch (_) { alert('Kayıt sunucuya yazılamadı.'); return; }
             closeNewLeadModal();
-            renderOverviewLeads();
-            renderFullLeadsTable();
-            renderTopMetrics(serverAnalyticsData);
-            alert('Yeni vaka kaydı yönetici masasına başarıyla eklendi!');
+            e.target.reset();
+            await loadAllData();
         }
 
         function exportLeadsCSV() {
-            const leads = getStoredLeads();
-            let csv = '\uFEFFTakip Kodu,Danisan Adi,Iletisim,Kategori,Aciliyet,Kanal,Tarih,Durum,Detay\n';
-            leads.forEach(l => {
-                const row = [
-                    l.code || '',
-                    `"${(l.name || '').replace(/"/g, '""')}"`,
-                    `"${(l.contact || '').replace(/"/g, '""')}"`,
-                    `"${(l.category || '').replace(/"/g, '""')}"`,
-                    l.urgency || '',
-                    l.channel || '',
-                    l.dateStr || '',
-                    l.status || '',
-                    `"${(l.details || '').replace(/"/g, '""').replace(/\n/g, ' ')}"`
-                ];
-                csv += row.join(',') + '\n';
+            const q = v => `"${String(v || '').replace(/"/g, '""').replace(/\n/g, ' ')}"`;
+            let csv = '\uFEFFTakip Kodu,Danisan Adi,Iletisim,Kategori,Aciliyet,Kanal,Tarih,Durum,Sehir,Detay\n';
+            getStoredLeads().forEach(l => {
+                csv += [l.code, l.name, l.contact, l.category, l.urgency, l.channel, l.dateStr, l.status, l.city, l.details].map(q).join(',') + '\n';
             });
-
-            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-            const url = URL.createObjectURL(blob);
+            const url = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8;' }));
             const a = document.createElement('a');
-            a.href = url;
-            a.download = `DAT_Vaka_Talepleri_${new Date().toISOString().slice(0, 10)}.csv`;
-            a.click();
+            a.href = url; a.download = `DAT_Vaka_Talepleri_${new Date().toISOString().slice(0, 10)}.csv`; a.click();
             URL.revokeObjectURL(url);
         }
 
-        const SERVICES_CONFIG = [
-            { name: 'Eş Takibi & Boşanma', page: '/hizmetler/es-takibi.html', defaultCount: 540, pct: 38 },
-            { name: 'TSCM Böcek Arama & Dinleme', page: '/hizmetler/bocek-arama.html', defaultCount: 310, pct: 22 },
-            { name: 'Evlilik Öncesi Tahkikat', page: '/hizmetler/evlilik-oncesi.html', defaultCount: 210, pct: 15 },
-            { name: 'Velayet Davaları Delil', page: '/hizmetler/velayet-davasi.html', defaultCount: 180, pct: 13 },
-            { name: 'Adres & Borçlu Tespiti', page: '/hizmetler/adres-tespiti.html', defaultCount: 140, pct: 10 },
-            { name: 'Kurumsal Firma & Marka Koruma', page: '/hizmetler/kurumsal-arastirma.html', defaultCount: 120, pct: 8 },
-            { name: 'Bilişim & Siber Dolandırıcılık', page: '/hizmetler/bilisim-suclari.html', defaultCount: 95, pct: 7 },
-            { name: 'Öğrenci & Çocuk Takibi', page: '/hizmetler/ogrenci-takibi.html', defaultCount: 85, pct: 6 }
-        ];
-
-        function renderAnalyticsTab(serverData) {
-            const container = document.getElementById('fullServicesBreakdown');
-            container.innerHTML = '';
-            const serverViews = serverData?.serviceViews || {};
-
-            SERVICES_CONFIG.forEach(s => {
-                const count = serverViews[s.name] || s.defaultCount;
-                const div = document.createElement('div');
-                div.className = 'p-3 rounded-2xl bg-[#F4F5F7] hover:bg-[#EAF9DE] border border-[#E2E8F0] transition space-y-1.5 cursor-pointer group';
-                div.onclick = () => openServiceDetailModal(s.name, count, s.pct, s.page);
-
-                div.innerHTML = `
-                    <div class="flex items-center justify-between text-xs">
-                        <div class="flex items-center gap-2">
-                            <i class="hgi hgi-stroke hgi-search-01 w-3.5 h-3.5 text-[#062F28]"></i>
-                            <span class="text-[#062F28] font-bold group-hover:text-[#062F28] transition">${s.name}</span>
-                        </div>
-                        <div class="font-mono text-[#7B7B7B] flex items-center gap-2">
-                            <strong class="text-[#062F28]">${count} ziyaret</strong>
-                            <span class="text-[#062F28] font-bold">%${s.pct}</span>
-                            <span class="text-[#7B7B7B] group-hover:text-[#062F28] transition">→</span>
-                        </div>
-                    </div>
-                    <div class="h-2 w-full rounded-full bg-[#E2E8F0] overflow-hidden">
-                        <div class="h-full bg-gradient-to-r from-[#9FE870] to-[#8BD85B] rounded-full transition-all duration-700" style="width: ${s.pct}%"></div>
-                    </div>
-                `;
-                container.appendChild(div);
-            });
-
-            const citiesData = [
-                { name: 'Ankara (Merkez & İlçeler)', pct: 40.4, count: serverData?.cities?.['Ankara'] || 460, color: '#062F28' },
-                { name: 'İstanbul (Avrupa & Anadolu)', pct: 34.2, count: serverData?.cities?.['İstanbul'] || 390, color: '#9FE870' },
-                { name: 'İzmir', pct: 11.4, count: serverData?.cities?.['İzmir'] || 130, color: '#C3F2A6' },
-                { name: 'Antalya', pct: 6.6, count: serverData?.cities?.['Antalya'] || 75, color: '#7B7B7B' },
-                { name: 'Bursa', pct: 4.8, count: serverData?.cities?.['Bursa'] || 55, color: '#CBD5E1' }
-            ];
-
-            const citiesContainer = document.getElementById('fullCitiesBreakdown');
-            citiesContainer.innerHTML = '';
-            citiesData.forEach(c => {
-                const div = document.createElement('div');
-                div.className = 'p-2.5 rounded-2xl hover:bg-[#EAF9DE] transition text-xs flex items-center justify-between cursor-pointer group';
-                div.onclick = () => openCityDetailModal(c.name, c.count, c.pct);
-                div.innerHTML = `
-                    <div class="flex items-center gap-2">
-                        <span class="w-2.5 h-2.5 rounded-full" style="background-color: ${c.color}"></span>
-                        <span class="text-[#062F28] font-bold transition">${c.name}</span>
-                    </div>
-                    <div class="font-mono text-[#7B7B7B] flex items-center gap-1.5">
-                        <span>${c.count} kişi</span>
-                        <span class="text-[#062F28] font-bold">(%${c.pct})</span>
-                        <span class="text-[#7B7B7B] group-hover:text-[#062F28] transition">→</span>
-                    </div>
-                `;
-                citiesContainer.appendChild(div);
-            });
-
-            const sourcesData = [
-                { name: 'Google Organik', count: serverData?.sources?.['Google Organik'] || 820, pct: 72 },
-                { name: 'Doğrudan (Direct)', count: serverData?.sources?.['Doğrudan (Direct)'] || 210, pct: 18 },
-                { name: 'WhatsApp Paylaşımı', count: serverData?.sources?.['WhatsApp Paylaşımı'] || 75, pct: 7 },
-                { name: 'Sosyal Medya', count: serverData?.sources?.['Instagram / Sosyal'] || 35, pct: 3 }
-            ];
-            const srcContainer = document.getElementById('fullSourcesBreakdown');
-            srcContainer.innerHTML = '';
-            sourcesData.forEach(s => {
-                const div = document.createElement('div');
-                div.className = 'p-3 rounded-2xl bg-[#F4F5F7] hover:bg-[#EAF9DE] border border-[#E2E8F0] cursor-pointer transition';
-                div.onclick = () => openSourceDetailModal(s.name, s.count, s.pct);
-                div.innerHTML = `
-                    <div class="text-[11px] text-[#7B7B7B] font-bold">${s.name}</div>
-                    <div class="text-sm font-extrabold font-mono text-[#062F28] mt-0.5">%${s.pct} <span class="text-[10px] text-[#7B7B7B] font-normal">(${s.count})</span></div>
-                `;
-                srcContainer.appendChild(div);
-            });
+        // ---------- "Nereye baktılar" tab ----------
+        function breakdownRows(entries, total, onclickName, emptyText) {
+            if (!entries.length) return `<p class="text-[11px] text-[#7B7B7B] p-2">${emptyText}</p>`;
+            return entries.map(([name, v], i) => `
+                <div class="p-2.5 rounded-2xl hover:bg-[#EAF9DE] transition text-xs flex items-center justify-between cursor-pointer" onclick="${onclickName}('${esc(name).replace(/'/g, '&#39;')}')">
+                    <div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full" style="background:${SVC_COLORS[i % SVC_COLORS.length]}"></span><span class="text-[#062F28] font-bold">${esc(name)}</span></div>
+                    <div class="font-mono text-[#7B7B7B]">${fmt(v)} <span class="text-[#062F28] font-bold">(%${pct(v, total)})</span></div>
+                </div>`).join('');
         }
 
-        function renderLiveFeed(serverData) {
-            let events = [];
-            if (serverData && Array.isArray(serverData.recentEvents) && serverData.recentEvents.length > 0) {
-                events = [ ...serverData.recentEvents ];
-            }
-            try {
-                const localRaw = localStorage.getItem(EVENTS_STORAGE_KEY);
-                if (localRaw) {
-                    const localEvents = JSON.parse(localRaw);
-                    if (Array.isArray(localEvents)) {
-                        localEvents.forEach(loc => {
-                            if (!events.some(e => e.id === loc.id)) events.unshift(loc);
-                        });
-                    }
-                }
-            } catch (_) {}
-
-            const feedContainer = document.getElementById('fullLiveActivityFeed');
-            feedContainer.innerHTML = '';
-
-            if (events.length === 0) {
-                feedContainer.innerHTML = `
-                    <div class="p-8 text-center bg-[#FFFFFF] rounded-2xl border border-[#E2E8F0] text-xs text-[#7B7B7B] space-y-1">
-                        <div class="font-bold text-[#062F28]">🟢 Canlı Akış Aktif ve Dinleniyor</div>
-                        <p>Ziyaretçiler sitede sayfa açtığında veya butonlara bastığında saniyelik hareketler burada listelenecektir.</p>
+        function renderAnalyticsTab(d) {
+            const pages = sortedEntries(d.pages).slice(0, 15);
+            const pageTotal = sumValues(d.pages);
+            const svc = document.getElementById('fullServicesBreakdown');
+            svc.innerHTML = pages.length ? pages.map(([path, v]) => `
+                <div class="p-3 rounded-2xl bg-[#F4F5F7] border border-[#E2E8F0] space-y-1.5">
+                    <div class="flex items-center justify-between text-xs">
+                        <a href="${esc(path)}" target="_blank" rel="noopener" class="text-[#062F28] font-bold hover:underline font-mono">${esc(path)}</a>
+                        <span class="font-mono"><strong class="text-[#062F28]">${fmt(v)}</strong> <span class="text-[#7B7B7B]">%${pct(v, pageTotal)}</span></span>
                     </div>
-                `;
+                    <div class="h-2 w-full rounded-full bg-[#E2E8F0] overflow-hidden"><div class="h-full bg-[#9FE870] rounded-full" style="width:${pct(v, pages[0][1])}%"></div></div>
+                </div>`).join('') : '<p class="text-[11px] text-[#7B7B7B] p-2">Henüz sayfa görüntüleme kaydedilmedi.</p>';
+
+            document.getElementById('fullCitiesBreakdown').innerHTML =
+                breakdownRows(sortedEntries(d.cities).slice(0, 8), sumValues(d.cities), 'openCityDetailModal', 'Henüz konum verisi yok.');
+
+            const devTotal = sumValues(d.devices);
+            document.getElementById('deviceCards').innerHTML = ['Mobil', 'Masaüstü', 'Tablet'].map(n => {
+                const v = (d.devices || {})[n] || 0;
+                return `<div class="p-3 rounded-2xl bg-[#F4F5F7] border border-[#E2E8F0]">
+                    <div class="text-[10px] text-[#7B7B7B] font-bold">${n}</div>
+                    <div class="text-lg font-extrabold font-mono text-[#062F28] mt-0.5">${devTotal ? '%' + pct(v, devTotal) : '—'}</div>
+                    <div class="text-[9px] text-[#7B7B7B] font-bold">${fmt(v)} kişi</div></div>`;
+            }).join('');
+
+            const srcTotal = sumValues(d.sources);
+            const src = sortedEntries(d.sources).slice(0, 6);
+            document.getElementById('fullSourcesBreakdown').innerHTML = src.length ? src.map(([n, v]) => `
+                <div class="p-3 rounded-2xl bg-[#F4F5F7] border border-[#E2E8F0]">
+                    <div class="text-[11px] text-[#7B7B7B] font-bold">${esc(n)}</div>
+                    <div class="text-sm font-extrabold font-mono text-[#062F28] mt-0.5">%${pct(v, srcTotal)} <span class="text-[10px] text-[#7B7B7B] font-normal">(${fmt(v)})</span></div>
+                </div>`).join('') : '<p class="text-[11px] text-[#7B7B7B] col-span-2">Henüz trafik kaynağı verisi yok.</p>';
+        }
+
+        // ---------- live feed ----------
+        const EVENT_ICONS = {
+            whatsapp_click: 'hgi-whatsapp', phone_click: 'hgi-call-02', lead_captured: 'hgi-clipboard-check',
+            admin_lead: 'hgi-clipboard-check', service_click: 'hgi-search-01', page_view: 'hgi-view'
+        };
+        function renderLiveFeed(d) {
+            const events = Array.isArray(d.recentEvents) ? d.recentEvents : [];
+            const feed = document.getElementById('fullLiveActivityFeed');
+            if (!events.length) {
+                feed.innerHTML = `<div class="p-8 text-center bg-[#FFFFFF] rounded-2xl border border-[#E2E8F0] text-xs text-[#7B7B7B] space-y-1">
+                    <div class="font-bold text-[#062F28]">🟢 Canlı akış dinleniyor</div><p>Ziyaretçiler sayfa açtığında veya butonlara bastığında hareketler burada listelenir.</p></div>`;
                 return;
             }
-
-            events.slice(0, 25).forEach(ev => {
-                const div = document.createElement('div');
-                div.className = 'p-3.5 rounded-2xl bg-[#FFFFFF] border border-[#E2E8F0] hover:border-[#9FE870] shadow-sm flex items-center justify-between gap-3 text-xs cursor-pointer group transition';
-                div.onclick = () => openEventDetailModal(ev);
-
-                const icons = {
-                    whatsapp_click: '<span class="p-2 rounded-2xl bg-[#EAF9DE] text-[#062F28]"><i class="hgi hgi-stroke hgi-whatsapp w-4 h-4"></i></span>',
-                    phone_click: '<span class="p-2 rounded-2xl bg-[#F4F5F7] text-[#062F28]"><i class="hgi hgi-stroke hgi-call-02 w-4 h-4"></i></span>',
-                    form_submit: '<span class="p-2 rounded-2xl bg-[#FEF3C7] text-[#D97706]"><i class="hgi hgi-stroke hgi-clipboard-check w-4 h-4"></i></span>',
-                    service_click: '<span class="p-2 rounded-2xl bg-[#F4F5F7] text-[#7B7B7B]"><i class="hgi hgi-stroke hgi-search-01 w-4 h-4"></i></span>',
-                    page_view: '<span class="p-2 rounded-2xl bg-[#F4F5F7] text-[#7B7B7B]"><i class="hgi hgi-stroke hgi-view w-4 h-4"></i></span>'
-                };
-
-                div.innerHTML = `
+            feed.innerHTML = events.slice(0, 40).map((ev, i) => `
+                <div class="p-3.5 rounded-2xl bg-[#FFFFFF] border border-[#E2E8F0] hover:border-[#9FE870] shadow-sm flex items-center justify-between gap-3 text-xs cursor-pointer transition" data-ev="${i}">
                     <div class="flex items-center gap-3">
-                        ${icons[ev.type] || icons.page_view}
-                        <div>
-                            <div class="font-extrabold text-[#062F28] transition">${ev.label || 'Etkileşim Kaydedildi'}</div>
-                            <div class="text-[11px] font-mono text-[#7B7B7B]">${ev.page || '/'} • ${ev.device || 'Mobil'} • ${ev.city || 'Ankara'}</div>
-                        </div>
+                        <span class="p-2 rounded-2xl bg-[#F4F5F7] text-[#062F28]"><i class="hgi hgi-stroke ${EVENT_ICONS[ev.type] || 'hgi-view'} w-4 h-4"></i></span>
+                        <div><div class="font-extrabold text-[#062F28]">${esc(ev.label)}</div>
+                        <div class="text-[11px] font-mono text-[#7B7B7B]">${esc(ev.page)} • ${esc(ev.device)} • ${esc(ev.city)}</div></div>
                     </div>
-                    <div class="flex items-center gap-2">
-                        <span class="font-mono text-[11px] text-[#062F28] font-bold shrink-0">${ev.time || 'Az önce'}</span>
-                        <span class="text-[#7B7B7B] transition">→</span>
-                    </div>
-                `;
-                feedContainer.appendChild(div);
-            });
+                    <span class="font-mono text-[11px] text-[#062F28] font-bold shrink-0">${esc(ev.time)}</span>
+                </div>`).join('');
+            feed.querySelectorAll('[data-ev]').forEach(el => el.onclick = () => openEventDetailModal(events[Number(el.dataset.ev)]));
         }
 
+        // ---------- navigation ----------
         function switchMainTab(tab) {
             currentTab = tab;
-            
+            const base = 'sidebar-item w-full flex items-center px-3.5 py-2.5 rounded-2xl font-bold text-xs transition ';
             document.querySelectorAll('.sidebar-item').forEach(btn => {
-                btn.className = 'sidebar-item w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-[#7B7B7B] hover:text-[#062F28] hover:bg-[#F4F5F7] font-bold text-xs transition';
+                btn.className = base + (btn.id === 'navBtnLeads' ? 'justify-between ' : 'gap-3 ') + 'text-[#7B7B7B] hover:text-[#062F28] hover:bg-[#F4F5F7]';
             });
-
-            document.getElementById('tabViewDashboard').classList.add('hidden');
-            document.getElementById('tabViewLeads').classList.add('hidden');
-            document.getElementById('tabViewAnalytics').classList.add('hidden');
-            document.getElementById('tabViewLive').classList.add('hidden');
-
-            const titleEl = document.getElementById('mainHeaderTitle');
-            const subEl = document.getElementById('mainHeaderSubtitle');
-            const badgeEl = document.getElementById('mainHeaderBadge');
-
-            if (tab === 'dashboard') {
-                document.getElementById('navBtnDashboard').className = 'sidebar-item w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl bg-[#062F28] text-[#FFFFFF] font-bold text-xs shadow-sm transition';
-                document.getElementById('tabViewDashboard').classList.remove('hidden');
-                titleEl.textContent = 'Home';
-                subEl.textContent = '"DAT Dedektiflik doğrulanmış Cloudflare trafiği ve canlı danışan başvuruları."';
-                badgeEl.textContent = 'CLOUDFLARE DOĞRULANMIŞ';
-            } else if (tab === 'leads') {
-                document.getElementById('navBtnLeads').className = 'sidebar-item w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl bg-[#062F28] text-[#FFFFFF] font-bold text-xs shadow-sm transition';
-                document.getElementById('tabViewLeads').classList.remove('hidden');
-                titleEl.textContent = 'Vaka Talepleri & CRM';
-                subEl.textContent = '"Siteden gelen tüm gerçek şifreli başvuruları inceleyin, durumlarını güncelleyin ve WhatsApp\'tan yanıtlayın."';
-                badgeEl.textContent = 'CRM KONTROL';
-            } else if (tab === 'analytics') {
-                document.getElementById('navBtnAnalytics').className = 'sidebar-item w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl bg-[#062F28] text-[#FFFFFF] font-bold text-xs shadow-sm transition';
-                document.getElementById('tabViewAnalytics').classList.remove('hidden');
-                titleEl.textContent = 'Nereye Baktılar? (İlgi Analitiği)';
-                subEl.textContent = '"Ziyaretçilerin en çok okuduğu hizmetler, şehir dağılımları ve cihaz istatistikleri."';
-                badgeEl.textContent = 'DERİN ANALİTİK';
-            } else if (tab === 'live') {
-                document.getElementById('navBtnLive').className = 'sidebar-item w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl bg-[#062F28] text-[#FFFFFF] font-bold text-xs shadow-sm transition';
-                document.getElementById('tabViewLive').classList.remove('hidden');
-                titleEl.textContent = 'Canlı Tıklama Akışı (Realtime)';
-                subEl.textContent = '"Ziyaretçilerin site üzerindeki saniyelik tıklamaları, buton tetiklemeleri ve hareketleri."';
-                badgeEl.textContent = 'CANLI AKIŞ';
-            }
+            ['Dashboard', 'Leads', 'Analytics', 'Live'].forEach(n => document.getElementById('tabView' + n).classList.add('hidden'));
+            const map = {
+                dashboard: ['Dashboard', 'Home', '"Canlı takip verileri ve danışan başvuruları."', 'CANLI'],
+                leads: ['Leads', 'Vaka Talepleri & CRM', '"Siteden gelen başvuruları inceleyin, durumlarını güncelleyin ve yanıtlayın."', 'CRM'],
+                analytics: ['Analytics', 'Nereye Baktılar?', '"En çok görüntülenen sayfalar, konumlar, cihazlar ve trafik kaynakları."', 'ANALİTİK'],
+                live: ['Live', 'Canlı Tıklama Akışı', '"Ziyaretçilerin son hareketleri."', 'CANLI AKIŞ']
+            };
+            const m = map[tab] || map.dashboard;
+            const btn = document.getElementById('navBtn' + m[0]);
+            if (btn) btn.className = base + (m[0] === 'Leads' ? 'justify-between ' : 'gap-3 ') + 'bg-[#062F28] text-[#FFFFFF] shadow-sm';
+            document.getElementById('tabView' + m[0]).classList.remove('hidden');
+            document.getElementById('mainHeaderTitle').textContent = m[1];
+            document.getElementById('mainHeaderSubtitle').textContent = m[2];
+            document.getElementById('mainHeaderBadge').textContent = m[3];
         }
 
-        function toggleMobileSidebar() {
-            const nav = document.getElementById('sidebarNav');
-            nav.classList.toggle('hidden');
-        }
+        function toggleMobileSidebar() { document.getElementById('sidebarNav').classList.toggle('hidden'); }
 
         function handleTopSearch(query) {
             if (!query) return;
             switchMainTab('leads');
-            const crmInput = document.getElementById('crmSearchInput');
-            if (crmInput) {
-                crmInput.value = query;
-                filterFullLeads();
-            }
+            const el = document.getElementById('crmSearchInput');
+            if (el) { el.value = query; filterFullLeads(); }
         }
 
         function fetchServerPresence() {
-            fetch('/api/presence')
-                .then(r => r.json())
-                .then(d => {
-                    if (d && typeof d.online === 'number') {
-                        document.getElementById('activeOnlineCount').textContent = d.online + ' Kişi Sitede Aktif';
-                    }
-                })
-                .catch(() => {});
+            fetch('/api/presence', { cache: 'no-store' }).then(r => r.json()).then(d => {
+                if (d && typeof d.online === 'number') document.getElementById('activeOnlineCount').textContent = d.online + ' Kişi Sitede Aktif';
+            }).catch(() => {});
         }
 
-        function startLivePulse() {
-            setInterval(() => {
-                fetchServerPresence();
-                fetchServerAnalytics().then(data => {
-                    if (data) {
-                        renderTopMetrics(data);
-                        renderLiveFeed(data);
-                    }
-                });
-            }, 10000);
-        }
+        function refreshData() { loadAllData(); }
 
-        function refreshData() {
-            loadAllData();
-        }
-
-        function askAiAssistant(question) {
-            document.getElementById('aiInputPrompt').value = question;
-            executeAiAnswer(question);
-        }
-
-        function handleAiSubmit(e) {
-            e.preventDefault();
-            const q = document.getElementById('aiInputPrompt').value.trim();
-            if (q) executeAiAnswer(q);
-        }
-
+        // ---------- data assistant (rule-based, reads the same API data) ----------
+        function askAiAssistant(q) { document.getElementById('aiInputPrompt').value = q; executeAiAnswer(q); }
+        function handleAiSubmit(e) { e.preventDefault(); const q = document.getElementById('aiInputPrompt').value.trim(); if (q) executeAiAnswer(q); }
         function executeAiAnswer(query) {
-            const replyBox = document.getElementById('aiReplyBox');
-            const replyText = document.getElementById('aiReplyText');
-            replyBox.classList.remove('hidden');
-            
-            const q = query.toLowerCase();
-            const leads = getStoredLeads();
-
+            const d = serverAnalyticsData || {}; const st = d.stats || {};
+            const box = document.getElementById('aiReplyBox'), out = document.getElementById('aiReplyText');
+            box.classList.remove('hidden');
+            const q = query.toLowerCase(); const leads = getStoredLeads();
             if (q.includes('hizmet') || q.includes('nereye')) {
-                replyText.innerHTML = `Bugün en çok incelenen hizmet <strong>Eş Takibi & Sadakat (%38 - 540 ziyaret)</strong> olmuştur. İkinci sırada <strong>TSCM Böcek & Dinleme Arama (%22 - 310 ziyaret)</strong> yer almaktadır.`;
+                const top = sortedEntries(d.serviceViews)[0];
+                out.innerHTML = top ? `En çok görüntülenen hizmet: <strong>${esc(top[0])}</strong> (${fmt(top[1])} görüntüleme).` : 'Henüz hizmet sayfası görüntülemesi kaydedilmedi.';
             } else if (q.includes('vaka') || q.includes('başvuru') || q.includes('talep')) {
-                if (leads.length === 0) {
-                    replyText.innerHTML = `Şu anda sistemde <strong>henüz yeni bir vaka başvurusu bulunmamaktadır</strong>. Sitenizden danışanlar form doldurduğu anda anında buraya işlenecektir.`;
-                } else {
-                    replyText.innerHTML = `Sistemde şu anda kayıtlı <strong>${leads.length} adet gerçek vaka</strong> başvurusu bulunmaktadır. En son vaka: <em>"${leads[0].name}"</em> (${leads[0].category}).`;
-                }
-            } else if (q.includes('trafik') || q.includes('ziyaretçi')) {
-                replyText.innerHTML = `Cloudflare onaylı gerçek trafik: <strong>1.100 tekil ziyaretçi</strong>, <strong>15.850 HTTP isteği</strong> ve <strong>1.420 sayfa görüntüleme</strong> kaydedilmiştir.`;
+                out.innerHTML = leads.length ? `Toplam <strong>${leads.length}</strong> başvuru, ${leads.filter(l => l.status === 'new').length} tanesi yeni. Son: <em>${esc(leads[0].name)}</em> (${esc(leads[0].category)}).` : 'Henüz başvuru yok.';
             } else {
-                replyText.innerHTML = `Analiz motorumuz: Cloudflare onaylı <strong>1.100 tekil ziyaretçi</strong> ve <strong>${leads.length} gerçek vaka</strong> doğrulamıştır. Sistemler normal çalışmaktadır.`;
+                const snap = d.cloudflareSnapshot || {};
+                out.innerHTML = `Canlı takip: <strong>${fmt(st.uniqueVisitors)}</strong> tekil ziyaretçi, <strong>${fmt(st.pageViews)}</strong> sayfa görüntüleme, ${fmt(st.whatsappClicks)} WhatsApp ve ${fmt(st.phoneClicks)} arama tıklaması. Cloudflare anlık görüntüsü (12.11): ${fmt(snap.visits)} ziyaret, ${fmt(snap.pageViews)} sayfa görüntüleme.`;
             }
         }
 
+        // ---------- universal detail modal ----------
         function showUniversalModal(config) {
-            document.getElementById('uniModalBadge').textContent = config.badge || 'ANALİTİK DETAYI';
-            document.getElementById('uniModalSubBadge').textContent = config.subBadge || 'Cloudflare Edge';
-            document.getElementById('uniModalTitle').textContent = config.title || 'Detay Görünümü';
+            document.getElementById('uniModalBadge').textContent = config.badge || 'DETAY';
+            document.getElementById('uniModalSubBadge').textContent = config.subBadge || '';
+            document.getElementById('uniModalTitle').textContent = config.title || '';
             document.getElementById('uniModalSubtitle').textContent = config.subtitle || '';
-            document.getElementById('uniModalContentLabel').textContent = config.contentLabel || 'Detaylı İnceleme:';
-
-            const iconEl = document.getElementById('uniModalIcon');
-            iconEl.className = config.iconClass || 'hgi hgi-stroke hgi-analytics-01 w-6 h-6';
-
-            const statsContainer = document.getElementById('uniModalStatsGrid');
-            statsContainer.innerHTML = '';
-            (config.stats || []).forEach(st => {
-                const div = document.createElement('div');
-                div.className = 'p-3 rounded-2xl bg-[#F4F5F7] border border-[#E2E8F0] space-y-1';
-                div.innerHTML = `
-                    <div class="text-[10px] text-[#7B7B7B] font-bold uppercase font-mono">${st.label}</div>
-                    <div class="text-base font-extrabold font-mono text-[#062F28]">${st.value}</div>
-                    ${st.sub ? `<div class="text-[10px] text-[#062F28] font-bold font-mono">${st.sub}</div>` : ''}
-                `;
-                statsContainer.appendChild(div);
-            });
-
+            document.getElementById('uniModalContentLabel').textContent = config.contentLabel || 'Detay:';
+            document.getElementById('uniModalIcon').className = config.iconClass || 'hgi hgi-stroke hgi-analytics-01 w-6 h-6';
+            document.getElementById('uniModalStatsGrid').innerHTML = (config.stats || []).map(st => `
+                <div class="p-3 rounded-2xl bg-[#F4F5F7] border border-[#E2E8F0] space-y-1">
+                    <div class="text-[10px] text-[#7B7B7B] font-bold uppercase font-mono">${esc(st.label)}</div>
+                    <div class="text-base font-extrabold font-mono text-[#062F28]">${esc(st.value)}</div>
+                    ${st.sub ? `<div class="text-[10px] text-[#062F28] font-bold font-mono">${esc(st.sub)}</div>` : ''}
+                </div>`).join('');
             document.getElementById('uniModalBodyContent').innerHTML = config.bodyHTML || '';
-
-            const actionsContainer = document.getElementById('uniModalActions');
-            actionsContainer.innerHTML = '';
+            const actions = document.getElementById('uniModalActions');
+            actions.innerHTML = '';
             (config.actions || []).forEach(act => {
-                const btn = document.createElement(act.href ? 'a' : 'button');
-                btn.className = act.primary
-                    ? 'px-4 py-2 rounded-full bg-[#9FE870] hover:bg-[#8BD85B] text-[#062F28] text-xs font-bold transition shadow-sm'
-                    : 'px-4 py-2 rounded-full bg-[#F4F5F7] hover:bg-[#062F28] text-[#7B7B7B] hover:text-[#FFFFFF] text-xs font-bold transition';
-                if (act.href) {
-                    btn.href = act.href;
-                    btn.target = act.target || '_blank';
-                }
-                if (act.onclick) btn.onclick = act.onclick;
-                btn.textContent = act.text;
-                actionsContainer.appendChild(btn);
+                const b = document.createElement(act.href ? 'a' : 'button');
+                b.className = 'px-4 py-2 rounded-full bg-[#9FE870] hover:bg-[#8BD85B] text-[#062F28] text-xs font-bold transition shadow-sm';
+                if (act.href) { b.href = act.href; b.target = '_blank'; b.rel = 'noopener'; }
+                if (act.onclick) b.onclick = act.onclick;
+                b.textContent = act.text;
+                actions.appendChild(b);
             });
-
-            const closeBtn = document.createElement('button');
-            closeBtn.className = 'px-4 py-2 rounded-full bg-[#F4F5F7] hover:bg-[#062F28] text-[#7B7B7B] hover:text-[#FFFFFF] text-xs font-bold transition';
-            closeBtn.onclick = closeUniversalModal;
-            closeBtn.textContent = 'Kapat';
-            actionsContainer.appendChild(closeBtn);
-
+            const c = document.createElement('button');
+            c.className = 'px-4 py-2 rounded-full bg-[#F4F5F7] hover:bg-[#062F28] text-[#7B7B7B] hover:text-[#FFFFFF] text-xs font-bold transition';
+            c.onclick = closeUniversalModal; c.textContent = 'Kapat';
+            actions.appendChild(c);
             document.getElementById('universalDetailModal').classList.remove('hidden');
         }
-
-        function closeUniversalModal() {
-            document.getElementById('universalDetailModal').classList.add('hidden');
-        }
+        function closeUniversalModal() { document.getElementById('universalDetailModal').classList.add('hidden'); }
 
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                closeUniversalModal();
-                closeLeadModal();
-                closeNewLeadModal();
-            }
-            if ((e.metaKey || e.ctrlKey) && e.key === 'f') {
-                e.preventDefault();
-                document.getElementById('topSearchInput')?.focus();
+            if (e.key === 'Escape') { closeUniversalModal(); closeLeadModal(); closeNewLeadModal(); }
+            if ((e.metaKey || e.ctrlKey) && e.key === 'f' && !document.getElementById('mainDashboard').classList.contains('hidden')) {
+                e.preventDefault(); document.getElementById('topSearchInput')?.focus();
             }
         });
 
         function openMetricDetailModal(type) {
+            const d = serverAnalyticsData || {}; const st = d.stats || {}; const snap = d.cloudflareSnapshot || {};
             if (type === 'visitors') {
                 showUniversalModal({
-                    badge: 'CLOUDFLARE TRAFİK',
-                    subBadge: 'Doğrulanmış Gerçek Veri',
-                    iconClass: 'hgi hgi-stroke hgi-user-multiple w-6 h-6',
-                    title: 'Toplam Tekil Ziyaretçi & Trafik Analizi',
-                    subtitle: 'Cloudflare Edge CDN ve sunucu günlükleri üzerinden doğrulanmış gerçek kullanıcı trafiği.',
+                    badge: 'ZİYARETÇİ', subBadge: 'İki ayrı kaynak', iconClass: 'hgi hgi-stroke hgi-user-multiple w-6 h-6',
+                    title: 'Ziyaretçi & Trafik', subtitle: 'Site içi canlı takip ile Cloudflare\'in kendi sayımı farklı yöntemlerdir; birebir tutmaları beklenmez.',
                     stats: [
-                        { label: 'Tekil Ziyaret', value: '1.100', sub: 'Cloudflare Visits' },
-                        { label: 'Toplam İstek', value: '15.850', sub: 'HTTP Traffic' },
-                        { label: 'Bant Genişliği', value: '223.56 MB', sub: 'Data Transfer' },
-                        { label: 'Sayfa Gezintisi', value: '1.420', sub: 'Page Views' }
+                        { label: 'Tekil (canlı)', value: fmt(st.uniqueVisitors), sub: 'Site takip kodu' },
+                        { label: 'Görüntüleme (canlı)', value: fmt(st.pageViews), sub: 'Site takip kodu' },
+                        { label: 'CF Ziyaret', value: fmt(snap.visits), sub: '12.11 anlık görüntü' },
+                        { label: 'CF İstek', value: fmt(snap.requests), sub: fmt(snap.bandwidthMB) + ' MB' }
                     ],
-                    contentLabel: 'Ziyaretçi Davranışları & Yoğun Saatler:',
-                    bodyHTML: `
-                        <div class="space-y-2">
-                            <div class="p-3 rounded-2xl bg-[#FFFFFF] border border-[#E2E8F0]">
-                                <strong class="text-[#062F28] block mb-1">⏰ En Yoğun Ziyaret Saatleri:</strong>
-                                Sitenize en çok ziyaret öğleden sonra <strong>13:30 – 17:00</strong> arasında ve gece gizli arama pik saati olan <strong>21:00 – 23:45</strong> saatleri arasında gerçekleşmektedir.
-                            </div>
-                            <div class="p-3 rounded-2xl bg-[#FFFFFF] border border-[#E2E8F0]">
-                                <strong class="text-[#062F28] block mb-1">🛡️ Cloudflare Bot Filtreleme:</strong>
-                                Toplam 44.62k istek arasından botlar elenmiş, geriye <strong>15.85k istek ve 1.1k gerçek ziyaretçi</strong> kalmıştır.
-                            </div>
-                        </div>
-                    `,
-                    actions: [
-                        { text: 'Nereye Baktılar Analizine Git', primary: true, onclick: () => { closeUniversalModal(); switchMainTab('analytics'); } }
-                    ]
+                    contentLabel: 'Not:',
+                    bodyHTML: `<p>Cloudflare rakamları panele otomatik çekilmiyor; ${esc(snap.label || '')}. Otomatik çekmek için Cloudflare API token gerekir.</p><p>Canlı takip ${esc(new Date(d.trackingSince || Date.now()).toLocaleString('tr-TR'))} tarihinden beri sayıyor. Reklam engelleyici kullanan ziyaretçiler sayılmayabilir.</p>`,
+                    actions: [{ text: 'Sayfa analizine git', onclick: () => { closeUniversalModal(); switchMainTab('analytics'); } }]
                 });
             } else if (type === 'whatsapp') {
                 showUniversalModal({
-                    badge: 'WHATSAPP İLETİŞİMİ',
-                    subBadge: '0532 666 77 49',
-                    iconClass: 'hgi hgi-stroke hgi-whatsapp w-6 h-6 text-[#062F28]',
-                    title: 'WhatsApp İletişim & Mesaj Başlatma Analizi',
-                    subtitle: 'Danışanların sitedeki WhatsApp butonlarına basarak başlattığı doğrudan görüşmeler.',
+                    badge: 'WHATSAPP', subBadge: '0532 666 77 49', iconClass: 'hgi hgi-stroke hgi-whatsapp w-6 h-6',
+                    title: 'WhatsApp & Telefon Tıklamaları', subtitle: 'Sitedeki WhatsApp ve telefon bağlantılarına yapılan tıklamalar.',
                     stats: [
-                        { label: 'Hedef Hat', value: '0532 666 77 49', sub: '7/24 Aktif Hızlı Hat' },
-                        { label: 'Mobil Oranı', value: '%88.0', sub: 'Doğrudan App Açıldı' }
+                        { label: 'WhatsApp', value: fmt(st.whatsappClicks), sub: 'Tıklama' },
+                        { label: 'Telefon', value: fmt(st.phoneClicks), sub: 'Tıklama' }
                     ],
-                    contentLabel: 'WhatsApp Buton Kanalları:',
-                    bodyHTML: `
-                        <div class="p-3 rounded-2xl bg-[#FFFFFF] border border-[#E2E8F0] space-y-2 text-xs">
-                            <p>Danışanlar en çok <strong>sağ alttaki sabit yüzen WhatsApp butonu</strong> ve sayfa içi acil danışma butonları üzerinden iletişime geçmektedir.</p>
-                        </div>
-                    `,
-                    actions: [
-                        { text: 'WhatsApp Hattını Aç', primary: true, href: 'https://wa.me/905326667749' }
-                    ]
+                    contentLabel: 'Not:', bodyHTML: '<p>Tıklama, görüşmenin gerçekten başladığı anlamına gelmez; yalnızca butona basıldığını gösterir.</p>',
+                    actions: [{ text: 'WhatsApp hattını aç', href: 'https://wa.me/905326667749' }]
                 });
             } else if (type === 'presence') {
                 showUniversalModal({
-                    badge: 'CANLI OTURUM',
-                    subBadge: 'Cloudflare Edge',
-                    iconClass: 'hgi hgi-stroke hgi-user-check w-6 h-6 text-[#062F28]',
-                    title: 'Anlık Aktif Ziyaretçi & Cloudflare Edge Heartbeat',
-                    subtitle: 'Şu anda web sitenizde aktif olarak gezinen kullanıcılar 15 saniyelik sinyallerle anlık takip edilir.',
-                    stats: [
-                        { label: 'Anlık Aktif', value: document.getElementById('activeOnlineCount').textContent.split(' ')[0] + ' Kişi', sub: 'Şu Anda Sitede' },
-                        { label: 'Protokol', value: 'Edge Heartbeat', sub: '15 sn TTL' },
-                        { label: 'Konum', value: 'Ankara / Türkiye', sub: 'Cloudflare Edge POP' },
-                        { label: 'Gecikme', value: '< 20 ms', sub: 'Ultra Hızlı' }
-                    ],
-                    contentLabel: 'Canlı Oturum Protokolü:',
-                    bodyHTML: `
-                        <div class="p-3.5 rounded-2xl bg-[#FFFFFF] border border-[#E2E8F0] text-xs text-[#062F28] space-y-2 leading-relaxed">
-                            <p>Ziyaretçiler sayfaları gezerken arka planda her 15 saniyede bir <code>/api/presence</code> uç noktasına oturum sinyali gönderir. Sekmeyi kapattıklarında sistemden 15 saniye sonra otomatik düşerler.</p>
-                        </div>
-                    `
+                    badge: 'CANLI OTURUM', subBadge: 'Cloudflare Edge', iconClass: 'hgi hgi-stroke hgi-user-check w-6 h-6',
+                    title: 'Şu An Sitede', subtitle: 'Açık sekmeler 5 saniyede bir sinyal gönderir; 15 saniye sinyal gelmezse düşer.',
+                    stats: [{ label: 'Anlık', value: document.getElementById('activeOnlineCount').textContent, sub: 'Bu veri merkezi' }],
+                    contentLabel: 'Not:', bodyHTML: '<p>Aynı tarayıcıdaki yenilemeler ve sekmeler tek kişi sayılır. Sayım Cloudflare veri merkezi bazındadır.</p>'
                 });
             }
         }
 
-        function openServiceDetailModal(name, count, pct, page) {
+        function openServiceDetailModal(name) {
+            const d = serverAnalyticsData || {}; const v = (d.serviceViews || {})[name] || 0; const total = sumValues(d.serviceViews);
+            const leads = getStoredLeads().filter(l => (l.category || '').toLowerCase().includes(name.split(' ')[0].toLowerCase()));
             showUniversalModal({
-                badge: 'HİZMET DETAYI',
-                subBadge: `%${pct} İlgi Oranı`,
-                iconClass: 'hgi hgi-stroke hgi-search-01 w-6 h-6 text-[#062F28]',
-                title: `${name} — İlgi & Ziyaret Analitiği`,
-                subtitle: `Ziyaretçilerin bu hizmet sayfasına gösterdiği ilgi ve okuma sıklığı.`,
-                stats: [
-                    { label: 'Toplam Ziyaret', value: `${count} Kez`, sub: 'Son 24 Saat' },
-                    { label: 'İlgi Payı', value: `%${pct}`, sub: 'Tüm Hizmetler İçi' },
-                    { label: 'Tahmini WhatsApp', value: `${Math.round(count * 0.16)} Temas`, sub: 'Doğrudan Başvuru' },
-                    { label: 'Ort. Okuma', value: '2 dk 50 sn', sub: 'İçerik İnceleme' }
-                ],
-                contentLabel: 'Bu Hizmet Hakkında Detaylar:',
-                bodyHTML: `
-                    <div class="space-y-2">
-                        <div class="p-3 rounded-2xl bg-[#FFFFFF] border border-[#E2E8F0]">
-                            <strong class="text-[#062F28] block mb-1">📍 En Çok Talep Gelen İller:</strong>
-                            Bu hizmet için en çok <strong>Ankara (%44)</strong>, <strong>İstanbul (%32)</strong> ve <strong>İzmir (%14)</strong> illerinden ziyaret kaydedilmiştir.
-                        </div>
-                    </div>
-                `,
-                actions: [
-                    { text: 'Sayfayı Aç ↗', primary: true, href: page || 'index.html' }
-                ]
+                badge: 'HİZMET', subBadge: `%${pct(v, total)} pay`, iconClass: 'hgi hgi-stroke hgi-search-01 w-6 h-6',
+                title: name, subtitle: 'Hizmet sayfası görüntülemeleri (canlı takip).',
+                stats: [{ label: 'Görüntüleme', value: fmt(v) }, { label: 'Pay', value: `%${pct(v, total)}` }, { label: 'İlgili başvuru', value: String(leads.length) }],
+                contentLabel: 'İlgili başvurular:',
+                bodyHTML: leads.length ? leads.slice(0, 10).map(l => `<div>${esc(l.code)} • ${esc(l.name)} • ${esc(l.dateStr)}</div>`).join('') : '<p>Bu hizmet için kayıtlı başvuru yok.</p>'
             });
         }
 
-        function openCityDetailModal(name, count, pct) {
+        function openCityDetailModal(name) {
+            const d = serverAnalyticsData || {}; const v = (d.cities || {})[name] || 0;
+            const evs = (d.recentEvents || []).filter(e => e.city === name).slice(0, 10);
             showUniversalModal({
-                badge: 'BÖLGESEL TRAFİK',
-                subBadge: `%${pct} Ziyaretçi Payı`,
-                iconClass: 'hgi hgi-stroke hgi-location-01 w-6 h-6 text-[#062F28]',
-                title: `${name} Bölgesi Ziyaret & Talep Raporu`,
-                subtitle: `${name} bölgesinden gelen ziyaretçilerin arama tercihleri ve vaka talepleri.`,
-                stats: [
-                    { label: 'Ziyaretçi Sayısı', value: `${count} Kişi`, sub: 'Tekil Kullanıcı' },
-                    { label: 'Bölge Payı', value: `%${pct}`, sub: 'Toplam Ziyaret' },
-                    { label: 'Mobil Oran', value: '%83.5', sub: 'Akıllı Telefon' }
-                ],
-                contentLabel: 'Bölgesel Arama Davranışları:',
-                bodyHTML: `
-                    <div class="p-3.5 rounded-2xl bg-[#FFFFFF] border border-[#E2E8F0] text-xs text-[#062F28] space-y-2 leading-relaxed">
-                        <p><strong>${name}</strong> bölgesinden gelen danışanlar en çok <strong>Eş Takibi</strong>, <strong>Gizli Dinleme Cihazı Taraması</strong> ve <strong>Boşanma / Velayet Delili</strong> konularını incelemektedir.</p>
-                    </div>
-                `
+                badge: 'KONUM', subBadge: 'Cloudflare IP konumu', iconClass: 'hgi hgi-stroke hgi-location-01 w-6 h-6',
+                title: name, subtitle: 'IP tabanlı konum yaklaşıktır; mobil operatörlerde farklı şehir görünebilir.',
+                stats: [{ label: 'Tekil ziyaretçi', value: fmt(v) }, { label: 'Pay', value: `%${pct(v, sumValues(d.cities))}` }],
+                contentLabel: 'Bu konumdan son hareketler:',
+                bodyHTML: evs.length ? evs.map(e => `<div>${esc(e.time)} • ${esc(e.label)} • ${esc(e.page)}</div>`).join('') : '<p>Son hareket listesinde bu konum yok.</p>'
             });
         }
 
-        function openSourceDetailModal(name, count, pct) {
-            showUniversalModal({
-                badge: 'TRAFİK KAYNAĞI',
-                subBadge: `%${pct} Kaynak Payı`,
-                iconClass: 'hgi hgi-stroke hgi-global w-6 h-6 text-[#062F28]',
-                title: `${name} — Geliş Kanalı Analizi`,
-                subtitle: `Ziyaretçilerin web sitenizi hangi arama motoru veya kanal üzerinden bulduğu.`,
-                stats: [
-                    { label: 'Ziyaretçi Hacmi', value: `${count} Kişi`, sub: 'Son 24 Saat' },
-                    { label: 'Kanal Payı', value: `%${pct}`, sub: 'Toplam Trafik' },
-                    { label: 'Hemen Çıkma', value: '%32.0', sub: 'Kaliteli Trafik' }
-                ],
-                contentLabel: 'Kaynak Ayrıntıları:',
-                bodyHTML: `
-                    <div class="p-3.5 rounded-2xl bg-[#FFFFFF] border border-[#E2E8F0] text-xs text-[#062F28] space-y-2 leading-relaxed">
-                        <p><strong>${name}</strong> kanalı üzerinden gelen ziyaretçiler doğrudan ticari niyetli aramalardan ulaşmaktadır.</p>
-                    </div>
-                `
-            });
+        function openSourceDetailModal(name) {
+            const d = serverAnalyticsData || {}; const v = (d.sources || {})[name] || 0;
+            showUniversalModal({ badge: 'KAYNAK', title: name, subtitle: 'Ziyaretçinin geldiği site (referrer).',
+                stats: [{ label: 'Tekil ziyaretçi', value: fmt(v) }, { label: 'Pay', value: `%${pct(v, sumValues(d.sources))}` }] });
         }
 
         function openDeviceDetailModal(name) {
-            showUniversalModal({
-                badge: 'CİHAZ ANALİZİ',
-                subBadge: name.toUpperCase(),
-                iconClass: 'hgi hgi-stroke hgi-smart-phone-01 w-6 h-6 text-[#062F28]',
-                title: `${name} Cihazı Kullanıcı Dağılımı`,
-                subtitle: `${name} cihazlarından web sitenize giren kullanıcıların özellikleri.`,
-                stats: [
-                    { label: 'Cihaz Türü', value: name, sub: 'Donanım Sınıfı' },
-                    { label: 'Ziyaretçi Oranı', value: name === 'Mobil' ? '%81.6' : (name === 'Masaüstü' ? '%17.1' : '%1.3'), sub: 'Cihaz Pazar Payı' },
-                    { label: 'Ort. Hız', value: '1.2 sn', sub: 'Sayfa Yüklenme' },
-                    { label: 'WhatsApp Uyumu', value: '%100', sub: 'Tek Tıkla Açılış' }
-                ],
-                contentLabel: 'Teknik Özet:',
-                bodyHTML: `
-                    <div class="p-3.5 rounded-2xl bg-[#FFFFFF] border border-[#E2E8F0] text-xs text-[#062F28] space-y-2 leading-relaxed">
-                        <p>Mobil kullanıcıların büyük bölümü Apple iOS (Safari) ve Android (Chrome) kullanmaktadır.</p>
-                    </div>
-                `
-            });
+            const d = serverAnalyticsData || {}; const v = (d.devices || {})[name] || 0;
+            showUniversalModal({ badge: 'CİHAZ', title: name, subtitle: 'Tarayıcı bilgisinden tespit edilen cihaz türü.',
+                stats: [{ label: 'Tekil ziyaretçi', value: fmt(v) }, { label: 'Pay', value: `%${pct(v, sumValues(d.devices))}` }] });
         }
 
         function openEventDetailModal(ev) {
+            if (!ev) return;
             showUniversalModal({
-                badge: 'CANLI ETKİLEŞİM KAYDI',
-                subBadge: ev.type || 'Etkinlik',
-                iconClass: 'hgi hgi-stroke hgi-flash w-6 h-6 text-[#062F28]',
-                title: ev.label || 'Kullanıcı Hareketi Kaydedildi',
-                subtitle: `Gerçekleşme Zamanı: ${ev.time || 'Az önce'} • Şehir: ${ev.city || 'Ankara'}`,
-                stats: [
-                    { label: 'Olay Türü', value: ev.type || 'Bilinmiyor', sub: 'Tetiklenen Aksiyon' },
-                    { label: 'Saat', value: ev.time || 'Az önce', sub: 'Sunucu Saati' },
-                    { label: 'Cihaz', value: ev.device || 'Mobil', sub: 'Kullanıcı Aygıtı' },
-                    { label: 'Şehir', value: ev.city || 'Ankara', sub: 'Cloudflare IP' }
-                ],
-                contentLabel: 'Tetiklenen Sayfa & Detay:',
-                bodyHTML: `
-                    <div class="p-3.5 rounded-2xl bg-[#FFFFFF] border border-[#E2E8F0] font-mono text-xs text-[#062F28] space-y-2">
-                        <div><strong>Ziyaret Edilen Sayfa:</strong> <span class="text-[#062F28] font-bold">${ev.page || '/'}</span></div>
-                        <div><strong>Olay ID:</strong> <span>${ev.id || 'N/A'}</span></div>
-                        <div><strong>Konum:</strong> <span>${ev.city || 'Ankara'} / ${ev.country || 'TR'}</span></div>
-                    </div>
-                `,
-                actions: [
-                    { text: 'Sayfayı Aç ↗', primary: true, href: ev.page || 'index.html' }
-                ]
+                badge: 'ETKİLEŞİM', subBadge: ev.type, iconClass: 'hgi hgi-stroke hgi-flash w-6 h-6',
+                title: ev.label, subtitle: `${ev.time} • ${ev.city} / ${ev.country || ''}`,
+                stats: [{ label: 'Tür', value: ev.type }, { label: 'Saat', value: ev.time }, { label: 'Cihaz', value: ev.device }, { label: 'Konum', value: ev.city }],
+                contentLabel: 'Sayfa:', bodyHTML: `<div class="font-mono">${esc(ev.page)}</div>`,
+                actions: ev.page && ev.page.startsWith('/') ? [{ text: 'Sayfayı aç ↗', href: ev.page }] : []
             });
         }
 

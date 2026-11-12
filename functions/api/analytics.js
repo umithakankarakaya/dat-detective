@@ -1,95 +1,91 @@
 /* Cloudflare Pages Function: /api/analytics
- * Executive analytics event ingestion & aggregation engine with Cloudflare Edge Cache persistence.
- * 100% Real Data Mode: No fictional seed clients. True Cloudflare traffic baseline + live visitor tracking.
+ *
+ * - Public visitors may only POST anonymous interaction events (page_view, whatsapp_click, ...).
+ * - Reading data, changing lead status and resetting REQUIRE the admin PIN
+ *   (header "X-Admin-Pin"). Set a strong ADMIN_PIN in Cloudflare Pages ->
+ *   Settings -> Environment variables. Lead records contain personal data (KVKK).
+ * - No invented numbers: every breakdown below starts at 0 and only grows from
+ *   events actually sent by visitors' browsers. The Cloudflare totals are a
+ *   fixed snapshot the owner read from the Cloudflare dashboard (12.11.2026).
+ * - Storage: ANALYTICS_KV binding if configured (recommended, global & durable),
+ *   otherwise the per-datacenter Edge Cache (best effort, can be evicted).
  */
-const SYNTHETIC_CACHE_URL = 'https://dat-analytics.internal/store-v3';
+const STORE_VERSION = 'v4';
+const SYNTHETIC_CACHE_URL = 'https://dat-analytics.internal/store-' + STORE_VERSION;
+const KV_KEY = 'dat_analytics_store_' + STORE_VERSION;
+const DEFAULT_PIN = '2005';
 
-// 100% Real Verified Baseline from Cloudflare HTTP Traffic (Screenshot from User's Cloudflare Dashboard)
-const REAL_STORE_BASELINE = {
-    stats: {
-        totalVisitors: 1100,      // 1.1k Visits (Cloudflare verified)
-        pageViews: 1420,          // 1.42k Page views (Cloudflare verified)
-        totalRequests: 15850,     // 15.85k HTTP Requests (Cloudflare verified)
-        bandwidthMB: 223.56,      // 223.56 MB Data transfer (Cloudflare verified)
-        apiRequests: 2180,        // 2.18k API requests
-        whatsappClicks: 0,        // Real tracking starts from actual live clicks
-        phoneClicks: 0,           // Real tracking starts from actual live calls
-        leadsCount: 0             // Real tracking starts from actual form submissions
-    },
-    serviceViews: {
-        'Eş Takibi & Boşanma': 540,
-        'TSCM Böcek Arama & Dinleme': 310,
-        'Evlilik Öncesi Tahkikat': 210,
-        'Velayet Davaları Delil': 180,
-        'Adres & Borçlu Tespiti': 140,
-        'Kurumsal Firma & Marka Koruma': 120,
-        'Bilişim & Siber Dolandırıcılık': 95,
-        'Öğrenci & Çocuk Takibi': 85
-    },
-    cities: {
-        'Ankara': 460,
-        'İstanbul': 390,
-        'İzmir': 130,
-        'Antalya': 75,
-        'Bursa': 55,
-        'Diğer / Yurt Dışı': 30
-    },
-    sources: {
-        'Google Organik': 820,
-        'Doğrudan (Direct)': 210,
-        'WhatsApp Paylaşımı': 75,
-        'Instagram / Sosyal': 35
-    },
-    devices: {
-        'Mobil': 930,
-        'Masaüstü': 195,
-        'Tablet': 15
-    },
-    leads: [],              // 100% REAL LEADS ONLY. No fake fictional clients.
-    recentEvents: []        // 100% REAL LIVE EVENTS ONLY.
+const CLOUDFLARE_SNAPSHOT = {
+    label: 'Cloudflare HTTP Traffic, son 24 saat (12.11.2026 22:17 itibarıyla, elle girildi)',
+    requests: 15850,
+    pageViews: 1420,
+    visits: 1100,
+    bandwidthMB: 223.56,
+    apiRequests: 2180
 };
 
-let isolateStore = JSON.parse(JSON.stringify(REAL_STORE_BASELINE));
+const SERVICE_PATHS = [
+    ['es-takibi', 'Eş Takibi'],
+    ['evlilik-oncesi', 'Evlilik Öncesi Araştırma'],
+    ['velayet', 'Velayet & Boşanma'],
+    ['ogrenci-takibi', 'Öğrenci Takibi'],
+    ['adres', 'Adres & Borçlu Tespiti'],
+    ['bilisim', 'Bilişim Dolandırıcılığı'],
+    ['firma', 'Firma Araştırması'],
+    ['hirsizlik', 'Hırsızlık Araştırması'],
+    ['bocek', 'Böcek Tarama (TSCM)'],
+    ['marka', 'Marka Taklidi Araştırması']
+];
+
+function emptyStore() {
+    return {
+        version: STORE_VERSION,
+        trackingSince: new Date().toISOString(),
+        stats: { pageViews: 0, uniqueVisitors: 0, whatsappClicks: 0, phoneClicks: 0, leadsCount: 0 },
+        serviceViews: {},
+        pages: {},
+        cities: {},
+        sources: {},
+        devices: {},
+        hourly: { date: '', buckets: Array.from({ length: 24 }, () => ({ v: 0, c: 0 })) },
+        leads: [],
+        recentEvents: []
+    };
+}
+
+let isolateStore = null;
 
 async function readStore(context) {
     if (context.env && context.env.ANALYTICS_KV) {
         try {
-            const raw = await context.env.ANALYTICS_KV.get('dat_analytics_store_v3', 'json');
-            if (raw && raw.stats) return raw;
+            const raw = await context.env.ANALYTICS_KV.get(KV_KEY, 'json');
+            if (raw && raw.stats) return { store: raw, backend: 'kv' };
         } catch (_) {}
     }
-
     try {
-        const cache = caches.default;
-        const res = await cache.match(SYNTHETIC_CACHE_URL);
+        const res = await caches.default.match(SYNTHETIC_CACHE_URL);
         if (res) {
             const data = await res.json();
-            if (data && data.stats) return data;
+            if (data && data.stats) return { store: data, backend: 'edge-cache' };
         }
     } catch (_) {}
-
-    return isolateStore;
+    if (!isolateStore) isolateStore = emptyStore();
+    return { store: isolateStore, backend: context.env && context.env.ANALYTICS_KV ? 'kv' : 'edge-cache' };
 }
 
 async function writeStore(context, store) {
     isolateStore = store;
-
     if (context.env && context.env.ANALYTICS_KV) {
         try {
-            await context.env.ANALYTICS_KV.put('dat_analytics_store_v3', JSON.stringify(store), { expirationTtl: 86400 * 30 });
+            await context.env.ANALYTICS_KV.put(KV_KEY, JSON.stringify(store));
             return;
         } catch (_) {}
     }
-
     try {
-        const cache = caches.default;
         const res = new Response(JSON.stringify(store), {
-            headers: {
-                'Content-Type': 'application/json',
-                'Cache-Control': 'public, max-age=86400'
-            }
+            headers: { 'Content-Type': 'application/json', 'Cache-Control': 'public, max-age=2592000' }
         });
-        context.waitUntil(cache.put(SYNTHETIC_CACHE_URL, res));
+        context.waitUntil(caches.default.put(SYNTHETIC_CACHE_URL, res));
     } catch (_) {}
 }
 
@@ -99,140 +95,170 @@ function jsonResponse(payload, status = 200) {
         headers: {
             'Content-Type': 'application/json; charset=utf-8',
             'Cache-Control': 'no-store, no-cache, must-revalidate, max-age=0',
-            'Access-Control-Allow-Origin': '*',
-            'X-Content-Type-Options': 'nosniff'
+            'X-Content-Type-Options': 'nosniff',
+            'X-Robots-Tag': 'noindex'
         }
     });
 }
 
+function isAdmin(context) {
+    const expected = String((context.env && context.env.ADMIN_PIN) || DEFAULT_PIN);
+    const given = context.request.headers.get('x-admin-pin') || '';
+    if (given.length !== expected.length) return false;
+    let diff = 0;
+    for (let i = 0; i < expected.length; i++) diff |= expected.charCodeAt(i) ^ given.charCodeAt(i);
+    return diff === 0;
+}
+
+function inc(obj, key, by = 1) {
+    if (!key) return;
+    obj[key] = (obj[key] || 0) + by;
+}
+
+function clip(v, n) {
+    return String(v == null ? '' : v).slice(0, n);
+}
+
+function trHourAndDate() {
+    const parts = new Intl.DateTimeFormat('en-CA', {
+        timeZone: 'Europe/Istanbul', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', hour12: false
+    }).formatToParts(new Date());
+    const get = (t) => parts.find((p) => p.type === t)?.value;
+    return { date: `${get('year')}-${get('month')}-${get('day')}`, hour: Number(get('hour')) % 24 };
+}
+
+function bumpHourly(store, kind) {
+    const { date, hour } = trHourAndDate();
+    if (!store.hourly || store.hourly.date !== date) {
+        store.hourly = { date, buckets: Array.from({ length: 24 }, () => ({ v: 0, c: 0 })) };
+    }
+    store.hourly.buckets[hour][kind] += 1;
+}
+
 export async function onRequest(context) {
     const req = context.request;
-    const now = Date.now();
 
     if (req.method === 'OPTIONS') {
         return new Response(null, {
             status: 204,
             headers: {
-                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Origin': 'https://www.datdedektiflik.com',
                 'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-                'Access-Control-Allow-Headers': 'Content-Type'
+                'Access-Control-Allow-Headers': 'Content-Type, X-Admin-Pin'
             }
         });
     }
 
-    const store = await readStore(context);
-    if (!store.stats) store.stats = { ...REAL_STORE_BASELINE.stats };
-    if (!Array.isArray(store.leads)) store.leads = [];
-    if (!Array.isArray(store.recentEvents)) store.recentEvents = [];
+    const { store, backend } = await readStore(context);
 
     if (req.method === 'POST') {
+        let body;
         try {
-            const body = await req.json();
-            const type = body.type || 'page_view';
-            const clientCity = req.headers.get('cf-ipcity') || body.city || 'Ankara';
-            const clientCountry = req.headers.get('cf-ipcountry') || 'TR';
-            const ua = req.headers.get('user-agent') || '';
-            const detectedDevice = body.device || (/tablet|ipad/i.test(ua) ? 'Tablet' : /mobile|iphone|android/i.test(ua) ? 'Mobil' : 'Masaüstü');
-            const timeStr = new Date().toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            body = JSON.parse(await req.text());
+        } catch (_) {
+            return jsonResponse({ error: 'bad json' }, 400);
+        }
+        const type = clip(body.type || 'page_view', 40);
 
-            store.stats.totalRequests = (store.stats.totalRequests || 15850) + 1;
+        // Admin-only mutations
+        if (type === 'update_lead_status' || type === 'admin_lead') {
+            if (!isAdmin(context)) return jsonResponse({ error: 'unauthorized' }, 401);
+        }
 
-            if (type === 'page_view') {
-                store.stats.pageViews = (store.stats.pageViews || 1420) + 1;
-                if (body.isNewVisitor) {
-                    store.stats.totalVisitors = (store.stats.totalVisitors || 1100) + 1;
-                }
-                
-                const path = body.path || body.page || '/';
-                if (path.includes('es-takibi')) store.serviceViews['Eş Takibi & Boşanma'] = (store.serviceViews['Eş Takibi & Boşanma'] || 540) + 1;
-                else if (path.includes('bocek-arama')) store.serviceViews['TSCM Böcek Arama & Dinleme'] = (store.serviceViews['TSCM Böcek Arama & Dinleme'] || 310) + 1;
+        const city = clip(req.headers.get('cf-ipcity') || 'Bilinmiyor', 60);
+        const country = clip(req.headers.get('cf-ipcountry') || '??', 4);
+        const ua = req.headers.get('user-agent') || '';
+        const device = /tablet|ipad/i.test(ua) ? 'Tablet' : /mobile|iphone|android/i.test(ua) ? 'Mobil' : 'Masaüstü';
+        const page = clip(body.path || body.page || '/', 160);
+        const timeStr = new Date().toLocaleTimeString('tr-TR', { timeZone: 'Europe/Istanbul', hour: '2-digit', minute: '2-digit', second: '2-digit' });
 
-                if (store.cities[clientCity]) {
-                    store.cities[clientCity]++;
-                } else if (clientCity !== 'Ankara') {
-                    store.cities['Diğer / Yurt Dışı'] = (store.cities['Diğer / Yurt Dışı'] || 30) + 1;
-                }
-
-                if (store.devices[detectedDevice]) store.devices[detectedDevice]++;
-            } 
-            else if (type === 'whatsapp_click') {
-                store.stats.whatsappClicks = (store.stats.whatsappClicks || 0) + 1;
-            } 
-            else if (type === 'phone_click') {
-                store.stats.phoneClicks = (store.stats.phoneClicks || 0) + 1;
-            } 
-            else if (type === 'service_click') {
-                const sName = body.service || 'Hizmet İnceleme';
-                for (const k of Object.keys(store.serviceViews)) {
-                    if (sName.toLowerCase().includes(k.substring(0, 5).toLowerCase())) {
-                        store.serviceViews[k]++;
-                        break;
-                    }
-                }
+        if (type === 'page_view') {
+            store.stats.pageViews++;
+            inc(store.pages, page);
+            bumpHourly(store, 'v');
+            if (body.isNewVisitor) {
+                store.stats.uniqueVisitors++;
+                inc(store.devices, device);
+                inc(store.cities, country === 'TR' ? city : `${city} (${country})`);
+                inc(store.sources, clip(body.source || 'Doğrudan (Direct)', 40));
             }
-            else if (type === 'lead_captured' || type === 'form_submit') {
-                store.stats.leadsCount = (store.stats.leadsCount || 0) + 1;
-                const leadData = body.lead || body;
-                const newLead = {
-                    id: leadData.id || 'lead_' + now,
-                    code: leadData.code || ('#DAT-' + Math.floor(10000 + Math.random() * 90000)),
-                    name: leadData.name || 'Web Danışanı',
-                    contact: leadData.contact || 'Belirtilmedi',
-                    category: leadData.category || 'Özel Araştırma',
-                    channel: leadData.channel || 'Web Form',
-                    urgency: leadData.urgency || 'normal',
-                    status: 'new',
-                    dateStr: new Date().toLocaleString('tr-TR', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }),
-                    details: leadData.details || 'Web sitesi üzerinden gelen vaka danışma başvurusu.'
-                };
-                store.leads.unshift(newLead);
-                if (store.leads.length > 200) store.leads.length = 200;
-            }
-            else if (type === 'update_lead_status') {
-                const { leadId, newStatus } = body;
-                const target = store.leads.find(l => l.id === leadId);
-                if (target) {
-                    target.status = newStatus;
-                }
-            }
+            const svc = SERVICE_PATHS.find(([needle]) => page.includes(needle));
+            if (svc) inc(store.serviceViews, svc[1]);
+        } else if (type === 'whatsapp_click') {
+            store.stats.whatsappClicks++;
+            bumpHourly(store, 'c');
+        } else if (type === 'phone_click') {
+            store.stats.phoneClicks++;
+            bumpHourly(store, 'c');
+        } else if (type === 'lead_captured' || type === 'form_submit' || type === 'admin_lead') {
+            const l = body.lead || {};
+            if (!l.name && !l.contact) return jsonResponse({ error: 'empty lead' }, 400);
+            store.stats.leadsCount++;
+            store.leads.unshift({
+                id: clip(l.id || 'lead_' + Date.now(), 60),
+                code: clip(l.code || '#DAT-' + Math.floor(10000 + Math.random() * 90000), 20),
+                name: clip(l.name || 'İsimsiz', 80),
+                contact: clip(l.contact || l.phone || '', 60),
+                category: clip(l.category || 'Belirtilmedi', 80),
+                channel: clip(l.channel || 'Web Form', 40),
+                urgency: ['normal', 'high', 'critical'].includes(l.urgency) ? l.urgency : 'normal',
+                status: 'new',
+                isTest: !!l.isTest,
+                dateStr: new Date().toLocaleString('tr-TR', { timeZone: 'Europe/Istanbul', day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }),
+                details: clip(l.details || '', 2000),
+                city
+            });
+            if (store.leads.length > 300) store.leads.length = 300;
+        } else if (type === 'update_lead_status') {
+            const target = store.leads.find((x) => x.id === body.leadId);
+            if (target && ['new', 'reviewing', 'contacted', 'closed'].includes(body.newStatus)) target.status = body.newStatus;
+        } else if (type !== 'service_click') {
+            return jsonResponse({ status: 'ignored' });
+        }
 
-            // Real live event append
-            const eventItem = {
-                id: body.id || 'ev_' + now,
+        if (type !== 'update_lead_status') {
+            store.recentEvents.unshift({
+                id: 'ev_' + Date.now() + '_' + Math.random().toString(36).slice(2, 6),
                 type,
                 time: timeStr,
-                page: body.page || body.path || '/',
-                label: body.label || body.service || (type === 'page_view' ? 'Sayfa Ziyareti' : type),
-                device: detectedDevice,
-                city: clientCity,
-                country: clientCountry
-            };
-            store.recentEvents.unshift(eventItem);
-            if (store.recentEvents.length > 60) store.recentEvents.length = 60;
-
-            await writeStore(context, store);
-            return jsonResponse({ status: 'ok', storeSummary: store.stats });
-        } catch (err) {
-            return jsonResponse({ error: err.message }, 400);
+                page,
+                label: clip(body.label || body.service || (type === 'page_view' ? 'Sayfa ziyareti' : type), 90),
+                device,
+                city,
+                country
+            });
+            if (store.recentEvents.length > 100) store.recentEvents.length = 100;
         }
+
+        await writeStore(context, store);
+        return jsonResponse({ status: 'ok' });
     }
 
     if (req.method === 'GET') {
+        if (!isAdmin(context)) return jsonResponse({ error: 'unauthorized' }, 401);
+
         const url = new URL(req.url);
         if (url.searchParams.get('reset') === 'true') {
-            await writeStore(context, JSON.parse(JSON.stringify(REAL_STORE_BASELINE)));
+            await writeStore(context, emptyStore());
             return jsonResponse({ status: 'reset_ok' });
         }
 
         return jsonResponse({
             status: 'ok',
+            backend,
+            durable: backend === 'kv',
+            pinIsDefault: !(context.env && context.env.ADMIN_PIN),
+            cloudflareSnapshot: CLOUDFLARE_SNAPSHOT,
+            trackingSince: store.trackingSince,
             stats: store.stats,
             serviceViews: store.serviceViews,
+            pages: store.pages,
             cities: store.cities,
             sources: store.sources,
             devices: store.devices,
+            hourly: store.hourly,
             leads: store.leads,
-            recentEvents: store.recentEvents.slice(0, 30),
+            recentEvents: store.recentEvents.slice(0, 50),
             serverTime: new Date().toISOString()
         });
     }
