@@ -104,7 +104,21 @@ export async function onRequest(context) {
     }
 
     const { sessions, source } = await readSessions(context, now);
+
+    // 1. Prune deprecated random session keys from old buggy script versions
+    for (const k of Object.keys(sessions)) {
+        if (k.startsWith('ses-')) {
+            delete sessions[k];
+        }
+    }
+
+    // 2. Normalize and save current session
     if (sid && sid.length <= 96) {
+        // If an old cached browser sends 'ses-...', normalize it by tying it to client IP
+        if (sid.startsWith('ses-')) {
+            const clientIp = req.headers.get('cf-connecting-ip') || 'legacy_ip';
+            sid = 'vid_legacy_' + clientIp.replace(/[^a-zA-Z0-9]/g, '_');
+        }
         sessions[sid] = now;
         isolateSessions.set(sid, now);
     }
