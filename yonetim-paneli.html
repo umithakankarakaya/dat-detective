@@ -1,17 +1,16 @@
 <!DOCTYPE html>
-<html lang="tr" class="h-full bg-[#0B0D11] text-[#E2E8F0]">
+<html lang="tr" class="min-h-full bg-[#E8EAED] text-[#3A3E42]">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>DAT Dedektiflik • Yönetici Harekat & Analitik Masası</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>DAT Dedektiflik • Yönetici Harekat &amp; Analitik Masası</title>
     <meta name="robots" content="noindex, nofollow, noarchive">
     
     <link rel="icon" type="image/png" href="favicon-48x48.png">
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.hugeicons.com/font/icons.css">
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+    <link rel="preconnect" href="https://use.hugeicons.com" crossorigin>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -22,78 +21,82 @@
                             orange: '#F48120',
                             orangeHover: '#EA6C06',
                             gold: '#FAAD3F'
-                        },
-                        dark: {
-                            bg: '#0B0D11',
-                            card: '#12161E',
-                            cardBorder: '#1F2633',
-                            hover: '#181E29',
-                            muted: '#94A3B8'
                         }
                     },
                     fontFamily: {
-                        sans: ['"Inter"', '-apple-system', 'sans-serif'],
-                        mono: ['"JetBrains Mono"', 'monospace']
+                        sans: ['"Helvetica Neue"', 'Helvetica', 'Arial', 'sans-serif'],
+                        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace']
                     }
                 }
             }
         }
     </script>
+    <link rel="stylesheet" href="https://use.hugeicons.com/font/icons.css">
+
     <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+            background-color: #E8EAED;
+            color: #3A3E42;
+            letter-spacing: -0.01em;
+        }
+        .cf-gradient {
+            background: linear-gradient(135deg, #F38020 0%, #F6821F 50%, #FAAD3F 100%);
+        }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        .glow-orange { box-shadow: 0 0 25px -5px rgba(244, 129, 32, 0.35); }
-        .glow-green { box-shadow: 0 0 20px -5px rgba(16, 185, 129, 0.4); }
-        @keyframes pulseSlow {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.55; transform: scale(0.96); }
-        }
-        .animate-pulse-slow { animation: pulseSlow 2.5s infinite; }
+        ::-webkit-scrollbar { width: 5px; height: 5px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.14); border-radius: 9999px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(0, 0, 0, 0.28); }
     </style>
 </head>
-<body class="h-full bg-[#0B0D11] text-[#E2E8F0] font-sans antialiased selection:bg-[#F48120] selection:text-[#FFFFFF]">
+<body class="min-h-full bg-[#E8EAED] text-[#3A3E42] antialiased selection:bg-[#F38020] selection:text-[#FFFFFF]">
+
+    <!-- Top Orange Gradient Accent Ribbon -->
+    <div class="h-1.5 w-full bg-gradient-to-r from-[#F38020] via-[#FAAD3F] to-[#F38020]"></div>
 
     <!-- ============================================== -->
     <!-- 1. EXECUTIVE SECURITY PIN GATE (GİRİŞ KİLİDİ) -->
     <!-- ============================================== -->
-    <div id="pinGateModal" class="fixed inset-0 z-50 bg-[#0B0D11]/95 backdrop-blur-xl flex items-center justify-center p-4">
-        <div class="max-w-md w-full bg-[#12161E] border border-[#1F2633] rounded-3xl p-7 sm:p-8 space-y-6 shadow-2xl text-center relative overflow-hidden">
-            <div class="absolute -top-24 -left-24 w-48 h-48 rounded-full bg-[#F48120]/15 blur-3xl pointer-events-none"></div>
+    <div id="pinGateModal" class="fixed inset-0 z-50 bg-[#000000]/70 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="max-w-md w-full bg-[#FFFFFF] border border-[rgba(0,0,0,0.08)] rounded-[28px] p-7 sm:p-9 space-y-6 shadow-2xl text-center relative overflow-hidden">
             
             <div class="flex justify-center">
-                <div class="w-16 h-16 rounded-2xl bg-[#181E29] border border-[#2A3447] flex items-center justify-center shadow-lg ring-2 ring-[#F48120]/30">
-                    <img src="dat-logo.png" alt="DAT Logo" class="w-11 h-11 rounded-full object-cover">
+                <div class="w-16 h-16 rounded-full bg-[#FFF7ED] border border-[#F48120]/30 flex items-center justify-center shadow-sm ring-2 ring-[#F48120]/50">
+                    <img src="dat-logo.png" alt="DAT Logo" class="w-12 h-12 rounded-full object-cover">
                 </div>
             </div>
 
             <div class="space-y-1.5">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#181E29] border border-[#2A3447] text-[11px] font-mono text-[#FAAD3F]">
+                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FFF7ED] border border-[#F38020]/40 text-[11px] font-mono text-[#F48120] font-medium">
                     <span class="w-2 h-2 rounded-full bg-[#F48120] animate-pulse"></span>
                     <span>DAT GROUP • GİZLİ YÖNETİM MASASI</span>
                 </div>
-                <h1 class="text-xl sm:text-2xl font-semibold text-[#FFFFFF] tracking-tight">Yönetici Giriş Doğrulaması</h1>
-                <p class="text-xs text-[#94A3B8]">Site ziyaretçi istatistikleri, WhatsApp tıklamaları ve gelen vaka taleplerini görüntülemek için yönetici PIN kodunuzu giriniz.</p>
+                <h1 class="text-xl sm:text-2xl font-medium text-[#000000] tracking-tight">Yönetici Giriş Doğrulaması</h1>
+                <p class="text-xs text-[#3A3E42]/75 leading-relaxed">Ziyaretçi sayıları, nereye bakıldığı, WhatsApp tıklamaları ve gelen vaka taleplerini incelemek için 4 haneli PIN kodunuzu giriniz.</p>
             </div>
 
             <div class="space-y-3">
                 <div class="flex justify-center gap-3" id="pinInputs">
-                    <input type="password" maxlength="1" inputmode="numeric" class="pin-digit w-12 h-14 rounded-xl bg-[#0B0D11] border-2 border-[#1F2633] focus:border-[#F48120] text-center text-2xl font-mono text-[#FFFFFF] outline-none transition" autofocus>
-                    <input type="password" maxlength="1" inputmode="numeric" class="pin-digit w-12 h-14 rounded-xl bg-[#0B0D11] border-2 border-[#1F2633] focus:border-[#F48120] text-center text-2xl font-mono text-[#FFFFFF] outline-none transition">
-                    <input type="password" maxlength="1" inputmode="numeric" class="pin-digit w-12 h-14 rounded-xl bg-[#0B0D11] border-2 border-[#1F2633] focus:border-[#F48120] text-center text-2xl font-mono text-[#FFFFFF] outline-none transition">
-                    <input type="password" maxlength="1" inputmode="numeric" class="pin-digit w-12 h-14 rounded-xl bg-[#0B0D11] border-2 border-[#1F2633] focus:border-[#F48120] text-center text-2xl font-mono text-[#FFFFFF] outline-none transition">
+                    <input type="password" maxlength="1" inputmode="numeric" class="pin-digit w-12 h-14 rounded-2xl bg-[#F3F4F4] border-2 border-[rgba(0,0,0,0.08)] focus:border-[#F48120] focus:bg-[#FFFFFF] text-center text-2xl font-mono text-[#000000] outline-none transition" autofocus>
+                    <input type="password" maxlength="1" inputmode="numeric" class="pin-digit w-12 h-14 rounded-2xl bg-[#F3F4F4] border-2 border-[rgba(0,0,0,0.08)] focus:border-[#F48120] focus:bg-[#FFFFFF] text-center text-2xl font-mono text-[#000000] outline-none transition">
+                    <input type="password" maxlength="1" inputmode="numeric" class="pin-digit w-12 h-14 rounded-2xl bg-[#F3F4F4] border-2 border-[rgba(0,0,0,0.08)] focus:border-[#F48120] focus:bg-[#FFFFFF] text-center text-2xl font-mono text-[#000000] outline-none transition">
+                    <input type="password" maxlength="1" inputmode="numeric" class="pin-digit w-12 h-14 rounded-2xl bg-[#F3F4F4] border-2 border-[rgba(0,0,0,0.08)] focus:border-[#F48120] focus:bg-[#FFFFFF] text-center text-2xl font-mono text-[#000000] outline-none transition">
                 </div>
-                <div id="pinError" class="text-xs text-[#EF4444] font-medium hidden">Hatalı yönetici PIN kodu! Lütfen tekrar deneyin.</div>
+                <div id="pinError" class="text-xs text-[#DC2626] font-medium hidden">Hatalı yönetici PIN kodu! Lütfen tekrar deneyin.</div>
             </div>
 
-            <div class="pt-2 flex items-center justify-between text-xs text-[#94A3B8]">
+            <div class="pt-1 flex items-center justify-between text-xs text-[#3A3E42]/80">
                 <label class="flex items-center gap-2 cursor-pointer select-none">
-                    <input type="checkbox" id="rememberMe" checked class="w-4 h-4 rounded bg-[#0B0D11] border-[#1F2633] text-[#F48120] focus:ring-0">
+                    <input type="checkbox" id="rememberMe" checked class="w-4 h-4 rounded text-[#F48120] focus:ring-0 border-[rgba(0,0,0,0.2)]">
                     <span>Bu cihazda 30 gün hatırla</span>
                 </label>
-                <span class="font-mono text-[11px] text-[#64748B]">PIN: 2005 veya 1973</span>
+                <span class="font-mono text-[11px] text-[#3A3E42]/60">PIN: 2005 veya 1973</span>
             </div>
 
-            <button type="button" onclick="checkPinManual()" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#F48120] to-[#FAAD3F] text-[#FFFFFF] text-sm font-semibold hover:opacity-95 transition shadow-lg glow-orange">
+            <button type="button" onclick="checkPinManual()" class="w-full py-3.5 rounded-full cf-gradient text-[#FFFFFF] text-sm font-medium hover:opacity-95 transition shadow-sm">
                 Panele Güvenli Giriş Yap
             </button>
         </div>
@@ -104,61 +107,63 @@
     <!-- ============================================== -->
     <div id="mainDashboard" class="min-h-screen flex flex-col hidden">
         
-        <!-- Top Navigation -->
-        <header class="sticky top-0 z-40 bg-[#12161E]/90 backdrop-blur-md border-b border-[#1F2633]">
+        <!-- Sticky Header (Apple Minimalist White) -->
+        <header class="sticky top-0 z-40 bg-[#FFFFFF]/90 backdrop-blur-md border-b border-[rgba(0,0,0,0.08)] shadow-sm">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+                
+                <!-- Brand Title -->
                 <div class="flex items-center gap-3">
-                    <a href="index.html" target="_blank" class="flex items-center gap-2.5 group">
-                        <img src="dat-logo.png" alt="DAT Logo" class="w-9 h-9 rounded-full object-cover ring-2 ring-[#F48120]/40">
+                    <a href="index.html" target="_blank" class="flex items-center gap-3 group">
+                        <img src="dat-logo.png" alt="DAT Logo" class="w-10 h-10 rounded-full object-cover ring-2 ring-[#F48120]/60">
                         <div class="leading-none hidden sm:block">
-                            <div class="text-sm font-semibold text-[#FFFFFF] tracking-tight">DAT <span class="text-[#F48120]">DEDEKTİFLİK</span></div>
-                            <span class="text-[10px] font-mono text-[#94A3B8]">YÖNETİCİ HAREKAT MERKEZİ</span>
+                            <div class="text-sm font-medium text-[#000000]">DAT <span class="text-[#F48120]">DEDEKTİFLİK</span></div>
+                            <p class="text-[10px] font-mono text-[#3A3E42]/60 uppercase mt-0.5">YÖNETİCİ HAREKAT MERKEZİ</p>
                         </div>
                     </a>
-                    <div class="hidden lg:flex items-center gap-2 px-3 py-1 rounded-full bg-[#181E29] border border-[#2A3447] text-xs font-mono">
+                    <div class="hidden lg:flex items-center gap-2 px-3 py-1 rounded-full bg-[#F3F4F4] border border-[rgba(0,0,0,0.06)] text-xs font-mono">
                         <span class="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></span>
-                        <span id="activeOnlineCount">8 Kişi Sitede Aktif</span>
+                        <span id="activeOnlineCount" class="text-[#000000] font-medium">8 Kişi Sitede Aktif</span>
                     </div>
                 </div>
 
                 <!-- Date Range Selector -->
-                <div class="flex items-center gap-1.5 p-1 rounded-xl bg-[#0B0D11] border border-[#1F2633] text-xs font-medium">
-                    <button type="button" onclick="setTimeFilter('today')" class="time-btn px-3 py-1.5 rounded-lg bg-[#F48120] text-[#FFFFFF] transition" data-filter="today">Bugün</button>
-                    <button type="button" onclick="setTimeFilter('yesterday')" class="time-btn px-3 py-1.5 rounded-lg text-[#94A3B8] hover:text-[#FFFFFF] transition" data-filter="yesterday">Dün</button>
-                    <button type="button" onclick="setTimeFilter('7days')" class="time-btn px-3 py-1.5 rounded-lg text-[#94A3B8] hover:text-[#FFFFFF] transition" data-filter="7days">Son 7 Gün</button>
-                    <button type="button" onclick="setTimeFilter('30days')" class="time-btn px-3 py-1.5 rounded-lg text-[#94A3B8] hover:text-[#FFFFFF] transition" data-filter="30days">Son 30 Gün</button>
+                <div class="flex items-center gap-1 p-1 rounded-full bg-[#F3F4F4] border border-[rgba(0,0,0,0.07)] text-xs font-medium">
+                    <button type="button" onclick="setTimeFilter('today')" class="time-btn px-3 py-1.5 rounded-full cf-gradient text-[#FFFFFF] transition" data-filter="today">Bugün</button>
+                    <button type="button" onclick="setTimeFilter('yesterday')" class="time-btn px-3 py-1.5 rounded-full text-[#3A3E42] hover:text-[#000000] transition" data-filter="yesterday">Dün</button>
+                    <button type="button" onclick="setTimeFilter('7days')" class="time-btn px-3 py-1.5 rounded-full text-[#3A3E42] hover:text-[#000000] transition" data-filter="7days">Son 7 Gün</button>
+                    <button type="button" onclick="setTimeFilter('30days')" class="time-btn px-3 py-1.5 rounded-full text-[#3A3E42] hover:text-[#000000] transition" data-filter="30days">Son 30 Gün</button>
                 </div>
 
                 <!-- Quick Action Buttons -->
                 <div class="flex items-center gap-2">
-                    <button type="button" onclick="openNewLeadModal()" class="hidden md:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#181E29] hover:bg-[#222A3A] border border-[#2A3447] text-xs font-medium text-[#FFFFFF] transition">
-                        <i class="hgi hgi-stroke hgi-plus-sign w-4 h-4 text-[#F48120]"></i>
+                    <button type="button" onclick="openNewLeadModal()" class="hidden md:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-[#000000] hover:bg-[#3A3E42] text-xs font-medium text-[#FFFFFF] transition shadow-sm">
+                        <i class="hgi hgi-stroke hgi-plus-sign w-4 h-4 text-[#FAAD3F]"></i>
                         <span>Manuel Vaka Ekle</span>
                     </button>
-                    <button type="button" onclick="exportLeadsCSV()" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#181E29] hover:bg-[#222A3A] border border-[#2A3447] text-xs font-medium text-[#94A3B8] hover:text-[#FFFFFF] transition" title="Excel / CSV Olarak İndir">
-                        <i class="hgi hgi-stroke hgi-download-04 w-4 h-4 text-[#10B981]"></i>
+                    <button type="button" onclick="exportLeadsCSV()" class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-[#F3F4F4] hover:bg-[#000000] hover:text-[#FFFFFF] border border-[rgba(0,0,0,0.07)] text-xs font-medium text-[#000000] transition" title="Excel / CSV Olarak İndir">
+                        <i class="hgi hgi-stroke hgi-download-04 w-4 h-4 text-[#F48120]"></i>
                         <span>Excel / CSV</span>
                     </button>
-                    <button type="button" onclick="lockDashboard()" class="p-2 rounded-xl bg-[#181E29] hover:bg-[#222A3A] border border-[#2A3447] text-[#94A3B8] hover:text-[#EF4444] transition" title="Güvenli Çıkış">
+                    <button type="button" onclick="lockDashboard()" class="p-2 rounded-full bg-[#F3F4F4] hover:bg-[#DC2626] hover:text-[#FFFFFF] text-[#3A3E42] border border-[rgba(0,0,0,0.07)] transition" title="Güvenli Çıkış">
                         <i class="hgi hgi-stroke hgi-logout-01 w-4 h-4"></i>
                     </button>
                 </div>
             </div>
         </header>
 
-        <!-- Main Body -->
-        <main class="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-7 flex-1 w-full">
+        <!-- Main Body Content -->
+        <main class="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6 flex-1 w-full">
             
             <!-- Realtime Alert Banner -->
-            <div class="p-4 rounded-2xl bg-gradient-to-r from-[#181E29] via-[#151A24] to-[#181E29] border border-[#2A3447] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+            <div class="p-4 sm:p-5 rounded-2xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.07)] shadow-sm flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
                 <div class="flex items-center gap-3">
                     <span class="w-2.5 h-2.5 rounded-full bg-[#10B981] animate-ping"></span>
-                    <span class="text-[#E2E8F0]">Canlı Veri Akışı: <strong class="text-[#FFFFFF]">Cloudflare Edge + Yerel Analitik Motoru Aktif</strong>. Son senkronizasyon: <span id="lastSyncTime" class="font-mono text-[#FAAD3F]">Şimdi</span></span>
+                    <span class="text-[#3A3E42]">Canlı Veri Durumu: <strong class="text-[#000000]">Cloudflare Edge + Yerel Analitik Motoru Aktif</strong>. Son senkronizasyon: <span id="lastSyncTime" class="font-mono text-[#F48120] font-medium">Şimdi</span></span>
                 </div>
-                <div class="flex items-center gap-3 font-mono text-[11px] text-[#94A3B8]">
-                    <span>Alan Adı: <strong class="text-[#FFFFFF]">www.datdedektiflik.com</strong></span>
+                <div class="flex items-center gap-3 font-mono text-[11px] text-[#3A3E42]/70">
+                    <span>Canlı Alan Adı: <strong class="text-[#000000]">www.datdedektiflik.com</strong></span>
                     <span>•</span>
-                    <button onclick="refreshData()" class="text-[#F48120] hover:underline flex items-center gap-1">
+                    <button onclick="refreshData()" class="text-[#F48120] hover:underline font-medium flex items-center gap-1">
                         <i class="hgi hgi-stroke hgi-refresh w-3.5 h-3.5"></i> Yenile
                     </button>
                 </div>
@@ -170,74 +175,74 @@
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3.5 sm:gap-4">
                 
                 <!-- KPI 1: Toplam Ziyaretçi -->
-                <div class="p-4 sm:p-5 rounded-2xl bg-[#12161E] border border-[#1F2633] space-y-2 hover:border-[#2A3447] transition">
-                    <div class="flex items-center justify-between text-[#94A3B8]">
+                <div class="p-4 sm:p-5 rounded-2xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.07)] space-y-2 shadow-sm hover:shadow-md transition">
+                    <div class="flex items-center justify-between text-[#3A3E42]/70">
                         <span class="text-xs font-medium">Toplam Ziyaretçi</span>
-                        <i class="hgi hgi-stroke hgi-user-multiple w-4 h-4 text-[#38BDF8]"></i>
+                        <i class="hgi hgi-stroke hgi-user-multiple w-4 h-4 text-[#F48120]"></i>
                     </div>
-                    <div class="text-xl sm:text-2xl font-bold font-mono text-[#FFFFFF]" id="kpiVisitors">1.140</div>
+                    <div class="text-xl sm:text-2xl font-bold font-mono text-[#000000]" id="kpiVisitors">1.140</div>
                     <div class="text-[11px] font-mono text-[#10B981] flex items-center gap-1">
-                        <span>↑ +%18</span>
-                        <span class="text-[#64748B]">tekil kişi</span>
+                        <span class="font-bold">↑ +%18</span>
+                        <span class="text-[#3A3E42]/60">tekil kişi</span>
                     </div>
                 </div>
 
                 <!-- KPI 2: Sayfa Görüntüleme -->
-                <div class="p-4 sm:p-5 rounded-2xl bg-[#12161E] border border-[#1F2633] space-y-2 hover:border-[#2A3447] transition">
-                    <div class="flex items-center justify-between text-[#94A3B8]">
+                <div class="p-4 sm:p-5 rounded-2xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.07)] space-y-2 shadow-sm hover:shadow-md transition">
+                    <div class="flex items-center justify-between text-[#3A3E42]/70">
                         <span class="text-xs font-medium">Sayfa Gezintisi</span>
-                        <i class="hgi hgi-stroke hgi-web-design-01 w-4 h-4 text-[#A855F7]"></i>
+                        <i class="hgi hgi-stroke hgi-web-design-01 w-4 h-4 text-[#3A3E42]"></i>
                     </div>
-                    <div class="text-xl sm:text-2xl font-bold font-mono text-[#FFFFFF]" id="kpiPageViews">1.420</div>
-                    <div class="text-[11px] font-mono text-[#94A3B8]">
-                        Ort. <strong class="text-[#FFFFFF]">3.2</strong> sayfa/kişi
+                    <div class="text-xl sm:text-2xl font-bold font-mono text-[#000000]" id="kpiPageViews">1.420</div>
+                    <div class="text-[11px] font-mono text-[#3A3E42]/70">
+                        Ort. <strong class="text-[#000000]">3.2</strong> sayfa/kişi
                     </div>
                 </div>
 
                 <!-- KPI 3: Vaka Talepleri (Form Leads) -->
-                <div class="p-4 sm:p-5 rounded-2xl bg-[#12161E] border border-[#F48120]/40 space-y-2 hover:border-[#F48120] transition glow-orange">
-                    <div class="flex items-center justify-between text-[#FAAD3F]">
+                <div class="p-4 sm:p-5 rounded-2xl bg-[#FFF7ED] border border-[#F48120]/40 space-y-2 shadow-sm hover:shadow-md transition">
+                    <div class="flex items-center justify-between text-[#F48120]">
                         <span class="text-xs font-medium">Vaka Talepleri</span>
                         <i class="hgi hgi-stroke hgi-clipboard-check w-4 h-4"></i>
                     </div>
                     <div class="text-xl sm:text-2xl font-bold font-mono text-[#F48120]" id="kpiLeads">28</div>
-                    <div class="text-[11px] font-mono text-[#FAAD3F]">
+                    <div class="text-[11px] font-mono text-[#F48120] font-medium">
                         <span id="kpiNewLeads">4 Yeni</span> bekleniyor
                     </div>
                 </div>
 
                 <!-- KPI 4: WhatsApp Tıklamaları -->
-                <div class="p-4 sm:p-5 rounded-2xl bg-[#12161E] border border-[#1F2633] space-y-2 hover:border-[#10B981]/50 transition">
-                    <div class="flex items-center justify-between text-[#94A3B8]">
+                <div class="p-4 sm:p-5 rounded-2xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.07)] space-y-2 shadow-sm hover:shadow-md transition">
+                    <div class="flex items-center justify-between text-[#3A3E42]/70">
                         <span class="text-xs font-medium">WhatsApp Tıklama</span>
                         <i class="hgi hgi-stroke hgi-whatsapp w-4 h-4 text-[#10B981]"></i>
                     </div>
-                    <div class="text-xl sm:text-2xl font-bold font-mono text-[#FFFFFF]" id="kpiWhatsapp">184</div>
-                    <div class="text-[11px] font-mono text-[#10B981]">
+                    <div class="text-xl sm:text-2xl font-bold font-mono text-[#000000]" id="kpiWhatsapp">184</div>
+                    <div class="text-[11px] font-mono text-[#10B981] font-medium">
                         0532 666 77 49
                     </div>
                 </div>
 
                 <!-- KPI 5: Telefonla Arama -->
-                <div class="p-4 sm:p-5 rounded-2xl bg-[#12161E] border border-[#1F2633] space-y-2 hover:border-[#3B82F6]/50 transition">
-                    <div class="flex items-center justify-between text-[#94A3B8]">
+                <div class="p-4 sm:p-5 rounded-2xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.07)] space-y-2 shadow-sm hover:shadow-md transition">
+                    <div class="flex items-center justify-between text-[#3A3E42]/70">
                         <span class="text-xs font-medium">Telefon Arama</span>
-                        <i class="hgi hgi-stroke hgi-call-02 w-4 h-4 text-[#3B82F6]"></i>
+                        <i class="hgi hgi-stroke hgi-call-02 w-4 h-4 text-[#F48120]"></i>
                     </div>
-                    <div class="text-xl sm:text-2xl font-bold font-mono text-[#FFFFFF]" id="kpiCalls">96</div>
-                    <div class="text-[11px] font-mono text-[#94A3B8]">
+                    <div class="text-xl sm:text-2xl font-bold font-mono text-[#000000]" id="kpiCalls">96</div>
+                    <div class="text-[11px] font-mono text-[#3A3E42]/70">
                         0312 284 02 99
                     </div>
                 </div>
 
                 <!-- KPI 6: İletişim Dönüşüm Oranı -->
-                <div class="p-4 sm:p-5 rounded-2xl bg-[#12161E] border border-[#1F2633] space-y-2 hover:border-[#2A3447] transition">
-                    <div class="flex items-center justify-between text-[#94A3B8]">
+                <div class="p-4 sm:p-5 rounded-2xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.07)] space-y-2 shadow-sm hover:shadow-md transition">
+                    <div class="flex items-center justify-between text-[#3A3E42]/70">
                         <span class="text-xs font-medium">Dönüşüm Oranı</span>
-                        <i class="hgi hgi-stroke hgi-target-02 w-4 h-4 text-[#F59E0B]"></i>
+                        <i class="hgi hgi-stroke hgi-target-02 w-4 h-4 text-[#10B981]"></i>
                     </div>
                     <div class="text-xl sm:text-2xl font-bold font-mono text-[#10B981]" id="kpiConversion">%27.0</div>
-                    <div class="text-[11px] font-mono text-[#94A3B8]">
+                    <div class="text-[11px] font-mono text-[#3A3E42]/70">
                         İletişim / Ziyaret
                     </div>
                 </div>
@@ -248,17 +253,17 @@
             <!-- 4. TABS: LEADS (TALEPLER), NEREYE BAKTILAR?, CANLI AKIŞ -->
             <!-- ============================================== -->
             <div class="space-y-4">
-                <div class="flex items-center gap-2 border-b border-[#1F2633] pb-2 text-sm font-medium">
-                    <button type="button" onclick="switchTab('leads')" id="tabBtnLeads" class="tab-btn px-4 py-2 rounded-xl bg-[#181E29] text-[#FFFFFF] border border-[#2A3447] transition flex items-center gap-2">
-                        <i class="hgi hgi-stroke hgi-mail-01 w-4 h-4 text-[#F48120]"></i>
+                <div class="flex flex-wrap items-center gap-2 border-b border-[rgba(0,0,0,0.08)] pb-2 text-sm font-medium">
+                    <button type="button" onclick="switchTab('leads')" id="tabBtnLeads" class="tab-btn px-4 py-2 rounded-full cf-gradient text-[#FFFFFF] shadow-sm transition flex items-center gap-2">
+                        <i class="hgi hgi-stroke hgi-mail-01 w-4 h-4"></i>
                         <span>Gelen Vaka Talepleri &amp; CRM</span>
-                        <span id="tabBadgeLeads" class="px-2 py-0.5 rounded-full bg-[#F48120] text-[#FFFFFF] text-[10px] font-mono font-bold">28</span>
+                        <span id="tabBadgeLeads" class="px-2 py-0.5 rounded-full bg-[#000000] text-[#FFFFFF] text-[10px] font-mono font-bold">28</span>
                     </button>
-                    <button type="button" onclick="switchTab('analytics')" id="tabBtnAnalytics" class="tab-btn px-4 py-2 rounded-xl text-[#94A3B8] hover:text-[#FFFFFF] transition flex items-center gap-2">
-                        <i class="hgi hgi-stroke hgi-analytics-02 w-4 h-4"></i>
+                    <button type="button" onclick="switchTab('analytics')" id="tabBtnAnalytics" class="tab-btn px-4 py-2 rounded-full bg-[#FFFFFF] text-[#3A3E42] border border-[rgba(0,0,0,0.07)] hover:bg-[#F3F4F4] transition flex items-center gap-2">
+                        <i class="hgi hgi-stroke hgi-analytics-02 w-4 h-4 text-[#F48120]"></i>
                         <span>Nereye Baktılar? (İlgi &amp; Sayfa Analitiği)</span>
                     </button>
-                    <button type="button" onclick="switchTab('live')" id="tabBtnLive" class="tab-btn px-4 py-2 rounded-xl text-[#94A3B8] hover:text-[#FFFFFF] transition flex items-center gap-2">
+                    <button type="button" onclick="switchTab('live')" id="tabBtnLive" class="tab-btn px-4 py-2 rounded-full bg-[#FFFFFF] text-[#3A3E42] border border-[rgba(0,0,0,0.07)] hover:bg-[#F3F4F4] transition flex items-center gap-2">
                         <i class="hgi hgi-stroke hgi-flash w-4 h-4 text-[#FAAD3F]"></i>
                         <span>Canlı Tıklama Akışı (Realtime)</span>
                     </button>
@@ -270,15 +275,15 @@
                 <div id="tabContentLeads" class="space-y-4">
                     
                     <!-- Leads Filters & Search Bar -->
-                    <div class="p-4 rounded-2xl bg-[#12161E] border border-[#1F2633] flex flex-col md:flex-row items-center justify-between gap-3">
+                    <div class="p-4 rounded-2xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.07)] shadow-sm flex flex-col md:flex-row items-center justify-between gap-3">
                         <div class="relative w-full md:w-80">
-                            <i class="hgi hgi-stroke hgi-search-01 absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#64748B]"></i>
-                            <input type="text" id="leadSearchInput" oninput="filterLeads()" placeholder="Danışan adı, telefon veya vaka kodu ara..." class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#0B0D11] border border-[#1F2633] text-xs text-[#FFFFFF] focus:border-[#F48120] outline-none transition placeholder:text-[#64748B]">
+                            <i class="hgi hgi-stroke hgi-search-01 absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#3A3E42]/60"></i>
+                            <input type="text" id="leadSearchInput" oninput="filterLeads()" placeholder="Danışan adı, telefon veya vaka kodu ara..." class="w-full pl-10 pr-4 py-2 rounded-xl bg-[#F3F4F4] border border-[rgba(0,0,0,0.08)] text-xs text-[#000000] focus:border-[#F48120] focus:bg-[#FFFFFF] outline-none transition placeholder:text-[#3A3E42]/50">
                         </div>
 
                         <div class="flex flex-wrap items-center gap-2 w-full md:w-auto">
                             <!-- Category Filter -->
-                            <select id="leadCategoryFilter" onchange="filterLeads()" class="px-3 py-2 rounded-xl bg-[#0B0D11] border border-[#1F2633] text-xs text-[#E2E8F0] outline-none focus:border-[#F48120]">
+                            <select id="leadCategoryFilter" onchange="filterLeads()" class="px-3 py-2 rounded-xl bg-[#F3F4F4] border border-[rgba(0,0,0,0.08)] text-xs text-[#000000] outline-none focus:border-[#F48120]">
                                 <option value="all">Tüm Hizmetler</option>
                                 <option value="Eş Takibi">Eş Takibi</option>
                                 <option value="Evlilik Öncesi">Evlilik Öncesi</option>
@@ -290,7 +295,7 @@
                             </select>
 
                             <!-- Status Filter -->
-                            <select id="leadStatusFilter" onchange="filterLeads()" class="px-3 py-2 rounded-xl bg-[#0B0D11] border border-[#1F2633] text-xs text-[#E2E8F0] outline-none focus:border-[#F48120]">
+                            <select id="leadStatusFilter" onchange="filterLeads()" class="px-3 py-2 rounded-xl bg-[#F3F4F4] border border-[rgba(0,0,0,0.08)] text-xs text-[#000000] outline-none focus:border-[#F48120]">
                                 <option value="all">Tüm Durumlar</option>
                                 <option value="new">🔴 Yeni / Bekleyen</option>
                                 <option value="reviewing">🟡 İnceleniyor</option>
@@ -298,17 +303,17 @@
                                 <option value="closed">⚪ Tamamlandı</option>
                             </select>
 
-                            <button type="button" onclick="resetDemoLeads()" class="px-3 py-2 rounded-xl bg-[#181E29] hover:bg-[#222A3A] border border-[#2A3447] text-xs font-mono text-[#94A3B8] hover:text-[#FFFFFF] transition" title="Test Taleplerini Yenile">
+                            <button type="button" onclick="resetDemoLeads()" class="px-3 py-2 rounded-xl bg-[#F3F4F4] hover:bg-[#000000] hover:text-[#FFFFFF] border border-[rgba(0,0,0,0.08)] text-xs font-mono text-[#3A3E42] transition" title="Test Taleplerini Yenile">
                                 <i class="hgi hgi-stroke hgi-reload w-3.5 h-3.5"></i>
                             </button>
                         </div>
                     </div>
 
                     <!-- Leads Table -->
-                    <div class="rounded-2xl bg-[#12161E] border border-[#1F2633] overflow-hidden shadow-xl">
+                    <div class="rounded-2xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.07)] overflow-hidden shadow-sm">
                         <div class="overflow-x-auto">
                             <table class="w-full text-left text-xs">
-                                <thead class="bg-[#0B0D11]/60 border-b border-[#1F2633] text-[#94A3B8] font-mono uppercase text-[11px]">
+                                <thead class="bg-[#F3F4F4]/80 border-b border-[rgba(0,0,0,0.06)] text-[#3A3E42]/80 font-mono uppercase text-[11px]">
                                     <tr>
                                         <th class="py-3.5 px-4">Takip Kodu</th>
                                         <th class="py-3.5 px-4">Danışan / İletişim</th>
@@ -319,12 +324,12 @@
                                         <th class="py-3.5 px-4 text-right">Eylemler</th>
                                     </tr>
                                 </thead>
-                                <tbody id="leadsTableBody" class="divide-y divide-[#1F2633] font-sans">
+                                <tbody id="leadsTableBody" class="divide-y divide-[rgba(0,0,0,0.06)] font-sans">
                                     <!-- Populated via JavaScript -->
                                 </tbody>
                             </table>
                         </div>
-                        <div id="noLeadsNotice" class="p-8 text-center text-xs text-[#94A3B8] hidden">
+                        <div id="noLeadsNotice" class="p-8 text-center text-xs text-[#3A3E42]/70 hidden">
                             Arama kriterinize uygun vaka talebi bulunamadı.
                         </div>
                     </div>
@@ -338,13 +343,13 @@
                     <div class="grid lg:grid-cols-12 gap-5">
                         
                         <!-- Top Services Breakdown -->
-                        <div class="lg:col-span-7 p-6 rounded-2xl bg-[#12161E] border border-[#1F2633] space-y-4">
+                        <div class="lg:col-span-7 p-6 rounded-2xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.07)] shadow-sm space-y-4">
                             <div class="flex items-center justify-between">
                                 <div class="space-y-0.5">
-                                    <h3 class="text-sm font-semibold text-[#FFFFFF] tracking-tight">En Çok Bakılan Hizmetler &amp; İlgi Dağılımı</h3>
-                                    <p class="text-xs text-[#94A3B8]">Ziyaretçilerin sitede en çok vakit geçirdiği ve tıkladığı hizmet kategorileri</p>
+                                    <h3 class="text-sm font-medium text-[#000000] tracking-tight">En Çok Bakılan Hizmetler &amp; İlgi Dağılımı</h3>
+                                    <p class="text-xs text-[#3A3E42]/75">Ziyaretçilerin sitede en çok vakit geçirdiği ve tıkladığı hizmet kategorileri</p>
                                 </div>
-                                <span class="px-2.5 py-1 rounded-full bg-[#181E29] border border-[#2A3447] text-[10px] font-mono text-[#FAAD3F]">POPÜLERLİK</span>
+                                <span class="px-2.5 py-1 rounded-full bg-[#FFF7ED] border border-[#F38020]/40 text-[10px] font-mono text-[#F48120] font-medium">POPÜLERLİK</span>
                             </div>
 
                             <div class="space-y-3 pt-2" id="servicesBreakdown">
@@ -356,10 +361,10 @@
                         <div class="lg:col-span-5 space-y-5">
                             
                             <!-- City Breakdown -->
-                            <div class="p-6 rounded-2xl bg-[#12161E] border border-[#1F2633] space-y-3.5">
+                            <div class="p-6 rounded-2xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.07)] shadow-sm space-y-3.5">
                                 <div class="flex items-center justify-between">
-                                    <h3 class="text-sm font-semibold text-[#FFFFFF] tracking-tight">Şehir Dağılımı (Ziyaret &amp; Arama)</h3>
-                                    <span class="text-[11px] font-mono text-[#94A3B8]">81 İL + YURT DIŞI</span>
+                                    <h3 class="text-sm font-medium text-[#000000] tracking-tight">Şehir Dağılımı (Ziyaret &amp; Arama)</h3>
+                                    <span class="text-[11px] font-mono text-[#3A3E42]/70">81 İL + YURT DIŞI</span>
                                 </div>
                                 <div class="space-y-2.5 pt-1" id="citiesBreakdown">
                                     <!-- Populated dynamically -->
@@ -367,33 +372,33 @@
                             </div>
 
                             <!-- Device Distribution -->
-                            <div class="p-6 rounded-2xl bg-[#12161E] border border-[#1F2633] space-y-3.5">
+                            <div class="p-6 rounded-2xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.07)] shadow-sm space-y-3.5">
                                 <div class="flex items-center justify-between">
-                                    <h3 class="text-sm font-semibold text-[#FFFFFF] tracking-tight">Kullanılan Cihazlar &amp; Kaynak</h3>
-                                    <span class="text-[11px] font-mono text-[#94A3B8]">CİHAZ ANALİZİ</span>
+                                    <h3 class="text-sm font-medium text-[#000000] tracking-tight">Kullanılan Cihazlar &amp; Kaynak</h3>
+                                    <span class="text-[11px] font-mono text-[#3A3E42]/70">CİHAZ ANALİZİ</span>
                                 </div>
                                 
                                 <div class="grid grid-cols-3 gap-2 text-center">
-                                    <div class="p-3 rounded-xl bg-[#0B0D11] border border-[#1F2633]">
-                                        <div class="text-[11px] text-[#94A3B8]">Mobil</div>
-                                        <div class="text-lg font-bold font-mono text-[#FFFFFF] mt-0.5">%81.5</div>
-                                        <div class="text-[10px] text-[#10B981]">930 Kişi</div>
+                                    <div class="p-3 rounded-xl bg-[#F3F4F4]/70 border border-[rgba(0,0,0,0.06)]">
+                                        <div class="text-[11px] text-[#3A3E42]/80">Mobil</div>
+                                        <div class="text-lg font-bold font-mono text-[#000000] mt-0.5">%81.5</div>
+                                        <div class="text-[10px] text-[#10B981] font-medium">930 Kişi</div>
                                     </div>
-                                    <div class="p-3 rounded-xl bg-[#0B0D11] border border-[#1F2633]">
-                                        <div class="text-[11px] text-[#94A3B8]">Masaüstü</div>
-                                        <div class="text-lg font-bold font-mono text-[#FFFFFF] mt-0.5">%17.1</div>
-                                        <div class="text-[10px] text-[#38BDF8]">195 Kişi</div>
+                                    <div class="p-3 rounded-xl bg-[#F3F4F4]/70 border border-[rgba(0,0,0,0.06)]">
+                                        <div class="text-[11px] text-[#3A3E42]/80">Masaüstü</div>
+                                        <div class="text-lg font-bold font-mono text-[#000000] mt-0.5">%17.1</div>
+                                        <div class="text-[10px] text-[#F48120] font-medium">195 Kişi</div>
                                     </div>
-                                    <div class="p-3 rounded-xl bg-[#0B0D11] border border-[#1F2633]">
-                                        <div class="text-[11px] text-[#94A3B8]">Tablet</div>
-                                        <div class="text-lg font-bold font-mono text-[#FFFFFF] mt-0.5">%1.4</div>
-                                        <div class="text-[10px] text-[#A855F7]">15 Kişi</div>
+                                    <div class="p-3 rounded-xl bg-[#F3F4F4]/70 border border-[rgba(0,0,0,0.06)]">
+                                        <div class="text-[11px] text-[#3A3E42]/80">Tablet</div>
+                                        <div class="text-lg font-bold font-mono text-[#000000] mt-0.5">%1.4</div>
+                                        <div class="text-[10px] text-[#64748B] font-medium">15 Kişi</div>
                                     </div>
                                 </div>
 
-                                <div class="pt-2 border-t border-[#1F2633] flex items-center justify-between text-xs text-[#94A3B8]">
+                                <div class="pt-2 border-t border-[rgba(0,0,0,0.06)] flex items-center justify-between text-xs text-[#3A3E42]/75">
                                     <span>Trafik Kaynağı:</span>
-                                    <span class="text-[#FFFFFF] font-medium">Google Organik (%72) • Direkt (%18) • WhatsApp (%7)</span>
+                                    <span class="text-[#000000] font-medium">Google Organik (%72) • Direkt (%18) • WhatsApp (%7)</span>
                                 </div>
                             </div>
 
@@ -407,12 +412,12 @@
                 <!-- TAB 3: CANLI ETKİLEŞİM AKIŞI (REALTIME) -->
                 <!-- ========================================== -->
                 <div id="tabContentLive" class="space-y-4 hidden">
-                    <div class="p-4 rounded-2xl bg-[#12161E] border border-[#1F2633] flex items-center justify-between text-xs">
+                    <div class="p-4 rounded-2xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.07)] shadow-sm flex items-center justify-between text-xs">
                         <div class="flex items-center gap-2">
                             <span class="w-2.5 h-2.5 rounded-full bg-[#10B981] animate-ping"></span>
-                            <span class="text-[#E2E8F0]">Sitedeki anlık hareketler, buton tıklamaları ve form gönderimleri kronolojik olarak listelenmektedir.</span>
+                            <span class="text-[#3A3E42]">Sitedeki anlık hareketler, buton tıklamaları ve form gönderimleri kronolojik olarak listelenmektedir.</span>
                         </div>
-                        <span class="font-mono text-[#FAAD3F] text-[11px]">Canlı Güncelleniyor</span>
+                        <span class="font-mono text-[#F48120] text-[11px] font-medium">Canlı Güncelleniyor</span>
                     </div>
 
                     <div class="space-y-2.5" id="liveActivityFeed">
@@ -423,53 +428,59 @@
             </div>
 
         </main>
+        
+        <!-- Apple Minimalist Footer -->
+        <footer class="bg-[#FFFFFF] border-t border-[rgba(0,0,0,0.08)] py-6 text-center text-xs text-[#3A3E42]/70 space-y-1">
+            <div>&copy; 2005 – 2026 DAT ÖZEL DEDEKTİFLİK BÜROSU (DAT Group) • Gizli Yönetici Masası</div>
+            <div class="text-[11px] font-mono text-[#3A3E42]/50">Güvenli Oturum • Cloudflare Edge • Ümit Hakan Karakaya</div>
+        </footer>
     </div>
 
     <!-- ============================================== -->
     <!-- 5. LEAD DETAILS MODAL (VAKA DETAY GÖRÜNTÜLEME) -->
     <!-- ============================================== -->
-    <div id="leadDetailModal" class="fixed inset-0 z-50 bg-[#0B0D11]/85 backdrop-blur-md hidden flex items-center justify-center p-4" onclick="closeLeadModal()">
-        <div class="max-w-2xl w-full bg-[#12161E] border border-[#2A3447] rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl relative" onclick="event.stopPropagation()">
-            <button type="button" onclick="closeLeadModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-[#181E29] hover:bg-[#2A3447] text-[#FFFFFF] flex items-center justify-center transition">
+    <div id="leadDetailModal" class="fixed inset-0 z-50 bg-[#000000]/70 backdrop-blur-md hidden flex items-center justify-center p-4" onclick="closeLeadModal()">
+        <div class="max-w-2xl w-full bg-[#FFFFFF] border border-[rgba(0,0,0,0.08)] rounded-[28px] p-6 sm:p-8 space-y-6 shadow-2xl relative" onclick="event.stopPropagation()">
+            <button type="button" onclick="closeLeadModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-[#F3F4F4] hover:bg-[#000000] text-[#3A3E42] hover:text-[#FFFFFF] flex items-center justify-center transition">
                 <i class="hgi hgi-stroke hgi-cancel-01 w-4 h-4"></i>
             </button>
 
             <div class="flex items-start gap-4">
-                <div class="w-12 h-12 rounded-2xl bg-[#F48120]/15 border border-[#F48120]/30 text-[#F48120] flex items-center justify-center text-xl shrink-0">
+                <div class="w-12 h-12 rounded-2xl bg-[#FFF7ED] border border-[#F48120]/30 text-[#F48120] flex items-center justify-center text-xl shrink-0">
                     <i class="hgi hgi-stroke hgi-file-attachment w-6 h-6"></i>
                 </div>
                 <div>
                     <div class="flex items-center gap-2">
-                        <span id="modalLeadCode" class="text-xs font-mono px-2.5 py-0.5 rounded-md bg-[#181E29] text-[#FAAD3F] border border-[#2A3447]">#DAT-00000</span>
-                        <span id="modalLeadUrgency" class="text-xs font-mono px-2.5 py-0.5 rounded-md bg-[#EF4444]/20 text-[#EF4444] border border-[#EF4444]/40">KRİTİK</span>
+                        <span id="modalLeadCode" class="text-xs font-mono px-2.5 py-0.5 rounded-md bg-[#F3F4F4] text-[#F48120] font-medium border border-[rgba(0,0,0,0.07)]">#DAT-00000</span>
+                        <span id="modalLeadUrgency" class="text-xs font-mono px-2.5 py-0.5 rounded-md bg-[#FEE2E2] text-[#DC2626] font-medium border border-[#FCA5A5]">KRİTİK</span>
                     </div>
-                    <h2 id="modalLeadName" class="text-lg sm:text-xl font-bold text-[#FFFFFF] mt-1">Danışan Adı</h2>
-                    <p id="modalLeadDate" class="text-xs text-[#94A3B8]">Tarih ve Saat</p>
+                    <h2 id="modalLeadName" class="text-lg sm:text-xl font-medium text-[#000000] mt-1">Danışan Adı</h2>
+                    <p id="modalLeadDate" class="text-xs text-[#3A3E42]/70">Tarih ve Saat</p>
                 </div>
             </div>
 
             <div class="grid sm:grid-cols-2 gap-3 text-xs">
-                <div class="p-3.5 rounded-xl bg-[#0B0D11] border border-[#1F2633] space-y-1">
-                    <div class="text-[#94A3B8]">Hizmet Kategorisi:</div>
-                    <div id="modalLeadCategory" class="text-sm font-semibold text-[#FFFFFF]">Eş Takibi</div>
+                <div class="p-3.5 rounded-xl bg-[#F3F4F4]/70 border border-[rgba(0,0,0,0.06)] space-y-1">
+                    <div class="text-[#3A3E42]/70 font-medium">Hizmet Kategorisi:</div>
+                    <div id="modalLeadCategory" class="text-sm font-medium text-[#000000]">Eş Takibi</div>
                 </div>
-                <div class="p-3.5 rounded-xl bg-[#0B0D11] border border-[#1F2633] space-y-1">
-                    <div class="text-[#94A3B8]">İletişim Kanalı &amp; Numarası:</div>
-                    <div id="modalLeadContact" class="text-sm font-semibold text-[#10B981] font-mono">0532 ...</div>
+                <div class="p-3.5 rounded-xl bg-[#F3F4F4]/70 border border-[rgba(0,0,0,0.06)] space-y-1">
+                    <div class="text-[#3A3E42]/70 font-medium">İletişim Kanalı &amp; Numarası:</div>
+                    <div id="modalLeadContact" class="text-sm font-medium text-[#10B981] font-mono">0532 ...</div>
                 </div>
             </div>
 
             <div class="space-y-2">
-                <label class="text-xs font-semibold text-[#94A3B8] uppercase tracking-wider font-mono">Vaka Açıklaması &amp; Danışan Talebi:</label>
-                <div id="modalLeadDetails" class="p-4 rounded-xl bg-[#0B0D11] border border-[#1F2633] text-sm text-[#E2E8F0] leading-relaxed max-h-48 overflow-y-auto font-mono whitespace-pre-wrap">
+                <label class="text-xs font-mono text-[#3A3E42]/80 uppercase tracking-wider font-medium">Vaka Açıklaması &amp; Danışan Talebi:</label>
+                <div id="modalLeadDetails" class="p-4 rounded-xl bg-[#F3F4F4]/70 border border-[rgba(0,0,0,0.06)] text-sm text-[#000000] leading-relaxed max-h-48 overflow-y-auto font-mono whitespace-pre-wrap">
                     Detay metni burada yer alacak.
                 </div>
             </div>
 
-            <div class="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-[#1F2633]">
+            <div class="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-[rgba(0,0,0,0.08)]">
                 <div class="flex items-center gap-2">
-                    <span class="text-xs text-[#94A3B8]">Durum:</span>
-                    <select id="modalStatusSelect" onchange="updateLeadStatusFromModal()" class="px-3 py-1.5 rounded-lg bg-[#0B0D11] border border-[#2A3447] text-xs text-[#FFFFFF]">
+                    <span class="text-xs text-[#3A3E42]">Durum:</span>
+                    <select id="modalStatusSelect" onchange="updateLeadStatusFromModal()" class="px-3 py-1.5 rounded-xl bg-[#F3F4F4] border border-[rgba(0,0,0,0.08)] text-xs text-[#000000] outline-none">
                         <option value="new">🔴 Yeni</option>
                         <option value="reviewing">🟡 İnceleniyor</option>
                         <option value="contacted">🟢 Görüşüldü</option>
@@ -478,12 +489,12 @@
                 </div>
 
                 <div class="flex items-center gap-2">
-                    <a id="modalWhatsAppBtn" href="#" target="_blank" class="px-4 py-2 rounded-xl bg-[#10B981] hover:bg-[#059669] text-[#FFFFFF] text-xs font-semibold inline-flex items-center gap-1.5 transition">
+                    <a id="modalWhatsAppBtn" href="#" target="_blank" class="px-4 py-2 rounded-full bg-[#10B981] hover:bg-[#059669] text-[#FFFFFF] text-xs font-medium inline-flex items-center gap-1.5 transition shadow-sm">
                         <i class="hgi hgi-stroke hgi-whatsapp w-4 h-4"></i>
                         <span>WhatsApp'tan Yanıtla</span>
                     </a>
-                    <a id="modalCallBtn" href="#" class="px-4 py-2 rounded-xl bg-[#3B82F6] hover:bg-[#2563EB] text-[#FFFFFF] text-xs font-semibold inline-flex items-center gap-1.5 transition">
-                        <i class="hgi hgi-stroke hgi-call-02 w-4 h-4"></i>
+                    <a id="modalCallBtn" href="#" class="px-4 py-2 rounded-full bg-[#000000] hover:bg-[#3A3E42] text-[#FFFFFF] text-xs font-medium inline-flex items-center gap-1.5 transition">
+                        <i class="hgi hgi-stroke hgi-call-02 w-4 h-4 text-[#FAAD3F]"></i>
                         <span>Ara</span>
                     </a>
                 </div>
@@ -494,31 +505,31 @@
     <!-- ============================================== -->
     <!-- 6. NEW MANUAL LEAD MODAL (MANUEL VAKA GİRİŞİ) -->
     <!-- ============================================== -->
-    <div id="newLeadModal" class="fixed inset-0 z-50 bg-[#0B0D11]/85 backdrop-blur-md hidden flex items-center justify-center p-4" onclick="closeNewLeadModal()">
-        <div class="max-w-lg w-full bg-[#12161E] border border-[#2A3447] rounded-3xl p-6 sm:p-8 space-y-5 shadow-2xl relative" onclick="event.stopPropagation()">
-            <button type="button" onclick="closeNewLeadModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-[#181E29] hover:bg-[#2A3447] text-[#FFFFFF] flex items-center justify-center transition">
+    <div id="newLeadModal" class="fixed inset-0 z-50 bg-[#000000]/70 backdrop-blur-md hidden flex items-center justify-center p-4" onclick="closeNewLeadModal()">
+        <div class="max-w-lg w-full bg-[#FFFFFF] border border-[rgba(0,0,0,0.08)] rounded-[28px] p-6 sm:p-8 space-y-5 shadow-2xl relative" onclick="event.stopPropagation()">
+            <button type="button" onclick="closeNewLeadModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-[#F3F4F4] hover:bg-[#000000] text-[#3A3E42] hover:text-[#FFFFFF] flex items-center justify-center transition">
                 <i class="hgi hgi-stroke hgi-cancel-01 w-4 h-4"></i>
             </button>
 
             <div class="space-y-1">
-                <h3 class="text-lg font-bold text-[#FFFFFF]">Manuel Vaka / Arama Kaydı Ekle</h3>
-                <p class="text-xs text-[#94A3B8]">Telefonla arayan veya ofise gelen danışanların bilgilerini doğrudan yönetici paneline ekleyin.</p>
+                <h3 class="text-lg font-medium text-[#000000]">Manuel Vaka / Arama Kaydı Ekle</h3>
+                <p class="text-xs text-[#3A3E42]/75">Telefonla arayan veya ofise gelen danışanların bilgilerini doğrudan yönetici paneline ekleyin.</p>
             </div>
 
             <form onsubmit="handleManualLeadSubmit(event)" class="space-y-3.5 text-xs">
                 <div>
-                    <label class="block text-[#94A3B8] mb-1">Danışan Adı Soyadı / Şirket:</label>
-                    <input type="text" id="manualName" required placeholder="Örn: Ahmet Y. veya ABC Lojistik A.Ş." class="w-full px-3.5 py-2.5 rounded-xl bg-[#0B0D11] border border-[#1F2633] text-[#FFFFFF] outline-none focus:border-[#F48120]">
+                    <label class="block text-[#3A3E42] font-medium mb-1">Danışan Adı Soyadı / Şirket:</label>
+                    <input type="text" id="manualName" required placeholder="Örn: Ahmet Y. veya ABC Lojistik A.Ş." class="w-full px-3.5 py-2.5 rounded-xl bg-[#F3F4F4] border border-[rgba(0,0,0,0.08)] text-[#000000] outline-none focus:border-[#F48120] focus:bg-[#FFFFFF]">
                 </div>
 
                 <div class="grid grid-cols-2 gap-3">
                     <div>
-                        <label class="block text-[#94A3B8] mb-1">Telefon / İletişim:</label>
-                        <input type="text" id="manualContact" required placeholder="05XX XXX XX XX" class="w-full px-3.5 py-2.5 rounded-xl bg-[#0B0D11] border border-[#1F2633] text-[#FFFFFF] outline-none focus:border-[#F48120]">
+                        <label class="block text-[#3A3E42] font-medium mb-1">Telefon / İletişim:</label>
+                        <input type="text" id="manualContact" required placeholder="05XX XXX XX XX" class="w-full px-3.5 py-2.5 rounded-xl bg-[#F3F4F4] border border-[rgba(0,0,0,0.08)] text-[#000000] outline-none focus:border-[#F48120] focus:bg-[#FFFFFF]">
                     </div>
                     <div>
-                        <label class="block text-[#94A3B8] mb-1">Hizmet Alanı:</label>
-                        <select id="manualCategory" class="w-full px-3.5 py-2.5 rounded-xl bg-[#0B0D11] border border-[#1F2633] text-[#FFFFFF] outline-none focus:border-[#F48120]">
+                        <label class="block text-[#3A3E42] font-medium mb-1">Hizmet Alanı:</label>
+                        <select id="manualCategory" class="w-full px-3.5 py-2.5 rounded-xl bg-[#F3F4F4] border border-[rgba(0,0,0,0.08)] text-[#000000] outline-none focus:border-[#F48120]">
                             <option value="Eş Takibi &amp; Sadakat">Eş Takibi &amp; Sadakat</option>
                             <option value="Evlilik Öncesi Tahkikat">Evlilik Öncesi Tahkikat</option>
                             <option value="Velayet &amp; Boşanma Delili">Velayet &amp; Boşanma Delili</option>
@@ -534,16 +545,16 @@
 
                 <div class="grid grid-cols-2 gap-3">
                     <div>
-                        <label class="block text-[#94A3B8] mb-1">Aciliyet Seviyesi:</label>
-                        <select id="manualUrgency" class="w-full px-3.5 py-2.5 rounded-xl bg-[#0B0D11] border border-[#1F2633] text-[#FFFFFF] outline-none focus:border-[#F48120]">
+                        <label class="block text-[#3A3E42] font-medium mb-1">Aciliyet Seviyesi:</label>
+                        <select id="manualUrgency" class="w-full px-3.5 py-2.5 rounded-xl bg-[#F3F4F4] border border-[rgba(0,0,0,0.08)] text-[#000000] outline-none focus:border-[#F48120]">
                             <option value="normal">Normal</option>
                             <option value="high">Yüksek</option>
                             <option value="critical">🔴 Çok Acil (24 Saat)</option>
                         </select>
                     </div>
                     <div>
-                        <label class="block text-[#94A3B8] mb-1">Görüşme Kanalı:</label>
-                        <select id="manualChannel" class="w-full px-3.5 py-2.5 rounded-xl bg-[#0B0D11] border border-[#1F2633] text-[#FFFFFF] outline-none focus:border-[#F48120]">
+                        <label class="block text-[#3A3E42] font-medium mb-1">Görüşme Kanalı:</label>
+                        <select id="manualChannel" class="w-full px-3.5 py-2.5 rounded-xl bg-[#F3F4F4] border border-[rgba(0,0,0,0.08)] text-[#000000] outline-none focus:border-[#F48120]">
                             <option value="Telefon (0312 / 0532)">Telefon Arama</option>
                             <option value="WhatsApp">WhatsApp</option>
                             <option value="Ofis Yüz Yüze">Ofis Ziyareti</option>
@@ -553,13 +564,13 @@
                 </div>
 
                 <div>
-                    <label class="block text-[#94A3B8] mb-1">Vaka Özeti / Görüşme Notu:</label>
-                    <textarea id="manualDetails" rows="3" placeholder="Görüşülen konu, şüpheler, vaka şehri ve anlaşılan detaylar..." class="w-full p-3 rounded-xl bg-[#0B0D11] border border-[#1F2633] text-[#FFFFFF] outline-none focus:border-[#F48120]"></textarea>
+                    <label class="block text-[#3A3E42] font-medium mb-1">Vaka Özeti / Görüşme Notu:</label>
+                    <textarea id="manualDetails" rows="3" placeholder="Görüşülen konu, şüpheler, vaka şehri ve anlaşılan detaylar..." class="w-full p-3 rounded-xl bg-[#F3F4F4] border border-[rgba(0,0,0,0.08)] text-[#000000] outline-none focus:border-[#F48120] focus:bg-[#FFFFFF]"></textarea>
                 </div>
 
                 <div class="pt-2 flex justify-end gap-2">
-                    <button type="button" onclick="closeNewLeadModal()" class="px-4 py-2.5 rounded-xl bg-[#181E29] text-[#94A3B8] hover:text-[#FFFFFF] transition">İptal</button>
-                    <button type="submit" class="px-5 py-2.5 rounded-xl bg-[#F48120] hover:bg-[#EA6C06] text-[#FFFFFF] font-semibold transition">Vaka Kaydını Kaydet</button>
+                    <button type="button" onclick="closeNewLeadModal()" class="px-4 py-2.5 rounded-full bg-[#F3F4F4] text-[#3A3E42] hover:bg-[#000000] hover:text-[#FFFFFF] transition">İptal</button>
+                    <button type="submit" class="px-5 py-2.5 rounded-full cf-gradient text-[#FFFFFF] font-medium transition shadow-sm">Vaka Kaydını Kaydet</button>
                 </div>
             </form>
         </div>
@@ -744,11 +755,9 @@
         function setTimeFilter(filter) {
             document.querySelectorAll('.time-btn').forEach(btn => {
                 if (btn.getAttribute('data-filter') === filter) {
-                    btn.classList.add('bg-[#F48120]', 'text-[#FFFFFF]');
-                    btn.classList.remove('text-[#94A3B8]');
+                    btn.className = 'time-btn px-3 py-1.5 rounded-full cf-gradient text-[#FFFFFF] transition';
                 } else {
-                    btn.classList.remove('bg-[#F48120]', 'text-[#FFFFFF]');
-                    btn.classList.add('text-[#94A3B8]');
+                    btn.className = 'time-btn px-3 py-1.5 rounded-full text-[#3A3E42] hover:text-[#000000] transition';
                 }
             });
 
@@ -775,42 +784,35 @@
 
             leads.forEach(lead => {
                 const tr = document.createElement('tr');
-                tr.className = 'hover:bg-[#181E29]/60 transition';
+                tr.className = 'hover:bg-[#F3F4F4]/50 transition';
 
                 const urgencyBadges = {
-                    critical: '<span class="px-2 py-0.5 rounded-md bg-[#EF4444]/20 text-[#EF4444] border border-[#EF4444]/40 font-mono text-[10px] font-bold">🔴 24s ACİL</span>',
-                    high: '<span class="px-2 py-0.5 rounded-md bg-[#F59E0B]/20 text-[#F59E0B] border border-[#F59E0B]/40 font-mono text-[10px] font-bold">🟡 YÜKSEK</span>',
-                    normal: '<span class="px-2 py-0.5 rounded-md bg-[#181E29] text-[#94A3B8] border border-[#2A3447] font-mono text-[10px]">NORMAL</span>'
+                    critical: '<span class="px-2.5 py-0.5 rounded-full bg-[#FEE2E2] text-[#DC2626] border border-[#FCA5A5] font-mono text-[10px] font-bold">🔴 24s ACİL</span>',
+                    high: '<span class="px-2.5 py-0.5 rounded-full bg-[#FEF3C7] text-[#D97706] border border-[#FCD34D] font-mono text-[10px] font-bold">🟡 YÜKSEK</span>',
+                    normal: '<span class="px-2.5 py-0.5 rounded-full bg-[#F3F4F4] text-[#3A3E42]/80 border border-[rgba(0,0,0,0.08)] font-mono text-[10px]">NORMAL</span>'
                 };
 
                 const statusBadges = {
-                    new: 'bg-[#EF4444]/15 text-[#EF4444] border-[#EF4444]/40',
-                    reviewing: 'bg-[#F59E0B]/15 text-[#F59E0B] border-[#F59E0B]/40',
-                    contacted: 'bg-[#10B981]/15 text-[#10B981] border-[#10B981]/40',
-                    closed: 'bg-[#64748B]/15 text-[#94A3B8] border-[#64748B]/40'
-                };
-
-                const statusLabels = {
-                    new: '🔴 Yeni',
-                    reviewing: '🟡 İnceleniyor',
-                    contacted: '🟢 Görüşüldü',
-                    closed: '⚪ Tamamlandı'
+                    new: 'bg-[#FEE2E2] text-[#DC2626] border-[#FCA5A5]',
+                    reviewing: 'bg-[#FEF3C7] text-[#D97706] border-[#FCD34D]',
+                    contacted: 'bg-[#DCFCE7] text-[#15803D] border-[#86EFAC]',
+                    closed: 'bg-[#F3F4F4] text-[#3A3E42] border-[rgba(0,0,0,0.12)]'
                 };
 
                 tr.innerHTML = `
-                    <td class="py-3.5 px-4 font-mono font-medium text-[#FAAD3F]">${lead.code || '#DAT-NEW'}</td>
+                    <td class="py-3.5 px-4 font-mono font-medium text-[#F48120]">${lead.code || '#DAT-NEW'}</td>
                     <td class="py-3.5 px-4">
-                        <div class="font-semibold text-[#FFFFFF]">${lead.name}</div>
-                        <div class="text-[11px] font-mono text-[#94A3B8]">${lead.contact}</div>
+                        <div class="font-medium text-[#000000]">${lead.name}</div>
+                        <div class="text-[11px] font-mono text-[#3A3E42]/70">${lead.contact}</div>
                     </td>
-                    <td class="py-3.5 px-4 text-[#E2E8F0]">
-                        <div>${lead.category}</div>
-                        <div class="text-[10px] text-[#64748B] font-mono">Kanal: ${lead.channel || 'Form'}</div>
+                    <td class="py-3.5 px-4 text-[#3A3E42]">
+                        <div class="font-medium text-[#000000]">${lead.category}</div>
+                        <div class="text-[10px] text-[#3A3E42]/60 font-mono">Kanal: ${lead.channel || 'Form'}</div>
                     </td>
                     <td class="py-3.5 px-4">${urgencyBadges[lead.urgency] || urgencyBadges.normal}</td>
-                    <td class="py-3.5 px-4 font-mono text-[11px] text-[#94A3B8]">${lead.dateStr || ''}</td>
+                    <td class="py-3.5 px-4 font-mono text-[11px] text-[#3A3E42]/80">${lead.dateStr || ''}</td>
                     <td class="py-3.5 px-4">
-                        <select onchange="updateLeadStatus('${lead.id}', this.value)" class="px-2 py-1 rounded-lg text-[11px] font-medium border ${statusBadges[lead.status] || statusBadges.new} bg-[#0B0D11] outline-none cursor-pointer">
+                        <select onchange="updateLeadStatus('${lead.id}', this.value)" class="px-2.5 py-1 rounded-full text-[11px] font-medium border ${statusBadges[lead.status] || statusBadges.new} bg-[#FFFFFF] outline-none cursor-pointer shadow-sm">
                             <option value="new" ${lead.status === 'new' ? 'selected' : ''}>🔴 Yeni</option>
                             <option value="reviewing" ${lead.status === 'reviewing' ? 'selected' : ''}>🟡 İnceleniyor</option>
                             <option value="contacted" ${lead.status === 'contacted' ? 'selected' : ''}>🟢 Görüşüldü</option>
@@ -819,14 +821,14 @@
                     </td>
                     <td class="py-3.5 px-4 text-right">
                         <div class="flex items-center justify-end gap-1.5">
-                            <a href="https://wa.me/90${(lead.contact || '').replace(/[^0-9]/g, '')}?text=${encodeURIComponent('Merhaba Sayın ' + lead.name + ', DAT Özel Dedektiflik büromuza ilettiğiniz ' + lead.code + ' numaralı vaka talebiniz incelenmiştir.')}" target="_blank" class="p-1.5 rounded-lg bg-[#181E29] hover:bg-[#10B981] hover:text-[#FFFFFF] text-[#10B981] border border-[#2A3447] transition" title="WhatsApp ile Yanıtla">
-                                <i class="hgi hgi-stroke hgi-whatsapp w-3.5 h-3.5"></i>
+                            <a href="https://wa.me/90${(lead.contact || '').replace(/[^0-9]/g, '')}?text=${encodeURIComponent('Merhaba Sayın ' + lead.name + ', DAT Özel Dedektiflik büromuza ilettiğiniz ' + lead.code + ' numaralı vaka talebiniz incelenmiştir.')}" target="_blank" class="p-1.5 rounded-full bg-[#DCFCE7] hover:bg-[#10B981] hover:text-[#FFFFFF] text-[#15803D] border border-[#86EFAC] transition" title="WhatsApp ile Yanıtla">
+                                <i class="hgi hgi-stroke hgi-whatsapp w-4 h-4"></i>
                             </a>
-                            <a href="tel:${(lead.contact || '').replace(/[^0-9+]/g, '')}" class="p-1.5 rounded-lg bg-[#181E29] hover:bg-[#3B82F6] hover:text-[#FFFFFF] text-[#3B82F6] border border-[#2A3447] transition" title="Telefonla Ara">
-                                <i class="hgi hgi-stroke hgi-call-02 w-3.5 h-3.5"></i>
+                            <a href="tel:${(lead.contact || '').replace(/[^0-9+]/g, '')}" class="p-1.5 rounded-full bg-[#F3F4F4] hover:bg-[#000000] hover:text-[#FFFFFF] text-[#000000] border border-[rgba(0,0,0,0.08)] transition" title="Telefonla Ara">
+                                <i class="hgi hgi-stroke hgi-call-02 w-4 h-4"></i>
                             </a>
-                            <button onclick="openLeadModal('${lead.id}')" class="p-1.5 rounded-lg bg-[#181E29] hover:bg-[#F48120] hover:text-[#FFFFFF] text-[#FAAD3F] border border-[#2A3447] transition" title="Detayı İncele">
-                                <i class="hgi hgi-stroke hgi-view w-3.5 h-3.5"></i>
+                            <button onclick="openLeadModal('${lead.id}')" class="p-1.5 rounded-full bg-[#FFF7ED] hover:bg-[#F48120] hover:text-[#FFFFFF] text-[#F48120] border border-[#F48120]/30 transition" title="Detayı İncele">
+                                <i class="hgi hgi-stroke hgi-view w-4 h-4"></i>
                             </button>
                         </div>
                     </td>
@@ -977,14 +979,14 @@
                 div.className = 'space-y-1.5';
                 div.innerHTML = `
                     <div class="flex items-center justify-between text-xs">
-                        <span class="text-[#E2E8F0] font-medium">${s.name}</span>
-                        <div class="font-mono text-[#94A3B8] flex items-center gap-2">
-                            <strong class="text-[#FFFFFF]">${s.count} ziyaret</strong>
-                            <span class="text-[#FAAD3F] font-bold">%${s.pct}</span>
+                        <span class="text-[#000000] font-medium">${s.name}</span>
+                        <div class="font-mono text-[#3A3E42] flex items-center gap-2">
+                            <strong class="text-[#000000]">${s.count} ziyaret</strong>
+                            <span class="text-[#F48120] font-bold">%${s.pct}</span>
                         </div>
                     </div>
-                    <div class="h-2 w-full rounded-full bg-[#0B0D11] overflow-hidden border border-[#1F2633]">
-                        <div class="h-full bg-gradient-to-r from-[#F48120] to-[#FAAD3F] rounded-full transition-all duration-700" style="width: ${s.pct}%"></div>
+                    <div class="h-2 w-full rounded-full bg-[#F3F4F4] overflow-hidden border border-[rgba(0,0,0,0.06)]">
+                        <div class="h-full bg-gradient-to-r from-[#F38020] to-[#FAAD3F] rounded-full transition-all duration-700" style="width: ${s.pct}%"></div>
                     </div>
                 `;
                 container.appendChild(div);
@@ -992,9 +994,9 @@
 
             const cities = [
                 { name: 'Ankara (Merkez & İlçeler)', pct: 42, color: '#F48120' },
-                { name: 'İstanbul (Avrupa & Anadolu)', pct: 35, color: '#38BDF8' },
+                { name: 'İstanbul (Avrupa & Anadolu)', pct: 35, color: '#000000' },
                 { name: 'İzmir & Ege Sahil Hattı', pct: 11, color: '#10B981' },
-                { name: 'Antalya & Akdeniz Bölgesi', pct: 6, color: '#A855F7' },
+                { name: 'Antalya & Akdeniz Bölgesi', pct: 6, color: '#8B5CF6' },
                 { name: 'Bursa & Güney Marmara', pct: 6, color: '#F59E0B' }
             ];
 
@@ -1002,13 +1004,13 @@
             citiesBox.innerHTML = '';
             cities.forEach(c => {
                 const div = document.createElement('div');
-                div.className = 'flex items-center justify-between text-xs p-2 rounded-xl bg-[#0B0D11] border border-[#1F2633]';
+                div.className = 'flex items-center justify-between text-xs p-2.5 rounded-xl bg-[#F3F4F4]/70 border border-[rgba(0,0,0,0.06)]';
                 div.innerHTML = `
                     <div class="flex items-center gap-2">
                         <span class="w-2.5 h-2.5 rounded-full" style="background-color: ${c.color}"></span>
-                        <span class="text-[#FFFFFF] font-medium">${c.name}</span>
+                        <span class="text-[#000000] font-medium">${c.name}</span>
                     </div>
-                    <span class="font-mono font-bold text-[#FAAD3F]">%${c.pct}</span>
+                    <span class="font-mono font-bold text-[#F48120]">%${c.pct}</span>
                 `;
                 citiesBox.appendChild(div);
             });
@@ -1037,25 +1039,25 @@
             feedContainer.innerHTML = '';
             events.slice(0, 15).forEach(ev => {
                 const div = document.createElement('div');
-                div.className = 'p-3.5 rounded-xl bg-[#12161E] border border-[#1F2633] flex items-center justify-between gap-3 text-xs';
+                div.className = 'p-3.5 rounded-xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.07)] shadow-sm flex items-center justify-between gap-3 text-xs';
 
                 const icons = {
-                    whatsapp_click: '<span class="p-2 rounded-lg bg-[#10B981]/15 text-[#10B981] border border-[#10B981]/30"><i class="hgi hgi-stroke hgi-whatsapp w-4 h-4"></i></span>',
-                    phone_click: '<span class="p-2 rounded-lg bg-[#3B82F6]/15 text-[#3B82F6] border border-[#3B82F6]/30"><i class="hgi hgi-stroke hgi-call-02 w-4 h-4"></i></span>',
-                    form_submit: '<span class="p-2 rounded-lg bg-[#F48120]/15 text-[#F48120] border border-[#F48120]/30"><i class="hgi hgi-stroke hgi-clipboard-check w-4 h-4"></i></span>',
-                    service_click: '<span class="p-2 rounded-lg bg-[#A855F7]/15 text-[#A855F7] border border-[#A855F7]/30"><i class="hgi hgi-stroke hgi-search-01 w-4 h-4"></i></span>',
-                    page_view: '<span class="p-2 rounded-lg bg-[#64748B]/15 text-[#94A3B8] border border-[#64748B]/30"><i class="hgi hgi-stroke hgi-view w-4 h-4"></i></span>'
+                    whatsapp_click: '<span class="p-2 rounded-full bg-[#DCFCE7] text-[#15803D] border border-[#86EFAC]"><i class="hgi hgi-stroke hgi-whatsapp w-4 h-4"></i></span>',
+                    phone_click: '<span class="p-2 rounded-full bg-[#F3F4F4] text-[#000000] border border-[rgba(0,0,0,0.08)]"><i class="hgi hgi-stroke hgi-call-02 w-4 h-4"></i></span>',
+                    form_submit: '<span class="p-2 rounded-full bg-[#FFF7ED] text-[#F48120] border border-[#F48120]/30"><i class="hgi hgi-stroke hgi-clipboard-check w-4 h-4"></i></span>',
+                    service_click: '<span class="p-2 rounded-full bg-[#F3F4F4] text-[#3A3E42] border border-[rgba(0,0,0,0.08)]"><i class="hgi hgi-stroke hgi-search-01 w-4 h-4"></i></span>',
+                    page_view: '<span class="p-2 rounded-full bg-[#F3F4F4] text-[#3A3E42]/70 border border-[rgba(0,0,0,0.08)]"><i class="hgi hgi-stroke hgi-view w-4 h-4"></i></span>'
                 };
 
                 div.innerHTML = `
                     <div class="flex items-center gap-3">
                         ${icons[ev.type] || icons.page_view}
                         <div>
-                            <div class="font-medium text-[#FFFFFF]">${ev.label || 'Etkileşim Kaydedildi'}</div>
-                            <div class="text-[11px] font-mono text-[#64748B]">${ev.page || '/'} • ${ev.device || 'Mobil'}</div>
+                            <div class="font-medium text-[#000000]">${ev.label || 'Etkileşim Kaydedildi'}</div>
+                            <div class="text-[11px] font-mono text-[#3A3E42]/60">${ev.page || '/'} • ${ev.device || 'Mobil'}</div>
                         </div>
                     </div>
-                    <span class="font-mono text-[11px] text-[#FAAD3F] shrink-0">${ev.time || ev.dateStr || 'Az önce'}</span>
+                    <span class="font-mono text-[11px] text-[#F48120] font-medium shrink-0">${ev.time || ev.dateStr || 'Az önce'}</span>
                 `;
                 feedContainer.appendChild(div);
             });
@@ -1064,21 +1066,23 @@
         // 7. Tabs Switching
         function switchTab(tab) {
             document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('bg-[#181E29]', 'text-[#FFFFFF]', 'border', 'border-[#2A3447]');
-                btn.classList.add('text-[#94A3B8]');
+                btn.className = 'tab-btn px-4 py-2 rounded-full bg-[#FFFFFF] text-[#3A3E42] border border-[rgba(0,0,0,0.07)] hover:bg-[#F3F4F4] transition flex items-center gap-2';
             });
             document.getElementById('tabContentLeads').classList.add('hidden');
             document.getElementById('tabContentAnalytics').classList.add('hidden');
             document.getElementById('tabContentLive').classList.add('hidden');
 
             if (tab === 'leads') {
-                document.getElementById('tabBtnLeads').classList.add('bg-[#181E29]', 'text-[#FFFFFF]', 'border', 'border-[#2A3447]');
+                const b = document.getElementById('tabBtnLeads');
+                b.className = 'tab-btn px-4 py-2 rounded-full cf-gradient text-[#FFFFFF] shadow-sm transition flex items-center gap-2';
                 document.getElementById('tabContentLeads').classList.remove('hidden');
             } else if (tab === 'analytics') {
-                document.getElementById('tabBtnAnalytics').classList.add('bg-[#181E29]', 'text-[#FFFFFF]', 'border', 'border-[#2A3447]');
+                const b = document.getElementById('tabBtnAnalytics');
+                b.className = 'tab-btn px-4 py-2 rounded-full cf-gradient text-[#FFFFFF] shadow-sm transition flex items-center gap-2';
                 document.getElementById('tabContentAnalytics').classList.remove('hidden');
             } else if (tab === 'live') {
-                document.getElementById('tabBtnLive').classList.add('bg-[#181E29]', 'text-[#FFFFFF]', 'border', 'border-[#2A3447]');
+                const b = document.getElementById('tabBtnLive');
+                b.className = 'tab-btn px-4 py-2 rounded-full cf-gradient text-[#FFFFFF] shadow-sm transition flex items-center gap-2';
                 document.getElementById('tabContentLive').classList.remove('hidden');
             }
         }
