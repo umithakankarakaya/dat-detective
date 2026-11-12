@@ -15,7 +15,7 @@ import subprocess
 from html.parser import HTMLParser
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DOMAIN = "https://www.datdetective.com"
+DOMAIN = "https://www.datdedektiflik.com"
 TODAY = "2026-11-12"
 
 LANG_CODES = ["en", "de", "fr", "ar", "ru", "me"]
@@ -47,8 +47,12 @@ ASSET_PREFIXES = (
     "i18n.js",
     "lang/",
     "hizmetler/",
+    "elsa-vaka-paneli.html",
     "istanbul-ozel-dedektif.html",
     "ankara-ozel-dedektif.html",
+    "izmir-ozel-dedektif.html",
+    "antalya-ozel-dedektif.html",
+    "bursa-ozel-dedektif.html",
 )
 
 
@@ -421,6 +425,90 @@ SEO_LANDING_PAGES = [
         ]
     },
     {
+        "rel_path": "izmir-ozel-dedektif.html",
+        "title": "İzmir Özel Dedektif Bürosu (Alsancak / Karşıyaka / Bornova) — DAT Dedektiflik",
+        "description": "İzmir Konak, Alsancak, Karşıyaka, Bornova, Bayraklı ve Çeşme genelinde 2005'ten beri resmi sözleşmeli eş takibi, boşanma delili, adres tespiti ve kurumsal araştırmalar.",
+        "keywords": "izmir özel dedektif, izmir dedektiflik bürosu, karşıyaka dedektif, alsancak dedektif, eş takibi izmir, çeşme özel dedektif",
+        "badge": "İZMİR & EGE BÖLGESİ • 30 İLÇE 7/24 SAHA EKİBİ",
+        "h1": "İzmir Özel Dedektiflik ve Ege Bölgesi Delil Araştırması",
+        "lead": "Konak, Alsancak, Karşıyaka, Bornova, Bayraklı, Buca ve Çeşme–Urla sahil hattı dahil İzmir'in 30 ilçesinde %100 gizlilik, yazılı sözleşme ve mahkemede geçerli delil standardıyla 7/24 hizmet veriyoruz.",
+        "image": "assets/photos/yilin-enleri-odul-2.jpg",
+        "law": "TMK m.161 • HMK m.199 • TCK m.134 Tam Uyumlu",
+        "form_cat": "es-takibi",
+        "sections": [
+            ("İzmir ve Ege Sahil Hattında Çift Vardiya Saha Operasyonu", "İzmir şehir merkezindeki yoğun trafik ile Çeşme, Urla, Alaçatı ve Kuşadası gibi sezonluk geçiş noktaları profesyonel araç-ekip rotasyonu gerektirir. Ege mobil ekibimiz hedef şahsa hissettirmeden 4K zaman damgalı görüntüleme ve mekan kronolojisi oluşturur."),
+            ("Ege Bölgesinde En Sık Talep Edilen Dosyalar", "Aile Hukuku (zina ispatı, velayet ve mal kaçırma), yazlık/kışlık dönemlerde nişanlı veya eş gözlemi, İzmir serbest bölge ve sanayi hatlarında şirket/ortaklık tahkikatı ile tebligat adresi tespiti başlıca uzmanlıklarımızdır."),
+            ("Resmi Sözleşme, Fatura ve UÖDED Güvencesi", "İzmir ve çevre illerdeki (Manisa, Aydın, Muğla, Denizli) tüm araştırmalar Ümit Hakan Karakaya koordinasyonunda imzalı gizlilik sözleşmesi ve KVKK veri imha taahhüdüyle yürütülür.")
+        ],
+        "deliverables": [
+            "İzmir 30 ilçe ile Çeşme, Bodrum ve Kuşadası hattında mobil takip ekibi",
+            "İzmir Aile ve İcra Mahkemelerine uygun HMK m.199 uyumlu rapor",
+            "7/24 WhatsApp (0532 666 77 49) ve merkez hat (0312 284 02 99) desteği"
+        ],
+        "faqs": [
+            ("İzmir merkez dışında Çeşme, Urla veya Bodrum için hizmet alabilir miyiz?", "Evet. İzmir mobil ekibimiz Ege Bölgesi'ndeki tüm tatil beldeleri ve çevre illere (Aydın, Muğla, Manisa) aynı gün yönlendirilir."),
+            ("İzmir'de eş takibi ve boşanma delili ne kadar sürede tamamlanır?", "Hızlı şüphe doğrulaması için 48 saatlik ekspres takip, kapsamlı dava klasörleri için ise ortalama 3–7 iş günü saha gözlemi uygulanır."),
+            ("Elde edilen görseller İzmir mahkemelerinde delil olarak kabul edilir mi?", "Özel hayat alanına müdahale edilmeden yalnızca kamuya açık mekanlarda elde edilen zaman damgalı görüntüler HMK m.199 kapsamında hukuka uygun delil niteliğindedir."),
+            ("İzmir büro ön görüşmesi ve sözleşme süreci nasıl işler?", "Randevu ve dosya kapsamı belirlendikten sonra resmi gizlilik sözleşmeniz hazırlanır; çalışma süresince tek muhatap ve mutlak kimlik gizliliği sağlanır.")
+        ]
+    },
+    {
+        "rel_path": "antalya-ozel-dedektif.html",
+        "title": "Antalya Özel Dedektif Bürosu (Lara / Konyaaltı / Alanya) — DAT Dedektiflik",
+        "description": "Antalya Muratpaşa, Lara, Konyaaltı, Alanya, Kemer ve Belek'te çok dilli (TR/EN/RU/DE) eş takibi, otel/tatil dönemi saha gözlemi, adres tespiti ve uluslararası tahkikat.",
+        "keywords": "antalya özel dedektif, antalya dedektiflik bürosu, alanya dedektif, kemer dedektif, lara dedektif, eş takibi antalya",
+        "badge": "ANTALYA & AKDENİZ • ÇOK DİLLİ (TR/EN/RU/DE) EKİP",
+        "h1": "Antalya Özel Dedektiflik ve Çok Dilli Akdeniz Saha Ekibi",
+        "lead": "Muratpaşa, Lara, Konyaaltı, Kemer, Belek, Side ve Alanya hattında hem Türkçe hem de İngilizce, Rusça ve Almanca bilen profesyonel kadromuzla turizm ve ikamet odaklı tüm araştırmaları yürütüyoruz.",
+        "image": "assets/photos/uluslararasi-kongre-sahne.jpg",
+        "law": "TMK m.161 • MÖHUK • HMK m.199 Uyumlu",
+        "form_cat": "es-takibi",
+        "sections": [
+            ("Turizm, Otel ve Yazlık Bölgelerde Hassas Saha Gözlemi", "Antalya ve Alanya; yabancı uyruklu evlilikler, kısa süreli tatil/iş seyahatleri ve rezidans yaşamı nedeniyle standart takip yöntemlerinin yetersiz kaldığı özel bir coğrafyadır. DAT saha ekibi kamuya açık otel çevreleri, marinalar ve şehir merkezlerinde sıfır fark edilme riskiyle çalışır."),
+            ("Yabancı Uyruklu Dosyalar ve Çapraz Sınır Araştırmaları", "Avrupa, Rusya ve BDT ülkelerinden Antalya'ya gelen şahıslara yönelik evlilik öncesi tahkikat, boşanma/velayet delili ve taşınmaz/ticari dolandırıcılık araştırmalarında uluslararası ağımız (WPYB Global) eş zamanlı destek verir."),
+            ("Konut, Rezidans ve Yat/Araç TSCM Böcek Taraması", "Antalya'da iş insanları ve yönetici konutlarında gizli kamera, RF dinleme cihazı ve araç GPS takip modülü taramaları profesyonel spektrum analizörleriyle aynı gün gerçekleştirilir.")
+        ],
+        "deliverables": [
+            "Antalya merkez, Alanya, Kemer, Kaş ve Belek'te aynı gün mobil ekip",
+            "Yabancı uyruklu muhataplar için EN / RU / DE uyumlu uluslararası tahkikat",
+            "Mahkemede geçerli tarih-saat damgalı kanıt ve konum raporu"
+        ],
+        "faqs": [
+            ("Alanya, Kemer veya Belek'teki otel çevresi için takip yapılabilir mi?", "Evet. Otel iç özel alanlarına (oda vb.) girilmeden yalnızca halka ve müşteriye açık genel alan, giriş-çıkış ve çevre güzergahlarında yasal gözlem yapılır."),
+            ("Yabancı uyruklu nişanlı veya eş için araştırma hizmeti veriyor musunuz?", "Evet. Antalya yerleşik veya yurt dışı bağlantılı yabancı uyruklu şahıslar için evlilik öncesi ve ticari güvenlik araştırması yürütüyoruz."),
+            ("Antalya'da çalışma başlatmak için bizzat Antalya'da olmam şart mı?", "Hayır. Yurt dışından veya farklı illerden çevrimiçi ön görüşme ve dijital gizlilik sözleşmesi ile çalışmayı aynı gün başlatabilirsiniz."),
+            ("Antalya dışı çevre illere (Isparta, Burdur, Mersin) ekip gidiyor mu?", "Evet, Akdeniz bölge ekibimiz talep doğrultusunda tüm çevre il ve ilçelere kesintisiz hizmet vermektedir.")
+        ]
+    },
+    {
+        "rel_path": "bursa-ozel-dedektif.html",
+        "title": "Bursa Özel Dedektif Bürosu (Nilüfer / Osmangazi / İnegöl) — DAT Dedektiflik",
+        "description": "Bursa Nilüfer, Osmangazi, Yıldırım, Mudanya ve İnegöl'de resmi dedektiflik: eş takibi, aile hukuku delilleri, fabrika/sanayi hırsızlık ve marka taklidi araştırmaları.",
+        "keywords": "bursa özel dedektif, bursa dedektiflik bürosu, nilüfer dedektif, inegöl dedektif, eş takibi bursa, kurumsal araştırma bursa",
+        "badge": "BURSA & GÜNEY MARMARA • AİLE + SANAYİ UZMANLIĞI",
+        "h1": "Bursa Özel Dedektiflik, Aile Hukuku ve Sanayi Tahkikatı",
+        "lead": "Nilüfer, Osmangazi, Yıldırım, Mudanya ve İnegöl başta olmak üzere Bursa'nın 17 ilçesinde bireysel aile dosyalarının yanında OSB ve ticari işletmelere özel iç suistimal ve marka koruma hizmeti sunuyoruz.",
+        "image": "assets/photos/kiu-sertifika-programi.jpg",
+        "law": "TMK m.161 • TTK Haksız Rekabet • SMK m.29",
+        "form_cat": "es-takibi",
+        "sections": [
+            ("Bursa Merkez ve Marmara Geçiş Hattında Kesintisiz Takip", "Osmangazi Köprüsü, İstanbul–Bursa–İzmir otoyolu ve feribot hatları nedeniyle Bursa'daki vakalar şehirlerarası hareketlilik içerir. İstanbul Kartal merkezimizle koordineli çalışan Bursa saha ekibimiz şehir içi ve şehirlerarası geçişleri kopmadan kayıt altına alır."),
+            ("Sanayi, Otomotiv ve Tekstil Sektöründe Kurumsal İstihbarat", "Bursa Organize Sanayi Bölgeleri ve İnegöl mobilya/tekstil merkezlerinde personel hırsızlığı, tedarikçi suistimali, rakip haksız rekabeti ve taklit ürün üretiminin belgelenmesi konusunda savcılık baskınına hazır dosyalar oluşturuyoruz."),
+            ("Bireysel Aile Dosyalarında Kanuni Çerçeve", "Eş takibi, evlilik öncesi araştırma, öğrenci güvenliği ve velayet/nafaka gelir tespiti işlemlerinin tamamı TCK m.134'e tam uyumlu şekilde yürütülür.")
+        ],
+        "deliverables": [
+            "Nilüfer, Osmangazi, Mudanya ve İnegöl'de hızlı mobil ekip koordinasyonu",
+            "İstanbul–Bursa hattında kesintisiz şehirlerarası saha takibi",
+            "Bireysel aile hukuku ve OSB kurumsal hırsızlık/marka taklidi raporlaması"
+        ],
+        "faqs": [
+            ("İstanbul–Bursa arasında sık seyahat eden eş veya personel takip edilebiliyor mu?", "Evet. Kartal (İstanbul) ve Bursa saha ekiplerimiz feribot ve otoyol güzergahlarında vardiya devri yaparak kesintisiz takip sağlar."),
+            ("Bursa'daki fabrikamızda yaşanan hammadde ve malzeme kayıpları için çalışıyor musunuz?", "Evet. Depo, sevkiyat ve vardiya çıkışlarında yasal gözetim yaparak iç suistimal veya dış işbirlikçileri savcılık dosyasına uygun şekilde tespit ediyoruz."),
+            ("Bursa öğrenci takibi hizmeti üniversite kampüs çevresini kapsıyor mu?", "Evet, Bursa Uludağ Üniversitesi çevresinde ebeveyn talebiyle çocuğun güvenliği ve riskli çevre tespiti gizlilikle yapılmaktadır."),
+            ("Çalışma öncesi resmi sözleşme ve fatura veriliyor mu?", "Tüm bireysel ve kurumsal Bursa dosyalarında yazılı gizlilik sözleşmesi ve resmi e-Fatura düzenlenir.")
+        ]
+    },
+    {
         "rel_path": "hizmetler/es-takibi.html",
         "title": "Eş Takibi & Sadakat Araştırması (48 Saat / 7 Gün) — DAT Dedektiflik",
         "description": "Şüphelendiğiniz durumlarda eş takibi nasıl yapılır? TMK m.161 ve HMK m.199 kapsamında mahkemede geçerli 4K zaman damgalı delil dosyası ve %100 ispat garantisi.",
@@ -587,6 +675,146 @@ SEO_LANDING_PAGES = [
             ("Sahte ürün baskınları (SMK m.29) için nasıl bir delil dosyası hazırlanıyor?", "Gizli atölye ve depo konumları, fiili üretim/sevkiyat akışı ve faturalı numune temini belgelenerek şirket avukatınızın savcılık el koyma kararı alabileceği koordinatlı dosya hazırlanır."),
             ("Personel hırsızlığı ve gizli rekabet ihlallerinde ne kadar sürede sonuç alınır?", "Kamera kör noktalarından mal çıkışı, lojistik sızıntısı ve gizli ortaklık vakaları kapsamına göre 5 ila 10 iş gününde somut raporla netleştirilir.")
         ]
+    },
+    {
+        "rel_path": "hizmetler/ogrenci-takibi.html",
+        "title": "Öğrenci Takibi & Genç Güvenliği Araştırması — DAT Dedektiflik",
+        "description": "Okul dışı çevre güvenliği, arkadaş grubu risk analizi, zararlı alışkanlık önleme ve şehir dışı üniversite öğrenci güvenliği için pedagojik hassasiyetle profesyonel saha gözlemi.",
+        "keywords": "öğrenci takibi, çocuk takibi dedektif, üniversite öğrenci güvenliği, zararlı alışkanlık tespiti, ebeveyn gözlem hizmeti",
+        "badge": "04 • AİLE KORUMA • PEDAGOJİK HASSASİYET",
+        "h1": "Öğrenci Takibi ve Genç Güvenliği Araştırması",
+        "lead": "Özellikle lise ve şehir dışındaki üniversite çağındaki evladınızın okul dışı zamanını kimlerle, hangi ortamlarda geçirdiğini; gencin psikolojisini ve itibarını hiç zedelemeden anne-babaya objektif raporla bildiriyoruz.",
+        "image": "assets/services/ogrenci-takibi.jpg",
+        "law": "TMK Ebeveyn Velayet Sorumluluğu • Tam Gizlilik",
+        "form_cat": "ogrenci-takibi",
+        "sections": [
+            ("Erken Tespit Neden Hayat Kurtarır?", "Şehir değiştirerek üniversiteye başlayan veya lise çağında okul dışı çevresi hızla değişen gençler; yasa dışı bahis, zararlı madde çevreleri, akran zorbalığı veya manipülatif arkadaşlıklarla aile fark etmeden karşı karşıya kalabilmektedir."),
+            ("Gençlere Hissettirmeden Uzman Gözlem", "DAT Dedektiflik, çocuk ve gençlik dosyalarında standart sert takip yerine ebeveyn talebi çerçevesinde yalnızca okul çıkışı, yurt/kampüs çevresi ve sosyal mekanlarda görünmez pasif gözlem uygular."),
+            ("Ebeveyne Yapıcı ve Kanıtlı Bilgilendirme", "Teslim edilen rapor; çocuğun düzenli devam durumu, görüştüğü riskli kişi veya mekan bilgileri ve zaman damgalı gözlem notlarından oluşur; ebeveynin doğru müdahalesine rehberlik eder.")
+        ],
+        "deliverables": [
+            "Evlada kesinlikle hissettirilmeden 5–7 günlük sosyal çevre & mekan gözlemi",
+            "Riskli arkadaş grubu, devam durumu ve güvenlik tehdidi tespiti",
+            "Yalnızca yasal veli / ebeveyne teslim edilen gizli rapor"
+        ],
+        "faqs": [
+            ("Çocuğum takip edildiğini fark ederse aramızdaki güven bozulur mu?", "Kesinlikle hayır. Öğrenci dosyalarında özel eğitimli, göze batmayan sivil ekipler görev alır ve öğrencinin özel alanlarına müdahale edilmez."),
+            ("Farklı bir şehirde üniversite okuyan çocuğumuz için hizmet alabilir miyiz?", "Evet. İstanbul, Ankara, İzmir, Antalya, Bursa, Eskişehir ve diğer 81 ildeki üniversite şehirlerinde aktif saha ağımız mevcuttur."),
+            ("18 yaşından büyük üniversite öğrencisi için yasal süreç nasıldır?", "Kamuya açık mekan ve kampüs dışı genel çevrelerde yasal sınırlar korunarak anne-baba adına güvenlik gözlemi yürütülür; özel haberleşme ihlali kesinlikle yapılmaz."),
+            ("Öğrenci takibi hizmeti kaç gün sürer?", "Alışkanlık döngüsünü net görmek için genellikle hafta içi ve hafta sonunu kapsayan 5 ila 7 günlük gözlem paketi önerilir.")
+        ]
+    },
+    {
+        "rel_path": "hizmetler/bilisim-dolandiriciligi.html",
+        "title": "Bilişim Dolandırıcılığı & Siber İz Delil Tespiti — DAT Dedektiflik",
+        "description": "Sahte yatırım/kripto platformları, internet dolandırıcılığı, kimlik hırsızlığı, şantaj ve ticari dolandırıcılık vakalarında savcılık suç duyurusuna uygun OSINT ve teknik delil dosyası.",
+        "keywords": "bilişim dolandırıcılığı tespiti, internet dolandırıcılığı delil, dolandırıcılık davaları dedektif, şantaj araştırması, kripto dolandırıcılığı",
+        "badge": "06–08 • SİBER İSTİHBARAT & SAVCILIK DELİLİ • TCK m.158",
+        "h1": "Bilişim Dolandırıcılığı ve Siber İz Delil Tespiti",
+        "lead": "Çevrimiçi yatırım, kripto, e-ticaret, aşk/romantizm veya ticari ödeme tuzaklarıyla gerçekleştirilen dolandırıcılık ve dijital şantaj olaylarında faillerin açık kaynak izlerini, saha bağlantılarını ve teknik delillerini savcılık başvurusuna hazır hale getiriyoruz.",
+        "image": "assets/services/bilisim-dolandiriciligi.jpg",
+        "law": "TCK m.158 (Nitelikli Dolandırıcılık) • 5651 & CMK Delil Standartları",
+        "form_cat": "bilisim-dolandiriciligi",
+        "sections": [
+            ("Sadece Ekran Görüntüsü Neden Savcılıkta Yetersiz Kalır?", "Dolandırıcılar sohbetleri siler, alan adlarını kapatır ve paravan şirketler kurar. Sıradan ekran görüntüleri manipüle edilebilir bulunduğu için hash doğrulamalı zaman damgası, alan adı/şirket izi ve paravan muhatapların fiili adres bağlantısı şarttır."),
+            ("Dijital OSINT + Saha İstihbaratı Birleşimi", "DAT Özel Dedektiflik yalnızca dijital açık kaynak analiziyle (OSINT) yetinmez; Türkiye ve yurt dışında (Karadağ, Kıbrıs, Batum, AB, ABD) tespit edilen paravan adres ve fiziki temas noktalarını sahada da teyit eder."),
+            ("Avukatlarla Koordineli Ceza & Tazminat Klasörü", "Hazırlanan teknik ve saha bulguları Cumhuriyet Başsavcılığı suç duyurusu dilekçenize eklenebilecek sistematik kronolojiyle sunulur.")
+        ],
+        "deliverables": [
+            "Açık kaynak (OSINT), paravan firma, alan adı ve iletişim ağı analizi",
+            "Zaman damgalı, değiştirilmemiş dijital kanıt & delil bütünlüğü tutanağı",
+            "Varsa Türkiye/yurt dışı fiziki ofis veya fail bağlantı doğrulaması"
+        ],
+        "faqs": [
+            ("Kayıp kripto veya EFT transferini doğrudan geri alabilir misiniz?", "Para blokesi ve iade kararı yalnızca Cumhuriyet Savcılığı ve mahkemelerce verilir; biz savcılığın somut adım atabilmesi için fail kimlik/iz ve paravan şirket delillerini toplarız."),
+            ("Özel fotoğraf/video şantajı vakalarında gizlilik nasıl sağlanır?", "Tüm şantaj ve siber tehdit dosyaları yüksek gizlilik protokolüyle ele alınır; hiçbir kayıt üçüncü taraflarla paylaşılmaz ve işlem sonunda imha edilir."),
+            ("Hukuka aykırı hackleme veya yasa dışı veri çekme yapıyor musunuz?", "Kesinlikle hayır. Tüm çalışmalarımız TCK çerçevesinde yasal açık kaynak araştırması (OSINT), dijital delil sabitleme ve fiziki saha doğrulamasına dayanır."),
+            ("Bilişim dolandırıcılığı araştırması kaç gün sürer?", "Ön dijital iz ve teknik doğrulama raporu vakaya göre genellikle 3 ila 7 iş gününde tamamlanır.")
+        ]
+    },
+    {
+        "rel_path": "hizmetler/firma-arastirmasi.html",
+        "title": "Firma Araştırması, Due Diligence & Ticari İstihbarat — DAT Dedektiflik",
+        "description": "Ortaklık, bayilik, yüksek tutarlı vadeli satış veya yatırım öncesi rakip ve muhatap şirketin fiili kapasitesi, gizli icra/borç itibarı ve yönetici güvenilirliği araştırması.",
+        "keywords": "firma araştırması, şirket istihbaratı, ticari due diligence, ortaklık öncesi araştırma, çalışan geçmiş araştırması",
+        "badge": "09 • KURUMSAL İSTİHBARAT • TTK & TİCARET GÜVENLİĞİ",
+        "h1": "Kurumsal Firma Araştırması ve Ticari İstihbarat",
+        "lead": "Büyük tutarlı vadeli ticaret, ortaklık, tedarik anlaşması veya kritik yönetici alımı öncesinde karşı firmanın kağıt üzerindeki vitrini ile sahadaki gerçek gücünü birbirinden ayırarak şirketinizi ağır mali kayıplardan koruyoruz.",
+        "image": "assets/services/firma-arastirmalari.jpg",
+        "law": "TTK Basiretli Tacir İlkesi • KVKK Kurumsal Uyum",
+        "form_cat": "firma-arastirmasi",
+        "sections": [
+            ("Kağıt Üzerindeki Şirketlere Karşı Saha Teyidi", "Günümüzde pek çok ticari dolandırıcılık, yalnızca sanal ofis gösterip yüksek kredi/çek limiti açtıran paravan şirketlerle yapılmaktadır. Saha ekibimiz muhatap şirketin fabrika, depo, sevkiyat ve fiili çalışan kapasitesini yerinde gözlemler."),
+            ("Ortaklık ve Kilit Yönetici Güvenilirlik Analizi", "Üst düzey yönetici veya yeni iş ortağının önceki ticari sicil itibarı, piyasadaki ödeme disiplini ve rakip firmalarla gizli çıkar çatışması yaşayıp yaşamadığı ticari sır ilkelerine saygıyla incelenir."),
+            ("Yurt İçi ve Yurt Dışı Tedarik Zinciri Doğrulaması", "Türkiye'nin yanı sıra Balkanlar (Karadağ / WPYB Global), Kıbrıs, Avrupa ve ABD merkezli ticari partnerler için de yerinde doğrulama raporu sunuyoruz.")
+        ],
+        "deliverables": [
+            "Fiili fabrika, depo, showroom ve operasyon kapasitesi saha doğrulaması",
+            "Piyasa itibarı, ticari devamlılık ve paravan şirket risk değerlendirmesi",
+            "Yönetim kuruluna özel özet karar raporu ve belgeli bulgular"
+        ],
+        "faqs": [
+            ("Araştırılan şirketin bundan haberi olur mu?", "Kesinlikle olmaz. Tüm saha teyitleri ve açık kaynak analizleri firmanın ticari işleyişini ve gizliliği etkilemeden yürütülür."),
+            ("Sadece İstanbul ve Ankara'daki şirketleri mi inceliyorsunuz?", "Hayır. Türkiye'nin tüm sanayi bölgelerinde (Bursa, Gaziantep, Konya, Kayseri, İzmir, Adana) ve yurt dışı ofis ağımızda inceleme yapıyoruz."),
+            ("Kurumsal hizmet bedeli için resmi fatura kesiliyor mu?", "Evet. Tüm firma araştırmaları için yazılı gizlilik sözleşmesi ve %100 resmi kurumsal e-Fatura düzenlenir."),
+            ("Bir firma istihbarat raporu kaç günde hazırlanır?", "Tek merkezli yerli şirketlerde 3–5 iş günü, çok şubeli veya yurt dışı bağlantılı şirketlerde 5–10 iş günü içinde teslim edilir.")
+        ]
+    },
+    {
+        "rel_path": "hizmetler/hirsizlik-arastirmasi.html",
+        "title": "İşyeri & Kurumsal Hırsızlık Araştırması — DAT Dedektiflik",
+        "description": "Fabrika, depo, mağaza, şantiye ve şirket içi emtia/nakit hırsızlıkları, zimmet ve içeriden sızıntı vakalarında gizli gözetim ile fail ve işbirlikçi tespiti.",
+        "keywords": "hırsızlık araştırması, işyeri hırsızlık dedektifi, depo hırsızlığı tespiti, şirket içi suistimal, zimmet araştırması",
+        "badge": "10 • KURUMSAL GÜVENLİK • TCK m.141–155",
+        "h1": "İşyeri Hırsızlığı ve İç Suistimal Araştırması",
+        "lead": "Fabrika, depo, zincir mağaza, lojistik filosu veya ev/ofis ortamında tekrarlayan stok açıkları, hammadde kayıpları ve içeriden bilgi/mal sızıntılarını kamera kör noktalarını aşan saha takibiyle çözüme kavuşturuyoruz.",
+        "image": "assets/services/hirsizlik-arastirma.jpg",
+        "law": "TCK m.141–142 (Hırsızlık) • TCK m.155 (Güveni Kötüye Kullanma)",
+        "form_cat": "hirsizlik-arastirmasi",
+        "sections": [
+            ("Kayıp Stoklar Nasıl Dışarı Çıkarılıyor?", "Kurumsal hırsızlıkların %70'inden fazlası içerideki bir personelin sevkiyat şoförü veya dış alıcıyla kurduğu koordinasyon sonucu gerçekleşir. İçeride sorgu başlatmak failleri sadece izlerini yok etmeye iter; oysa tesis dışı sessiz takip gerçek zinciri ortaya çıkarır."),
+            ("Sevkiyat, Araç Rotası ve Çalıntı Malın Satış Noktası", "Şüpheli çıkışların gerçekleştiği vardiya saatlerinden itibaren araçların güzergahı, malı boşalttığı gizli depolar ve ikinci el/piyasa alıcıları fotoğraflı olarak belgelenir."),
+            ("Savcılık ve İş Hukuku (4857 SK m.25/II) Delil Dosyası", "Toplanan hukuka uygun kanıtlar hem Cumhuriyet Savcılığı suç duyurusunda hem de haklı nedenle iş akdi feshinde şirketinizi tazminat yükünden korur.")
+        ],
+        "deliverables": [
+            "Tesis dışı sevkiyat rotası, gizli buluşma ve boşaltma noktalarının tespiti",
+            "İçerideki işbirlikçi ve dış alıcı ağını gösteren zaman damgalı dosya",
+            "Savcılık ve İş Mahkemesi kullanımına uygun kronolojik tutanak"
+        ],
+        "faqs": [
+            ("Şüphelendiğimiz personele hiçbir şey hissettirmeden tespit yapılabilir mi?", "Evet. Tüm gözlem ve takip çalışmaları işletme dışından yürütülerek içeride panik veya delil karartma oluşması engellenir."),
+            ("Elde edilen belgeler kıdem/ihbar tazminatsız fesih (haklı fesih) için geçerli midir?", "Kamuya açık alanlarda hukuka uygun şekilde elde edilen tarih-saat damgalı bulgular şirket avukatınızın 4857 sayılı İş Kanunu m.25/II dosyasını destekler."),
+            ("Bireysel ev veya villa hırsızlığı sonrası da araştırma yapıyor musunuz?", "Evet, kolluk başvurunuza ek olarak şüpheli çevre veya kayıp eşya ticari izleri konusunda yasal sınırlar içinde saha desteği sunuyoruz."),
+            ("Depo ve fabrika hırsızlık araştırması ortalama kaç gün sürer?", "Vardiya ve sevkiyat döngüsüne göre genellikle 5 ila 12 iş günü içinde somut fail/adres tespiti yapılır.")
+        ]
+    },
+    {
+        "rel_path": "hizmetler/marka-taklidi-arastirmasi.html",
+        "title": "Marka Taklidi, Sahte Ürün & WPYB Baskın Delili — DAT",
+        "description": "Tescilli markanızı taklit eden gizli üretim atölyeleri, depolar ve toptan dağıtım ağlarının deşifresi; SMK m.29 kapsamında savcılık arama ve el koyma (baskın) kararına esas dosya.",
+        "keywords": "marka taklidi araştırması, sahte ürün tespiti, wpyb global, smk 29 baskın delili, patent taklidi dedektif",
+        "badge": "11 • WPYB GLOBAL & FİKRİ MÜLKİYET • SMK m.29",
+        "h1": "Marka Taklidi, Sahte Ürün ve Fikri Mülkiyet Koruması",
+        "lead": "Sektörde WPYB (World Protection Your Brand) markasıyla öncülük ettiğimiz marka koruma operasyonlarıyla; tescilli markanızı kopyalayan merdiven altı üreticileri, depoları ve toptan kanalları baskın kararına hazır delillerle deşifre ediyoruz.",
+        "image": "assets/services/marka-taklidi.jpg",
+        "law": "6769 Sayılı Sınai Mülkiyet Kanunu (SMK m.29–30) • TTK Haksız Rekabet",
+        "form_cat": "marka-taklidi",
+        "sections": [
+            ("Yalnızca Perakendeciyi Yakalamak Neden Çözüm Değildir?", "Çarşı veya e-ticaret pazaryerlerindeki küçük satıcılara yapılan baskınlar taklit üretimi durdurmaz; ertesi gün aynı mal başka dükkandan çıkar. Gerçek çözüm, perakendeciden geriye giderek ana toptancı ve gizli imalathaneyi bulmaktır."),
+            ("Faturalı Test Alımı (Trap Purchase) ve Üretim Hattı Takibi", "Saha uzmanlarımız şüpheli noktalardan hukuka uygun faturalı/fişli test alımı gerçekleştirir, teslimat araçlarını imalathane ve ana depoya kadar takip ederek adres ve plaka verilerini mahkeme standartlarında belgeler."),
+            ("Türkiye + Balkanlar + Avrupa Gümrük & Dağıtım Ağı (WPYB)", "Karadağ (Podgorica) WPYB Global büromuz, Türkiye çıkışlı veya Balkanlar üzerinden Avrupa'ya uzanan sahte ürün koridorlarında da marka sahiplerine doğrudan saha desteği sağlar.")
+        ],
+        "deliverables": [
+            "Gizli imalathane, etiketleme atölyesi ve ana depo açık adres koordinatları",
+            "Savcılık arama ve el koyma (baskın) talebine esas faturalı test alımı & fotoğraflar",
+            "Marka vekili ve şirket avukatınızla ortak operasyon planlaması"
+        ],
+        "faqs": [
+            ("Hazırladığınız dosya savcılıktan arama ve el koyma kararı çıkartmak için yeterli olur mu?", "Evet. SMK m.29 kapsamında mahkemelerin aradığı açık adres, aktif ticari satış kanıtı (test alımı) ve görsel eşleşme unsurları eksiksiz sunulur."),
+            ("E-ticaret sitelerinde (Instagram, pazaryerleri) markamızı taklit edenleri bulabiliyor musunuz?", "Evet. Çevrimiçi satıcının gönderim yaptığı gerçek depo/atölye çıkışı test siparişi ve lojistik doğrulamasıyla sahada tespit edilir."),
+            ("Yurt dışına ihraç edilen taklit ürünler için de çalışma yapıyor musunuz?", "Evet, WPYB Global (Podgorica) ve uluslararası partner ağımızla sınır ötesi taklit koridorlarını takip ediyoruz."),
+            ("Marka koruma dosyası ne kadar sürede tamamlanır?", "Tekil satıcıdan ana depoya uzanan tespitler genellikle 5 ila 10 iş gününde baskın başvurusuna hazır hale getirilir.")
+        ]
     }
 ]
 
@@ -596,14 +824,23 @@ def build_turkish_seo_pages():
     # Quick nav map for cross-linking
     sibling_links = [
         ("umit-hakan-karakaya.html", "Ümit Hakan Karakaya"),
+        ("elsa-vaka-paneli.html", "Elsa Vaka Paneli"),
         ("istanbul-ozel-dedektif.html", "İstanbul Büro"),
         ("ankara-ozel-dedektif.html", "Ankara Büro"),
+        ("izmir-ozel-dedektif.html", "İzmir Dedektif"),
+        ("antalya-ozel-dedektif.html", "Antalya Dedektif"),
+        ("bursa-ozel-dedektif.html", "Bursa Dedektif"),
         ("hizmetler/es-takibi.html", "Eş Takibi"),
         ("hizmetler/evlilik-oncesi-arastirma.html", "Evlilik Öncesi"),
         ("hizmetler/velayet-bosanma.html", "Velayet & Boşanma"),
+        ("hizmetler/ogrenci-takibi.html", "Öğrenci Takibi"),
         ("hizmetler/adres-ve-borclu-takibi.html", "Adres & Borçlu"),
+        ("hizmetler/bilisim-dolandiriciligi.html", "Bilişim Dolandırıcılığı"),
+        ("hizmetler/firma-arastirmasi.html", "Firma Araştırmaları"),
+        ("hizmetler/hirsizlik-arastirmasi.html", "Hırsızlık Araştırmaları"),
+        ("hizmetler/marka-taklidi-arastirmasi.html", "Marka Taklidi"),
         ("hizmetler/bocek-tarama-tscm.html", "Böcek Arama (TSCM)"),
-        ("hizmetler/kurumsal-ve-marka-koruma.html", "Kurumsal & Marka"),
+        ("hizmetler/kurumsal-ve-marka-koruma.html", "Kurumsal & WPYB"),
     ]
 
     for pg in SEO_LANDING_PAGES:
@@ -656,7 +893,7 @@ def build_turkish_seo_pages():
         )
 
         deliv_html = "\n".join(
-            f'<li class="flex items-start gap-2.5 text-sm text-[#000000]"><span class="text-[#F48120] font-bold">✓</span><span>{html_lib.escape(d)}</span></li>'
+            f'<li class="flex items-start gap-2.5 text-sm text-[#FFFFFF]/95"><span class="text-[#F48120] font-bold">✓</span><span>{html_lib.escape(d)}</span></li>'
             for d in pg["deliverables"]
         )
 
@@ -856,6 +1093,15 @@ def build_sitemap(founder_urls, seo_urls):
     <priority>0.8</priority>
   </url>'''
         )
+
+    entries.append(
+        f'''  <url>
+    <loc>{DOMAIN}/elsa-vaka-paneli.html</loc>
+    <lastmod>{TODAY}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>'''
+    )
 
     sitemap_xml = f'''<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"

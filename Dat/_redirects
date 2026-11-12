@@ -31,15 +31,15 @@ http://www.datdetective.com/* https://www.datdedektiflik.com/:splat 301!
 /Hizmetler/Es-Takibi-48 /hizmetler/es-takibi.html 301
 /Hizmetler/Evlilik-Oncesi-Arastirma-49 /hizmetler/evlilik-oncesi-arastirma.html 301
 /Hizmetler/Velayet-ve-Bosanma-Davalari-50 /hizmetler/velayet-bosanma.html 301
-/Hizmetler/Ogrenci-Takibi-51 / 301
+/Hizmetler/Ogrenci-Takibi-51 /hizmetler/ogrenci-takibi.html 301
 /Hizmetler/Adres-Tespiti-52 /hizmetler/adres-ve-borclu-takibi.html 301
-/Hizmetler/Bilisim-Dolandiriciligi-Tespiti-53 /hizmetler/bocek-tarama-tscm.html 301
+/Hizmetler/Bilisim-Dolandiriciligi-Tespiti-53 /hizmetler/bilisim-dolandiriciligi.html 301
 /Hizmetler/Borclu-Takibi-54 /hizmetler/adres-ve-borclu-takibi.html 301
-/Hizmetler/Dolandiricilik-Davalari-55 /hizmetler/kurumsal-ve-marka-koruma.html 301
-/Hizmetler/Firma-Arastirma-56 /hizmetler/kurumsal-ve-marka-koruma.html 301
-/Hizmetler/Hirsizlik-Arastirma-57 /hizmetler/kurumsal-ve-marka-koruma.html 301
-/Hizmetler/Izleme-ve-Raporlama-58 /hizmetler/es-takibi.html 301
-/Hizmetler/Marka-Taklidi-Arastirmasi-59 /hizmetler/kurumsal-ve-marka-koruma.html 301
+/Hizmetler/Dolandiricilik-Davalari-55 /hizmetler/bilisim-dolandiriciligi.html 301
+/Hizmetler/Firma-Arastirma-56 /hizmetler/firma-arastirmasi.html 301
+/Hizmetler/Hirsizlik-Arastirma-57 /hizmetler/hirsizlik-arastirmasi.html 301
+/Hizmetler/Izleme-ve-Raporlama-58 /hizmetler/bocek-tarama-tscm.html 301
+/Hizmetler/Marka-Taklidi-Arastirmasi-59 /hizmetler/marka-taklidi-arastirmasi.html 301
 /Hizmetler/* / 301
 
 # Eski yuksek trafikli makale & sehir sayfalari
@@ -66,10 +66,15 @@ http://www.datdetective.com/* https://www.datdedektiflik.com/:splat 301!
 /Dedektiflik-Hakkinda/Borcluyu-Bulma-76 /hizmetler/adres-ve-borclu-takibi.html 301
 /Dedektiflik-Hakkinda/Borcunu-odemeden-nereye-boyle-21 /hizmetler/adres-ve-borclu-takibi.html 301
 /Dedektiflik-Hakkinda/Adres-tespiti-nasil-yapilir-19 /hizmetler/adres-ve-borclu-takibi.html 301
-/Dedektiflik-Hakkinda/Marka-taklidini-engelleme-29 /hizmetler/kurumsal-ve-marka-koruma.html 301
+/Dedektiflik-Hakkinda/Marka-taklidini-engelleme-29 /hizmetler/marka-taklidi-arastirmasi.html 301
 /Dedektiflik-Hakkinda/* / 301
 
 # Eski 2.880 il/ilce programatik sayfa (sifir 404 korumasi)
 /Es-takip/* /hizmetler/es-takibi.html 301
 /Dava-Delil-Arastirma/* /hizmetler/velayet-bosanma.html 301
+/Dedektif/ozel-dedektif-ANKARA* /ankara-ozel-dedektif.html 301
+/Dedektif/ozel-dedektif-ISTANBUL* /istanbul-ozel-dedektif.html 301
+/Dedektif/ozel-dedektif-IZMIR* /izmir-ozel-dedektif.html 301
+/Dedektif/ozel-dedektif-ANTALYA* /antalya-ozel-dedektif.html 301
+/Dedektif/ozel-dedektif-BURSA* /bursa-ozel-dedektif.html 301
 /Dedektif/* / 301
