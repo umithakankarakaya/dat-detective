@@ -139,7 +139,9 @@ export async function onRequest(context) {
 
             if (type === 'page_view') {
                 store.stats.pageViews = (store.stats.pageViews || 1420) + 1;
-                store.stats.totalVisitors = (store.stats.totalVisitors || 1100) + 1;
+                if (body.isNewVisitor) {
+                    store.stats.totalVisitors = (store.stats.totalVisitors || 1100) + 1;
+                }
                 
                 const path = body.path || body.page || '/';
                 if (path.includes('es-takibi')) store.serviceViews['Eş Takibi & Boşanma'] = (store.serviceViews['Eş Takibi & Boşanma'] || 540) + 1;

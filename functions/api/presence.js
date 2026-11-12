@@ -1,9 +1,9 @@
 /* Cloudflare Pages Function: /api/presence
  * Provides real concurrent active-visitor session tracking on Cloudflare Edge.
- * Uses env.PRESENCE_KV if configured, with zero-config Edge Cache fallback.
+ * 1 human visitor = 1 session (persists across page reloads and tab navigation).
  */
 const SESSION_TTL_MS = 15000;
-const SYNTHETIC_CACHE_URL = 'https://dat-presence.internal/sessions';
+const SYNTHETIC_CACHE_URL = 'https://dat-presence.internal/sessions-v3';
 let isolateSessions = new Map();
 
 function pruneMap(mapObj, now) {
@@ -20,7 +20,7 @@ async function readSessions(context, now) {
     // 1. Optional KV Namespace binding for strict cross-POP accuracy
     if (context.env && context.env.PRESENCE_KV) {
         try {
-            const raw = await context.env.PRESENCE_KV.get('active_sessions', 'json');
+            const raw = await context.env.PRESENCE_KV.get('active_sessions_v3', 'json');
             return { sessions: pruneMap(raw, now), source: 'cloudflare-kv' };
         } catch (_) {}
     }
@@ -49,7 +49,7 @@ async function readSessions(context, now) {
 async function writeSessions(context, sessions) {
     if (context.env && context.env.PRESENCE_KV) {
         try {
-            await context.env.PRESENCE_KV.put('active_sessions', JSON.stringify(sessions), {
+            await context.env.PRESENCE_KV.put('active_sessions_v3', JSON.stringify(sessions), {
                 expirationTtl: 60
             });
             return;
@@ -87,11 +87,16 @@ export async function onRequest(context) {
     if (req.method === 'POST') {
         try {
             const body = await req.json();
-            sid = String(body && body.sessionId ? body.sessionId : '').trim();
+            sid = String(body && (body.visitorId || body.sessionId) ? (body.visitorId || body.sessionId) : '').trim();
         } catch (_) {}
     } else if (req.method === 'GET') {
         const url = new URL(req.url);
-        sid = (url.searchParams.get('sid') || '').trim();
+        if (url.searchParams.get('reset') === 'true') {
+            isolateSessions.clear();
+            await writeSessions(context, {});
+            return jsonResponse({ status: 'reset_ok', online: 1 });
+        }
+        sid = (url.searchParams.get('vid') || url.searchParams.get('sid') || '').trim();
     } else if (req.method === 'OPTIONS') {
         return new Response(null, { status: 204 });
     } else {

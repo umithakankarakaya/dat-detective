@@ -940,10 +940,35 @@ function toggleVisitorPopover() {
 }
 
 (function initLiveVisitorCounter() {
-    const tabId = 'ses-' + Math.random().toString(36).slice(2, 10) + '-' + Date.now();
-    const TABS_KEY = 'dat_real_tabs_v2';
-    const HEARTBEAT_MS = 4500;
-    const STALE_MS = 14000;
+    const TABS_KEY = 'dat_real_tabs_v3';
+    const VISITOR_KEY = 'dat_visitor_id_v3';
+    const TAB_KEY = 'dat_tab_id_v3';
+    const HEARTBEAT_MS = 5000;
+    const STALE_MS = 15000;
+
+    // 1. Stable, persistent Visitor ID across reloads and navigation (1 device/browser = 1 person)
+    let visitorId = '';
+    try {
+        visitorId = localStorage.getItem(VISITOR_KEY);
+        if (!visitorId || typeof visitorId !== 'string' || !visitorId.startsWith('vid_')) {
+            visitorId = 'vid_' + Math.random().toString(36).slice(2, 10) + '_' + Date.now().toString(36);
+            localStorage.setItem(VISITOR_KEY, visitorId);
+        }
+    } catch (_) {
+        visitorId = 'vid_' + Math.random().toString(36).slice(2, 10);
+    }
+
+    // 2. Stable, persistent Tab ID across reloads (persists in sessionStorage of the same tab)
+    let tabId = '';
+    try {
+        tabId = sessionStorage.getItem(TAB_KEY);
+        if (!tabId || typeof tabId !== 'string' || !tabId.startsWith('tab_')) {
+            tabId = 'tab_' + Math.random().toString(36).slice(2, 10) + '_' + Date.now().toString(36);
+            sessionStorage.setItem(TAB_KEY, tabId);
+        }
+    } catch (_) {
+        tabId = 'tab_' + Math.random().toString(36).slice(2, 10);
+    }
 
     function updateDOM(count, sourceType) {
         const safeCount = Math.max(1, Number(count) || 1);
@@ -984,6 +1009,7 @@ function toggleVisitorPopover() {
         if (removeSelf) {
             delete fresh[tabId];
         } else {
+            // Overwrites the existing tabId entry with updated timestamp (never duplicates on reload!)
             fresh[tabId] = Date.now();
         }
         try {
@@ -995,7 +1021,7 @@ function toggleVisitorPopover() {
     let bc = null;
     try {
         if ('BroadcastChannel' in window) {
-            bc = new BroadcastChannel('dat_real_presence_v2');
+            bc = new BroadcastChannel('dat_real_presence_v3');
             bc.onmessage = () => pingPresence();
         }
     } catch (_) {}
@@ -1006,7 +1032,11 @@ function toggleVisitorPopover() {
             const res = await fetch('/api/presence', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ sessionId: tabId }),
+                body: JSON.stringify({
+                    visitorId: visitorId,
+                    sessionId: visitorId,
+                    tabId: tabId
+                }),
                 cache: 'no-store'
             });
             if (res.ok) {
@@ -1023,14 +1053,17 @@ function toggleVisitorPopover() {
     }
 
     const handleLeave = () => {
-        writeLocalTab(true);
-        try {
-            if (navigator.sendBeacon) {
-                const blob = new Blob([JSON.stringify({ sessionId: tabId })], { type: 'application/json' });
-                navigator.sendBeacon('/api/presence/leave', blob);
-            }
-        } catch (_) {}
-        if (bc) bc.postMessage({ type: 'leave', tabId });
+        const remaining = writeLocalTab(true);
+        // If this was the last open tab in this browser, notify the server
+        if (remaining <= 0) {
+            try {
+                if (navigator.sendBeacon) {
+                    const blob = new Blob([JSON.stringify({ visitorId: visitorId, sessionId: visitorId })], { type: 'application/json' });
+                    navigator.sendBeacon('/api/presence/leave', blob);
+                }
+            } catch (_) {}
+        }
+        if (bc) bc.postMessage({ type: 'leave', tabId, remaining });
     };
 
     window.addEventListener('pagehide', handleLeave);
@@ -1631,10 +1664,21 @@ const DATAnalytics = (function() {
     }
 
     function initAutoTracking() {
+        // Track unique visitor per day (does not increment on reload)
+        let isNewVisitor = false;
+        try {
+            const today = new Date().toISOString().slice(0, 10);
+            if (localStorage.getItem('dat_last_visit_date') !== today) {
+                isNewVisitor = true;
+                localStorage.setItem('dat_last_visit_date', today);
+            }
+        } catch (_) {}
+
         // Track page view
         trackEvent('page_view', {
             path: window.location.pathname || '/',
-            screenWidth: window.innerWidth
+            screenWidth: window.innerWidth,
+            isNewVisitor: isNewVisitor
         });
 
         // Track clicks
