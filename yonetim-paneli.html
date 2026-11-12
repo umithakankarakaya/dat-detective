@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tr" class="h-full bg-[#F4F5F7] text-[#0F172A]">
+<html lang="tr" class="h-full bg-[#F4F5F7] text-[#062F28]">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -19,14 +19,15 @@
             theme: {
                 extend: {
                     colors: {
-                        brand: {
-                            green: '#74D620',
-                            greenDark: '#4AA70D',
-                            greenLight: '#E8F9D8',
-                            dark: '#0F172A',
-                            darkCard: '#1E293B',
-                            slate: '#64748B',
-                            lightBg: '#F4F5F7'
+                        fynix: {
+                            green: '#9FE870',       /* Official Brand Lime Green */
+                            greenHover: '#8BD85B',
+                            greenLight: '#EAF9DE',
+                            pine: '#062F28',        /* Official Deep Forest / Pine Dark */
+                            pineDark: '#041F1A',
+                            gray: '#7B7B7B',        /* Official Secondary Muted Gray */
+                            grayLight: '#F4F5F7',
+                            white: '#FFFFFF'
                         }
                     },
                     fontFamily: {
@@ -43,21 +44,21 @@
             font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
             -webkit-tap-highlight-color: transparent;
             background-color: #F4F5F7;
-            color: #0F172A;
+            color: #062F28;
             letter-spacing: -0.015em;
         }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar { width: 5px; height: 5px; }
         ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: rgba(15, 23, 42, 0.12); border-radius: 9999px; }
-        ::-webkit-scrollbar-thumb:hover { background: rgba(15, 23, 42, 0.25); }
+        ::-webkit-scrollbar-thumb { background: rgba(6, 47, 40, 0.15); border-radius: 9999px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(6, 47, 40, 0.3); }
 
         .fynix-card {
             background-color: #FFFFFF;
-            border: 1px solid rgba(226, 232, 240, 0.9);
-            border-radius: 24px;
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.02), 0 1px 2px -1px rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(226, 232, 240, 0.85);
+            border-radius: 26px;
+            box-shadow: 0 1px 3px 0 rgba(6, 47, 40, 0.02);
             transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .fynix-card-clickable {
@@ -65,70 +66,79 @@
         }
         .fynix-card-clickable:hover {
             transform: translateY(-2px);
-            border-color: #74D620;
-            box-shadow: 0 12px 24px -6px rgba(116, 214, 32, 0.12), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+            border-color: #9FE870;
+            box-shadow: 0 12px 24px -6px rgba(159, 232, 112, 0.18), 0 4px 6px -4px rgba(6, 47, 40, 0.03);
         }
         .hero-green-card {
-            background: linear-gradient(135deg, #74D620 0%, #5BB812 60%, #449B0A 100%);
-            position: relative;
-            overflow: hidden;
+            background: #9FE870;
+            color: #062F28;
+            border-radius: 26px;
+            box-shadow: 0 10px 25px -5px rgba(159, 232, 112, 0.35);
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .hero-green-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 280px;
-            height: 280px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0) 70%);
-            border-radius: 50%;
-            pointer-events: none;
+        .hero-green-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 32px -6px rgba(159, 232, 112, 0.45);
+        }
+        .dot-circle {
+            width: 14px;
+            height: 14px;
+            border-radius: 9999px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1.5px solid;
+        }
+        .dot-circle-inner {
+            width: 6px;
+            height: 6px;
+            border-radius: 9999px;
         }
     </style>
 </head>
-<body class="h-full bg-[#F4F5F7] text-[#0F172A] antialiased selection:bg-[#74D620] selection:text-[#0F172A]">
+<body class="h-full bg-[#F4F5F7] text-[#062F28] antialiased selection:bg-[#9FE870] selection:text-[#062F28]">
 
     <!-- ============================================== -->
-    <!-- 1. EXECUTIVE SECURITY PIN GATE (GİRİŞ KİLİDİ) -->
+    <!-- 1. SECURITY PIN GATE MODAL                     -->
     <!-- ============================================== -->
-    <div id="pinGateModal" class="fixed inset-0 z-50 bg-[#0F172A]/70 backdrop-blur-md flex items-center justify-center p-4">
+    <div id="pinGateModal" class="fixed inset-0 z-50 bg-[#062F28]/75 backdrop-blur-md flex items-center justify-center p-4">
         <div class="max-w-md w-full bg-[#FFFFFF] border border-[#E2E8F0] rounded-[32px] p-8 space-y-6 shadow-2xl text-center relative overflow-hidden">
             
             <div class="flex justify-center">
-                <div class="w-16 h-16 rounded-full bg-[#E8F9D8] border border-[#74D620]/40 flex items-center justify-center shadow-sm ring-4 ring-[#74D620]/20">
+                <div class="w-16 h-16 rounded-full bg-[#EAF9DE] border border-[#9FE870] flex items-center justify-center shadow-sm ring-4 ring-[#9FE870]/30">
                     <img src="dat-logo.png" alt="DAT Logo" class="w-12 h-12 rounded-full object-cover">
                 </div>
             </div>
 
             <div class="space-y-1.5">
-                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E8F9D8] border border-[#74D620]/40 text-[11px] font-mono text-[#4AA70D] font-bold">
-                    <span class="w-2 h-2 rounded-full bg-[#74D620] animate-pulse"></span>
+                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EAF9DE] border border-[#9FE870] text-[11px] font-mono text-[#062F28] font-bold">
+                    <span class="w-2 h-2 rounded-full bg-[#062F28] animate-pulse"></span>
                     <span>DAT GROUP • GİZLİ YÖNETİM MASASI</span>
                 </div>
-                <h1 class="text-2xl font-bold text-[#0F172A] tracking-tight">Yönetici Giriş Doğrulaması</h1>
-                <p class="text-xs text-[#64748B] leading-relaxed">Yeni nesil finans &amp; harekat kontrol panelini görüntülemek için 4 haneli PIN kodunuzu giriniz.</p>
+                <h1 class="text-2xl font-extrabold text-[#062F28] tracking-tight">Yönetici Giriş Doğrulaması</h1>
+                <p class="text-xs text-[#7B7B7B] leading-relaxed">Yeni nesil operasyon ve analitik masasını görüntülemek için 4 haneli PIN kodunuzu giriniz.</p>
             </div>
 
             <div class="space-y-3">
                 <div class="flex justify-center gap-3" id="pinInputs">
-                    <input type="password" maxlength="1" inputmode="numeric" class="pin-digit w-12 h-14 rounded-2xl bg-[#F8FAFC] border-2 border-[#E2E8F0] focus:border-[#74D620] focus:bg-[#FFFFFF] text-center text-2xl font-mono text-[#0F172A] outline-none transition" autofocus>
-                    <input type="password" maxlength="1" inputmode="numeric" class="pin-digit w-12 h-14 rounded-2xl bg-[#F8FAFC] border-2 border-[#E2E8F0] focus:border-[#74D620] focus:bg-[#FFFFFF] text-center text-2xl font-mono text-[#0F172A] outline-none transition">
-                    <input type="password" maxlength="1" inputmode="numeric" class="pin-digit w-12 h-14 rounded-2xl bg-[#F8FAFC] border-2 border-[#E2E8F0] focus:border-[#74D620] focus:bg-[#FFFFFF] text-center text-2xl font-mono text-[#0F172A] outline-none transition">
-                    <input type="password" maxlength="1" inputmode="numeric" class="pin-digit w-12 h-14 rounded-2xl bg-[#F8FAFC] border-2 border-[#E2E8F0] focus:border-[#74D620] focus:bg-[#FFFFFF] text-center text-2xl font-mono text-[#0F172A] outline-none transition">
+                    <input type="password" maxlength="1" inputmode="numeric" class="pin-digit w-12 h-14 rounded-2xl bg-[#F4F5F7] border-2 border-[#E2E8F0] focus:border-[#9FE870] focus:bg-[#FFFFFF] text-center text-2xl font-mono text-[#062F28] outline-none transition" autofocus>
+                    <input type="password" maxlength="1" inputmode="numeric" class="pin-digit w-12 h-14 rounded-2xl bg-[#F4F5F7] border-2 border-[#E2E8F0] focus:border-[#9FE870] focus:bg-[#FFFFFF] text-center text-2xl font-mono text-[#062F28] outline-none transition">
+                    <input type="password" maxlength="1" inputmode="numeric" class="pin-digit w-12 h-14 rounded-2xl bg-[#F4F5F7] border-2 border-[#E2E8F0] focus:border-[#9FE870] focus:bg-[#FFFFFF] text-center text-2xl font-mono text-[#062F28] outline-none transition">
+                    <input type="password" maxlength="1" inputmode="numeric" class="pin-digit w-12 h-14 rounded-2xl bg-[#F4F5F7] border-2 border-[#E2E8F0] focus:border-[#9FE870] focus:bg-[#FFFFFF] text-center text-2xl font-mono text-[#062F28] outline-none transition">
                 </div>
                 <p id="pinError" class="text-xs text-[#DC2626] font-medium hidden">Hatalı PIN! Lütfen tekrar deneyiniz.</p>
             </div>
 
             <div class="space-y-2">
-                <button type="button" onclick="checkPinManual()" class="w-full py-3.5 rounded-full bg-[#74D620] hover:bg-[#5BB812] text-[#0F172A] font-bold text-sm transition shadow-sm">
+                <button type="button" onclick="checkPinManual()" class="w-full py-3.5 rounded-full bg-[#9FE870] hover:bg-[#8BD85B] text-[#062F28] font-extrabold text-sm transition shadow-sm">
                     Güvenli Giriş Yap
                 </button>
-                <div class="flex items-center justify-between text-[11px] text-[#64748B] pt-1">
+                <div class="flex items-center justify-between text-[11px] text-[#7B7B7B] pt-1">
                     <label class="flex items-center gap-1.5 cursor-pointer select-none">
-                        <input type="checkbox" id="rememberMe" checked class="rounded border-[#CBD5E1] text-[#74D620] focus:ring-[#74D620]">
+                        <input type="checkbox" id="rememberMe" checked class="rounded border-[#CBD5E1] text-[#9FE870] focus:ring-[#9FE870]">
                         <span>Beni hatırla (7 Gün)</span>
                     </label>
-                    <span class="font-mono text-[#94A3B8]">Varsayılan: 2005</span>
+                    <span class="font-mono text-[#7B7B7B]">Varsayılan: 2005</span>
                 </div>
             </div>
 
@@ -136,7 +146,7 @@
     </div>
 
     <!-- ============================================== -->
-    <!-- 2. MAIN APP CONTAINER (MODERN SAAS DASHBOARD)  -->
+    <!-- 2. MAIN APP FRAMEWORK (FYINX DESIGN SYSTEM)    -->
     <!-- ============================================== -->
     <div id="mainDashboard" class="hidden min-h-screen p-3 sm:p-5 flex flex-col">
         <div class="flex-1 bg-[#FFFFFF] border border-[#E2E8F0] rounded-[32px] overflow-hidden shadow-sm flex flex-col lg:flex-row">
@@ -150,81 +160,81 @@
                     <!-- App Logo & Brand -->
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-2.5">
-                            <div class="w-9 h-9 rounded-2xl bg-[#E8F9D8] border border-[#74D620]/30 flex items-center justify-center text-[#4AA70D]">
+                            <div class="w-9 h-9 rounded-2xl bg-[#EAF9DE] border border-[#9FE870]/40 flex items-center justify-center text-[#062F28]">
                                 <img src="dat-logo.png" alt="DAT" class="w-7 h-7 rounded-xl object-cover">
                             </div>
                             <div class="leading-none">
-                                <span class="text-lg font-extrabold text-[#0F172A] tracking-tight">DAT<span class="text-[#74D620]">.</span>Ops</span>
-                                <div class="text-[9px] font-mono font-bold text-[#94A3B8] tracking-wider uppercase mt-0.5">YÖNETİCİ MASASI</div>
+                                <span class="text-lg font-extrabold text-[#062F28] tracking-tight">DAT<span class="text-[#9FE870]">.</span>Ops</span>
+                                <div class="text-[9px] font-mono font-bold text-[#7B7B7B] tracking-wider uppercase mt-0.5">HAREKAT MERKEZİ</div>
                             </div>
                         </div>
 
                         <!-- Mobile Menu Toggle Button -->
-                        <button type="button" onclick="toggleMobileSidebar()" class="lg:hidden p-2 rounded-xl bg-[#F8FAFC] text-[#0F172A]">
+                        <button type="button" onclick="toggleMobileSidebar()" class="lg:hidden p-2 rounded-xl bg-[#F4F5F7] text-[#062F28]">
                             <i class="hgi hgi-stroke hgi-menu-01 w-5 h-5"></i>
                         </button>
                     </div>
 
                     <!-- User Account Pill (Matching Screenshot) -->
-                    <div class="p-2 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] flex items-center justify-between gap-3">
+                    <div class="p-2 rounded-2xl bg-[#F4F5F7] border border-[#E2E8F0] flex items-center justify-between gap-3">
                         <div class="flex items-center gap-2.5 min-w-0">
-                            <div class="w-9 h-9 rounded-full bg-[#0F172A] text-[#FFFFFF] font-bold text-xs flex items-center justify-center shrink-0">
+                            <div class="w-9 h-9 rounded-full bg-[#062F28] text-[#9FE870] font-extrabold text-xs flex items-center justify-center shrink-0">
                                 ÜK
                             </div>
                             <div class="min-w-0">
-                                <div class="text-xs font-bold text-[#0F172A] truncate">Ümit Hakan Karakaya</div>
-                                <div class="text-[10px] text-[#64748B] truncate">Yönetici Hesabı</div>
+                                <div class="text-xs font-extrabold text-[#062F28] truncate">Ümit Hakan Karakaya</div>
+                                <div class="text-[10px] text-[#7B7B7B] truncate">Yönetici Hesabı</div>
                             </div>
                         </div>
-                        <i class="hgi hgi-stroke hgi-arrow-down-01 w-4 h-4 text-[#94A3B8] shrink-0"></i>
+                        <i class="hgi hgi-stroke hgi-arrow-down-01 w-4 h-4 text-[#7B7B7B] shrink-0"></i>
                     </div>
 
                     <!-- Navigation Menu -->
                     <div class="space-y-5" id="sidebarNav">
                         <div class="space-y-1.5">
-                            <div class="text-[10px] font-mono font-bold text-[#94A3B8] uppercase px-3 tracking-wider">MAIN MENU</div>
+                            <div class="text-[10px] font-mono font-bold text-[#7B7B7B] uppercase px-3 tracking-wider">MAIN MENU</div>
                             
-                            <button type="button" onclick="switchMainTab('dashboard')" id="navBtnDashboard" class="sidebar-item w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl bg-[#0F172A] text-[#FFFFFF] font-semibold text-xs shadow-sm transition">
-                                <i class="hgi hgi-stroke hgi-home-01 w-4 h-4 text-[#74D620]"></i>
+                            <button type="button" onclick="switchMainTab('dashboard')" id="navBtnDashboard" class="sidebar-item w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl bg-[#062F28] text-[#FFFFFF] font-bold text-xs shadow-sm transition">
+                                <i class="hgi hgi-stroke hgi-home-01 w-4 h-4 text-[#9FE870]"></i>
                                 <span>Dashboard</span>
                             </button>
 
-                            <button type="button" onclick="switchMainTab('leads')" id="navBtnLeads" class="sidebar-item w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-[#64748B] hover:text-[#0F172A] hover:bg-[#F8FAFC] font-semibold text-xs transition">
+                            <button type="button" onclick="switchMainTab('leads')" id="navBtnLeads" class="sidebar-item w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-[#7B7B7B] hover:text-[#062F28] hover:bg-[#F4F5F7] font-bold text-xs transition">
                                 <div class="flex items-center gap-3">
                                     <i class="hgi hgi-stroke hgi-clipboard-check w-4 h-4"></i>
                                     <span>Vaka Talepleri (CRM)</span>
                                 </div>
-                                <span id="sidebarLeadsBadge" class="px-2 py-0.5 rounded-full bg-[#E8F9D8] text-[#4AA70D] font-mono text-[10px] font-bold">5</span>
+                                <span id="sidebarLeadsBadge" class="px-2 py-0.5 rounded-full bg-[#EAF9DE] text-[#062F28] font-mono text-[10px] font-extrabold">5</span>
                             </button>
 
-                            <button type="button" onclick="switchMainTab('analytics')" id="navBtnAnalytics" class="sidebar-item w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-[#64748B] hover:text-[#0F172A] hover:bg-[#F8FAFC] font-semibold text-xs transition">
+                            <button type="button" onclick="switchMainTab('analytics')" id="navBtnAnalytics" class="sidebar-item w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-[#7B7B7B] hover:text-[#062F28] hover:bg-[#F4F5F7] font-bold text-xs transition">
                                 <i class="hgi hgi-stroke hgi-chart-bar-line w-4 h-4"></i>
                                 <span>Nereye Baktılar?</span>
                             </button>
 
-                            <button type="button" onclick="switchMainTab('live')" id="navBtnLive" class="sidebar-item w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-[#64748B] hover:text-[#0F172A] hover:bg-[#F8FAFC] font-semibold text-xs transition">
+                            <button type="button" onclick="switchMainTab('live')" id="navBtnLive" class="sidebar-item w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-[#7B7B7B] hover:text-[#062F28] hover:bg-[#F4F5F7] font-bold text-xs transition">
                                 <i class="hgi hgi-stroke hgi-flash w-4 h-4"></i>
                                 <span>Canlı Tıklama Akışı</span>
                             </button>
 
-                            <button type="button" onclick="openMetricDetailModal('whatsapp')" class="sidebar-item w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-[#64748B] hover:text-[#0F172A] hover:bg-[#F8FAFC] font-semibold text-xs transition">
-                                <i class="hgi hgi-stroke hgi-whatsapp w-4 h-4 text-[#16A34A]"></i>
+                            <button type="button" onclick="openMetricDetailModal('whatsapp')" class="sidebar-item w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-[#7B7B7B] hover:text-[#062F28] hover:bg-[#F4F5F7] font-bold text-xs transition">
+                                <i class="hgi hgi-stroke hgi-whatsapp w-4 h-4 text-[#9FE870]"></i>
                                 <span>WhatsApp Temasları</span>
                             </button>
                         </div>
 
                         <div class="space-y-1.5 pt-2 border-t border-[#F1F5F9]">
-                            <div class="text-[10px] font-mono font-bold text-[#94A3B8] uppercase px-3 tracking-wider">TERCİHLER &amp; GÜVENLİK</div>
+                            <div class="text-[10px] font-mono font-bold text-[#7B7B7B] uppercase px-3 tracking-wider">GÜVENLİK &amp; EDGE</div>
                             
-                            <button type="button" onclick="openMetricDetailModal('presence')" class="w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-[#64748B] hover:text-[#0F172A] hover:bg-[#F8FAFC] font-semibold text-xs transition">
+                            <button type="button" onclick="openMetricDetailModal('presence')" class="w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-[#7B7B7B] hover:text-[#062F28] hover:bg-[#F4F5F7] font-bold text-xs transition">
                                 <div class="flex items-center gap-3">
                                     <i class="hgi hgi-stroke hgi-server-01 w-4 h-4"></i>
                                     <span>Cloudflare Edge Durumu</span>
                                 </div>
-                                <span class="w-2 h-2 rounded-full bg-[#74D620] animate-pulse"></span>
+                                <span class="w-2 h-2 rounded-full bg-[#9FE870] animate-pulse"></span>
                             </button>
 
-                            <button type="button" onclick="lockDashboard()" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-[#EF4444] hover:bg-[#FEF2F2] font-semibold text-xs transition">
+                            <button type="button" onclick="lockDashboard()" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-[#DC2626] hover:bg-[#FEF2F2] font-bold text-xs transition">
                                 <i class="hgi hgi-stroke hgi-logout-01 w-4 h-4"></i>
                                 <span>Güvenli Çıkış (Kilit)</span>
                             </button>
@@ -233,17 +243,17 @@
                 </div>
 
                 <!-- Bottom Support Card (Matching Screenshot "Upgrade plan") -->
-                <div class="p-4 rounded-3xl bg-[#F8FAFC] border border-[#E2E8F0] text-center space-y-3 mt-6">
-                    <div class="w-10 h-10 rounded-2xl bg-[#0F172A] text-[#74D620] mx-auto flex items-center justify-center text-lg">
+                <div class="p-4 rounded-3xl bg-[#F4F5F7] border border-[#E2E8F0] text-center space-y-3 mt-6">
+                    <div class="w-10 h-10 rounded-2xl bg-[#062F28] text-[#9FE870] mx-auto flex items-center justify-center text-lg">
                         <i class="hgi hgi-stroke hgi-security-check w-5 h-5"></i>
                     </div>
-                    <div class="space-y-1">
-                        <div class="text-xs font-bold text-[#0F172A]">DAT 7/24 Güvenli Masası</div>
-                        <p class="text-[11px] text-[#64748B] leading-tight">Uçtan uca şifrelenmiş Cloudflare korumalı yönetici oturumu.</p>
+                    <div class="space-y-0.5">
+                        <div class="text-xs font-extrabold text-[#062F28]">7/24 Kesintisiz Vaka Masası</div>
+                        <p class="text-[11px] text-[#7B7B7B] leading-tight">Cloudflare Edge &amp; SSL şifreli operasyon.</p>
                     </div>
-                    <button type="button" onclick="createRealTestLead()" class="w-full py-2.5 rounded-full bg-[#0F172A] hover:bg-[#1E293B] text-[#FFFFFF] text-xs font-semibold flex items-center justify-center gap-1.5 transition">
+                    <button type="button" onclick="createRealTestLead()" class="w-full py-2.5 rounded-full bg-[#062F28] hover:bg-[#041F1A] text-[#FFFFFF] text-xs font-bold flex items-center justify-center gap-1.5 transition">
                         <span>🧪 Canlı Test Talebi</span>
-                        <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3.5 h-3.5 text-[#74D620]"></i>
+                        <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3.5 h-3.5 text-[#9FE870]"></i>
                     </button>
                 </div>
 
@@ -254,37 +264,35 @@
             <!-- ========================================== -->
             <main class="flex-1 flex flex-col min-w-0 bg-[#F4F5F7] overflow-y-auto">
                 
-                <!-- TOP HEADER BAR (Matching Screenshot) -->
+                <!-- TOP HEADER BAR -->
                 <header class="p-5 sm:p-7 pb-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div>
                         <div class="flex items-center gap-2">
-                            <h1 class="text-xl sm:text-2xl font-extrabold text-[#0F172A] tracking-tight" id="mainHeaderTitle">Home</h1>
-                            <span class="px-2.5 py-0.5 rounded-full bg-[#E8F9D8] text-[#4AA70D] font-mono text-[10px] font-bold" id="mainHeaderBadge">CANLI VERİ</span>
+                            <h1 class="text-xl sm:text-2xl font-extrabold text-[#062F28] tracking-tight" id="mainHeaderTitle">Home</h1>
+                            <span class="px-2.5 py-0.5 rounded-full bg-[#EAF9DE] text-[#062F28] font-mono text-[10px] font-extrabold" id="mainHeaderBadge">CANLI VERİ</span>
                         </div>
-                        <p class="text-xs text-[#64748B] mt-0.5" id="mainHeaderSubtitle">"DAT Dedektiflik ziyaretçi etkileşimlerini, vaka taleplerini ve temasları tek ekrandan yönetin."</p>
+                        <p class="text-xs text-[#7B7B7B] mt-0.5" id="mainHeaderSubtitle">"DAT Dedektiflik ziyaretçi etkileşimlerini, vaka taleplerini ve temasları tek ekrandan yönetin."</p>
                     </div>
 
                     <!-- Search & Top Actions -->
                     <div class="flex items-center gap-3">
-                        <!-- Search Box (⌘ F) -->
                         <div class="relative w-full sm:w-64">
-                            <i class="hgi hgi-stroke hgi-search-01 w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-[#94A3B8]"></i>
-                            <input type="text" id="topSearchInput" oninput="handleTopSearch(this.value)" placeholder="Vaka, isim veya hizmet ara..." class="w-full pl-9 pr-10 py-2.5 rounded-full bg-[#FFFFFF] border border-[#E2E8F0] text-xs text-[#0F172A] placeholder:text-[#94A3B8] outline-none focus:border-[#74D620] shadow-sm">
-                            <span class="absolute right-3 top-1/2 -translate-y-1/2 text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#F1F5F9] text-[#64748B] border border-[#E2E8F0]">⌘ F</span>
+                            <i class="hgi hgi-stroke hgi-search-01 w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-[#7B7B7B]"></i>
+                            <input type="text" id="topSearchInput" oninput="handleTopSearch(this.value)" placeholder="Vaka, isim veya hizmet ara..." class="w-full pl-9 pr-10 py-2.5 rounded-full bg-[#FFFFFF] border border-[#E2E8F0] text-xs text-[#062F28] placeholder:text-[#7B7B7B] outline-none focus:border-[#9FE870] shadow-sm">
+                            <span class="absolute right-3 top-1/2 -translate-y-1/2 text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#F4F5F7] text-[#7B7B7B] border border-[#E2E8F0]">⌘ F</span>
                         </div>
 
                         <!-- Active Online Pill -->
-                        <button type="button" onclick="openMetricDetailModal('presence')" class="hidden sm:flex items-center gap-2 px-3.5 py-2 rounded-full bg-[#FFFFFF] border border-[#E2E8F0] shadow-sm text-xs font-semibold hover:border-[#74D620] transition">
-                            <span class="w-2 h-2 rounded-full bg-[#74D620] animate-pulse"></span>
+                        <button type="button" onclick="openMetricDetailModal('presence')" class="hidden sm:flex items-center gap-2 px-3.5 py-2 rounded-full bg-[#FFFFFF] border border-[#E2E8F0] shadow-sm text-xs font-bold text-[#062F28] hover:border-[#9FE870] transition">
+                            <span class="w-2 h-2 rounded-full bg-[#9FE870] animate-pulse"></span>
                             <span id="activeOnlineCount">1 Kişi Sitede Aktif</span>
                         </button>
 
-                        <!-- Settings & Refresh -->
-                        <button type="button" onclick="refreshData()" class="p-2.5 rounded-full bg-[#FFFFFF] border border-[#E2E8F0] hover:border-[#74D620] text-[#64748B] hover:text-[#0F172A] shadow-sm transition" title="Verileri Yenile">
+                        <button type="button" onclick="refreshData()" class="p-2.5 rounded-full bg-[#FFFFFF] border border-[#E2E8F0] hover:border-[#9FE870] text-[#7B7B7B] hover:text-[#062F28] shadow-sm transition" title="Verileri Yenile">
                             <i class="hgi hgi-stroke hgi-refresh w-4 h-4"></i>
                         </button>
 
-                        <button type="button" onclick="openNewLeadModal()" class="px-4 py-2.5 rounded-full bg-[#74D620] hover:bg-[#5BB812] text-[#0F172A] font-bold text-xs shadow-sm flex items-center gap-1.5 transition">
+                        <button type="button" onclick="openNewLeadModal()" class="px-4 py-2.5 rounded-full bg-[#9FE870] hover:bg-[#8BD85B] text-[#062F28] font-extrabold text-xs shadow-sm flex items-center gap-1.5 transition">
                             <i class="hgi hgi-stroke hgi-plus-sign w-3.5 h-3.5"></i>
                             <span class="hidden sm:inline">Vaka Ekle</span>
                         </button>
@@ -292,142 +300,98 @@
                 </header>
 
                 <!-- ========================================== -->
-                <!-- TAB CONTENT: DASHBOARD OVERVIEW           -->
+                <!-- TAB VIEW: DASHBOARD OVERVIEW               -->
                 <!-- ========================================== -->
                 <div id="tabViewDashboard" class="p-5 sm:p-7 pt-2 space-y-6">
                     
-                    <!-- 1. TOP 3 HERO CARDS (Matching Screenshot 1) -->
-                    <div class="grid grid-cols-1 md:grid-cols-12 gap-5">
+                    <!-- 1. OFFICIAL 3 METRIC CARDS (Exact match to Image 1) -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch">
                         
-                        <!-- CARD 1: Green Gradient Total Balance / Visitors Card -->
-                        <div onclick="openMetricDetailModal('visitors')" class="hero-green-card md:col-span-4 p-6 rounded-[28px] text-[#0F172A] shadow-sm flex flex-col justify-between space-y-5 cursor-pointer hover:shadow-lg transition">
-                            <div class="flex items-center justify-between">
-                                <span class="text-xs font-semibold uppercase tracking-wider text-[#0F172A]/80 font-mono">Toplam Ziyaretçi</span>
-                                <div class="w-7 h-7 rounded-full bg-[#FFFFFF]/30 flex items-center justify-center">
-                                    <i class="hgi hgi-stroke hgi-plus-sign w-4 h-4 text-[#0F172A]"></i>
-                                </div>
-                            </div>
-
+                        <!-- METRIC 1: Mobil Trafik (80% style) -->
+                        <div onclick="openDeviceDetailModal('Mobil')" class="fynix-card p-6 flex flex-col justify-between space-y-4 cursor-pointer hover:border-[#9FE870] transition">
+                            <div class="text-[11px] font-mono font-bold text-[#7B7B7B] uppercase">Metric 1: Mobil Trafik</div>
                             <div>
-                                <div class="text-3xl sm:text-4xl font-extrabold font-mono tracking-tight text-[#0F172A]">
-                                    <span id="heroVisitors">1.140</span> <span class="text-base font-sans font-bold">KİŞİ</span>
-                                </div>
-                                <div class="text-xs font-medium text-[#0F172A]/80 mt-1 flex items-center gap-1.5">
-                                    <span class="px-1.5 py-0.5 rounded-md bg-[#FFFFFF]/40 font-mono font-bold text-[10px]">↑ +%18</span>
-                                    <span>Son 24 saat tekil kullanıcı</span>
-                                </div>
+                                <div class="text-4xl font-extrabold font-mono tracking-tight text-[#062F28]">81.6%</div>
+                                <p class="text-xs text-[#7B7B7B] mt-2 leading-relaxed">Ziyaretçilerin büyük çoğunluğu akıllı telefonlar üzerinden hızlı WhatsApp temasını tercih etti.</p>
                             </div>
-
-                            <div class="flex items-center gap-2 pt-1">
-                                <button type="button" onclick="event.stopPropagation(); openMetricDetailModal('visitors')" class="flex-1 py-2.5 px-3 rounded-full bg-[#FFFFFF] hover:bg-[#FFFFFF]/90 text-[#0F172A] font-bold text-xs shadow-sm flex items-center justify-center gap-1 transition">
-                                    <span>Detayı Gör</span>
-                                    <i class="hgi hgi-stroke hgi-arrow-right-01 w-3 h-3"></i>
-                                </button>
-                                <button type="button" onclick="event.stopPropagation(); createRealTestLead()" class="py-2.5 px-4 rounded-full bg-[#0F172A] hover:bg-[#1E293B] text-[#FFFFFF] font-semibold text-xs flex items-center justify-center gap-1 transition">
-                                    <span>Test +</span>
-                                </button>
+                            <!-- Dot Meter (8 circles matching Image 1) -->
+                            <div class="flex items-center gap-2 pt-2">
+                                <span class="dot-circle border-[#9FE870]"><span class="dot-circle-inner bg-[#9FE870]"></span></span>
+                                <span class="dot-circle border-[#9FE870]"><span class="dot-circle-inner bg-[#9FE870]"></span></span>
+                                <span class="dot-circle border-[#9FE870]"><span class="dot-circle-inner bg-[#9FE870]"></span></span>
+                                <span class="dot-circle border-[#9FE870]"><span class="dot-circle-inner bg-[#9FE870]"></span></span>
+                                <span class="dot-circle border-[#9FE870]"><span class="dot-circle-inner bg-[#9FE870]"></span></span>
+                                <span class="dot-circle border-[#9FE870]"><span class="dot-circle-inner bg-[#9FE870]"></span></span>
+                                <span class="dot-circle border-[#9FE870]"><span class="dot-circle-inner bg-[#9FE870]"></span></span>
+                                <span class="dot-circle border-[#E2E8F0]"></span>
                             </div>
                         </div>
 
-                        <!-- CARD 2: "AI Enhancements" -> Performance / Interactions (Income/Expense/Savings style) -->
-                        <div class="fynix-card md:col-span-5 p-6 flex flex-col justify-between space-y-4">
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center gap-2">
-                                    <h3 class="text-sm font-bold text-[#0F172A]">Performans &amp; Etkileşimler</h3>
-                                    <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#E8F9D8] text-[#4AA70D] font-bold">CANLI</span>
-                                </div>
-                                <button type="button" onclick="refreshData()" class="text-xs text-[#64748B] hover:text-[#0F172A] flex items-center gap-1 font-semibold">
-                                    <span>+ Yenile</span>
-                                </button>
+                        <!-- METRIC 2: Total Visitors (Elevated #9FE870 Green Card - 50% style in Image 1) -->
+                        <div onclick="openMetricDetailModal('visitors')" class="hero-green-card p-6 flex flex-col justify-between space-y-4 cursor-pointer -translate-y-1">
+                            <div class="text-[11px] font-mono font-bold text-[#062F28]/80 uppercase">Metric 2: Ziyaretçi Hacmi</div>
+                            <div>
+                                <div class="text-4xl font-extrabold font-mono tracking-tight text-[#062F28]" id="heroVisitors">1.140</div>
+                                <p class="text-xs text-[#062F28]/90 font-medium mt-2 leading-relaxed">Son 24 saatte Cloudflare Edge CDN tarafından doğrulanmış gerçek tekil kullanıcı trafiği.</p>
                             </div>
-
-                            <div class="grid grid-cols-3 gap-3">
-                                
-                                <!-- Stat 1: WhatsApp -->
-                                <div onclick="openMetricDetailModal('whatsapp')" class="p-3.5 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] space-y-1.5 cursor-pointer hover:border-[#74D620] transition">
-                                    <div class="flex items-center gap-1.5 text-[11px] font-semibold text-[#16A34A]">
-                                        <i class="hgi hgi-stroke hgi-whatsapp w-3.5 h-3.5"></i>
-                                        <span>WhatsApp</span>
-                                    </div>
-                                    <div class="text-xl font-bold font-mono text-[#0F172A]" id="heroWhatsapp">184</div>
-                                    <div class="text-[10px] font-mono text-[#16A34A] font-bold">+%24.0</div>
-                                </div>
-
-                                <!-- Stat 2: Telefon -->
-                                <div onclick="openMetricDetailModal('calls')" class="p-3.5 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] space-y-1.5 cursor-pointer hover:border-[#74D620] transition">
-                                    <div class="flex items-center gap-1.5 text-[11px] font-semibold text-[#0F172A]">
-                                        <i class="hgi hgi-stroke hgi-call-02 w-3.5 h-3.5 text-[#74D620]"></i>
-                                        <span>Arama</span>
-                                    </div>
-                                    <div class="text-xl font-bold font-mono text-[#0F172A]" id="heroCalls">96</div>
-                                    <div class="text-[10px] font-mono text-[#16A34A] font-bold">+%12.5</div>
-                                </div>
-
-                                <!-- Stat 3: Sayfa Gezintisi -->
-                                <div onclick="openMetricDetailModal('pageViews')" class="p-3.5 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] space-y-1.5 cursor-pointer hover:border-[#74D620] transition">
-                                    <div class="flex items-center gap-1.5 text-[11px] font-semibold text-[#64748B]">
-                                        <i class="hgi hgi-stroke hgi-web-design-01 w-3.5 h-3.5"></i>
-                                        <span>Sayfalar</span>
-                                    </div>
-                                    <div class="text-xl font-bold font-mono text-[#0F172A]" id="heroViews">1.420</div>
-                                    <div class="text-[10px] font-mono text-[#16A34A] font-bold">+%18.2</div>
-                                </div>
-
+                            <!-- Dot Meter (8 circles with #062F28 inner dot matching Image 1) -->
+                            <div class="flex items-center gap-2 pt-2">
+                                <span class="dot-circle border-[#062F28]"><span class="dot-circle-inner bg-[#062F28]"></span></span>
+                                <span class="dot-circle border-[#062F28]"><span class="dot-circle-inner bg-[#062F28]"></span></span>
+                                <span class="dot-circle border-[#062F28]"><span class="dot-circle-inner bg-[#062F28]"></span></span>
+                                <span class="dot-circle border-[#062F28]"><span class="dot-circle-inner bg-[#062F28]"></span></span>
+                                <span class="dot-circle border-[#062F28]"><span class="dot-circle-inner bg-[#062F28]"></span></span>
+                                <span class="dot-circle border-[#062F28]"><span class="dot-circle-inner bg-[#062F28]"></span></span>
+                                <span class="dot-circle border-[#062F28]/30"></span>
+                                <span class="dot-circle border-[#062F28]/30"></span>
                             </div>
                         </div>
 
-                        <!-- CARD 3: "Finance Score" -> Dönüşüm Skoru (Excellent 92% style) -->
-                        <div onclick="openMetricDetailModal('conversion')" class="fynix-card md:col-span-3 p-6 flex flex-col justify-between space-y-4 cursor-pointer hover:border-[#74D620] transition">
-                            <div class="flex items-center justify-between">
-                                <h3 class="text-sm font-bold text-[#0F172A]">Dönüşüm Skoru</h3>
-                                <i class="hgi hgi-stroke hgi-more-horizontal w-4 h-4 text-[#94A3B8]"></i>
-                            </div>
-
+                        <!-- METRIC 3: Conversion Rate (69% style in Image 1) -->
+                        <div onclick="openMetricDetailModal('conversion')" class="fynix-card p-6 flex flex-col justify-between space-y-4 cursor-pointer hover:border-[#9FE870] transition">
+                            <div class="text-[11px] font-mono font-bold text-[#7B7B7B] uppercase">Metric 3: Dönüşüm Oranı</div>
                             <div>
-                                <div class="text-[11px] text-[#64748B] font-medium">Temas Kalitesi</div>
-                                <div class="flex items-baseline justify-between mt-1">
-                                    <div class="text-2xl font-extrabold text-[#0F172A]">Mükemmel</div>
-                                    <div class="text-2xl font-extrabold font-mono text-[#74D620]" id="heroConversionRate">%27.0</div>
-                                </div>
+                                <div class="text-4xl font-extrabold font-mono tracking-tight text-[#062F28]" id="heroConversionRate">27.0%</div>
+                                <p class="text-xs text-[#7B7B7B] mt-2 leading-relaxed">1.140 ziyaretçiden 308 danışan doğrudan WhatsApp, arama ve form ile iletişime geçti.</p>
                             </div>
-
-                            <div class="space-y-1.5">
-                                <div class="h-3 w-full rounded-full bg-[#E2E8F0] overflow-hidden flex gap-1 p-0.5">
-                                    <div class="h-full bg-[#0F172A] rounded-full" style="width: 75%"></div>
-                                    <div class="h-full bg-[#74D620] rounded-full" style="width: 25%"></div>
-                                </div>
-                                <div class="flex justify-between text-[10px] font-mono text-[#64748B]">
-                                    <span>Sektör Ort: %6.5</span>
-                                    <span class="text-[#16A34A] font-bold">4.2x Kat Yüksek</span>
-                                </div>
+                            <!-- Dot Meter (8 circles) -->
+                            <div class="flex items-center gap-2 pt-2">
+                                <span class="dot-circle border-[#9FE870]"><span class="dot-circle-inner bg-[#9FE870]"></span></span>
+                                <span class="dot-circle border-[#9FE870]"><span class="dot-circle-inner bg-[#9FE870]"></span></span>
+                                <span class="dot-circle border-[#9FE870]"><span class="dot-circle-inner bg-[#9FE870]"></span></span>
+                                <span class="dot-circle border-[#9FE870]"><span class="dot-circle-inner bg-[#9FE870]"></span></span>
+                                <span class="dot-circle border-[#9FE870]"><span class="dot-circle-inner bg-[#9FE870]"></span></span>
+                                <span class="dot-circle border-[#E2E8F0]"></span>
+                                <span class="dot-circle border-[#E2E8F0]"></span>
+                                <span class="dot-circle border-[#E2E8F0]"></span>
                             </div>
                         </div>
 
                     </div>
 
-                    <!-- 2. MIDDLE ROW: Cashflow Hourly Chart & AI Assistant (Matching Screenshot 1) -->
+                    <!-- 2. Cashflow Hourly Dual-Tone Chart & AI Assistant -->
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
                         
-                        <!-- LEFT (8 Cols): Hourly Traffic & Interaction Bar Chart (Cashflow style) -->
+                        <!-- LEFT (7 Cols): Hourly Bar Chart in #062F28 & #9FE870 -->
                         <div class="fynix-card lg:col-span-7 p-6 space-y-5">
                             <div class="flex flex-wrap items-center justify-between gap-3">
                                 <div>
-                                    <h3 class="text-base font-bold text-[#0F172A]">Saatlik Trafik &amp; İletişim Akışı</h3>
-                                    <div class="text-2xl font-extrabold font-mono text-[#0F172A] mt-1">
-                                        15.850 <span class="text-xs font-sans text-[#64748B] font-semibold">HTTP İsteği (Cloudflare)</span>
+                                    <h3 class="text-base font-extrabold text-[#062F28]">Saatlik Trafik &amp; İletişim Akışı</h3>
+                                    <div class="text-2xl font-extrabold font-mono text-[#062F28] mt-0.5">
+                                        15.850 <span class="text-xs font-sans text-[#7B7B7B] font-bold">Cloudflare HTTP İsteği</span>
                                     </div>
                                 </div>
 
-                                <div class="flex items-center gap-4 text-xs font-semibold">
+                                <div class="flex items-center gap-4 text-xs font-bold">
                                     <div class="flex items-center gap-1.5">
-                                        <span class="w-3 h-3 rounded-md bg-[#0F172A]"></span>
-                                        <span class="text-[#0F172A]">Sayfa Ziyareti</span>
+                                        <span class="w-3 h-3 rounded-md bg-[#062F28]"></span>
+                                        <span class="text-[#062F28]">Ziyaret</span>
                                     </div>
                                     <div class="flex items-center gap-1.5">
-                                        <span class="w-3 h-3 rounded-md bg-[#74D620]"></span>
-                                        <span class="text-[#0F172A]">WhatsApp &amp; Arama</span>
+                                        <span class="w-3 h-3 rounded-md bg-[#9FE870]"></span>
+                                        <span class="text-[#062F28]">WhatsApp &amp; Arama</span>
                                     </div>
-                                    <select onchange="setTimeFilter(this.value)" class="px-3 py-1.5 rounded-full bg-[#F8FAFC] border border-[#E2E8F0] text-xs font-semibold outline-none cursor-pointer">
+                                    <select onchange="setTimeFilter(this.value)" class="px-3 py-1.5 rounded-full bg-[#F4F5F7] border border-[#E2E8F0] text-xs font-bold outline-none cursor-pointer">
                                         <option value="today">Bugün</option>
                                         <option value="yesterday">Dün</option>
                                         <option value="7days">Son 7 Gün</option>
@@ -435,86 +399,62 @@
                                 </div>
                             </div>
 
-                            <!-- Styled Dual-Tone Bar Chart (Matching Screenshot 1 Cashflow) -->
-                            <div class="pt-4 space-y-2">
-                                <div class="grid grid-cols-12 gap-2 sm:gap-3 items-end h-44 border-b border-[#F1F5F9] pb-2">
+                            <!-- Styled Dual-Tone Bars in #062F28 and #9FE870 -->
+                            <div class="pt-2 space-y-2">
+                                <div class="grid grid-cols-12 gap-2 sm:gap-3 items-end h-40 border-b border-[#F1F5F9] pb-2">
                                     
-                                    <!-- Bar 1 (02:00) -->
                                     <div class="flex flex-col items-center gap-1 h-full justify-end group cursor-pointer" onclick="openMetricDetailModal('visitors')">
-                                        <div class="w-full max-w-[20px] bg-[#0F172A] rounded-t-md group-hover:opacity-80 transition" style="height: 18%"></div>
-                                        <div class="w-full max-w-[20px] bg-[#74D620] rounded-b-md group-hover:opacity-80 transition" style="height: 8%"></div>
+                                        <div class="w-full max-w-[20px] bg-[#062F28] rounded-t-md group-hover:opacity-80 transition" style="height: 18%"></div>
+                                        <div class="w-full max-w-[20px] bg-[#9FE870] rounded-b-md group-hover:opacity-80 transition" style="height: 8%"></div>
                                     </div>
-
-                                    <!-- Bar 2 (04:00) -->
                                     <div class="flex flex-col items-center gap-1 h-full justify-end group cursor-pointer" onclick="openMetricDetailModal('visitors')">
-                                        <div class="w-full max-w-[20px] bg-[#0F172A] rounded-t-md group-hover:opacity-80 transition" style="height: 12%"></div>
-                                        <div class="w-full max-w-[20px] bg-[#74D620] rounded-b-md group-hover:opacity-80 transition" style="height: 6%"></div>
+                                        <div class="w-full max-w-[20px] bg-[#062F28] rounded-t-md group-hover:opacity-80 transition" style="height: 12%"></div>
+                                        <div class="w-full max-w-[20px] bg-[#9FE870] rounded-b-md group-hover:opacity-80 transition" style="height: 6%"></div>
                                     </div>
-
-                                    <!-- Bar 3 (06:00) -->
                                     <div class="flex flex-col items-center gap-1 h-full justify-end group cursor-pointer" onclick="openMetricDetailModal('visitors')">
-                                        <div class="w-full max-w-[20px] bg-[#0F172A] rounded-t-md group-hover:opacity-80 transition" style="height: 24%"></div>
-                                        <div class="w-full max-w-[20px] bg-[#74D620] rounded-b-md group-hover:opacity-80 transition" style="height: 10%"></div>
+                                        <div class="w-full max-w-[20px] bg-[#062F28] rounded-t-md group-hover:opacity-80 transition" style="height: 24%"></div>
+                                        <div class="w-full max-w-[20px] bg-[#9FE870] rounded-b-md group-hover:opacity-80 transition" style="height: 10%"></div>
                                     </div>
-
-                                    <!-- Bar 4 (08:00) -->
                                     <div class="flex flex-col items-center gap-1 h-full justify-end group cursor-pointer" onclick="openMetricDetailModal('visitors')">
-                                        <div class="w-full max-w-[20px] bg-[#0F172A] rounded-t-md group-hover:opacity-80 transition" style="height: 48%"></div>
-                                        <div class="w-full max-w-[20px] bg-[#74D620] rounded-b-md group-hover:opacity-80 transition" style="height: 22%"></div>
+                                        <div class="w-full max-w-[20px] bg-[#062F28] rounded-t-md group-hover:opacity-80 transition" style="height: 48%"></div>
+                                        <div class="w-full max-w-[20px] bg-[#9FE870] rounded-b-md group-hover:opacity-80 transition" style="height: 22%"></div>
                                     </div>
-
-                                    <!-- Bar 5 (10:00) -->
                                     <div class="flex flex-col items-center gap-1 h-full justify-end group cursor-pointer" onclick="openMetricDetailModal('visitors')">
-                                        <div class="w-full max-w-[20px] bg-[#0F172A] rounded-t-md group-hover:opacity-80 transition" style="height: 68%"></div>
-                                        <div class="w-full max-w-[20px] bg-[#74D620] rounded-b-md group-hover:opacity-80 transition" style="height: 38%"></div>
+                                        <div class="w-full max-w-[20px] bg-[#062F28] rounded-t-md group-hover:opacity-80 transition" style="height: 68%"></div>
+                                        <div class="w-full max-w-[20px] bg-[#9FE870] rounded-b-md group-hover:opacity-80 transition" style="height: 38%"></div>
                                     </div>
-
-                                    <!-- Bar 6 (12:00) -->
                                     <div class="flex flex-col items-center gap-1 h-full justify-end group cursor-pointer" onclick="openMetricDetailModal('visitors')">
-                                        <div class="w-full max-w-[20px] bg-[#0F172A] rounded-t-md group-hover:opacity-80 transition" style="height: 60%"></div>
-                                        <div class="w-full max-w-[20px] bg-[#74D620] rounded-b-md group-hover:opacity-80 transition" style="height: 32%"></div>
+                                        <div class="w-full max-w-[20px] bg-[#062F28] rounded-t-md group-hover:opacity-80 transition" style="height: 60%"></div>
+                                        <div class="w-full max-w-[20px] bg-[#9FE870] rounded-b-md group-hover:opacity-80 transition" style="height: 32%"></div>
                                     </div>
-
-                                    <!-- Bar 7 (14:00 - PEAK) -->
                                     <div class="flex flex-col items-center gap-1 h-full justify-end group cursor-pointer" onclick="openMetricDetailModal('visitors')">
-                                        <div class="w-full max-w-[20px] bg-[#0F172A] rounded-t-md group-hover:opacity-80 transition" style="height: 85%"></div>
-                                        <div class="w-full max-w-[20px] bg-[#74D620] rounded-b-md group-hover:opacity-80 transition" style="height: 45%"></div>
+                                        <div class="w-full max-w-[20px] bg-[#062F28] rounded-t-md group-hover:opacity-80 transition" style="height: 85%"></div>
+                                        <div class="w-full max-w-[20px] bg-[#9FE870] rounded-b-md group-hover:opacity-80 transition" style="height: 45%"></div>
                                     </div>
-
-                                    <!-- Bar 8 (16:00) -->
                                     <div class="flex flex-col items-center gap-1 h-full justify-end group cursor-pointer" onclick="openMetricDetailModal('visitors')">
-                                        <div class="w-full max-w-[20px] bg-[#0F172A] rounded-t-md group-hover:opacity-80 transition" style="height: 72%"></div>
-                                        <div class="w-full max-w-[20px] bg-[#74D620] rounded-b-md group-hover:opacity-80 transition" style="height: 40%"></div>
+                                        <div class="w-full max-w-[20px] bg-[#062F28] rounded-t-md group-hover:opacity-80 transition" style="height: 72%"></div>
+                                        <div class="w-full max-w-[20px] bg-[#9FE870] rounded-b-md group-hover:opacity-80 transition" style="height: 40%"></div>
                                     </div>
-
-                                    <!-- Bar 9 (18:00) -->
                                     <div class="flex flex-col items-center gap-1 h-full justify-end group cursor-pointer" onclick="openMetricDetailModal('visitors')">
-                                        <div class="w-full max-w-[20px] bg-[#0F172A] rounded-t-md group-hover:opacity-80 transition" style="height: 55%"></div>
-                                        <div class="w-full max-w-[20px] bg-[#74D620] rounded-b-md group-hover:opacity-80 transition" style="height: 35%"></div>
+                                        <div class="w-full max-w-[20px] bg-[#062F28] rounded-t-md group-hover:opacity-80 transition" style="height: 55%"></div>
+                                        <div class="w-full max-w-[20px] bg-[#9FE870] rounded-b-md group-hover:opacity-80 transition" style="height: 35%"></div>
                                     </div>
-
-                                    <!-- Bar 10 (20:00) -->
                                     <div class="flex flex-col items-center gap-1 h-full justify-end group cursor-pointer" onclick="openMetricDetailModal('visitors')">
-                                        <div class="w-full max-w-[20px] bg-[#0F172A] rounded-t-md group-hover:opacity-80 transition" style="height: 78%"></div>
-                                        <div class="w-full max-w-[20px] bg-[#74D620] rounded-b-md group-hover:opacity-80 transition" style="height: 52%"></div>
+                                        <div class="w-full max-w-[20px] bg-[#062F28] rounded-t-md group-hover:opacity-80 transition" style="height: 78%"></div>
+                                        <div class="w-full max-w-[20px] bg-[#9FE870] rounded-b-md group-hover:opacity-80 transition" style="height: 52%"></div>
                                     </div>
-
-                                    <!-- Bar 11 (22:00 - NIGHT PEAK) -->
                                     <div class="flex flex-col items-center gap-1 h-full justify-end group cursor-pointer" onclick="openMetricDetailModal('visitors')">
-                                        <div class="w-full max-w-[20px] bg-[#0F172A] rounded-t-md group-hover:opacity-80 transition" style="height: 94%"></div>
-                                        <div class="w-full max-w-[20px] bg-[#74D620] rounded-b-md group-hover:opacity-80 transition" style="height: 65%"></div>
+                                        <div class="w-full max-w-[20px] bg-[#062F28] rounded-t-md group-hover:opacity-80 transition" style="height: 94%"></div>
+                                        <div class="w-full max-w-[20px] bg-[#9FE870] rounded-b-md group-hover:opacity-80 transition" style="height: 65%"></div>
                                     </div>
-
-                                    <!-- Bar 12 (24:00) -->
                                     <div class="flex flex-col items-center gap-1 h-full justify-end group cursor-pointer" onclick="openMetricDetailModal('visitors')">
-                                        <div class="w-full max-w-[20px] bg-[#0F172A] rounded-t-md group-hover:opacity-80 transition" style="height: 42%"></div>
-                                        <div class="w-full max-w-[20px] bg-[#74D620] rounded-b-md group-hover:opacity-80 transition" style="height: 25%"></div>
+                                        <div class="w-full max-w-[20px] bg-[#062F28] rounded-t-md group-hover:opacity-80 transition" style="height: 42%"></div>
+                                        <div class="w-full max-w-[20px] bg-[#9FE870] rounded-b-md group-hover:opacity-80 transition" style="height: 25%"></div>
                                     </div>
 
                                 </div>
 
-                                <!-- X Axis Labels -->
-                                <div class="grid grid-cols-12 text-center text-[10px] font-mono text-[#94A3B8]">
+                                <div class="grid grid-cols-12 text-center text-[10px] font-mono text-[#7B7B7B]">
                                     <span>02:00</span>
                                     <span>04:00</span>
                                     <span>06:00</span>
@@ -525,59 +465,57 @@
                                     <span>16:00</span>
                                     <span>18:00</span>
                                     <span>20:00</span>
-                                    <span class="text-[#74D620] font-bold">22:00</span>
+                                    <span class="text-[#062F28] font-bold">22:00</span>
                                     <span>24:00</span>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- RIGHT (5 Cols): AI Operational Assistant (Matching Screenshot 1) -->
+                        <!-- RIGHT (5 Cols): AI Harekat Asistanı -->
                         <div class="fynix-card lg:col-span-5 p-6 flex flex-col justify-between space-y-4">
                             <div class="flex items-center justify-between">
-                                <h3 class="text-sm font-bold text-[#0F172A]">AI Harekat Asistanı</h3>
-                                <i class="hgi hgi-stroke hgi-more-horizontal w-4 h-4 text-[#94A3B8]"></i>
+                                <h3 class="text-sm font-extrabold text-[#062F28]">AI Harekat Asistanı</h3>
+                                <i class="hgi hgi-stroke hgi-more-horizontal w-4 h-4 text-[#7B7B7B]"></i>
                             </div>
 
-                            <!-- Center Orb & Questions -->
                             <div class="text-center py-2 space-y-3">
-                                <div class="w-16 h-16 rounded-full bg-gradient-to-br from-[#74D620] via-[#59C114] to-[#0F172A] mx-auto shadow-md flex items-center justify-center p-0.5">
+                                <div class="w-16 h-16 rounded-full bg-gradient-to-br from-[#9FE870] via-[#8BD85B] to-[#062F28] mx-auto shadow-md flex items-center justify-center p-0.5">
                                     <div class="w-full h-full rounded-full bg-[#FFFFFF] flex items-center justify-center text-xl">
                                         🤖
                                     </div>
                                 </div>
 
                                 <div>
-                                    <div class="text-sm font-bold text-[#0F172A]">Nasıl yardımcı olabilirim?</div>
-                                    <p class="text-[11px] text-[#64748B] mt-0.5">Ziyaretçi sayıları, vaka durumu veya ilgi analitiği sorabilirsiniz.</p>
+                                    <div class="text-sm font-extrabold text-[#062F28]">Bugün size nasıl yardımcı olabilirim?</div>
+                                    <p class="text-[11px] text-[#7B7B7B] mt-0.5">Ziyaretçi sayıları, vaka durumu veya ilgi analitiği sorabilirsiniz.</p>
                                 </div>
 
-                                <!-- Quick Chips -->
                                 <div class="flex flex-wrap justify-center gap-1.5 text-[11px]">
-                                    <button type="button" onclick="askAiAssistant('Bugün en çok hangi hizmet incelendi?')" class="px-2.5 py-1 rounded-full bg-[#F8FAFC] hover:bg-[#E8F9D8] text-[#0F172A] border border-[#E2E8F0] transition">
+                                    <button type="button" onclick="askAiAssistant('Bugün en çok hangi hizmet incelendi?')" class="px-2.5 py-1 rounded-full bg-[#F4F5F7] hover:bg-[#EAF9DE] text-[#062F28] border border-[#E2E8F0] transition font-medium">
                                         🔎 En çok hangi hizmet?
                                     </button>
-                                    <button type="button" onclick="askAiAssistant('Acil vaka var mı?')" class="px-2.5 py-1 rounded-full bg-[#F8FAFC] hover:bg-[#E8F9D8] text-[#0F172A] border border-[#E2E8F0] transition">
+                                    <button type="button" onclick="askAiAssistant('Acil vaka var mı?')" class="px-2.5 py-1 rounded-full bg-[#F4F5F7] hover:bg-[#EAF9DE] text-[#062F28] border border-[#E2E8F0] transition font-medium">
                                         🚨 Acil vaka var mı?
                                     </button>
-                                    <button type="button" onclick="askAiAssistant('WhatsApp dönüşümünü özetle')" class="px-2.5 py-1 rounded-full bg-[#F8FAFC] hover:bg-[#E8F9D8] text-[#0F172A] border border-[#E2E8F0] transition">
+                                    <button type="button" onclick="askAiAssistant('WhatsApp dönüşümünü özetle')" class="px-2.5 py-1 rounded-full bg-[#F4F5F7] hover:bg-[#EAF9DE] text-[#062F28] border border-[#E2E8F0] transition font-medium">
                                         💬 WhatsApp dönüşümü
                                     </button>
                                 </div>
                             </div>
 
-                            <!-- AI Output Bubble (if answered) -->
-                            <div id="aiReplyBox" class="hidden p-3.5 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] text-xs text-[#0F172A] leading-relaxed">
-                                <div class="font-bold text-[#4AA70D] flex items-center gap-1 mb-1">
+                            <!-- AI Output Bubble -->
+                            <div id="aiReplyBox" class="hidden p-3.5 rounded-2xl bg-[#EAF9DE] border border-[#9FE870]/40 text-xs text-[#062F28] leading-relaxed">
+                                <div class="font-bold text-[#062F28] flex items-center gap-1 mb-1">
                                     <span>AI Yanıtı:</span>
                                 </div>
                                 <div id="aiReplyText"></div>
                             </div>
 
-                            <!-- Input Box (Matching Screenshot 1) -->
+                            <!-- Input Box -->
                             <form onsubmit="handleAiSubmit(event)" class="relative">
-                                <input type="text" id="aiInputPrompt" placeholder="Vaka veya analiz sorusu sorun..." class="w-full pl-4 pr-24 py-3 rounded-full bg-[#F8FAFC] border border-[#E2E8F0] text-xs text-[#0F172A] outline-none focus:border-[#74D620] focus:bg-[#FFFFFF] shadow-sm">
+                                <input type="text" id="aiInputPrompt" placeholder="Vaka veya analiz sorusu sorun..." class="w-full pl-4 pr-24 py-3 rounded-full bg-[#F4F5F7] border border-[#E2E8F0] text-xs text-[#062F28] outline-none focus:border-[#9FE870] focus:bg-[#FFFFFF] shadow-sm">
                                 <div class="absolute right-1.5 top-1/2 -translate-y-1/2 flex items-center gap-1">
-                                    <button type="submit" class="px-3 py-1.5 rounded-full bg-[#74D620] hover:bg-[#5BB812] text-[#0F172A] text-xs font-bold transition flex items-center gap-1">
+                                    <button type="submit" class="px-3.5 py-1.5 rounded-full bg-[#9FE870] hover:bg-[#8BD85B] text-[#062F28] text-xs font-bold transition flex items-center gap-1">
                                         <span>Sor</span>
                                         <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3 h-3"></i>
                                     </button>
@@ -587,27 +525,27 @@
 
                     </div>
 
-                    <!-- 3. BOTTOM ROW: Recent Transactions (Leads CRM), Donut Statistic, Exchange (Matching Screenshot 1 & 2) -->
+                    <!-- 3. EXACT STATISTIC DONUT CARD (Matching Image 3) + RECENT LEADS TABLE -->
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
                         
-                        <!-- LEFT (6 Cols): Recent Transactions / Vaka Talepleri CRM (Matching Screenshot 2) -->
-                        <div class="fynix-card lg:col-span-6 p-6 space-y-4">
+                        <!-- LEFT (7 Cols): Recent Transactions / Vaka CRM (Screenshot 2 Style) -->
+                        <div class="fynix-card lg:col-span-7 p-6 space-y-4">
                             <div class="flex items-center justify-between">
                                 <div>
-                                    <h3 class="text-base font-bold text-[#0F172A]">Gelen Vaka Talepleri &amp; CRM</h3>
-                                    <p class="text-xs text-[#64748B]">Siteden iletilen şifreli danışan başvuruları (Detay için tıklayın)</p>
+                                    <h3 class="text-base font-extrabold text-[#062F28]">Gelen Vaka Talepleri &amp; CRM</h3>
+                                    <p class="text-xs text-[#7B7B7B]">Siteden iletilen şifreli danışan başvuruları (Detay için tıklayın)</p>
                                 </div>
                                 <div class="flex items-center gap-2">
-                                    <button type="button" onclick="switchMainTab('leads')" class="text-xs font-bold text-[#74D620] hover:underline">
-                                        Tümünü Gör →
+                                    <button type="button" onclick="switchMainTab('leads')" class="text-xs font-bold text-[#062F28] hover:text-[#9FE870] transition flex items-center gap-1">
+                                        <span>Tümünü Gör</span>
+                                        <i class="hgi hgi-stroke hgi-arrow-right-01 w-3.5 h-3.5"></i>
                                     </button>
                                 </div>
                             </div>
 
-                            <!-- Table (Exact Style of Screenshot 2) -->
                             <div class="overflow-x-auto -mx-6 px-6">
                                 <table class="w-full text-left text-xs">
-                                    <thead class="text-[#94A3B8] font-mono text-[10px] uppercase border-b border-[#F1F5F9]">
+                                    <thead class="text-[#7B7B7B] font-mono text-[10px] uppercase border-b border-[#F1F5F9]">
                                         <tr>
                                             <th class="pb-2.5 font-bold">Danışan &amp; Hizmet</th>
                                             <th class="pb-2.5 font-bold">Kanal</th>
@@ -622,92 +560,78 @@
                             </div>
                         </div>
 
-                        <!-- MIDDLE (3 Cols): Donut Chart Breakdown ("Nereye Baktılar?") (Matching Screenshot 1) -->
-                        <div onclick="switchMainTab('analytics')" class="fynix-card lg:col-span-3 p-6 flex flex-col justify-between space-y-4 cursor-pointer hover:border-[#74D620] transition">
+                        <!-- RIGHT (5 Cols): EXACT STATISTIC CARD (Matching Image 3) -->
+                        <div class="fynix-card lg:col-span-5 p-6 flex flex-col justify-between space-y-4">
+                            
+                            <!-- Header with "This Month v" -->
                             <div class="flex items-center justify-between">
-                                <h3 class="text-sm font-bold text-[#0F172A]">Hizmet İlgi Dağılımı</h3>
-                                <span class="text-[10px] font-mono text-[#94A3B8]">BU AY</span>
+                                <h3 class="text-base font-extrabold text-[#062F28]">Statistic</h3>
+                                <div class="flex items-center gap-1 text-xs font-bold text-[#062F28] cursor-pointer">
+                                    <span>This Month</span>
+                                    <i class="hgi hgi-stroke hgi-arrow-down-01 w-3.5 h-3.5 text-[#7B7B7B]"></i>
+                                </div>
                             </div>
 
-                            <!-- SVG Donut Chart with Center Text -->
-                            <div class="relative flex items-center justify-center my-2">
-                                <svg class="w-36 h-36 transform -rotate-90" viewBox="0 0 100 100">
-                                    <!-- Background circle -->
+                            <!-- Sub Tabs with #9FE870 underline (Matching Image 3) -->
+                            <div class="flex items-center justify-around border-b border-[#F1F5F9] text-xs font-bold">
+                                <button type="button" class="pb-2.5 px-4 text-[#7B7B7B] hover:text-[#062F28] transition">Ziyaret (1.140)</button>
+                                <button type="button" class="pb-2.5 px-4 text-[#062F28] border-b-2 border-[#9FE870] -mb-[1px] transition">Hizmet Gezintisi (1.420)</button>
+                            </div>
+
+                            <!-- Donut Chart with Exact Segments: #062F28, #9FE870, #C3F2A6, #7B7B7B -->
+                            <div class="relative flex items-center justify-center my-3">
+                                <svg class="w-44 h-44 transform -rotate-90" viewBox="0 0 100 100">
+                                    <!-- Background -->
                                     <circle cx="50" cy="50" r="38" fill="transparent" stroke="#F1F5F9" stroke-width="12"></circle>
-                                    <!-- Segment 1: Eş Takibi (38%) -->
-                                    <circle cx="50" cy="50" r="38" fill="transparent" stroke="#0F172A" stroke-width="12" stroke-dasharray="238.7" stroke-dashoffset="148"></circle>
-                                    <!-- Segment 2: TSCM Böcek (22%) -->
-                                    <circle cx="50" cy="50" r="38" fill="transparent" stroke="#74D620" stroke-width="12" stroke-dasharray="238.7" stroke-dashoffset="186" transform="rotate(136 50 50)"></circle>
-                                    <!-- Segment 3: Evlilik (15%) -->
-                                    <circle cx="50" cy="50" r="38" fill="transparent" stroke="#5BB812" stroke-width="12" stroke-dasharray="238.7" stroke-dashoffset="202" transform="rotate(215 50 50)"></circle>
-                                    <!-- Segment 4: Velayet (13%) -->
-                                    <circle cx="50" cy="50" r="38" fill="transparent" stroke="#94A3B8" stroke-width="12" stroke-dasharray="238.7" stroke-dashoffset="207" transform="rotate(269 50 50)"></circle>
+                                    <!-- Major Segment 1: #062F28 (Eş Takibi 38%) -->
+                                    <circle cx="50" cy="50" r="38" fill="transparent" stroke="#062F28" stroke-width="12" stroke-dasharray="238.7" stroke-dashoffset="148"></circle>
+                                    <!-- Major Segment 2: #9FE870 (TSCM Böcek 22%) -->
+                                    <circle cx="50" cy="50" r="38" fill="transparent" stroke="#9FE870" stroke-width="12" stroke-dasharray="238.7" stroke-dashoffset="186" transform="rotate(136 50 50)"></circle>
+                                    <!-- Major Segment 3: #C3F2A6 Light Mint (Evlilik 15%) -->
+                                    <circle cx="50" cy="50" r="38" fill="transparent" stroke="#C3F2A6" stroke-width="12" stroke-dasharray="238.7" stroke-dashoffset="202" transform="rotate(215 50 50)"></circle>
+                                    <!-- Major Segment 4: #7B7B7B Gray (Velayet 13%) -->
+                                    <circle cx="50" cy="50" r="38" fill="transparent" stroke="#7B7B7B" stroke-width="12" stroke-dasharray="238.7" stroke-dashoffset="207" transform="rotate(269 50 50)"></circle>
                                 </svg>
+                                
+                                <!-- Center Text (Matching Image 3: "Total Expense $3,500") -->
                                 <div class="absolute text-center">
-                                    <div class="text-[10px] font-mono text-[#94A3B8] uppercase">Toplam</div>
-                                    <div class="text-lg font-bold font-mono text-[#0F172A]">1.420</div>
-                                    <div class="text-[9px] text-[#74D620] font-bold">Sayfa</div>
+                                    <div class="text-[11px] font-medium text-[#7B7B7B]">Toplam Gezinti</div>
+                                    <div class="text-2xl font-extrabold font-mono text-[#062F28]">1.420</div>
                                 </div>
                             </div>
 
-                            <!-- Legend List -->
-                            <div class="space-y-1.5 text-xs">
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center gap-1.5">
-                                        <span class="w-2.5 h-2.5 rounded-full bg-[#0F172A]"></span>
-                                        <span class="text-[#0F172A] font-medium">Eş Takibi &amp; Boşanma</span>
+                            <!-- Category Legend Breakdown (Matching Image 3) -->
+                            <div class="space-y-2 text-xs">
+                                <div class="flex items-center justify-between p-1.5 rounded-xl hover:bg-[#F4F5F7] transition cursor-pointer" onclick="openServiceDetailModal('Eş Takibi & Boşanma', 540, 38)">
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-3 h-3 rounded-full bg-[#062F28]"></span>
+                                        <span class="text-[#062F28] font-bold">Eş Takibi &amp; Boşanma</span>
                                     </div>
-                                    <span class="font-mono font-bold text-[#0F172A]">%38</span>
+                                    <span class="font-mono font-extrabold text-[#062F28]">540 Ziyaret (%38)</span>
                                 </div>
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center gap-1.5">
-                                        <span class="w-2.5 h-2.5 rounded-full bg-[#74D620]"></span>
-                                        <span class="text-[#0F172A] font-medium">TSCM Böcek Arama</span>
+                                <div class="flex items-center justify-between p-1.5 rounded-xl hover:bg-[#F4F5F7] transition cursor-pointer" onclick="openServiceDetailModal('TSCM Böcek Arama', 310, 22)">
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-3 h-3 rounded-full bg-[#9FE870]"></span>
+                                        <span class="text-[#062F28] font-bold">TSCM Böcek Arama</span>
                                     </div>
-                                    <span class="font-mono font-bold text-[#0F172A]">%22</span>
+                                    <span class="font-mono font-extrabold text-[#062F28]">310 Ziyaret (%22)</span>
                                 </div>
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center gap-1.5">
-                                        <span class="w-2.5 h-2.5 rounded-full bg-[#5BB812]"></span>
-                                        <span class="text-[#0F172A] font-medium">Evlilik Öncesi Tahkikat</span>
+                                <div class="flex items-center justify-between p-1.5 rounded-xl hover:bg-[#F4F5F7] transition cursor-pointer" onclick="openServiceDetailModal('Evlilik Öncesi Tahkikat', 210, 15)">
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-3 h-3 rounded-full bg-[#C3F2A6]"></span>
+                                        <span class="text-[#062F28] font-bold">Evlilik Öncesi Tahkikat</span>
                                     </div>
-                                    <span class="font-mono font-bold text-[#0F172A]">%15</span>
+                                    <span class="font-mono font-extrabold text-[#062F28]">210 Ziyaret (%15)</span>
                                 </div>
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center gap-1.5">
-                                        <span class="w-2.5 h-2.5 rounded-full bg-[#94A3B8]"></span>
-                                        <span class="text-[#0F172A] font-medium">Velayet Davaları Delil</span>
+                                <div class="flex items-center justify-between p-1.5 rounded-xl hover:bg-[#F4F5F7] transition cursor-pointer" onclick="openServiceDetailModal('Velayet Davaları Delil', 180, 13)">
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-3 h-3 rounded-full bg-[#7B7B7B]"></span>
+                                        <span class="text-[#062F28] font-bold">Velayet Davaları Delil</span>
                                     </div>
-                                    <span class="font-mono font-bold text-[#0F172A]">%13</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- RIGHT (3 Cols): Quick Communication / Santral (Exchange style) -->
-                        <div class="fynix-card lg:col-span-3 p-6 flex flex-col justify-between space-y-4">
-                            <div class="flex items-center justify-between">
-                                <h3 class="text-sm font-bold text-[#0F172A]">Hızlı Santral &amp; İletişim</h3>
-                                <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#E8F9D8] text-[#4AA70D] font-bold">7/24 AKTİF</span>
-                            </div>
-
-                            <div class="p-3.5 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] space-y-2">
-                                <div class="text-[11px] text-[#64748B]">Doğrudan Danışan Hattı:</div>
-                                <div class="text-base font-bold font-mono text-[#0F172A]">0532 666 77 49</div>
-                                <div class="text-[10px] text-[#16A34A] font-medium flex items-center gap-1">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-[#16A34A]"></span>
-                                    <span>WhatsApp Hızlı Yanıt Hazır</span>
+                                    <span class="font-mono font-extrabold text-[#062F28]">180 Ziyaret (%13)</span>
                                 </div>
                             </div>
 
-                            <div class="p-3.5 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] space-y-1">
-                                <div class="text-[11px] text-[#64748B]">Ankara Merkez Santral:</div>
-                                <div class="text-sm font-bold font-mono text-[#0F172A]">0312 284 02 99</div>
-                            </div>
-
-                            <a href="https://wa.me/905326667749" target="_blank" class="w-full py-3 rounded-full bg-[#74D620] hover:bg-[#5BB812] text-[#0F172A] font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition">
-                                <i class="hgi hgi-stroke hgi-whatsapp w-4 h-4 text-[#0F172A]"></i>
-                                <span>Canlı WhatsApp Başlat</span>
-                            </a>
                         </div>
 
                     </div>
@@ -715,21 +639,20 @@
                 </div>
 
                 <!-- ========================================== -->
-                <!-- TAB CONTENT: FULL LEADS CRM (Screenshot 2/3) -->
+                <!-- TAB VIEW: FULL LEADS CRM                   -->
                 <!-- ========================================== -->
                 <div id="tabViewLeads" class="p-5 sm:p-7 pt-2 space-y-6 hidden">
                     
-                    <!-- Search, Filter & Action Bar -->
                     <div class="fynix-card p-5 flex flex-wrap items-center justify-between gap-3">
                         <div class="flex items-center gap-2 flex-1 min-w-[260px]">
                             <div class="relative w-full max-w-md">
-                                <i class="hgi hgi-stroke hgi-search-01 w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-[#94A3B8]"></i>
-                                <input type="text" id="crmSearchInput" oninput="filterFullLeads()" placeholder="Danışan adı, telefon, vaka kodu ara..." class="w-full pl-9 pr-4 py-2.5 rounded-full bg-[#F8FAFC] border border-[#E2E8F0] text-xs text-[#0F172A] outline-none focus:border-[#74D620]">
+                                <i class="hgi hgi-stroke hgi-search-01 w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-[#7B7B7B]"></i>
+                                <input type="text" id="crmSearchInput" oninput="filterFullLeads()" placeholder="Danışan adı, telefon, vaka kodu ara..." class="w-full pl-9 pr-4 py-2.5 rounded-full bg-[#F4F5F7] border border-[#E2E8F0] text-xs text-[#062F28] outline-none focus:border-[#9FE870]">
                             </div>
                         </div>
 
                         <div class="flex flex-wrap items-center gap-2 text-xs">
-                            <select id="crmCategorySelect" onchange="filterFullLeads()" class="px-3.5 py-2 rounded-full bg-[#F8FAFC] border border-[#E2E8F0] text-xs font-semibold outline-none cursor-pointer">
+                            <select id="crmCategorySelect" onchange="filterFullLeads()" class="px-3.5 py-2 rounded-full bg-[#F4F5F7] border border-[#E2E8F0] text-xs font-bold outline-none cursor-pointer">
                                 <option value="all">Tüm Hizmetler</option>
                                 <option value="Eş Takibi">Eş Takibi &amp; Sadakat</option>
                                 <option value="TSCM">TSCM Böcek Dinleme</option>
@@ -738,7 +661,7 @@
                                 <option value="Adres">Adres &amp; Borçlu</option>
                             </select>
 
-                            <select id="crmStatusSelect" onchange="filterFullLeads()" class="px-3.5 py-2 rounded-full bg-[#F8FAFC] border border-[#E2E8F0] text-xs font-semibold outline-none cursor-pointer">
+                            <select id="crmStatusSelect" onchange="filterFullLeads()" class="px-3.5 py-2 rounded-full bg-[#F4F5F7] border border-[#E2E8F0] text-xs font-bold outline-none cursor-pointer">
                                 <option value="all">Tüm Durumlar</option>
                                 <option value="new">🔴 Yeni</option>
                                 <option value="reviewing">🟡 İnceleniyor</option>
@@ -746,22 +669,21 @@
                                 <option value="closed">⚪ Tamamlandı</option>
                             </select>
 
-                            <button type="button" onclick="createRealTestLead()" class="px-4 py-2 rounded-full bg-[#E8F9D8] text-[#4AA70D] font-bold hover:bg-[#74D620] hover:text-[#0F172A] transition">
+                            <button type="button" onclick="createRealTestLead()" class="px-4 py-2 rounded-full bg-[#EAF9DE] text-[#062F28] font-extrabold hover:bg-[#9FE870] transition">
                                 🧪 Test Talebi
                             </button>
 
-                            <button type="button" onclick="exportLeadsCSV()" class="px-4 py-2 rounded-full bg-[#0F172A] text-[#FFFFFF] font-bold hover:bg-[#1E293B] transition flex items-center gap-1.5">
-                                <i class="hgi hgi-stroke hgi-download-04 w-3.5 h-3.5 text-[#74D620]"></i>
+                            <button type="button" onclick="exportLeadsCSV()" class="px-4 py-2 rounded-full bg-[#062F28] text-[#FFFFFF] font-bold hover:bg-[#041F1A] transition flex items-center gap-1.5">
+                                <i class="hgi hgi-stroke hgi-download-04 w-3.5 h-3.5 text-[#9FE870]"></i>
                                 <span>Excel / CSV</span>
                             </button>
                         </div>
                     </div>
 
-                    <!-- Full CRM Table (Screenshot 2 / 3 Style) -->
                     <div class="fynix-card p-6 overflow-hidden">
                         <div class="overflow-x-auto">
                             <table class="w-full text-left text-xs">
-                                <thead class="text-[#94A3B8] font-mono text-[10px] uppercase border-b border-[#F1F5F9]">
+                                <thead class="text-[#7B7B7B] font-mono text-[10px] uppercase border-b border-[#F1F5F9]">
                                     <tr>
                                         <th class="py-3 px-3 font-bold">Takip Kodu</th>
                                         <th class="py-3 px-3 font-bold">Danışan Adı &amp; İletişim</th>
@@ -782,20 +704,19 @@
                 </div>
 
                 <!-- ========================================== -->
-                <!-- TAB CONTENT: NEREYE BAKTILAR? (ANALYTICS) -->
+                <!-- TAB VIEW: NEREYE BAKTILAR?                 -->
                 <!-- ========================================== -->
                 <div id="tabViewAnalytics" class="p-5 sm:p-7 pt-2 space-y-6 hidden">
                     
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
                         
-                        <!-- Services Detailed List -->
                         <div class="fynix-card lg:col-span-7 p-6 space-y-4">
                             <div class="flex items-center justify-between">
                                 <div>
-                                    <h3 class="text-base font-bold text-[#0F172A]">Hizmet İlgi Dağılımı ("Nereye Baktılar?")</h3>
-                                    <p class="text-xs text-[#64748B]">Ziyaretçilerin en çok tıkladığı ve incelediği hizmet sayfaları</p>
+                                    <h3 class="text-base font-extrabold text-[#062F28]">Hizmet İlgi Dağılımı ("Nereye Baktılar?")</h3>
+                                    <p class="text-xs text-[#7B7B7B]">Ziyaretçilerin en çok tıkladığı ve incelediği hizmet sayfaları</p>
                                 </div>
-                                <span class="px-2.5 py-1 rounded-full bg-[#E8F9D8] text-[#4AA70D] font-mono text-[10px] font-bold">TIKLANABİLİR</span>
+                                <span class="px-2.5 py-1 rounded-full bg-[#EAF9DE] text-[#062F28] font-mono text-[10px] font-bold">TIKLANABİLİR</span>
                             </div>
 
                             <div class="space-y-2 pt-2" id="fullServicesBreakdown">
@@ -803,38 +724,35 @@
                             </div>
                         </div>
 
-                        <!-- Cities & Sources -->
                         <div class="lg:col-span-5 space-y-5">
                             
-                            <!-- City Breakdown -->
                             <div class="fynix-card p-6 space-y-4">
                                 <div class="flex items-center justify-between">
-                                    <h3 class="text-sm font-bold text-[#0F172A]">Şehir Dağılımı (Ziyaret &amp; Arama)</h3>
-                                    <span class="text-[10px] font-mono text-[#94A3B8]">81 İL + YURT DIŞI</span>
+                                    <h3 class="text-sm font-extrabold text-[#062F28]">Şehir Dağılımı (Ziyaret &amp; Arama)</h3>
+                                    <span class="text-[10px] font-mono text-[#7B7B7B]">81 İL + YURT DIŞI</span>
                                 </div>
                                 <div class="space-y-2" id="fullCitiesBreakdown">
                                     <!-- Populated dynamically -->
                                 </div>
                             </div>
 
-                            <!-- Traffic Sources & Devices -->
                             <div class="fynix-card p-6 space-y-4">
-                                <h3 class="text-sm font-bold text-[#0F172A]">Kullanılan Cihazlar &amp; Trafik Kaynağı</h3>
+                                <h3 class="text-sm font-extrabold text-[#062F28]">Kullanılan Cihazlar &amp; Trafik Kaynağı</h3>
                                 <div class="grid grid-cols-3 gap-2 text-center">
-                                    <div onclick="openDeviceDetailModal('Mobil')" class="p-3 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] cursor-pointer hover:border-[#74D620] transition">
-                                        <div class="text-[10px] text-[#64748B] font-semibold">Mobil</div>
-                                        <div class="text-lg font-bold font-mono text-[#0F172A] mt-0.5">%81.6</div>
-                                        <div class="text-[9px] text-[#16A34A] font-bold">930 Kişi</div>
+                                    <div onclick="openDeviceDetailModal('Mobil')" class="p-3 rounded-2xl bg-[#F4F5F7] border border-[#E2E8F0] cursor-pointer hover:border-[#9FE870] transition">
+                                        <div class="text-[10px] text-[#7B7B7B] font-bold">Mobil</div>
+                                        <div class="text-lg font-extrabold font-mono text-[#062F28] mt-0.5">%81.6</div>
+                                        <div class="text-[9px] text-[#062F28] font-bold">930 Kişi</div>
                                     </div>
-                                    <div onclick="openDeviceDetailModal('Masaüstü')" class="p-3 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] cursor-pointer hover:border-[#74D620] transition">
-                                        <div class="text-[10px] text-[#64748B] font-semibold">Masaüstü</div>
-                                        <div class="text-lg font-bold font-mono text-[#0F172A] mt-0.5">%17.1</div>
-                                        <div class="text-[9px] text-[#64748B] font-bold">195 Kişi</div>
+                                    <div onclick="openDeviceDetailModal('Masaüstü')" class="p-3 rounded-2xl bg-[#F4F5F7] border border-[#E2E8F0] cursor-pointer hover:border-[#9FE870] transition">
+                                        <div class="text-[10px] text-[#7B7B7B] font-bold">Masaüstü</div>
+                                        <div class="text-lg font-extrabold font-mono text-[#062F28] mt-0.5">%17.1</div>
+                                        <div class="text-[9px] text-[#7B7B7B] font-bold">195 Kişi</div>
                                     </div>
-                                    <div onclick="openDeviceDetailModal('Tablet')" class="p-3 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] cursor-pointer hover:border-[#74D620] transition">
-                                        <div class="text-[10px] text-[#64748B] font-semibold">Tablet</div>
-                                        <div class="text-lg font-bold font-mono text-[#0F172A] mt-0.5">%1.3</div>
-                                        <div class="text-[9px] text-[#64748B] font-bold">15 Kişi</div>
+                                    <div onclick="openDeviceDetailModal('Tablet')" class="p-3 rounded-2xl bg-[#F4F5F7] border border-[#E2E8F0] cursor-pointer hover:border-[#9FE870] transition">
+                                        <div class="text-[10px] text-[#7B7B7B] font-bold">Tablet</div>
+                                        <div class="text-lg font-extrabold font-mono text-[#062F28] mt-0.5">%1.3</div>
+                                        <div class="text-[9px] text-[#7B7B7B] font-bold">15 Kişi</div>
                                     </div>
                                 </div>
 
@@ -850,15 +768,15 @@
                 </div>
 
                 <!-- ========================================== -->
-                <!-- TAB CONTENT: CANLI ETKİLEŞİM AKIŞI        -->
+                <!-- TAB VIEW: LIVE ACTIVITY STREAM             -->
                 <!-- ========================================== -->
                 <div id="tabViewLive" class="p-5 sm:p-7 pt-2 space-y-4 hidden">
                     <div class="fynix-card p-4 flex items-center justify-between text-xs">
                         <div class="flex items-center gap-2">
-                            <span class="w-2.5 h-2.5 rounded-full bg-[#74D620] animate-ping"></span>
-                            <span class="text-[#0F172A] font-medium">Sitedeki anlık sayfa ziyaretleri, buton tıklamaları ve form gönderimleri gerçek zamanlı akmaktadır.</span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-[#9FE870] animate-ping"></span>
+                            <span class="text-[#062F28] font-bold">Sitedeki anlık sayfa ziyaretleri, buton tıklamaları ve form gönderimleri gerçek zamanlı akmaktadır.</span>
                         </div>
-                        <span class="font-mono text-[#4AA70D] font-bold text-[11px]">Canlı Yayın</span>
+                        <span class="font-mono text-[#062F28] font-bold text-[11px]">Canlı Akış</span>
                     </div>
 
                     <div class="space-y-2.5" id="fullLiveActivityFeed">
@@ -872,54 +790,49 @@
     </div>
 
     <!-- ============================================== -->
-    <!-- 3. UNIVERSAL DETAIL MODAL (HER YERİN DETAYI)    -->
+    <!-- 3. UNIVERSAL DETAIL MODAL                      -->
     <!-- ============================================== -->
-    <div id="universalDetailModal" class="fixed inset-0 z-50 bg-[#0F172A]/70 backdrop-blur-md hidden flex items-center justify-center p-4" onclick="closeUniversalModal()">
+    <div id="universalDetailModal" class="fixed inset-0 z-50 bg-[#062F28]/75 backdrop-blur-md hidden flex items-center justify-center p-4" onclick="closeUniversalModal()">
         <div class="max-w-2xl w-full bg-[#FFFFFF] border border-[#E2E8F0] rounded-[32px] overflow-hidden shadow-2xl relative" onclick="event.stopPropagation()">
             
-            <div class="h-2 w-full bg-gradient-to-r from-[#74D620] via-[#5BB812] to-[#0F172A]"></div>
+            <div class="h-2 w-full bg-[#9FE870]"></div>
 
             <div class="p-6 sm:p-8 space-y-6">
-                <!-- Close Button -->
-                <button type="button" onclick="closeUniversalModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-[#F8FAFC] hover:bg-[#0F172A] text-[#64748B] hover:text-[#FFFFFF] flex items-center justify-center transition">
+                <button type="button" onclick="closeUniversalModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-[#F4F5F7] hover:bg-[#062F28] text-[#7B7B7B] hover:text-[#FFFFFF] flex items-center justify-center transition">
                     <i class="hgi hgi-stroke hgi-cancel-01 w-4 h-4"></i>
                 </button>
 
-                <!-- Header -->
                 <div class="flex items-start gap-4">
-                    <div id="uniModalIconWrap" class="w-12 h-12 rounded-2xl bg-[#E8F9D8] text-[#4AA70D] flex items-center justify-center text-xl shrink-0">
+                    <div id="uniModalIconWrap" class="w-12 h-12 rounded-2xl bg-[#EAF9DE] text-[#062F28] flex items-center justify-center text-xl shrink-0">
                         <i id="uniModalIcon" class="hgi hgi-stroke hgi-analytics-01 w-6 h-6"></i>
                     </div>
                     <div class="space-y-1">
                         <div class="flex items-center gap-2">
-                            <span id="uniModalBadge" class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-[#E8F9D8] text-[#4AA70D] font-bold">ANALİTİK DETAYI</span>
-                            <span id="uniModalSubBadge" class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-[#F8FAFC] text-[#64748B] font-semibold border border-[#E2E8F0]">Cloudflare Edge</span>
+                            <span id="uniModalBadge" class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-[#EAF9DE] text-[#062F28] font-extrabold">ANALİTİK DETAYI</span>
+                            <span id="uniModalSubBadge" class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-[#F4F5F7] text-[#7B7B7B] font-bold border border-[#E2E8F0]">Cloudflare Edge</span>
                         </div>
-                        <h2 id="uniModalTitle" class="text-xl font-bold text-[#0F172A]">Metrik Başlığı</h2>
-                        <p id="uniModalSubtitle" class="text-xs text-[#64748B] leading-relaxed">Açıklayıcı alt bilgi metni.</p>
+                        <h2 id="uniModalTitle" class="text-xl font-extrabold text-[#062F28]">Metrik Başlığı</h2>
+                        <p id="uniModalSubtitle" class="text-xs text-[#7B7B7B] leading-relaxed">Açıklayıcı alt bilgi metni.</p>
                     </div>
                 </div>
 
-                <!-- Stats Grid -->
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs" id="uniModalStatsGrid">
                     <!-- Populated dynamically -->
                 </div>
 
-                <!-- Body Content -->
                 <div class="space-y-2">
-                    <div class="text-xs font-mono text-[#94A3B8] uppercase tracking-wider font-bold" id="uniModalContentLabel">Kapsamlı Analiz &amp; Dağılım:</div>
-                    <div id="uniModalBodyContent" class="p-4 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] text-xs text-[#0F172A] leading-relaxed max-h-60 overflow-y-auto space-y-2">
+                    <div class="text-xs font-mono text-[#7B7B7B] uppercase tracking-wider font-bold" id="uniModalContentLabel">Kapsamlı Analiz &amp; Dağılım:</div>
+                    <div id="uniModalBodyContent" class="p-4 rounded-2xl bg-[#F4F5F7] border border-[#E2E8F0] text-xs text-[#062F28] leading-relaxed max-h-60 overflow-y-auto space-y-2">
                         <!-- Populated dynamically -->
                     </div>
                 </div>
 
-                <!-- Footer Actions -->
                 <div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-[#F1F5F9]">
-                    <div class="text-[11px] font-mono text-[#94A3B8]" id="uniModalFooterInfo">
+                    <div class="text-[11px] font-mono text-[#7B7B7B]" id="uniModalFooterInfo">
                         DAT Operations Control v3.0
                     </div>
                     <div class="flex items-center gap-2" id="uniModalActions">
-                        <button type="button" onclick="closeUniversalModal()" class="px-4 py-2 rounded-full bg-[#F8FAFC] hover:bg-[#0F172A] text-[#64748B] hover:text-[#FFFFFF] text-xs font-bold transition">
+                        <button type="button" onclick="closeUniversalModal()" class="px-4 py-2 rounded-full bg-[#F4F5F7] hover:bg-[#062F28] text-[#7B7B7B] hover:text-[#FFFFFF] text-xs font-bold transition">
                             Kapat
                         </button>
                     </div>
@@ -931,52 +844,52 @@
     <!-- ============================================== -->
     <!-- 4. LEAD DOSSIER MODAL                          -->
     <!-- ============================================== -->
-    <div id="leadDetailModal" class="fixed inset-0 z-50 bg-[#0F172A]/70 backdrop-blur-md hidden flex items-center justify-center p-4" onclick="closeLeadModal()">
+    <div id="leadDetailModal" class="fixed inset-0 z-50 bg-[#062F28]/75 backdrop-blur-md hidden flex items-center justify-center p-4" onclick="closeLeadModal()">
         <div class="max-w-2xl w-full bg-[#FFFFFF] border border-[#E2E8F0] rounded-[32px] overflow-hidden shadow-2xl relative" onclick="event.stopPropagation()">
             
-            <div class="h-2 w-full bg-gradient-to-r from-[#74D620] via-[#5BB812] to-[#0F172A]"></div>
+            <div class="h-2 w-full bg-[#9FE870]"></div>
 
             <div class="p-6 sm:p-8 space-y-6">
-                <button type="button" onclick="closeLeadModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-[#F8FAFC] hover:bg-[#0F172A] text-[#64748B] hover:text-[#FFFFFF] flex items-center justify-center transition">
+                <button type="button" onclick="closeLeadModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-[#F4F5F7] hover:bg-[#062F28] text-[#7B7B7B] hover:text-[#FFFFFF] flex items-center justify-center transition">
                     <i class="hgi hgi-stroke hgi-cancel-01 w-4 h-4"></i>
                 </button>
 
                 <div class="flex items-start gap-4">
-                    <div class="w-12 h-12 rounded-2xl bg-[#E8F9D8] text-[#4AA70D] flex items-center justify-center text-xl shrink-0">
+                    <div class="w-12 h-12 rounded-2xl bg-[#EAF9DE] text-[#062F28] flex items-center justify-center text-xl shrink-0">
                         <i class="hgi hgi-stroke hgi-file-attachment w-6 h-6"></i>
                     </div>
                     <div>
                         <div class="flex items-center gap-2">
-                            <span id="modalLeadCode" class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-[#F8FAFC] text-[#0F172A] font-bold border border-[#E2E8F0]">#DAT-00000</span>
+                            <span id="modalLeadCode" class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-[#F4F5F7] text-[#062F28] font-bold border border-[#E2E8F0]">#DAT-00000</span>
                             <span id="modalLeadUrgency" class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-[#FEE2E2] text-[#DC2626] font-bold">KRİTİK</span>
                         </div>
-                        <h2 id="modalLeadName" class="text-xl font-bold text-[#0F172A] mt-1">Danışan Adı</h2>
-                        <p id="modalLeadDate" class="text-xs text-[#64748B]">Tarih ve Saat</p>
+                        <h2 id="modalLeadName" class="text-xl font-extrabold text-[#062F28] mt-1">Danışan Adı</h2>
+                        <p id="modalLeadDate" class="text-xs text-[#7B7B7B]">Tarih ve Saat</p>
                     </div>
                 </div>
 
                 <div class="grid sm:grid-cols-2 gap-3 text-xs">
-                    <div class="p-3.5 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] space-y-1">
-                        <div class="text-[#64748B] font-semibold">Hizmet Alanı:</div>
-                        <div id="modalLeadCategory" class="text-sm font-bold text-[#0F172A]">Eş Takibi</div>
+                    <div class="p-3.5 rounded-2xl bg-[#F4F5F7] border border-[#E2E8F0] space-y-1">
+                        <div class="text-[#7B7B7B] font-bold">Hizmet Alanı:</div>
+                        <div id="modalLeadCategory" class="text-sm font-extrabold text-[#062F28]">Eş Takibi</div>
                     </div>
-                    <div class="p-3.5 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] space-y-1">
-                        <div class="text-[#64748B] font-semibold">İletişim Kanalı:</div>
-                        <div id="modalLeadContact" class="text-sm font-bold text-[#16A34A] font-mono">0532 ...</div>
+                    <div class="p-3.5 rounded-2xl bg-[#F4F5F7] border border-[#E2E8F0] space-y-1">
+                        <div class="text-[#7B7B7B] font-bold">İletişim Kanalı:</div>
+                        <div id="modalLeadContact" class="text-sm font-extrabold text-[#062F28] font-mono">0532 ...</div>
                     </div>
                 </div>
 
                 <div class="space-y-1.5">
-                    <label class="text-xs font-mono text-[#94A3B8] uppercase tracking-wider font-bold">Vaka Açıklaması &amp; Talep:</label>
-                    <div id="modalLeadDetails" class="p-4 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] text-xs text-[#0F172A] leading-relaxed max-h-48 overflow-y-auto font-mono whitespace-pre-wrap">
+                    <label class="text-xs font-mono text-[#7B7B7B] uppercase tracking-wider font-bold">Vaka Açıklaması &amp; Talep:</label>
+                    <div id="modalLeadDetails" class="p-4 rounded-2xl bg-[#F4F5F7] border border-[#E2E8F0] text-xs text-[#062F28] leading-relaxed max-h-48 overflow-y-auto font-mono whitespace-pre-wrap">
                         Detay metni burada yer alacak.
                     </div>
                 </div>
 
                 <div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-[#F1F5F9]">
                     <div class="flex items-center gap-2">
-                        <span class="text-xs font-bold text-[#0F172A]">Durum:</span>
-                        <select id="modalStatusSelect" onchange="updateLeadStatusFromModal()" class="px-3 py-1.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-xs font-bold text-[#0F172A] outline-none">
+                        <span class="text-xs font-bold text-[#062F28]">Durum:</span>
+                        <select id="modalStatusSelect" onchange="updateLeadStatusFromModal()" class="px-3 py-1.5 rounded-xl bg-[#F4F5F7] border border-[#E2E8F0] text-xs font-bold text-[#062F28] outline-none">
                             <option value="new">🔴 Yeni</option>
                             <option value="reviewing">🟡 İnceleniyor</option>
                             <option value="contacted">🟢 Görüşüldü</option>
@@ -985,12 +898,12 @@
                     </div>
 
                     <div class="flex items-center gap-2">
-                        <a id="modalWhatsAppBtn" href="#" target="_blank" class="px-4 py-2 rounded-full bg-[#74D620] hover:bg-[#5BB812] text-[#0F172A] text-xs font-bold inline-flex items-center gap-1.5 transition shadow-sm">
+                        <a id="modalWhatsAppBtn" href="#" target="_blank" class="px-4 py-2 rounded-full bg-[#9FE870] hover:bg-[#8BD85B] text-[#062F28] text-xs font-extrabold inline-flex items-center gap-1.5 transition shadow-sm">
                             <i class="hgi hgi-stroke hgi-whatsapp w-4 h-4"></i>
                             <span>WhatsApp'tan Yanıtla</span>
                         </a>
-                        <a id="modalCallBtn" href="#" class="px-4 py-2 rounded-full bg-[#0F172A] hover:bg-[#1E293B] text-[#FFFFFF] text-xs font-bold inline-flex items-center gap-1.5 transition">
-                            <i class="hgi hgi-stroke hgi-call-02 w-4 h-4 text-[#74D620]"></i>
+                        <a id="modalCallBtn" href="#" class="px-4 py-2 rounded-full bg-[#062F28] hover:bg-[#041F1A] text-[#FFFFFF] text-xs font-bold inline-flex items-center gap-1.5 transition">
+                            <i class="hgi hgi-stroke hgi-call-02 w-4 h-4 text-[#9FE870]"></i>
                             <span>Ara</span>
                         </a>
                     </div>
@@ -1003,33 +916,33 @@
     <!-- ============================================== -->
     <!-- 5. NEW MANUAL LEAD MODAL                       -->
     <!-- ============================================== -->
-    <div id="newLeadModal" class="fixed inset-0 z-50 bg-[#0F172A]/70 backdrop-blur-md hidden flex items-center justify-center p-4" onclick="closeNewLeadModal()">
+    <div id="newLeadModal" class="fixed inset-0 z-50 bg-[#062F28]/75 backdrop-blur-md hidden flex items-center justify-center p-4" onclick="closeNewLeadModal()">
         <div class="max-w-lg w-full bg-[#FFFFFF] border border-[#E2E8F0] rounded-[32px] overflow-hidden p-7 space-y-4 shadow-2xl relative" onclick="event.stopPropagation()">
-            <div class="h-2 w-full bg-gradient-to-r from-[#74D620] via-[#5BB812] to-[#0F172A] -mt-7 -mx-7 mb-4"></div>
+            <div class="h-2 w-full bg-[#9FE870] -mt-7 -mx-7 mb-4"></div>
 
-            <button type="button" onclick="closeNewLeadModal()" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-[#F8FAFC] hover:bg-[#0F172A] text-[#64748B] hover:text-[#FFFFFF] flex items-center justify-center transition">
+            <button type="button" onclick="closeNewLeadModal()" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-[#F4F5F7] hover:bg-[#062F28] text-[#7B7B7B] hover:text-[#FFFFFF] flex items-center justify-center transition">
                 <i class="hgi hgi-stroke hgi-cancel-01 w-4 h-4"></i>
             </button>
 
             <div>
-                <h2 class="text-lg font-bold text-[#0F172A]">Yeni Vaka Talebi Ekle</h2>
-                <p class="text-xs text-[#64748B]">Telefon veya ofis görüşmesi ile gelen başvuruyu doğrudan CRM sistemine işleyin.</p>
+                <h2 class="text-lg font-extrabold text-[#062F28]">Yeni Vaka Talebi Ekle</h2>
+                <p class="text-xs text-[#7B7B7B]">Telefon veya ofis görüşmesi ile gelen başvuruyu doğrudan CRM sistemine işleyin.</p>
             </div>
 
             <form onsubmit="handleManualLeadSubmit(event)" class="space-y-3 text-xs">
                 <div>
-                    <label class="block text-[#0F172A] font-bold mb-1">Danışan Adı / Şirket:</label>
-                    <input type="text" id="manualName" required placeholder="Örn: Ahmet Y. veya ABC Lojistik A.Ş." class="w-full px-3.5 py-2.5 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] text-[#0F172A] outline-none focus:border-[#74D620]">
+                    <label class="block text-[#062F28] font-bold mb-1">Danışan Adı / Şirket:</label>
+                    <input type="text" id="manualName" required placeholder="Örn: Ahmet Y. veya ABC Lojistik A.Ş." class="w-full px-3.5 py-2.5 rounded-2xl bg-[#F4F5F7] border border-[#E2E8F0] text-[#062F28] outline-none focus:border-[#9FE870]">
                 </div>
 
                 <div class="grid grid-cols-2 gap-3">
                     <div>
-                        <label class="block text-[#0F172A] font-bold mb-1">Telefon:</label>
-                        <input type="text" id="manualContact" required placeholder="05XX XXX XX XX" class="w-full px-3.5 py-2.5 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] text-[#0F172A] outline-none focus:border-[#74D620]">
+                        <label class="block text-[#062F28] font-bold mb-1">Telefon:</label>
+                        <input type="text" id="manualContact" required placeholder="05XX XXX XX XX" class="w-full px-3.5 py-2.5 rounded-2xl bg-[#F4F5F7] border border-[#E2E8F0] text-[#062F28] outline-none focus:border-[#9FE870]">
                     </div>
                     <div>
-                        <label class="block text-[#0F172A] font-bold mb-1">Hizmet:</label>
-                        <select id="manualCategory" class="w-full px-3.5 py-2.5 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] text-[#0F172A] outline-none focus:border-[#74D620]">
+                        <label class="block text-[#062F28] font-bold mb-1">Hizmet:</label>
+                        <select id="manualCategory" class="w-full px-3.5 py-2.5 rounded-2xl bg-[#F4F5F7] border border-[#E2E8F0] text-[#062F28] outline-none focus:border-[#9FE870]">
                             <option value="Eş Takibi &amp; Sadakat">Eş Takibi &amp; Sadakat</option>
                             <option value="Evlilik Öncesi Tahkikat">Evlilik Öncesi Tahkikat</option>
                             <option value="Velayet &amp; Boşanma Delili">Velayet &amp; Boşanma Delili</option>
@@ -1042,16 +955,16 @@
 
                 <div class="grid grid-cols-2 gap-3">
                     <div>
-                        <label class="block text-[#0F172A] font-bold mb-1">Aciliyet:</label>
-                        <select id="manualUrgency" class="w-full px-3.5 py-2.5 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] text-[#0F172A] outline-none focus:border-[#74D620]">
+                        <label class="block text-[#062F28] font-bold mb-1">Aciliyet:</label>
+                        <select id="manualUrgency" class="w-full px-3.5 py-2.5 rounded-2xl bg-[#F4F5F7] border border-[#E2E8F0] text-[#062F28] outline-none focus:border-[#9FE870]">
                             <option value="normal">Normal</option>
                             <option value="high">Yüksek</option>
                             <option value="critical">🔴 Çok Acil (24 Saat)</option>
                         </select>
                     </div>
                     <div>
-                        <label class="block text-[#0F172A] font-bold mb-1">Görüşme Kanalı:</label>
-                        <select id="manualChannel" class="w-full px-3.5 py-2.5 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] text-[#0F172A] outline-none focus:border-[#74D620]">
+                        <label class="block text-[#062F28] font-bold mb-1">Görüşme Kanalı:</label>
+                        <select id="manualChannel" class="w-full px-3.5 py-2.5 rounded-2xl bg-[#F4F5F7] border border-[#E2E8F0] text-[#062F28] outline-none focus:border-[#9FE870]">
                             <option value="Telefon">Telefon</option>
                             <option value="WhatsApp">WhatsApp</option>
                             <option value="Ofis Görüşmesi">Ofis Görüşmesi</option>
@@ -1060,13 +973,13 @@
                 </div>
 
                 <div>
-                    <label class="block text-[#0F172A] font-bold mb-1">Vaka Notu &amp; Detayı:</label>
-                    <textarea id="manualDetails" rows="3" placeholder="Görüşülen konu, şüpheler ve talep edilen adımlar..." class="w-full p-3 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] text-[#0F172A] outline-none focus:border-[#74D620]"></textarea>
+                    <label class="block text-[#062F28] font-bold mb-1">Vaka Notu &amp; Detayı:</label>
+                    <textarea id="manualDetails" rows="3" placeholder="Görüşülen konu, şüpheler ve talep edilen adımlar..." class="w-full p-3 rounded-2xl bg-[#F4F5F7] border border-[#E2E8F0] text-[#062F28] outline-none focus:border-[#9FE870]"></textarea>
                 </div>
 
                 <div class="pt-2 flex justify-end gap-2">
-                    <button type="button" onclick="closeNewLeadModal()" class="px-4 py-2.5 rounded-full bg-[#F8FAFC] text-[#64748B] hover:bg-[#0F172A] hover:text-[#FFFFFF] transition">İptal</button>
-                    <button type="submit" class="px-5 py-2.5 rounded-full bg-[#74D620] hover:bg-[#5BB812] text-[#0F172A] font-bold transition">Kaydet</button>
+                    <button type="button" onclick="closeNewLeadModal()" class="px-4 py-2.5 rounded-full bg-[#F4F5F7] text-[#7B7B7B] hover:bg-[#062F28] hover:text-[#FFFFFF] transition">İptal</button>
+                    <button type="submit" class="px-5 py-2.5 rounded-full bg-[#9FE870] hover:bg-[#8BD85B] text-[#062F28] font-extrabold transition">Kaydet</button>
                 </div>
             </form>
         </div>
@@ -1086,7 +999,6 @@
         let activeTimeFilter = 'today';
         let currentTab = 'dashboard';
 
-        // 1. Authentication
         function initAuth() {
             try {
                 if (localStorage.getItem(AUTH_STORAGE_KEY) === 'true') {
@@ -1150,7 +1062,6 @@
             window.location.reload();
         }
 
-        // 2. Data Synchronization
         async function fetchServerAnalytics() {
             try {
                 const res = await fetch('/api/analytics', { cache: 'no-store' });
@@ -1179,7 +1090,6 @@
             const mult = activeTimeFilter === 'today' ? 1 : (activeTimeFilter === 'yesterday' ? 0.85 : 5.8);
             
             const vis = Math.round((serverData?.stats?.totalVisitors || 1140) * mult);
-            const views = Math.round((serverData?.stats?.pageViews || 1420) * mult);
             const wa = Math.round((serverData?.stats?.whatsappClicks || 184) * mult);
             const calls = Math.round((serverData?.stats?.phoneClicks || 96) * mult);
             
@@ -1187,13 +1097,10 @@
             const leadsCount = leads.length;
 
             document.getElementById('heroVisitors').textContent = vis.toLocaleString('tr-TR');
-            document.getElementById('heroWhatsapp').textContent = wa.toLocaleString('tr-TR');
-            document.getElementById('heroCalls').textContent = calls.toLocaleString('tr-TR');
-            document.getElementById('heroViews').textContent = views.toLocaleString('tr-TR');
 
             const totalTouches = wa + calls + leadsCount;
             const convRatio = ((totalTouches / Math.max(1, vis)) * 100).toFixed(1);
-            document.getElementById('heroConversionRate').textContent = `%${convRatio}`;
+            document.getElementById('heroConversionRate').textContent = `${convRatio}%`;
             document.getElementById('sidebarLeadsBadge').textContent = leadsCount;
         }
 
@@ -1202,7 +1109,6 @@
             renderTopMetrics(serverAnalyticsData);
         }
 
-        // 3. Leads Store & CRM
         function getStoredLeads() {
             let combined = [];
             if (serverAnalyticsData && Array.isArray(serverAnalyticsData.leads)) {
@@ -1235,25 +1141,25 @@
 
             leads.forEach(lead => {
                 const tr = document.createElement('tr');
-                tr.className = 'hover:bg-[#F8FAFC] transition cursor-pointer';
+                tr.className = 'hover:bg-[#F4F5F7] transition cursor-pointer';
                 tr.onclick = () => openLeadModal(lead.id);
 
                 const statusBadges = {
                     new: '<span class="px-2.5 py-0.5 rounded-full bg-[#FEE2E2] text-[#DC2626] font-mono text-[10px] font-bold">🔴 Yeni</span>',
                     reviewing: '<span class="px-2.5 py-0.5 rounded-full bg-[#FEF3C7] text-[#D97706] font-mono text-[10px] font-bold">🟡 İnceleniyor</span>',
-                    contacted: '<span class="px-2.5 py-0.5 rounded-full bg-[#E8F9D8] text-[#4AA70D] font-mono text-[10px] font-bold">🟢 Görüşüldü</span>',
-                    closed: '<span class="px-2.5 py-0.5 rounded-full bg-[#F1F5F9] text-[#64748B] font-mono text-[10px] font-bold">⚪ Tamamlandı</span>'
+                    contacted: '<span class="px-2.5 py-0.5 rounded-full bg-[#EAF9DE] text-[#062F28] font-mono text-[10px] font-extrabold">🟢 Görüşüldü</span>',
+                    closed: '<span class="px-2.5 py-0.5 rounded-full bg-[#F4F5F7] text-[#7B7B7B] font-mono text-[10px] font-bold">⚪ Tamamlandı</span>'
                 };
 
                 tr.innerHTML = `
                     <td class="py-3 px-3">
-                        <div class="font-bold text-[#0F172A]">${lead.name}</div>
-                        <div class="text-[11px] text-[#64748B]">${lead.category}</div>
+                        <div class="font-extrabold text-[#062F28]">${lead.name}</div>
+                        <div class="text-[11px] text-[#7B7B7B]">${lead.category}</div>
                     </td>
                     <td class="py-3 px-3">
-                        <span class="font-mono text-[#0F172A] font-semibold">${lead.channel || 'Form'}</span>
+                        <span class="font-mono text-[#062F28] font-bold">${lead.channel || 'Form'}</span>
                     </td>
-                    <td class="py-3 px-3 font-mono text-[#64748B] text-[11px]">
+                    <td class="py-3 px-3 font-mono text-[#7B7B7B] text-[11px]">
                         ${lead.dateStr ? lead.dateStr.split(',')[0] : 'Bugün'}
                     </td>
                     <td class="py-3 px-3">
@@ -1271,7 +1177,7 @@
 
             leads.forEach(lead => {
                 const tr = document.createElement('tr');
-                tr.className = 'hover:bg-[#F8FAFC] transition cursor-pointer';
+                tr.className = 'hover:bg-[#F4F5F7] transition cursor-pointer';
                 tr.onclick = (e) => {
                     if (e.target.closest('select') || e.target.closest('a') || e.target.closest('button')) return;
                     openLeadModal(lead.id);
@@ -1280,22 +1186,22 @@
                 const urgencyBadges = {
                     critical: '<span class="px-2.5 py-0.5 rounded-full bg-[#FEE2E2] text-[#DC2626] font-mono text-[10px] font-bold">🔴 24s ACİL</span>',
                     high: '<span class="px-2.5 py-0.5 rounded-full bg-[#FEF3C7] text-[#D97706] font-mono text-[10px] font-bold">🟡 YÜKSEK</span>',
-                    normal: '<span class="px-2.5 py-0.5 rounded-full bg-[#F1F5F9] text-[#64748B] font-mono text-[10px]">NORMAL</span>'
+                    normal: '<span class="px-2.5 py-0.5 rounded-full bg-[#F4F5F7] text-[#7B7B7B] font-mono text-[10px]">NORMAL</span>'
                 };
 
                 const cleanPhone = (lead.contact || '').replace(/[^0-9]/g, '');
 
                 tr.innerHTML = `
-                    <td class="py-3.5 px-3 font-mono font-bold text-[#74D620]">${lead.code || '#DAT-VAKA'}</td>
+                    <td class="py-3.5 px-3 font-mono font-extrabold text-[#062F28]">${lead.code || '#DAT-VAKA'}</td>
                     <td class="py-3.5 px-3">
-                        <div class="font-bold text-[#0F172A]">${lead.name}</div>
-                        <div class="text-[11px] font-mono text-[#64748B]">${lead.contact}</div>
+                        <div class="font-extrabold text-[#062F28]">${lead.name}</div>
+                        <div class="text-[11px] font-mono text-[#7B7B7B]">${lead.contact}</div>
                     </td>
-                    <td class="py-3.5 px-3 text-[#0F172A] font-medium">${lead.category}</td>
+                    <td class="py-3.5 px-3 text-[#062F28] font-bold">${lead.category}</td>
                     <td class="py-3.5 px-3">${urgencyBadges[lead.urgency] || urgencyBadges.normal}</td>
-                    <td class="py-3.5 px-3 font-mono text-[11px] text-[#64748B]">${lead.dateStr || ''}</td>
+                    <td class="py-3.5 px-3 font-mono text-[11px] text-[#7B7B7B]">${lead.dateStr || ''}</td>
                     <td class="py-3.5 px-3">
-                        <select onchange="updateLeadStatus('${lead.id}', this.value)" class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-[#F8FAFC] border border-[#E2E8F0] outline-none cursor-pointer">
+                        <select onchange="updateLeadStatus('${lead.id}', this.value)" class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-[#F4F5F7] border border-[#E2E8F0] outline-none cursor-pointer">
                             <option value="new" ${lead.status === 'new' ? 'selected' : ''}>🔴 Yeni</option>
                             <option value="reviewing" ${lead.status === 'reviewing' ? 'selected' : ''}>🟡 İnceleniyor</option>
                             <option value="contacted" ${lead.status === 'contacted' ? 'selected' : ''}>🟢 Görüşüldü</option>
@@ -1304,13 +1210,13 @@
                     </td>
                     <td class="py-3.5 px-3 text-right">
                         <div class="flex items-center justify-end gap-1.5">
-                            <a href="https://wa.me/90${cleanPhone}?text=${encodeURIComponent('Merhaba Sayın ' + lead.name + ', DAT Özel Dedektiflik büromuza ilettiğiniz ' + (lead.code || 'vaka') + ' başvurunuz için iletişime geçiyoruz.')}" target="_blank" class="p-1.5 rounded-xl bg-[#E8F9D8] text-[#4AA70D] hover:bg-[#74D620] hover:text-[#0F172A] transition" title="WhatsApp Aç">
+                            <a href="https://wa.me/90${cleanPhone}?text=${encodeURIComponent('Merhaba Sayın ' + lead.name + ', DAT Özel Dedektiflik büromuza ilettiğiniz ' + (lead.code || 'vaka') + ' başvurunuz için iletişime geçiyoruz.')}" target="_blank" class="p-1.5 rounded-xl bg-[#EAF9DE] text-[#062F28] hover:bg-[#9FE870] transition" title="WhatsApp Aç">
                                 <i class="hgi hgi-stroke hgi-whatsapp w-4 h-4"></i>
                             </a>
-                            <a href="tel:${lead.contact}" class="p-1.5 rounded-xl bg-[#F8FAFC] text-[#0F172A] hover:bg-[#0F172A] hover:text-[#FFFFFF] transition" title="Telefonla Ara">
+                            <a href="tel:${lead.contact}" class="p-1.5 rounded-xl bg-[#F4F5F7] text-[#062F28] hover:bg-[#062F28] hover:text-[#FFFFFF] transition" title="Telefonla Ara">
                                 <i class="hgi hgi-stroke hgi-call-02 w-4 h-4"></i>
                             </a>
-                            <button onclick="openLeadModal('${lead.id}')" class="p-1.5 rounded-xl bg-[#F8FAFC] text-[#64748B] hover:bg-[#74D620] hover:text-[#0F172A] transition" title="Dosyayı İncele">
+                            <button onclick="openLeadModal('${lead.id}')" class="p-1.5 rounded-xl bg-[#F4F5F7] text-[#7B7B7B] hover:bg-[#9FE870] hover:text-[#062F28] transition" title="Dosyayı İncele">
                                 <i class="hgi hgi-stroke hgi-file-attachment w-4 h-4"></i>
                             </button>
                         </div>
@@ -1388,7 +1294,6 @@
             updateLeadStatus(currentActiveLeadId, newStatus);
         }
 
-        // 4. Quick Live Test Lead
         async function createRealTestLead() {
             const testName = prompt('Test Danışan Adı (veya boş bırakıp Enter yapın):', 'Test Danışan (' + new Date().toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' }) + ')');
             if (testName === null) return;
@@ -1489,7 +1394,6 @@
             URL.revokeObjectURL(url);
         }
 
-        // 5. Analytics Tab ("Nereye Baktılar?")
         const SERVICES_CONFIG = [
             { name: 'Eş Takibi & Boşanma', page: '/hizmetler/es-takibi.html', defaultCount: 540, pct: 38 },
             { name: 'TSCM Böcek Arama & Dinleme', page: '/hizmetler/bocek-arama.html', defaultCount: 310, pct: 22 },
@@ -1509,59 +1413,56 @@
             SERVICES_CONFIG.forEach(s => {
                 const count = serverViews[s.name] || s.defaultCount;
                 const div = document.createElement('div');
-                div.className = 'p-3 rounded-2xl bg-[#F8FAFC] hover:bg-[#E8F9D8] border border-[#E2E8F0] transition space-y-1.5 cursor-pointer group';
+                div.className = 'p-3 rounded-2xl bg-[#F4F5F7] hover:bg-[#EAF9DE] border border-[#E2E8F0] transition space-y-1.5 cursor-pointer group';
                 div.onclick = () => openServiceDetailModal(s.name, count, s.pct, s.page);
 
                 div.innerHTML = `
                     <div class="flex items-center justify-between text-xs">
                         <div class="flex items-center gap-2">
-                            <i class="hgi hgi-stroke hgi-search-01 w-3.5 h-3.5 text-[#74D620]"></i>
-                            <span class="text-[#0F172A] font-bold group-hover:text-[#4AA70D] transition">${s.name}</span>
+                            <i class="hgi hgi-stroke hgi-search-01 w-3.5 h-3.5 text-[#062F28]"></i>
+                            <span class="text-[#062F28] font-bold group-hover:text-[#062F28] transition">${s.name}</span>
                         </div>
-                        <div class="font-mono text-[#64748B] flex items-center gap-2">
-                            <strong class="text-[#0F172A]">${count} ziyaret</strong>
-                            <span class="text-[#16A34A] font-bold">%${s.pct}</span>
-                            <span class="text-[#94A3B8] group-hover:text-[#4AA70D] transition">→</span>
+                        <div class="font-mono text-[#7B7B7B] flex items-center gap-2">
+                            <strong class="text-[#062F28]">${count} ziyaret</strong>
+                            <span class="text-[#062F28] font-bold">%${s.pct}</span>
+                            <span class="text-[#7B7B7B] group-hover:text-[#062F28] transition">→</span>
                         </div>
                     </div>
                     <div class="h-2 w-full rounded-full bg-[#E2E8F0] overflow-hidden">
-                        <div class="h-full bg-gradient-to-r from-[#74D620] to-[#5BB812] rounded-full transition-all duration-700" style="width: ${s.pct}%"></div>
+                        <div class="h-full bg-gradient-to-r from-[#9FE870] to-[#8BD85B] rounded-full transition-all duration-700" style="width: ${s.pct}%"></div>
                     </div>
                 `;
                 container.appendChild(div);
             });
 
-            // Cities
             const citiesData = [
-                { name: 'Ankara (Merkez & İlçeler)', pct: 40.4, count: serverData?.cities?.['Ankara'] || 460, color: '#0F172A' },
-                { name: 'İstanbul (Avrupa & Anadolu)', pct: 34.2, count: serverData?.cities?.['İstanbul'] || 390, color: '#74D620' },
-                { name: 'İzmir', pct: 11.4, count: serverData?.cities?.['İzmir'] || 130, color: '#5BB812' },
-                { name: 'Antalya', pct: 6.6, count: serverData?.cities?.['Antalya'] || 75, color: '#64748B' },
-                { name: 'Bursa', pct: 4.8, count: serverData?.cities?.['Bursa'] || 55, color: '#94A3B8' },
-                { name: 'Diğer / Yurt Dışı', pct: 2.6, count: serverData?.cities?.['Diğer / Yurt Dışı'] || 30, color: '#CBD5E1' }
+                { name: 'Ankara (Merkez & İlçeler)', pct: 40.4, count: serverData?.cities?.['Ankara'] || 460, color: '#062F28' },
+                { name: 'İstanbul (Avrupa & Anadolu)', pct: 34.2, count: serverData?.cities?.['İstanbul'] || 390, color: '#9FE870' },
+                { name: 'İzmir', pct: 11.4, count: serverData?.cities?.['İzmir'] || 130, color: '#C3F2A6' },
+                { name: 'Antalya', pct: 6.6, count: serverData?.cities?.['Antalya'] || 75, color: '#7B7B7B' },
+                { name: 'Bursa', pct: 4.8, count: serverData?.cities?.['Bursa'] || 55, color: '#CBD5E1' }
             ];
 
             const citiesContainer = document.getElementById('fullCitiesBreakdown');
             citiesContainer.innerHTML = '';
             citiesData.forEach(c => {
                 const div = document.createElement('div');
-                div.className = 'p-2.5 rounded-2xl hover:bg-[#E8F9D8] transition text-xs flex items-center justify-between cursor-pointer group';
+                div.className = 'p-2.5 rounded-2xl hover:bg-[#EAF9DE] transition text-xs flex items-center justify-between cursor-pointer group';
                 div.onclick = () => openCityDetailModal(c.name, c.count, c.pct);
                 div.innerHTML = `
                     <div class="flex items-center gap-2">
                         <span class="w-2.5 h-2.5 rounded-full" style="background-color: ${c.color}"></span>
-                        <span class="text-[#0F172A] font-bold group-hover:text-[#4AA70D] transition">${c.name}</span>
+                        <span class="text-[#062F28] font-bold transition">${c.name}</span>
                     </div>
-                    <div class="font-mono text-[#64748B] flex items-center gap-1.5">
+                    <div class="font-mono text-[#7B7B7B] flex items-center gap-1.5">
                         <span>${c.count} kişi</span>
-                        <span class="text-[#16A34A] font-bold">(%${c.pct})</span>
-                        <span class="text-[#94A3B8] group-hover:text-[#4AA70D] transition">→</span>
+                        <span class="text-[#062F28] font-bold">(%${c.pct})</span>
+                        <span class="text-[#7B7B7B] group-hover:text-[#062F28] transition">→</span>
                     </div>
                 `;
                 citiesContainer.appendChild(div);
             });
 
-            // Sources
             const sourcesData = [
                 { name: 'Google Organik', count: serverData?.sources?.['Google Organik'] || 820, pct: 72 },
                 { name: 'Doğrudan (Direct)', count: serverData?.sources?.['Doğrudan (Direct)'] || 210, pct: 18 },
@@ -1572,17 +1473,16 @@
             srcContainer.innerHTML = '';
             sourcesData.forEach(s => {
                 const div = document.createElement('div');
-                div.className = 'p-3 rounded-2xl bg-[#F8FAFC] hover:bg-[#E8F9D8] border border-[#E2E8F0] cursor-pointer transition';
+                div.className = 'p-3 rounded-2xl bg-[#F4F5F7] hover:bg-[#EAF9DE] border border-[#E2E8F0] cursor-pointer transition';
                 div.onclick = () => openSourceDetailModal(s.name, s.count, s.pct);
                 div.innerHTML = `
-                    <div class="text-[11px] text-[#64748B] font-semibold">${s.name}</div>
-                    <div class="text-sm font-extrabold font-mono text-[#0F172A] mt-0.5">%${s.pct} <span class="text-[10px] text-[#94A3B8] font-normal">(${s.count})</span></div>
+                    <div class="text-[11px] text-[#7B7B7B] font-bold">${s.name}</div>
+                    <div class="text-sm font-extrabold font-mono text-[#062F28] mt-0.5">%${s.pct} <span class="text-[10px] text-[#7B7B7B] font-normal">(${s.count})</span></div>
                 `;
                 srcContainer.appendChild(div);
             });
         }
 
-        // 6. Live Activity Feed
         function renderLiveFeed(serverData) {
             let events = [];
             if (serverData && Array.isArray(serverData.recentEvents) && serverData.recentEvents.length > 0) {
@@ -1605,41 +1505,39 @@
 
             events.slice(0, 25).forEach(ev => {
                 const div = document.createElement('div');
-                div.className = 'p-3.5 rounded-2xl bg-[#FFFFFF] border border-[#E2E8F0] hover:border-[#74D620] shadow-sm flex items-center justify-between gap-3 text-xs cursor-pointer group transition';
+                div.className = 'p-3.5 rounded-2xl bg-[#FFFFFF] border border-[#E2E8F0] hover:border-[#9FE870] shadow-sm flex items-center justify-between gap-3 text-xs cursor-pointer group transition';
                 div.onclick = () => openEventDetailModal(ev);
 
                 const icons = {
-                    whatsapp_click: '<span class="p-2 rounded-2xl bg-[#E8F9D8] text-[#16A34A]"><i class="hgi hgi-stroke hgi-whatsapp w-4 h-4"></i></span>',
-                    phone_click: '<span class="p-2 rounded-2xl bg-[#F8FAFC] text-[#0F172A]"><i class="hgi hgi-stroke hgi-call-02 w-4 h-4"></i></span>',
+                    whatsapp_click: '<span class="p-2 rounded-2xl bg-[#EAF9DE] text-[#062F28]"><i class="hgi hgi-stroke hgi-whatsapp w-4 h-4"></i></span>',
+                    phone_click: '<span class="p-2 rounded-2xl bg-[#F4F5F7] text-[#062F28]"><i class="hgi hgi-stroke hgi-call-02 w-4 h-4"></i></span>',
                     form_submit: '<span class="p-2 rounded-2xl bg-[#FEF3C7] text-[#D97706]"><i class="hgi hgi-stroke hgi-clipboard-check w-4 h-4"></i></span>',
-                    service_click: '<span class="p-2 rounded-2xl bg-[#F8FAFC] text-[#64748B]"><i class="hgi hgi-stroke hgi-search-01 w-4 h-4"></i></span>',
-                    page_view: '<span class="p-2 rounded-2xl bg-[#F8FAFC] text-[#94A3B8]"><i class="hgi hgi-stroke hgi-view w-4 h-4"></i></span>'
+                    service_click: '<span class="p-2 rounded-2xl bg-[#F4F5F7] text-[#7B7B7B]"><i class="hgi hgi-stroke hgi-search-01 w-4 h-4"></i></span>',
+                    page_view: '<span class="p-2 rounded-2xl bg-[#F4F5F7] text-[#7B7B7B]"><i class="hgi hgi-stroke hgi-view w-4 h-4"></i></span>'
                 };
 
                 div.innerHTML = `
                     <div class="flex items-center gap-3">
                         ${icons[ev.type] || icons.page_view}
                         <div>
-                            <div class="font-bold text-[#0F172A] group-hover:text-[#4AA70D] transition">${ev.label || 'Etkileşim Kaydedildi'}</div>
-                            <div class="text-[11px] font-mono text-[#64748B]">${ev.page || '/'} • ${ev.device || 'Mobil'} • ${ev.city || 'Ankara'}</div>
+                            <div class="font-extrabold text-[#062F28] transition">${ev.label || 'Etkileşim Kaydedildi'}</div>
+                            <div class="text-[11px] font-mono text-[#7B7B7B]">${ev.page || '/'} • ${ev.device || 'Mobil'} • ${ev.city || 'Ankara'}</div>
                         </div>
                     </div>
                     <div class="flex items-center gap-2">
-                        <span class="font-mono text-[11px] text-[#4AA70D] font-bold shrink-0">${ev.time || 'Az önce'}</span>
-                        <span class="text-[#94A3B8] group-hover:text-[#4AA70D] transition">→</span>
+                        <span class="font-mono text-[11px] text-[#062F28] font-bold shrink-0">${ev.time || 'Az önce'}</span>
+                        <span class="text-[#7B7B7B] transition">→</span>
                     </div>
                 `;
                 feedContainer.appendChild(div);
             });
         }
 
-        // 7. Navigation Tabs Switching
         function switchMainTab(tab) {
             currentTab = tab;
             
-            // Reset Sidebar Buttons
             document.querySelectorAll('.sidebar-item').forEach(btn => {
-                btn.className = 'sidebar-item w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-[#64748B] hover:text-[#0F172A] hover:bg-[#F8FAFC] font-semibold text-xs transition';
+                btn.className = 'sidebar-item w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-[#7B7B7B] hover:text-[#062F28] hover:bg-[#F4F5F7] font-bold text-xs transition';
             });
 
             document.getElementById('tabViewDashboard').classList.add('hidden');
@@ -1652,25 +1550,25 @@
             const badgeEl = document.getElementById('mainHeaderBadge');
 
             if (tab === 'dashboard') {
-                document.getElementById('navBtnDashboard').className = 'sidebar-item w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl bg-[#0F172A] text-[#FFFFFF] font-semibold text-xs shadow-sm transition';
+                document.getElementById('navBtnDashboard').className = 'sidebar-item w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl bg-[#062F28] text-[#FFFFFF] font-bold text-xs shadow-sm transition';
                 document.getElementById('tabViewDashboard').classList.remove('hidden');
-                titleEl.textContent = 'Dashboard';
+                titleEl.textContent = 'Home';
                 subEl.textContent = '"DAT Dedektiflik anlık ziyaretçi, vaka talebi ve iletişim analitiği."';
                 badgeEl.textContent = 'CANLI VERİ';
             } else if (tab === 'leads') {
-                document.getElementById('navBtnLeads').className = 'sidebar-item w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl bg-[#0F172A] text-[#FFFFFF] font-semibold text-xs shadow-sm transition';
+                document.getElementById('navBtnLeads').className = 'sidebar-item w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl bg-[#062F28] text-[#FFFFFF] font-bold text-xs shadow-sm transition';
                 document.getElementById('tabViewLeads').classList.remove('hidden');
                 titleEl.textContent = 'Vaka Talepleri & CRM';
                 subEl.textContent = '"Siteden gelen tüm şifreli başvuruları inceleyin, durumlarını güncelleyin ve WhatsApp\'tan yanıtlayın."';
                 badgeEl.textContent = 'CRM KONTROL';
             } else if (tab === 'analytics') {
-                document.getElementById('navBtnAnalytics').className = 'sidebar-item w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl bg-[#0F172A] text-[#FFFFFF] font-semibold text-xs shadow-sm transition';
+                document.getElementById('navBtnAnalytics').className = 'sidebar-item w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl bg-[#062F28] text-[#FFFFFF] font-bold text-xs shadow-sm transition';
                 document.getElementById('tabViewAnalytics').classList.remove('hidden');
                 titleEl.textContent = 'Nereye Baktılar? (İlgi Analitiği)';
                 subEl.textContent = '"Ziyaretçilerin en çok okuduğu hizmetler, şehir dağılımları ve cihaz istatistikleri."';
                 badgeEl.textContent = 'DERİN ANALİTİK';
             } else if (tab === 'live') {
-                document.getElementById('navBtnLive').className = 'sidebar-item w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl bg-[#0F172A] text-[#FFFFFF] font-semibold text-xs shadow-sm transition';
+                document.getElementById('navBtnLive').className = 'sidebar-item w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl bg-[#062F28] text-[#FFFFFF] font-bold text-xs shadow-sm transition';
                 document.getElementById('tabViewLive').classList.remove('hidden');
                 titleEl.textContent = 'Canlı Tıklama Akışı (Realtime)';
                 subEl.textContent = '"Ziyaretçilerin site üzerindeki saniyelik tıklamaları, buton tetiklemeleri ve hareketleri."';
@@ -1693,7 +1591,6 @@
             }
         }
 
-        // 8. Presence & Pulser
         function fetchServerPresence() {
             fetch('/api/presence')
                 .then(r => r.json())
@@ -1721,7 +1618,6 @@
             loadAllData();
         }
 
-        // 9. AI Operational Assistant Logic
         function askAiAssistant(question) {
             document.getElementById('aiInputPrompt').value = question;
             executeAiAnswer(question);
@@ -1753,9 +1649,6 @@
             }
         }
 
-        // ==============================================
-        // 10. UNIVERSAL DETAIL MODAL HANDLERS
-        // ==============================================
         function showUniversalModal(config) {
             document.getElementById('uniModalBadge').textContent = config.badge || 'ANALİTİK DETAYI';
             document.getElementById('uniModalSubBadge').textContent = config.subBadge || 'Cloudflare Edge';
@@ -1770,11 +1663,11 @@
             statsContainer.innerHTML = '';
             (config.stats || []).forEach(st => {
                 const div = document.createElement('div');
-                div.className = 'p-3 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] space-y-1';
+                div.className = 'p-3 rounded-2xl bg-[#F4F5F7] border border-[#E2E8F0] space-y-1';
                 div.innerHTML = `
-                    <div class="text-[10px] text-[#94A3B8] font-bold uppercase font-mono">${st.label}</div>
-                    <div class="text-base font-extrabold font-mono text-[#0F172A]">${st.value}</div>
-                    ${st.sub ? `<div class="text-[10px] text-[#16A34A] font-bold font-mono">${st.sub}</div>` : ''}
+                    <div class="text-[10px] text-[#7B7B7B] font-bold uppercase font-mono">${st.label}</div>
+                    <div class="text-base font-extrabold font-mono text-[#062F28]">${st.value}</div>
+                    ${st.sub ? `<div class="text-[10px] text-[#062F28] font-bold font-mono">${st.sub}</div>` : ''}
                 `;
                 statsContainer.appendChild(div);
             });
@@ -1786,8 +1679,8 @@
             (config.actions || []).forEach(act => {
                 const btn = document.createElement(act.href ? 'a' : 'button');
                 btn.className = act.primary
-                    ? 'px-4 py-2 rounded-full bg-[#74D620] hover:bg-[#5BB812] text-[#0F172A] text-xs font-bold transition shadow-sm'
-                    : 'px-4 py-2 rounded-full bg-[#F8FAFC] hover:bg-[#0F172A] text-[#64748B] hover:text-[#FFFFFF] text-xs font-bold transition';
+                    ? 'px-4 py-2 rounded-full bg-[#9FE870] hover:bg-[#8BD85B] text-[#062F28] text-xs font-bold transition shadow-sm'
+                    : 'px-4 py-2 rounded-full bg-[#F4F5F7] hover:bg-[#062F28] text-[#7B7B7B] hover:text-[#FFFFFF] text-xs font-bold transition';
                 if (act.href) {
                     btn.href = act.href;
                     btn.target = act.target || '_blank';
@@ -1798,7 +1691,7 @@
             });
 
             const closeBtn = document.createElement('button');
-            closeBtn.className = 'px-4 py-2 rounded-full bg-[#F8FAFC] hover:bg-[#0F172A] text-[#64748B] hover:text-[#FFFFFF] text-xs font-bold transition';
+            closeBtn.className = 'px-4 py-2 rounded-full bg-[#F4F5F7] hover:bg-[#062F28] text-[#7B7B7B] hover:text-[#FFFFFF] text-xs font-bold transition';
             closeBtn.onclick = closeUniversalModal;
             closeBtn.textContent = 'Kapat';
             actionsContainer.appendChild(closeBtn);
@@ -1840,12 +1733,12 @@
                     bodyHTML: `
                         <div class="space-y-2">
                             <div class="p-3 rounded-2xl bg-[#FFFFFF] border border-[#E2E8F0]">
-                                <strong class="text-[#0F172A] block mb-1">⏰ En Yoğun Ziyaret Saatleri:</strong>
+                                <strong class="text-[#062F28] block mb-1">⏰ En Yoğun Ziyaret Saatleri:</strong>
                                 Sitenize en çok ziyaret öğleden sonra <strong>13:30 – 17:00</strong> arasında ve gece gizli arama pik saati olan <strong>21:00 – 23:45</strong> saatleri arasında gerçekleşmektedir.
                             </div>
                             <div class="p-3 rounded-2xl bg-[#FFFFFF] border border-[#E2E8F0]">
-                                <strong class="text-[#0F172A] block mb-1">🛡️ Cloudflare Bot Filtreleme:</strong>
-                                Toplam 44.62k istek arasından arama motoru botları ve kötü niyetli tarayıcılar Cloudflare WAF tarafından elenmiş, geriye <strong>15.85k istek ve 1.140 gerçek ziyaretçi</strong> kalmıştır.
+                                <strong class="text-[#062F28] block mb-1">🛡️ Cloudflare Bot Filtreleme:</strong>
+                                Toplam 44.62k istek arasından arama motoru botları ve zararlı tarayıcılar Cloudflare WAF tarafından elenmiş, geriye <strong>15.85k istek ve 1.140 gerçek ziyaretçi</strong> kalmıştır.
                             </div>
                         </div>
                     `,
@@ -1853,46 +1746,11 @@
                         { text: 'Nereye Baktılar Analizine Git', primary: true, onclick: () => { closeUniversalModal(); switchMainTab('analytics'); } }
                     ]
                 });
-            } else if (type === 'pageViews') {
-                showUniversalModal({
-                    badge: 'SAYFA GEZİNTİSİ',
-                    subBadge: 'Ort. 1.25 Sayfa/Kişi',
-                    iconClass: 'hgi hgi-stroke hgi-web-design-01 w-6 h-6',
-                    title: 'Sayfa Gezintisi & İçerik Tüketim Raporu',
-                    subtitle: 'Kullanıcıların site içindeki dolaşım derinliği ve en çok okunan sayfalar.',
-                    stats: [
-                        { label: 'Toplam Gezinti', value: '1.420', sub: 'Sayfa Görüntüleme' },
-                        { label: 'Ort. Süre', value: '3 dk 42 sn', sub: 'Sektör Ort. 1.2 dk' },
-                        { label: 'Hemen Çıkma', value: '%34.2', sub: 'Düşük (Çok İyi)' },
-                        { label: 'Derinlik', value: '1.25', sub: 'Sayfa / Ziyaretçi' }
-                    ],
-                    contentLabel: 'En Çok Ziyaret Edilen Sayfalar Sıralaması:',
-                    bodyHTML: `
-                        <div class="space-y-2">
-                            <div class="p-2.5 rounded-2xl bg-[#FFFFFF] border border-[#E2E8F0] flex items-center justify-between">
-                                <span class="font-bold text-[#0F172A]">1. / (Ana Sayfa)</span>
-                                <span class="font-mono text-[#74D620] font-bold">890 Ziyaret (%62.7)</span>
-                            </div>
-                            <div class="p-2.5 rounded-2xl bg-[#FFFFFF] border border-[#E2E8F0] flex items-center justify-between">
-                                <span class="font-bold text-[#0F172A]">2. /hizmetler/es-takibi.html</span>
-                                <span class="font-mono text-[#74D620] font-bold">240 Ziyaret (%16.9)</span>
-                            </div>
-                            <div class="p-2.5 rounded-2xl bg-[#FFFFFF] border border-[#E2E8F0] flex items-center justify-between">
-                                <span class="font-bold text-[#0F172A]">3. /ankara-ozel-dedektif.html</span>
-                                <span class="font-mono text-[#74D620] font-bold">185 Ziyaret (%13.0)</span>
-                            </div>
-                            <div class="p-2.5 rounded-2xl bg-[#FFFFFF] border border-[#E2E8F0] flex items-center justify-between">
-                                <span class="font-bold text-[#0F172A]">4. /hizmetler/bocek-arama.html</span>
-                                <span class="font-mono text-[#74D620] font-bold">95 Ziyaret (%6.7)</span>
-                            </div>
-                        </div>
-                    `
-                });
             } else if (type === 'whatsapp') {
                 showUniversalModal({
                     badge: 'WHATSAPP İLETİŞİMİ',
                     subBadge: '0532 666 77 49',
-                    iconClass: 'hgi hgi-stroke hgi-whatsapp w-6 h-6 text-[#16A34A]',
+                    iconClass: 'hgi hgi-stroke hgi-whatsapp w-6 h-6 text-[#062F28]',
                     title: 'WhatsApp İletişim & Mesaj Başlatma Analizi',
                     subtitle: 'Danışanların sitedeki WhatsApp butonlarına basarak başlattığı doğrudan görüşmeler.',
                     stats: [
@@ -1906,24 +1764,17 @@
                         <div class="space-y-2">
                             <div class="p-3 rounded-2xl bg-[#FFFFFF] border border-[#E2E8F0] flex items-center justify-between">
                                 <div>
-                                    <div class="font-bold text-[#0F172A]">Sağ Alt Sabit Yüzen Buton</div>
-                                    <div class="text-[11px] text-[#64748B]">Tüm sayfalarda görünen daimi ikon</div>
+                                    <div class="font-bold text-[#062F28]">Sağ Alt Sabit Yüzen Buton</div>
+                                    <div class="text-[11px] text-[#7B7B7B]">Tüm sayfalarda görünen daimi ikon</div>
                                 </div>
-                                <span class="font-mono font-bold text-[#16A34A]">94 Tıklama (%51.1)</span>
+                                <span class="font-mono font-bold text-[#062F28]">94 Tıklama (%51.1)</span>
                             </div>
                             <div class="p-3 rounded-2xl bg-[#FFFFFF] border border-[#E2E8F0] flex items-center justify-between">
                                 <div>
-                                    <div class="font-bold text-[#0F172A]">Üst Menü (Header) WhatsApp</div>
-                                    <div class="text-[11px] text-[#64748B]">Masaüstü ve mobil tepe menüsü</div>
+                                    <div class="font-bold text-[#062F28]">Üst Menü (Header) WhatsApp</div>
+                                    <div class="text-[11px] text-[#7B7B7B]">Masaüstü ve mobil tepe menüsü</div>
                                 </div>
-                                <span class="font-mono font-bold text-[#16A34A]">42 Tıklama (%22.8)</span>
-                            </div>
-                            <div class="p-3 rounded-2xl bg-[#FFFFFF] border border-[#E2E8F0] flex items-center justify-between">
-                                <div>
-                                    <div class="font-bold text-[#0F172A]">Eş Takibi Sayfası İçi Buton</div>
-                                    <div class="text-[11px] text-[#64748B]">Hizmet sayfasındaki acil destek butonu</div>
-                                </div>
-                                <span class="font-mono font-bold text-[#16A34A]">28 Tıklama (%15.2)</span>
+                                <span class="font-mono font-bold text-[#062F28]">42 Tıklama (%22.8)</span>
                             </div>
                         </div>
                     `,
@@ -1931,38 +1782,11 @@
                         { text: 'WhatsApp Hattını Aç', primary: true, href: 'https://wa.me/905326667749' }
                     ]
                 });
-            } else if (type === 'calls') {
-                showUniversalModal({
-                    badge: 'TELEFONLA ARAMA',
-                    subBadge: 'Santral & GSM',
-                    iconClass: 'hgi hgi-stroke hgi-call-02 w-6 h-6 text-[#74D620]',
-                    title: 'Telefonla Doğrudan Arama Analizi',
-                    subtitle: 'Ziyaretçilerin sitedeki arama butonlarına tıklayarak başlattığı çağrılar.',
-                    stats: [
-                        { label: 'Toplam Arama', value: '96 Kez', sub: 'Tıklama Sayısı' },
-                        { label: 'GSM / Acil', value: '74 Arama', sub: '0532 666 77 49 (%77.1)' },
-                        { label: 'Sabit Ofis', value: '22 Arama', sub: '0312 284 02 99 (%22.9)' },
-                        { label: 'Pik Saat', value: '10:00 - 12:30', sub: 'Mesai Başlangıcı' }
-                    ],
-                    contentLabel: 'Telefon Araması Dağılımı:',
-                    bodyHTML: `
-                        <div class="space-y-2">
-                            <div class="p-3 rounded-2xl bg-[#FFFFFF] border border-[#E2E8F0]">
-                                <strong class="text-[#0F172A] block mb-1">📞 0532 666 77 49 (GSM &amp; Acil Hat):</strong>
-                                Toplam 74 arama tıklaması aldı. Özellikle mesai bitimi sonrasında ve hafta sonlarında danışanlar doğrudan GSM hattını aramaktadır.
-                            </div>
-                            <div class="p-3 rounded-2xl bg-[#FFFFFF] border border-[#E2E8F0]">
-                                <strong class="text-[#0F172A] block mb-1">🏢 0312 284 02 99 (Ankara Merkez Santral):</strong>
-                                Toplam 22 arama tıklaması aldı. Genellikle kurumsal şirketler ve avukatlar mesai saatlerinde aramaktadır.
-                            </div>
-                        </div>
-                    `
-                });
             } else if (type === 'conversion') {
                 showUniversalModal({
                     badge: 'DÖNÜŞÜM SKORU',
                     subBadge: 'Sektör Ort. 4.2 Katı',
-                    iconClass: 'hgi hgi-stroke hgi-target-02 w-6 h-6 text-[#74D620]',
+                    iconClass: 'hgi hgi-stroke hgi-target-02 w-6 h-6 text-[#062F28]',
                     title: 'Dönüşüm Oranı & Müşteri Temas Verimliliği',
                     subtitle: 'Siteye gelen her 100 ziyaretçiden kaçının sizinle iletişime geçtiğini gösteren temel ticari metrik.',
                     stats: [
@@ -1975,16 +1799,16 @@
                     bodyHTML: `
                         <div class="space-y-2">
                             <div class="p-2.5 rounded-2xl bg-[#FFFFFF] border border-[#E2E8F0] flex items-center justify-between">
-                                <span class="font-bold text-[#0F172A]">1. WhatsApp Başlatma</span>
-                                <span class="font-mono text-[#16A34A] font-bold">184 Danışan (%16.1)</span>
+                                <span class="font-bold text-[#062F28]">1. WhatsApp Başlatma</span>
+                                <span class="font-mono text-[#062F28] font-bold">184 Danışan (%16.1)</span>
                             </div>
                             <div class="p-2.5 rounded-2xl bg-[#FFFFFF] border border-[#E2E8F0] flex items-center justify-between">
-                                <span class="font-bold text-[#0F172A]">2. Telefonla Doğrudan Arama</span>
-                                <span class="font-mono text-[#0F172A] font-bold">96 Danışan (%8.4)</span>
+                                <span class="font-bold text-[#062F28]">2. Telefonla Doğrudan Arama</span>
+                                <span class="font-mono text-[#062F28] font-bold">96 Danışan (%8.4)</span>
                             </div>
                             <div class="p-2.5 rounded-2xl bg-[#FFFFFF] border border-[#E2E8F0] flex items-center justify-between">
-                                <span class="font-bold text-[#0F172A]">3. Yazılı Vaka Formu Gönderimi</span>
-                                <span class="font-mono text-[#64748B] font-bold">28 Başvuru (%2.5)</span>
+                                <span class="font-bold text-[#062F28]">3. Yazılı Vaka Formu Gönderimi</span>
+                                <span class="font-mono text-[#7B7B7B] font-bold">28 Başvuru (%2.5)</span>
                             </div>
                         </div>
                     `
@@ -1993,7 +1817,7 @@
                 showUniversalModal({
                     badge: 'CANLI OTURUM',
                     subBadge: 'Cloudflare Edge',
-                    iconClass: 'hgi hgi-stroke hgi-user-check w-6 h-6 text-[#74D620]',
+                    iconClass: 'hgi hgi-stroke hgi-user-check w-6 h-6 text-[#062F28]',
                     title: 'Anlık Aktif Ziyaretçi & Cloudflare Edge Heartbeat',
                     subtitle: 'Şu anda web sitenizde aktif olarak gezinen kullanıcılar 15 saniyelik sinyallerle anlık takip edilir.',
                     stats: [
@@ -2004,7 +1828,7 @@
                     ],
                     contentLabel: 'Canlı Oturum Protokolü:',
                     bodyHTML: `
-                        <div class="p-3.5 rounded-2xl bg-[#FFFFFF] border border-[#E2E8F0] text-xs text-[#0F172A] space-y-2 leading-relaxed">
+                        <div class="p-3.5 rounded-2xl bg-[#FFFFFF] border border-[#E2E8F0] text-xs text-[#062F28] space-y-2 leading-relaxed">
                             <p>Ziyaretçiler sayfaları gezerken arka planda her 15 saniyede bir <code>/api/presence</code> uç noktasına oturum sinyali gönderir. Sekmeyi kapattıklarında sistemden 15 saniye sonra otomatik düşerler.</p>
                         </div>
                     `
@@ -2016,7 +1840,7 @@
             showUniversalModal({
                 badge: 'HİZMET DETAYI',
                 subBadge: `%${pct} İlgi Oranı`,
-                iconClass: 'hgi hgi-stroke hgi-search-01 w-6 h-6 text-[#74D620]',
+                iconClass: 'hgi hgi-stroke hgi-search-01 w-6 h-6 text-[#062F28]',
                 title: `${name} — İlgi & Ziyaret Analitiği`,
                 subtitle: `Ziyaretçilerin bu hizmet sayfasına gösterdiği ilgi ve okuma sıklığı.`,
                 stats: [
@@ -2029,12 +1853,8 @@
                 bodyHTML: `
                     <div class="space-y-2">
                         <div class="p-3 rounded-2xl bg-[#FFFFFF] border border-[#E2E8F0]">
-                            <strong class="text-[#0F172A] block mb-1">📍 En Çok Talep Gelen İller:</strong>
+                            <strong class="text-[#062F28] block mb-1">📍 En Çok Talep Gelen İller:</strong>
                             Bu hizmet için en çok <strong>Ankara (%44)</strong>, <strong>İstanbul (%32)</strong> ve <strong>İzmir (%14)</strong> illerinden ziyaret kaydedilmiştir.
-                        </div>
-                        <div class="p-3 rounded-2xl bg-[#FFFFFF] border border-[#E2E8F0]">
-                            <strong class="text-[#0F172A] block mb-1">🔗 Sayfa Bağlantısı:</strong>
-                            <span class="font-mono text-[#4AA70D]">${page || '/hizmetler/'}</span>
                         </div>
                     </div>
                 `,
@@ -2048,7 +1868,7 @@
             showUniversalModal({
                 badge: 'BÖLGESEL TRAFİK',
                 subBadge: `%${pct} Ziyaretçi Payı`,
-                iconClass: 'hgi hgi-stroke hgi-location-01 w-6 h-6 text-[#74D620]',
+                iconClass: 'hgi hgi-stroke hgi-location-01 w-6 h-6 text-[#062F28]',
                 title: `${name} Bölgesi Ziyaret & Talep Raporu`,
                 subtitle: `${name} bölgesinden gelen ziyaretçilerin arama tercihleri ve vaka talepleri.`,
                 stats: [
@@ -2059,7 +1879,7 @@
                 ],
                 contentLabel: 'Bölgesel Arama Davranışları:',
                 bodyHTML: `
-                    <div class="p-3.5 rounded-2xl bg-[#FFFFFF] border border-[#E2E8F0] text-xs text-[#0F172A] space-y-2 leading-relaxed">
+                    <div class="p-3.5 rounded-2xl bg-[#FFFFFF] border border-[#E2E8F0] text-xs text-[#062F28] space-y-2 leading-relaxed">
                         <p><strong>${name}</strong> bölgesinden gelen danışanlar en çok <strong>Eş Takibi</strong>, <strong>Gizli Dinleme Cihazı Taraması</strong> ve <strong>Boşanma / Velayet Delili</strong> konularını incelemektedir.</p>
                     </div>
                 `
@@ -2070,7 +1890,7 @@
             showUniversalModal({
                 badge: 'TRAFİK KAYNAĞI',
                 subBadge: `%${pct} Kaynak Payı`,
-                iconClass: 'hgi hgi-stroke hgi-global w-6 h-6 text-[#74D620]',
+                iconClass: 'hgi hgi-stroke hgi-global w-6 h-6 text-[#062F28]',
                 title: `${name} — Geliş Kanalı Analizi`,
                 subtitle: `Ziyaretçilerin web sitenizi hangi arama motoru veya kanal üzerinden bulduğu.`,
                 stats: [
@@ -2081,8 +1901,8 @@
                 ],
                 contentLabel: 'Kaynak Ayrıntıları:',
                 bodyHTML: `
-                    <div class="p-3.5 rounded-2xl bg-[#FFFFFF] border border-[#E2E8F0] text-xs text-[#0F172A] space-y-2 leading-relaxed">
-                        <p><strong>${name}</strong> kanalı üzerinden gelen ziyaretçiler doğrudan ticari niyetli aramalardan (<em>"özel dedektif Ankara"</em>, <em>"eş takibi fiyatı"</em> vb.) ulaşmaktadır.</p>
+                    <div class="p-3.5 rounded-2xl bg-[#FFFFFF] border border-[#E2E8F0] text-xs text-[#062F28] space-y-2 leading-relaxed">
+                        <p><strong>${name}</strong> kanalı üzerinden gelen ziyaretçiler doğrudan ticari niyetli aramalardan ulaşmaktadır.</p>
                     </div>
                 `
             });
@@ -2092,7 +1912,7 @@
             showUniversalModal({
                 badge: 'CİHAZ ANALİZİ',
                 subBadge: name.toUpperCase(),
-                iconClass: 'hgi hgi-stroke hgi-smart-phone-01 w-6 h-6 text-[#74D620]',
+                iconClass: 'hgi hgi-stroke hgi-smart-phone-01 w-6 h-6 text-[#062F28]',
                 title: `${name} Cihazı Kullanıcı Dağılımı`,
                 subtitle: `${name} cihazlarından web sitenize giren kullanıcıların özellikleri.`,
                 stats: [
@@ -2103,7 +1923,7 @@
                 ],
                 contentLabel: 'Teknik Özet:',
                 bodyHTML: `
-                    <div class="p-3.5 rounded-2xl bg-[#FFFFFF] border border-[#E2E8F0] text-xs text-[#0F172A] space-y-2 leading-relaxed">
+                    <div class="p-3.5 rounded-2xl bg-[#FFFFFF] border border-[#E2E8F0] text-xs text-[#062F28] space-y-2 leading-relaxed">
                         <p>Mobil kullanıcıların büyük bölümü Apple iOS (Safari) ve Android (Chrome) kullanmaktadır.</p>
                     </div>
                 `
@@ -2114,7 +1934,7 @@
             showUniversalModal({
                 badge: 'CANLI ETKİLEŞİM KAYDI',
                 subBadge: ev.type || 'Etkinlik',
-                iconClass: 'hgi hgi-stroke hgi-flash w-6 h-6 text-[#74D620]',
+                iconClass: 'hgi hgi-stroke hgi-flash w-6 h-6 text-[#062F28]',
                 title: ev.label || 'Kullanıcı Hareketi Kaydedildi',
                 subtitle: `Gerçekleşme Zamanı: ${ev.time || 'Az önce'} • Şehir: ${ev.city || 'Ankara'}`,
                 stats: [
@@ -2125,8 +1945,8 @@
                 ],
                 contentLabel: 'Tetiklenen Sayfa & Detay:',
                 bodyHTML: `
-                    <div class="p-3.5 rounded-2xl bg-[#FFFFFF] border border-[#E2E8F0] font-mono text-xs text-[#0F172A] space-y-2">
-                        <div><strong>Ziyaret Edilen Sayfa:</strong> <span class="text-[#4AA70D]">${ev.page || '/'}</span></div>
+                    <div class="p-3.5 rounded-2xl bg-[#FFFFFF] border border-[#E2E8F0] font-mono text-xs text-[#062F28] space-y-2">
+                        <div><strong>Ziyaret Edilen Sayfa:</strong> <span class="text-[#062F28] font-bold">${ev.page || '/'}</span></div>
                         <div><strong>Olay ID:</strong> <span>${ev.id || 'N/A'}</span></div>
                         <div><strong>Konum:</strong> <span>${ev.city || 'Ankara'} / ${ev.country || 'TR'}</span></div>
                     </div>
