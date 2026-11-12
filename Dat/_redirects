@@ -1,9 +1,73 @@
-https://datdetective.com/* https://www.datdetective.com/:splat 301!
+https://datdedektiflik.com/* https://www.datdedektiflik.com/:splat 301!
+http://datdedektiflik.com/* https://www.datdedektiflik.com/:splat 301!
+http://www.datdedektiflik.com/* https://www.datdedektiflik.com/:splat 301!
 http://datdetective.com/* https://www.datdetective.com/:splat 301!
-http://www.datdetective.com/* https://www.datdetective.com/:splat 301!
-https://datdedektiflik.com/* https://www.datdetective.com/:splat 301!
-http://datdedektiflik.com/* https://www.datdetective.com/:splat 301!
-https://www.datdedektiflik.com/* https://www.datdetective.com/:splat 301!
-http://www.datdedektiflik.com/* https://www.datdetective.com/:splat 301!
+https://datdetective.com/* https://www.datdetective.com/:splat 301!
+
+# Panel kisa yollari
 /dashboard /elsa-vaka-paneli.html 301
 /elsa /elsa-vaka-paneli.html 301
+
+# Eski ASP.NET ana ve kurumsal sayfalar
+/default.aspx / 301
+/Default.aspx / 301
+/Dedektif.aspx / 301
+/iletisim.aspx / 301
+/NelerYapiyoruz.aspx / 301
+/InsanKaynaklari.aspx / 301
+/Insankaynaklari.aspx / 301
+/insankaynaklari.aspx / 301
+/BasindaBiz.aspx /umit-hakan-karakaya.html 301
+/Sertifikalar.aspx /umit-hakan-karakaya.html 301
+/dedektif-ve-hukuk-iliskisi.aspx /umit-hakan-karakaya.html 301
+
+/Kurumsal/Hakkimizda-4 /umit-hakan-karakaya.html 301
+/Kurumsal/Ekibimiz-5 /umit-hakan-karakaya.html 301
+/Kurumsal/* / 301
+
+# Eski 12 hizmet alt sayfalari
+/Hizmetler/Es-Takibi-48 /hizmetler/es-takibi.html 301
+/Hizmetler/Evlilik-Oncesi-Arastirma-49 /hizmetler/evlilik-oncesi-arastirma.html 301
+/Hizmetler/Velayet-ve-Bosanma-Davalari-50 /hizmetler/velayet-bosanma.html 301
+/Hizmetler/Ogrenci-Takibi-51 / 301
+/Hizmetler/Adres-Tespiti-52 /hizmetler/adres-ve-borclu-takibi.html 301
+/Hizmetler/Bilisim-Dolandiriciligi-Tespiti-53 /hizmetler/bocek-tarama-tscm.html 301
+/Hizmetler/Borclu-Takibi-54 /hizmetler/adres-ve-borclu-takibi.html 301
+/Hizmetler/Dolandiricilik-Davalari-55 /hizmetler/kurumsal-ve-marka-koruma.html 301
+/Hizmetler/Firma-Arastirma-56 /hizmetler/kurumsal-ve-marka-koruma.html 301
+/Hizmetler/Hirsizlik-Arastirma-57 /hizmetler/kurumsal-ve-marka-koruma.html 301
+/Hizmetler/Izleme-ve-Raporlama-58 /hizmetler/es-takibi.html 301
+/Hizmetler/Marka-Taklidi-Arastirmasi-59 /hizmetler/kurumsal-ve-marka-koruma.html 301
+/Hizmetler/* / 301
+
+# Eski yuksek trafikli makale & sehir sayfalari
+/Dedektiflik-Hakkinda/Dedektif-Ankara-51 /ankara-ozel-dedektif.html 301
+/Dedektiflik-Hakkinda/Ozel-Dedektif-Burosu-Ankara-45 /ankara-ozel-dedektif.html 301
+/Dedektiflik-Hakkinda/Ankara-dedektif-fiyati-43 /ankara-ozel-dedektif.html 301
+/Dedektiflik-Hakkinda/Istanbul-Dedektiflik-Burosu-56 /istanbul-ozel-dedektif.html 301
+/Dedektiflik-Hakkinda/Istanbul-Dedektif-58 /istanbul-ozel-dedektif.html 301
+/Dedektiflik-Hakkinda/Istanbul-Dedektif-Ucretleri-49 /istanbul-ozel-dedektif.html 301
+/Dedektiflik-Hakkinda/Dedektif-Burosu-Istanbul-57 /istanbul-ozel-dedektif.html 301
+/Dedektiflik-Hakkinda/Istanbul-Dedektiflik-50 /istanbul-ozel-dedektif.html 301
+/Dedektiflik-Hakkinda/Es-Takibi-Istanbul-44 /istanbul-ozel-dedektif.html 301
+/Dedektiflik-Hakkinda/Ozel-Dedektif-Istanbul-47 /istanbul-ozel-dedektif.html 301
+/Dedektiflik-Hakkinda/Dedektif-Es-Takibi-48 /hizmetler/es-takibi.html 301
+/Dedektiflik-Hakkinda/Aldatan-Koca-Takibi-52 /hizmetler/es-takibi.html 301
+/Dedektiflik-Hakkinda/Aldatan-Kadin-Takibi-Es-Takibi-53 /hizmetler/es-takibi.html 301
+/Dedektiflik-Hakkinda/Bosanma-davasi-icin-delil-toplama-22 /hizmetler/velayet-bosanma.html 301
+/Dedektiflik-Hakkinda/Bosanma-Davasi-Delil-Toplama-54 /hizmetler/velayet-bosanma.html 301
+/Dedektiflik-Hakkinda/Velayet-davasi-kazanmak-icin-dedektif-tutmak-42 /hizmetler/velayet-bosanma.html 301
+/Dedektiflik-Hakkinda/Kiminle-evleniyorum-ben-25 /hizmetler/evlilik-oncesi-arastirma.html 301
+/Dedektiflik-Hakkinda/Nisanli-Arastirmasi-82 /hizmetler/evlilik-oncesi-arastirma.html 301
+/Dedektiflik-Hakkinda/Nisanlimin-Gecmisini-Ogrenmek-Istiyorum-81 /hizmetler/evlilik-oncesi-arastirma.html 301
+/Dedektiflik-Hakkinda/Ben-kiminle-evleniyorum-11 /hizmetler/evlilik-oncesi-arastirma.html 301
+/Dedektiflik-Hakkinda/Borcluyu-Bulma-76 /hizmetler/adres-ve-borclu-takibi.html 301
+/Dedektiflik-Hakkinda/Borcunu-odemeden-nereye-boyle-21 /hizmetler/adres-ve-borclu-takibi.html 301
+/Dedektiflik-Hakkinda/Adres-tespiti-nasil-yapilir-19 /hizmetler/adres-ve-borclu-takibi.html 301
+/Dedektiflik-Hakkinda/Marka-taklidini-engelleme-29 /hizmetler/kurumsal-ve-marka-koruma.html 301
+/Dedektiflik-Hakkinda/* / 301
+
+# Eski 2.880 il/ilce programatik sayfa (sifir 404 korumasi)
+/Es-takip/* /hizmetler/es-takibi.html 301
+/Dava-Delil-Arastirma/* /hizmetler/velayet-bosanma.html 301
+/Dedektif/* / 301
