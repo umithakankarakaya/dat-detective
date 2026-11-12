@@ -321,6 +321,32 @@ function prefillService(serviceValue) {
 }
 
 // 6. Encrypted Case Form Submission -> Routes to uhakankarakaya@gmail.com & umithakankarakaya@gmail.com
+const FORM_RECIPIENT_ENDPOINTS = [
+    "https://formsubmit.co/ajax/uhakankarakaya@gmail.com",
+    "https://formsubmit.co/ajax/umithakankarakaya@gmail.com"
+];
+
+async function _sendFormPayload(payload, timeoutMs = 8000) {
+    const body = JSON.stringify(payload);
+    await Promise.allSettled(FORM_RECIPIENT_ENDPOINTS.map(async (url) => {
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), timeoutMs);
+        try {
+            await fetch(url, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body,
+                signal: controller.signal
+            });
+        } finally {
+            clearTimeout(timer);
+        }
+    }));
+}
+
 let _lastCaseSubmitAt = 0;
 async function handleFormSubmit(e) {
     e.preventDefault();
@@ -356,7 +382,6 @@ async function handleFormSubmit(e) {
 
     const payload = {
         _subject: `Yeni Vaka & Fiyat Teklifi Talebi (${randomCode}) — DAT Dedektiflik`,
-        _cc: "umithakankarakaya@gmail.com",
         _template: "table",
         _captcha: "false",
         Dosya_Takip_Kodu: randomCode,
@@ -369,85 +394,71 @@ async function handleFormSubmit(e) {
     };
 
     try {
-        await Promise.allSettled([
-            fetch("https://formsubmit.co/ajax/uhakankarakaya@gmail.com", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Accept": "application/json"
-                },
-                body: JSON.stringify(payload)
-            }),
-            fetch("https://formsubmit.co/ajax/umithakankarakaya@gmail.com", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Accept": "application/json"
-                },
-                body: JSON.stringify(payload)
-            })
-        ]);
-    } catch (_) {
-        // Fallback links in modal handle offline/blocked cases
+        try {
+            await _sendFormPayload(payload);
+        } catch (_) {
+            // Fallback links in modal handle offline/blocked cases
+        }
+
+        const emailSubject = encodeURIComponent(`Yeni Vaka & Fiyat Teklifi Talebi (${randomCode}) - DAT Dedektiflik`);
+        const emailBody = encodeURIComponent(
+            `DAT ÖZEL DEDEKTİFLİK — YENİ VAKA TALEBİ\n` +
+            `------------------------------------------\n` +
+            `Dosya Takip Kodu: ${randomCode}\n` +
+            `Ad / Rumuz: ${clientName}\n` +
+            `Hizmet Kategorisi: ${categoryText}\n` +
+            `Tercih Edilen Kanal: ${channelText}\n` +
+            `İletişim Bilgisi: ${clientContact}\n` +
+            `Aciliyet: ${urgencyVal.toUpperCase()}\n\n` +
+            `Vaka Detayı:\n${caseDetails}`
+        );
+
+        const directEmailLink = document.getElementById('directEmailLink');
+        if (directEmailLink) {
+            directEmailLink.href = `mailto:uhakankarakaya@gmail.com,umithakankarakaya@gmail.com?subject=${emailSubject}&body=${emailBody}`;
+        }
+
+        const directWhatsappLink = document.getElementById('directWhatsappLink');
+        if (directWhatsappLink) {
+            directWhatsappLink.href = `https://wa.me/905326667749?text=${emailBody}`;
+        }
+
+        // Log submitted tracking reference locally
+        try {
+            const savedCases = JSON.parse(localStorage.getItem('dat_client_cases') || '[]');
+            savedCases.unshift({
+                code: randomCode,
+                name: clientName,
+                category: categoryText,
+                channel: channelText,
+                details: caseDetails,
+                date: new Date().toLocaleString('tr-TR')
+            });
+            localStorage.setItem('dat_client_cases', JSON.stringify(savedCases));
+        } catch (_) {}
+
+        const smTitle = document.getElementById('successModalTitle');
+        const smDesc = document.getElementById('successModalDesc');
+        const smLabel = document.getElementById('successCodeLabel');
+        if (smTitle) smTitle.textContent = _getUI('caseSentTitle', 'Vaka Talebiniz İletildi');
+        if (smDesc) smDesc.innerHTML = _getUI('caseSentDesc', 'Mesajınız DAT Dedektiflik uzman ekibine şifrelenerek iletildi. Acil durumlar için doğrudan <strong>0532 666 77 49</strong> (WhatsApp) veya <strong>0312 284 02 99</strong> hattımızdan da bize ulaşabilirsiniz.');
+        if (smLabel) smLabel.textContent = _getUI('caseCodeLabel', 'DOSYA TAKİP KODUNUZ:');
+
+        const codeElement = document.getElementById('caseTrackingCode');
+        if (codeElement) {
+            codeElement.textContent = randomCode;
+        }
+        
+        const successModal = document.getElementById('successModal');
+        if (successModal) {
+            successModal.classList.remove('hidden');
+        }
+        
+        document.getElementById('caseForm')?.reset();
+    } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
     }
-
-    const emailSubject = encodeURIComponent(`Yeni Vaka & Fiyat Teklifi Talebi (${randomCode}) - DAT Dedektiflik`);
-    const emailBody = encodeURIComponent(
-        `DAT ÖZEL DEDEKTİFLİK — YENİ VAKA TALEBİ\n` +
-        `------------------------------------------\n` +
-        `Dosya Takip Kodu: ${randomCode}\n` +
-        `Ad / Rumuz: ${clientName}\n` +
-        `Hizmet Kategorisi: ${categoryText}\n` +
-        `Tercih Edilen Kanal: ${channelText}\n` +
-        `İletişim Bilgisi: ${clientContact}\n` +
-        `Aciliyet: ${urgencyVal.toUpperCase()}\n\n` +
-        `Vaka Detayı:\n${caseDetails}`
-    );
-
-    const directEmailLink = document.getElementById('directEmailLink');
-    if (directEmailLink) {
-        directEmailLink.href = `mailto:uhakankarakaya@gmail.com,umithakankarakaya@gmail.com?subject=${emailSubject}&body=${emailBody}`;
-    }
-
-    const directWhatsappLink = document.getElementById('directWhatsappLink');
-    if (directWhatsappLink) {
-        directWhatsappLink.href = `https://wa.me/905326667749?text=${emailBody}`;
-    }
-
-    // Log submitted tracking reference locally
-    try {
-        const savedCases = JSON.parse(localStorage.getItem('dat_client_cases') || '[]');
-        savedCases.unshift({
-            code: randomCode,
-            name: clientName,
-            category: categoryText,
-            channel: channelText,
-            details: caseDetails,
-            date: new Date().toLocaleString('tr-TR')
-        });
-        localStorage.setItem('dat_client_cases', JSON.stringify(savedCases));
-    } catch (_) {}
-
-    const smTitle = document.getElementById('successModalTitle');
-    const smDesc = document.getElementById('successModalDesc');
-    const smLabel = document.getElementById('successCodeLabel');
-    if (smTitle) smTitle.textContent = _getUI('caseSentTitle', 'Vaka Talebiniz İletildi');
-    if (smDesc) smDesc.innerHTML = _getUI('caseSentDesc', 'Mesajınız DAT Dedektiflik uzman ekibine şifrelenerek iletildi. Acil durumlar için doğrudan <strong>0532 666 77 49</strong> (WhatsApp) veya <strong>0312 284 02 99</strong> hattımızdan da bize ulaşabilirsiniz.');
-    if (smLabel) smLabel.textContent = _getUI('caseCodeLabel', 'DOSYA TAKİP KODUNUZ:');
-
-    const codeElement = document.getElementById('caseTrackingCode');
-    if (codeElement) {
-        codeElement.textContent = randomCode;
-    }
-    
-    const successModal = document.getElementById('successModal');
-    if (successModal) {
-        successModal.classList.remove('hidden');
-    }
-    
-    document.getElementById('caseForm')?.reset();
-    submitBtn.disabled = false;
-    submitBtn.innerHTML = originalText;
 }
 
 function closeSuccessModal() {
@@ -1378,7 +1389,6 @@ async function submitShopOrder(e) {
 
     const payload = {
         _subject: `DAT Store Yeni Donanım Siparişi (${orderCode})`,
-        _cc: "umithakankarakaya@gmail.com",
         _template: "table",
         _captcha: "false",
         Siparis_Kodu: orderCode,
@@ -1390,33 +1400,25 @@ async function submitShopOrder(e) {
     };
 
     try {
-        await Promise.allSettled([
-            fetch("https://formsubmit.co/ajax/uhakankarakaya@gmail.com", {
-                method: "POST",
-                headers: { "Content-Type": "application/json", "Accept": "application/json" },
-                body: JSON.stringify(payload)
-            }),
-            fetch("https://formsubmit.co/ajax/umithakankarakaya@gmail.com", {
-                method: "POST",
-                headers: { "Content-Type": "application/json", "Accept": "application/json" },
-                body: JSON.stringify(payload)
-            })
-        ]);
-    } catch (_) {}
+        try {
+            await _sendFormPayload(payload);
+        } catch (_) {}
 
-    const waMsg = encodeURIComponent(
-        `DAT STORE SİPARİŞ TALEBİ (${orderCode})\n` +
-        `Ad / Firma: ${name}\nTelefon: ${phone}\nAdres: ${address}\n\n` +
-        `Ürünler:\n${itemsText}\n\nToplam (KDV Dahil): ${formatTL(totalAmount)}`
-    );
-    window.open(`https://wa.me/905326667749?text=${waMsg}`, '_blank', 'noopener,noreferrer');
+        const waMsg = encodeURIComponent(
+            `DAT STORE SİPARİŞ TALEBİ (${orderCode})\n` +
+            `Ad / Firma: ${name}\nTelefon: ${phone}\nAdres: ${address}\n\n` +
+            `Ürünler:\n${itemsText}\n\nToplam (KDV Dahil): ${formatTL(totalAmount)}`
+        );
+        window.open(`https://wa.me/905326667749?text=${waMsg}`, '_blank', 'noopener,noreferrer');
 
-    shopCart = [];
-    saveCart();
-    document.getElementById('cartOrderForm')?.reset();
-    btn.disabled = false;
-    btn.innerHTML = orig;
-    closeCartDrawer();
+        shopCart = [];
+        saveCart();
+        document.getElementById('cartOrderForm')?.reset();
+        closeCartDrawer();
+    } finally {
+        btn.disabled = false;
+        btn.innerHTML = orig;
+    }
 
     const smTitle = document.getElementById('successModalTitle');
     const smDesc = document.getElementById('successModalDesc');
