@@ -214,7 +214,7 @@ class LocalePageRenderer(HTMLParser):
                 self.skip_block_depth += 1
             return
 
-        if tag == "script" and attr_dict.get("src") == "script.js":
+        if tag == "script" and (attr_dict.get("src") or "").split("?")[0] == "script.js":
             self.out.append(f'<script>window.DAT_STATIC_PAGE_LANG = "{self.lang}";</script>\n    ')
 
         self.stack.append((tag, attr_dict))

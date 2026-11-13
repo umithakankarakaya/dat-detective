@@ -305,7 +305,7 @@ export const DetectiveDashboard: React.FC = () => {
                     </div>
 
                     <h2 className="text-xl sm:text-2xl font-medium tracking-tight text-white">
-                      İncelenen Şüpheli Varlık Hacmi: <span className="font-mono">₺14.850.000</span>
+                      Soruşturma Durumu: <span className="font-mono">Adli Delil Eşleştirme Aktif</span>
                     </h2>
 
                     <p className="text-xs sm:text-sm font-regular text-slate-300 leading-relaxed max-w-2xl">

@@ -152,17 +152,17 @@
             var active = optLang === lang;
             if (btn.closest('#mobileLangBar')) {
                 if (active) {
-                    btn.className = 'lang-opt-btn py-1.5 rounded-lg bg-[#000000] text-[#FFFFFF] font-mono text-[11px] font-medium text-center transition';
+                    btn.className = 'lang-opt-btn py-1.5 rounded-lg bg-[#93F051] text-[#111111] font-mono text-[11px] font-medium text-center transition';
                 } else {
-                    btn.className = 'lang-opt-btn py-1.5 rounded-lg bg-[#F3F4F4] text-[#3A3E42] font-mono text-[11px] text-center transition';
+                    btn.className = 'lang-opt-btn py-1.5 rounded-lg bg-[#222224] text-white/75 font-mono text-[11px] text-center transition';
                 }
             } else {
                 if (active) {
-                    btn.classList.add('bg-[#FFF7ED]', 'text-[#F48120]', 'font-medium');
-                    btn.classList.remove('text-[#3A3E42]', 'text-[#000000]', 'hover:bg-[#F3F4F4]');
+                    btn.classList.add('bg-[#111111]', 'text-[#93F051]', 'font-medium');
+                    btn.classList.remove('text-white/75', 'text-[#3A3E42]', 'text-[#000000]', 'hover:bg-white/10', 'hover:bg-[#F3F4F4]');
                 } else {
-                    btn.classList.remove('bg-[#FFF7ED]', 'text-[#F48120]', 'font-medium', 'text-[#000000]');
-                    btn.classList.add('text-[#3A3E42]', 'hover:bg-[#F3F4F4]');
+                    btn.classList.remove('bg-[#111111]', 'text-[#93F051]', 'bg-[#FFF7ED]', 'text-[#F48120]', 'font-medium', 'text-[#000000]');
+                    btn.classList.add('text-white/75', 'hover:bg-white/10');
                 }
             }
         }
@@ -355,10 +355,6 @@
                 if (SUPPORTED_LANGS.indexOf(qNorm) !== -1) return qNorm;
             }
         } catch (_) {}
-        try {
-            var saved = localStorage.getItem(STORAGE_KEY);
-            if (saved && SUPPORTED_LANGS.indexOf(saved) !== -1) return saved;
-        } catch (_) {}
         return 'tr';
     }
 
@@ -399,7 +395,6 @@
         var staticLang = window.DAT_STATIC_PAGE_LANG;
         if (staticLang && SUPPORTED_LANGS.indexOf(staticLang) !== -1 && staticLang !== 'tr') {
             currentLang = staticLang;
-            try { localStorage.setItem(STORAGE_KEY, staticLang); } catch (_) {}
             var pack = getPack(staticLang);
             document.documentElement.dir = (pack && pack.dir === 'rtl') ? 'rtl' : 'ltr';
             document.documentElement.lang = HTML_LANG_MAP[staticLang] || staticLang;

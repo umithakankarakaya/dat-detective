@@ -7,8 +7,8 @@
         if (host !== 'localhost' && host !== '127.0.0.1') return;
         const magaza = document.getElementById('magaza');
         const hasV2 = magaza && magaza.getAttribute('data-store-version') === '2' && !!document.querySelector('[data-hero-rail="v2"]');
-        if (!hasV2 && !sessionStorage.getItem('dat_healed_doc_v4')) {
-            sessionStorage.setItem('dat_healed_doc_v4', '1');
+        if (!hasV2 && !sessionStorage.getItem('dat_healed_doc_v5')) {
+            sessionStorage.setItem('dat_healed_doc_v5', '1');
             fetch(window.location.pathname || '/', { cache: 'reload' })
                 .finally(() => window.location.reload());
         }
@@ -189,9 +189,9 @@ function switchHeroCase(caseKey) {
 
     document.querySelectorAll('.hero-tab-btn').forEach(btn => {
         if (btn.getAttribute('data-tab') === currentHeroCaseKey) {
-            btn.className = "hero-tab-btn px-3 py-1 rounded-full bg-[#F48120] text-[#FFFFFF] font-medium transition";
+            btn.className = "hero-tab-btn px-2.5 py-1.5 rounded-full bg-[#93F051] text-[#111111] font-medium transition";
         } else {
-            btn.className = "hero-tab-btn px-3 py-1 rounded-full text-[#3A3E42] hover:text-[#000000] font-regular transition";
+            btn.className = "hero-tab-btn px-2.5 py-1.5 rounded-full text-white/70 hover:text-white font-regular transition";
         }
     });
 
@@ -207,8 +207,8 @@ function switchHeroCase(caseKey) {
     if (timelineEl) {
         timelineEl.innerHTML = data.logs.map(item => `
             <div class="flex items-start gap-2.5">
-                <span class="font-mono text-[11px] ${item.highlight ? 'bg-[#F48120] text-[#FFFFFF]' : 'bg-[#F3F4F4] text-[#000000]'} px-2 py-0.5 rounded font-medium mt-0.5 shrink-0">${item.time}</span>
-                <p class="${item.highlight ? 'text-[#000000] font-medium' : 'text-[#3A3E42] font-regular'} leading-relaxed">${item.text}</p>
+                <span class="font-mono text-[10px] ${item.highlight ? 'bg-[#111111] text-[#93F051]' : 'bg-[#F2F2F2] text-[#111111]'} px-2 py-0.5 rounded-md font-medium mt-0.5 shrink-0">${item.time}</span>
+                <p class="${item.highlight ? 'text-[#111111] font-medium' : 'text-[#3A3E42] font-regular'} text-[11.5px] leading-snug">${item.text}</p>
             </div>
         `).join('');
     }
@@ -269,9 +269,9 @@ function selectSimulatorCase(caseKey) {
 
     document.querySelectorAll('.sim-btn').forEach(btn => {
         if (btn.getAttribute('data-sim') === currentSimTabKey) {
-            btn.className = "sim-btn w-full text-left px-4 py-3.5 rounded-2xl bg-[#F48120] text-[#FFFFFF] font-medium text-xs sm:text-sm flex items-center justify-between transition";
+            btn.className = "sim-btn w-full text-left px-4 py-3.5 rounded-2xl bg-[#FA7E61] text-[#111111] font-medium text-xs sm:text-sm flex items-center justify-between transition";
         } else {
-            btn.className = "sim-btn w-full text-left px-4 py-3.5 rounded-2xl bg-[#F3F4F4] hover:bg-[#E5E7EB] text-[#000000] font-regular text-xs sm:text-sm flex items-center justify-between transition";
+            btn.className = "sim-btn w-full text-left px-4 py-3.5 rounded-2xl bg-[#1D1D1F] hover:bg-[#2A2A2D] text-[#FFFFFF] border border-white/10 font-regular text-xs sm:text-sm flex items-center justify-between transition";
         }
     });
 
@@ -290,9 +290,9 @@ function applySimulatedCase() {
 function filterServices(category) {
     document.querySelectorAll('.srv-filter-btn').forEach(btn => {
         if (btn.getAttribute('data-filter') === category) {
-            btn.className = "srv-filter-btn px-4 py-1.5 rounded-full bg-[#F48120] text-[#FFFFFF] text-xs font-medium transition";
+            btn.className = "srv-filter-btn px-4 py-1.5 rounded-full bg-[#111111] text-[#93F051] text-xs font-medium transition";
         } else {
-            btn.className = "srv-filter-btn px-4 py-1.5 rounded-full text-[#3A3E42] hover:text-[#000000] text-xs font-regular transition";
+            btn.className = "srv-filter-btn px-4 py-1.5 rounded-full text-[#3A3E42] hover:text-[#111111] text-xs font-regular transition";
         }
     });
 
@@ -321,35 +321,124 @@ function prefillService(serviceValue) {
 }
 
 // 6. Encrypted Case Form Submission -> Routes to uhakankarakaya@gmail.com & umithakankarakaya@gmail.com
+// Google Apps Script Web App URL (/exec) — scripts/google-apps-script-webhook.gs kurulumundan sonra buraya yapıştırın.
+const GOOGLE_APPS_SCRIPT_WEBHOOK_URL = "";
+
 const FORM_RECIPIENT_ENDPOINTS = [
     "https://formsubmit.co/ajax/uhakankarakaya@gmail.com",
     "https://formsubmit.co/ajax/umithakankarakaya@gmail.com"
 ];
 
-async function _sendFormPayload(payload, uiWaitMs = 2500, networkTimeoutMs = 15000) {
+async function _sendViaGoogleAppsScript(webhookUrl, payload, networkTimeoutMs = 12000) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), networkTimeoutMs);
+    try {
+        // text/plain keeps CORS simple request semantics so Google Apps Script skips OPTIONS preflight
+        const res = await fetch(webhookUrl, {
+            method: "POST",
+            headers: {
+                "Content-Type": "text/plain;charset=utf-8"
+            },
+            body: JSON.stringify(payload),
+            redirect: "follow",
+            signal: controller.signal
+        });
+        let data = null;
+        try {
+            data = await res.json();
+        } catch (_) {}
+        if (!res.ok || !data || data.ok !== true) {
+            throw new Error((data && data.error) || `HTTP ${res.status}`);
+        }
+        return data;
+    } finally {
+        clearTimeout(timer);
+    }
+}
+
+async function _sendFormPayload(payload, networkTimeoutMs = 10000) {
+    const preErrors = [];
+    const webhookUrl = typeof GOOGLE_APPS_SCRIPT_WEBHOOK_URL === "string"
+        ? GOOGLE_APPS_SCRIPT_WEBHOOK_URL.trim()
+        : "";
+
+    if (webhookUrl) {
+        try {
+            await _sendViaGoogleAppsScript(webhookUrl, payload, Math.max(networkTimeoutMs, 12000));
+            return {
+                ok: true,
+                deliveredCount: FORM_RECIPIENT_ENDPOINTS.length,
+                totalCount: FORM_RECIPIENT_ENDPOINTS.length,
+                errors: []
+            };
+        } catch (gasErr) {
+            preErrors.push(`Apps Script: ${gasErr?.message || "Ağ hatası"}`);
+        }
+    }
+
     const body = JSON.stringify(payload);
-    const sendAll = Promise.allSettled(FORM_RECIPIENT_ENDPOINTS.map(async (url) => {
+    const results = await Promise.allSettled(FORM_RECIPIENT_ENDPOINTS.map(async (url) => {
         const controller = new AbortController();
         const timer = setTimeout(() => controller.abort(), networkTimeoutMs);
         try {
-            await fetch(url, {
+            const res = await fetch(url, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                     "Accept": "application/json"
                 },
                 body,
-                keepalive: true,
                 signal: controller.signal
             });
+            let data = null;
+            try {
+                data = await res.json();
+            } catch (_) {}
+            const rejectedByProvider = data && (data.success === false || data.success === "false");
+            if (!res.ok || rejectedByProvider) {
+                throw new Error((data && data.message) || `HTTP ${res.status}`);
+            }
+            return (data && data.message) || "ok";
         } finally {
             clearTimeout(timer);
         }
     }));
-    await Promise.race([sendAll, new Promise((resolve) => setTimeout(resolve, uiWaitMs))]);
+
+    const delivered = results.filter((r) => r.status === "fulfilled");
+    const errors = [
+        ...preErrors,
+        ...results
+            .filter((r) => r.status === "rejected")
+            .map((r) => r.reason?.message || "Ağ hatası")
+    ];
+
+    return {
+        ok: delivered.length > 0,
+        deliveredCount: delivered.length,
+        totalCount: FORM_RECIPIENT_ENDPOINTS.length,
+        errors
+    };
 }
 
 let _lastCaseSubmitAt = 0;
+function _renderDeliveryStatus(delivery) {
+    const statusBox = document.getElementById('formDeliveryStatus');
+    if (!statusBox) return;
+    statusBox.classList.remove('hidden', 'bg-[#93F051]/20', 'border-[#15803D]/30', 'text-[#111111]', 'bg-[#FA7E61]/20', 'border-[#FA7E61]/40');
+    if (delivery && delivery.ok && delivery.deliveredCount === delivery.totalCount) {
+        statusBox.classList.add('bg-[#93F051]/20', 'border-[#15803D]/30', 'text-[#111111]');
+        statusBox.textContent = `✓ E-posta sunucusu teslimatı onayladı (${delivery.deliveredCount}/${delivery.totalCount} alıcı).`;
+    } else if (delivery && delivery.ok) {
+        const errInfo = (delivery.errors && delivery.errors[0]) ? ` • Not: ${delivery.errors[0]}` : '';
+        statusBox.classList.add('bg-[#93F051]/20', 'border-[#15803D]/30', 'text-[#111111]');
+        statusBox.textContent = `✓ Talep iletildi (${delivery.deliveredCount}/${delivery.totalCount} alıcı${errInfo}).`;
+    } else {
+        const reason = (delivery && delivery.errors && delivery.errors[0]) ? delivery.errors[0] : 'Sunucu yanıt vermedi';
+        statusBox.classList.add('bg-[#FA7E61]/20', 'border-[#FA7E61]/40', 'text-[#111111]');
+        statusBox.textContent = `⚠ E-posta iletilemedi (${reason}). Yerel test (localhost), reklam engelleyici veya FormSubmit aktivasyonu nedeniyle engellenmiş olabilir — aşağıdaki WhatsApp/E-Posta butonuyla iletebilirsiniz.`;
+    }
+}
+
 async function handleFormSubmit(e) {
     e.preventDefault();
     if (document.getElementById('caseHoney')?.value) {
@@ -360,7 +449,6 @@ async function handleFormSubmit(e) {
         alert(_getUI('rateLimitAlert', 'Lütfen tekrar göndermeden önce birkaç saniye bekleyiniz.'));
         return;
     }
-    _lastCaseSubmitAt = now;
     
     const submitBtn = document.getElementById('submitBtn');
     const originalText = submitBtn.innerHTML;
@@ -382,10 +470,14 @@ async function handleFormSubmit(e) {
         ${_getUI('encryptingBtn', 'Şifreleniyor & E-Posta İletiliyor...')}
     `;
 
+    const isEmailContact = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(clientContact);
     const payload = {
         _subject: `Yeni Vaka & Fiyat Teklifi Talebi (${randomCode}) — DAT Dedektiflik`,
         _template: "table",
         _captcha: "false",
+        name: clientName,
+        ...(isEmailContact ? { email: clientContact, _replyto: clientContact } : {}),
+        message: `[${randomCode}] ${categoryText} | Kanal: ${channelText} | İletişim: ${clientContact} | Aciliyet: ${urgencyVal.toUpperCase()}\n\n${caseDetails}`,
         Dosya_Takip_Kodu: randomCode,
         Ad_veya_Rumuz: clientName,
         Hizmet_Kategorisi: categoryText,
@@ -396,10 +488,14 @@ async function handleFormSubmit(e) {
     };
 
     try {
+        let delivery = { ok: false, deliveredCount: 0, totalCount: FORM_RECIPIENT_ENDPOINTS.length, errors: ['İstek gönderilemedi'] };
         try {
-            await _sendFormPayload(payload);
-        } catch (_) {
-            // Fallback links in modal handle offline/blocked cases
+            delivery = await _sendFormPayload(payload);
+        } catch (err) {
+            delivery.errors = [err?.message || 'Bağlantı hatası'];
+        }
+        if (delivery.ok) {
+            _lastCaseSubmitAt = Date.now();
         }
 
         const emailSubject = encodeURIComponent(`Yeni Vaka & Fiyat Teklifi Talebi (${randomCode}) - DAT Dedektiflik`);
@@ -463,9 +559,18 @@ async function handleFormSubmit(e) {
         const smTitle = document.getElementById('successModalTitle');
         const smDesc = document.getElementById('successModalDesc');
         const smLabel = document.getElementById('successCodeLabel');
-        if (smTitle) smTitle.textContent = _getUI('caseSentTitle', 'Vaka Talebiniz İletildi');
-        if (smDesc) smDesc.innerHTML = _getUI('caseSentDesc', 'Mesajınız DAT Dedektiflik uzman ekibine şifrelenerek iletildi. Acil durumlar için doğrudan <strong>0532 666 77 49</strong> (WhatsApp) veya <strong>0312 284 02 99</strong> hattımızdan da bize ulaşabilirsiniz.');
+        if (smTitle) {
+            smTitle.textContent = delivery.ok
+                ? _getUI('caseSentTitle', 'Vaka Talebiniz İletildi')
+                : _getUI('casePendingTitle', 'Otomatik E-Posta Doğrulanamadı');
+        }
+        if (smDesc) {
+            smDesc.innerHTML = delivery.ok
+                ? _getUI('caseSentDesc', 'Mesajınız DAT Dedektiflik uzman ekibine şifrelenerek iletildi. Acil durumlar için doğrudan <strong>0532 666 77 49</strong> (WhatsApp) veya <strong>0312 284 02 99</strong> hattımızdan da bize ulaşabilirsiniz.')
+                : _getUI('casePendingDesc', 'E-posta servisi henüz bu alan adı için aktive edilmemiş veya yerel test/reklam engelleyici nedeniyle yanıt vermedi. Talebinizin bize anında ulaşması için aşağıdaki <strong>WhatsApp</strong> veya <strong>Doğrudan E-Posta</strong> butonunu kullanın.');
+        }
         if (smLabel) smLabel.textContent = _getUI('caseCodeLabel', 'DOSYA TAKİP KODUNUZ:');
+        _renderDeliveryStatus(delivery);
 
         const codeElement = document.getElementById('caseTrackingCode');
         if (codeElement) {
@@ -477,7 +582,9 @@ async function handleFormSubmit(e) {
             successModal.classList.remove('hidden');
         }
         
-        document.getElementById('caseForm')?.reset();
+        if (delivery.ok) {
+            document.getElementById('caseForm')?.reset();
+        }
     } finally {
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalText;
@@ -605,8 +712,8 @@ function openArticleModal(articleKey) {
 
     if (highlightsEl) {
         highlightsEl.innerHTML = data.highlights.map(h => `
-            <li class="flex items-start gap-2 text-xs text-[#000000] font-medium">
-                <span class="text-[#F48120] font-bold mt-0.5">✓</span>
+            <li class="flex items-start gap-2 text-xs text-[#111111] font-medium">
+                <span class="text-[#16A34A] font-bold mt-0.5">✓</span>
                 <span>${h}</span>
             </li>
         `).join('');
@@ -869,8 +976,8 @@ function openServiceModal(serviceKey) {
 
     if (deliverablesEl) {
         deliverablesEl.innerHTML = data.deliverables.map(d => `
-            <li class="flex items-start gap-2 text-xs text-[#000000] font-medium">
-                <span class="text-[#F48120] font-bold mt-0.5">✓</span>
+            <li class="flex items-start gap-2 text-xs text-[#111111] font-medium">
+                <span class="text-[#16A34A] font-bold mt-0.5">✓</span>
                 <span>${d}</span>
             </li>
         `).join('');
@@ -1230,9 +1337,9 @@ function formatTL(num) {
 function filterShop(cat) {
     document.querySelectorAll('.shop-filter-btn').forEach(btn => {
         if (btn.getAttribute('data-shop-filter') === cat) {
-            btn.className = 'shop-filter-btn px-3.5 py-1.5 rounded-full bg-[#000000] text-[#FFFFFF] font-medium transition';
+            btn.className = 'shop-filter-btn px-3.5 py-1.5 rounded-full bg-[#111111] text-[#93F051] font-medium transition';
         } else {
-            btn.className = 'shop-filter-btn px-3.5 py-1.5 rounded-full text-[#3A3E42] hover:text-[#000000] font-regular transition';
+            btn.className = 'shop-filter-btn px-3.5 py-1.5 rounded-full text-[#3A3E42] hover:text-[#111111] font-regular transition';
         }
     });
     document.querySelectorAll('.shop-card').forEach(card => {
@@ -1250,11 +1357,11 @@ function selectSwatch(sku, variantName, btnEl) {
     const group = btnEl?.parentElement;
     if (group) {
         group.querySelectorAll('.swatch-btn').forEach(b => {
-            b.classList.remove('ring-2', 'ring-[#F48120]', 'ring-offset-1');
+            b.classList.remove('ring-2', 'ring-[#111111]', 'ring-offset-1');
             b.classList.add('border', 'border-black/15');
         });
         btnEl.classList.remove('border', 'border-black/15');
-        btnEl.classList.add('ring-2', 'ring-[#F48120]', 'ring-offset-1');
+        btnEl.classList.add('ring-2', 'ring-[#111111]', 'ring-offset-1');
     }
 }
 
@@ -1320,10 +1427,10 @@ function renderCart() {
     if (shopCart.length === 0) {
         container.innerHTML = `
             <div class="h-full flex flex-col items-center justify-center text-center py-12 space-y-3 text-[#3A3E42]/70">
-                <div class="w-12 h-12 rounded-full bg-[#F3F4F4] flex items-center justify-center text-[#F48120]">
+                <div class="w-12 h-12 rounded-full bg-[#111111] flex items-center justify-center text-[#93F051]">
                     <i class="hgi hgi-stroke hgi-shopping-bag-02 w-5 h-5"></i>
                 </div>
-                <div class="text-xs font-medium text-[#000000]">${_getUI('cartEmptyTitle', 'Sepetiniz Şu An Boş')}</div>
+                <div class="text-xs font-medium text-[#111111]">${_getUI('cartEmptyTitle', 'Sepetiniz Şu An Boş')}</div>
                 <p class="text-[11px] max-w-xs">${_getUI('cartEmptyDesc', 'Yasal GPS araç/varlık takip cihazları ve TSCM güvenlik ekipmanlarını inceleyip sepete ekleyebilirsiniz.')}</p>
             </div>
         `;
@@ -1334,13 +1441,13 @@ function renderCart() {
         const localizedProd = _getDyn('shop', item.sku, SHOP_PRODUCTS[item.sku] || item);
         const localizedVar = (localizedProd.variants && localizedProd.variants[item.variant]) ? localizedProd.variants[item.variant] : item.variant;
         return `
-        <div class="flex items-center gap-3 p-3 rounded-2xl bg-[#F3F4F4]/80 border border-[rgba(0,0,0,0.06)]">
+        <div class="flex items-center gap-3 p-3 rounded-2xl bg-[#F2F2F2] border border-black/10">
             <img src="${_resolveAssetPath(item.image)}" alt="${localizedProd.title}" class="w-16 h-16 rounded-xl object-cover bg-[#FFFFFF] shrink-0">
             <div class="flex-1 min-w-0">
-                <div class="text-xs font-medium text-[#000000] truncate">${localizedProd.title}</div>
+                <div class="text-xs font-medium text-[#111111] truncate">${localizedProd.title}</div>
                 <div class="text-[10px] font-mono text-[#3A3E42]/70 mt-0.5">${localizedVar} • ${item.sku}</div>
                 <div class="flex items-center justify-between mt-2">
-                    <span class="text-xs font-mono font-medium text-[#F48120]">${formatTL(item.price * item.qty)}</span>
+                    <span class="text-xs font-mono font-medium text-[#111111]">${formatTL(item.price * item.qty)}</span>
                     <div class="inline-flex items-center gap-1.5 bg-[#FFFFFF] rounded-full px-2 py-0.5 border border-[rgba(0,0,0,0.08)]">
                         <button type="button" onclick="updateCartQty(${idx}, -1)" class="w-5 h-5 rounded-full hover:bg-[#F3F4F4] flex items-center justify-center text-[#000000]" aria-label="-">
                             <i class="hgi hgi-stroke hgi-minus-sign w-3 h-3"></i>
@@ -1386,7 +1493,7 @@ function openProductModal(sku) {
     if (specsEl) {
         specsEl.innerHTML = product.specs.map(s => `
             <li class="flex items-start gap-2">
-                <span class="text-[#F48120] font-bold">✓</span>
+                <span class="text-[#16A34A] font-bold">✓</span>
                 <span>${s}</span>
             </li>
         `).join('');
@@ -1447,6 +1554,8 @@ async function submitShopOrder(e) {
         _subject: `DAT Store Yeni Donanım Siparişi (${orderCode})`,
         _template: "table",
         _captcha: "false",
+        name: name,
+        message: `${itemsText} — Teslimat: ${address} (${formatTL(totalAmount)})`,
         Siparis_Kodu: orderCode,
         Musteri_Adi: name,
         Telefon: phone,
@@ -1455,10 +1564,13 @@ async function submitShopOrder(e) {
         Toplam_Tutar: formatTL(totalAmount)
     };
 
+    let orderDelivery = { ok: false, deliveredCount: 0, totalCount: FORM_RECIPIENT_ENDPOINTS.length, errors: [] };
     try {
         try {
-            await _sendFormPayload(payload);
-        } catch (_) {}
+            orderDelivery = await _sendFormPayload(payload);
+        } catch (err) {
+            orderDelivery.errors = [err?.message || 'Bağlantı hatası'];
+        }
 
         const waMsg = encodeURIComponent(
             `DAT STORE SİPARİŞ TALEBİ (${orderCode})\n` +
@@ -1471,23 +1583,26 @@ async function submitShopOrder(e) {
         saveCart();
         document.getElementById('cartOrderForm')?.reset();
         closeCartDrawer();
+
+        const smTitle = document.getElementById('successModalTitle');
+        const smDesc = document.getElementById('successModalDesc');
+        const smLabel = document.getElementById('successCodeLabel');
+        const codeElement = document.getElementById('caseTrackingCode');
+        const waLink = document.getElementById('directWhatsappLink');
+        const emailLink = document.getElementById('directEmailLink');
+
+        if (smTitle) smTitle.textContent = _getUI('orderSentTitle', 'Donanım Siparişiniz Alındı');
+        if (smDesc) smDesc.innerHTML = _getUI('orderSentDesc', 'Faturalı donanım sipariş talebiniz ekibimize iletildi. Kargo ve ödeme onayı için <strong>0532 666 77 49</strong> WhatsApp hattımızdan da anında teyit alabilirsiniz.');
+        if (smLabel) smLabel.textContent = _getUI('orderCodeLabel', 'SİPARİŞ TAKİP KODUNUZ:');
+        if (waLink) waLink.href = `https://wa.me/905326667749?text=${waMsg}`;
+        if (emailLink) emailLink.href = `mailto:uhakankarakaya@gmail.com,umithakankarakaya@gmail.com?subject=${encodeURIComponent(`DAT Store Sipariş (${orderCode})`)}&body=${waMsg}`;
+        if (codeElement) codeElement.textContent = orderCode;
+        _renderDeliveryStatus(orderDelivery);
+        document.getElementById('successModal')?.classList.remove('hidden');
     } finally {
         btn.disabled = false;
         btn.innerHTML = orig;
     }
-
-    const smTitle = document.getElementById('successModalTitle');
-    const smDesc = document.getElementById('successModalDesc');
-    const smLabel = document.getElementById('successCodeLabel');
-    const codeElement = document.getElementById('caseTrackingCode');
-    const waLink = document.getElementById('directWhatsappLink');
-
-    if (smTitle) smTitle.textContent = _getUI('orderSentTitle', 'Donanım Siparişiniz Alındı');
-    if (smDesc) smDesc.innerHTML = _getUI('orderSentDesc', 'Faturalı donanım sipariş talebiniz ekibimize iletildi. Kargo ve ödeme onayı için <strong>0532 666 77 49</strong> WhatsApp hattımızdan da anında teyit alabilirsiniz.');
-    if (smLabel) smLabel.textContent = _getUI('orderCodeLabel', 'SİPARİŞ TAKİP KODUNUZ:');
-    if (waLink) waLink.href = `https://wa.me/905326667749?text=${waMsg}`;
-    if (codeElement) codeElement.textContent = orderCode;
-    document.getElementById('successModal')?.classList.remove('hidden');
 }
 
 // 12. Distance Sales, Return & Cookie Policy Modals + Minimal Cookie Banner
