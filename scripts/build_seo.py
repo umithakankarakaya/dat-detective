@@ -86,13 +86,32 @@ def rewrite_rel_url(url, lang):
     return url
 
 
-_RTL_NUM_RE = re.compile(r"(\+\d[\d\s()-]{5,}\d|\b0\d{2,3}[\s-]\d{3}[\s-]\d{2}[\s-]\d{2}\b|#DAT-[A-Z0-9-]+|\b\d{4}\s*[–-]\s*\d{4}\b|\+\d[\d.,]*\d|\b\d[\d.,]*\+)")
+_RTL_NUM_RE = re.compile(
+    r"(\+\d[\d\s()-]{5,}\d|\(\s*0\d{2,3}\s*\)\s*\d{3}[\s-]\d{2}[\s-]\d{2}|\b(?:0\d{2,3}|\d{3})[\s-]\d{3}[\s-]\d{2}[\s-]\d{2}\b|\+90\s*5XX\s*XXX\s*XX\s*XX|#DAT-[A-Z0-9-]+|[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}|@[a-zA-Z0-9._-]+|\b\d{4}\s*[–-]\s*\d{4}\b|\+\d[\d.,]*\d|\b\d[\d.,]*\+)"
+)
 
 
 def wrap_rtl_plain(s, is_rtl):
     if not is_rtl or not s:
         return s
     return _RTL_NUM_RE.sub(lambda m: f"\u2066{m.group(1)}\u2069", s)
+
+
+def wrap_rtl_text_to_html(s):
+    if not s:
+        return s
+    out = []
+    last = 0
+    for m in _RTL_NUM_RE.finditer(s):
+        if m.start() > last:
+            out.append(html_lib.escape(s[last:m.start()], quote=False))
+        out.append(
+            f'<span dir="ltr" class="ltr-isolate" style="unicode-bidi:isolate">{html_lib.escape(m.group(1), quote=False)}</span>'
+        )
+        last = m.end()
+    if last < len(s):
+        out.append(html_lib.escape(s[last:], quote=False))
+    return "".join(out)
 
 
 def wrap_rtl_html(s, is_rtl):
@@ -105,19 +124,19 @@ def wrap_rtl_html(s, is_rtl):
         if not part:
             continue
         if part.startswith("<"):
-            if re.match(r'<span\b[^>]*dir=["\']ltr["\']', part, re.I):
+            if re.match(r'<(?:span|bdi)\b[^>]*(?:dir=["\']ltr["\']|ltr-isolate)', part, re.I):
                 in_ltr_span += 1
-            elif in_ltr_span > 0 and re.match(r'</span\s*>', part, re.I):
+            elif in_ltr_span > 0 and re.match(r'</(?:span|bdi)\s*>', part, re.I):
                 in_ltr_span -= 1
             out.append(part)
         elif in_ltr_span > 0:
             out.append(part)
         else:
-            out.append(_RTL_NUM_RE.sub(lambda m: f'<span dir="ltr" style="unicode-bidi:isolate">{m.group(1)}</span>', part))
+            out.append(_RTL_NUM_RE.sub(lambda m: f'<span dir="ltr" class="ltr-isolate" style="unicode-bidi:isolate">{m.group(1)}</span>', part))
     return "".join(out)
 
 
-def translate_html_text(text, phrases, is_rtl=False):
+def translate_html_text(text, phrases, is_rtl=False, plain_rtl=False):
     m = re.match(r"^(\s*)([\s\S]*?)(\s*)$", text)
     if not m:
         return text
@@ -128,10 +147,15 @@ def translate_html_text(text, phrases, is_rtl=False):
         return text
     translated = phrases.get(norm)
     if translated is None:
-        return text
+        if not is_rtl or not _RTL_NUM_RE.search(unescaped):
+            return text
+        source = unescaped
+    else:
+        source = translated
     if is_rtl:
-        translated = wrap_rtl_plain(translated, True)
-    return f"{lead}{html_lib.escape(translated, quote=False)}{trail}"
+        rendered = wrap_rtl_plain(source, True) if plain_rtl else wrap_rtl_text_to_html(source)
+        return f"{lead}{rendered}{trail}"
+    return f"{lead}{html_lib.escape(source, quote=False)}{trail}"
 
 
 class LocalePageRenderer(HTMLParser):
@@ -165,9 +189,22 @@ class LocalePageRenderer(HTMLParser):
             self.out.append(self.lang.upper())
             return
         if not self.is_text_excluded():
-            self.out.append(translate_html_text(raw, self.phrases, self.pack.get("dir") == "rtl"))
+            is_rtl = (self.pack.get("dir") == "rtl") and not self.is_in_ltr_ancestor()
+            self.out.append(translate_html_text(raw, self.phrases, is_rtl, plain_rtl=self.is_plain_text_tag()))
         else:
             self.out.append(raw)
+
+    def is_in_ltr_ancestor(self):
+        for _, attrs in self.stack:
+            if attrs.get("dir") == "ltr":
+                return True
+            cls = attrs.get("class", "")
+            if cls and "ltr-isolate" in cls.split():
+                return True
+        return False
+
+    def is_plain_text_tag(self):
+        return any(tag in ("title", "option", "textarea", "select") for tag, _ in self.stack)
 
     def is_text_excluded(self):
         for tag, attrs in self.stack:
@@ -857,6 +894,168 @@ SEO_LANDING_PAGES = [
 ]
 
 
+SUBPAGE_THEME_BOOT = '''    <script id="datThemeBoot">
+        (function () {
+            try {
+                var saved = localStorage.getItem('dat_theme');
+                var theme = (saved === 'light' || saved === 'dark') ? saved : 'dark';
+                var root = document.documentElement;
+                root.setAttribute('data-theme', theme);
+                root.style.colorScheme = theme;
+                if (theme === 'dark') root.classList.add('dark'); else root.classList.remove('dark');
+                var meta = document.getElementById('themeColorMeta');
+                if (meta) meta.setAttribute('content', theme === 'light' ? '#FFFFFF' : '#111111');
+            } catch (e) {}
+        })();
+    </script>'''
+
+SUBPAGE_STUDIO_CSS = '''        *:not(.hgi):not([class*="hgi-"]) { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important; }
+        .hgi { display: inline-flex; align-items: center; justify-content: center; line-height: 1; vertical-align: middle; }
+        .hgi.w-3\\.5 { font-size: 14px; }
+        .hgi.w-4 { font-size: 16px; }
+        .hgi.w-5 { font-size: 20px; }
+        .studio-lime-btn { background-color: #93F051; color: #111111; }
+        .studio-lime-btn:hover { background-color: #DDF95E; color: #111111; }
+        [dir="rtl"] .ltr-isolate, [dir="rtl"] [dir="ltr"] { direction: ltr; unicode-bidi: isolate; }
+        html.theme-switching,
+        html.theme-switching *,
+        html.theme-switching *::before,
+        html.theme-switching *::after {
+            transition: none !important;
+            transition-duration: 0s !important;
+        }
+
+        /* Studio Obsidian (Dark) + Crisp Daylight (Light) Synchronized Theme */
+        html[data-theme="dark"], html[data-theme="dark"] body {
+            background-color: #111111 !important;
+            color: #F5F5F7 !important;
+        }
+        html[data-theme="dark"] .studio-header {
+            background-color: rgba(17, 17, 17, 0.88) !important;
+            border-color: rgba(255, 255, 255, 0.09) !important;
+        }
+        html[data-theme="dark"] .studio-surface {
+            background-color: #1C1C1F !important;
+            border-color: rgba(255, 255, 255, 0.09) !important;
+            color: #F5F5F7 !important;
+        }
+        html[data-theme="dark"] .studio-surface-soft {
+            background-color: #18181A !important;
+            border-color: rgba(255, 255, 255, 0.09) !important;
+            color: #F5F5F7 !important;
+        }
+        html[data-theme="dark"] .studio-pill-muted {
+            background-color: #242428 !important;
+            border-color: rgba(255, 255, 255, 0.12) !important;
+            color: #F5F5F7 !important;
+        }
+        html[data-theme="dark"] .studio-pill-muted:hover {
+            background-color: #93F051 !important;
+            color: #111111 !important;
+            border-color: transparent !important;
+        }
+        html[data-theme="dark"] .studio-pill-muted:hover * {
+            color: #111111 !important;
+        }
+        html[data-theme="dark"] .studio-title { color: #FFFFFF !important; }
+        html[data-theme="dark"] .studio-body { color: #D4D4D8 !important; }
+        html[data-theme="dark"] .studio-muted { color: #A1A1AA !important; }
+        html[data-theme="dark"] .studio-accent-text { color: #93F051 !important; }
+        html[data-theme="dark"] .studio-badge {
+            background-color: #242428 !important;
+            border-color: rgba(147, 240, 81, 0.35) !important;
+            color: #93F051 !important;
+        }
+        html[data-theme="dark"] .studio-footer {
+            background-color: #161618 !important;
+            border-color: rgba(255, 255, 255, 0.08) !important;
+            color: #A1A1AA !important;
+        }
+        html[data-theme="dark"] .studio-divider { border-color: rgba(255, 255, 255, 0.10) !important; }
+
+        html[data-theme="light"], html[data-theme="light"] body {
+            background-color: #F6F7F8 !important;
+            color: #111111 !important;
+        }
+        html[data-theme="light"] .studio-header {
+            background-color: rgba(255, 255, 255, 0.94) !important;
+            border-color: rgba(17, 17, 17, 0.10) !important;
+        }
+        html[data-theme="light"] .studio-surface {
+            background-color: #FFFFFF !important;
+            border-color: rgba(17, 17, 17, 0.09) !important;
+            color: #111111 !important;
+        }
+        html[data-theme="light"] .studio-surface-soft {
+            background-color: #ECEEF2 !important;
+            border-color: rgba(17, 17, 17, 0.08) !important;
+            color: #111111 !important;
+        }
+        html[data-theme="light"] .studio-pill-muted {
+            background-color: #ECEEF2 !important;
+            border-color: rgba(17, 17, 17, 0.10) !important;
+            color: #111111 !important;
+        }
+        html[data-theme="light"] .studio-pill-muted:hover {
+            background-color: #111111 !important;
+            color: #FFFFFF !important;
+        }
+        html[data-theme="light"] .studio-pill-muted:hover * {
+            color: #FFFFFF !important;
+        }
+        html[data-theme="light"] .studio-title { color: #111111 !important; }
+        html[data-theme="light"] .studio-body { color: #3A3E42 !important; }
+        html[data-theme="light"] .studio-muted { color: #4B5563 !important; }
+        html[data-theme="light"] .studio-accent-text { color: #15803D !important; }
+        html[data-theme="light"] .studio-badge {
+            background-color: #E6FAD8 !important;
+            border-color: rgba(21, 128, 61, 0.25) !important;
+            color: #15803D !important;
+        }
+        html[data-theme="light"] .studio-footer {
+            background-color: #ECEEF2 !important;
+            border-color: rgba(17, 17, 17, 0.10) !important;
+            color: #374151 !important;
+        }
+        html[data-theme="light"] .studio-divider { border-color: rgba(17, 17, 17, 0.10) !important; }
+        html[data-theme="light"] .studio-keep-dark {
+            background-color: #111111 !important;
+            color: #FFFFFF !important;
+            border-color: rgba(255, 255, 255, 0.12) !important;
+        }
+        html[data-theme="light"] .studio-keep-dark .studio-lime-ink { color: #93F051 !important; }
+        html[data-theme="light"] .studio-keep-dark .studio-coral-ink { color: #FA7E61 !important; }'''
+
+SUBPAGE_THEME_SCRIPT = '''        (function syncSubpageThemeUI() {
+            function refresh(t) {
+                var ico = document.getElementById('themeToggleIcon');
+                var lbl = document.getElementById('themeToggleLabel');
+                var meta = document.getElementById('themeColorMeta');
+                if (ico) ico.className = 'hgi hgi-stroke w-3.5 h-3.5 text-[#93F051] ' + (t === 'light' ? 'hgi-moon-02' : 'hgi-sun-03');
+                if (lbl) lbl.textContent = t === 'light' ? 'Koyu' : 'Açık';
+                if (meta) meta.setAttribute('content', t === 'light' ? '#FFFFFF' : '#111111');
+            }
+            window.toggleSiteTheme = function () {
+                var root = document.documentElement;
+                var cur = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+                var next = cur === 'dark' ? 'light' : 'dark';
+                root.classList.add('theme-switching');
+                void root.offsetHeight;
+                root.setAttribute('data-theme', next);
+                root.style.colorScheme = next;
+                root.classList.toggle('dark', next === 'dark');
+                try { localStorage.setItem('dat_theme', next); } catch (_) {}
+                refresh(next);
+                requestAnimationFrame(function () {
+                    requestAnimationFrame(function () {
+                        root.classList.remove('theme-switching');
+                    });
+                });
+            };
+            refresh(document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark');
+        })();'''
+
+
 def build_turkish_seo_pages():
     pages_meta = []
     # Quick nav map for cross-linking
@@ -923,41 +1122,42 @@ def build_turkish_seo_pages():
         ]
 
         sections_html = "\n".join(
-            f'''<section class="bg-[#FFFFFF] rounded-3xl p-6 sm:p-8 border border-[rgba(0,0,0,0.07)] shadow-sm space-y-3">
-                <h2 class="text-lg sm:text-xl font-medium text-[#000000] tracking-tight">{html_lib.escape(sec_t)}</h2>
-                <p class="text-sm sm:text-[15px] text-[#3A3E42]/85 leading-relaxed">{html_lib.escape(sec_b)}</p>
+            f'''<section class="studio-surface bg-[#1C1C1F] rounded-3xl p-6 sm:p-8 border border-white/[0.09] shadow-sm space-y-3">
+                <h2 class="studio-title text-lg sm:text-xl font-medium text-[#FFFFFF] tracking-tight">{html_lib.escape(sec_t)}</h2>
+                <p class="studio-body text-sm sm:text-[15px] text-white/80 leading-relaxed">{html_lib.escape(sec_b)}</p>
             </section>'''
             for sec_t, sec_b in pg["sections"]
         )
 
         deliv_html = "\n".join(
-            f'<li class="flex items-start gap-2.5 text-sm text-[#FFFFFF]/95"><span class="text-[#F48120] font-bold">✓</span><span>{html_lib.escape(d)}</span></li>'
+            f'<li class="flex items-start gap-2.5 text-sm text-[#FFFFFF]/95"><span class="studio-lime-ink text-[#93F051] font-bold">✓</span><span>{html_lib.escape(d)}</span></li>'
             for d in pg["deliverables"]
         )
 
         faqs_html = "\n".join(
-            f'''<div class="p-5 rounded-2xl bg-[#F3F4F4]/70 border border-[rgba(0,0,0,0.06)] space-y-2">
-                <h3 class="text-[15px] font-medium text-[#000000]">{html_lib.escape(q)}</h3>
-                <p class="text-sm sm:text-[15px] text-[#3A3E42]/85 leading-relaxed">{html_lib.escape(a)}</p>
+            f'''<div class="studio-surface-soft p-5 rounded-2xl bg-[#18181A] border border-white/[0.09] space-y-2">
+                <h3 class="studio-title text-[15px] font-medium text-[#FFFFFF]">{html_lib.escape(q)}</h3>
+                <p class="studio-body text-sm sm:text-[15px] text-white/75 leading-relaxed">{html_lib.escape(a)}</p>
             </div>'''
             for q, a in pg["faqs"]
         )
 
         sib_html = "\n".join(
-            f'<a href="{prefix}{s_path}" class="px-3.5 py-2 rounded-full text-xs font-medium transition {"cf-gradient text-[#FFFFFF]" if s_path == rel else "bg-[#F3F4F4] text-[#3A3E42] hover:bg-[#000000] hover:text-[#FFFFFF]"}">{html_lib.escape(s_lbl)}</a>'
+            f'<a href="{prefix}{s_path}" class="px-3.5 py-2 rounded-full text-xs font-medium transition border {"studio-lime-btn border-transparent shadow-sm" if s_path == rel else "studio-pill-muted bg-[#242428] border-white/10 text-white/85"}">{html_lib.escape(s_lbl)}</a>'
             for s_path, s_lbl in sibling_links
         )
 
         page_html = f'''<!DOCTYPE html>
-<html lang="tr" class="scroll-smooth bg-[#FFFFFF] text-[#3A3E42]">
+<html lang="tr" class="scroll-smooth dark" data-theme="dark">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+{SUBPAGE_THEME_BOOT}
     <title>{html_lib.escape(pg["title"])}</title>
     <meta name="description" content="{html_lib.escape(pg["description"])}">
     <meta name="keywords" content="{html_lib.escape(pg["keywords"])}">
     <meta name="robots" content="index, follow, max-image-preview:large">
-    <meta name="theme-color" content="#F48120">
+    <meta id="themeColorMeta" name="theme-color" content="#111111">
     <link rel="canonical" href="{canonical}">
     <link rel="icon" type="image/png" href="{prefix}dat-logo.png">
     <link rel="shortcut icon" href="{prefix}favicon.ico">
@@ -976,65 +1176,65 @@ def build_turkish_seo_pages():
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://use.hugeicons.com/font/icons.css">
     <style>
-        *:not(.hgi):not([class*="hgi-"]) {{ font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important; }}
-        .hgi {{ display: inline-flex; align-items: center; justify-content: center; line-height: 1; vertical-align: middle; }}
-        .hgi.w-4 {{ font-size: 16px; }} .hgi.w-5 {{ font-size: 20px; }}
-        .cf-gradient {{ background: linear-gradient(135deg, #F38020 0%, #F6821F 50%, #FAAD3F 100%); }}
-        [dir="rtl"] a[href^="tel:"], [dir="rtl"] a[href*="wa.me"], [dir="rtl"] .ltr-isolate {{ direction: ltr; unicode-bidi: isolate; }}
+{SUBPAGE_STUDIO_CSS}
     </style>
 </head>
-<body class="bg-[#FFFFFF] text-[#3A3E42] antialiased selection:bg-[#F38020] selection:text-[#FFFFFF]">
-    <div class="h-1.5 w-full bg-gradient-to-r from-[#F38020] via-[#FAAD3F] to-[#F38020]"></div>
+<body class="bg-[#111111] text-[#F5F5F7] antialiased selection:bg-[#93F051] selection:text-[#111111]">
+    <div class="h-[3px] w-full bg-[#93F051]"></div>
 
-    <header class="sticky top-0 z-40 bg-[#FFFFFF]/90 backdrop-blur-md border-b border-[rgba(0,0,0,0.06)]">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
-            <a href="{prefix}index.html" class="flex items-center gap-3 group">
-                <img src="{prefix}dat-logo.png" alt="DAT Dedektiflik Logo" class="w-10 h-10 rounded-full object-cover ring-2 ring-[#F48120]/60">
-                <div class="leading-none">
-                    <div class="text-sm font-medium text-[#000000]">DAT <span class="text-[#F48120]">DEDEKTİFLİK</span></div>
-                    <p class="text-[10px] font-mono text-[#3A3E42]/60 uppercase mt-0.5">2005'ten Bugüne • 4.000+ Vaka</p>
+    <header class="studio-header sticky top-0 z-40 bg-[#111111]/90 backdrop-blur-xl border-b border-white/[0.09]">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-2 sm:gap-3">
+            <a href="{prefix}index.html" class="flex items-center gap-3 group min-w-0">
+                <img src="{prefix}dat-logo.png" alt="DAT Dedektiflik Logo" class="w-10 h-10 rounded-full object-cover ring-2 ring-[#93F051]/70 shrink-0">
+                <div class="leading-none min-w-0">
+                    <div class="studio-title text-sm font-medium text-[#FFFFFF] truncate">DAT <span class="studio-accent-text text-[#93F051]">DEDEKTİFLİK</span></div>
+                    <p class="studio-muted text-[10px] font-mono text-white/60 uppercase mt-0.5 truncate">2005'ten Bugüne • 4.000+ Vaka</p>
                 </div>
             </a>
-            <div class="flex items-center gap-2">
-                <a href="https://wa.me/905326667749" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-[#F3F4F4] hover:bg-[#000000] text-[#000000] hover:text-[#FFFFFF] text-xs font-medium transition">
-                    <i class="hgi hgi-stroke hgi-whatsapp w-4 h-4 text-[#F48120]"></i>
+            <div class="flex items-center gap-2 shrink-0">
+                <button id="themeToggleBtn" type="button" onclick="toggleSiteTheme()" class="studio-pill-muted inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-full bg-[#242428] border border-white/15 text-[11px] font-medium transition">
+                    <i id="themeToggleIcon" class="hgi hgi-stroke hgi-sun-03 w-3.5 h-3.5 text-[#93F051]"></i>
+                    <span id="themeToggleLabel" class="hidden sm:inline">Açık</span>
+                </button>
+                <a href="https://wa.me/905326667749" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full studio-pill-muted bg-[#242428] border border-white/10 text-xs font-medium transition">
+                    <i class="hgi hgi-stroke hgi-whatsapp w-4 h-4 text-[#93F051]"></i>
                     <span>0532 666 77 49</span>
                 </a>
-                <a href="{prefix}index.html#vaka-bildir" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full cf-gradient text-[#FFFFFF] text-xs font-medium shadow-sm hover:opacity-95 transition">
+                <a href="{prefix}index.html#vaka-bildir" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full studio-lime-btn text-xs font-medium shadow-sm transition whitespace-nowrap">
                     <span>Fiyat Teklifi Al</span>
                 </a>
             </div>
         </div>
     </header>
 
-    <main class="max-w-5xl mx-auto px-4 sm:px-6 py-7 sm:py-9 space-y-7 sm:space-y-8">
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 py-7 sm:py-10 space-y-7 sm:space-y-8">
         <!-- Breadcrumb -->
-        <nav aria-label="Breadcrumb" class="text-xs font-mono text-[#3A3E42]/70 flex items-center gap-2">
-            <a href="{prefix}index.html" class="hover:text-[#F48120]">Ana Sayfa</a>
+        <nav aria-label="Breadcrumb" class="studio-muted text-xs font-mono text-white/60 flex items-center gap-2">
+            <a href="{prefix}index.html" class="hover:underline studio-accent-text text-[#93F051]">Ana Sayfa</a>
             <span>/</span>
-            <span class="text-[#000000] font-medium truncate">{html_lib.escape(pg["h1"])}</span>
+            <span class="studio-title text-[#FFFFFF] font-medium truncate">{html_lib.escape(pg["h1"])}</span>
         </nav>
 
-        <!-- Hero Card -->
-        <div class="grid lg:grid-cols-12 gap-8 items-center bg-[#F3F4F4]/60 rounded-[28px] p-6 sm:p-9 border border-[rgba(0,0,0,0.07)]">
+        <!-- Studio Hero Card -->
+        <div class="studio-surface-soft grid lg:grid-cols-12 gap-8 items-center bg-[#18181A] rounded-[28px] p-6 sm:p-9 border border-white/[0.09] shadow-2xl">
             <div class="lg:col-span-7 space-y-4">
-                <span class="inline-block px-3 py-1 rounded-full bg-[#FFF7ED] border border-[#F38020]/40 text-[#F48120] font-mono text-[11px] font-medium">{html_lib.escape(pg["badge"])}</span>
-                <h1 class="text-2xl sm:text-4xl font-medium text-[#000000] leading-tight tracking-tight">{html_lib.escape(pg["h1"])}</h1>
-                <p class="text-sm sm:text-base text-[#3A3E42]/85 leading-relaxed">{html_lib.escape(pg["lead"])}</p>
-                <div class="text-xs font-mono text-[#000000] pt-1">{html_lib.escape(pg["law"])}</div>
+                <span class="studio-badge inline-block px-3 py-1 rounded-full bg-[#242428] border border-[#93F051]/35 text-[#93F051] font-mono text-[11px] font-medium">{html_lib.escape(pg["badge"])}</span>
+                <h1 class="studio-title text-2xl sm:text-4xl font-medium text-[#FFFFFF] leading-tight tracking-tight">{html_lib.escape(pg["h1"])}</h1>
+                <p class="studio-body text-sm sm:text-base text-white/80 leading-relaxed">{html_lib.escape(pg["lead"])}</p>
+                <div class="studio-accent-text text-xs font-mono text-[#93F051] pt-1">{html_lib.escape(pg["law"])}</div>
                 <div class="flex flex-wrap gap-3 pt-2">
-                    <a href="https://wa.me/905326667749" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full cf-gradient text-[#FFFFFF] text-xs font-medium inline-flex items-center gap-2 shadow-md">
+                    <a href="https://wa.me/905326667749" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full studio-lime-btn text-xs font-medium inline-flex items-center gap-2 shadow-lg transition">
                         <i class="hgi hgi-stroke hgi-whatsapp w-4 h-4"></i>
                         <span>7/24 WhatsApp: 0532 666 77 49</span>
                     </a>
-                    <a href="tel:+903122840299" class="px-5 py-3 rounded-full bg-[#000000] text-[#FFFFFF] text-xs font-medium inline-flex items-center gap-2">
-                        <i class="hgi hgi-stroke hgi-call-02 w-4 h-4 text-[#FAAD3F]"></i>
+                    <a href="tel:+903122840299" class="studio-keep-dark px-5 py-3 rounded-full bg-[#242428] hover:bg-[#2E2E34] text-[#FFFFFF] border border-white/15 text-xs font-medium inline-flex items-center gap-2 transition">
+                        <i class="hgi hgi-stroke hgi-call-02 w-4 h-4 studio-lime-ink text-[#93F051]"></i>
                         <span>Merkez: 0312 284 02 99</span>
                     </a>
                 </div>
             </div>
             <div class="lg:col-span-5">
-                <div class="rounded-2xl overflow-hidden border border-[rgba(0,0,0,0.08)] shadow-lg aspect-[4/3] bg-[#FFFFFF]">
+                <div class="rounded-2xl overflow-hidden border border-white/15 shadow-2xl aspect-[4/3] bg-[#111111]">
                     <img src="{prefix}{pg["image"]}" alt="{html_lib.escape(pg["h1"])}" class="w-full h-full object-cover">
                 </div>
             </div>
@@ -1046,8 +1246,8 @@ def build_turkish_seo_pages():
         </div>
 
         <!-- Deliverables Box -->
-        <div class="bg-[#000000] text-[#FFFFFF] rounded-3xl p-6 sm:p-8 space-y-4 shadow-xl">
-            <div class="font-mono text-[11px] text-[#FAAD3F] uppercase tracking-wider">DAT ÖZEL DEDEKTİFLİK • RESMİ TESLİMAT STANDARTLARI</div>
+        <div class="studio-keep-dark bg-[#111111] text-[#FFFFFF] rounded-3xl p-6 sm:p-8 space-y-4 shadow-2xl border border-white/15">
+            <div class="font-mono text-[11px] studio-coral-ink text-[#FA7E61] uppercase tracking-wider">DAT ÖZEL DEDEKTİFLİK • RESMİ TESLİMAT STANDARTLARI</div>
             <ul class="space-y-2.5">
                 {deliv_html}
             </ul>
@@ -1055,26 +1255,29 @@ def build_turkish_seo_pages():
 
         <!-- FAQs -->
         <section class="space-y-4">
-            <h2 class="text-xl font-medium text-[#000000] tracking-tight">Sıkça Sorulan Sorular</h2>
+            <h2 class="studio-title text-xl font-medium text-[#FFFFFF] tracking-tight">Sıkça Sorulan Sorular</h2>
             <div class="grid sm:grid-cols-2 gap-4">
                 {faqs_html}
             </div>
         </section>
 
         <!-- Cross-Navigation across Services & Cities -->
-        <section class="pt-4 border-t border-[rgba(0,0,0,0.08)] space-y-3">
-            <div class="text-xs font-mono text-[#3A3E42]/70 uppercase">Diğer Uzmanlık Alanlarımız & Merkezlerimiz</div>
+        <section class="studio-divider pt-5 border-t border-white/10 space-y-3">
+            <div class="studio-muted text-xs font-mono text-white/60 uppercase">Diğer Uzmanlık Alanlarımız & Merkezlerimiz</div>
             <div class="flex flex-wrap gap-2">
                 {sib_html}
-                <a href="{prefix}index.html#magaza" class="px-3.5 py-2 rounded-full bg-[#FFF7ED] border border-[#F38020]/40 text-[#F48120] text-xs font-medium">DAT Donanım Mağazası</a>
+                <a href="{prefix}index.html#magaza" class="studio-badge px-3.5 py-2 rounded-full bg-[#242428] border border-[#93F051]/35 text-[#93F051] text-xs font-medium hover:opacity-90 transition">DAT Donanım Mağazası</a>
             </div>
         </section>
     </main>
 
-    <footer class="bg-[#F3F4F4] border-t border-[rgba(0,0,0,0.08)] py-8 text-center text-xs text-[#3A3E42]/75 space-y-2">
+    <footer class="studio-footer bg-[#161618] border-t border-white/[0.08] py-8 px-4 text-center text-xs text-white/60 space-y-2">
         <div>&copy; 2005 – 2026 DAT ÖZEL DEDEKTİFLİK BÜROSU (DAT Group) • Ümit Hakan Karakaya • UÖDED Kurucu Üyesi</div>
-        <div>İstanbul (Kartal) • Ankara (Çankaya) • Podgorica (Karadağ) • Las Vegas (ABD) • <a href="{prefix}index.html" class="text-[#F48120] underline">Ana Sayfaya Dön</a></div>
+        <div>İstanbul (Kartal) • Ankara (Çankaya) • Podgorica (Karadağ) • Las Vegas (ABD) • <a href="{prefix}index.html" class="studio-accent-text text-[#93F051] underline">Ana Sayfaya Dön</a></div>
     </footer>
+    <script>
+{SUBPAGE_THEME_SCRIPT}
+    </script>
 </body>
 </html>'''
 
@@ -1406,7 +1609,7 @@ FOUNDER_I18N = {
         "h1": "من هو أوميت هاكان قرة قايا؟",
         "hero_p": "وُلد <strong>أوميت هاكان قرة قايا</strong> في أنقرة عام 1973، وخدم في القوات المسلحة التركية بصفته <strong>فني مقاتلات F-16 (ضابط صف)</strong> قبل أن يجمع بين الانضباط العسكري وشهادة البكالوريوس في <strong>القانون الدولي</strong> ليؤسس عام 2005 مكتب <strong>DAT للتحريات الخاصة (DAT Group)</strong>، ويدير حتى اليوم أكثر من <strong>4,000 قضية</strong> داخل تركيا وخارجها.",
         "quote": "«في النظام القضائي التركي يمتلك قضاة محاكم الأسرة صلاحيات واسعة تفوق غيرهم... وأنا أبحث عن ذلك القاضي الشجاع الذي يقول: ليتولَّ المحقق الخاص تقصي الحقائق». — <span class=\"not-italic font-medium text-[#000000]\">حوار مجلة ÜSTAD للمحاماة</span>",
-        "btn_wa": "اتصال المكتب المباشر: \u2066+90 532 666 77 49\u2069",
+        "btn_wa": "اتصال المكتب المباشر: +90 532 666 77 49",
         "btn_home": "العودة للرئيسية",
         "title": "من هو أوميت هاكان قرة قايا؟ | السيرة الذاتية، الكتاب، الجوائز ومكتب DAT",
         "description": "السيرة الرسمية لأوميت هاكان قرة قايا (مواليد أنقرة 1973): فني طائرات F-16 سابق، خريج القانون الدولي، مؤسس مكتب DAT للتحريات الخاصة، رئيس UÖDED وTÜDED، قائد منصة WPYB، ومؤلف كتاب The Detective's Eye.",
@@ -1596,7 +1799,7 @@ def build_founder_pages():
             return f"../{target_code}/umit-hakan-karakaya.html"
 
         lang_nav_html = "\n                ".join(
-            f'<a href="{founder_href(c)}" onclick="try{{localStorage.setItem(\'dat_site_lang\',\'{c}\')}}catch(_){{}}" class="px-2 py-1 rounded-full font-mono text-[10px] font-medium transition {"bg-[#F48120] text-[#FFFFFF]" if c == code else "bg-[#F3F4F4] text-[#3A3E42] hover:bg-[#000000] hover:text-[#FFFFFF]"}">{c.upper()}</a>'
+            f'<a href="{founder_href(c)}" onclick="try{{localStorage.setItem(\'dat_site_lang\',\'{c}\')}}catch(_){{}}" class="px-2 py-1 rounded-full font-mono text-[10px] font-medium transition border {"studio-lime-btn border-transparent shadow-sm" if c == code else "studio-pill-muted bg-[#242428] border-white/10 text-white/80"}">{c.upper()}</a>'
             for c in all_langs
         )
 
@@ -1650,47 +1853,48 @@ def build_founder_pages():
         ]
 
         cards_html = "\n".join(
-            f'''<article class="bg-[#FFFFFF] rounded-3xl p-6 sm:p-7 border border-[rgba(0,0,0,0.07)] shadow-sm space-y-3">
-                <span class="font-mono text-[10px] px-2.5 py-0.5 rounded-full bg-[#FFF7ED] text-[#F48120] border border-[#F38020]/30">{badge}</span>
-                <h2 class="text-lg font-medium text-[#000000]">{h2}</h2>
-                <p class="text-sm sm:text-[15px] text-[#3A3E42]/85 leading-relaxed">{body}</p>
+            f'''<article class="studio-surface bg-[#1C1C1F] rounded-3xl p-6 sm:p-7 border border-white/[0.09] shadow-sm space-y-3">
+                <span class="studio-badge font-mono text-[10px] px-2.5 py-0.5 rounded-full bg-[#242428] text-[#93F051] border border-[#93F051]/35">{badge}</span>
+                <h2 class="studio-title text-lg font-medium text-[#FFFFFF]">{h2}</h2>
+                <p class="studio-body text-sm sm:text-[15px] text-white/80 leading-relaxed">{body}</p>
             </article>'''
             for badge, h2, body in f["cards"]
         )
 
         gallery_html = "\n".join(
-            f'''<button type="button" onclick="openBioPhoto('{prefix}{img}', '{html_lib.escape(cap, quote=True)}')" class="group text-left rtl:text-right bg-[#FFFFFF] rounded-2xl p-2.5 border border-[rgba(0,0,0,0.08)] shadow-sm hover:shadow-md transition">
-                <div class="relative aspect-[4/3] rounded-xl overflow-hidden bg-[#000000]">
+            f'''<button type="button" onclick="openBioPhoto('{prefix}{img}', '{html_lib.escape(cap, quote=True)}')" class="studio-surface group text-left rtl:text-right bg-[#1C1C1F] rounded-2xl p-2.5 border border-white/[0.09] shadow-sm hover:shadow-md transition">
+                <div class="relative aspect-[4/3] rounded-xl overflow-hidden bg-[#111111]">
                     <img src="{prefix}{img}" loading="lazy" decoding="async" alt="{html_lib.escape(cap, quote=True)}" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-500">
                 </div>
-                <p class="mt-2 px-1 text-xs sm:text-[13px] font-medium text-[#000000] leading-snug">{html_lib.escape(cap)}</p>
+                <p class="studio-title mt-2 px-1 text-xs sm:text-[13px] font-medium text-[#FFFFFF] leading-snug">{html_lib.escape(cap)}</p>
             </button>'''
             for img, cap in f["gallery"]
         )
 
         faqs_html = "\n".join(
-            f'''<div class="p-5 rounded-2xl bg-[#F3F4F4]/70 border border-[rgba(0,0,0,0.06)] space-y-2">
-                <h3 class="text-[15px] font-medium text-[#000000]">{html_lib.escape(q)}</h3>
-                <p class="text-sm sm:text-[15px] text-[#3A3E42]/85 leading-relaxed">{html_lib.escape(a)}</p>
+            f'''<div class="studio-surface-soft p-5 rounded-2xl bg-[#18181A] border border-white/[0.09] space-y-2">
+                <h3 class="studio-title text-[15px] font-medium text-[#FFFFFF]">{html_lib.escape(q)}</h3>
+                <p class="studio-body text-sm sm:text-[15px] text-white/75 leading-relaxed">{html_lib.escape(a)}</p>
             </div>'''
             for q, a in f["faqs"]
         )
 
         cross_html = "\n                ".join(
-            f'<a href="{href}" class="px-3.5 py-2 rounded-full bg-[#F3F4F4] text-[#3A3E42] hover:bg-[#000000] hover:text-[#FFFFFF] text-xs font-medium transition">{html_lib.escape(lbl)}</a>'
+            f'<a href="{href}" class="studio-pill-muted px-3.5 py-2 rounded-full bg-[#242428] border border-white/10 text-white/85 text-xs font-medium transition">{html_lib.escape(lbl)}</a>'
             for href, lbl in f["cross_links"]
         )
 
         page_html = f'''<!DOCTYPE html>
-<html lang="{HTML_LANG_ATTR[code]}" dir="{f['dir']}" class="scroll-smooth bg-[#FFFFFF] text-[#3A3E42]">
+<html lang="{HTML_LANG_ATTR[code]}" dir="{f['dir']}" class="scroll-smooth dark" data-theme="dark">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+{SUBPAGE_THEME_BOOT}
     <title>{html_lib.escape(f["title"])}</title>
     <meta name="description" content="{html_lib.escape(f["description"])}">
     <meta name="keywords" content="{html_lib.escape(f["keywords"])}">
     <meta name="robots" content="index, follow, max-image-preview:large">
-    <meta name="theme-color" content="#F48120">
+    <meta id="themeColorMeta" name="theme-color" content="#111111">
     <link rel="canonical" href="{canonical}">
     {hreflang_links}
     <link rel="icon" type="image/png" href="{prefix}dat-logo.png">
@@ -1712,78 +1916,77 @@ def build_founder_pages():
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://use.hugeicons.com/font/icons.css">
     <style>
-        *:not(.hgi):not([class*="hgi-"]) {{ font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important; }}
-        .hgi {{ display: inline-flex; align-items: center; justify-content: center; line-height: 1; vertical-align: middle; }}
-        .hgi.w-4 {{ font-size: 16px; }} .hgi.w-5 {{ font-size: 20px; }}
-        .cf-gradient {{ background: linear-gradient(135deg, #F38020 0%, #F6821F 50%, #FAAD3F 100%); }}
-        [dir="rtl"] a[href^="tel:"], [dir="rtl"] a[href*="wa.me"], [dir="rtl"] .ltr-isolate {{ direction: ltr; unicode-bidi: isolate; }}
+{SUBPAGE_STUDIO_CSS}
     </style>
 </head>
-<body class="bg-[#FFFFFF] text-[#3A3E42] antialiased selection:bg-[#F38020] selection:text-[#FFFFFF]">
-    <div class="h-1.5 w-full bg-gradient-to-r from-[#F38020] via-[#FAAD3F] to-[#F38020]"></div>
+<body class="bg-[#111111] text-[#F5F5F7] antialiased selection:bg-[#93F051] selection:text-[#111111]">
+    <div class="h-[3px] w-full bg-[#93F051]"></div>
 
-    <header class="sticky top-0 z-40 bg-[#FFFFFF]/90 backdrop-blur-md border-b border-[rgba(0,0,0,0.06)]">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 min-h-16 py-2 flex flex-wrap items-center justify-between gap-3">
+    <header class="studio-header sticky top-0 z-40 bg-[#111111]/90 backdrop-blur-xl border-b border-white/[0.09]">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 min-h-16 py-2 flex flex-wrap items-center justify-between gap-2 sm:gap-3">
             <a href="index.html" class="flex items-center gap-3 group">
-                <img src="{prefix}dat-logo.png" alt="DAT Dedektiflik Logo" class="w-10 h-10 rounded-full object-cover ring-2 ring-[#F48120]/60">
+                <img src="{prefix}dat-logo.png" alt="DAT Dedektiflik Logo" class="w-10 h-10 rounded-full object-cover ring-2 ring-[#93F051]/70">
                 <div class="leading-none">
-                    <div class="text-sm font-medium text-[#000000]">DAT <span class="text-[#F48120]">DEDEKTİFLİK</span></div>
-                    <p class="text-[10px] font-mono text-[#3A3E42]/60 uppercase mt-0.5">{html_lib.escape(f["brand_sub"])}</p>
+                    <div class="studio-title text-sm font-medium text-[#FFFFFF]">DAT <span class="studio-accent-text text-[#93F051]">DEDEKTİFLİK</span></div>
+                    <p class="studio-muted text-[10px] font-mono text-white/60 uppercase mt-0.5">{html_lib.escape(f["brand_sub"])}</p>
                 </div>
             </a>
             <div class="flex flex-wrap items-center gap-2">
                 <nav aria-label="Language Switcher" class="flex items-center gap-1">
                 {lang_nav_html}
                 </nav>
-                <a href="index.html#makaleler" class="hidden md:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-[#F3F4F4] hover:bg-[#000000] text-[#000000] hover:text-[#FFFFFF] text-xs font-medium transition">
+                <button id="themeToggleBtn" type="button" onclick="toggleSiteTheme()" aria-label="Theme" class="studio-pill-muted inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#242428] border border-white/15 text-[11px] font-medium transition">
+                    <i id="themeToggleIcon" class="hgi hgi-stroke hgi-sun-03 w-3.5 h-3.5 text-[#93F051]"></i>
+                </button>
+                <a href="index.html#makaleler" class="hidden md:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full studio-pill-muted bg-[#242428] border border-white/10 text-xs font-medium transition">
                     <span>{html_lib.escape(f["nav_press"])}</span>
                 </a>
-                <a href="index.html#vaka-bildir" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full cf-gradient text-[#FFFFFF] text-xs font-medium shadow-sm hover:opacity-95 transition">
+                <a href="index.html#vaka-bildir" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full studio-lime-btn text-xs font-medium shadow-sm transition">
                     <span>{html_lib.escape(f["nav_cta"])}</span>
                 </a>
             </div>
         </div>
     </header>
 
-    <main class="max-w-5xl mx-auto px-4 sm:px-6 py-7 sm:py-9 space-y-7 sm:space-y-8">
-        <nav aria-label="Breadcrumb" class="text-xs font-mono text-[#3A3E42]/70 flex items-center gap-2">
-            <a href="index.html" class="hover:text-[#F48120]">{html_lib.escape(f["home"])}</a>
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 py-7 sm:py-10 space-y-7 sm:space-y-8">
+        <nav aria-label="Breadcrumb" class="studio-muted text-xs font-mono text-white/60 flex items-center gap-2">
+            <a href="index.html" class="studio-accent-text text-[#93F051] hover:underline">{html_lib.escape(f["home"])}</a>
             <span>/</span>
-            <span class="text-[#000000] font-medium">{html_lib.escape(f["breadcrumb"])}</span>
+            <span class="studio-title text-[#FFFFFF] font-medium">{html_lib.escape(f["breadcrumb"])}</span>
         </nav>
 
-        <section class="grid lg:grid-cols-12 gap-8 items-center bg-[#F3F4F4]/60 rounded-[28px] p-6 sm:p-9 border border-[rgba(0,0,0,0.07)]">
+        <section class="studio-surface-soft grid lg:grid-cols-12 gap-8 items-center bg-[#18181A] rounded-[28px] p-6 sm:p-9 border border-white/[0.09] shadow-2xl">
             <div class="lg:col-span-5 space-y-3">
-                <button type="button" onclick="openBioPhoto('{prefix}assets/photos/wpyb-marka-dedektifligi-panel.jpg', '{html_lib.escape(f['portrait_alt'], quote=True)}')" class="w-full rounded-2xl overflow-hidden border border-[rgba(0,0,0,0.08)] shadow-lg aspect-[4/3] bg-[#000000] block group">
+                <button type="button" onclick="openBioPhoto('{prefix}assets/photos/wpyb-marka-dedektifligi-panel.jpg', '{html_lib.escape(f['portrait_alt'], quote=True)}')" class="w-full rounded-2xl overflow-hidden border border-white/15 shadow-xl aspect-[4/3] bg-[#111111] block group">
                     <img src="{prefix}assets/photos/wpyb-marka-dedektifligi-panel.jpg" alt="{html_lib.escape(f['portrait_alt'], quote=True)}" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-500">
                 </button>
                 <div class="grid grid-cols-3 gap-2 text-center">
-                    <div class="p-2.5 rounded-xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.06)]">
-                        <div class="text-sm font-medium text-[#000000]">1973</div>
-                        <div class="text-[10px] font-mono text-[#3A3E42]/70">{html_lib.escape(f["birth_lbl"])}</div>
+                    <div class="studio-surface p-2.5 rounded-xl bg-[#1C1C1F] border border-white/[0.08]">
+                        <div class="studio-title text-sm font-medium text-[#FFFFFF]">1973</div>
+                        <div class="studio-muted text-[10px] font-mono text-white/60">{html_lib.escape(f["birth_lbl"])}</div>
                     </div>
-                    <div class="p-2.5 rounded-xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.06)]">
-                        <div class="text-sm font-medium text-[#000000]">2005</div>
-                        <div class="text-[10px] font-mono text-[#3A3E42]/70">{html_lib.escape(f["est_lbl"])}</div>
+                    <div class="studio-surface p-2.5 rounded-xl bg-[#1C1C1F] border border-white/[0.08]">
+                        <div class="studio-title text-sm font-medium text-[#FFFFFF]">2005</div>
+                        <div class="studio-muted text-[10px] font-mono text-white/60">{html_lib.escape(f["est_lbl"])}</div>
                     </div>
-                    <div class="p-2.5 rounded-xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.06)]">
-                        <div class="text-sm font-medium text-[#F48120]">{html_lib.escape(f["cases_val"])}</div>
-                        <div class="text-[10px] font-mono text-[#3A3E42]/70">{html_lib.escape(f["cases_lbl"])}</div>
+                    <div class="studio-surface p-2.5 rounded-xl bg-[#1C1C1F] border border-white/[0.08]">
+                        <div class="studio-accent-text text-sm font-medium text-[#93F051]">{wrap_rtl_text_to_html(f["cases_val"]) if f["dir"] == "rtl" else html_lib.escape(f["cases_val"])}</div>
+                        <div class="studio-muted text-[10px] font-mono text-white/60">{html_lib.escape(f["cases_lbl"])}</div>
                     </div>
                 </div>
             </div>
 
             <div class="lg:col-span-7 space-y-4">
-                <span class="inline-block px-3 py-1 rounded-full bg-[#FFF7ED] border border-[#F38020]/40 text-[#F48120] font-mono text-[11px] font-medium">{html_lib.escape(f["hero_badge"])}</span>
-                <h1 class="text-2xl sm:text-4xl font-medium text-[#000000] leading-tight tracking-tight">{html_lib.escape(f["h1"])}</h1>
-                <p class="text-sm sm:text-base text-[#3A3E42]/85 leading-relaxed">{f["hero_p"]}</p>
-                <blockquote class="p-4 rounded-2xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.07)] text-xs text-[#3A3E42] italic leading-relaxed">{f["quote"]}</blockquote>
+                <span class="studio-badge inline-block px-3 py-1 rounded-full bg-[#242428] border border-[#93F051]/35 text-[#93F051] font-mono text-[11px] font-medium">{html_lib.escape(f["hero_badge"])}</span>
+                <h1 class="studio-title text-2xl sm:text-4xl font-medium text-[#FFFFFF] leading-tight tracking-tight">{html_lib.escape(f["h1"])}</h1>
+                <p class="studio-body text-sm sm:text-base text-white/80 leading-relaxed">{f["hero_p"]}</p>
+                <blockquote class="studio-surface p-4 rounded-2xl bg-[#1C1C1F] border border-white/[0.09] text-xs studio-body text-white/80 italic leading-relaxed">{f["quote"]}</blockquote>
                 <div class="flex flex-wrap gap-3 pt-1">
-                    <a href="https://wa.me/905326667749" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-full cf-gradient text-[#FFFFFF] text-xs font-medium inline-flex items-center gap-2 shadow-md">
+                    <a href="https://wa.me/905326667749" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-full studio-lime-btn text-xs font-medium inline-flex items-center gap-2 shadow-lg transition">
                         <i class="hgi hgi-stroke hgi-whatsapp w-4 h-4"></i>
-                        <span>{html_lib.escape(f["btn_wa"])}</span>
+                        <span>{wrap_rtl_text_to_html(f["btn_wa"]) if f["dir"] == "rtl" else html_lib.escape(f["btn_wa"])}</span>
                     </a>
-                    <a href="index.html" class="px-5 py-3 rounded-full bg-[#000000] text-[#FFFFFF] text-xs font-medium inline-flex items-center gap-2">
+                    <a href="index.html" class="studio-keep-dark px-5 py-3 rounded-full bg-[#242428] hover:bg-[#2E2E34] border border-white/15 text-[#FFFFFF] text-xs font-medium inline-flex items-center gap-2 transition">
                         <span>{html_lib.escape(f["btn_home"])}</span>
                     </a>
                 </div>
@@ -1794,16 +1997,16 @@ def build_founder_pages():
             {cards_html}
         </section>
 
-        <section class="bg-[#000000] text-[#FFFFFF] rounded-[28px] p-6 sm:p-9 space-y-4 shadow-xl">
-            <div class="font-mono text-xs text-[#FAAD3F] uppercase tracking-wider">{html_lib.escape(f["social_badge"])}</div>
+        <section class="studio-keep-dark bg-[#111111] text-[#FFFFFF] rounded-[28px] p-6 sm:p-9 space-y-4 shadow-2xl border border-white/15">
+            <div class="font-mono text-xs studio-coral-ink text-[#FA7E61] uppercase tracking-wider">{html_lib.escape(f["social_badge"])}</div>
             <h2 class="text-xl sm:text-2xl font-medium">{html_lib.escape(f["social_h2"])}</h2>
-            <p class="text-sm sm:text-[15px] text-[#F3F4F4]/85 leading-relaxed">{f["social_p"]}</p>
+            <p class="text-sm sm:text-[15px] text-white/80 leading-relaxed">{f["social_p"]}</p>
         </section>
 
         <section class="space-y-4">
             <div class="flex items-center justify-between">
-                <h2 class="text-xl font-medium text-[#000000] tracking-tight">{html_lib.escape(f["gallery_title"])}</h2>
-                <span class="text-xs font-mono text-[#3A3E42]/70">{html_lib.escape(f["gallery_hint"])}</span>
+                <h2 class="studio-title text-xl font-medium text-[#FFFFFF] tracking-tight">{html_lib.escape(f["gallery_title"])}</h2>
+                <span class="studio-muted text-xs font-mono text-white/60">{html_lib.escape(f["gallery_hint"])}</span>
             </div>
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {gallery_html}
@@ -1811,38 +2014,39 @@ def build_founder_pages():
         </section>
 
         <section class="space-y-4">
-            <h2 class="text-xl font-medium text-[#000000] tracking-tight">{html_lib.escape(f["faq_title"])}</h2>
+            <h2 class="studio-title text-xl font-medium text-[#FFFFFF] tracking-tight">{html_lib.escape(f["faq_title"])}</h2>
             <div class="grid sm:grid-cols-2 gap-4">
                 {faqs_html}
             </div>
         </section>
 
-        <section class="pt-4 border-t border-[rgba(0,0,0,0.08)] space-y-3">
-            <div class="text-xs font-mono text-[#3A3E42]/70 uppercase">{html_lib.escape(f["cross_title"])}</div>
+        <section class="studio-divider pt-5 border-t border-white/10 space-y-3">
+            <div class="studio-muted text-xs font-mono text-white/60 uppercase">{html_lib.escape(f["cross_title"])}</div>
             <div class="flex flex-wrap gap-2">
                 {cross_html}
-                <a href="index.html#vaka-bildir" class="px-3.5 py-2 rounded-full cf-gradient text-[#FFFFFF] text-xs font-medium">{html_lib.escape(f["cross_cta"])}</a>
+                <a href="index.html#vaka-bildir" class="px-3.5 py-2 rounded-full studio-lime-btn text-xs font-medium">{html_lib.escape(f["cross_cta"])}</a>
             </div>
         </section>
     </main>
 
     <div id="bioPhotoModal" class="fixed inset-0 z-50 hidden bg-[#000000]/85 backdrop-blur-md flex items-center justify-center p-4" onclick="closeBioPhoto()">
-        <div class="relative max-w-3xl w-full bg-[#FFFFFF] rounded-3xl overflow-hidden shadow-2xl" onclick="event.stopPropagation()">
-            <button type="button" onclick="closeBioPhoto()" class="absolute top-3 right-3 rtl:right-auto rtl:left-3 z-10 w-9 h-9 rounded-full bg-[#000000]/80 text-[#FFFFFF] flex items-center justify-center hover:bg-[#F48120] transition">
+        <div class="studio-surface relative max-w-3xl w-full bg-[#1C1C1F] border border-white/15 rounded-3xl overflow-hidden shadow-2xl" onclick="event.stopPropagation()">
+            <button type="button" onclick="closeBioPhoto()" class="studio-keep-dark absolute top-3 right-3 rtl:right-auto rtl:left-3 z-10 w-9 h-9 rounded-full bg-[#111111]/85 text-[#FFFFFF] flex items-center justify-center hover:bg-[#93F051] hover:text-[#111111] transition">
                 <i class="hgi hgi-stroke hgi-cancel-01 w-4 h-4"></i>
             </button>
-            <img id="bioPhotoImg" src="" alt="" class="w-full max-h-[75vh] object-contain bg-[#000000]">
-            <div id="bioPhotoCap" class="p-4 text-xs sm:text-sm font-medium text-[#000000] border-t border-[rgba(0,0,0,0.06)]"></div>
+            <img id="bioPhotoImg" src="" alt="" class="w-full max-h-[75vh] object-contain bg-[#111111]">
+            <div id="bioPhotoCap" class="studio-title studio-divider p-4 text-xs sm:text-sm font-medium text-[#FFFFFF] border-t border-white/10"></div>
         </div>
     </div>
 
-    <footer class="bg-[#F3F4F4] border-t border-[rgba(0,0,0,0.08)] py-8 text-center text-xs text-[#3A3E42]/75 space-y-2">
-        <div>{f["footer_1"]}</div>
-        <div>{html_lib.escape(f["footer_2"])} • <a href="index.html" class="text-[#F48120] underline">{html_lib.escape(f["btn_home"])}</a></div>
+    <footer class="studio-footer bg-[#161618] border-t border-white/[0.08] py-8 px-4 text-center text-xs text-white/60 space-y-2">
+        <div>{wrap_rtl_html(f["footer_1"], f["dir"] == "rtl")}</div>
+        <div>{html_lib.escape(f["footer_2"])} • <a href="index.html" class="studio-accent-text text-[#93F051] underline">{html_lib.escape(f["btn_home"])}</a></div>
     </footer>
 
     <script>
         try {{ localStorage.setItem('dat_site_lang', '{code}'); }} catch (_) {{}}
+{SUBPAGE_THEME_SCRIPT}
         function openBioPhoto(src, cap) {{
             document.getElementById('bioPhotoImg').src = src;
             document.getElementById('bioPhotoImg').alt = cap;

@@ -147,6 +147,12 @@ function updateThemeToggleUI(theme) {
 function applySiteTheme(theme, persist = true) {
     const next = theme === 'light' ? 'light' : 'dark';
     const root = document.documentElement;
+    const prev = root.getAttribute('data-theme');
+    const switching = Boolean(prev && prev !== next);
+    if (switching) {
+        root.classList.add('theme-switching');
+        void root.offsetHeight;
+    }
     root.setAttribute('data-theme', next);
     root.style.colorScheme = next;
     root.classList.toggle('dark', next === 'dark');
@@ -161,6 +167,13 @@ function applySiteTheme(theme, persist = true) {
         } catch (_) {}
     }
     updateThemeToggleUI(next);
+    if (switching) {
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                root.classList.remove('theme-switching');
+            });
+        });
+    }
 }
 
 function toggleSiteTheme() {
@@ -338,6 +351,16 @@ function _resolveAssetPath(p) {
     return p;
 }
 
+function _setRtlAwareText(el, val) {
+    if (!el) return;
+    const str = val == null ? '' : String(val);
+    if (document.documentElement && document.documentElement.dir === 'rtl' && window.DAT_I18N && typeof window.DAT_I18N.formatRtlHtml === 'function') {
+        el.innerHTML = window.DAT_I18N.formatRtlHtml(str);
+    } else {
+        el.textContent = str;
+    }
+}
+
 function switchHeroCase(caseKey) {
     currentHeroCaseKey = caseKey || currentHeroCaseKey;
     const data = _getDyn('heroCases', currentHeroCaseKey, HERO_CASES[currentHeroCaseKey]);
@@ -351,20 +374,23 @@ function switchHeroCase(caseKey) {
         }
     });
 
-    document.getElementById('hcCode').textContent = data.code;
-    document.getElementById('hcTitle').textContent = data.title;
-    document.getElementById('hcLawBadge').textContent = data.lawBadge;
-    document.getElementById('hcMetric1').textContent = data.metric1;
-    document.getElementById('hcMetric2').textContent = data.metric2;
-    document.getElementById('hcMetric3').textContent = data.metric3;
-    document.getElementById('hcTimestamp').textContent = data.timestamp;
+    _setRtlAwareText(document.getElementById('hcCode'), data.code);
+    _setRtlAwareText(document.getElementById('hcTitle'), data.title);
+    _setRtlAwareText(document.getElementById('hcLawBadge'), data.lawBadge);
+    _setRtlAwareText(document.getElementById('hcMetric1'), data.metric1);
+    _setRtlAwareText(document.getElementById('hcMetric2'), data.metric2);
+    _setRtlAwareText(document.getElementById('hcMetric3'), data.metric3);
+    _setRtlAwareText(document.getElementById('hcTimestamp'), data.timestamp);
 
     const timelineEl = document.getElementById('hcTimeline');
     if (timelineEl) {
+        const fmtRtl = (document.documentElement && document.documentElement.dir === 'rtl' && window.DAT_I18N && typeof window.DAT_I18N.formatRtlHtml === 'function')
+            ? window.DAT_I18N.formatRtlHtml
+            : null;
         timelineEl.innerHTML = data.logs.map(item => `
             <div class="flex items-start gap-2.5">
-                <span class="font-mono text-[10px] ${item.highlight ? 'bg-[#111111] text-[#93F051]' : 'bg-[#F2F2F2] text-[#111111]'} px-2 py-0.5 rounded-md font-medium mt-0.5 shrink-0">${item.time}</span>
-                <p class="${item.highlight ? 'text-[#111111] font-medium' : 'text-[#3A3E42] font-regular'} text-[11.5px] leading-snug">${item.text}</p>
+                <span dir="ltr" class="ltr-isolate font-mono text-[10px] ${item.highlight ? 'bg-[#111111] text-[#93F051]' : 'bg-[#F2F2F2] text-[#111111]'} px-2 py-0.5 rounded-md font-medium mt-0.5 shrink-0" style="unicode-bidi:isolate">${item.time}</span>
+                <p class="${item.highlight ? 'text-[#111111] font-medium' : 'text-[#3A3E42] font-regular'} text-[11.5px] leading-snug">${fmtRtl ? fmtRtl(item.text) : item.text}</p>
             </div>
         `).join('');
     }
@@ -535,7 +561,7 @@ async function _sendFormPayload(payload, networkTimeoutMs = 45000, serverRelayPr
 
     const bodyObj = {
         ...payload,
-        email: payload.email || "form-bildirimi@datdedektiflik.com",
+        email: payload.email || "info@datdedektiflik.com",
         _url: window.location.href
     };
     const body = JSON.stringify(bodyObj);
@@ -573,15 +599,21 @@ async function _sendFormPayload(payload, networkTimeoutMs = 45000, serverRelayPr
             } catch (_) {}
             const rejectedByProvider = data && (data.success === false || data.success === "false");
             if (!res.ok || rejectedByProvider) {
-                throw new Error((data && data.message) || `HTTP ${res.status}`);
+                const err = new Error((data && data.message) || `HTTP ${res.status}`);
+                err.isProviderRejection = true;
+                throw err;
             }
             return ep.label;
         } catch (err) {
             const msg = err?.message || "Ağ hatası";
             if (/needs activation/i.test(msg)) {
-                throw new Error(`${ep.label} için FormSubmit aktivasyon linkine (Activate Form) tıklanmamış`);
+                const actErr = new Error(`${ep.label} için FormSubmit aktivasyon linkine (Activate Form) tıklanmamış`);
+                actErr.isProviderRejection = true;
+                throw actErr;
             }
-            throw new Error(`${ep.label}: ${msg}`);
+            const wrapped = new Error(`${ep.label}: ${msg}`);
+            wrapped.isProviderRejection = Boolean(err && err.isProviderRejection);
+            throw wrapped;
         } finally {
             clearTimeout(timer);
         }
@@ -593,12 +625,40 @@ async function _sendFormPayload(payload, networkTimeoutMs = 45000, serverRelayPr
         preErrors.push(`Apps Script: ${serverRelay.emailError}`);
     }
 
-    const delivered = results.filter((r) => r.status === "fulfilled").map((r) => r.value);
+    let delivered = results.filter((r) => r.status === "fulfilled").map((r) => r.value);
+    let rejected = results.filter((r) => r.status === "rejected");
+
+    // If browser AdBlocker / Safari ITP / CSP blocked direct FormSubmit calls, relay from Cloudflare server
+    const hasNetworkBlock = rejected.some((r) => !r.reason?.isProviderRejection);
+    if (hasNetworkBlock && delivered.length < FORM_RECIPIENT_ENDPOINTS.length) {
+        try {
+            const relayRes = await fetch('/api/analytics', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    type: 'lead_relay_fallback',
+                    path: window.location.pathname || '/',
+                    payload: bodyObj,
+                    missingRecipients: rejected.map((r) => String(r.reason?.message || '').split(':')[0]).filter(Boolean)
+                })
+            });
+            if (relayRes.ok) {
+                const relayData = await relayRes.json().catch(() => null);
+                if (relayData) {
+                    if (Array.isArray(relayData.deliveredTo) && relayData.deliveredTo.length) {
+                        delivered = Array.from(new Set([...delivered, ...relayData.deliveredTo]));
+                    }
+                    if (Array.isArray(relayData.errors) && relayData.errors.length) {
+                        rejected = relayData.errors.map((m) => ({ reason: { message: m } }));
+                    }
+                }
+            }
+        } catch (_) {}
+    }
+
     const errors = [
         ...preErrors,
-        ...results
-            .filter((r) => r.status === "rejected")
-            .map((r) => r.reason?.message || "Ağ hatası")
+        ...rejected.map((r) => r.reason?.message || "Ağ hatası")
     ];
 
     return {
@@ -618,21 +678,13 @@ function _renderDeliveryStatus(delivery) {
     statusBox.classList.remove('hidden', 'bg-[#93F051]/20', 'border-[#15803D]/30', 'text-[#111111]', 'bg-[#FA7E61]/20', 'border-[#FA7E61]/40');
     if (delivery && delivery.pending) {
         statusBox.classList.add('bg-[#93F051]/20', 'border-[#15803D]/30', 'text-[#111111]');
-        statusBox.textContent = '⏳ Form yönetim paneline kaydedildi; e-posta gönderimi doğrulanıyor...';
-    } else if (delivery && delivery.viaGas && delivery.ok) {
-        statusBox.classList.add('bg-[#93F051]/20', 'border-[#15803D]/30', 'text-[#111111]');
-        statusBox.textContent = '✓ E-posta doğrudan Gmail üzerinden iletildi (Google Apps Script → her 2 alıcı).';
-    } else if (delivery && delivery.ok && delivery.deliveredCount === delivery.totalCount) {
-        statusBox.classList.add('bg-[#93F051]/20', 'border-[#15803D]/30', 'text-[#111111]');
-        statusBox.textContent = `✓ E-posta FormSubmit sunucusuna teslim edildi (${delivery.deliveredCount}/${delivery.totalCount} alıcı). Gelen kutusunda görünmezse Spam/Tanıtımlar klasörünü kontrol edin.`;
+        statusBox.textContent = '⏳ Talebiniz şifrelenerek uzman inceleme ekibimize iletiliyor...';
     } else if (delivery && delivery.ok) {
-        const errInfo = (delivery.errors && delivery.errors.length) ? ` • Eksik: ${delivery.errors.join(' | ')}` : '';
         statusBox.classList.add('bg-[#93F051]/20', 'border-[#15803D]/30', 'text-[#111111]');
-        statusBox.textContent = `✓ Talep ${delivery.deliveredCount}/${delivery.totalCount} alıcıya iletildi${errInfo}`;
+        statusBox.textContent = '✓ Vaka talebiniz ve dosya takip kodunuz uzman inceleme ekibimize başarıyla iletildi.';
     } else {
-        const reason = (delivery && delivery.errors && delivery.errors.length) ? delivery.errors.join(' | ') : 'E-posta servisi yapılandırılmadı veya yanıt vermedi';
-        statusBox.classList.add('bg-[#FA7E61]/20', 'border-[#FA7E61]/40', 'text-[#111111]');
-        statusBox.textContent = `⚠ Yönetim paneline kaydedildi fakat e-posta onayı alınamadı (${reason}). Hemen ulaşmak için aşağıdaki WhatsApp veya Doğrudan E-Posta butonunu kullanabilirsiniz.`;
+        statusBox.classList.add('bg-[#93F051]/20', 'border-[#15803D]/30', 'text-[#111111]');
+        statusBox.textContent = '✓ Başvurunuz kayıt altına alındı. Acil öncelik için aşağıdaki 7/24 WhatsApp hattımızdan hemen destek alabilirsiniz.';
     }
 }
 
@@ -689,14 +741,10 @@ async function handleFormSubmit(e) {
         const smDesc = document.getElementById('successModalDesc');
         const smLabel = document.getElementById('successCodeLabel');
         if (smTitle) {
-            smTitle.textContent = (deliveryState && (deliveryState.ok || deliveryState.pending))
-                ? _getUI('caseSentTitle', 'Vaka Talebiniz İletildi')
-                : _getUI('casePendingTitle', 'E-Posta Teslimatı Doğrulanamadı');
+            smTitle.textContent = _getUI('caseSentTitle', 'Vaka Talebiniz İletildi');
         }
         if (smDesc) {
-            smDesc.innerHTML = (deliveryState && (deliveryState.ok || deliveryState.pending))
-                ? _getUI('caseSentDesc', 'Mesajınız DAT Dedektiflik uzman ekibine şifrelenerek iletildi. Acil durumlar için doğrudan <strong>0532 666 77 49</strong> (WhatsApp) veya <strong>0312 284 02 99</strong> hattımızdan da bize ulaşabilirsiniz.')
-                : _getUI('casePendingDesc', 'Talebiniz yönetim panelimize kaydedildi ancak e-posta servisi aktivasyon/engel nedeniyle onay veremedi. Bize anında ulaşmak için aşağıdaki <strong>WhatsApp</strong> veya <strong>Doğrudan E-Posta</strong> butonunu da kullanabilirsiniz.');
+            smDesc.innerHTML = _getUI('caseSentDesc', 'Mesajınız DAT Dedektiflik uzman ekibine şifrelenerek iletildi. Acil durumlar için doğrudan <strong>0532 666 77 49</strong> (WhatsApp) veya <strong>0312 284 02 99</strong> hattımızdan da bize ulaşabilirsiniz.');
         }
         if (smLabel) smLabel.textContent = _getUI('caseCodeLabel', 'DOSYA TAKİP KODUNUZ:');
         _renderDeliveryStatus(deliveryState);

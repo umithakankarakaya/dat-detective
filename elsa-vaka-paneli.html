@@ -1,8 +1,23 @@
 <!DOCTYPE html>
-<html lang="tr" class="min-h-full lg:h-full bg-[#E8EAED]">
+<html lang="tr" class="min-h-full lg:h-full dark" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta id="themeColorMeta" name="theme-color" content="#111111">
+    <script id="datThemeBoot">
+        (function () {
+            try {
+                var saved = localStorage.getItem('dat_theme');
+                var theme = (saved === 'light' || saved === 'dark') ? saved : 'dark';
+                var root = document.documentElement;
+                root.setAttribute('data-theme', theme);
+                root.style.colorScheme = theme;
+                if (theme === 'dark') root.classList.add('dark'); else root.classList.remove('dark');
+                var meta = document.getElementById('themeColorMeta');
+                if (meta) meta.setAttribute('content', theme === 'light' ? '#FFFFFF' : '#111111');
+            } catch (e) {}
+        })();
+    </script>
     <title>Elsa Vaka Paneli • DAT Özel Dedektiflik AI &amp; Adli Delil Merkezi</title>
     <meta name="description" content="DAT Özel Dedektiflik Bürosu Elsa AI Vaka Paneli: Gerçek zamanlı dosya takibi, SHA-256 adli delil doğrulama, HMK/CMK uyumlu kanıt duvarı ve interaktif vaka analizörü.">
     <meta name="robots" content="index, follow">
@@ -35,12 +50,97 @@
             color: #3A3E42;
             letter-spacing: -0.01em;
         }
-        .cf-gradient {
-            background: linear-gradient(135deg, #F38020 0%, #F6821F 50%, #FAAD3F 100%);
+        .studio-lime-gradient {
+            background: linear-gradient(135deg, #93F051 0%, #DDF95E 100%);
+            color: #111111;
+        }
+        .studio-lime-btn {
+            background-color: #93F051;
+            color: #111111;
+        }
+        .studio-lime-btn:hover {
+            background-color: #DDF95E;
+            color: #111111;
         }
         .elsa-gradient {
-            background: linear-gradient(135deg, #0F172A 0%, #1E293B 55%, #020617 100%);
+            background: radial-gradient(700px 260px at 85% 0%, rgba(147,240,81,0.16), transparent 60%), linear-gradient(135deg, #141416 0%, #1C1C1F 55%, #111111 100%);
         }
+        /* Studio Dark Mode for Elsa Vaka Paneli */
+        html[data-theme="dark"], html[data-theme="dark"] body {
+            background-color: #0D0D0F !important;
+            color: #E5E7EB !important;
+        }
+        html[data-theme="dark"] #elsaOuterFrame {
+            background: linear-gradient(180deg, #27272B 0%, #18181B 100%) !important;
+            border-color: rgba(255,255,255,0.12) !important;
+        }
+        html[data-theme="dark"] #elsaInnerShell,
+        html[data-theme="dark"] #elsaSidebar,
+        html[data-theme="dark"] #elsaWorkspaceMain,
+        html[data-theme="dark"] #elsaInspector,
+        html[data-theme="dark"] #elsaWorkspaceMain header,
+        html[data-theme="dark"] #elsaChatMessages,
+        html[data-theme="dark"] #trackLookupModal > div,
+        html[data-theme="dark"] .elsa-surface {
+            background-color: #141416 !important;
+            color: #F5F5F7 !important;
+            border-color: rgba(255,255,255,0.09) !important;
+        }
+        html[data-theme="dark"] #elsaSidebar .bg-\[\#FAFAFA\],
+        html[data-theme="dark"] #elsaWorkspaceMain .bg-\[\#FAFAFA\],
+        html[data-theme="dark"] #elsaWorkspaceMain .bg-\[\#F9FAFB\],
+        html[data-theme="dark"] #elsaWorkspaceMain .bg-\[\#FFFFFF\],
+        html[data-theme="dark"] #elsaWorkspaceMain .bg-white,
+        html[data-theme="dark"] #elsaInspector .bg-\[\#FFFFFF\],
+        html[data-theme="dark"] .elsa-card {
+            background-color: #1C1C1F !important;
+            color: #F5F5F7 !important;
+            border-color: rgba(255,255,255,0.10) !important;
+        }
+        html[data-theme="dark"] :is(#elsaSidebar, #elsaWorkspaceMain, #elsaInspector, #trackLookupModal) :where(.bg-\[\#F3F4F4\], thead.bg-\[\#F3F4F4\]) {
+            background-color: #242428 !important;
+            color: #E5E7EB !important;
+            border-color: rgba(255,255,255,0.08) !important;
+        }
+        html[data-theme="dark"] :is(#elsaSidebar, #elsaWorkspaceMain, #elsaInspector, #trackLookupModal) :where(.text-\[\#000000\], .text-\[\#111111\]) {
+            color: #FFFFFF !important;
+        }
+        html[data-theme="dark"] :is(#elsaSidebar, #elsaWorkspaceMain, #elsaInspector, #trackLookupModal) :where(.text-\[\#3A3E42\], .text-\[\#3A3E42\]\/90, .text-\[\#3A3E42\]\/85, .text-\[\#3A3E42\]\/80, .text-\[\#3A3E42\]\/75, .text-\[\#3A3E42\]\/70) {
+            color: #D4D4D8 !important;
+        }
+        html[data-theme="dark"] :is(#elsaSidebar, #elsaWorkspaceMain, #elsaInspector, #trackLookupModal) :where(.text-\[\#3A3E42\]\/65, .text-\[\#3A3E42\]\/60, .text-\[\#3A3E42\]\/55, .text-\[\#3A3E42\]\/50, .text-\[\#3A3E42\]\/45) {
+            color: #9CA3AF !important;
+        }
+        html[data-theme="dark"] .elsa-badge-accent {
+            background-color: #242428 !important;
+            border-color: rgba(147,240,81,0.35) !important;
+            color: #93F051 !important;
+        }
+        html[data-theme="dark"] .elsa-accent-text { color: #93F051 !important; }
+        html[data-theme="light"] .elsa-accent-text { color: #15803D !important; }
+        html[data-theme="light"] .elsa-badge-accent {
+            background-color: #E6FAD8 !important;
+            border-color: rgba(21,128,61,0.28) !important;
+            color: #15803D !important;
+        }
+        html[data-theme="dark"] .elsa-nav-btn.bg-\[\#000000\],
+        html[data-theme="dark"] .elsa-mob-btn.bg-\[\#000000\],
+        html[data-theme="dark"] .elsa-cat-btn.bg-\[\#000000\],
+        html[data-theme="dark"] .studio-lime-btn,
+        html[data-theme="dark"] .studio-lime-btn * {
+            background-color: #93F051 !important;
+            color: #111111 !important;
+        }
+        html[data-theme="dark"] #elsaWorkspaceMain input,
+        html[data-theme="dark"] #trackLookupModal input {
+            background-color: #242428 !important;
+            color: #FFFFFF !important;
+            border-color: rgba(255,255,255,0.14) !important;
+        }
+        html[data-theme="dark"] .divide-\[rgba\(0\,0\,0\,0\.06\)\] > :not([hidden]) ~ :not([hidden]) {
+            border-color: rgba(255,255,255,0.08) !important;
+        }
+        html[data-theme="dark"] ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.18); }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         ::-webkit-scrollbar { width: 5px; height: 5px; }
@@ -109,15 +209,22 @@
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
         }
+        html.theme-switching,
+        html.theme-switching *,
+        html.theme-switching *::before,
+        html.theme-switching *::after {
+            transition: none !important;
+            transition-duration: 0s !important;
+        }
     </style>
 </head>
-<body class="min-h-screen lg:h-full antialiased selection:bg-[#F48120] selection:text-[#FFFFFF] lg:overflow-hidden p-1.5 sm:p-3 lg:p-4 block lg:flex lg:items-center lg:justify-center">
+<body class="min-h-screen lg:h-full antialiased selection:bg-[#93F051] selection:text-[#111111] lg:overflow-hidden p-1.5 sm:p-3 lg:p-4 block lg:flex lg:items-center lg:justify-center">
 
-    <!-- Metallic Apple/Cloudflare Architectural Outer Chassis -->
-    <div class="w-full lg:h-full max-w-[1620px] min-h-[calc(100vh-0.75rem)] lg:min-h-0 rounded-[20px] sm:rounded-[28px] bg-gradient-to-b from-[#E2E5E9] via-[#D1D5DC] to-[#B8BCC6] p-1.5 sm:p-2 shadow-[0_25px_70px_rgba(0,0,0,0.16)] border border-white/80 lg:flex lg:flex-col lg:overflow-hidden">
+    <!-- Studio Obsidian Outer Chassis -->
+    <div id="elsaOuterFrame" class="w-full lg:h-full max-w-[1620px] min-h-[calc(100vh-0.75rem)] lg:min-h-0 rounded-[20px] sm:rounded-[28px] bg-gradient-to-b from-[#E2E5E9] via-[#D1D5DC] to-[#B8BCC6] p-1.5 sm:p-2 shadow-[0_25px_70px_rgba(0,0,0,0.22)] border border-white/80 lg:flex lg:flex-col lg:overflow-hidden">
 
         <!-- Inner Display Shell -->
-        <div class="w-full lg:flex-1 lg:min-h-0 rounded-[16px] sm:rounded-[22px] bg-[#FFFFFF] flex flex-col lg:flex-row lg:overflow-hidden relative shadow-inner">
+        <div id="elsaInnerShell" class="w-full lg:flex-1 lg:min-h-0 rounded-[16px] sm:rounded-[22px] bg-[#FFFFFF] flex flex-col lg:flex-row lg:overflow-hidden relative shadow-inner">
 
             <!-- Mobile Drawer Backdrop -->
             <div id="mobileNavBackdrop" onclick="toggleMobileNav(false)" class="hidden fixed inset-0 bg-black/50 z-30 lg:hidden"></div>
@@ -135,7 +242,7 @@
                             <div class="min-w-0">
                                 <div class="text-xs font-medium text-[#000000] tracking-tight flex items-center gap-1.5 truncate">
                                     <span>ELSA // DAT</span>
-                                    <span class="h-1.5 w-1.5 rounded-full bg-[#F48120] animate-ping shrink-0"></span>
+                                    <span class="h-1.5 w-1.5 rounded-full bg-[#93F051] animate-ping shrink-0"></span>
                                 </div>
                                 <div class="text-[10px] text-[#3A3E42]/65 font-mono truncate">Elsa Vaka Paneli v3.0</div>
                             </div>
@@ -148,7 +255,7 @@
                     <!-- Navigation Links -->
                     <nav class="p-3 space-y-1 text-xs font-medium">
                         <a href="index.html" class="flex items-center gap-3 rounded-xl p-2.5 text-[#3A3E42]/75 hover:text-[#000000] hover:bg-[#F3F4F4] transition">
-                            <i class="hgi hgi-stroke hgi-arrow-left-02 w-4 h-4 shrink-0 text-[#F48120]"></i>
+                            <i class="hgi hgi-stroke hgi-arrow-left-02 w-4 h-4 shrink-0 elsa-accent-text text-[#15803D]"></i>
                             <span>Ana Sayfaya Dön</span>
                         </a>
 
@@ -182,10 +289,10 @@
 
                         <button type="button" onclick="switchTab('ai')" data-nav-tab="ai" class="elsa-nav-btn w-full flex items-center justify-between rounded-xl p-2.5 transition text-[#3A3E42] hover:bg-[#F3F4F4]">
                             <span class="flex items-center gap-2.5">
-                                <i class="hgi hgi-stroke hgi-sparkles w-4 h-4 shrink-0 text-[#F48120]"></i>
+                                <i class="hgi hgi-stroke hgi-sparkles w-4 h-4 shrink-0 elsa-accent-text text-[#15803D]"></i>
                                 <span>Elsa AI Asistan</span>
                             </span>
-                            <span class="h-2 w-2 rounded-full bg-[#10B981]"></span>
+                            <span class="h-2 w-2 rounded-full bg-[#93F051]"></span>
                         </button>
 
                         <div class="pt-4 pb-1 px-2.5 text-[10px] font-mono uppercase tracking-wider text-[#3A3E42]/45">
@@ -198,7 +305,7 @@
                 <!-- Bottom Agent Status + Panic -->
                 <div class="p-3 border-t border-[rgba(0,0,0,0.08)] space-y-2 bg-[#FAFAFA]">
                     <div class="flex items-center gap-2.5 rounded-xl bg-[#F3F4F4] p-2.5">
-                        <div class="h-8 w-8 rounded-lg cf-gradient text-[#FFFFFF] flex items-center justify-center font-mono text-xs font-medium shrink-0">
+                        <div class="h-8 w-8 rounded-lg studio-lime-gradient flex items-center justify-center font-mono text-xs font-semibold shrink-0">
                             ÜHK
                         </div>
                         <div class="min-w-0">
@@ -207,7 +314,7 @@
                         </div>
                     </div>
                     <div class="grid grid-cols-2 gap-1.5">
-                        <a href="https://wa.me/905326667749?text=Merhaba%2C%20Elsa%20Vaka%20Paneli%20%C3%BCzerinden%20dosya%20bilgisi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-1 py-2 rounded-lg bg-[#000000] hover:bg-[#F48120] text-[#FFFFFF] text-[11px] font-medium transition">
+                        <a href="https://wa.me/905326667749?text=Merhaba%2C%20Elsa%20Vaka%20Paneli%20%C3%BCzerinden%20dosya%20bilgisi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-1 py-2 rounded-lg studio-lime-btn text-[11px] font-medium transition">
                             <i class="hgi hgi-stroke hgi-whatsapp w-3.5 h-3.5"></i>
                             <span>WhatsApp</span>
                         </a>
@@ -228,7 +335,7 @@
                         <button type="button" onclick="toggleMobileNav(true)" class="lg:hidden p-2 rounded-xl bg-[#F3F4F4] text-[#000000] shrink-0">
                             <i class="hgi hgi-stroke hgi-menu-01 w-4 h-4"></i>
                         </button>
-                        <span id="activeCaseCodeBadge" class="rounded-full bg-[#FFF7ED] border border-[#F48120]/30 px-2.5 py-1 text-[11px] font-mono font-medium text-[#F48120] whitespace-nowrap shrink-0">
+                        <span id="activeCaseCodeBadge" class="elsa-badge-accent rounded-full border px-2.5 py-1 text-[11px] font-mono font-medium whitespace-nowrap shrink-0">
                             #ELSA-774
                         </span>
                         <i class="hgi hgi-stroke hgi-arrow-right-01 w-3.5 h-3.5 text-[#3A3E42]/40 shrink-0 hidden sm:inline-flex"></i>
@@ -238,14 +345,18 @@
                     </div>
 
                     <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
-                        <div class="elsa-header-search items-center rounded-xl bg-[#F3F4F4] px-3 py-1.5 text-xs w-52 xl:w-60 border border-transparent focus-within:border-[#000000] focus-within:bg-[#FFFFFF] transition">
+                        <div class="elsa-header-search items-center rounded-xl bg-[#F3F4F4] px-3 py-1.5 text-xs w-52 xl:w-60 border border-transparent focus-within:border-[#93F051] focus-within:bg-[#FFFFFF] transition">
                             <i class="hgi hgi-stroke hgi-search-01 w-3.5 h-3.5 text-[#3A3E42]/50 mr-2 shrink-0"></i>
                             <input id="elsaSearchInput" type="text" placeholder="Kanıt, kod veya şüpheli ara..." oninput="syncSearchInputs(this.value)" class="w-full min-w-0 bg-transparent text-xs text-[#3A3E42] placeholder-[#3A3E42]/45 focus:outline-none">
                             <kbd class="rounded bg-[#FFFFFF] px-1.5 py-0.5 text-[9px] font-mono text-[#3A3E42]/70 border border-[rgba(0,0,0,0.06)] shrink-0">⌘K</kbd>
                         </div>
 
+                        <button id="themeToggleBtn" type="button" onclick="toggleElsaTheme()" title="Tema Değiştir" class="inline-flex items-center gap-1 rounded-xl px-2.5 py-2 text-xs font-medium bg-[#F3F4F4] hover:bg-[#000000] text-[#000000] hover:text-[#FFFFFF] transition shrink-0">
+                            <i id="themeToggleIcon" class="hgi hgi-stroke hgi-sun-03 w-3.5 h-3.5 text-[#93F051]"></i>
+                        </button>
+
                         <button type="button" onclick="openTrackLookupModal()" class="inline-flex items-center gap-1.5 rounded-xl px-2.5 sm:px-3 py-2 text-xs font-medium bg-[#F3F4F4] hover:bg-[#000000] text-[#000000] hover:text-[#FFFFFF] transition whitespace-nowrap shrink-0">
-                            <i class="hgi hgi-stroke hgi-search-list-01 w-3.5 h-3.5 text-[#F48120] shrink-0"></i>
+                            <i class="hgi hgi-stroke hgi-search-list-01 w-3.5 h-3.5 elsa-accent-text text-[#15803D] shrink-0"></i>
                             <span class="hidden sm:inline">Dosya Sorgula</span>
                         </button>
 
@@ -269,16 +380,16 @@
 
                     <!-- ELSA SIGNATURE HERO BANNER -->
                     <section class="rounded-2xl elsa-gradient text-[#FFFFFF] p-5 sm:p-7 relative overflow-hidden shadow-lg border border-white/10">
-                        <div id="elsaScanOverlay" class="hidden pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-transparent via-[#F48120]/25 to-transparent elsa-scan-bar"></div>
+                        <div id="elsaScanOverlay" class="hidden pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-transparent via-[#93F051]/25 to-transparent elsa-scan-bar"></div>
                         <div class="relative z-10 elsa-hero-grid">
                             <div class="min-w-0 space-y-3">
                                 <div class="inline-flex flex-wrap items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-[11px] font-mono text-slate-200 border border-white/10">
-                                    <span class="w-2 h-2 rounded-full bg-[#10B981] animate-pulse shrink-0"></span>
+                                    <span class="w-2 h-2 rounded-full bg-[#93F051] animate-pulse shrink-0"></span>
                                     <span>ELSA AI AGENT • ÖRNEK VAKA ŞABLONU (CANLI ÖNİZLEME)</span>
                                 </div>
 
                                 <h2 id="bannerHeadline" class="text-xl sm:text-2xl font-medium tracking-tight text-white">
-                                    Soruşturma Durumu: <span class="font-mono text-[#FAAD3F]">Adli Delil Eşleştirme Aktif</span>
+                                    Soruşturma Durumu: <span class="font-mono text-[#93F051]">Adli Delil Eşleştirme Aktif</span>
                                 </h2>
 
                                 <p id="bannerSummary" class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-2xl">
@@ -289,15 +400,15 @@
                                 </p>
 
                                 <div class="flex flex-wrap gap-2.5 pt-1">
-                                    <button type="button" onclick="runElsaAnomalyScan()" class="flex items-center gap-2 rounded-xl bg-[#FFFFFF] text-[#000000] px-4 py-2 text-xs font-medium hover:bg-slate-100 transition shadow-sm active:scale-95 whitespace-nowrap">
-                                        <i class="hgi hgi-stroke hgi-sparkles w-3.5 h-3.5 text-[#F48120] shrink-0"></i>
+                                    <button type="button" onclick="runElsaAnomalyScan()" class="flex items-center gap-2 rounded-xl bg-[#FFFFFF] text-[#111111] px-4 py-2 text-xs font-medium hover:bg-slate-100 transition shadow-sm active:scale-95 whitespace-nowrap">
+                                        <i class="hgi hgi-stroke hgi-sparkles w-3.5 h-3.5 text-[#15803D] shrink-0"></i>
                                         <span>Elsa AI Anomali Analizi</span>
                                     </button>
                                     <button type="button" onclick="verifyChainOfCustody()" class="flex items-center gap-2 rounded-xl bg-white/10 text-white px-4 py-2 text-xs font-medium hover:bg-white/15 transition border border-white/15 active:scale-95 whitespace-nowrap">
-                                        <i class="hgi hgi-stroke hgi-shield-check w-3.5 h-3.5 text-[#10B981] shrink-0"></i>
+                                        <i class="hgi hgi-stroke hgi-shield-check w-3.5 h-3.5 text-[#93F051] shrink-0"></i>
                                         <span>HMK / CMK Zincirini Doğrula</span>
                                     </button>
-                                    <a href="index.html#vaka-bildir" class="flex items-center gap-1.5 rounded-xl cf-gradient text-white px-4 py-2 text-xs font-medium hover:opacity-95 transition shadow-sm active:scale-95 whitespace-nowrap">
+                                    <a href="index.html#vaka-bildir" class="flex items-center gap-1.5 rounded-xl studio-lime-btn px-4 py-2 text-xs font-medium transition shadow-sm active:scale-95 whitespace-nowrap">
                                         <i class="hgi hgi-stroke hgi-add-01 w-3.5 h-3.5 shrink-0"></i>
                                         <span>Yeni Vaka Başlat</span>
                                     </a>
@@ -307,7 +418,7 @@
                             <div class="elsa-stat-grid font-mono text-xs min-w-0">
                                 <div class="p-3.5 rounded-xl bg-white/5 border border-white/10 min-w-0 overflow-hidden">
                                     <div class="text-slate-400 text-[10px] truncate">ANOMALİ İNDEKSİ</div>
-                                    <div id="metricAnomaly" class="text-base sm:text-lg font-medium text-[#FAAD3F] mt-1 whitespace-nowrap">%99.4</div>
+                                    <div id="metricAnomaly" class="text-base sm:text-lg font-medium text-[#FA7E61] mt-1 whitespace-nowrap">%99.4</div>
                                     <div class="text-[10px] text-slate-400 mt-0.5 truncate">Yüksek Öncelikli</div>
                                 </div>
                                 <div class="p-3.5 rounded-xl bg-white/5 border border-white/10 min-w-0 overflow-hidden">
@@ -364,7 +475,7 @@
                         <div class="rounded-2xl border border-[rgba(0,0,0,0.08)] bg-[#FFFFFF] overflow-hidden shadow-[0_2px_12px_rgba(0,0,0,0.03)]">
                             <div class="p-4 border-b border-[rgba(0,0,0,0.08)] flex flex-wrap items-center justify-between gap-2">
                                 <div class="flex items-center gap-2 min-w-0">
-                                    <i class="hgi hgi-stroke hgi-activity-01 w-4 h-4 text-[#F48120] shrink-0"></i>
+                                    <i class="hgi hgi-stroke hgi-activity-01 w-4 h-4 elsa-accent-text text-[#15803D] shrink-0"></i>
                                     <h3 class="text-xs font-medium uppercase tracking-wider text-[#000000] truncate">
                                         Adli Kanıt &amp; İşlem Çizelgesi (Audit Trail)
                                     </h3>
@@ -408,35 +519,35 @@
                                 <h3 class="text-sm font-medium text-[#000000]">Aktif Vaka Dosyaları &amp; Sizin Talepleriniz</h3>
                                 <p class="text-xs text-[#3A3E42]/70">Ana sayfadan gönderdiğiniz vaka takip kodları da burada otomatik listelenir.</p>
                             </div>
-                            <button type="button" onclick="openTrackLookupModal()" class="px-3.5 py-2 rounded-xl bg-[#000000] text-[#FFFFFF] text-xs font-medium hover:bg-[#F48120] transition">
+                            <button type="button" onclick="openTrackLookupModal()" class="px-3.5 py-2 rounded-xl studio-lime-btn text-xs font-medium transition">
                                 + Takip Kodu Ekle
                             </button>
                         </div>
                         <div id="caseFilesGrid" class="elsa-cards-grid"></div>
 
                         <!-- 48-Hour Operation Protocol Bar -->
-                        <div class="rounded-2xl border border-[rgba(0,0,0,0.08)] bg-[#F9FAFB] p-5 space-y-4">
+                        <div class="elsa-card rounded-2xl border border-[rgba(0,0,0,0.08)] bg-[#F9FAFB] p-5 space-y-4">
                             <div class="flex items-center justify-between">
                                 <h4 class="text-xs font-medium uppercase tracking-wider text-[#000000]">48 Saatlik Standart Operasyon Protokolü</h4>
-                                <span class="text-[11px] font-mono text-[#F48120]">AKTİF DOSYA SÜRECİ</span>
+                                <span class="text-[11px] font-mono elsa-accent-text text-[#15803D]">AKTİF DOSYA SÜRECİ</span>
                             </div>
                             <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3 text-xs">
-                                <div class="p-3.5 rounded-xl bg-white border border-[rgba(0,0,0,0.06)] space-y-1">
-                                    <div class="font-mono text-[10px] text-[#10B981]">FAZ 01 • 0-6 SAAT</div>
+                                <div class="elsa-card p-3.5 rounded-xl bg-white border border-[rgba(0,0,0,0.06)] space-y-1">
+                                    <div class="font-mono text-[10px] elsa-accent-text text-[#15803D]">FAZ 01 • 0-6 SAAT</div>
                                     <div class="font-medium text-[#000000]">İstihbarat &amp; Ön Analiz</div>
                                     <p class="text-[11px] text-[#3A3E42]/75">Açık kaynak ve dijital iz eşleştirmesi tamamlandı.</p>
                                 </div>
-                                <div class="p-3.5 rounded-xl bg-white border border-[rgba(0,0,0,0.06)] space-y-1">
-                                    <div class="font-mono text-[10px] text-[#10B981]">FAZ 02 • 6-24 SAAT</div>
+                                <div class="elsa-card p-3.5 rounded-xl bg-white border border-[rgba(0,0,0,0.06)] space-y-1">
+                                    <div class="font-mono text-[10px] elsa-accent-text text-[#15803D]">FAZ 02 • 6-24 SAAT</div>
                                     <div class="font-medium text-[#000000]">Saha &amp; Teknik Gözlem</div>
                                     <p class="text-[11px] text-[#3A3E42]/75">Zaman damgalı 4K görüntüleme ve güzergâh kaydı.</p>
                                 </div>
-                                <div class="p-3.5 rounded-xl bg-white border border-[#F48120]/40 space-y-1 ring-1 ring-[#F48120]/20">
-                                    <div class="font-mono text-[10px] text-[#F48120]">FAZ 03 • 24-36 SAAT</div>
+                                <div class="elsa-card p-3.5 rounded-xl bg-white border border-[#93F051]/60 space-y-1 ring-1 ring-[#93F051]/30">
+                                    <div class="font-mono text-[10px] elsa-accent-text text-[#15803D]">FAZ 03 • 24-36 SAAT</div>
                                     <div class="font-medium text-[#000000]">SHA-256 Delil Doğrulama</div>
                                     <p class="text-[11px] text-[#3A3E42]/75">Elsa AI çapraz kontrol ve kriptografik mühürleme sürüyor.</p>
                                 </div>
-                                <div class="p-3.5 rounded-xl bg-white border border-[rgba(0,0,0,0.06)] space-y-1 opacity-80">
+                                <div class="elsa-card p-3.5 rounded-xl bg-white border border-[rgba(0,0,0,0.06)] space-y-1 opacity-80">
                                     <div class="font-mono text-[10px] text-[#3A3E42]/60">FAZ 04 • 36-48 SAAT</div>
                                     <div class="font-medium text-[#000000]">HMK Dosya Teslimi</div>
                                     <p class="text-[11px] text-[#3A3E42]/75">Avukat &amp; mahkemeye sunulabilir imzalı klasör.</p>
@@ -459,7 +570,7 @@
                         <div class="rounded-2xl border border-[rgba(0,0,0,0.08)] bg-[#FFFFFF] overflow-hidden shadow-sm">
                             <div class="p-4 border-b border-[rgba(0,0,0,0.08)] bg-[#F9FAFB] flex items-center justify-between">
                                 <div class="flex items-center gap-2.5">
-                                    <div class="w-8 h-8 rounded-xl cf-gradient text-white flex items-center justify-center">
+                                    <div class="w-8 h-8 rounded-xl studio-lime-gradient flex items-center justify-center">
                                         <i class="hgi hgi-stroke hgi-sparkles w-4 h-4"></i>
                                     </div>
                                     <div>
@@ -467,12 +578,12 @@
                                         <div class="text-[10px] font-mono text-[#3A3E42]/60">HMK 189 • TCK Uyumlu Operasyon Rehberi</div>
                                     </div>
                                 </div>
-                                <span class="text-[10px] font-mono px-2.5 py-1 rounded-full bg-[#ECFDF5] text-[#065F46]">ÇEVRİMİÇİ</span>
+                                <span class="elsa-badge-accent text-[10px] font-mono px-2.5 py-1 rounded-full border">ÇEVRİMİÇİ</span>
                             </div>
 
                             <div id="elsaChatMessages" class="p-4 sm:p-5 space-y-3 max-h-[360px] overflow-y-auto bg-[#FFFFFF]">
                                 <div class="flex items-start gap-2.5">
-                                    <div class="w-7 h-7 rounded-lg bg-[#000000] text-white flex items-center justify-center text-[10px] font-mono shrink-0">EL</div>
+                                    <div class="w-7 h-7 rounded-lg studio-lime-gradient flex items-center justify-center text-[10px] font-mono font-semibold shrink-0">EL</div>
                                     <div class="rounded-2xl rounded-tl-sm bg-[#F3F4F4] px-4 py-3 text-xs text-[#3A3E42] leading-relaxed max-w-2xl">
                                         Merhaba, ben <strong>Elsa AI</strong>. Mevcut dosyanızdaki adli deliller, 48 saatlik sadakat/varlık takibi süreci, TSCM böcek taraması veya HMK uyumlu delil toplama kuralları hakkında aşağıdan bir başlık seçebilir ya da sorunuzu yazabilirsiniz.
                                     </div>
@@ -481,14 +592,14 @@
 
                             <div class="p-3 sm:p-4 border-t border-[rgba(0,0,0,0.08)] bg-[#FAFAFA] space-y-3">
                                 <div class="flex flex-wrap gap-1.5">
-                                    <button type="button" onclick="askElsaPreset('Eş takibinde toplanan deliller mahkemede geçerli olur mu?')" class="px-3 py-1.5 rounded-full bg-white border border-[rgba(0,0,0,0.08)] hover:border-[#F48120] text-[11px] text-[#3A3E42] transition">Eş takibi delil geçerliliği?</button>
-                                    <button type="button" onclick="askElsaPreset('TSCM böcek ve gizli kamera taraması nasıl yapılır?')" class="px-3 py-1.5 rounded-full bg-white border border-[rgba(0,0,0,0.08)] hover:border-[#F48120] text-[11px] text-[#3A3E42] transition">TSCM böcek taraması?</button>
-                                    <button type="button" onclick="askElsaPreset('Borçlu mal kaçırma ve adres tespiti kaç gün sürer?')" class="px-3 py-1.5 rounded-full bg-white border border-[rgba(0,0,0,0.08)] hover:border-[#F48120] text-[11px] text-[#3A3E42] transition">Borçlu &amp; mal kaçırma?</button>
-                                    <button type="button" onclick="askElsaPreset('SHA-256 delil mührü ne işe yarar?')" class="px-3 py-1.5 rounded-full bg-white border border-[rgba(0,0,0,0.08)] hover:border-[#F48120] text-[11px] text-[#3A3E42] transition">SHA-256 mührü nedir?</button>
+                                    <button type="button" onclick="askElsaPreset('Eş takibinde toplanan deliller mahkemede geçerli olur mu?')" class="elsa-card px-3 py-1.5 rounded-full bg-white border border-[rgba(0,0,0,0.08)] hover:border-[#93F051] text-[11px] text-[#3A3E42] transition">Eş takibi delil geçerliliği?</button>
+                                    <button type="button" onclick="askElsaPreset('TSCM böcek ve gizli kamera taraması nasıl yapılır?')" class="elsa-card px-3 py-1.5 rounded-full bg-white border border-[rgba(0,0,0,0.08)] hover:border-[#93F051] text-[11px] text-[#3A3E42] transition">TSCM böcek taraması?</button>
+                                    <button type="button" onclick="askElsaPreset('Borçlu mal kaçırma ve adres tespiti kaç gün sürer?')" class="elsa-card px-3 py-1.5 rounded-full bg-white border border-[rgba(0,0,0,0.08)] hover:border-[#93F051] text-[11px] text-[#3A3E42] transition">Borçlu &amp; mal kaçırma?</button>
+                                    <button type="button" onclick="askElsaPreset('SHA-256 delil mührü ne işe yarar?')" class="elsa-card px-3 py-1.5 rounded-full bg-white border border-[rgba(0,0,0,0.08)] hover:border-[#93F051] text-[11px] text-[#3A3E42] transition">SHA-256 mührü nedir?</button>
                                 </div>
                                 <form onsubmit="submitElsaChat(event)" class="flex gap-2">
-                                    <input id="elsaChatInput" type="text" placeholder="Elsa AI'ya vaka kapsamı veya hukuki süreç hakkında sorun..." class="flex-1 rounded-xl bg-white border border-[rgba(0,0,0,0.1)] px-3.5 py-2.5 text-xs text-[#000000] focus:outline-none focus:border-[#F48120]">
-                                    <button type="submit" class="px-4 py-2.5 rounded-xl cf-gradient text-white text-xs font-medium hover:opacity-95 transition shrink-0">
+                                    <input id="elsaChatInput" type="text" placeholder="Elsa AI'ya vaka kapsamı veya hukuki süreç hakkında sorun..." class="flex-1 rounded-xl bg-white border border-[rgba(0,0,0,0.1)] px-3.5 py-2.5 text-xs text-[#000000] focus:outline-none focus:border-[#93F051]">
+                                    <button type="submit" class="px-4 py-2.5 rounded-xl studio-lime-btn text-xs font-medium transition shrink-0">
                                         Sor
                                     </button>
                                 </form>
@@ -516,25 +627,25 @@
                     </div>
 
                     <div class="space-y-1.5">
-                        <span id="inspCode" class="text-[11px] font-mono font-medium text-[#F48120]">EV-8841-CYBER</span>
+                        <span id="inspCode" class="text-[11px] font-mono font-medium elsa-accent-text text-[#15803D]">EV-8841-CYBER</span>
                         <h3 id="inspTitle" class="text-base font-medium tracking-tight text-[#000000] leading-snug"></h3>
                         <p id="inspNotes" class="text-xs text-[#3A3E42]/85 leading-relaxed"></p>
                     </div>
 
                     <!-- Elsa AI Insight Box -->
-                    <div class="rounded-xl bg-[#FFF7ED] p-4 space-y-2 border border-[#F48120]/25">
-                        <div class="flex items-center gap-2 text-xs font-medium text-[#000000]">
-                            <i class="hgi hgi-stroke hgi-sparkles w-3.5 h-3.5 text-[#F48120]"></i>
+                    <div class="elsa-badge-accent rounded-xl p-4 space-y-2 border">
+                        <div class="flex items-center gap-2 text-xs font-medium">
+                            <i class="hgi hgi-stroke hgi-sparkles w-3.5 h-3.5"></i>
                             <span>Elsa AI Hukuki Çıkarımı</span>
                         </div>
-                        <p id="inspAiInsight" class="text-[11px] text-[#3A3E42]/90 leading-relaxed"></p>
+                        <p id="inspAiInsight" class="text-[11px] opacity-90 leading-relaxed"></p>
                     </div>
 
                     <!-- SHA-256 Checksum -->
                     <div class="rounded-xl bg-[#F3F4F4] p-4 space-y-3 font-mono text-xs">
                         <div class="flex items-center justify-between text-[10px] font-medium text-[#3A3E42]">
                             <span>DELİL BÜTÜNLÜK MÜHRÜ (SHA-256)</span>
-                            <button type="button" id="copyHashBtn" onclick="copySelectedHash()" class="text-[#000000] font-medium hover:text-[#F48120]">Kopyala</button>
+                            <button type="button" id="copyHashBtn" onclick="copySelectedHash()" class="text-[#000000] font-medium hover:text-[#93F051]">Kopyala</button>
                         </div>
                         <div id="inspHash" class="break-all rounded-lg bg-[#FFFFFF] p-2.5 text-[10px] text-[#3A3E42] border border-[rgba(0,0,0,0.06)] select-all"></div>
                         <div class="space-y-1.5 pt-2 border-t border-[rgba(0,0,0,0.06)] text-[11px]">
@@ -572,7 +683,7 @@
 
                     <!-- Actions -->
                     <div class="space-y-2 pt-1">
-                        <button type="button" onclick="sealCurrentEvidence()" class="w-full flex items-center justify-center gap-2 rounded-xl bg-[#000000] text-[#FFFFFF] py-3 text-xs font-medium hover:bg-[#F48120] transition shadow-sm">
+                        <button type="button" onclick="sealCurrentEvidence()" class="w-full flex items-center justify-center gap-2 rounded-xl studio-lime-btn py-3 text-xs font-medium transition shadow-sm">
                             <i class="hgi hgi-stroke hgi-checkmark-badge-02 w-4 h-4"></i>
                             <span>HMK Mahkeme Dosyasına Mühürle</span>
                         </button>
@@ -600,14 +711,14 @@
                 </button>
             </div>
             <p class="text-xs text-[#3A3E42]/80 leading-relaxed">
-                Ana sayfadan form gönderdiğinizde size verilen <code class="font-mono text-[#F48120]">#DAT-XXXXX</code> takip kodunu yazarak Elsa Vaka Paneli içinde dosyanızı görüntüleyebilir veya doğrudan uzman ekibe bağlanabilirsiniz.
+                Ana sayfadan form gönderdiğinizde size verilen <code class="font-mono elsa-accent-text text-[#15803D]">#DAT-XXXXX</code> takip kodunu yazarak Elsa Vaka Paneli içinde dosyanızı görüntüleyebilir veya doğrudan uzman ekibe bağlanabilirsiniz.
             </p>
             <form onsubmit="submitTrackLookup(event)" class="space-y-3">
-                <input id="trackCodeInput" type="text" required placeholder="Örn: #DAT-38898" class="w-full rounded-xl bg-[#F3F4F4] border border-[rgba(0,0,0,0.08)] px-4 py-3 text-sm font-mono text-[#000000] focus:outline-none focus:bg-white focus:border-[#F48120]">
+                <input id="trackCodeInput" type="text" required placeholder="Örn: #DAT-38898" class="w-full rounded-xl bg-[#F3F4F4] border border-[rgba(0,0,0,0.08)] px-4 py-3 text-sm font-mono text-[#000000] focus:outline-none focus:bg-white focus:border-[#93F051]">
                 <div class="flex gap-2">
-                    <button type="submit" class="flex-1 py-2.5 rounded-xl cf-gradient text-white text-xs font-medium">Panele Ekle &amp; Sorgula</button>
-                    <a href="https://wa.me/905326667749" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-xl bg-[#000000] text-white text-xs font-medium flex items-center gap-1.5">
-                        <i class="hgi hgi-stroke hgi-whatsapp w-3.5 h-3.5 text-[#FAAD3F]"></i>
+                    <button type="submit" class="flex-1 py-2.5 rounded-xl studio-lime-btn text-xs font-medium">Panele Ekle &amp; Sorgula</button>
+                    <a href="https://wa.me/905326667749" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-xl bg-[#000000] text-white border border-white/15 text-xs font-medium flex items-center gap-1.5">
+                        <i class="hgi hgi-stroke hgi-whatsapp w-3.5 h-3.5 text-[#93F051]"></i>
                         <span>Sor</span>
                     </a>
                 </div>
@@ -841,9 +952,9 @@
             list.innerHTML = allCases.slice(0, 5).map(c => {
                 const active = c.id === state.activeCaseId;
                 return `
-                    <button type="button" onclick="selectCase('${escapeHtml(c.id)}')" class="w-full text-left rounded-xl px-2.5 py-2 transition flex items-center justify-between gap-2 ${active ? 'bg-[#FFF7ED] text-[#000000] border border-[#F48120]/30' : 'text-[#3A3E42] hover:bg-[#F3F4F4]'}">
+                    <button type="button" onclick="selectCase('${escapeHtml(c.id)}')" class="w-full text-left rounded-xl px-2.5 py-2 transition flex items-center justify-between gap-2 ${active ? 'elsa-badge-accent border' : 'text-[#3A3E42] hover:bg-[#F3F4F4]'}">
                         <span class="truncate text-[11px] font-mono font-medium">${escapeHtml(c.code)}</span>
-                        <span class="text-[9px] px-1.5 py-0.5 rounded-full ${c.isUserSubmitted ? 'bg-[#F48120] text-white' : 'bg-[#F3F4F4] text-[#3A3E42]'} shrink-0">${c.isUserSubmitted ? 'SİZİN' : 'AKTİF'}</span>
+                        <span class="text-[9px] px-1.5 py-0.5 rounded-full ${c.isUserSubmitted ? 'studio-lime-btn font-semibold' : 'bg-[#F3F4F4] text-[#3A3E42]'} shrink-0">${c.isUserSubmitted ? 'SİZİN' : 'AKTİF'}</span>
                     </button>
                 `;
             }).join('');
@@ -854,7 +965,7 @@
             const current = allCases.find(c => c.id === state.activeCaseId) || allCases[0];
             document.getElementById('activeCaseCodeBadge').textContent = current.code;
             document.getElementById('activeCaseTitle').textContent = current.title;
-            document.getElementById('bannerHeadline').innerHTML = `${escapeHtml(current.headline)} <span class="font-mono text-[#FAAD3F]">${escapeHtml(current.volume)}</span>`;
+            document.getElementById('bannerHeadline').innerHTML = `${escapeHtml(current.headline)} <span class="font-mono text-[#93F051]">${escapeHtml(current.volume)}</span>`;
             document.getElementById('bannerSummary').textContent = current.summary;
             document.getElementById('metricAnomaly').textContent = current.anomaly;
             document.getElementById('metricVerified').textContent = current.verified;
@@ -878,7 +989,7 @@
             tbody.innerHTML = items.map(item => {
                 const selected = item.id === state.selectedEvidenceId;
                 return `
-                    <tr onclick="selectEvidence('${item.id}')" class="hover:bg-[#F3F4F4]/70 cursor-pointer transition ${selected ? 'bg-[#FFF7ED]/70' : ''}">
+                    <tr onclick="selectEvidence('${item.id}')" class="hover:bg-[#F3F4F4]/70 cursor-pointer transition ${selected ? 'bg-[#93F051]/10' : ''}">
                         <td class="py-3.5 px-4">
                             <div class="font-medium text-[#000000]">${item.title}</div>
                             <div class="font-mono text-[10px] text-[#3A3E42]/60">${item.code}</div>
@@ -891,17 +1002,17 @@
                             <div class="flex items-center gap-2">
                                 <span class="font-medium text-[#000000]">%${item.confidenceScore}</span>
                                 <div class="w-16 h-1.5 rounded-full bg-[#F3F4F4] overflow-hidden">
-                                    <div class="h-full cf-gradient" style="width:${item.confidenceScore}%"></div>
+                                    <div class="h-full studio-lime-gradient" style="width:${item.confidenceScore}%"></div>
                                 </div>
                             </div>
                         </td>
                         <td class="py-3.5 px-4">
-                            <span class="rounded-full ${item.sealed ? 'bg-[#000000] text-[#FFFFFF]' : 'bg-[#FFF7ED] text-[#F48120] border border-[#F48120]/30'} px-2.5 py-0.5 text-[10px] font-medium whitespace-nowrap">
+                            <span class="rounded-full ${item.sealed ? 'bg-[#000000] text-[#FFFFFF]' : 'elsa-badge-accent border'} px-2.5 py-0.5 text-[10px] font-medium whitespace-nowrap">
                                 ${item.sealed ? 'Mühürlü' : item.status}
                             </span>
                         </td>
                         <td class="py-3.5 px-4 text-right">
-                            <span class="text-xs font-medium text-[#F48120] inline-flex items-center gap-1 whitespace-nowrap">
+                            <span class="text-xs font-medium elsa-accent-text text-[#15803D] inline-flex items-center gap-1 whitespace-nowrap">
                                 <span>İncele</span>
                                 <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3 h-3"></i>
                             </span>
@@ -913,7 +1024,7 @@
             grid.innerHTML = items.map(item => {
                 const selected = item.id === state.selectedEvidenceId;
                 return `
-                    <div onclick="selectEvidence('${item.id}')" class="group cursor-pointer rounded-2xl p-5 border transition-all duration-200 ${selected ? 'bg-[#FFFFFF] border-[#F48120] ring-1 ring-[#F48120] shadow-[0_6px_24px_rgba(244,129,32,0.12)]' : 'bg-[#FFFFFF] border-[rgba(0,0,0,0.08)] hover:border-[rgba(0,0,0,0.2)] shadow-[0_2px_12px_rgba(0,0,0,0.03)]'}">
+                    <div onclick="selectEvidence('${item.id}')" class="elsa-card group cursor-pointer rounded-2xl p-5 border transition-all duration-200 ${selected ? 'bg-[#FFFFFF] border-[#93F051] ring-1 ring-[#93F051] shadow-[0_8px_24px_rgba(147,240,81,0.14)]' : 'bg-[#FFFFFF] border-[rgba(0,0,0,0.08)] hover:border-[rgba(0,0,0,0.2)] shadow-[0_2px_12px_rgba(0,0,0,0.03)]'}">
                         <div class="flex items-center justify-between text-xs mb-3 gap-2">
                             <div class="flex items-center gap-2 min-w-0">
                                 <span class="rounded-full bg-[#F3F4F4] px-2.5 py-1 text-[11px] font-medium text-[#3A3E42] whitespace-nowrap">${categoryLabel(item.category)}</span>
@@ -929,7 +1040,7 @@
                                 <span class="text-[#000000] font-medium">%${item.confidenceScore}</span>
                             </div>
                             <div class="h-1.5 w-full bg-[#F3F4F4] rounded-full overflow-hidden">
-                                <div class="h-full cf-gradient" style="width:${item.confidenceScore}%"></div>
+                                <div class="h-full studio-lime-gradient" style="width:${item.confidenceScore}%"></div>
                             </div>
                         </div>
                         <div class="pt-3 border-t border-[rgba(0,0,0,0.06)] flex items-center justify-between text-[11px] text-[#3A3E42]/70">
@@ -947,10 +1058,10 @@
             grid.innerHTML = allCases.map(c => {
                 const active = c.id === state.activeCaseId;
                 return `
-                    <div onclick="selectCase('${escapeHtml(c.id)}'); switchTab('evidence')" class="cursor-pointer rounded-2xl p-5 border transition ${active ? 'border-[#F48120] bg-[#FFFDF9] ring-1 ring-[#F48120]' : 'border-[rgba(0,0,0,0.08)] bg-white hover:border-black/20'} space-y-3">
+                    <div onclick="selectCase('${escapeHtml(c.id)}'); switchTab('evidence')" class="elsa-card cursor-pointer rounded-2xl p-5 border transition ${active ? 'border-[#93F051] ring-1 ring-[#93F051]' : 'border-[rgba(0,0,0,0.08)] bg-white hover:border-black/20'} space-y-3">
                         <div class="flex items-center justify-between gap-2">
-                            <span class="font-mono text-xs font-medium px-2.5 py-1 rounded-full ${c.isUserSubmitted ? 'cf-gradient text-white' : 'bg-[#F3F4F4] text-[#000000]'}">${escapeHtml(c.code)}</span>
-                            <span class="text-[11px] font-mono ${c.isUserSubmitted ? 'text-[#F48120]' : 'text-[#10B981]'} font-medium">${escapeHtml(c.status)}</span>
+                            <span class="font-mono text-xs font-medium px-2.5 py-1 rounded-full ${c.isUserSubmitted ? 'studio-lime-btn font-semibold' : 'bg-[#F3F4F4] text-[#000000]'}">${escapeHtml(c.code)}</span>
+                            <span class="text-[11px] font-mono elsa-accent-text text-[#15803D] font-medium">${escapeHtml(c.status)}</span>
                         </div>
                         <h4 class="text-base font-medium text-[#000000]">${escapeHtml(c.title)}</h4>
                         <p class="text-xs text-[#3A3E42]/80 leading-relaxed">${escapeHtml(c.summary)}</p>
@@ -966,14 +1077,14 @@
         function renderSuspectsTab() {
             const grid = document.getElementById('suspectMatrixGrid');
             grid.innerHTML = SUSPECTS.map(s => `
-                <div onclick="filterBySuspect('${s.name}')" class="cursor-pointer rounded-2xl border border-[rgba(0,0,0,0.08)] bg-white hover:border-[#F48120] p-5 space-y-4 transition">
+                <div onclick="filterBySuspect('${s.name}')" class="elsa-card cursor-pointer rounded-2xl border border-[rgba(0,0,0,0.08)] bg-white hover:border-[#93F051] p-5 space-y-4 transition">
                     <div class="flex items-center gap-3">
                         <div class="h-11 w-11 rounded-full bg-[#000000] text-white flex items-center justify-center font-mono text-sm font-medium shrink-0">${s.initials}</div>
                         <div class="min-w-0 flex-1">
                             <div class="text-sm font-medium text-[#000000] truncate">${s.name}</div>
                             <div class="text-xs text-[#3A3E42]/75 truncate">${s.role}</div>
                         </div>
-                        <span class="rounded-full bg-[#FFF7ED] text-[#F48120] border border-[#F48120]/30 px-2.5 py-1 text-[10px] font-mono font-medium shrink-0">${s.tag}</span>
+                        <span class="elsa-badge-accent rounded-full border px-2.5 py-1 text-[10px] font-mono font-medium shrink-0">${s.tag}</span>
                     </div>
                     <div class="space-y-1.5">
                         <div class="flex justify-between text-xs">
@@ -981,12 +1092,12 @@
                             <span class="font-mono font-medium text-[#000000]">%${s.risk}</span>
                         </div>
                         <div class="h-2 rounded-full bg-[#F3F4F4] overflow-hidden">
-                            <div class="h-full cf-gradient" style="width:${s.risk}%"></div>
+                            <div class="h-full studio-lime-gradient" style="width:${s.risk}%"></div>
                         </div>
                     </div>
                     <div class="pt-3 border-t border-[rgba(0,0,0,0.06)] flex items-center justify-between text-[11px] text-[#3A3E42]/75">
                         <span>${s.location}</span>
-                        <span class="font-medium text-[#F48120]">${s.evidenceCount} Delili Göster →</span>
+                        <span class="font-medium elsa-accent-text text-[#15803D]">${s.evidenceCount} Delili Göster →</span>
                     </div>
                 </div>
             `).join('');
@@ -1013,7 +1124,7 @@
             document.getElementById('inspSource').textContent = item.source;
             document.getElementById('inspTime').textContent = item.timestamp;
             document.getElementById('inspSealStatus').textContent = item.sealed ? 'HMK Mühürlü ✓' : 'Onay Bekliyor';
-            document.getElementById('inspSealStatus').className = item.sealed ? 'text-[#10B981] font-medium' : 'text-[#F48120] font-medium';
+            document.getElementById('inspSealStatus').className = item.sealed ? 'text-[#10B981] font-medium' : 'text-[#FA7E61] font-medium';
             document.getElementById('inspSuspectInitials').textContent = item.suspect.initials;
             document.getElementById('inspSuspectName').textContent = item.suspect.name;
             document.getElementById('inspSuspectRole').textContent = item.suspect.role;
@@ -1236,10 +1347,36 @@
             div.className = `flex items-start gap-2.5 ${isUser ? 'justify-end' : ''}`;
             div.innerHTML = isUser
                 ? `<div class="rounded-2xl rounded-tr-sm bg-[#000000] text-white px-4 py-3 text-xs leading-relaxed max-w-xl">${escapeHtml(html)}</div>`
-                : `<div class="w-7 h-7 rounded-lg cf-gradient text-white flex items-center justify-center text-[10px] font-mono shrink-0">EL</div><div class="rounded-2xl rounded-tl-sm bg-[#F3F4F4] px-4 py-3 text-xs text-[#3A3E42] leading-relaxed max-w-2xl">${html}</div>`;
+                : `<div class="w-7 h-7 rounded-lg studio-lime-gradient flex items-center justify-center text-[10px] font-mono font-semibold shrink-0">EL</div><div class="rounded-2xl rounded-tl-sm bg-[#F3F4F4] px-4 py-3 text-xs text-[#3A3E42] leading-relaxed max-w-2xl">${html}</div>`;
             wrap.appendChild(div);
             wrap.scrollTop = wrap.scrollHeight;
         }
+
+        function toggleElsaTheme() {
+            var root = document.documentElement;
+            var cur = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+            var next = cur === 'dark' ? 'light' : 'dark';
+            root.classList.add('theme-switching');
+            void root.offsetHeight;
+            root.setAttribute('data-theme', next);
+            root.style.colorScheme = next;
+            root.classList.toggle('dark', next === 'dark');
+            try { localStorage.setItem('dat_theme', next); } catch (_) {}
+            var ico = document.getElementById('themeToggleIcon');
+            if (ico) ico.className = 'hgi hgi-stroke w-3.5 h-3.5 ' + (next === 'light' ? 'hgi-moon-02 text-[#15803D]' : 'hgi-sun-03 text-[#93F051]');
+            var meta = document.getElementById('themeColorMeta');
+            if (meta) meta.setAttribute('content', next === 'light' ? '#FFFFFF' : '#111111');
+            requestAnimationFrame(function () {
+                requestAnimationFrame(function () {
+                    root.classList.remove('theme-switching');
+                });
+            });
+        }
+        (function syncElsaThemeIcon() {
+            var t = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+            var ico = document.getElementById('themeToggleIcon');
+            if (ico) ico.className = 'hgi hgi-stroke w-3.5 h-3.5 ' + (t === 'light' ? 'hgi-moon-02 text-[#15803D]' : 'hgi-sun-03 text-[#93F051]');
+        })();
 
         function askElsaPreset(question) {
             appendChatMessage('user', question);

@@ -406,6 +406,32 @@
             -webkit-background-clip: initial;
             -webkit-text-fill-color: #93F051;
         }
+        html[data-theme="dark"] .cf-text-gradient {
+            color: #93F051 !important;
+            -webkit-text-fill-color: #93F051 !important;
+        }
+        /* Atomic single-frame theme switch to prevent transition desync / flash */
+        html.theme-switching,
+        html.theme-switching *,
+        html.theme-switching *::before,
+        html.theme-switching *::after {
+            transition: none !important;
+            transition-duration: 0s !important;
+        }
+        html[data-theme="light"] #mobileLangBar .lang-opt-btn:not(.bg-\[\#93F051\]) {
+            background-color: #E5E7EB !important;
+            color: #111111 !important;
+        }
+        html[data-theme="dark"] #mobileLangBar .lang-opt-btn:not(.bg-\[\#93F051\]) {
+            background-color: #222224 !important;
+            color: rgba(255, 255, 255, 0.85) !important;
+        }
+        html[data-theme="dark"] .eq-bar-muted {
+            background: rgba(255, 255, 255, 0.22) !important;
+        }
+        html[data-theme="dark"] :is(.srv-filter-btn, .shop-filter-btn):not(.bg-\[\#111111\]):hover {
+            color: #FFFFFF !important;
+        }
         html, body {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             -webkit-tap-highlight-color: transparent;
@@ -554,7 +580,7 @@
 
         #mobileQuickPills:has(~ #bottomLeftDock #cookieBanner:not(.hidden)),
         #mobileQuickPills.has-cookie-banner {
-            bottom: calc(10.75rem + env(safe-area-inset-bottom, 0px)) !important;
+            bottom: calc(9.5rem + env(safe-area-inset-bottom, 0px)) !important;
         }
 
         @media (max-width: 639px) {
@@ -593,14 +619,35 @@
             }
         }
 
+        /* WhatsApp-style Minimal Translucent Floating Capsule Tab Bar (< lg) */
+        #mobileAppTabBar {
+            background-color: rgba(24, 24, 27, 0.78) !important;
+            -webkit-backdrop-filter: blur(22px) saturate(160%);
+            backdrop-filter: blur(22px) saturate(160%);
+        }
+        html[data-theme="light"] #mobileAppTabBar {
+            background-color: rgba(255, 255, 255, 0.84) !important;
+            border-color: rgba(17, 17, 17, 0.10) !important;
+            box-shadow: 0 10px 28px rgba(17, 17, 17, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.85) !important;
+        }
+        #mobileAppTabBar .mobile-tab-item {
+            border-radius: 9999px;
+        }
         #mobileAppTabBar .mobile-tab-item.is-active {
+            background-color: rgba(255, 255, 255, 0.13);
             color: #93F051 !important;
         }
-        #mobileAppTabBar .mobile-tab-item.is-active .mobile-tab-dot {
-            opacity: 1;
-            transform: scale(1);
+        #mobileAppTabBar .mobile-tab-item.is-active * {
+            color: #93F051 !important;
+        }
+        html[data-theme="light"] #mobileAppTabBar .mobile-tab-item {
+            color: #3A3E42 !important;
         }
         html[data-theme="light"] #mobileAppTabBar .mobile-tab-item.is-active {
+            background-color: rgba(17, 17, 17, 0.08);
+            color: #111111 !important;
+        }
+        html[data-theme="light"] #mobileAppTabBar .mobile-tab-item.is-active * {
             color: #15803D !important;
         }
 
@@ -632,13 +679,27 @@
         }
 
         html[data-theme="dark"] .bg-\[\#F2F2F2\],
+        html[data-theme="dark"] .bg-\[\#F2F2F2\]\/80,
+        html[data-theme="dark"] .bg-\[\#F2F2F2\]\/70,
         html[data-theme="dark"] .bg-\[\#FAFAFA\],
+        html[data-theme="dark"] .bg-\[\#FAFAFA\]\/80,
         html[data-theme="dark"] .bg-\[\#F8F9FA\],
         html[data-theme="dark"] .bg-gray-50,
         html[data-theme="dark"] .bg-gray-100,
-        html[data-theme="dark"] .bg-zinc-100 {
+        html[data-theme="dark"] .bg-zinc-100,
+        html[data-theme="dark"] .faq-item {
             background-color: #242428 !important;
-            color: #F5F5F7;
+            border-color: rgba(255, 255, 255, 0.10) !important;
+            color: #F5F5F7 !important;
+        }
+        html[data-theme="dark"] .faq-item .faq-trigger,
+        html[data-theme="dark"] .faq-item .faq-trigger span {
+            color: #F5F5F7 !important;
+        }
+        html[data-theme="dark"] .faq-item .faq-content {
+            background-color: #1A1A1D !important;
+            border-color: rgba(255, 255, 255, 0.10) !important;
+            color: #D4D4D8 !important;
         }
 
         html[data-theme="dark"] .notch-match-surface path {
@@ -666,6 +727,7 @@
             .text-\[\#111111\].theme-flip-ink,
             .text-\[\#111111\],
             .text-\[\#1D1D1F\],
+            .text-\[\#000000\],
             .text-black
         ) {
             color: #F5F5F7 !important;
@@ -781,7 +843,7 @@
         html[data-theme="dark"] .bg-\[\#93F051\] .text-\[\#111111\],
         html[data-theme="dark"] .bg-\[\#93F051\] .text-\[\#3A3E42\],
         html[data-theme="dark"] .bg-\[\#93F051\] [class*="text-\[\#111111\]"],
-        html[data-theme="dark"] .bg-\[\#93F051\] *:not(.preserve-light):not(.bg-\[\#111111\]):not(.bg-\[\#111111\] *),
+        html[data-theme="dark"] .bg-\[\#93F051\] *:not(.preserve-light),
         html[data-theme="dark"] .bg-\[\#DDF95E\],
         html[data-theme="dark"] .bg-\[\#DDF95E\].text-\[\#111111\],
         html[data-theme="dark"] .bg-\[\#DDF95E\].text-\[\#1D1D1F\],
@@ -790,7 +852,7 @@
         html[data-theme="dark"] .bg-\[\#DDF95E\] .text-\[\#111111\],
         html[data-theme="dark"] .bg-\[\#DDF95E\] .text-\[\#3A3E42\],
         html[data-theme="dark"] .bg-\[\#DDF95E\] [class*="text-\[\#111111\]"],
-        html[data-theme="dark"] .bg-\[\#DDF95E\] *:not(.preserve-light):not(.bg-\[\#111111\]):not(.bg-\[\#111111\] *),
+        html[data-theme="dark"] .bg-\[\#DDF95E\] *:not(.preserve-light),
         html[data-theme="dark"] .bg-\[\#FA7E61\],
         html[data-theme="dark"] .bg-\[\#FA7E61\].text-\[\#111111\],
         html[data-theme="dark"] .bg-\[\#FA7E61\].text-\[\#1D1D1F\],
@@ -799,25 +861,25 @@
         html[data-theme="dark"] .bg-\[\#FA7E61\] .text-\[\#111111\],
         html[data-theme="dark"] .bg-\[\#FA7E61\] .text-\[\#3A3E42\],
         html[data-theme="dark"] .bg-\[\#FA7E61\] [class*="text-\[\#111111\]"],
-        html[data-theme="dark"] .bg-\[\#FA7E61\] *:not(.preserve-light):not(.bg-\[\#111111\]):not(.bg-\[\#111111\] *),
+        html[data-theme="dark"] .bg-\[\#FA7E61\] *:not(.preserve-light),
         html[data-theme="dark"] .bg-\[\#E6FAD8\],
         html[data-theme="dark"] .bg-\[\#E6FAD8\].text-\[\#111111\],
-        html[data-theme="dark"] .bg-\[\#E6FAD8\] *:not(.preserve-light):not(.bg-\[\#111111\]):not(.bg-\[\#111111\] *):not(.bg-\[\#1D1D1F\]):not(.bg-\[\#1D1D1F\] *),
+        html[data-theme="dark"] .bg-\[\#E6FAD8\] *:not(.preserve-light),
         html[data-theme="dark"] .bg-\[\#EEFBC5\],
         html[data-theme="dark"] .bg-\[\#EEFBC5\].text-\[\#111111\],
-        html[data-theme="dark"] .bg-\[\#EEFBC5\] *:not(.preserve-light):not(.bg-\[\#111111\]):not(.bg-\[\#111111\] *):not(.bg-\[\#1D1D1F\]):not(.bg-\[\#1D1D1F\] *),
+        html[data-theme="dark"] .bg-\[\#EEFBC5\] *:not(.preserve-light),
         html[data-theme="dark"] .bg-\[\#FDE2DB\],
         html[data-theme="dark"] .bg-\[\#FDE2DB\].text-\[\#111111\],
-        html[data-theme="dark"] .bg-\[\#FDE2DB\] *:not(.preserve-light):not(.bg-\[\#111111\]):not(.bg-\[\#111111\] *):not(.bg-\[\#1D1D1F\]):not(.bg-\[\#1D1D1F\] *),
+        html[data-theme="dark"] .bg-\[\#FDE2DB\] *:not(.preserve-light),
         html[data-theme="dark"] [style*="background:#93F051"],
-        html[data-theme="dark"] [style*="background:#93F051"] *:not(.preserve-light):not(.bg-\[\#111111\]):not(.bg-\[\#111111\] *),
+        html[data-theme="dark"] [style*="background:#93F051"] *:not(.preserve-light),
         html[data-theme="dark"] [style*="background:#FA7E61"],
-        html[data-theme="dark"] [style*="background:#FA7E61"] *:not(.preserve-light):not(.bg-\[\#111111\]):not(.bg-\[\#111111\] *),
+        html[data-theme="dark"] [style*="background:#FA7E61"] *:not(.preserve-light),
         html[data-theme="dark"] [style*="background:#DDF95E"],
-        html[data-theme="dark"] [style*="background:#DDF95E"] *:not(.preserve-light):not(.bg-\[\#111111\]):not(.bg-\[\#111111\] *),
+        html[data-theme="dark"] [style*="background:#DDF95E"] *:not(.preserve-light),
         html[data-theme="dark"] article[onclick^="openArticleModal"]:not(.bg-\[\#1D1D1F\]) .text-\[\#111111\],
         html[data-theme="dark"] article[onclick^="openArticleModal"]:not(.bg-\[\#1D1D1F\]) [class*="text-\[\#111111\]"],
-        html[data-theme="dark"] article[onclick^="openArticleModal"]:not(.bg-\[\#1D1D1F\]) *:not(.bg-\[\#111111\]):not(.bg-\[\#111111\] *),
+        html[data-theme="dark"] article[onclick^="openArticleModal"]:not(.bg-\[\#1D1D1F\]) *,
         html[data-theme="dark"] .keep-dark-ink,
         html[data-theme="dark"] .keep-dark-ink * {
             color: #111111 !important;
@@ -840,12 +902,34 @@
         html[data-theme="dark"] .bg-\[\#FA7E61\] .bg-\[\#111111\] *,
         html[data-theme="dark"] .bg-\[\#DDF95E\] .bg-\[\#111111\],
         html[data-theme="dark"] .bg-\[\#DDF95E\] .bg-\[\#111111\] *,
+        html[data-theme="dark"] [style*="background:#93F051"] .bg-\[\#111111\],
+        html[data-theme="dark"] [style*="background:#93F051"] .bg-\[\#111111\] *,
+        html[data-theme="dark"] [style*="background:#FA7E61"] .bg-\[\#111111\],
+        html[data-theme="dark"] [style*="background:#FA7E61"] .bg-\[\#111111\] *,
+        html[data-theme="dark"] [style*="background:#DDF95E"] .bg-\[\#111111\],
+        html[data-theme="dark"] [style*="background:#DDF95E"] .bg-\[\#111111\] *,
+        html[data-theme="dark"] .bg-\[\#E6FAD8\] .bg-\[\#111111\],
+        html[data-theme="dark"] .bg-\[\#E6FAD8\] .bg-\[\#111111\] *,
+        html[data-theme="dark"] .bg-\[\#EEFBC5\] .bg-\[\#111111\],
+        html[data-theme="dark"] .bg-\[\#EEFBC5\] .bg-\[\#111111\] *,
+        html[data-theme="dark"] .bg-\[\#FDE2DB\] .bg-\[\#111111\],
+        html[data-theme="dark"] .bg-\[\#FDE2DB\] .bg-\[\#111111\] *,
+        html[data-theme="dark"] .bg-\[\#E6FAD8\] .bg-\[\#1D1D1F\],
+        html[data-theme="dark"] .bg-\[\#E6FAD8\] .bg-\[\#1D1D1F\] *,
+        html[data-theme="dark"] .bg-\[\#EEFBC5\] .bg-\[\#1D1D1F\],
+        html[data-theme="dark"] .bg-\[\#EEFBC5\] .bg-\[\#1D1D1F\] *,
+        html[data-theme="dark"] .bg-\[\#FDE2DB\] .bg-\[\#1D1D1F\],
+        html[data-theme="dark"] .bg-\[\#FDE2DB\] .bg-\[\#1D1D1F\] *,
+        html[data-theme="dark"] .keep-dark-ink .bg-\[\#111111\],
+        html[data-theme="dark"] .keep-dark-ink .bg-\[\#111111\] *,
         html[data-theme="dark"] article[onclick^="openArticleModal"] .bg-\[\#111111\],
         html[data-theme="dark"] article[onclick^="openArticleModal"] .bg-\[\#111111\] * {
             background-color: #111111 !important;
             color: #FFFFFF !important;
         }
         html[data-theme="dark"] article[onclick^="openArticleModal"] .bg-\[\#111111\] .text-\[\#93F051\],
+        html[data-theme="dark"] .keep-dark-ink .bg-\[\#111111\].text-\[\#93F051\],
+        html[data-theme="dark"] .keep-dark-ink .bg-\[\#111111\].text-\[\#93F051\] *,
         html[data-theme="dark"] .bg-\[\#FA7E61\] .bg-\[\#111111\] .text-\[\#FA7E61\],
         html[data-theme="dark"] .bg-\[\#93F051\] .bg-\[\#111111\] .text-\[\#93F051\] {
             color: #93F051 !important;
@@ -859,16 +943,16 @@
         }
 
         /* High-contrast CTA buttons inside turned dark cards */
-        html[data-theme="dark"] button.bg-\[\#111111\].text-\[\#FFFFFF\],
-        html[data-theme="dark"] a.bg-\[\#111111\].text-\[\#FFFFFF\],
-        html[data-theme="dark"] button[type="submit"].bg-\[\#111111\] {
+        html[data-theme="dark"] button.bg-\[\#111111\].text-\[\#FFFFFF\]:not(.theme-keep-dark),
+        html[data-theme="dark"] a.bg-\[\#111111\].text-\[\#FFFFFF\]:not(.theme-keep-dark),
+        html[data-theme="dark"] button[type="submit"].bg-\[\#111111\]:not(.theme-keep-dark) {
             background-color: #93F051 !important;
             color: #111111 !important;
             border-color: transparent !important;
         }
-        html[data-theme="dark"] button.bg-\[\#111111\].text-\[\#FFFFFF\] *,
-        html[data-theme="dark"] a.bg-\[\#111111\].text-\[\#FFFFFF\] *,
-        html[data-theme="dark"] button[type="submit"].bg-\[\#111111\] * {
+        html[data-theme="dark"] button.bg-\[\#111111\].text-\[\#FFFFFF\]:not(.theme-keep-dark) *,
+        html[data-theme="dark"] a.bg-\[\#111111\].text-\[\#FFFFFF\]:not(.theme-keep-dark) *,
+        html[data-theme="dark"] button[type="submit"].bg-\[\#111111\]:not(.theme-keep-dark) * {
             color: #111111 !important;
         }
         html[data-theme="dark"] .bg-\[\#F2F2F2\]:hover,
@@ -1091,28 +1175,31 @@
             background-color: #111111 !important;
             color: #FFFFFF !important;
         }
-        /* Keep non-structural Obsidian (#111111) cards, icon boxes & badges high-contrast in Light Mode */
+        /* Keep non-structural Obsidian (#111111 / .theme-keep-dark) cards, icon boxes & badges high-contrast in Light Mode */
         html[data-theme="light"] .bg-\[\#111111\]:not(body):not(header):not(nav):not(main):not(section):not(footer):not(aside):not(.bg-\[\#FFFFFF\]):not(.bg-\[\#F2F2F2\]) {
             background-color: #111111 !important;
             color: #FFFFFF !important;
         }
-        html[data-theme="light"] .bg-\[\#111111\]:not(body):not(header):not(nav):not(main):not(section):not(footer):not(aside).text-\[\#93F051\],
-        html[data-theme="light"] .bg-\[\#111111\]:not(body):not(header):not(nav):not(main):not(section):not(footer):not(aside) .text-\[\#93F051\]:not(.bg-\[\#93F051\] *):not(.bg-\[\#DDF95E\] *):not(.bg-\[\#FA7E61\] *):not(.bg-\[\#FFFFFF\] *):not(.bg-\[\#F2F2F2\] *),
-        html[data-theme="light"] article[onclick^="openArticleModal"].bg-\[\#1D1D1F\] .text-\[\#93F051\],
-        html[data-theme="light"] .bg-\[\#1D1D1F\].theme-keep-dark .text-\[\#93F051\] {
-            color: #93F051 !important;
+        html[data-theme="light"] .theme-keep-dark {
+            background-color: #111111 !important;
+            color: #FFFFFF !important;
+            border-color: rgba(255, 255, 255, 0.14) !important;
         }
-        html[data-theme="light"] .bg-\[\#111111\]:not(body):not(header):not(nav):not(main):not(section):not(footer):not(aside) .bg-\[\#1D1D1F\] {
+        html[data-theme="light"] .bg-\[\#111111\]:not(body):not(header):not(nav):not(main):not(section):not(footer):not(aside) .bg-\[\#1D1D1F\],
+        html[data-theme="light"] .theme-keep-dark .bg-\[\#1D1D1F\],
+        html[data-theme="light"] .theme-keep-dark .bg-\[\#18181A\],
+        html[data-theme="light"] .theme-keep-dark .bg-\[\#242426\] {
             background-color: #1D1D1F !important;
             color: #FFFFFF !important;
             border-color: rgba(255, 255, 255, 0.14) !important;
         }
-        html[data-theme="light"] .bg-\[\#111111\]:not(body):not(header):not(nav):not(main):not(section):not(footer):not(aside) :is(.text-\[\#FFFFFF\], .text-white, .text-white\/95, .text-white\/90, .text-white\/85, .text-white\/80, .text-\[\#F5F5F7\]):not(.bg-\[\#93F051\] *):not(.bg-\[\#DDF95E\] *):not(.bg-\[\#FA7E61\] *):not(.bg-\[\#FFFFFF\] *):not(.bg-\[\#F2F2F2\] *),
-        html[data-theme="light"] article[onclick^="openArticleModal"].bg-\[\#1D1D1F\] :is(.text-\[\#FFFFFF\], .text-white, .text-white\/95, .text-white\/90, .text-white\/85, .text-white\/80, .text-\[\#F5F5F7\]),
-        html[data-theme="light"] .bg-\[\#111111\]:not(body):not(header):not(nav):not(main):not(section):not(footer):not(aside) .text-\[\#111111\]:not(.bg-\[\#93F051\]):not(.bg-\[\#93F051\] *):not(.bg-\[\#DDF95E\]):not(.bg-\[\#DDF95E\] *):not(.bg-\[\#FA7E61\]):not(.bg-\[\#FA7E61\] *):not(.bg-\[\#FFFFFF\]):not(.bg-\[\#FFFFFF\] *) {
+        html[data-theme="light"] .bg-\[\#111111\]:not(body):not(header):not(nav):not(main):not(section):not(footer):not(aside) :is(.text-\[\#FFFFFF\], .text-white, .text-white\/95, .text-white\/90, .text-white\/85, .text-white\/80, .text-\[\#F5F5F7\], .text-\[\#111111\], h2, h3),
+        html[data-theme="light"] .theme-keep-dark :is(.text-\[\#FFFFFF\], .text-white, .text-white\/95, .text-white\/90, .text-white\/85, .text-white\/80, .text-\[\#F5F5F7\], .text-\[\#111111\], h2, h3),
+        html[data-theme="light"] article[onclick^="openArticleModal"].bg-\[\#1D1D1F\] :is(.text-\[\#FFFFFF\], .text-white, .text-white\/95, .text-white\/90, .text-white\/85, .text-white\/80, .text-\[\#F5F5F7\]) {
             color: #FFFFFF !important;
         }
-        html[data-theme="light"] .bg-\[\#111111\]:not(body):not(header):not(nav):not(main):not(section):not(footer):not(aside) :is(.text-white\/75, .text-white\/70, .text-white\/65, .text-white\/60, .text-white\/55, .text-white\/50):not(.bg-\[\#93F051\] *):not(.bg-\[\#DDF95E\] *):not(.bg-\[\#FA7E61\] *):not(.bg-\[\#FFFFFF\] *):not(.bg-\[\#F2F2F2\] *),
+        html[data-theme="light"] .bg-\[\#111111\]:not(body):not(header):not(nav):not(main):not(section):not(footer):not(aside) :is(.text-white\/75, .text-white\/70, .text-white\/65, .text-white\/60, .text-white\/55, .text-white\/50),
+        html[data-theme="light"] .theme-keep-dark :is(.text-white\/75, .text-white\/70, .text-white\/65, .text-white\/60, .text-white\/55, .text-white\/50),
         html[data-theme="light"] article[onclick^="openArticleModal"].bg-\[\#1D1D1F\] :is(.text-white\/75, .text-white\/70, .text-white\/65, .text-white\/60, .text-white\/55, .text-white\/50) {
             color: rgba(255, 255, 255, 0.78) !important;
         }
@@ -1126,13 +1213,49 @@
         html[data-theme="light"] article[onclick^="openArticleModal"].bg-\[\#1D1D1F\] * {
             color: #FFFFFF !important;
         }
+        html[data-theme="light"] .theme-keep-dark :is(.text-white\/75, .text-white\/70, .text-white\/65, .text-white\/60) {
+            color: rgba(255, 255, 255, 0.78) !important;
+        }
+        html[data-theme="light"] .bg-\[\#111111\]:not(body):not(header):not(nav):not(main):not(section):not(footer):not(aside).text-\[\#93F051\],
+        html[data-theme="light"] .bg-\[\#111111\]:not(body):not(header):not(nav):not(main):not(section):not(footer):not(aside) .text-\[\#93F051\],
         html[data-theme="light"] .theme-keep-dark .text-\[\#93F051\],
+        html[data-theme="light"] .theme-keep-dark .text-\[\#93F051\] *,
+        html[data-theme="light"] .bg-\[\#1D1D1F\].theme-keep-dark .text-\[\#93F051\],
         html[data-theme="light"] button.bg-\[\#111111\] .text-\[\#93F051\],
         html[data-theme="light"] a.bg-\[\#111111\] .text-\[\#93F051\],
         html[data-theme="light"] a.bg-\[\#111111\].text-\[\#93F051\] *,
         html[data-theme="light"] button.bg-\[\#111111\].text-\[\#93F051\] *,
         html[data-theme="light"] label:has(input:checked) *,
         html[data-theme="light"] article[onclick^="openArticleModal"].bg-\[\#1D1D1F\] .text-\[\#93F051\] {
+            color: #93F051 !important;
+        }
+        html[data-theme="light"] .theme-keep-dark .text-\[\#FA7E61\] {
+            color: #FA7E61 !important;
+        }
+        html[data-theme="light"] .theme-keep-dark .bg-\[\#93F051\],
+        html[data-theme="light"] .theme-keep-dark .bg-\[\#93F051\] *,
+        html[data-theme="light"] .bg-\[\#93F051\],
+        html[data-theme="light"] .bg-\[\#93F051\] *,
+        html[data-theme="light"] .bg-\[\#FA7E61\],
+        html[data-theme="light"] .bg-\[\#FA7E61\] *,
+        html[data-theme="light"] .bg-\[\#DDF95E\],
+        html[data-theme="light"] .bg-\[\#DDF95E\] *,
+        html[data-theme="light"] [style*="background:#93F051"] *,
+        html[data-theme="light"] [style*="background:#FA7E61"] *,
+        html[data-theme="light"] [style*="background:#DDF95E"] * {
+            color: #111111 !important;
+        }
+        html[data-theme="light"] .bg-\[\#93F051\] .bg-\[\#111111\],
+        html[data-theme="light"] .bg-\[\#93F051\] .bg-\[\#111111\] *,
+        html[data-theme="light"] .bg-\[\#FA7E61\] .bg-\[\#111111\],
+        html[data-theme="light"] .bg-\[\#FA7E61\] .bg-\[\#111111\] *,
+        html[data-theme="light"] .bg-\[\#DDF95E\] .bg-\[\#111111\],
+        html[data-theme="light"] .bg-\[\#DDF95E\] .bg-\[\#111111\] * {
+            color: #FFFFFF !important;
+        }
+        html[data-theme="light"] .bg-\[\#93F051\] .bg-\[\#111111\] .text-\[\#93F051\],
+        html[data-theme="light"] .bg-\[\#93F051\] .bg-\[\#111111\].text-\[\#93F051\],
+        html[data-theme="light"] .bg-\[\#93F051\] .bg-\[\#111111\].text-\[\#93F051\] * {
             color: #93F051 !important;
         }
         html[data-theme="light"] button.bg-\[\#111111\].hover\:bg-\[\#93F051\]:hover,
@@ -1150,22 +1273,10 @@
             color: #FFFFFF !important;
         }
 
-        html[data-theme="light"] .bg-\[\#93F051\] *,
-        html[data-theme="light"] .bg-\[\#FA7E61\] *,
-        html[data-theme="light"] .bg-\[\#DDF95E\] * {
-            color: #111111 !important;
-        }
-        html[data-theme="light"] .bg-\[\#93F051\] .bg-\[\#111111\] *,
-        html[data-theme="light"] .bg-\[\#FA7E61\] .bg-\[\#111111\] *,
-        html[data-theme="light"] .bg-\[\#DDF95E\] .bg-\[\#111111\] * {
-            color: #FFFFFF !important;
-        }
-
-        /* Keep phone numbers, WhatsApp numbers & codes left-to-right even in Arabic (RTL) */
-        [dir="rtl"] a[href^="tel:"],
-        [dir="rtl"] a[href*="wa.me"],
+        /* Keep phone numbers, tracking codes, handles & emails left-to-right even in Arabic (RTL) without flipping button icon order */
         [dir="rtl"] #caseTrackingCode,
-        [dir="rtl"] .ltr-isolate {
+        [dir="rtl"] .ltr-isolate,
+        [dir="rtl"] [dir="ltr"] {
             direction: ltr;
             unicode-bidi: isolate;
         }
@@ -1196,57 +1307,52 @@
         </button>
     </div>
 
-    <!-- Mobile Floating Stealth & Quick Call Pills (Above Native Bottom App Bar on < lg) -->
-    <div id="mobileQuickPills" class="lg:hidden fixed fixed-gpu right-3 bottom-[calc(5.15rem+env(safe-area-inset-bottom,0px))] z-40 flex items-center gap-1.5 pointer-events-none transition-all duration-200">
-        <a href="tel:+903122840299" title="24/7 Notrufnummer" class="pointer-events-auto inline-flex items-center gap-1.5 bg-[#93F051] hover:bg-[#DDF95E] text-[#111111] text-[11px] font-medium py-2 px-3 rounded-full shadow-[0_10px_25px_rgba(0,0,0,0.28)] active:scale-95 transition whitespace-nowrap">
+    <!-- Mobile Floating Stealth & Quick Call Pills (Above Minimal Capsule Bar on < lg) -->
+    <div id="mobileQuickPills" class="lg:hidden fixed fixed-gpu right-3 bottom-[calc(4.35rem+env(safe-area-inset-bottom,0px))] z-40 flex items-center gap-1.5 pointer-events-none transition-all duration-200">
+        <a href="tel:+903122840299" title="24/7 Notrufnummer" class="pointer-events-auto inline-flex items-center gap-1.5 bg-[#93F051] hover:bg-[#DDF95E] text-[#111111] text-[11px] font-medium py-1.5 px-2.5 rounded-full shadow-[0_8px_22px_rgba(0,0,0,0.28)] active:scale-95 transition whitespace-nowrap">
             <i class="hgi hgi-stroke hgi-call-02 w-3.5 h-3.5 shrink-0"></i>
             <span>Anruf</span>
         </a>
-        <button id="panicBtnMobile" type="button" title="Acil Çıkış: Sayfayı anında Google&#x27;a yönlendirir" class="theme-keep-dark pointer-events-auto inline-flex items-center gap-1 bg-[#242426]/95 backdrop-blur-md hover:bg-[#FA7E61] text-[#FFFFFF] hover:text-[#111111] text-[11px] font-medium py-2 px-2.5 rounded-full shadow-[0_10px_25px_rgba(0,0,0,0.32)] border border-white/15 active:scale-95 transition whitespace-nowrap">
+        <button id="panicBtnMobile" type="button" title="Acil Çıkış: Sayfayı anında Google&#x27;a yönlendirir" class="theme-keep-dark pointer-events-auto inline-flex items-center gap-1 bg-[#242426]/95 backdrop-blur-md hover:bg-[#FA7E61] text-[#FFFFFF] hover:text-[#111111] text-[11px] font-medium py-1.5 px-2.5 rounded-full shadow-[0_8px_22px_rgba(0,0,0,0.32)] border border-white/15 active:scale-95 transition whitespace-nowrap">
             <i class="hgi hgi-stroke hgi-view-off w-3.5 h-3.5 shrink-0"></i>
             <span>Verbergen</span>
         </button>
     </div>
 
-    <!-- Native Mobile App Bottom Navigation Bar (< lg: iOS / Android Thumb Zone) -->
-    <nav id="mobileAppTabBar" aria-label="Mobile App-Navigation" class="lg:hidden fixed fixed-gpu bottom-0 inset-x-0 z-50 theme-chrome bg-[#111111]/95 backdrop-blur-xl border-t border-white/10 shadow-[0_-10px_30px_rgba(0,0,0,0.28)] mobile-tabbar-safe transition-colors duration-200">
-        <div class="grid grid-cols-5 items-center max-w-lg mx-auto pt-1.5">
-            <a href="#top" data-tab-target="top" class="mobile-tab-item is-active flex flex-col items-center justify-center gap-0.5 py-1 text-[10px] font-medium text-white/65 hover:text-[#93F051] transition">
-                <span class="relative inline-flex items-center justify-center h-5"><i class="hgi hgi-stroke hgi-home-01 text-[20px] leading-none"></i></span>
-                <span class="truncate max-w-[60px]">Start</span>
-                <span class="mobile-tab-dot w-1 h-1 rounded-full bg-current opacity-0 transition"></span>
+    <!-- WhatsApp-Style Minimal Floating Capsule Tab Bar (< lg: Thumb Zone) -->
+    <nav id="mobileAppTabBar" aria-label="Mobile App-Navigation" class="lg:hidden fixed fixed-gpu left-1/2 -translate-x-1/2 bottom-[calc(0.55rem+env(safe-area-inset-bottom,0px))] z-50 w-[calc(100%-1.5rem)] max-w-[356px] rounded-full p-1 border border-white/15 shadow-[0_14px_34px_rgba(0,0,0,0.45)] transition-all duration-200">
+        <div class="grid grid-cols-5 items-center gap-0.5">
+            <a href="#top" data-tab-target="top" class="mobile-tab-item is-active flex flex-col items-center justify-center gap-0.5 py-1.5 px-1 text-[9.5px] font-medium text-white/75 transition">
+                <span class="relative inline-flex items-center justify-center h-4"><i class="hgi hgi-stroke hgi-home-01 text-[17px] leading-none"></i></span>
+                <span class="truncate max-w-[58px] leading-tight">Start</span>
             </a>
-            <a href="#hizmetler" data-tab-target="hizmetler" class="mobile-tab-item flex flex-col items-center justify-center gap-0.5 py-1 text-[10px] font-medium text-white/65 hover:text-[#93F051] transition">
-                <span class="relative inline-flex items-center justify-center h-5"><i class="hgi hgi-stroke hgi-grid-view text-[20px] leading-none"></i></span>
-                <span class="truncate max-w-[60px]">Leistungen</span>
-                <span class="mobile-tab-dot w-1 h-1 rounded-full bg-current opacity-0 transition"></span>
+            <a href="#hizmetler" data-tab-target="hizmetler" class="mobile-tab-item flex flex-col items-center justify-center gap-0.5 py-1.5 px-1 text-[9.5px] font-medium text-white/75 transition">
+                <span class="relative inline-flex items-center justify-center h-4"><i class="hgi hgi-stroke hgi-grid-view text-[17px] leading-none"></i></span>
+                <span class="truncate max-w-[58px] leading-tight">Leistungen</span>
             </a>
-            <a href="#vaka-bildir" data-tab-target="vaka-bildir" class="mobile-tab-item flex flex-col items-center justify-center gap-0.5 py-1 text-[10px] font-medium text-white/65 hover:text-[#93F051] transition">
-                <span class="relative inline-flex items-center justify-center h-5"><i class="hgi hgi-stroke hgi-shield-02 text-[20px] leading-none"></i></span>
-                <span class="truncate max-w-[64px]">Angebot</span>
-                <span class="mobile-tab-dot w-1 h-1 rounded-full bg-current opacity-0 transition"></span>
+            <a href="#vaka-bildir" data-tab-target="vaka-bildir" class="mobile-tab-item flex flex-col items-center justify-center gap-0.5 py-1.5 px-1 text-[9.5px] font-medium text-white/75 transition">
+                <span class="relative inline-flex items-center justify-center h-4"><i class="hgi hgi-stroke hgi-shield-02 text-[17px] leading-none"></i></span>
+                <span class="truncate max-w-[60px] leading-tight">Angebot</span>
             </a>
-            <a href="#magaza" data-tab-target="magaza" class="mobile-tab-item relative flex flex-col items-center justify-center gap-0.5 py-1 text-[10px] font-medium text-white/65 hover:text-[#93F051] transition">
-                <span class="relative inline-flex items-center justify-center h-5">
-                    <i class="hgi hgi-stroke hgi-shopping-bag-02 text-[20px] leading-none"></i>
-                    <span id="mobileTabCartBadge" class="hidden absolute -top-1.5 -right-2.5 min-w-[16px] h-4 px-1 rounded-full bg-[#FA7E61] text-[#111111] text-[9px] font-bold flex items-center justify-center leading-none">0</span>
+            <a href="#magaza" data-tab-target="magaza" class="mobile-tab-item relative flex flex-col items-center justify-center gap-0.5 py-1.5 px-1 text-[9.5px] font-medium text-white/75 transition">
+                <span class="relative inline-flex items-center justify-center h-4">
+                    <i class="hgi hgi-stroke hgi-shopping-bag-02 text-[17px] leading-none"></i>
+                    <span id="mobileTabCartBadge" class="hidden absolute -top-1.5 -right-2.5 min-w-[15px] h-[15px] px-1 rounded-full bg-[#FA7E61] text-[#111111] text-[8.5px] font-bold flex items-center justify-center leading-none">0</span>
                 </span>
-                <span class="truncate max-w-[60px]">Shop</span>
-                <span class="mobile-tab-dot w-1 h-1 rounded-full bg-current opacity-0 transition"></span>
+                <span class="truncate max-w-[56px] leading-tight">Shop</span>
             </a>
-            <a href="https://wa.me/905326667749?text=Merhaba%2C%20DAT%20Dedektiflik%20hakk%C4%B1nda%20gizli%20dan%C4%B1%C5%9Fmanl%C4%B1k%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="mobile-tab-item flex flex-col items-center justify-center gap-0.5 py-1 text-[10px] font-medium text-white/65 hover:text-[#93F051] transition">
-                <span class="relative inline-flex items-center justify-center h-5">
-                    <i class="hgi hgi-stroke hgi-whatsapp text-[20px] leading-none text-[#93F051]"></i>
+            <a href="https://wa.me/905326667749?text=Merhaba%2C%20DAT%20Dedektiflik%20hakk%C4%B1nda%20gizli%20dan%C4%B1%C5%9Fmanl%C4%B1k%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="mobile-tab-item flex flex-col items-center justify-center gap-0.5 py-1.5 px-1 text-[9.5px] font-medium text-white/75 transition">
+                <span class="relative inline-flex items-center justify-center h-4">
+                    <i class="hgi hgi-stroke hgi-whatsapp text-[17px] leading-none text-[#93F051]"></i>
                     <span class="w-1.5 h-1.5 rounded-full bg-[#93F051] pulse-dot absolute -top-0.5 -right-1"></span>
                 </span>
-                <span class="truncate max-w-[60px]">WhatsApp</span>
-                <span class="mobile-tab-dot w-1 h-1 rounded-full bg-current opacity-0 transition"></span>
+                <span class="truncate max-w-[58px] leading-tight">WhatsApp</span>
             </a>
         </div>
     </nav>
 
     <!-- Bottom-Left Dock: Studio Cookie Consent Notice -->
-    <div id="bottomLeftDock" class="fixed fixed-gpu left-3 right-3 bottom-[calc(5.15rem+env(safe-area-inset-bottom,0px))] lg:bottom-5 lg:left-5 lg:right-auto z-40 flex flex-col items-stretch md:items-start gap-2.5 pointer-events-none">
+    <div id="bottomLeftDock" class="fixed fixed-gpu left-3 right-3 bottom-[calc(4.35rem+env(safe-area-inset-bottom,0px))] lg:bottom-5 lg:left-5 lg:right-auto z-40 flex flex-col items-stretch md:items-start gap-2.5 pointer-events-none">
         <div id="cookieBanner" class="hidden pointer-events-auto w-full md:w-[320px] lg:w-[360px] bg-[#1D1D1F] border border-white/15 rounded-2xl p-3.5 shadow-[0_20px_45px_rgba(0,0,0,0.45)] flex items-center justify-between gap-3 text-[11px] text-white/85">
             <div class="flex-1 leading-snug">
                 <span>Nur technisch notwendige Sitzungs- &amp; Sprachdaten; keine Werbe-Cookies.</span>
@@ -1258,15 +1364,15 @@
         </div>
     </div>
 
-    <!-- Matte Obsidian System Status Ribbon -->
-    <aside class="relative z-[45] bg-[#18181A] border-b border-white/[0.07] text-[11px] font-regular py-1.5 sm:py-2 px-3 sm:px-4 text-white/75">
-        <div class="max-w-7xl mx-auto flex justify-between items-center gap-2">
-            <div class="flex flex-wrap items-center gap-2 min-w-0">
-                <span class="hidden sm:inline-flex flex-wrap items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#242426] text-[#FFFFFF] font-medium text-[10px] border border-white/10 max-w-full">
+    <!-- Matte Obsidian System Status Ribbon (Single Crisp Row Across All Viewports) -->
+    <aside class="relative z-[45] bg-[#18181A] border-b border-white/[0.07] text-[11px] font-regular py-1.5 px-3 sm:px-6 text-white/75">
+        <div class="max-w-7xl mx-auto flex justify-between items-center gap-3 whitespace-nowrap">
+            <div class="flex items-center gap-2.5 min-w-0">
+                <span class="hidden xl:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#242426] text-[#FFFFFF] font-medium text-[10px] border border-white/10 shrink-0">
                     <span class="w-1.5 h-1.5 rounded-full bg-[#93F051] pulse-dot shrink-0"></span>
                     <span>GRÜNDER VON UÖDED • ZERTIFIZIERTE DETEKTEI</span>
                 </span>
-                <div class="relative inline-flex items-center">
+                <div class="relative inline-flex items-center shrink-0">
                     <button type="button" onclick="toggleVisitorPopover()" id="liveVisitorPill" class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#242426] hover:bg-[#2F2F33] text-[#FFFFFF] font-medium text-[10px] border border-white/10 whitespace-nowrap transition" title="Live-Anzahl der aktiven Webseitenbesucher">
                         <span class="relative flex h-1.5 w-1.5 shrink-0">
                             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#93F051] opacity-75"></span>
@@ -1275,7 +1381,7 @@
                         <i class="hgi hgi-stroke hgi-user-group w-3 h-3 text-[#93F051]"></i>
                         <span data-i18n-html="live_top_pill">Live-Besucher: <strong data-live-visitors class="text-[#93F051]">1</strong> Online</span>
                     </button>
-                    <div id="liveVisitorPopover" class="hidden absolute left-0 rtl:left-auto rtl:right-0 top-full mt-2 z-[60] w-72 rounded-2xl bg-[#1D1D1F] border border-white/15 shadow-2xl p-4 space-y-2.5 text-xs text-white/80">
+                    <div id="liveVisitorPopover" class="hidden absolute left-0 rtl:left-auto rtl:right-0 top-full mt-2 z-[60] w-72 rounded-2xl bg-[#1D1D1F] border border-white/15 shadow-2xl p-4 space-y-2.5 text-xs text-white/80 whitespace-normal">
                         <div class="flex items-center justify-between border-b border-white/10 pb-2">
                             <span class="font-medium text-[#FFFFFF] flex items-center gap-1.5">
                                 <i class="hgi hgi-stroke hgi-radar-01 w-3.5 h-3.5 text-[#93F051]"></i>
@@ -1300,26 +1406,26 @@
                         </p>
                     </div>
                 </div>
-                <span class="hidden lg:inline text-white/25">|</span>
-                <span class="hidden lg:inline text-white/65">Istanbul • Ankara • Izmir • Zypern • Montenegro • Las Vegas</span>
+                <span class="hidden 2xl:inline text-white/25 shrink-0">|</span>
+                <span class="hidden 2xl:inline text-white/65 truncate">Istanbul • Ankara • Izmir • Zypern • Montenegro • Las Vegas</span>
             </div>
-            <a href="../elsa-vaka-paneli.html" class="inline-flex lg:hidden items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#242426] text-[#FFFFFF] font-medium text-[10px] border border-white/15 whitespace-nowrap shrink-0">
+            <a href="../elsa-vaka-paneli.html" class="inline-flex md:hidden items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#242426] text-[#FFFFFF] font-medium text-[10px] border border-white/15 whitespace-nowrap shrink-0">
                 <span class="w-1.5 h-1.5 rounded-full bg-[#93F051] animate-pulse shrink-0"></span>
                 <span>Elsa Panel</span>
                 <i class="hgi hgi-stroke hgi-arrow-right-01 w-3 h-3 text-[#93F051] shrink-0"></i>
             </a>
-            <div class="hidden sm:flex flex-wrap items-center gap-x-3 gap-y-1 sm:gap-4 sm:ml-auto font-medium text-white/85">
-                <a href="https://www.instagram.com/datdedektiflik" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 hover:text-[#93F051] transition">
+            <div class="hidden md:flex items-center gap-3.5 lg:gap-4 ml-auto font-medium text-white/85 shrink-0">
+                <a href="https://www.instagram.com/datdedektiflik" target="_blank" rel="noopener noreferrer" class="hidden lg:flex items-center gap-1.5 hover:text-[#93F051] transition">
                     <i class="hgi hgi-stroke hgi-instagram w-3.5 h-3.5 text-[#93F051] shrink-0"></i>
                     <span>@datdedektiflik</span>
                 </a>
-                <span class="text-white/20">/</span>
+                <span class="hidden lg:inline text-white/20">/</span>
                 <a href="https://wa.me/905326667749" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 hover:text-[#93F051] transition">
                     <i class="hgi hgi-stroke hgi-whatsapp w-3 h-3 text-[#93F051]"></i>
                     <span>WhatsApp: +90 532 666 77 49</span>
                 </a>
-                <span class="hidden sm:inline text-white/20">/</span>
-                <a href="tel:+903122840299" class="hidden sm:flex items-center gap-1.5 text-white/75 hover:text-[#FFFFFF] transition">
+                <span class="text-white/20">/</span>
+                <a href="tel:+903122840299" class="flex items-center gap-1.5 text-white/75 hover:text-[#FFFFFF] transition">
                     <i class="hgi hgi-stroke hgi-call-02 w-3 h-3 text-[#93F051]"></i>
                     <span>Zentrale: 0312 284 02 99</span>
                 </a>
@@ -1343,21 +1449,21 @@
                 </a>
 
                 <!-- Center Studio Dark Navigation -->
-                <nav class="hidden lg:flex items-center gap-0.5 p-1 rounded-full bg-[#1D1D1F] border border-white/[0.08] text-xs font-regular text-white/75">
-                    <a href="#mimari" class="px-2.5 py-1.5 rounded-full hover:bg-white/10 hover:text-[#FFFFFF] transition">Über uns</a>
-                    <a href="#vaka-analizoru" class="px-2.5 py-1.5 rounded-full hover:bg-white/10 hover:text-[#FFFFFF] transition">Analysator</a>
-                    <a href="#hizmetler" class="px-2.5 py-1.5 rounded-full hover:bg-white/10 hover:text-[#FFFFFF] transition">12 Dienste</a>
-                    <a href="#magaza" class="px-2.5 py-1.5 rounded-full hover:bg-white/10 text-[#FFFFFF] font-medium transition inline-flex items-center gap-1.5">
-                        <span class="w-1.5 h-1.5 rounded-full bg-[#93F051]"></span>
+                <nav class="hidden lg:flex items-center gap-0.5 p-1 rounded-full bg-[#1D1D1F] border border-white/[0.08] text-xs font-regular text-white/75 whitespace-nowrap shrink-0">
+                    <a href="#mimari" class="px-2.5 py-1.5 rounded-full hover:bg-white/10 hover:text-[#FFFFFF] transition whitespace-nowrap">Über uns</a>
+                    <a href="#vaka-analizoru" class="px-2.5 py-1.5 rounded-full hover:bg-white/10 hover:text-[#FFFFFF] transition whitespace-nowrap">Analysator</a>
+                    <a href="#hizmetler" class="px-2.5 py-1.5 rounded-full hover:bg-white/10 hover:text-[#FFFFFF] transition whitespace-nowrap">12 Dienste</a>
+                    <a href="#magaza" class="px-2.5 py-1.5 rounded-full hover:bg-white/10 text-[#FFFFFF] font-medium transition inline-flex items-center gap-1.5 whitespace-nowrap">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span>
                         <span>Shop</span>
                     </a>
-                    <a href="../elsa-vaka-paneli.html" class="px-2.5 py-1.5 rounded-full hover:bg-white/10 text-[#FFFFFF] font-medium transition inline-flex items-center gap-1.5">
-                        <span class="w-1.5 h-1.5 rounded-full bg-[#FA7E61]"></span>
+                    <a href="../elsa-vaka-paneli.html" class="px-2.5 py-1.5 rounded-full hover:bg-white/10 text-[#FFFFFF] font-medium transition inline-flex items-center gap-1.5 whitespace-nowrap">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#FA7E61] shrink-0"></span>
                         <span>Elsa Panel</span>
                     </a>
-                    <a href="#makaleler" class="px-2.5 py-1.5 rounded-full hover:bg-white/10 hover:text-[#FFFFFF] transition">Presse</a>
-                    <a href="#ofislerimiz" class="px-2.5 py-1.5 rounded-full hover:bg-white/10 hover:text-[#FFFFFF] transition">4 Büros</a>
-                    <a href="#sss" class="px-2.5 py-1.5 rounded-full hover:bg-white/10 hover:text-[#FFFFFF] transition">FAQ</a>
+                    <a href="#makaleler" class="px-2.5 py-1.5 rounded-full hover:bg-white/10 hover:text-[#FFFFFF] transition whitespace-nowrap">Presse</a>
+                    <a href="#ofislerimiz" class="px-2.5 py-1.5 rounded-full hover:bg-white/10 hover:text-[#FFFFFF] transition whitespace-nowrap">4 Büros</a>
+                    <a href="#sss" class="px-2.5 py-1.5 rounded-full hover:bg-white/10 hover:text-[#FFFFFF] transition whitespace-nowrap">FAQ</a>
                 </nav>
 
                 <!-- Right Studio Actions -->
@@ -1477,11 +1583,11 @@
                         <p data-i18n-html="hero_lead" class="text-[13.5px] sm:text-[15px] font-regular text-white/70 leading-[1.6]"><strong>Seit 2005</strong> hat die <strong>Privatdetektei DAT</strong> unter der Leitung von Gründer <strong>Ümit Hakan Karakaya</strong> bis heute über <strong>4.000 Fälle erfolgreich gelöst</strong> und steht Ihnen bei Partnerobservation, vorehelicher Prüfung, Sorgerechts- & Scheidungsprozessen sowie Adress- und Schuldnersuche mit <strong>100 % Beweis- und Zufriedenheitsgarantie</strong> in der Türkei und weltweit zur Seite.</p>
 
                         <div class="flex flex-col sm:flex-row gap-2.5 justify-center lg:justify-start">
-                            <a href="#vaka-bildir" class="px-6 py-3.5 rounded-full bg-[#93F051] hover:bg-[#DDF95E] text-[#111111] font-medium text-xs sm:text-[13px] tracking-tight transition flex items-center justify-center gap-2 active:scale-[0.98]">
+                            <a href="#vaka-bildir" class="px-5 py-3.5 rounded-full bg-[#93F051] hover:bg-[#DDF95E] text-[#111111] font-medium text-xs sm:text-[13px] tracking-tight sm:whitespace-nowrap transition flex items-center justify-center gap-2 active:scale-[0.98]">
                                 <i class="hgi hgi-stroke hgi-security-check w-4 h-4"></i>
                                 <span>Jetzt Angebot &amp; Beratung anfordern</span>
                             </a>
-                            <a href="https://wa.me/905326667749?text=Merhaba%2C%20DAT%20Dedektiflik%20hizmetleri%20ve%20fiyat%20teklifi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 rounded-full bg-[#1D1D1F] hover:bg-[#2A2A2D] text-[#FFFFFF] font-medium text-xs sm:text-[13px] tracking-tight transition flex items-center justify-center gap-2 border border-white/15 active:scale-[0.98]">
+                            <a href="https://wa.me/905326667749?text=Merhaba%2C%20DAT%20Dedektiflik%20hizmetleri%20ve%20fiyat%20teklifi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 rounded-full bg-[#1D1D1F] hover:bg-[#2A2A2D] text-[#FFFFFF] font-medium text-xs sm:text-[13px] tracking-tight sm:whitespace-nowrap transition flex items-center justify-center gap-2 border border-white/15 active:scale-[0.98]">
                                 <i class="hgi hgi-stroke hgi-whatsapp w-4 h-4 text-[#93F051]"></i>
                                 <span>WhatsApp-Hotline: 0532 666 77 49</span>
                             </a>
@@ -1899,19 +2005,19 @@
                         <svg viewbox="0 0 360 110" class="w-full h-full drop-shadow-[0_14px_28px_rgba(147,240,81,0.28)]" aria-hidden="true">
                             <path d="M55 8 H108 C142 8 156 32 180 32 C204 32 218 8 252 8 H305 C334 8 355 29 355 55 C355 81 334 102 305 102 H252 C218 102 204 78 180 78 C156 78 142 102 108 102 H55 C26 102 5 81 5 55 C5 29 26 8 55 8 Z" fill="#93F051" />
                         </svg>
-                        <div class="absolute inset-0 grid grid-cols-12 items-center px-5">
+                        <div class="keep-dark-ink absolute inset-0 grid grid-cols-12 items-center px-5">
                             <div class="col-span-5 text-center">
                                 <div class="text-2xl sm:text-[28px] font-normal text-[#111111] leading-none tracking-tight">2005</div>
-                                <div class="text-[10px] font-medium text-[#111111]/75 mt-1">Gründungsjahr</div>
+                                <div class="text-[10px] font-medium text-[#111111]/80 mt-1">Gründungsjahr</div>
                             </div>
                             <div class="col-span-2 flex justify-center">
                                 <span class="w-7 h-7 rounded-full bg-[#111111] text-[#93F051] flex items-center justify-center shadow-sm">
-                                    <i class="hgi hgi-stroke hgi-security-check w-3.5 h-3.5"></i>
+                                    <i class="hgi hgi-stroke hgi-security-check w-3.5 h-3.5 text-[#93F051]"></i>
                                 </span>
                             </div>
                             <div class="col-span-5 text-center">
                                 <div class="text-2xl sm:text-[28px] font-normal text-[#111111] leading-none tracking-tight">4.000+</div>
-                                <div class="text-[10px] font-medium text-[#111111]/75 mt-1">Gelöste Fälle</div>
+                                <div class="text-[10px] font-medium text-[#111111]/80 mt-1">Gelöste Fälle</div>
                             </div>
                         </div>
                     </div>
@@ -2099,7 +2205,7 @@
                                     </div>
                                     <span class="text-xs font-mono text-[#111111]">24/7 Aktiv</span>
                                 </div>
-                                <div class="h-14 sm:h-16 flex items-end gap-[3px] sm:gap-1"><span class="flex-1 rounded-full block transition-all duration-500" style="height:24%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:24%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:26%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:27%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:29%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:31%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:33%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:36%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:38%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:41%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:43%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:46%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:49%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:52%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:55%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:58%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:61%; background:rgba(250, 126, 97, 0.38);"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:64%; background:rgba(250, 126, 97, 0.38);"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:67%; background:rgba(250, 126, 97, 0.38);"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:71%; background:rgba(250, 126, 97, 0.38);"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:74%; background:rgba(250, 126, 97, 0.38);"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:78%; background:rgba(250, 126, 97, 0.38);"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:81%; background:rgba(17, 17, 17, 0.14);"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:85%; background:rgba(17, 17, 17, 0.14);"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:88%; background:rgba(17, 17, 17, 0.14);"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:92%; background:rgba(17, 17, 17, 0.14);"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:96%; background:rgba(17, 17, 17, 0.14);"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:100%; background:rgba(17, 17, 17, 0.14);"></span></div>
+                                <div class="h-14 sm:h-16 flex items-end gap-[3px] sm:gap-1"><span class="flex-1 rounded-full block transition-all duration-500" style="height:24%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:24%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:26%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:27%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:29%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:31%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:33%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:36%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:38%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:41%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:43%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:46%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:49%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:52%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:55%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:58%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:61%; background:rgba(250, 126, 97, 0.38);"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:64%; background:rgba(250, 126, 97, 0.38);"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:67%; background:rgba(250, 126, 97, 0.38);"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:71%; background:rgba(250, 126, 97, 0.38);"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:74%; background:rgba(250, 126, 97, 0.38);"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:78%; background:rgba(250, 126, 97, 0.38);"></span><span class="eq-bar-muted flex-1 rounded-full block transition-all duration-500" style="height:81%; background:rgba(17, 17, 17, 0.14);"></span><span class="eq-bar-muted flex-1 rounded-full block transition-all duration-500" style="height:85%; background:rgba(17, 17, 17, 0.14);"></span><span class="eq-bar-muted flex-1 rounded-full block transition-all duration-500" style="height:88%; background:rgba(17, 17, 17, 0.14);"></span><span class="eq-bar-muted flex-1 rounded-full block transition-all duration-500" style="height:92%; background:rgba(17, 17, 17, 0.14);"></span><span class="eq-bar-muted flex-1 rounded-full block transition-all duration-500" style="height:96%; background:rgba(17, 17, 17, 0.14);"></span><span class="eq-bar-muted flex-1 rounded-full block transition-all duration-500" style="height:100%; background:rgba(17, 17, 17, 0.14);"></span></div>
                             </div>
 
                             <h3 class="apple-subhead text-xl sm:text-2xl font-medium text-[#111111]">
@@ -3088,13 +3194,13 @@
                     </div>
 
                     <!-- Step 04: Signal Lime Folder-Tab on Obsidian outer -->
-                    <div class="rounded-[26px] overflow-hidden bg-[#1D1D1F] flex flex-col shadow-xl">
+                    <div class="theme-keep-dark rounded-[26px] overflow-hidden bg-[#1D1D1F] flex flex-col shadow-xl">
                         <div class="flex items-stretch">
                             <div class="bg-[#93F051] rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center shrink-0">
                                 <span class="font-mono text-[11px] font-medium text-[#111111]">04 • ERGEBNIS</span>
                             </div>
                             <svg class="w-7 h-[32px] shrink-0 block -ml-px -mb-px" viewbox="0 0 32 34" preserveaspectratio="none" fill="none" aria-hidden="true"><path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#93F051" /></svg>
-                            <div class="flex-1 flex items-center justify-end pr-4"><i class="hgi hgi-stroke hgi-security-check w-4 h-4 text-[#93F051]"></i></div>
+                            <div class="flex-1 flex items-center justify-end pr-4"><i class="theme-keep-lime hgi hgi-stroke hgi-security-check w-4 h-4 text-[#93F051]"></i></div>
                         </div>
                         <div class="bg-[#93F051] -mt-px rounded-tr-[24px] rounded-b-[24px] p-6 flex-1 space-y-2.5">
                             <h4 class="text-base font-medium text-[#111111]">Belegtes Ergebnis &amp; Zufriedenheit</h4>
@@ -3106,10 +3212,10 @@
                 </div>
 
                 <!-- 48 Saatte Sadakat Analizi Süreci İnfografik Görseli -->
-                <div onclick="openPhotoModal(&#x27;assets/photos/48-saatte-sadakat-analizi.jpg&#x27;, &#x27;DAT Özel Dedektiflik — 48 Saatte Evlilikte Sadakat Analizi Süreci (0 Saat → 12 Saat → 24 Saat → 48 Saat)&#x27;)" class="mt-8 bg-[#111111] text-[#FFFFFF] rounded-[28px] p-5 sm:p-8 cursor-pointer group border border-black/15 shadow-2xl">
+                <div onclick="openPhotoModal(&#x27;assets/photos/48-saatte-sadakat-analizi.jpg&#x27;, &#x27;DAT Özel Dedektiflik — 48 Saatte Evlilikte Sadakat Analizi Süreci (0 Saat → 12 Saat → 24 Saat → 48 Saat)&#x27;)" class="theme-keep-dark mt-8 bg-[#18181A] text-[#FFFFFF] rounded-[28px] p-5 sm:p-8 cursor-pointer group border border-white/15 shadow-2xl">
                     <div class="grid lg:grid-cols-12 gap-6 items-center">
                         <div class="lg:col-span-5 space-y-3.5 text-center lg:text-left rtl:lg:text-right">
-                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1D1D1F] text-[#93F051] border border-white/10 font-mono text-xs font-medium">
+                            <div class="theme-keep-dark inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1D1D1F] text-[#93F051] border border-white/15 font-mono text-xs font-medium">
                                 <i class="hgi hgi-stroke hgi-clock-01 w-3.5 h-3.5"></i>
                                 <span>SCHNELLES EINSATZPROTOKOLL</span>
                             </div>
@@ -3124,8 +3230,64 @@
                                 <span>Prozessgrafik vergrößern</span>
                             </div>
                         </div>
-                        <div class="lg:col-span-7 rounded-2xl overflow-hidden border border-white/15">
-                            <img src="../assets/photos/48-saatte-sadakat-analizi.jpg" loading="lazy" decoding="async" alt="48 Saatte Evlilikte Sadakat Analizi Süreci DAT Özel Dedektiflik" class="w-full h-auto object-cover group-hover:scale-[1.02] transition duration-500">
+                        <div class="lg:col-span-7 theme-keep-dark bg-[#111111] rounded-2xl p-4 sm:p-5 border border-white/15 shadow-inner space-y-4">
+                            <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-white/10">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-2 h-2 rounded-full bg-[#93F051] pulse-dot"></span>
+                                    <span class="font-mono text-[10px] tracking-wider text-white/85 uppercase">DAT OPS • 48 SAAT PROTOKOLÜ</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 text-[10px] font-mono">
+                                    <span class="px-2 py-0.5 rounded-full bg-[#1D1D1F] border border-white/10 text-[#93F051]">48 Saat</span>
+                                    <span class="px-2 py-0.5 rounded-full bg-[#1D1D1F] border border-white/10 text-white/85">4K Delil</span>
+                                    <span class="px-2 py-0.5 rounded-full bg-[#1D1D1F] border border-white/10 text-white/85">%100 Gizli</span>
+                                </div>
+                            </div>
+                            <div class="grid sm:grid-cols-3 gap-3 text-left rtl:text-right">
+                                <div class="bg-[#1D1D1F] border border-white/10 rounded-xl p-3.5 space-y-2.5 flex flex-col justify-between">
+                                    <div class="space-y-1.5">
+                                        <div class="flex items-center justify-between text-[10px] font-mono">
+                                            <span class="text-white/60">01</span>
+                                            <span class="px-2 py-0.5 rounded-full bg-[#242428] text-white/85">0.–12. SAAT</span>
+                                        </div>
+                                        <div class="text-[13px] font-medium text-[#FFFFFF] leading-snug">Ön Değerlendirme &amp; Risk Haritası</div>
+                                        <p class="text-[11px] text-white/70 leading-relaxed">Gizlilik sözleşmesi, güzergah analizi ve hukuki sınırlar içi ön doğrulama.</p>
+                                    </div>
+                                    <div class="text-[10px] font-mono text-[#93F051] pt-1 border-t border-white/10">1. AŞAMA • HAZIRLIK</div>
+                                </div>
+                                <div class="bg-[#1D1D1F] border border-[#93F051]/45 rounded-xl p-3.5 space-y-2.5 flex flex-col justify-between shadow-[0_0_24px_rgba(147,240,81,0.08)]">
+                                    <div class="space-y-1.5">
+                                        <div class="flex items-center justify-between text-[10px] font-mono">
+                                            <span class="text-[#93F051]">02</span>
+                                            <span class="px-2 py-0.5 rounded-full bg-[#93F051] text-[#111111] font-semibold">12.–36. SAAT</span>
+                                        </div>
+                                        <div class="text-[13px] font-medium text-[#FFFFFF] leading-snug">Yoğun Saha Gözlemi &amp; Analiz</div>
+                                        <p class="text-[11px] text-white/75 leading-relaxed">Döngüsel saha ekibi koordinasyonu ile kamuya açık alanda 4K zaman damgalı kayıt.</p>
+                                    </div>
+                                    <div class="text-[10px] font-mono text-[#93F051] pt-1 border-t border-white/10">2. AŞAMA • TCK m.134</div>
+                                </div>
+                                <div class="bg-[#1D1D1F] border border-white/10 rounded-xl p-3.5 space-y-2.5 flex flex-col justify-between">
+                                    <div class="space-y-1.5">
+                                        <div class="flex items-center justify-between text-[10px] font-mono">
+                                            <span class="text-white/60">03</span>
+                                            <span class="px-2 py-0.5 rounded-full bg-[#242428] text-[#93F051]">36.–48. SAAT</span>
+                                        </div>
+                                        <div class="text-[13px] font-medium text-[#FFFFFF] leading-snug">Delil Klasörü &amp; Gizli Teslimat</div>
+                                        <p class="text-[11px] text-white/70 leading-relaxed">TMK m.161 &amp; HMK m.199 uyumlu kronolojik saha tutanağının güvenli teslimi.</p>
+                                    </div>
+                                    <div class="text-[10px] font-mono text-[#FA7E61] pt-1 border-t border-white/10">3. AŞAMA • TESLİMAT</div>
+                                </div>
+                            </div>
+                            <div class="bg-[#1D1D1F] border border-white/10 rounded-xl px-3.5 py-2.5">
+                                <div class="h-1.5 w-full rounded-full bg-white/10 overflow-hidden mb-2">
+                                    <div class="h-full w-full rounded-full" style="background: linear-gradient(90deg, #DDF95E 0%, #93F051 55%, #FA7E61 100%);"></div>
+                                </div>
+                                <div class="grid grid-cols-4 gap-1 text-[9.5px] font-mono text-white/75 text-center">
+                                    <div><span class="text-[#FFFFFF] font-semibold">0. SAAT</span> • Başvuru</div>
+                                    <div><span class="text-[#93F051] font-semibold">12. SAAT</span> • Konum</div>
+                                    <div><span class="text-[#93F051] font-semibold">24. SAAT</span> • Saha</div>
+                                    <div><span class="text-[#FA7E61] font-semibold">48. SAAT</span> • Rapor</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -3205,7 +3367,7 @@
                                     <span>Vollständige Biografie, Bücher &amp; Pressemappe ansehen</span>
                                     <i class="hgi hgi-stroke hgi-arrow-right-02 w-3.5 h-3.5 shrink-0"></i>
                                 </a>
-                                <a href="#basin-galerisi" class="px-5 py-3 rounded-full bg-[#111111] hover:bg-[#242426] text-[#FFFFFF] border border-white/15 text-xs font-medium inline-flex items-center gap-1.5 transition">
+                                <a href="#basin-galerisi" class="theme-keep-dark px-5 py-3 rounded-full bg-[#111111] hover:bg-[#242426] text-[#FFFFFF] border border-white/15 text-xs font-medium inline-flex items-center gap-1.5 transition">
                                     <span>Presse- &amp; Zertifikate-Galerie</span>
                                 </a>
                             </div>
@@ -4599,13 +4761,13 @@
 
     <!-- Core Interactive Scripts & 7-Language i18n Engine -->
     <script>window.DAT_STATIC_PAGE_LANG = "de";</script>
-    <script src="../script.js?v=5.0"></script>
-    <script src="../lang/en.js?v=5.0"></script>
-    <script src="../lang/de.js?v=5.0"></script>
-    <script src="../lang/fr.js?v=5.0"></script>
-    <script src="../lang/ar.js?v=5.0"></script>
-    <script src="../lang/ru.js?v=5.0"></script>
-    <script src="../lang/me.js?v=5.0"></script>
-    <script src="../i18n.js?v=5.0"></script>
+    <script src="../script.js?v=7.1"></script>
+    <script src="../lang/en.js?v=7.1"></script>
+    <script src="../lang/de.js?v=7.1"></script>
+    <script src="../lang/fr.js?v=7.1"></script>
+    <script src="../lang/ar.js?v=7.1"></script>
+    <script src="../lang/ru.js?v=7.1"></script>
+    <script src="../lang/me.js?v=7.1"></script>
+    <script src="../i18n.js?v=7.1"></script>
 </body>
 </html>

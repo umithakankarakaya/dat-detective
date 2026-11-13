@@ -1,13 +1,27 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" class="scroll-smooth bg-[#FFFFFF] text-[#3A3E42]">
+<html lang="ar" dir="rtl" class="scroll-smooth dark" data-theme="dark">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <script id="datThemeBoot">
+        (function () {
+            try {
+                var saved = localStorage.getItem('dat_theme');
+                var theme = (saved === 'light' || saved === 'dark') ? saved : 'dark';
+                var root = document.documentElement;
+                root.setAttribute('data-theme', theme);
+                root.style.colorScheme = theme;
+                if (theme === 'dark') root.classList.add('dark'); else root.classList.remove('dark');
+                var meta = document.getElementById('themeColorMeta');
+                if (meta) meta.setAttribute('content', theme === 'light' ? '#FFFFFF' : '#111111');
+            } catch (e) {}
+        })();
+    </script>
     <title>من هو أوميت هاكان قرة قايا؟ | السيرة الذاتية، الكتاب، الجوائز ومكتب DAT</title>
     <meta name="description" content="السيرة الرسمية لأوميت هاكان قرة قايا (مواليد أنقرة 1973): فني طائرات F-16 سابق، خريج القانون الدولي، مؤسس مكتب DAT للتحريات الخاصة، رئيس UÖDED وTÜDED، قائد منصة WPYB، ومؤلف كتاب The Detective&#x27;s Eye.">
     <meta name="keywords" content="أوميت هاكان قرة قايا, من هو أوميت هاكان قرة قايا, مكتب DAT للتحريات, UÖDED, TÜDED, WPYB, The Detectives Eye, Hayalime Renk Ver, UKAİM">
     <meta name="robots" content="index, follow, max-image-preview:large">
-    <meta name="theme-color" content="#F48120">
+    <meta id="themeColorMeta" name="theme-color" content="#111111">
     <link rel="canonical" href="https://www.datdedektiflik.com/ar/umit-hakan-karakaya.html">
     <link rel="alternate" hreflang="tr" href="https://www.datdedektiflik.com/umit-hakan-karakaya.html">
     <link rel="alternate" hreflang="en" href="https://www.datdedektiflik.com/en/umit-hakan-karakaya.html">
@@ -38,82 +52,196 @@
     <style>
         *:not(.hgi):not([class*="hgi-"]) { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important; }
         .hgi { display: inline-flex; align-items: center; justify-content: center; line-height: 1; vertical-align: middle; }
-        .hgi.w-4 { font-size: 16px; } .hgi.w-5 { font-size: 20px; }
-        .cf-gradient { background: linear-gradient(135deg, #F38020 0%, #F6821F 50%, #FAAD3F 100%); }
-        [dir="rtl"] a[href^="tel:"], [dir="rtl"] a[href*="wa.me"], [dir="rtl"] .ltr-isolate { direction: ltr; unicode-bidi: isolate; }
+        .hgi.w-3\.5 { font-size: 14px; }
+        .hgi.w-4 { font-size: 16px; }
+        .hgi.w-5 { font-size: 20px; }
+        .studio-lime-btn { background-color: #93F051; color: #111111; }
+        .studio-lime-btn:hover { background-color: #DDF95E; color: #111111; }
+        [dir="rtl"] .ltr-isolate, [dir="rtl"] [dir="ltr"] { direction: ltr; unicode-bidi: isolate; }
+        html.theme-switching,
+        html.theme-switching *,
+        html.theme-switching *::before,
+        html.theme-switching *::after {
+            transition: none !important;
+            transition-duration: 0s !important;
+        }
+
+        /* Studio Obsidian (Dark) + Crisp Daylight (Light) Synchronized Theme */
+        html[data-theme="dark"], html[data-theme="dark"] body {
+            background-color: #111111 !important;
+            color: #F5F5F7 !important;
+        }
+        html[data-theme="dark"] .studio-header {
+            background-color: rgba(17, 17, 17, 0.88) !important;
+            border-color: rgba(255, 255, 255, 0.09) !important;
+        }
+        html[data-theme="dark"] .studio-surface {
+            background-color: #1C1C1F !important;
+            border-color: rgba(255, 255, 255, 0.09) !important;
+            color: #F5F5F7 !important;
+        }
+        html[data-theme="dark"] .studio-surface-soft {
+            background-color: #18181A !important;
+            border-color: rgba(255, 255, 255, 0.09) !important;
+            color: #F5F5F7 !important;
+        }
+        html[data-theme="dark"] .studio-pill-muted {
+            background-color: #242428 !important;
+            border-color: rgba(255, 255, 255, 0.12) !important;
+            color: #F5F5F7 !important;
+        }
+        html[data-theme="dark"] .studio-pill-muted:hover {
+            background-color: #93F051 !important;
+            color: #111111 !important;
+            border-color: transparent !important;
+        }
+        html[data-theme="dark"] .studio-pill-muted:hover * {
+            color: #111111 !important;
+        }
+        html[data-theme="dark"] .studio-title { color: #FFFFFF !important; }
+        html[data-theme="dark"] .studio-body { color: #D4D4D8 !important; }
+        html[data-theme="dark"] .studio-muted { color: #A1A1AA !important; }
+        html[data-theme="dark"] .studio-accent-text { color: #93F051 !important; }
+        html[data-theme="dark"] .studio-badge {
+            background-color: #242428 !important;
+            border-color: rgba(147, 240, 81, 0.35) !important;
+            color: #93F051 !important;
+        }
+        html[data-theme="dark"] .studio-footer {
+            background-color: #161618 !important;
+            border-color: rgba(255, 255, 255, 0.08) !important;
+            color: #A1A1AA !important;
+        }
+        html[data-theme="dark"] .studio-divider { border-color: rgba(255, 255, 255, 0.10) !important; }
+
+        html[data-theme="light"], html[data-theme="light"] body {
+            background-color: #F6F7F8 !important;
+            color: #111111 !important;
+        }
+        html[data-theme="light"] .studio-header {
+            background-color: rgba(255, 255, 255, 0.94) !important;
+            border-color: rgba(17, 17, 17, 0.10) !important;
+        }
+        html[data-theme="light"] .studio-surface {
+            background-color: #FFFFFF !important;
+            border-color: rgba(17, 17, 17, 0.09) !important;
+            color: #111111 !important;
+        }
+        html[data-theme="light"] .studio-surface-soft {
+            background-color: #ECEEF2 !important;
+            border-color: rgba(17, 17, 17, 0.08) !important;
+            color: #111111 !important;
+        }
+        html[data-theme="light"] .studio-pill-muted {
+            background-color: #ECEEF2 !important;
+            border-color: rgba(17, 17, 17, 0.10) !important;
+            color: #111111 !important;
+        }
+        html[data-theme="light"] .studio-pill-muted:hover {
+            background-color: #111111 !important;
+            color: #FFFFFF !important;
+        }
+        html[data-theme="light"] .studio-pill-muted:hover * {
+            color: #FFFFFF !important;
+        }
+        html[data-theme="light"] .studio-title { color: #111111 !important; }
+        html[data-theme="light"] .studio-body { color: #3A3E42 !important; }
+        html[data-theme="light"] .studio-muted { color: #4B5563 !important; }
+        html[data-theme="light"] .studio-accent-text { color: #15803D !important; }
+        html[data-theme="light"] .studio-badge {
+            background-color: #E6FAD8 !important;
+            border-color: rgba(21, 128, 61, 0.25) !important;
+            color: #15803D !important;
+        }
+        html[data-theme="light"] .studio-footer {
+            background-color: #ECEEF2 !important;
+            border-color: rgba(17, 17, 17, 0.10) !important;
+            color: #374151 !important;
+        }
+        html[data-theme="light"] .studio-divider { border-color: rgba(17, 17, 17, 0.10) !important; }
+        html[data-theme="light"] .studio-keep-dark {
+            background-color: #111111 !important;
+            color: #FFFFFF !important;
+            border-color: rgba(255, 255, 255, 0.12) !important;
+        }
+        html[data-theme="light"] .studio-keep-dark .studio-lime-ink { color: #93F051 !important; }
+        html[data-theme="light"] .studio-keep-dark .studio-coral-ink { color: #FA7E61 !important; }
     </style>
 </head>
-<body class="bg-[#FFFFFF] text-[#3A3E42] antialiased selection:bg-[#F38020] selection:text-[#FFFFFF]">
-    <div class="h-1.5 w-full bg-gradient-to-r from-[#F38020] via-[#FAAD3F] to-[#F38020]"></div>
+<body class="bg-[#111111] text-[#F5F5F7] antialiased selection:bg-[#93F051] selection:text-[#111111]">
+    <div class="h-[3px] w-full bg-[#93F051]"></div>
 
-    <header class="sticky top-0 z-40 bg-[#FFFFFF]/90 backdrop-blur-md border-b border-[rgba(0,0,0,0.06)]">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 min-h-16 py-2 flex flex-wrap items-center justify-between gap-3">
+    <header class="studio-header sticky top-0 z-40 bg-[#111111]/90 backdrop-blur-xl border-b border-white/[0.09]">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 min-h-16 py-2 flex flex-wrap items-center justify-between gap-2 sm:gap-3">
             <a href="index.html" class="flex items-center gap-3 group">
-                <img src="../dat-logo.png" alt="DAT Dedektiflik Logo" class="w-10 h-10 rounded-full object-cover ring-2 ring-[#F48120]/60">
+                <img src="../dat-logo.png" alt="DAT Dedektiflik Logo" class="w-10 h-10 rounded-full object-cover ring-2 ring-[#93F051]/70">
                 <div class="leading-none">
-                    <div class="text-sm font-medium text-[#000000]">DAT <span class="text-[#F48120]">DEDEKTİFLİK</span></div>
-                    <p class="text-[10px] font-mono text-[#3A3E42]/60 uppercase mt-0.5">ملف المؤسس والأرشيف الإعلامي</p>
+                    <div class="studio-title text-sm font-medium text-[#FFFFFF]">DAT <span class="studio-accent-text text-[#93F051]">DEDEKTİFLİK</span></div>
+                    <p class="studio-muted text-[10px] font-mono text-white/60 uppercase mt-0.5">ملف المؤسس والأرشيف الإعلامي</p>
                 </div>
             </a>
             <div class="flex flex-wrap items-center gap-2">
                 <nav aria-label="Language Switcher" class="flex items-center gap-1">
-                <a href="../umit-hakan-karakaya.html" onclick="try{localStorage.setItem('dat_site_lang','tr')}catch(_){}" class="px-2 py-1 rounded-full font-mono text-[10px] font-medium transition bg-[#F3F4F4] text-[#3A3E42] hover:bg-[#000000] hover:text-[#FFFFFF]">TR</a>
-                <a href="../en/umit-hakan-karakaya.html" onclick="try{localStorage.setItem('dat_site_lang','en')}catch(_){}" class="px-2 py-1 rounded-full font-mono text-[10px] font-medium transition bg-[#F3F4F4] text-[#3A3E42] hover:bg-[#000000] hover:text-[#FFFFFF]">EN</a>
-                <a href="../de/umit-hakan-karakaya.html" onclick="try{localStorage.setItem('dat_site_lang','de')}catch(_){}" class="px-2 py-1 rounded-full font-mono text-[10px] font-medium transition bg-[#F3F4F4] text-[#3A3E42] hover:bg-[#000000] hover:text-[#FFFFFF]">DE</a>
-                <a href="../fr/umit-hakan-karakaya.html" onclick="try{localStorage.setItem('dat_site_lang','fr')}catch(_){}" class="px-2 py-1 rounded-full font-mono text-[10px] font-medium transition bg-[#F3F4F4] text-[#3A3E42] hover:bg-[#000000] hover:text-[#FFFFFF]">FR</a>
-                <a href="umit-hakan-karakaya.html" onclick="try{localStorage.setItem('dat_site_lang','ar')}catch(_){}" class="px-2 py-1 rounded-full font-mono text-[10px] font-medium transition bg-[#F48120] text-[#FFFFFF]">AR</a>
-                <a href="../ru/umit-hakan-karakaya.html" onclick="try{localStorage.setItem('dat_site_lang','ru')}catch(_){}" class="px-2 py-1 rounded-full font-mono text-[10px] font-medium transition bg-[#F3F4F4] text-[#3A3E42] hover:bg-[#000000] hover:text-[#FFFFFF]">RU</a>
-                <a href="../me/umit-hakan-karakaya.html" onclick="try{localStorage.setItem('dat_site_lang','me')}catch(_){}" class="px-2 py-1 rounded-full font-mono text-[10px] font-medium transition bg-[#F3F4F4] text-[#3A3E42] hover:bg-[#000000] hover:text-[#FFFFFF]">ME</a>
+                <a href="../umit-hakan-karakaya.html" onclick="try{localStorage.setItem('dat_site_lang','tr')}catch(_){}" class="px-2 py-1 rounded-full font-mono text-[10px] font-medium transition border studio-pill-muted bg-[#242428] border-white/10 text-white/80">TR</a>
+                <a href="../en/umit-hakan-karakaya.html" onclick="try{localStorage.setItem('dat_site_lang','en')}catch(_){}" class="px-2 py-1 rounded-full font-mono text-[10px] font-medium transition border studio-pill-muted bg-[#242428] border-white/10 text-white/80">EN</a>
+                <a href="../de/umit-hakan-karakaya.html" onclick="try{localStorage.setItem('dat_site_lang','de')}catch(_){}" class="px-2 py-1 rounded-full font-mono text-[10px] font-medium transition border studio-pill-muted bg-[#242428] border-white/10 text-white/80">DE</a>
+                <a href="../fr/umit-hakan-karakaya.html" onclick="try{localStorage.setItem('dat_site_lang','fr')}catch(_){}" class="px-2 py-1 rounded-full font-mono text-[10px] font-medium transition border studio-pill-muted bg-[#242428] border-white/10 text-white/80">FR</a>
+                <a href="umit-hakan-karakaya.html" onclick="try{localStorage.setItem('dat_site_lang','ar')}catch(_){}" class="px-2 py-1 rounded-full font-mono text-[10px] font-medium transition border studio-lime-btn border-transparent shadow-sm">AR</a>
+                <a href="../ru/umit-hakan-karakaya.html" onclick="try{localStorage.setItem('dat_site_lang','ru')}catch(_){}" class="px-2 py-1 rounded-full font-mono text-[10px] font-medium transition border studio-pill-muted bg-[#242428] border-white/10 text-white/80">RU</a>
+                <a href="../me/umit-hakan-karakaya.html" onclick="try{localStorage.setItem('dat_site_lang','me')}catch(_){}" class="px-2 py-1 rounded-full font-mono text-[10px] font-medium transition border studio-pill-muted bg-[#242428] border-white/10 text-white/80">ME</a>
                 </nav>
-                <a href="index.html#makaleler" class="hidden md:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-[#F3F4F4] hover:bg-[#000000] text-[#000000] hover:text-[#FFFFFF] text-xs font-medium transition">
+                <button id="themeToggleBtn" type="button" onclick="toggleSiteTheme()" aria-label="Theme" class="studio-pill-muted inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#242428] border border-white/15 text-[11px] font-medium transition">
+                    <i id="themeToggleIcon" class="hgi hgi-stroke hgi-sun-03 w-3.5 h-3.5 text-[#93F051]"></i>
+                </button>
+                <a href="index.html#makaleler" class="hidden md:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full studio-pill-muted bg-[#242428] border border-white/10 text-xs font-medium transition">
                     <span>الصحافة والجوائز</span>
                 </a>
-                <a href="index.html#vaka-bildir" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full cf-gradient text-[#FFFFFF] text-xs font-medium shadow-sm hover:opacity-95 transition">
+                <a href="index.html#vaka-bildir" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full studio-lime-btn text-xs font-medium shadow-sm transition">
                     <span>استشارة 24/7</span>
                 </a>
             </div>
         </div>
     </header>
 
-    <main class="max-w-5xl mx-auto px-4 sm:px-6 py-7 sm:py-9 space-y-7 sm:space-y-8">
-        <nav aria-label="Breadcrumb" class="text-xs font-mono text-[#3A3E42]/70 flex items-center gap-2">
-            <a href="index.html" class="hover:text-[#F48120]">الرئيسية</a>
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 py-7 sm:py-10 space-y-7 sm:space-y-8">
+        <nav aria-label="Breadcrumb" class="studio-muted text-xs font-mono text-white/60 flex items-center gap-2">
+            <a href="index.html" class="studio-accent-text text-[#93F051] hover:underline">الرئيسية</a>
             <span>/</span>
-            <span class="text-[#000000] font-medium">من هو أوميت هاكان قرة قايا؟</span>
+            <span class="studio-title text-[#FFFFFF] font-medium">من هو أوميت هاكان قرة قايا؟</span>
         </nav>
 
-        <section class="grid lg:grid-cols-12 gap-8 items-center bg-[#F3F4F4]/60 rounded-[28px] p-6 sm:p-9 border border-[rgba(0,0,0,0.07)]">
+        <section class="studio-surface-soft grid lg:grid-cols-12 gap-8 items-center bg-[#18181A] rounded-[28px] p-6 sm:p-9 border border-white/[0.09] shadow-2xl">
             <div class="lg:col-span-5 space-y-3">
-                <button type="button" onclick="openBioPhoto('../assets/photos/wpyb-marka-dedektifligi-panel.jpg', 'أوميت هاكان قرة قايا — مؤسس مكتب DAT للتحريات الخاصة')" class="w-full rounded-2xl overflow-hidden border border-[rgba(0,0,0,0.08)] shadow-lg aspect-[4/3] bg-[#000000] block group">
+                <button type="button" onclick="openBioPhoto('../assets/photos/wpyb-marka-dedektifligi-panel.jpg', 'أوميت هاكان قرة قايا — مؤسس مكتب DAT للتحريات الخاصة')" class="w-full rounded-2xl overflow-hidden border border-white/15 shadow-xl aspect-[4/3] bg-[#111111] block group">
                     <img src="../assets/photos/wpyb-marka-dedektifligi-panel.jpg" alt="أوميت هاكان قرة قايا — مؤسس مكتب DAT للتحريات الخاصة" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-500">
                 </button>
                 <div class="grid grid-cols-3 gap-2 text-center">
-                    <div class="p-2.5 rounded-xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.06)]">
-                        <div class="text-sm font-medium text-[#000000]">1973</div>
-                        <div class="text-[10px] font-mono text-[#3A3E42]/70">مواليد أنقرة</div>
+                    <div class="studio-surface p-2.5 rounded-xl bg-[#1C1C1F] border border-white/[0.08]">
+                        <div class="studio-title text-sm font-medium text-[#FFFFFF]">1973</div>
+                        <div class="studio-muted text-[10px] font-mono text-white/60">مواليد أنقرة</div>
                     </div>
-                    <div class="p-2.5 rounded-xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.06)]">
-                        <div class="text-sm font-medium text-[#000000]">2005</div>
-                        <div class="text-[10px] font-mono text-[#3A3E42]/70">تأسيس DAT</div>
+                    <div class="studio-surface p-2.5 rounded-xl bg-[#1C1C1F] border border-white/[0.08]">
+                        <div class="studio-title text-sm font-medium text-[#FFFFFF]">2005</div>
+                        <div class="studio-muted text-[10px] font-mono text-white/60">تأسيس DAT</div>
                     </div>
-                    <div class="p-2.5 rounded-xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.06)]">
-                        <div class="text-sm font-medium text-[#F48120]">+4,000</div>
-                        <div class="text-[10px] font-mono text-[#3A3E42]/70">قضية مُدارة</div>
+                    <div class="studio-surface p-2.5 rounded-xl bg-[#1C1C1F] border border-white/[0.08]">
+                        <div class="studio-accent-text text-sm font-medium text-[#93F051]"><span dir="ltr" class="ltr-isolate" style="unicode-bidi:isolate">+4,000</span></div>
+                        <div class="studio-muted text-[10px] font-mono text-white/60">قضية مُدارة</div>
                     </div>
                 </div>
             </div>
 
             <div class="lg:col-span-7 space-y-4">
-                <span class="inline-block px-3 py-1 rounded-full bg-[#FFF7ED] border border-[#F38020]/40 text-[#F48120] font-mono text-[11px] font-medium">محقق خاص ومؤسس • باحث ومؤلف • رئيس جمعيات مهنية</span>
-                <h1 class="text-2xl sm:text-4xl font-medium text-[#000000] leading-tight tracking-tight">من هو أوميت هاكان قرة قايا؟</h1>
-                <p class="text-sm sm:text-base text-[#3A3E42]/85 leading-relaxed">وُلد <strong>أوميت هاكان قرة قايا</strong> في أنقرة عام 1973، وخدم في القوات المسلحة التركية بصفته <strong>فني مقاتلات F-16 (ضابط صف)</strong> قبل أن يجمع بين الانضباط العسكري وشهادة البكالوريوس في <strong>القانون الدولي</strong> ليؤسس عام 2005 مكتب <strong>DAT للتحريات الخاصة (DAT Group)</strong>، ويدير حتى اليوم أكثر من <strong>4,000 قضية</strong> داخل تركيا وخارجها.</p>
-                <blockquote class="p-4 rounded-2xl bg-[#FFFFFF] border border-[rgba(0,0,0,0.07)] text-xs text-[#3A3E42] italic leading-relaxed">«في النظام القضائي التركي يمتلك قضاة محاكم الأسرة صلاحيات واسعة تفوق غيرهم... وأنا أبحث عن ذلك القاضي الشجاع الذي يقول: ليتولَّ المحقق الخاص تقصي الحقائق». — <span class="not-italic font-medium text-[#000000]">حوار مجلة ÜSTAD للمحاماة</span></blockquote>
+                <span class="studio-badge inline-block px-3 py-1 rounded-full bg-[#242428] border border-[#93F051]/35 text-[#93F051] font-mono text-[11px] font-medium">محقق خاص ومؤسس • باحث ومؤلف • رئيس جمعيات مهنية</span>
+                <h1 class="studio-title text-2xl sm:text-4xl font-medium text-[#FFFFFF] leading-tight tracking-tight">من هو أوميت هاكان قرة قايا؟</h1>
+                <p class="studio-body text-sm sm:text-base text-white/80 leading-relaxed">وُلد <strong>أوميت هاكان قرة قايا</strong> في أنقرة عام 1973، وخدم في القوات المسلحة التركية بصفته <strong>فني مقاتلات F-16 (ضابط صف)</strong> قبل أن يجمع بين الانضباط العسكري وشهادة البكالوريوس في <strong>القانون الدولي</strong> ليؤسس عام 2005 مكتب <strong>DAT للتحريات الخاصة (DAT Group)</strong>، ويدير حتى اليوم أكثر من <strong>4,000 قضية</strong> داخل تركيا وخارجها.</p>
+                <blockquote class="studio-surface p-4 rounded-2xl bg-[#1C1C1F] border border-white/[0.09] text-xs studio-body text-white/80 italic leading-relaxed">«في النظام القضائي التركي يمتلك قضاة محاكم الأسرة صلاحيات واسعة تفوق غيرهم... وأنا أبحث عن ذلك القاضي الشجاع الذي يقول: ليتولَّ المحقق الخاص تقصي الحقائق». — <span class="not-italic font-medium text-[#000000]">حوار مجلة ÜSTAD للمحاماة</span></blockquote>
                 <div class="flex flex-wrap gap-3 pt-1">
-                    <a href="https://wa.me/905326667749" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-full cf-gradient text-[#FFFFFF] text-xs font-medium inline-flex items-center gap-2 shadow-md">
+                    <a href="https://wa.me/905326667749" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-full studio-lime-btn text-xs font-medium inline-flex items-center gap-2 shadow-lg transition">
                         <i class="hgi hgi-stroke hgi-whatsapp w-4 h-4"></i>
-                        <span>اتصال المكتب المباشر: ⁦+90 532 666 77 49⁩</span>
+                        <span>اتصال المكتب المباشر: <span dir="ltr" class="ltr-isolate" style="unicode-bidi:isolate">+90 532 666 77 49</span></span>
                     </a>
-                    <a href="index.html" class="px-5 py-3 rounded-full bg-[#000000] text-[#FFFFFF] text-xs font-medium inline-flex items-center gap-2">
+                    <a href="index.html" class="studio-keep-dark px-5 py-3 rounded-full bg-[#242428] hover:bg-[#2E2E34] border border-white/15 text-[#FFFFFF] text-xs font-medium inline-flex items-center gap-2 transition">
                         <span>العودة للرئيسية</span>
                     </a>
                 </div>
@@ -121,143 +249,171 @@
         </section>
 
         <section class="grid md:grid-cols-2 gap-5">
-            <article class="bg-[#FFFFFF] rounded-3xl p-6 sm:p-7 border border-[rgba(0,0,0,0.07)] shadow-sm space-y-3">
-                <span class="font-mono text-[10px] px-2.5 py-0.5 rounded-full bg-[#FFF7ED] text-[#F48120] border border-[#F38020]/30">01 • الانضباط العسكري والقانون</span>
-                <h2 class="text-lg font-medium text-[#000000]">خدمة F-16 في القوات المسلحة والتأهيل القانوني</h2>
-                <p class="text-sm sm:text-[15px] text-[#3A3E42]/85 leading-relaxed">شكّلت خدمته العسكرية كفني مقاتلات F-16 (ضابط صف) أساس الدقة الميدانية والالتزام الإجرائي في مسيرته المدنية. وبعد حصوله على بكالوريوس <strong>القانون الدولي</strong>، عزز معايير الأدلة القانونية عبر شهادة <strong>مؤسسة نقابات المحامين التركية (TÜRAVAK)</strong> المتقدمة في قانون الأسرة وبرنامج العلوم الجنائية بجامعة <strong>KİÜ</strong>.</p>
+            <article class="studio-surface bg-[#1C1C1F] rounded-3xl p-6 sm:p-7 border border-white/[0.09] shadow-sm space-y-3">
+                <span class="studio-badge font-mono text-[10px] px-2.5 py-0.5 rounded-full bg-[#242428] text-[#93F051] border border-[#93F051]/35">01 • الانضباط العسكري والقانون</span>
+                <h2 class="studio-title text-lg font-medium text-[#FFFFFF]">خدمة F-16 في القوات المسلحة والتأهيل القانوني</h2>
+                <p class="studio-body text-sm sm:text-[15px] text-white/80 leading-relaxed">شكّلت خدمته العسكرية كفني مقاتلات F-16 (ضابط صف) أساس الدقة الميدانية والالتزام الإجرائي في مسيرته المدنية. وبعد حصوله على بكالوريوس <strong>القانون الدولي</strong>، عزز معايير الأدلة القانونية عبر شهادة <strong>مؤسسة نقابات المحامين التركية (TÜRAVAK)</strong> المتقدمة في قانون الأسرة وبرنامج العلوم الجنائية بجامعة <strong>KİÜ</strong>.</p>
             </article>
-<article class="bg-[#FFFFFF] rounded-3xl p-6 sm:p-7 border border-[rgba(0,0,0,0.07)] shadow-sm space-y-3">
-                <span class="font-mono text-[10px] px-2.5 py-0.5 rounded-full bg-[#FFF7ED] text-[#F48120] border border-[#F38020]/30">02 • مجموعة DAT (منذ 2005)</span>
-                <h2 class="text-lg font-medium text-[#000000]">مكتب DAT للتحريات والفروع الدولية</h2>
-                <p class="text-sm sm:text-[15px] text-[#3A3E42]/85 leading-relaxed">أشرف عبر مكتب <strong>DAT للتحريات الخاصة</strong> الذي أسسه عام 2005 على أكثر من <strong>4,000 قضية</strong> في 81 ولاية تركية بمجالات مراقبة الزوج/الزوجة، تحريات ما قبل الزواج، أدلة الحضانة والطلاق، تتبع المدينين والعناوين، وكشف التنصت TSCM عبر مقراته في إسطنبول وأنقرة و<strong>بودغوريتسا (WPYB Global)</strong> و<strong>لاس فيغاس (الولايات المتحدة)</strong>.</p>
+<article class="studio-surface bg-[#1C1C1F] rounded-3xl p-6 sm:p-7 border border-white/[0.09] shadow-sm space-y-3">
+                <span class="studio-badge font-mono text-[10px] px-2.5 py-0.5 rounded-full bg-[#242428] text-[#93F051] border border-[#93F051]/35">02 • مجموعة DAT (منذ 2005)</span>
+                <h2 class="studio-title text-lg font-medium text-[#FFFFFF]">مكتب DAT للتحريات والفروع الدولية</h2>
+                <p class="studio-body text-sm sm:text-[15px] text-white/80 leading-relaxed">أشرف عبر مكتب <strong>DAT للتحريات الخاصة</strong> الذي أسسه عام 2005 على أكثر من <strong>4,000 قضية</strong> في 81 ولاية تركية بمجالات مراقبة الزوج/الزوجة، تحريات ما قبل الزواج، أدلة الحضانة والطلاق، تتبع المدينين والعناوين، وكشف التنصت TSCM عبر مقراته في إسطنبول وأنقرة و<strong>بودغوريتسا (WPYB Global)</strong> و<strong>لاس فيغاس (الولايات المتحدة)</strong>.</p>
             </article>
-<article class="bg-[#FFFFFF] rounded-3xl p-6 sm:p-7 border border-[rgba(0,0,0,0.07)] shadow-sm space-y-3">
-                <span class="font-mono text-[10px] px-2.5 py-0.5 rounded-full bg-[#FFF7ED] text-[#F48120] border border-[#F38020]/30">03 • الجمعيات وحماية العلامات</span>
-                <h2 class="text-lg font-medium text-[#000000]">رئاسة TÜDED وUÖDED ومنصة WPYB</h2>
-                <p class="text-sm sm:text-[15px] text-[#3A3E42]/85 leading-relaxed">سعياً لتقنين مهنة التحريات الخاصة وترسيخ أخلاقياتها ومواجهة الكيانات غير المرخصة، أسس وترأس جمعيتي <strong>TÜDED</strong> و<strong>UÖDED</strong> وقاد المؤتمر الدولي الأول للمحققين الخاصين. كما يتولى قيادة منصة مكافحة التزييف وحماية العلامات التجارية <strong>WPYB (We Protect Your Brand)</strong> وأكاديميتها التدريبية.</p>
+<article class="studio-surface bg-[#1C1C1F] rounded-3xl p-6 sm:p-7 border border-white/[0.09] shadow-sm space-y-3">
+                <span class="studio-badge font-mono text-[10px] px-2.5 py-0.5 rounded-full bg-[#242428] text-[#93F051] border border-[#93F051]/35">03 • الجمعيات وحماية العلامات</span>
+                <h2 class="studio-title text-lg font-medium text-[#FFFFFF]">رئاسة TÜDED وUÖDED ومنصة WPYB</h2>
+                <p class="studio-body text-sm sm:text-[15px] text-white/80 leading-relaxed">سعياً لتقنين مهنة التحريات الخاصة وترسيخ أخلاقياتها ومواجهة الكيانات غير المرخصة، أسس وترأس جمعيتي <strong>TÜDED</strong> و<strong>UÖDED</strong> وقاد المؤتمر الدولي الأول للمحققين الخاصين. كما يتولى قيادة منصة مكافحة التزييف وحماية العلامات التجارية <strong>WPYB (We Protect Your Brand)</strong> وأكاديميتها التدريبية.</p>
             </article>
-<article class="bg-[#FFFFFF] rounded-3xl p-6 sm:p-7 border border-[rgba(0,0,0,0.07)] shadow-sm space-y-3">
-                <span class="font-mono text-[10px] px-2.5 py-0.5 rounded-full bg-[#FFF7ED] text-[#F48120] border border-[#F38020]/30">04 • الكتاب والصحافة والجوائز</span>
-                <h2 class="text-lg font-medium text-[#000000]">كتاب «عين المحقق»، المجلات والتكريمات</h2>
-                <p class="text-sm sm:text-[15px] text-[#3A3E42]/85 leading-relaxed">مؤلف كتاب <strong><em>«The Detective’s Eye — In Search of Secrets and Traces»</em></strong> وصاحب امتياز ورئيس تحرير مجلة <strong><em>Özel Dedektif Dergisi</em></strong>. نُشرت حواراته في مجلة <em>ÜSTAD</em> و<em>PI Magazin</em> وقناتي <em>Kanal 24</em> و<em>TV8</em> وصحيفة <em>Hürriyet</em>؛ ونال جائزة <strong>«أفضل شركة أبحاث ومراقبة للعام»</strong> و<strong>درع التكريم الكريستالي</strong>.</p>
+<article class="studio-surface bg-[#1C1C1F] rounded-3xl p-6 sm:p-7 border border-white/[0.09] shadow-sm space-y-3">
+                <span class="studio-badge font-mono text-[10px] px-2.5 py-0.5 rounded-full bg-[#242428] text-[#93F051] border border-[#93F051]/35">04 • الكتاب والصحافة والجوائز</span>
+                <h2 class="studio-title text-lg font-medium text-[#FFFFFF]">كتاب «عين المحقق»، المجلات والتكريمات</h2>
+                <p class="studio-body text-sm sm:text-[15px] text-white/80 leading-relaxed">مؤلف كتاب <strong><em>«The Detective’s Eye — In Search of Secrets and Traces»</em></strong> وصاحب امتياز ورئيس تحرير مجلة <strong><em>Özel Dedektif Dergisi</em></strong>. نُشرت حواراته في مجلة <em>ÜSTAD</em> و<em>PI Magazin</em> وقناتي <em>Kanal 24</em> و<em>TV8</em> وصحيفة <em>Hürriyet</em>؛ ونال جائزة <strong>«أفضل شركة أبحاث ومراقبة للعام»</strong> و<strong>درع التكريم الكريستالي</strong>.</p>
             </article>
         </section>
 
-        <section class="bg-[#000000] text-[#FFFFFF] rounded-[28px] p-6 sm:p-9 space-y-4 shadow-xl">
-            <div class="font-mono text-xs text-[#FAAD3F] uppercase tracking-wider">05 • المسؤولية الاجتماعية وحماية الطفولة</div>
+        <section class="studio-keep-dark bg-[#111111] text-[#FFFFFF] rounded-[28px] p-6 sm:p-9 space-y-4 shadow-2xl border border-white/15">
+            <div class="font-mono text-xs studio-coral-ink text-[#FA7E61] uppercase tracking-wider">05 • المسؤولية الاجتماعية وحماية الطفولة</div>
             <h2 class="text-xl sm:text-2xl font-medium">جمعية Hayalime Renk Ver (مكتبة الألعاب) ومنظمة UKAİM</h2>
-            <p class="text-sm sm:text-[15px] text-[#F3F4F4]/85 leading-relaxed">إلى جانب عمله المهني، يشارك أوميت هاكان قرة قايا في مبادرات مجتمعية بارزة؛ فهو من مؤسسي جمعية <strong>Hayalime Renk Ver</strong> ومشروع <strong>مكتبة الألعاب المجانية</strong> المستلهم من ابنته إيليف لدعم الأطفال المحتاجين. كما شارك ضمن جمعية <strong>UKAİM</strong> في التوعية بالبحث عن الأطفال المفقودين وحماية الأطفال غير المصحوبين خلال الكوارث.</p>
+            <p class="text-sm sm:text-[15px] text-white/80 leading-relaxed">إلى جانب عمله المهني، يشارك أوميت هاكان قرة قايا في مبادرات مجتمعية بارزة؛ فهو من مؤسسي جمعية <strong>Hayalime Renk Ver</strong> ومشروع <strong>مكتبة الألعاب المجانية</strong> المستلهم من ابنته إيليف لدعم الأطفال المحتاجين. كما شارك ضمن جمعية <strong>UKAİM</strong> في التوعية بالبحث عن الأطفال المفقودين وحماية الأطفال غير المصحوبين خلال الكوارث.</p>
         </section>
 
         <section class="space-y-4">
             <div class="flex items-center justify-between">
-                <h2 class="text-xl font-medium text-[#000000] tracking-tight">أرشيف الشهادات والجوائز والتغطيات الصحفية</h2>
-                <span class="text-xs font-mono text-[#3A3E42]/70">اضغط للتكبير</span>
+                <h2 class="studio-title text-xl font-medium text-[#FFFFFF] tracking-tight">أرشيف الشهادات والجوائز والتغطيات الصحفية</h2>
+                <span class="studio-muted text-xs font-mono text-white/60">اضغط للتكبير</span>
             </div>
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <button type="button" onclick="openBioPhoto('../assets/photos/wpyb-marka-dedektifligi-panel.jpg', 'أكاديمية WPYB — ندوة تدريبية حول محققي العلامات التجارية ومكافحة التزييف')" class="group text-left rtl:text-right bg-[#FFFFFF] rounded-2xl p-2.5 border border-[rgba(0,0,0,0.08)] shadow-sm hover:shadow-md transition">
-                <div class="relative aspect-[4/3] rounded-xl overflow-hidden bg-[#000000]">
+                <button type="button" onclick="openBioPhoto('../assets/photos/wpyb-marka-dedektifligi-panel.jpg', 'أكاديمية WPYB — ندوة تدريبية حول محققي العلامات التجارية ومكافحة التزييف')" class="studio-surface group text-left rtl:text-right bg-[#1C1C1F] rounded-2xl p-2.5 border border-white/[0.09] shadow-sm hover:shadow-md transition">
+                <div class="relative aspect-[4/3] rounded-xl overflow-hidden bg-[#111111]">
                     <img src="../assets/photos/wpyb-marka-dedektifligi-panel.jpg" loading="lazy" decoding="async" alt="أكاديمية WPYB — ندوة تدريبية حول محققي العلامات التجارية ومكافحة التزييف" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-500">
                 </div>
-                <p class="mt-2 px-1 text-xs sm:text-[13px] font-medium text-[#000000] leading-snug">أكاديمية WPYB — ندوة تدريبية حول محققي العلامات التجارية ومكافحة التزييف</p>
+                <p class="studio-title mt-2 px-1 text-xs sm:text-[13px] font-medium text-[#FFFFFF] leading-snug">أكاديمية WPYB — ندوة تدريبية حول محققي العلامات التجارية ومكافحة التزييف</p>
             </button>
-<button type="button" onclick="openBioPhoto('../assets/photos/yilin-enleri-odul-1.jpg', 'حفل جوائز الأفضل للعام — مجموعة DAT وأوميت هاكان قرة قايا')" class="group text-left rtl:text-right bg-[#FFFFFF] rounded-2xl p-2.5 border border-[rgba(0,0,0,0.08)] shadow-sm hover:shadow-md transition">
-                <div class="relative aspect-[4/3] rounded-xl overflow-hidden bg-[#000000]">
+<button type="button" onclick="openBioPhoto('../assets/photos/yilin-enleri-odul-1.jpg', 'حفل جوائز الأفضل للعام — مجموعة DAT وأوميت هاكان قرة قايا')" class="studio-surface group text-left rtl:text-right bg-[#1C1C1F] rounded-2xl p-2.5 border border-white/[0.09] shadow-sm hover:shadow-md transition">
+                <div class="relative aspect-[4/3] rounded-xl overflow-hidden bg-[#111111]">
                     <img src="../assets/photos/yilin-enleri-odul-1.jpg" loading="lazy" decoding="async" alt="حفل جوائز الأفضل للعام — مجموعة DAT وأوميت هاكان قرة قايا" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-500">
                 </div>
-                <p class="mt-2 px-1 text-xs sm:text-[13px] font-medium text-[#000000] leading-snug">حفل جوائز الأفضل للعام — مجموعة DAT وأوميت هاكان قرة قايا</p>
+                <p class="studio-title mt-2 px-1 text-xs sm:text-[13px] font-medium text-[#FFFFFF] leading-snug">حفل جوائز الأفضل للعام — مجموعة DAT وأوميت هاكان قرة قايا</p>
             </button>
-<button type="button" onclick="openBioPhoto('../assets/photos/turavak-aile-hukuku-sertifika.jpg', 'مؤسسة نقابات المحامين (TÜRAVAK) — شهادة قانون الأسرة المتقدمة')" class="group text-left rtl:text-right bg-[#FFFFFF] rounded-2xl p-2.5 border border-[rgba(0,0,0,0.08)] shadow-sm hover:shadow-md transition">
-                <div class="relative aspect-[4/3] rounded-xl overflow-hidden bg-[#000000]">
+<button type="button" onclick="openBioPhoto('../assets/photos/turavak-aile-hukuku-sertifika.jpg', 'مؤسسة نقابات المحامين (TÜRAVAK) — شهادة قانون الأسرة المتقدمة')" class="studio-surface group text-left rtl:text-right bg-[#1C1C1F] rounded-2xl p-2.5 border border-white/[0.09] shadow-sm hover:shadow-md transition">
+                <div class="relative aspect-[4/3] rounded-xl overflow-hidden bg-[#111111]">
                     <img src="../assets/photos/turavak-aile-hukuku-sertifika.jpg" loading="lazy" decoding="async" alt="مؤسسة نقابات المحامين (TÜRAVAK) — شهادة قانون الأسرة المتقدمة" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-500">
                 </div>
-                <p class="mt-2 px-1 text-xs sm:text-[13px] font-medium text-[#000000] leading-snug">مؤسسة نقابات المحامين (TÜRAVAK) — شهادة قانون الأسرة المتقدمة</p>
+                <p class="studio-title mt-2 px-1 text-xs sm:text-[13px] font-medium text-[#FFFFFF] leading-snug">مؤسسة نقابات المحامين (TÜRAVAK) — شهادة قانون الأسرة المتقدمة</p>
             </button>
-<button type="button" onclick="openBioPhoto('../assets/photos/uoded-imza-toreni.jpg', 'مراسم توقيع الشهادات وورشة العمل برئاسة أوميت هاكان قرة قايا')" class="group text-left rtl:text-right bg-[#FFFFFF] rounded-2xl p-2.5 border border-[rgba(0,0,0,0.08)] shadow-sm hover:shadow-md transition">
-                <div class="relative aspect-[4/3] rounded-xl overflow-hidden bg-[#000000]">
+<button type="button" onclick="openBioPhoto('../assets/photos/uoded-imza-toreni.jpg', 'مراسم توقيع الشهادات وورشة العمل برئاسة أوميت هاكان قرة قايا')" class="studio-surface group text-left rtl:text-right bg-[#1C1C1F] rounded-2xl p-2.5 border border-white/[0.09] shadow-sm hover:shadow-md transition">
+                <div class="relative aspect-[4/3] rounded-xl overflow-hidden bg-[#111111]">
                     <img src="../assets/photos/uoded-imza-toreni.jpg" loading="lazy" decoding="async" alt="مراسم توقيع الشهادات وورشة العمل برئاسة أوميت هاكان قرة قايا" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-500">
                 </div>
-                <p class="mt-2 px-1 text-xs sm:text-[13px] font-medium text-[#000000] leading-snug">مراسم توقيع الشهادات وورشة العمل برئاسة أوميت هاكان قرة قايا</p>
+                <p class="studio-title mt-2 px-1 text-xs sm:text-[13px] font-medium text-[#FFFFFF] leading-snug">مراسم توقيع الشهادات وورشة العمل برئاسة أوميت هاكان قرة قايا</p>
             </button>
-<button type="button" onclick="openBioPhoto('../assets/photos/ozel-dedektif-dergisi-kapak.jpg', 'مجلة المحقق الخاص العدد الرابع — حوار الغلاف مع أوميت هاكان قرة قايا')" class="group text-left rtl:text-right bg-[#FFFFFF] rounded-2xl p-2.5 border border-[rgba(0,0,0,0.08)] shadow-sm hover:shadow-md transition">
-                <div class="relative aspect-[4/3] rounded-xl overflow-hidden bg-[#000000]">
+<button type="button" onclick="openBioPhoto('../assets/photos/ozel-dedektif-dergisi-kapak.jpg', 'مجلة المحقق الخاص العدد الرابع — حوار الغلاف مع أوميت هاكان قرة قايا')" class="studio-surface group text-left rtl:text-right bg-[#1C1C1F] rounded-2xl p-2.5 border border-white/[0.09] shadow-sm hover:shadow-md transition">
+                <div class="relative aspect-[4/3] rounded-xl overflow-hidden bg-[#111111]">
                     <img src="../assets/photos/ozel-dedektif-dergisi-kapak.jpg" loading="lazy" decoding="async" alt="مجلة المحقق الخاص العدد الرابع — حوار الغلاف مع أوميت هاكان قرة قايا" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-500">
                 </div>
-                <p class="mt-2 px-1 text-xs sm:text-[13px] font-medium text-[#000000] leading-snug">مجلة المحقق الخاص العدد الرابع — حوار الغلاف مع أوميت هاكان قرة قايا</p>
+                <p class="studio-title mt-2 px-1 text-xs sm:text-[13px] font-medium text-[#FFFFFF] leading-snug">مجلة المحقق الخاص العدد الرابع — حوار الغلاف مع أوميت هاكان قرة قايا</p>
             </button>
-<button type="button" onclick="openBioPhoto('../assets/photos/ustad-dergi-roportaj.jpg', 'حوار مجلة المحاماة ÜSTAD حول الأدلة المشروعة')" class="group text-left rtl:text-right bg-[#FFFFFF] rounded-2xl p-2.5 border border-[rgba(0,0,0,0.08)] shadow-sm hover:shadow-md transition">
-                <div class="relative aspect-[4/3] rounded-xl overflow-hidden bg-[#000000]">
+<button type="button" onclick="openBioPhoto('../assets/photos/ustad-dergi-roportaj.jpg', 'حوار مجلة المحاماة ÜSTAD حول الأدلة المشروعة')" class="studio-surface group text-left rtl:text-right bg-[#1C1C1F] rounded-2xl p-2.5 border border-white/[0.09] shadow-sm hover:shadow-md transition">
+                <div class="relative aspect-[4/3] rounded-xl overflow-hidden bg-[#111111]">
                     <img src="../assets/photos/ustad-dergi-roportaj.jpg" loading="lazy" decoding="async" alt="حوار مجلة المحاماة ÜSTAD حول الأدلة المشروعة" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-500">
                 </div>
-                <p class="mt-2 px-1 text-xs sm:text-[13px] font-medium text-[#000000] leading-snug">حوار مجلة المحاماة ÜSTAD حول الأدلة المشروعة</p>
+                <p class="studio-title mt-2 px-1 text-xs sm:text-[13px] font-medium text-[#FFFFFF] leading-snug">حوار مجلة المحاماة ÜSTAD حول الأدلة المشروعة</p>
             </button>
-<button type="button" onclick="openBioPhoto('../assets/photos/kiu-sertifika-programi.jpg', 'برنامج جامعة قبرص للعلوم (KİÜ) في العلوم الجنائية والتحري')" class="group text-left rtl:text-right bg-[#FFFFFF] rounded-2xl p-2.5 border border-[rgba(0,0,0,0.08)] shadow-sm hover:shadow-md transition">
-                <div class="relative aspect-[4/3] rounded-xl overflow-hidden bg-[#000000]">
+<button type="button" onclick="openBioPhoto('../assets/photos/kiu-sertifika-programi.jpg', 'برنامج جامعة قبرص للعلوم (KİÜ) في العلوم الجنائية والتحري')" class="studio-surface group text-left rtl:text-right bg-[#1C1C1F] rounded-2xl p-2.5 border border-white/[0.09] shadow-sm hover:shadow-md transition">
+                <div class="relative aspect-[4/3] rounded-xl overflow-hidden bg-[#111111]">
                     <img src="../assets/photos/kiu-sertifika-programi.jpg" loading="lazy" decoding="async" alt="برنامج جامعة قبرص للعلوم (KİÜ) في العلوم الجنائية والتحري" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-500">
                 </div>
-                <p class="mt-2 px-1 text-xs sm:text-[13px] font-medium text-[#000000] leading-snug">برنامج جامعة قبرص للعلوم (KİÜ) في العلوم الجنائية والتحري</p>
+                <p class="studio-title mt-2 px-1 text-xs sm:text-[13px] font-medium text-[#FFFFFF] leading-snug">برنامج جامعة قبرص للعلوم (KİÜ) في العلوم الجنائية والتحري</p>
             </button>
-<button type="button" onclick="openBioPhoto('../assets/photos/zirve-odul-toreni-kristal.jpg', 'قمة الأفضل للعام — تسلم درع التكريم الكريستالي')" class="group text-left rtl:text-right bg-[#FFFFFF] rounded-2xl p-2.5 border border-[rgba(0,0,0,0.08)] shadow-sm hover:shadow-md transition">
-                <div class="relative aspect-[4/3] rounded-xl overflow-hidden bg-[#000000]">
+<button type="button" onclick="openBioPhoto('../assets/photos/zirve-odul-toreni-kristal.jpg', 'قمة الأفضل للعام — تسلم درع التكريم الكريستالي')" class="studio-surface group text-left rtl:text-right bg-[#1C1C1F] rounded-2xl p-2.5 border border-white/[0.09] shadow-sm hover:shadow-md transition">
+                <div class="relative aspect-[4/3] rounded-xl overflow-hidden bg-[#111111]">
                     <img src="../assets/photos/zirve-odul-toreni-kristal.jpg" loading="lazy" decoding="async" alt="قمة الأفضل للعام — تسلم درع التكريم الكريستالي" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-500">
                 </div>
-                <p class="mt-2 px-1 text-xs sm:text-[13px] font-medium text-[#000000] leading-snug">قمة الأفضل للعام — تسلم درع التكريم الكريستالي</p>
+                <p class="studio-title mt-2 px-1 text-xs sm:text-[13px] font-medium text-[#FFFFFF] leading-snug">قمة الأفضل للعام — تسلم درع التكريم الكريستالي</p>
             </button>
             </div>
         </section>
 
         <section class="space-y-4">
-            <h2 class="text-xl font-medium text-[#000000] tracking-tight">الأسئلة الشائعة حول أوميت هاكان قرة قايا</h2>
+            <h2 class="studio-title text-xl font-medium text-[#FFFFFF] tracking-tight">الأسئلة الشائعة حول أوميت هاكان قرة قايا</h2>
             <div class="grid sm:grid-cols-2 gap-4">
-                <div class="p-5 rounded-2xl bg-[#F3F4F4]/70 border border-[rgba(0,0,0,0.06)] space-y-2">
-                <h3 class="text-[15px] font-medium text-[#000000]">من هو أوميت هاكان قرة قايا؟</h3>
-                <p class="text-sm sm:text-[15px] text-[#3A3E42]/85 leading-relaxed">محقق خاص تركي وباحث ومؤلف من مواليد أنقرة عام 1973. عمل فني طائرات F-16 في القوات المسلحة التركية، وحصل على شهادة القانون الدولي، وأسس مكتب DAT للتحريات الخاصة عام 2005.</p>
+                <div class="studio-surface-soft p-5 rounded-2xl bg-[#18181A] border border-white/[0.09] space-y-2">
+                <h3 class="studio-title text-[15px] font-medium text-[#FFFFFF]">من هو أوميت هاكان قرة قايا؟</h3>
+                <p class="studio-body text-sm sm:text-[15px] text-white/75 leading-relaxed">محقق خاص تركي وباحث ومؤلف من مواليد أنقرة عام 1973. عمل فني طائرات F-16 في القوات المسلحة التركية، وحصل على شهادة القانون الدولي، وأسس مكتب DAT للتحريات الخاصة عام 2005.</p>
             </div>
-<div class="p-5 rounded-2xl bg-[#F3F4F4]/70 border border-[rgba(0,0,0,0.06)] space-y-2">
-                <h3 class="text-[15px] font-medium text-[#000000]">ما الجمعيات والمنصات التي يرأسها أو أسسها؟</h3>
-                <p class="text-sm sm:text-[15px] text-[#3A3E42]/85 leading-relaxed">أسس وترأس جمعيتي TÜDED وUÖDED لتنظيم مهنة التحريات وتدريب كوادرها، كما يقود منصة WPYB لحماية العلامات التجارية ومكافحة المنتجات المقلدة.</p>
+<div class="studio-surface-soft p-5 rounded-2xl bg-[#18181A] border border-white/[0.09] space-y-2">
+                <h3 class="studio-title text-[15px] font-medium text-[#FFFFFF]">ما الجمعيات والمنصات التي يرأسها أو أسسها؟</h3>
+                <p class="studio-body text-sm sm:text-[15px] text-white/75 leading-relaxed">أسس وترأس جمعيتي TÜDED وUÖDED لتنظيم مهنة التحريات وتدريب كوادرها، كما يقود منصة WPYB لحماية العلامات التجارية ومكافحة المنتجات المقلدة.</p>
             </div>
-<div class="p-5 rounded-2xl bg-[#F3F4F4]/70 border border-[rgba(0,0,0,0.06)] space-y-2">
-                <h3 class="text-[15px] font-medium text-[#000000]">ما أبرز إصداراته وظهوره الإعلامي؟</h3>
-                <p class="text-sm sm:text-[15px] text-[#3A3E42]/85 leading-relaxed">ألف كتاب «The Detective&#x27;s Eye — In Search of Secrets and Traces»، وتولى رئاسة تحرير مجلة Özel Dedektif Dergisi، وظهر في ÜSTAD وKanal 24 وTV8 وHürriyet.</p>
+<div class="studio-surface-soft p-5 rounded-2xl bg-[#18181A] border border-white/[0.09] space-y-2">
+                <h3 class="studio-title text-[15px] font-medium text-[#FFFFFF]">ما أبرز إصداراته وظهوره الإعلامي؟</h3>
+                <p class="studio-body text-sm sm:text-[15px] text-white/75 leading-relaxed">ألف كتاب «The Detective&#x27;s Eye — In Search of Secrets and Traces»، وتولى رئاسة تحرير مجلة Özel Dedektif Dergisi، وظهر في ÜSTAD وKanal 24 وTV8 وHürriyet.</p>
             </div>
-<div class="p-5 rounded-2xl bg-[#F3F4F4]/70 border border-[rgba(0,0,0,0.06)] space-y-2">
-                <h3 class="text-[15px] font-medium text-[#000000]">ما مبادراته في المسؤولية الاجتماعية؟</h3>
-                <p class="text-sm sm:text-[15px] text-[#3A3E42]/85 leading-relaxed">ساهم في تأسيس جمعية Hayalime Renk Ver ومكتبة الألعاب للأطفال، كما شارك في جهود جمعية UKAİM لحماية الأطفال والبحث عن المفقودين.</p>
+<div class="studio-surface-soft p-5 rounded-2xl bg-[#18181A] border border-white/[0.09] space-y-2">
+                <h3 class="studio-title text-[15px] font-medium text-[#FFFFFF]">ما مبادراته في المسؤولية الاجتماعية؟</h3>
+                <p class="studio-body text-sm sm:text-[15px] text-white/75 leading-relaxed">ساهم في تأسيس جمعية Hayalime Renk Ver ومكتبة الألعاب للأطفال، كما شارك في جهود جمعية UKAİM لحماية الأطفال والبحث عن المفقودين.</p>
             </div>
             </div>
         </section>
 
-        <section class="pt-4 border-t border-[rgba(0,0,0,0.08)] space-y-3">
-            <div class="text-xs font-mono text-[#3A3E42]/70 uppercase">روابط وصفحات أخرى</div>
+        <section class="studio-divider pt-5 border-t border-white/10 space-y-3">
+            <div class="studio-muted text-xs font-mono text-white/60 uppercase">روابط وصفحات أخرى</div>
             <div class="flex flex-wrap gap-2">
-                <a href="index.html" class="px-3.5 py-2 rounded-full bg-[#F3F4F4] text-[#3A3E42] hover:bg-[#000000] hover:text-[#FFFFFF] text-xs font-medium transition">الصفحة الرئيسية</a>
-                <a href="../istanbul-ozel-dedektif.html" class="px-3.5 py-2 rounded-full bg-[#F3F4F4] text-[#3A3E42] hover:bg-[#000000] hover:text-[#FFFFFF] text-xs font-medium transition">فرع إسطنبول (TR)</a>
-                <a href="../ankara-ozel-dedektif.html" class="px-3.5 py-2 rounded-full bg-[#F3F4F4] text-[#3A3E42] hover:bg-[#000000] hover:text-[#FFFFFF] text-xs font-medium transition">فرع أنقرة (TR)</a>
-                <a href="../hizmetler/es-takibi.html" class="px-3.5 py-2 rounded-full bg-[#F3F4F4] text-[#3A3E42] hover:bg-[#000000] hover:text-[#FFFFFF] text-xs font-medium transition">مراقبة الشريك (TR)</a>
-                <a href="../hizmetler/kurumsal-ve-marka-koruma.html" class="px-3.5 py-2 rounded-full bg-[#F3F4F4] text-[#3A3E42] hover:bg-[#000000] hover:text-[#FFFFFF] text-xs font-medium transition">حماية الشركات WPYB (TR)</a>
-                <a href="index.html#vaka-bildir" class="px-3.5 py-2 rounded-full cf-gradient text-[#FFFFFF] text-xs font-medium">استشارة مجانية</a>
+                <a href="index.html" class="studio-pill-muted px-3.5 py-2 rounded-full bg-[#242428] border border-white/10 text-white/85 text-xs font-medium transition">الصفحة الرئيسية</a>
+                <a href="../istanbul-ozel-dedektif.html" class="studio-pill-muted px-3.5 py-2 rounded-full bg-[#242428] border border-white/10 text-white/85 text-xs font-medium transition">فرع إسطنبول (TR)</a>
+                <a href="../ankara-ozel-dedektif.html" class="studio-pill-muted px-3.5 py-2 rounded-full bg-[#242428] border border-white/10 text-white/85 text-xs font-medium transition">فرع أنقرة (TR)</a>
+                <a href="../hizmetler/es-takibi.html" class="studio-pill-muted px-3.5 py-2 rounded-full bg-[#242428] border border-white/10 text-white/85 text-xs font-medium transition">مراقبة الشريك (TR)</a>
+                <a href="../hizmetler/kurumsal-ve-marka-koruma.html" class="studio-pill-muted px-3.5 py-2 rounded-full bg-[#242428] border border-white/10 text-white/85 text-xs font-medium transition">حماية الشركات WPYB (TR)</a>
+                <a href="index.html#vaka-bildir" class="px-3.5 py-2 rounded-full studio-lime-btn text-xs font-medium">استشارة مجانية</a>
             </div>
         </section>
     </main>
 
     <div id="bioPhotoModal" class="fixed inset-0 z-50 hidden bg-[#000000]/85 backdrop-blur-md flex items-center justify-center p-4" onclick="closeBioPhoto()">
-        <div class="relative max-w-3xl w-full bg-[#FFFFFF] rounded-3xl overflow-hidden shadow-2xl" onclick="event.stopPropagation()">
-            <button type="button" onclick="closeBioPhoto()" class="absolute top-3 right-3 rtl:right-auto rtl:left-3 z-10 w-9 h-9 rounded-full bg-[#000000]/80 text-[#FFFFFF] flex items-center justify-center hover:bg-[#F48120] transition">
+        <div class="studio-surface relative max-w-3xl w-full bg-[#1C1C1F] border border-white/15 rounded-3xl overflow-hidden shadow-2xl" onclick="event.stopPropagation()">
+            <button type="button" onclick="closeBioPhoto()" class="studio-keep-dark absolute top-3 right-3 rtl:right-auto rtl:left-3 z-10 w-9 h-9 rounded-full bg-[#111111]/85 text-[#FFFFFF] flex items-center justify-center hover:bg-[#93F051] hover:text-[#111111] transition">
                 <i class="hgi hgi-stroke hgi-cancel-01 w-4 h-4"></i>
             </button>
-            <img id="bioPhotoImg" src="" alt="" class="w-full max-h-[75vh] object-contain bg-[#000000]">
-            <div id="bioPhotoCap" class="p-4 text-xs sm:text-sm font-medium text-[#000000] border-t border-[rgba(0,0,0,0.06)]"></div>
+            <img id="bioPhotoImg" src="" alt="" class="w-full max-h-[75vh] object-contain bg-[#111111]">
+            <div id="bioPhotoCap" class="studio-title studio-divider p-4 text-xs sm:text-sm font-medium text-[#FFFFFF] border-t border-white/10"></div>
         </div>
     </div>
 
-    <footer class="bg-[#F3F4F4] border-t border-[rgba(0,0,0,0.08)] py-8 text-center text-xs text-[#3A3E42]/75 space-y-2">
-        <div>&copy; 2005 – 2026 مكتب DAT للتحريات الخاصة (DAT Group) • أوميت هاكان قرة قايا • مؤسس UÖDED</div>
-        <div>إسطنبول (كارتال) • أنقرة (جانكايا) • بودغوريتسا (الجبل الأسود) • لاس فيغاس (الولايات المتحدة) • <a href="index.html" class="text-[#F48120] underline">العودة للرئيسية</a></div>
+    <footer class="studio-footer bg-[#161618] border-t border-white/[0.08] py-8 px-4 text-center text-xs text-white/60 space-y-2">
+        <div>&copy; <span dir="ltr" class="ltr-isolate" style="unicode-bidi:isolate">2005 – 2026</span> مكتب DAT للتحريات الخاصة (DAT Group) • أوميت هاكان قرة قايا • مؤسس UÖDED</div>
+        <div>إسطنبول (كارتال) • أنقرة (جانكايا) • بودغوريتسا (الجبل الأسود) • لاس فيغاس (الولايات المتحدة) • <a href="index.html" class="studio-accent-text text-[#93F051] underline">العودة للرئيسية</a></div>
     </footer>
 
     <script>
         try { localStorage.setItem('dat_site_lang', 'ar'); } catch (_) {}
+        (function syncSubpageThemeUI() {
+            function refresh(t) {
+                var ico = document.getElementById('themeToggleIcon');
+                var lbl = document.getElementById('themeToggleLabel');
+                var meta = document.getElementById('themeColorMeta');
+                if (ico) ico.className = 'hgi hgi-stroke w-3.5 h-3.5 text-[#93F051] ' + (t === 'light' ? 'hgi-moon-02' : 'hgi-sun-03');
+                if (lbl) lbl.textContent = t === 'light' ? 'Koyu' : 'Açık';
+                if (meta) meta.setAttribute('content', t === 'light' ? '#FFFFFF' : '#111111');
+            }
+            window.toggleSiteTheme = function () {
+                var root = document.documentElement;
+                var cur = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+                var next = cur === 'dark' ? 'light' : 'dark';
+                root.classList.add('theme-switching');
+                void root.offsetHeight;
+                root.setAttribute('data-theme', next);
+                root.style.colorScheme = next;
+                root.classList.toggle('dark', next === 'dark');
+                try { localStorage.setItem('dat_theme', next); } catch (_) {}
+                refresh(next);
+                requestAnimationFrame(function () {
+                    requestAnimationFrame(function () {
+                        root.classList.remove('theme-switching');
+                    });
+                });
+            };
+            refresh(document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark');
+        })();
         function openBioPhoto(src, cap) {
             document.getElementById('bioPhotoImg').src = src;
             document.getElementById('bioPhotoImg').alt = cap;

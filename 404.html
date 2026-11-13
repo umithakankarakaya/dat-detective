@@ -1,9 +1,24 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" class="dark" data-theme="dark">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="robots" content="noindex, follow">
+    <meta id="themeColorMeta" name="theme-color" content="#111111">
+    <script id="datThemeBoot">
+        (function () {
+            try {
+                var saved = localStorage.getItem('dat_theme');
+                var theme = (saved === 'light' || saved === 'dark') ? saved : 'dark';
+                var root = document.documentElement;
+                root.setAttribute('data-theme', theme);
+                root.style.colorScheme = theme;
+                if (theme === 'dark') root.classList.add('dark'); else root.classList.remove('dark');
+                var meta = document.getElementById('themeColorMeta');
+                if (meta) meta.setAttribute('content', theme === 'light' ? '#FFFFFF' : '#111111');
+            } catch (e) {}
+        })();
+    </script>
     <title>404 — Sayfa Bulunamadı | DAT Özel Dedektiflik Bürosu</title>
     <link rel="icon" type="image/png" href="/dat-logo.png">
     <link rel="shortcut icon" href="/favicon.ico">
@@ -22,66 +37,69 @@
         .hgi.w-4 { font-size: 18px; }
         .hgi.w-5 { font-size: 22px; }
         .hgi.w-8 { font-size: 34px; }
-        .cf-gradient {
-            background: linear-gradient(135deg, #F38020 0%, #F6821F 50%, #FAAD3F 100%);
+        html[data-theme="light"], html[data-theme="light"] body {
+            background-color: #F6F7F8 !important;
+            color: #111111 !important;
         }
-        .cf-text-gradient {
-            background: linear-gradient(95deg, #E86C00 0%, #F38020 50%, #FAAD3F 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+        html[data-theme="light"] .studio-outer { background-color: #ECEEF2 !important; border-color: rgba(17,17,17,0.08) !important; }
+        html[data-theme="light"] .studio-card { background-color: #FFFFFF !important; border-color: rgba(17,17,17,0.08) !important; color: #111111 !important; }
+        html[data-theme="light"] .studio-title { color: #111111 !important; }
+        html[data-theme="light"] .studio-body { color: #4B5563 !important; }
+        html[data-theme="light"] .studio-muted-pill { background-color: #ECEEF2 !important; color: #111111 !important; border-color: rgba(17,17,17,0.10) !important; }
+        html[data-theme="light"] .studio-badge { background-color: #E6FAD8 !important; color: #15803D !important; border-color: rgba(21,128,61,0.22) !important; }
+        html[data-theme="light"] .studio-footer { color: #4B5563 !important; border-color: rgba(17,17,17,0.08) !important; }
     </style>
 </head>
-<body class="bg-[#FFFFFF] text-[#3A3E42] min-h-screen flex flex-col justify-between selection:bg-[#F38020] selection:text-[#FFFFFF]">
-    <div class="h-1.5 w-full bg-gradient-to-r from-[#F38020] via-[#FAAD3F] to-[#F38020]"></div>
+<body class="bg-[#111111] text-[#F5F5F7] min-h-screen flex flex-col justify-between selection:bg-[#93F051] selection:text-[#111111]">
+    <div class="h-[3px] w-full bg-[#93F051]"></div>
 
     <main class="flex-1 flex items-center justify-center p-6">
-        <div class="max-w-lg w-full bg-[#F3F4F4] rounded-[32px] p-4 border border-[rgba(0,0,0,0.08)] shadow-xl">
-            <div class="bg-[#FFFFFF] rounded-[24px] p-8 sm:p-10 text-center space-y-6 border border-[rgba(0,0,0,0.06)]">
-                <div class="w-16 h-16 mx-auto rounded-2xl cf-gradient text-[#FFFFFF] flex items-center justify-center shadow-[0_10px_25px_rgba(243,128,32,0.3)]">
+        <div class="studio-outer max-w-lg w-full bg-[#18181A] rounded-[32px] p-4 border border-white/[0.09] shadow-2xl">
+            <div class="studio-card bg-[#1C1C1F] rounded-[24px] p-8 sm:p-10 text-center space-y-6 border border-white/[0.08]">
+                <div class="w-16 h-16 mx-auto rounded-2xl bg-[#93F051] text-[#111111] flex items-center justify-center shadow-[0_10px_28px_rgba(147,240,81,0.28)]">
                     <i class="hgi hgi-stroke hgi-search-01 w-8 h-8"></i>
                 </div>
 
                 <div class="space-y-2">
-                    <span class="inline-block font-mono text-[11px] px-3 py-1 rounded-full bg-[#F3F4F4] text-[#F48120] font-medium">HATA KODU: 404 • KAYIP KONUM</span>
-                    <h1 class="text-2xl sm:text-3xl font-medium text-[#000000] tracking-tight">
+                    <span class="studio-badge inline-block font-mono text-[11px] px-3 py-1 rounded-full bg-[#242428] border border-[#93F051]/35 text-[#93F051] font-medium">HATA KODU: 404 • KAYIP KONUM</span>
+                    <h1 class="studio-title text-2xl sm:text-3xl font-medium text-[#FFFFFF] tracking-tight">
                         Aradığınız Sayfa Bulunamadı
                     </h1>
-                    <p class="text-xs sm:text-sm text-[#3A3E42]/80 leading-relaxed">
+                    <p class="studio-body text-xs sm:text-sm text-white/75 leading-relaxed">
                         Aradığınız kişiyi veya delili bulmak bizim uzmanlık alanımız; ancak ulaşmaya çalıştığınız bu web adresi taşınmış veya kaldırılmış olabilir.
                     </p>
                 </div>
 
                 <div class="space-y-2.5 pt-2">
-                    <a href="/" class="w-full py-3.5 cf-gradient text-[#FFFFFF] rounded-full font-medium text-xs tracking-tight transition flex items-center justify-center gap-2 shadow-md hover:opacity-95">
+                    <a href="/" class="w-full py-3.5 bg-[#93F051] hover:bg-[#DDF95E] text-[#111111] rounded-full font-medium text-xs tracking-tight transition flex items-center justify-center gap-2 shadow-md">
                         <i class="hgi hgi-stroke hgi-arrow-left-01 w-4 h-4"></i>
                         <span>DAT Dedektiflik Ana Sayfasına Dön</span>
                     </a>
                     <div class="grid grid-cols-2 gap-2.5">
-                        <a href="https://wa.me/905326667749" target="_blank" rel="noopener noreferrer" class="py-3 bg-[#000000] hover:bg-[#3A3E42] text-[#FFFFFF] rounded-full font-medium text-xs transition flex items-center justify-center gap-1.5">
-                            <i class="hgi hgi-stroke hgi-whatsapp w-4 h-4 text-[#FAAD3F]"></i>
+                        <a href="https://wa.me/905326667749" target="_blank" rel="noopener noreferrer" class="py-3 bg-[#111111] hover:bg-[#242428] text-[#FFFFFF] border border-white/15 rounded-full font-medium text-xs transition flex items-center justify-center gap-1.5">
+                            <i class="hgi hgi-stroke hgi-whatsapp w-4 h-4 text-[#93F051]"></i>
                             <span>0532 666 77 49</span>
                         </a>
-                        <a href="tel:+903122840299" class="py-3 bg-[#F3F4F4] hover:bg-[#000000] text-[#000000] hover:text-[#FFFFFF] rounded-full font-medium text-xs transition flex items-center justify-center gap-1.5">
-                            <i class="hgi hgi-stroke hgi-call-02 w-4 h-4 text-[#F48120]"></i>
+                        <a href="tel:+903122840299" class="studio-muted-pill py-3 bg-[#242428] hover:bg-[#93F051] text-[#FFFFFF] hover:text-[#111111] border border-white/10 rounded-full font-medium text-xs transition flex items-center justify-center gap-1.5">
+                            <i class="hgi hgi-stroke hgi-call-02 w-4 h-4 text-[#93F051]"></i>
                             <span>0312 284 02 99</span>
                         </a>
                     </div>
                 </div>
-                <div class="pt-3 border-t border-[rgba(0,0,0,0.06)] flex flex-wrap items-center justify-center gap-2 text-[11px] font-mono text-[#3A3E42]/75">
-                    <a href="/" class="px-2.5 py-1 rounded-full bg-[#F3F4F4] hover:bg-[#000000] hover:text-[#FFFFFF] transition">TR</a>
-                    <a href="/en/" class="px-2.5 py-1 rounded-full bg-[#F3F4F4] hover:bg-[#000000] hover:text-[#FFFFFF] transition">EN</a>
-                    <a href="/de/" class="px-2.5 py-1 rounded-full bg-[#F3F4F4] hover:bg-[#000000] hover:text-[#FFFFFF] transition">DE</a>
-                    <a href="/fr/" class="px-2.5 py-1 rounded-full bg-[#F3F4F4] hover:bg-[#000000] hover:text-[#FFFFFF] transition">FR</a>
-                    <a href="/ar/" class="px-2.5 py-1 rounded-full bg-[#F3F4F4] hover:bg-[#000000] hover:text-[#FFFFFF] transition">AR</a>
-                    <a href="/ru/" class="px-2.5 py-1 rounded-full bg-[#F3F4F4] hover:bg-[#000000] hover:text-[#FFFFFF] transition">RU</a>
-                    <a href="/me/" class="px-2.5 py-1 rounded-full bg-[#F3F4F4] hover:bg-[#000000] hover:text-[#FFFFFF] transition">ME</a>
+                <div class="pt-3 border-t border-white/10 flex flex-wrap items-center justify-center gap-2 text-[11px] font-mono text-white/70">
+                    <a href="/" class="studio-muted-pill px-2.5 py-1 rounded-full bg-[#242428] hover:bg-[#93F051] hover:text-[#111111] transition">TR</a>
+                    <a href="/en/" class="studio-muted-pill px-2.5 py-1 rounded-full bg-[#242428] hover:bg-[#93F051] hover:text-[#111111] transition">EN</a>
+                    <a href="/de/" class="studio-muted-pill px-2.5 py-1 rounded-full bg-[#242428] hover:bg-[#93F051] hover:text-[#111111] transition">DE</a>
+                    <a href="/fr/" class="studio-muted-pill px-2.5 py-1 rounded-full bg-[#242428] hover:bg-[#93F051] hover:text-[#111111] transition">FR</a>
+                    <a href="/ar/" class="studio-muted-pill px-2.5 py-1 rounded-full bg-[#242428] hover:bg-[#93F051] hover:text-[#111111] transition">AR</a>
+                    <a href="/ru/" class="studio-muted-pill px-2.5 py-1 rounded-full bg-[#242428] hover:bg-[#93F051] hover:text-[#111111] transition">RU</a>
+                    <a href="/me/" class="studio-muted-pill px-2.5 py-1 rounded-full bg-[#242428] hover:bg-[#93F051] hover:text-[#111111] transition">ME</a>
                 </div>
             </div>
         </div>
     </main>
 
-    <footer class="py-6 text-center font-mono text-[11px] text-[#3A3E42]/60 border-t border-[rgba(0,0,0,0.06)]">
+    <footer class="studio-footer py-6 text-center font-mono text-[11px] text-white/55 border-t border-white/[0.08]">
         &copy; 2005 – 2026 DAT ÖZEL DEDEKTİFLİK BÜROSU (DAT Group) • Tüm Hakları Saklıdır.
     </footer>
 </body>

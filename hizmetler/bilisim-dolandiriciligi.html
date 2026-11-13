@@ -1,13 +1,27 @@
 <!DOCTYPE html>
-<html lang="tr" class="scroll-smooth bg-[#FFFFFF] text-[#3A3E42]">
+<html lang="tr" class="scroll-smooth dark" data-theme="dark">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <script id="datThemeBoot">
+        (function () {
+            try {
+                var saved = localStorage.getItem('dat_theme');
+                var theme = (saved === 'light' || saved === 'dark') ? saved : 'dark';
+                var root = document.documentElement;
+                root.setAttribute('data-theme', theme);
+                root.style.colorScheme = theme;
+                if (theme === 'dark') root.classList.add('dark'); else root.classList.remove('dark');
+                var meta = document.getElementById('themeColorMeta');
+                if (meta) meta.setAttribute('content', theme === 'light' ? '#FFFFFF' : '#111111');
+            } catch (e) {}
+        })();
+    </script>
     <title>Bilişim Dolandırıcılığı &amp; Siber İz Delil Tespiti — DAT Dedektiflik</title>
     <meta name="description" content="Sahte yatırım/kripto platformları, internet dolandırıcılığı, kimlik hırsızlığı, şantaj ve ticari dolandırıcılık vakalarında savcılık suç duyurusuna uygun OSINT ve teknik delil dosyası.">
     <meta name="keywords" content="bilişim dolandırıcılığı tespiti, internet dolandırıcılığı delil, dolandırıcılık davaları dedektif, şantaj araştırması, kripto dolandırıcılığı">
     <meta name="robots" content="index, follow, max-image-preview:large">
-    <meta name="theme-color" content="#F48120">
+    <meta id="themeColorMeta" name="theme-color" content="#111111">
     <link rel="canonical" href="https://www.datdedektiflik.com/hizmetler/bilisim-dolandiriciligi.html">
     <link rel="icon" type="image/png" href="../dat-logo.png">
     <link rel="shortcut icon" href="../favicon.ico">
@@ -28,63 +42,178 @@
     <style>
         *:not(.hgi):not([class*="hgi-"]) { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important; }
         .hgi { display: inline-flex; align-items: center; justify-content: center; line-height: 1; vertical-align: middle; }
-        .hgi.w-4 { font-size: 16px; } .hgi.w-5 { font-size: 20px; }
-        .cf-gradient { background: linear-gradient(135deg, #F38020 0%, #F6821F 50%, #FAAD3F 100%); }
-        [dir="rtl"] a[href^="tel:"], [dir="rtl"] a[href*="wa.me"], [dir="rtl"] .ltr-isolate { direction: ltr; unicode-bidi: isolate; }
+        .hgi.w-3\.5 { font-size: 14px; }
+        .hgi.w-4 { font-size: 16px; }
+        .hgi.w-5 { font-size: 20px; }
+        .studio-lime-btn { background-color: #93F051; color: #111111; }
+        .studio-lime-btn:hover { background-color: #DDF95E; color: #111111; }
+        [dir="rtl"] .ltr-isolate, [dir="rtl"] [dir="ltr"] { direction: ltr; unicode-bidi: isolate; }
+        html.theme-switching,
+        html.theme-switching *,
+        html.theme-switching *::before,
+        html.theme-switching *::after {
+            transition: none !important;
+            transition-duration: 0s !important;
+        }
+
+        /* Studio Obsidian (Dark) + Crisp Daylight (Light) Synchronized Theme */
+        html[data-theme="dark"], html[data-theme="dark"] body {
+            background-color: #111111 !important;
+            color: #F5F5F7 !important;
+        }
+        html[data-theme="dark"] .studio-header {
+            background-color: rgba(17, 17, 17, 0.88) !important;
+            border-color: rgba(255, 255, 255, 0.09) !important;
+        }
+        html[data-theme="dark"] .studio-surface {
+            background-color: #1C1C1F !important;
+            border-color: rgba(255, 255, 255, 0.09) !important;
+            color: #F5F5F7 !important;
+        }
+        html[data-theme="dark"] .studio-surface-soft {
+            background-color: #18181A !important;
+            border-color: rgba(255, 255, 255, 0.09) !important;
+            color: #F5F5F7 !important;
+        }
+        html[data-theme="dark"] .studio-pill-muted {
+            background-color: #242428 !important;
+            border-color: rgba(255, 255, 255, 0.12) !important;
+            color: #F5F5F7 !important;
+        }
+        html[data-theme="dark"] .studio-pill-muted:hover {
+            background-color: #93F051 !important;
+            color: #111111 !important;
+            border-color: transparent !important;
+        }
+        html[data-theme="dark"] .studio-pill-muted:hover * {
+            color: #111111 !important;
+        }
+        html[data-theme="dark"] .studio-title { color: #FFFFFF !important; }
+        html[data-theme="dark"] .studio-body { color: #D4D4D8 !important; }
+        html[data-theme="dark"] .studio-muted { color: #A1A1AA !important; }
+        html[data-theme="dark"] .studio-accent-text { color: #93F051 !important; }
+        html[data-theme="dark"] .studio-badge {
+            background-color: #242428 !important;
+            border-color: rgba(147, 240, 81, 0.35) !important;
+            color: #93F051 !important;
+        }
+        html[data-theme="dark"] .studio-footer {
+            background-color: #161618 !important;
+            border-color: rgba(255, 255, 255, 0.08) !important;
+            color: #A1A1AA !important;
+        }
+        html[data-theme="dark"] .studio-divider { border-color: rgba(255, 255, 255, 0.10) !important; }
+
+        html[data-theme="light"], html[data-theme="light"] body {
+            background-color: #F6F7F8 !important;
+            color: #111111 !important;
+        }
+        html[data-theme="light"] .studio-header {
+            background-color: rgba(255, 255, 255, 0.94) !important;
+            border-color: rgba(17, 17, 17, 0.10) !important;
+        }
+        html[data-theme="light"] .studio-surface {
+            background-color: #FFFFFF !important;
+            border-color: rgba(17, 17, 17, 0.09) !important;
+            color: #111111 !important;
+        }
+        html[data-theme="light"] .studio-surface-soft {
+            background-color: #ECEEF2 !important;
+            border-color: rgba(17, 17, 17, 0.08) !important;
+            color: #111111 !important;
+        }
+        html[data-theme="light"] .studio-pill-muted {
+            background-color: #ECEEF2 !important;
+            border-color: rgba(17, 17, 17, 0.10) !important;
+            color: #111111 !important;
+        }
+        html[data-theme="light"] .studio-pill-muted:hover {
+            background-color: #111111 !important;
+            color: #FFFFFF !important;
+        }
+        html[data-theme="light"] .studio-pill-muted:hover * {
+            color: #FFFFFF !important;
+        }
+        html[data-theme="light"] .studio-title { color: #111111 !important; }
+        html[data-theme="light"] .studio-body { color: #3A3E42 !important; }
+        html[data-theme="light"] .studio-muted { color: #4B5563 !important; }
+        html[data-theme="light"] .studio-accent-text { color: #15803D !important; }
+        html[data-theme="light"] .studio-badge {
+            background-color: #E6FAD8 !important;
+            border-color: rgba(21, 128, 61, 0.25) !important;
+            color: #15803D !important;
+        }
+        html[data-theme="light"] .studio-footer {
+            background-color: #ECEEF2 !important;
+            border-color: rgba(17, 17, 17, 0.10) !important;
+            color: #374151 !important;
+        }
+        html[data-theme="light"] .studio-divider { border-color: rgba(17, 17, 17, 0.10) !important; }
+        html[data-theme="light"] .studio-keep-dark {
+            background-color: #111111 !important;
+            color: #FFFFFF !important;
+            border-color: rgba(255, 255, 255, 0.12) !important;
+        }
+        html[data-theme="light"] .studio-keep-dark .studio-lime-ink { color: #93F051 !important; }
+        html[data-theme="light"] .studio-keep-dark .studio-coral-ink { color: #FA7E61 !important; }
     </style>
 </head>
-<body class="bg-[#FFFFFF] text-[#3A3E42] antialiased selection:bg-[#F38020] selection:text-[#FFFFFF]">
-    <div class="h-1.5 w-full bg-gradient-to-r from-[#F38020] via-[#FAAD3F] to-[#F38020]"></div>
+<body class="bg-[#111111] text-[#F5F5F7] antialiased selection:bg-[#93F051] selection:text-[#111111]">
+    <div class="h-[3px] w-full bg-[#93F051]"></div>
 
-    <header class="sticky top-0 z-40 bg-[#FFFFFF]/90 backdrop-blur-md border-b border-[rgba(0,0,0,0.06)]">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
-            <a href="../index.html" class="flex items-center gap-3 group">
-                <img src="../dat-logo.png" alt="DAT Dedektiflik Logo" class="w-10 h-10 rounded-full object-cover ring-2 ring-[#F48120]/60">
-                <div class="leading-none">
-                    <div class="text-sm font-medium text-[#000000]">DAT <span class="text-[#F48120]">DEDEKTİFLİK</span></div>
-                    <p class="text-[10px] font-mono text-[#3A3E42]/60 uppercase mt-0.5">2005'ten Bugüne • 4.000+ Vaka</p>
+    <header class="studio-header sticky top-0 z-40 bg-[#111111]/90 backdrop-blur-xl border-b border-white/[0.09]">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-2 sm:gap-3">
+            <a href="../index.html" class="flex items-center gap-3 group min-w-0">
+                <img src="../dat-logo.png" alt="DAT Dedektiflik Logo" class="w-10 h-10 rounded-full object-cover ring-2 ring-[#93F051]/70 shrink-0">
+                <div class="leading-none min-w-0">
+                    <div class="studio-title text-sm font-medium text-[#FFFFFF] truncate">DAT <span class="studio-accent-text text-[#93F051]">DEDEKTİFLİK</span></div>
+                    <p class="studio-muted text-[10px] font-mono text-white/60 uppercase mt-0.5 truncate">2005'ten Bugüne • 4.000+ Vaka</p>
                 </div>
             </a>
-            <div class="flex items-center gap-2">
-                <a href="https://wa.me/905326667749" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-[#F3F4F4] hover:bg-[#000000] text-[#000000] hover:text-[#FFFFFF] text-xs font-medium transition">
-                    <i class="hgi hgi-stroke hgi-whatsapp w-4 h-4 text-[#F48120]"></i>
+            <div class="flex items-center gap-2 shrink-0">
+                <button id="themeToggleBtn" type="button" onclick="toggleSiteTheme()" class="studio-pill-muted inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-full bg-[#242428] border border-white/15 text-[11px] font-medium transition">
+                    <i id="themeToggleIcon" class="hgi hgi-stroke hgi-sun-03 w-3.5 h-3.5 text-[#93F051]"></i>
+                    <span id="themeToggleLabel" class="hidden sm:inline">Açık</span>
+                </button>
+                <a href="https://wa.me/905326667749" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full studio-pill-muted bg-[#242428] border border-white/10 text-xs font-medium transition">
+                    <i class="hgi hgi-stroke hgi-whatsapp w-4 h-4 text-[#93F051]"></i>
                     <span>0532 666 77 49</span>
                 </a>
-                <a href="../index.html#vaka-bildir" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full cf-gradient text-[#FFFFFF] text-xs font-medium shadow-sm hover:opacity-95 transition">
+                <a href="../index.html#vaka-bildir" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full studio-lime-btn text-xs font-medium shadow-sm transition whitespace-nowrap">
                     <span>Fiyat Teklifi Al</span>
                 </a>
             </div>
         </div>
     </header>
 
-    <main class="max-w-5xl mx-auto px-4 sm:px-6 py-7 sm:py-9 space-y-7 sm:space-y-8">
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 py-7 sm:py-10 space-y-7 sm:space-y-8">
         <!-- Breadcrumb -->
-        <nav aria-label="Breadcrumb" class="text-xs font-mono text-[#3A3E42]/70 flex items-center gap-2">
-            <a href="../index.html" class="hover:text-[#F48120]">Ana Sayfa</a>
+        <nav aria-label="Breadcrumb" class="studio-muted text-xs font-mono text-white/60 flex items-center gap-2">
+            <a href="../index.html" class="hover:underline studio-accent-text text-[#93F051]">Ana Sayfa</a>
             <span>/</span>
-            <span class="text-[#000000] font-medium truncate">Bilişim Dolandırıcılığı ve Siber İz Delil Tespiti</span>
+            <span class="studio-title text-[#FFFFFF] font-medium truncate">Bilişim Dolandırıcılığı ve Siber İz Delil Tespiti</span>
         </nav>
 
-        <!-- Hero Card -->
-        <div class="grid lg:grid-cols-12 gap-8 items-center bg-[#F3F4F4]/60 rounded-[28px] p-6 sm:p-9 border border-[rgba(0,0,0,0.07)]">
+        <!-- Studio Hero Card -->
+        <div class="studio-surface-soft grid lg:grid-cols-12 gap-8 items-center bg-[#18181A] rounded-[28px] p-6 sm:p-9 border border-white/[0.09] shadow-2xl">
             <div class="lg:col-span-7 space-y-4">
-                <span class="inline-block px-3 py-1 rounded-full bg-[#FFF7ED] border border-[#F38020]/40 text-[#F48120] font-mono text-[11px] font-medium">06–08 • SİBER İSTİHBARAT &amp; SAVCILIK DELİLİ • TCK m.158</span>
-                <h1 class="text-2xl sm:text-4xl font-medium text-[#000000] leading-tight tracking-tight">Bilişim Dolandırıcılığı ve Siber İz Delil Tespiti</h1>
-                <p class="text-sm sm:text-base text-[#3A3E42]/85 leading-relaxed">Çevrimiçi yatırım, kripto, e-ticaret, aşk/romantizm veya ticari ödeme tuzaklarıyla gerçekleştirilen dolandırıcılık ve dijital şantaj olaylarında faillerin açık kaynak izlerini, saha bağlantılarını ve teknik delillerini savcılık başvurusuna hazır hale getiriyoruz.</p>
-                <div class="text-xs font-mono text-[#000000] pt-1">TCK m.158 (Nitelikli Dolandırıcılık) • 5651 &amp; CMK Delil Standartları</div>
+                <span class="studio-badge inline-block px-3 py-1 rounded-full bg-[#242428] border border-[#93F051]/35 text-[#93F051] font-mono text-[11px] font-medium">06–08 • SİBER İSTİHBARAT &amp; SAVCILIK DELİLİ • TCK m.158</span>
+                <h1 class="studio-title text-2xl sm:text-4xl font-medium text-[#FFFFFF] leading-tight tracking-tight">Bilişim Dolandırıcılığı ve Siber İz Delil Tespiti</h1>
+                <p class="studio-body text-sm sm:text-base text-white/80 leading-relaxed">Çevrimiçi yatırım, kripto, e-ticaret, aşk/romantizm veya ticari ödeme tuzaklarıyla gerçekleştirilen dolandırıcılık ve dijital şantaj olaylarında faillerin açık kaynak izlerini, saha bağlantılarını ve teknik delillerini savcılık başvurusuna hazır hale getiriyoruz.</p>
+                <div class="studio-accent-text text-xs font-mono text-[#93F051] pt-1">TCK m.158 (Nitelikli Dolandırıcılık) • 5651 &amp; CMK Delil Standartları</div>
                 <div class="flex flex-wrap gap-3 pt-2">
-                    <a href="https://wa.me/905326667749" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full cf-gradient text-[#FFFFFF] text-xs font-medium inline-flex items-center gap-2 shadow-md">
+                    <a href="https://wa.me/905326667749" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full studio-lime-btn text-xs font-medium inline-flex items-center gap-2 shadow-lg transition">
                         <i class="hgi hgi-stroke hgi-whatsapp w-4 h-4"></i>
                         <span>7/24 WhatsApp: 0532 666 77 49</span>
                     </a>
-                    <a href="tel:+903122840299" class="px-5 py-3 rounded-full bg-[#000000] text-[#FFFFFF] text-xs font-medium inline-flex items-center gap-2">
-                        <i class="hgi hgi-stroke hgi-call-02 w-4 h-4 text-[#FAAD3F]"></i>
+                    <a href="tel:+903122840299" class="studio-keep-dark px-5 py-3 rounded-full bg-[#242428] hover:bg-[#2E2E34] text-[#FFFFFF] border border-white/15 text-xs font-medium inline-flex items-center gap-2 transition">
+                        <i class="hgi hgi-stroke hgi-call-02 w-4 h-4 studio-lime-ink text-[#93F051]"></i>
                         <span>Merkez: 0312 284 02 99</span>
                     </a>
                 </div>
             </div>
             <div class="lg:col-span-5">
-                <div class="rounded-2xl overflow-hidden border border-[rgba(0,0,0,0.08)] shadow-lg aspect-[4/3] bg-[#FFFFFF]">
+                <div class="rounded-2xl overflow-hidden border border-white/15 shadow-2xl aspect-[4/3] bg-[#111111]">
                     <img src="../assets/services/bilisim-dolandiriciligi.jpg" alt="Bilişim Dolandırıcılığı ve Siber İz Delil Tespiti" class="w-full h-full object-cover">
                 </div>
             </div>
@@ -92,83 +221,113 @@
 
         <!-- Detailed Legal & Operational Content -->
         <div class="grid gap-5">
-            <section class="bg-[#FFFFFF] rounded-3xl p-6 sm:p-8 border border-[rgba(0,0,0,0.07)] shadow-sm space-y-3">
-                <h2 class="text-lg sm:text-xl font-medium text-[#000000] tracking-tight">Sadece Ekran Görüntüsü Neden Savcılıkta Yetersiz Kalır?</h2>
-                <p class="text-sm sm:text-[15px] text-[#3A3E42]/85 leading-relaxed">Dolandırıcılar sohbetleri siler, alan adlarını kapatır ve paravan şirketler kurar. Sıradan ekran görüntüleri manipüle edilebilir bulunduğu için hash doğrulamalı zaman damgası, alan adı/şirket izi ve paravan muhatapların fiili adres bağlantısı şarttır.</p>
+            <section class="studio-surface bg-[#1C1C1F] rounded-3xl p-6 sm:p-8 border border-white/[0.09] shadow-sm space-y-3">
+                <h2 class="studio-title text-lg sm:text-xl font-medium text-[#FFFFFF] tracking-tight">Sadece Ekran Görüntüsü Neden Savcılıkta Yetersiz Kalır?</h2>
+                <p class="studio-body text-sm sm:text-[15px] text-white/80 leading-relaxed">Dolandırıcılar sohbetleri siler, alan adlarını kapatır ve paravan şirketler kurar. Sıradan ekran görüntüleri manipüle edilebilir bulunduğu için hash doğrulamalı zaman damgası, alan adı/şirket izi ve paravan muhatapların fiili adres bağlantısı şarttır.</p>
             </section>
-<section class="bg-[#FFFFFF] rounded-3xl p-6 sm:p-8 border border-[rgba(0,0,0,0.07)] shadow-sm space-y-3">
-                <h2 class="text-lg sm:text-xl font-medium text-[#000000] tracking-tight">Dijital OSINT + Saha İstihbaratı Birleşimi</h2>
-                <p class="text-sm sm:text-[15px] text-[#3A3E42]/85 leading-relaxed">DAT Özel Dedektiflik yalnızca dijital açık kaynak analiziyle (OSINT) yetinmez; Türkiye ve yurt dışında (Karadağ, Kıbrıs, Batum, AB, ABD) tespit edilen paravan adres ve fiziki temas noktalarını sahada da teyit eder.</p>
+<section class="studio-surface bg-[#1C1C1F] rounded-3xl p-6 sm:p-8 border border-white/[0.09] shadow-sm space-y-3">
+                <h2 class="studio-title text-lg sm:text-xl font-medium text-[#FFFFFF] tracking-tight">Dijital OSINT + Saha İstihbaratı Birleşimi</h2>
+                <p class="studio-body text-sm sm:text-[15px] text-white/80 leading-relaxed">DAT Özel Dedektiflik yalnızca dijital açık kaynak analiziyle (OSINT) yetinmez; Türkiye ve yurt dışında (Karadağ, Kıbrıs, Batum, AB, ABD) tespit edilen paravan adres ve fiziki temas noktalarını sahada da teyit eder.</p>
             </section>
-<section class="bg-[#FFFFFF] rounded-3xl p-6 sm:p-8 border border-[rgba(0,0,0,0.07)] shadow-sm space-y-3">
-                <h2 class="text-lg sm:text-xl font-medium text-[#000000] tracking-tight">Avukatlarla Koordineli Ceza &amp; Tazminat Klasörü</h2>
-                <p class="text-sm sm:text-[15px] text-[#3A3E42]/85 leading-relaxed">Hazırlanan teknik ve saha bulguları Cumhuriyet Başsavcılığı suç duyurusu dilekçenize eklenebilecek sistematik kronolojiyle sunulur.</p>
+<section class="studio-surface bg-[#1C1C1F] rounded-3xl p-6 sm:p-8 border border-white/[0.09] shadow-sm space-y-3">
+                <h2 class="studio-title text-lg sm:text-xl font-medium text-[#FFFFFF] tracking-tight">Avukatlarla Koordineli Ceza &amp; Tazminat Klasörü</h2>
+                <p class="studio-body text-sm sm:text-[15px] text-white/80 leading-relaxed">Hazırlanan teknik ve saha bulguları Cumhuriyet Başsavcılığı suç duyurusu dilekçenize eklenebilecek sistematik kronolojiyle sunulur.</p>
             </section>
         </div>
 
         <!-- Deliverables Box -->
-        <div class="bg-[#000000] text-[#FFFFFF] rounded-3xl p-6 sm:p-8 space-y-4 shadow-xl">
-            <div class="font-mono text-[11px] text-[#FAAD3F] uppercase tracking-wider">DAT ÖZEL DEDEKTİFLİK • RESMİ TESLİMAT STANDARTLARI</div>
+        <div class="studio-keep-dark bg-[#111111] text-[#FFFFFF] rounded-3xl p-6 sm:p-8 space-y-4 shadow-2xl border border-white/15">
+            <div class="font-mono text-[11px] studio-coral-ink text-[#FA7E61] uppercase tracking-wider">DAT ÖZEL DEDEKTİFLİK • RESMİ TESLİMAT STANDARTLARI</div>
             <ul class="space-y-2.5">
-                <li class="flex items-start gap-2.5 text-sm text-[#FFFFFF]/95"><span class="text-[#F48120] font-bold">✓</span><span>Açık kaynak (OSINT), paravan firma, alan adı ve iletişim ağı analizi</span></li>
-<li class="flex items-start gap-2.5 text-sm text-[#FFFFFF]/95"><span class="text-[#F48120] font-bold">✓</span><span>Zaman damgalı, değiştirilmemiş dijital kanıt &amp; delil bütünlüğü tutanağı</span></li>
-<li class="flex items-start gap-2.5 text-sm text-[#FFFFFF]/95"><span class="text-[#F48120] font-bold">✓</span><span>Varsa Türkiye/yurt dışı fiziki ofis veya fail bağlantı doğrulaması</span></li>
+                <li class="flex items-start gap-2.5 text-sm text-[#FFFFFF]/95"><span class="studio-lime-ink text-[#93F051] font-bold">✓</span><span>Açık kaynak (OSINT), paravan firma, alan adı ve iletişim ağı analizi</span></li>
+<li class="flex items-start gap-2.5 text-sm text-[#FFFFFF]/95"><span class="studio-lime-ink text-[#93F051] font-bold">✓</span><span>Zaman damgalı, değiştirilmemiş dijital kanıt &amp; delil bütünlüğü tutanağı</span></li>
+<li class="flex items-start gap-2.5 text-sm text-[#FFFFFF]/95"><span class="studio-lime-ink text-[#93F051] font-bold">✓</span><span>Varsa Türkiye/yurt dışı fiziki ofis veya fail bağlantı doğrulaması</span></li>
             </ul>
         </div>
 
         <!-- FAQs -->
         <section class="space-y-4">
-            <h2 class="text-xl font-medium text-[#000000] tracking-tight">Sıkça Sorulan Sorular</h2>
+            <h2 class="studio-title text-xl font-medium text-[#FFFFFF] tracking-tight">Sıkça Sorulan Sorular</h2>
             <div class="grid sm:grid-cols-2 gap-4">
-                <div class="p-5 rounded-2xl bg-[#F3F4F4]/70 border border-[rgba(0,0,0,0.06)] space-y-2">
-                <h3 class="text-[15px] font-medium text-[#000000]">Kayıp kripto veya EFT transferini doğrudan geri alabilir misiniz?</h3>
-                <p class="text-sm sm:text-[15px] text-[#3A3E42]/85 leading-relaxed">Para blokesi ve iade kararı yalnızca Cumhuriyet Savcılığı ve mahkemelerce verilir; biz savcılığın somut adım atabilmesi için fail kimlik/iz ve paravan şirket delillerini toplarız.</p>
+                <div class="studio-surface-soft p-5 rounded-2xl bg-[#18181A] border border-white/[0.09] space-y-2">
+                <h3 class="studio-title text-[15px] font-medium text-[#FFFFFF]">Kayıp kripto veya EFT transferini doğrudan geri alabilir misiniz?</h3>
+                <p class="studio-body text-sm sm:text-[15px] text-white/75 leading-relaxed">Para blokesi ve iade kararı yalnızca Cumhuriyet Savcılığı ve mahkemelerce verilir; biz savcılığın somut adım atabilmesi için fail kimlik/iz ve paravan şirket delillerini toplarız.</p>
             </div>
-<div class="p-5 rounded-2xl bg-[#F3F4F4]/70 border border-[rgba(0,0,0,0.06)] space-y-2">
-                <h3 class="text-[15px] font-medium text-[#000000]">Özel fotoğraf/video şantajı vakalarında gizlilik nasıl sağlanır?</h3>
-                <p class="text-sm sm:text-[15px] text-[#3A3E42]/85 leading-relaxed">Tüm şantaj ve siber tehdit dosyaları yüksek gizlilik protokolüyle ele alınır; hiçbir kayıt üçüncü taraflarla paylaşılmaz ve işlem sonunda imha edilir.</p>
+<div class="studio-surface-soft p-5 rounded-2xl bg-[#18181A] border border-white/[0.09] space-y-2">
+                <h3 class="studio-title text-[15px] font-medium text-[#FFFFFF]">Özel fotoğraf/video şantajı vakalarında gizlilik nasıl sağlanır?</h3>
+                <p class="studio-body text-sm sm:text-[15px] text-white/75 leading-relaxed">Tüm şantaj ve siber tehdit dosyaları yüksek gizlilik protokolüyle ele alınır; hiçbir kayıt üçüncü taraflarla paylaşılmaz ve işlem sonunda imha edilir.</p>
             </div>
-<div class="p-5 rounded-2xl bg-[#F3F4F4]/70 border border-[rgba(0,0,0,0.06)] space-y-2">
-                <h3 class="text-[15px] font-medium text-[#000000]">Hukuka aykırı hackleme veya yasa dışı veri çekme yapıyor musunuz?</h3>
-                <p class="text-sm sm:text-[15px] text-[#3A3E42]/85 leading-relaxed">Kesinlikle hayır. Tüm çalışmalarımız TCK çerçevesinde yasal açık kaynak araştırması (OSINT), dijital delil sabitleme ve fiziki saha doğrulamasına dayanır.</p>
+<div class="studio-surface-soft p-5 rounded-2xl bg-[#18181A] border border-white/[0.09] space-y-2">
+                <h3 class="studio-title text-[15px] font-medium text-[#FFFFFF]">Hukuka aykırı hackleme veya yasa dışı veri çekme yapıyor musunuz?</h3>
+                <p class="studio-body text-sm sm:text-[15px] text-white/75 leading-relaxed">Kesinlikle hayır. Tüm çalışmalarımız TCK çerçevesinde yasal açık kaynak araştırması (OSINT), dijital delil sabitleme ve fiziki saha doğrulamasına dayanır.</p>
             </div>
-<div class="p-5 rounded-2xl bg-[#F3F4F4]/70 border border-[rgba(0,0,0,0.06)] space-y-2">
-                <h3 class="text-[15px] font-medium text-[#000000]">Bilişim dolandırıcılığı araştırması kaç gün sürer?</h3>
-                <p class="text-sm sm:text-[15px] text-[#3A3E42]/85 leading-relaxed">Ön dijital iz ve teknik doğrulama raporu vakaya göre genellikle 3 ila 7 iş gününde tamamlanır.</p>
+<div class="studio-surface-soft p-5 rounded-2xl bg-[#18181A] border border-white/[0.09] space-y-2">
+                <h3 class="studio-title text-[15px] font-medium text-[#FFFFFF]">Bilişim dolandırıcılığı araştırması kaç gün sürer?</h3>
+                <p class="studio-body text-sm sm:text-[15px] text-white/75 leading-relaxed">Ön dijital iz ve teknik doğrulama raporu vakaya göre genellikle 3 ila 7 iş gününde tamamlanır.</p>
             </div>
             </div>
         </section>
 
         <!-- Cross-Navigation across Services & Cities -->
-        <section class="pt-4 border-t border-[rgba(0,0,0,0.08)] space-y-3">
-            <div class="text-xs font-mono text-[#3A3E42]/70 uppercase">Diğer Uzmanlık Alanlarımız & Merkezlerimiz</div>
+        <section class="studio-divider pt-5 border-t border-white/10 space-y-3">
+            <div class="studio-muted text-xs font-mono text-white/60 uppercase">Diğer Uzmanlık Alanlarımız & Merkezlerimiz</div>
             <div class="flex flex-wrap gap-2">
-                <a href="../umit-hakan-karakaya.html" class="px-3.5 py-2 rounded-full text-xs font-medium transition bg-[#F3F4F4] text-[#3A3E42] hover:bg-[#000000] hover:text-[#FFFFFF]">Ümit Hakan Karakaya</a>
-<a href="../elsa-vaka-paneli.html" class="px-3.5 py-2 rounded-full text-xs font-medium transition bg-[#F3F4F4] text-[#3A3E42] hover:bg-[#000000] hover:text-[#FFFFFF]">Elsa Vaka Paneli</a>
-<a href="../istanbul-ozel-dedektif.html" class="px-3.5 py-2 rounded-full text-xs font-medium transition bg-[#F3F4F4] text-[#3A3E42] hover:bg-[#000000] hover:text-[#FFFFFF]">İstanbul Büro</a>
-<a href="../ankara-ozel-dedektif.html" class="px-3.5 py-2 rounded-full text-xs font-medium transition bg-[#F3F4F4] text-[#3A3E42] hover:bg-[#000000] hover:text-[#FFFFFF]">Ankara Büro</a>
-<a href="../izmir-ozel-dedektif.html" class="px-3.5 py-2 rounded-full text-xs font-medium transition bg-[#F3F4F4] text-[#3A3E42] hover:bg-[#000000] hover:text-[#FFFFFF]">İzmir Dedektif</a>
-<a href="../antalya-ozel-dedektif.html" class="px-3.5 py-2 rounded-full text-xs font-medium transition bg-[#F3F4F4] text-[#3A3E42] hover:bg-[#000000] hover:text-[#FFFFFF]">Antalya Dedektif</a>
-<a href="../bursa-ozel-dedektif.html" class="px-3.5 py-2 rounded-full text-xs font-medium transition bg-[#F3F4F4] text-[#3A3E42] hover:bg-[#000000] hover:text-[#FFFFFF]">Bursa Dedektif</a>
-<a href="../hizmetler/es-takibi.html" class="px-3.5 py-2 rounded-full text-xs font-medium transition bg-[#F3F4F4] text-[#3A3E42] hover:bg-[#000000] hover:text-[#FFFFFF]">Eş Takibi</a>
-<a href="../hizmetler/evlilik-oncesi-arastirma.html" class="px-3.5 py-2 rounded-full text-xs font-medium transition bg-[#F3F4F4] text-[#3A3E42] hover:bg-[#000000] hover:text-[#FFFFFF]">Evlilik Öncesi</a>
-<a href="../hizmetler/velayet-bosanma.html" class="px-3.5 py-2 rounded-full text-xs font-medium transition bg-[#F3F4F4] text-[#3A3E42] hover:bg-[#000000] hover:text-[#FFFFFF]">Velayet &amp; Boşanma</a>
-<a href="../hizmetler/ogrenci-takibi.html" class="px-3.5 py-2 rounded-full text-xs font-medium transition bg-[#F3F4F4] text-[#3A3E42] hover:bg-[#000000] hover:text-[#FFFFFF]">Öğrenci Takibi</a>
-<a href="../hizmetler/adres-ve-borclu-takibi.html" class="px-3.5 py-2 rounded-full text-xs font-medium transition bg-[#F3F4F4] text-[#3A3E42] hover:bg-[#000000] hover:text-[#FFFFFF]">Adres &amp; Borçlu</a>
-<a href="../hizmetler/bilisim-dolandiriciligi.html" class="px-3.5 py-2 rounded-full text-xs font-medium transition cf-gradient text-[#FFFFFF]">Bilişim Dolandırıcılığı</a>
-<a href="../hizmetler/firma-arastirmasi.html" class="px-3.5 py-2 rounded-full text-xs font-medium transition bg-[#F3F4F4] text-[#3A3E42] hover:bg-[#000000] hover:text-[#FFFFFF]">Firma Araştırmaları</a>
-<a href="../hizmetler/hirsizlik-arastirmasi.html" class="px-3.5 py-2 rounded-full text-xs font-medium transition bg-[#F3F4F4] text-[#3A3E42] hover:bg-[#000000] hover:text-[#FFFFFF]">Hırsızlık Araştırmaları</a>
-<a href="../hizmetler/marka-taklidi-arastirmasi.html" class="px-3.5 py-2 rounded-full text-xs font-medium transition bg-[#F3F4F4] text-[#3A3E42] hover:bg-[#000000] hover:text-[#FFFFFF]">Marka Taklidi</a>
-<a href="../hizmetler/bocek-tarama-tscm.html" class="px-3.5 py-2 rounded-full text-xs font-medium transition bg-[#F3F4F4] text-[#3A3E42] hover:bg-[#000000] hover:text-[#FFFFFF]">Böcek Arama (TSCM)</a>
-<a href="../hizmetler/kurumsal-ve-marka-koruma.html" class="px-3.5 py-2 rounded-full text-xs font-medium transition bg-[#F3F4F4] text-[#3A3E42] hover:bg-[#000000] hover:text-[#FFFFFF]">Kurumsal &amp; WPYB</a>
-                <a href="../index.html#magaza" class="px-3.5 py-2 rounded-full bg-[#FFF7ED] border border-[#F38020]/40 text-[#F48120] text-xs font-medium">DAT Donanım Mağazası</a>
+                <a href="../umit-hakan-karakaya.html" class="px-3.5 py-2 rounded-full text-xs font-medium transition border studio-pill-muted bg-[#242428] border-white/10 text-white/85">Ümit Hakan Karakaya</a>
+<a href="../elsa-vaka-paneli.html" class="px-3.5 py-2 rounded-full text-xs font-medium transition border studio-pill-muted bg-[#242428] border-white/10 text-white/85">Elsa Vaka Paneli</a>
+<a href="../istanbul-ozel-dedektif.html" class="px-3.5 py-2 rounded-full text-xs font-medium transition border studio-pill-muted bg-[#242428] border-white/10 text-white/85">İstanbul Büro</a>
+<a href="../ankara-ozel-dedektif.html" class="px-3.5 py-2 rounded-full text-xs font-medium transition border studio-pill-muted bg-[#242428] border-white/10 text-white/85">Ankara Büro</a>
+<a href="../izmir-ozel-dedektif.html" class="px-3.5 py-2 rounded-full text-xs font-medium transition border studio-pill-muted bg-[#242428] border-white/10 text-white/85">İzmir Dedektif</a>
+<a href="../antalya-ozel-dedektif.html" class="px-3.5 py-2 rounded-full text-xs font-medium transition border studio-pill-muted bg-[#242428] border-white/10 text-white/85">Antalya Dedektif</a>
+<a href="../bursa-ozel-dedektif.html" class="px-3.5 py-2 rounded-full text-xs font-medium transition border studio-pill-muted bg-[#242428] border-white/10 text-white/85">Bursa Dedektif</a>
+<a href="../hizmetler/es-takibi.html" class="px-3.5 py-2 rounded-full text-xs font-medium transition border studio-pill-muted bg-[#242428] border-white/10 text-white/85">Eş Takibi</a>
+<a href="../hizmetler/evlilik-oncesi-arastirma.html" class="px-3.5 py-2 rounded-full text-xs font-medium transition border studio-pill-muted bg-[#242428] border-white/10 text-white/85">Evlilik Öncesi</a>
+<a href="../hizmetler/velayet-bosanma.html" class="px-3.5 py-2 rounded-full text-xs font-medium transition border studio-pill-muted bg-[#242428] border-white/10 text-white/85">Velayet &amp; Boşanma</a>
+<a href="../hizmetler/ogrenci-takibi.html" class="px-3.5 py-2 rounded-full text-xs font-medium transition border studio-pill-muted bg-[#242428] border-white/10 text-white/85">Öğrenci Takibi</a>
+<a href="../hizmetler/adres-ve-borclu-takibi.html" class="px-3.5 py-2 rounded-full text-xs font-medium transition border studio-pill-muted bg-[#242428] border-white/10 text-white/85">Adres &amp; Borçlu</a>
+<a href="../hizmetler/bilisim-dolandiriciligi.html" class="px-3.5 py-2 rounded-full text-xs font-medium transition border studio-lime-btn border-transparent shadow-sm">Bilişim Dolandırıcılığı</a>
+<a href="../hizmetler/firma-arastirmasi.html" class="px-3.5 py-2 rounded-full text-xs font-medium transition border studio-pill-muted bg-[#242428] border-white/10 text-white/85">Firma Araştırmaları</a>
+<a href="../hizmetler/hirsizlik-arastirmasi.html" class="px-3.5 py-2 rounded-full text-xs font-medium transition border studio-pill-muted bg-[#242428] border-white/10 text-white/85">Hırsızlık Araştırmaları</a>
+<a href="../hizmetler/marka-taklidi-arastirmasi.html" class="px-3.5 py-2 rounded-full text-xs font-medium transition border studio-pill-muted bg-[#242428] border-white/10 text-white/85">Marka Taklidi</a>
+<a href="../hizmetler/bocek-tarama-tscm.html" class="px-3.5 py-2 rounded-full text-xs font-medium transition border studio-pill-muted bg-[#242428] border-white/10 text-white/85">Böcek Arama (TSCM)</a>
+<a href="../hizmetler/kurumsal-ve-marka-koruma.html" class="px-3.5 py-2 rounded-full text-xs font-medium transition border studio-pill-muted bg-[#242428] border-white/10 text-white/85">Kurumsal &amp; WPYB</a>
+                <a href="../index.html#magaza" class="studio-badge px-3.5 py-2 rounded-full bg-[#242428] border border-[#93F051]/35 text-[#93F051] text-xs font-medium hover:opacity-90 transition">DAT Donanım Mağazası</a>
             </div>
         </section>
     </main>
 
-    <footer class="bg-[#F3F4F4] border-t border-[rgba(0,0,0,0.08)] py-8 text-center text-xs text-[#3A3E42]/75 space-y-2">
+    <footer class="studio-footer bg-[#161618] border-t border-white/[0.08] py-8 px-4 text-center text-xs text-white/60 space-y-2">
         <div>&copy; 2005 – 2026 DAT ÖZEL DEDEKTİFLİK BÜROSU (DAT Group) • Ümit Hakan Karakaya • UÖDED Kurucu Üyesi</div>
-        <div>İstanbul (Kartal) • Ankara (Çankaya) • Podgorica (Karadağ) • Las Vegas (ABD) • <a href="../index.html" class="text-[#F48120] underline">Ana Sayfaya Dön</a></div>
+        <div>İstanbul (Kartal) • Ankara (Çankaya) • Podgorica (Karadağ) • Las Vegas (ABD) • <a href="../index.html" class="studio-accent-text text-[#93F051] underline">Ana Sayfaya Dön</a></div>
     </footer>
+    <script>
+        (function syncSubpageThemeUI() {
+            function refresh(t) {
+                var ico = document.getElementById('themeToggleIcon');
+                var lbl = document.getElementById('themeToggleLabel');
+                var meta = document.getElementById('themeColorMeta');
+                if (ico) ico.className = 'hgi hgi-stroke w-3.5 h-3.5 text-[#93F051] ' + (t === 'light' ? 'hgi-moon-02' : 'hgi-sun-03');
+                if (lbl) lbl.textContent = t === 'light' ? 'Koyu' : 'Açık';
+                if (meta) meta.setAttribute('content', t === 'light' ? '#FFFFFF' : '#111111');
+            }
+            window.toggleSiteTheme = function () {
+                var root = document.documentElement;
+                var cur = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+                var next = cur === 'dark' ? 'light' : 'dark';
+                root.classList.add('theme-switching');
+                void root.offsetHeight;
+                root.setAttribute('data-theme', next);
+                root.style.colorScheme = next;
+                root.classList.toggle('dark', next === 'dark');
+                try { localStorage.setItem('dat_theme', next); } catch (_) {}
+                refresh(next);
+                requestAnimationFrame(function () {
+                    requestAnimationFrame(function () {
+                        root.classList.remove('theme-switching');
+                    });
+                });
+            };
+            refresh(document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark');
+        })();
+    </script>
 </body>
 </html>

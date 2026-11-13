@@ -388,6 +388,15 @@
                                 <span>2. Bağla &amp; Test Maili Gönder</span>
                             </button>
                         </form>
+                        <div class="p-3.5 rounded-2xl bg-[#FFFBEB] border border-[#FDE68A] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-[#78350F]">
+                            <div class="space-y-0.5">
+                                <div class="font-bold">Yedek FormSubmit Alıcı Aktivasyonu (Apps Script bağlı değilken devreye girer)</div>
+                                <div class="text-[11px]"><code>umithakankarakaya@gmail.com</code> ve <code>uhakankarakaya@gmail.com</code> adreslerinin FormSubmit&apos;ten ilk gelen <strong>&ldquo;Activate Form&rdquo;</strong> linki 1 kez onaylanmalıdır (Gelen kutusu / Spam / Tanıtımlar).</div>
+                            </div>
+                            <button type="button" id="resendActivationBtn" onclick="resendFormSubmitActivation()" class="shrink-0 px-3.5 py-2 rounded-full bg-[#78350F] hover:bg-[#451A03] text-[#FFFFFF] text-[11px] font-bold transition whitespace-nowrap">
+                                Aktivasyon / Teslimat Kontrolü Gönder
+                            </button>
+                        </div>
                         <div id="gasSaveFeedback" class="hidden p-3 rounded-2xl text-xs font-medium leading-relaxed"></div>
                     </div>
 
@@ -1122,6 +1131,43 @@
             } finally {
                 btn.disabled = false;
                 btn.innerHTML = orig;
+            }
+        }
+
+        async function resendFormSubmitActivation() {
+            const btn = document.getElementById('resendActivationBtn');
+            const fb = document.getElementById('gasSaveFeedback');
+            const orig = btn.textContent;
+            btn.disabled = true;
+            btn.textContent = 'Kontrol ediliyor...';
+            try {
+                const res = await fetch('/api/analytics', {
+                    method: 'POST',
+                    headers: adminHeaders({ 'Content-Type': 'application/json' }),
+                    body: JSON.stringify({ type: 'resend_formsubmit_activation' })
+                });
+                const data = await res.json().catch(() => ({}));
+                if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
+                const okList = Array.isArray(data.deliveredTo) && data.deliveredTo.length
+                    ? `Aktif & test iletildi: ${data.deliveredTo.join(', ')}`
+                    : '';
+                const errList = Array.isArray(data.errors) && data.errors.length
+                    ? `Onay bekleyen / hata: ${data.errors.join(' | ')}`
+                    : '';
+                if (fb) {
+                    fb.className = data.errors && data.errors.length
+                        ? 'p-3 rounded-2xl text-xs font-bold bg-[#FEF3C7] text-[#78350F] border border-[#FCD34D]'
+                        : 'p-3 rounded-2xl text-xs font-bold bg-[#EAF9DE] text-[#062F28] border border-[#9FE870]';
+                    fb.textContent = [okList, errList, 'Onay bekleyen adreste FormSubmit "Activate Form" e-postasını (Spam/Tanıtımlar dahil) kontrol edip 1 kez tıklayın veya yukarıdan Google Apps Script\'i bağlayın.'].filter(Boolean).join(' — ');
+                }
+            } catch (err) {
+                if (fb) {
+                    fb.className = 'p-3 rounded-2xl text-xs font-bold bg-[#FEE2E2] text-[#991B1B] border border-[#FCA5A5]';
+                    fb.textContent = `❌ Kontrol hatası: ${err?.message || 'Sunucuya ulaşılamadı'}`;
+                }
+            } finally {
+                btn.disabled = false;
+                btn.textContent = orig;
             }
         }
 

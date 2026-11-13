@@ -56,6 +56,55 @@ function emptyStore() {
 }
 
 const GAS_URL_REGEX = /^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/i;
+const FORMSUBMIT_RECIPIENTS = [
+    'umithakankarakaya@gmail.com',
+    'uhakankarakaya@gmail.com'
+];
+
+async function relayViaFormSubmitServer(payload, targetList = FORMSUBMIT_RECIPIENTS) {
+    const cleanPayload = (payload && typeof payload === 'object') ? { ...payload } : {};
+    if (!cleanPayload.email) cleanPayload.email = 'info@datdedektiflik.com';
+    const body = JSON.stringify(cleanPayload);
+    const deliveredTo = [];
+    const errors = [];
+
+    await Promise.all(targetList.map(async (recipient) => {
+        if (!FORMSUBMIT_RECIPIENTS.includes(recipient)) return;
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), 12000);
+        try {
+            const res = await fetch(`https://formsubmit.co/ajax/${recipient}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'Origin': 'https://www.datdedektiflik.com',
+                    'Referer': 'https://www.datdedektiflik.com/'
+                },
+                body,
+                signal: controller.signal
+            });
+            const data = await res.json().catch(() => null);
+            const rejected = data && (data.success === false || data.success === 'false');
+            if (!res.ok || rejected) {
+                const rawMsg = (data && data.message) || `HTTP ${res.status}`;
+                if (/needs activation/i.test(rawMsg)) {
+                    errors.push(`${recipient} için FormSubmit aktivasyon linkine (Activate Form) tıklanmamış`);
+                } else {
+                    errors.push(`${recipient}: ${rawMsg}`);
+                }
+            } else {
+                deliveredTo.push(recipient);
+            }
+        } catch (err) {
+            errors.push(`${recipient}: ${err && err.message ? err.message : 'Sunucu ağ hatası'}`);
+        } finally {
+            clearTimeout(timer);
+        }
+    }));
+
+    return { ok: deliveredTo.length > 0, deliveredTo, errors };
+}
 
 function normalizeStore(raw) {
     const base = emptyStore();
@@ -228,7 +277,7 @@ export async function onRequest(context) {
         const type = clip(body.type || 'page_view', 40);
 
         // Admin-only mutations
-        if (['update_lead_status', 'admin_lead', 'save_email_webhook', 'test_email_webhook'].includes(type)) {
+        if (['update_lead_status', 'admin_lead', 'save_email_webhook', 'test_email_webhook', 'resend_formsubmit_activation'].includes(type)) {
             if (!isAdmin(context)) return jsonResponse({ error: 'unauthorized' }, 401);
         }
 
@@ -288,6 +337,20 @@ export async function onRequest(context) {
                 webhookSource: envGasUrl ? 'env' : (store.webhookUrl ? 'kv' : 'none'),
                 lastEmailStatus: store.lastEmailStatus
             });
+        }
+
+        if (type === 'resend_formsubmit_activation') {
+            const requestedTarget = String(body.recipient || '').trim();
+            const targetList = FORMSUBMIT_RECIPIENTS.includes(requestedTarget)
+                ? [requestedTarget]
+                : FORMSUBMIT_RECIPIENTS;
+            const relay = await relayViaFormSubmitServer({
+                _subject: 'DAT Dedektiflik — Alıcı Aktivasyon & Doğrulama Testi',
+                name: 'DAT Yönetim Paneli Kontrolü',
+                email: 'info@datdedektiflik.com',
+                message: `Bu istek ${new Date().toLocaleString('tr-TR', { timeZone: 'Europe/Istanbul' })} tarihinde Yönetim Paneli üzerinden aktivasyon/teslimat doğrulaması için tetiklendi.`
+            }, targetList);
+            return jsonResponse({ status: 'ok', ...relay });
         }
 
         const city = clip(req.headers.get('cf-ipcity') || 'Bilinmiyor', 60);
@@ -359,6 +422,24 @@ export async function onRequest(context) {
                     error: emailDeliveryResult.error || null
                 };
             }
+        } else if (type === 'lead_relay_fallback') {
+            const p = body.payload || {};
+            if (!p.message && !p.Ad_veya_Rumuz && !p.name) {
+                return jsonResponse({ error: 'empty relay payload' }, 400);
+            }
+            const missing = Array.isArray(body.missingRecipients)
+                ? body.missingRecipients.filter((r) => FORMSUBMIT_RECIPIENTS.includes(r))
+                : [];
+            const relay = await relayViaFormSubmitServer(p, missing.length ? missing : FORMSUBMIT_RECIPIENTS);
+            store.lastEmailStatus = {
+                at: new Date().toISOString(),
+                code: clip(p.Dosya_Takip_Kodu || 'RELAY', 24),
+                ok: relay.ok,
+                provider: 'FormSubmit (Cloudflare Sunucu Yedek)',
+                error: relay.errors.length ? relay.errors.join(' | ') : null
+            };
+            await writeStore(context, store);
+            return jsonResponse({ status: 'ok', ...relay });
         } else if (type === 'form_submit') {
             // Telemetry ping after lead submission
         } else if (type === 'update_lead_status') {

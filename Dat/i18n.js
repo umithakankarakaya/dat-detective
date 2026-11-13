@@ -168,6 +168,103 @@
         }
     }
 
+    var RTL_ISOLATE_SOURCE = '(?:\\+\\d[\\d\\s()-]{5,}\\d|\\(\\s*0\\d{2,3}\\s*\\)\\s*\\d{3}[\\s-]\\d{2}[\\s-]\\d{2}|\\b(?:0\\d{2,3}|\\d{3})[\\s-]\\d{3}[\\s-]\\d{2}[\\s-]\\d{2}\\b|\\+90\\s*5XX\\s*XXX\\s*XX\\s*XX|#DAT-[A-Z0-9-]+|[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}|@[a-zA-Z0-9._-]+|\\b\\d{4}\\s*[–-]\\s*\\d{4}\\b|\\+\\d[\\d.,]*\\d|\\b\\d[\\d.,]*\\+)';
+
+    function escapeHtmlStr(s) {
+        return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    function wrapLtrTokensPlain(str) {
+        if (!str) return str;
+        var re = new RegExp(RTL_ISOLATE_SOURCE, 'g');
+        return String(str).replace(re, '\u2066$&\u2069');
+    }
+
+    function wrapLtrTokensHtml(htmlStr, escapeText) {
+        if (!htmlStr) return htmlStr;
+        var re = new RegExp('(' + RTL_ISOLATE_SOURCE + ')', 'g');
+        var segs = String(htmlStr).split(/(<[^>]+>)/g);
+        var inLtrSpan = 0;
+        for (var x = 0; x < segs.length; x++) {
+            var seg = segs[x];
+            if (!seg) continue;
+            if (seg.charAt(0) === '<') {
+                if (/^<(?:span|bdi)\b[^>]*(?:dir=['"]ltr['"]|ltr-isolate)/i.test(seg)) inLtrSpan++;
+                else if (inLtrSpan > 0 && /^<\/(?:span|bdi)\s*>/i.test(seg)) inLtrSpan--;
+            } else if (inLtrSpan === 0) {
+                var parts = seg.split(re);
+                var rebuilt = '';
+                for (var p = 0; p < parts.length; p++) {
+                    var part = parts[p];
+                    if (!part) continue;
+                    var chunk = escapeText ? escapeHtmlStr(part) : part;
+                    if (p % 2 === 1) {
+                        rebuilt += '<span dir="ltr" class="ltr-isolate" style="unicode-bidi:isolate">' + chunk + '</span>';
+                    } else {
+                        rebuilt += chunk;
+                    }
+                }
+                segs[x] = rebuilt;
+            } else if (escapeText) {
+                segs[x] = escapeHtmlStr(seg);
+            }
+        }
+        return segs.join('');
+    }
+
+    function isInsideLtrWrapper(el) {
+        while (el && el !== document.body && el !== document.documentElement) {
+            if (el.getAttribute && (el.getAttribute('dir') === 'ltr' || (el.classList && el.classList.contains('ltr-isolate')))) {
+                return true;
+            }
+            el = el.parentElement;
+        }
+        return false;
+    }
+
+    function setLocalizedTextEntry(entry, targetCore, dir) {
+        var curNode = entry.rtlWrapEl && entry.rtlWrapEl.parentNode ? entry.rtlWrapEl : entry.node;
+        var parent = curNode ? curNode.parentElement : null;
+        var plainTag = parent && /^(OPTION|TEXTAREA|TITLE|SELECT|SCRIPT|STYLE|CODE)$/.test(parent.tagName);
+
+        if (dir === 'rtl' && parent && !plainTag && !isInsideLtrWrapper(parent)) {
+            var splitRe = new RegExp('(' + RTL_ISOLATE_SOURCE + ')', 'g');
+            var parts = String(targetCore || '').split(splitRe);
+            if (parts.length > 1) {
+                var wrap = entry.rtlWrapEl || document.createElement('span');
+                wrap.setAttribute('data-i18n-rtl', '1');
+                wrap.textContent = '';
+                if (entry.leading) wrap.appendChild(document.createTextNode(entry.leading));
+                for (var p = 0; p < parts.length; p++) {
+                    var part = parts[p];
+                    if (!part) continue;
+                    if (p % 2 === 1) {
+                        var ltr = document.createElement('span');
+                        ltr.setAttribute('dir', 'ltr');
+                        ltr.className = 'ltr-isolate';
+                        ltr.style.unicodeBidi = 'isolate';
+                        ltr.textContent = part;
+                        wrap.appendChild(ltr);
+                    } else {
+                        wrap.appendChild(document.createTextNode(part));
+                    }
+                }
+                if (entry.trailing) wrap.appendChild(document.createTextNode(entry.trailing));
+                entry.rtlWrapEl = wrap;
+                if (curNode !== wrap && curNode.parentNode) {
+                    curNode.parentNode.replaceChild(wrap, curNode);
+                }
+                return;
+            }
+        }
+
+        if (entry.rtlWrapEl && entry.rtlWrapEl.parentNode) {
+            entry.rtlWrapEl.parentNode.replaceChild(entry.node, entry.rtlWrapEl);
+        }
+        var outCore = (dir === 'rtl') ? wrapLtrTokensPlain(targetCore) : targetCore;
+        entry.node.nodeValue = entry.leading + outCore + entry.trailing;
+    }
+
     function applyTranslations(lang) {
         captureOriginalDOM();
         var pack = getPack(lang);
@@ -177,29 +274,6 @@
         document.documentElement.dir = dir;
         document.documentElement.lang = HTML_LANG_MAP[lang] || 'tr';
         document.documentElement.setAttribute('data-lang', lang);
-
-        function wrapLtrTokensPlain(str) {
-            if (dir !== 'rtl' || !str) return str;
-            // Wrap phone numbers, tracking codes & number ranges in Unicode LRI..PDI so RTL never reverses digit groups
-            return String(str).replace(/((?:\+\d[\d\s()-]{5,}\d|\b0\d{2,3}[\s-]\d{3}[\s-]\d{2}[\s-]\d{2}\b|#DAT-[A-Z0-9-]+|\b\d{4}\s*[–-]\s*\d{4}\b|\+\d[\d.,]*\d|\b\d[\d.,]*\+))/g, '\u2066$1\u2069');
-        }
-
-        function wrapLtrTokensHtml(htmlStr) {
-            if (dir !== 'rtl' || !htmlStr) return htmlStr;
-            var segs = String(htmlStr).split(/(<[^>]+>)/g);
-            var inLtrSpan = 0;
-            for (var x = 0; x < segs.length; x++) {
-                var seg = segs[x];
-                if (!seg) continue;
-                if (seg.charAt(0) === '<') {
-                    if (/^<span\b[^>]*dir=['"]ltr['"]/i.test(seg)) inLtrSpan++;
-                    else if (inLtrSpan > 0 && /^<\/span\s*>/i.test(seg)) inLtrSpan--;
-                } else if (inLtrSpan === 0) {
-                    segs[x] = seg.replace(/((?:\+\d[\d\s()-]{5,}\d|\b0\d{2,3}[\s-]\d{3}[\s-]\d{2}[\s-]\d{2}\b|#DAT-[A-Z0-9-]+|\b\d{4}\s*[–-]\s*\d{4}\b|\+\d[\d.,]*\d|\b\d[\d.,]*\+))/g, '<span dir="ltr" style="unicode-bidi:isolate">$1</span>');
-                }
-            }
-            return segs.join('');
-        }
 
         // Meta tags
         if (pack && pack.meta) {
@@ -219,7 +293,7 @@
         for (var i = 0; i < origHtmlBlocks.length; i++) {
             var blk = origHtmlBlocks[i];
             if (pack && pack.htmlBlocks && typeof pack.htmlBlocks[blk.key] === 'string') {
-                blk.el.innerHTML = wrapLtrTokensHtml(pack.htmlBlocks[blk.key]);
+                blk.el.innerHTML = dir === 'rtl' ? wrapLtrTokensHtml(pack.htmlBlocks[blk.key], false) : pack.htmlBlocks[blk.key];
             } else {
                 blk.el.innerHTML = blk.html;
             }
@@ -235,7 +309,7 @@
             var targetCore = (phrases && Object.prototype.hasOwnProperty.call(phrases, entry.core))
                 ? phrases[entry.core]
                 : entry.core;
-            entry.node.nodeValue = entry.leading + wrapLtrTokensPlain(targetCore) + entry.trailing;
+            setLocalizedTextEntry(entry, targetCore, dir);
         }
 
         // Attributes
@@ -244,7 +318,7 @@
             var targetAttr = (phrases && Object.prototype.hasOwnProperty.call(phrases, a.val))
                 ? phrases[a.val]
                 : a.val;
-            a.el.setAttribute(a.attr, wrapLtrTokensPlain(targetAttr));
+            a.el.setAttribute(a.attr, dir === 'rtl' ? wrapLtrTokensPlain(targetAttr) : targetAttr);
         }
 
         // Re-render dynamic interactive widgets from script.js
@@ -369,10 +443,9 @@
         if (Object.prototype.hasOwnProperty.call(pack.ui, key)) {
             var val = pack.ui[key];
             if (pack.dir === 'rtl' && typeof val === 'string') {
-                var re = /(\+\d[\d\s()-]{5,}\d|\b0\d{2,3}[\s-]\d{3}[\s-]\d{2}[\s-]\d{2}\b|#DAT-[A-Z0-9-]+)/g;
                 return val.indexOf('<') !== -1
-                    ? val.replace(re, '<span dir="ltr" style="unicode-bidi:isolate">$1</span>')
-                    : val.replace(re, '\u2066$1\u2069');
+                    ? wrapLtrTokensHtml(val, false)
+                    : wrapLtrTokensPlain(val);
             }
             return val;
         }
@@ -421,6 +494,7 @@
         getSupportedLanguages: function () { return SUPPORTED_LANGS.slice(); },
         getDynamic: getDynamic,
         getUI: getUI,
+        formatRtlHtml: function (str) { return wrapLtrTokensHtml(str, true); },
         setLanguage: setSiteLanguage
     };
 
