@@ -177,8 +177,14 @@ class DatRequestHandler(SimpleHTTPRequestHandler):
             })
             return
 
-        # Dosya bulunamazsa kurumsal 404.html göster
+        # Cloudflare Pages gibi uzantısız temiz URL desteği (/hizmetler/es-takibi -> es-takibi.html)
         rel_path = unquote(parsed.path).lstrip("/")
+        if rel_path and not os.path.exists(os.path.join(BASE_DIR, rel_path)) \
+                and os.path.isfile(os.path.join(BASE_DIR, rel_path.rstrip("/") + ".html")):
+            self.path = "/" + rel_path.rstrip("/") + ".html" + (("?" + parsed.query) if parsed.query else "")
+            rel_path = rel_path.rstrip("/") + ".html"
+
+        # Dosya bulunamazsa kurumsal 404.html göster
         if rel_path and not os.path.exists(os.path.join(BASE_DIR, rel_path)):
             not_found_path = os.path.join(BASE_DIR, "404.html")
             if os.path.isfile(not_found_path):

@@ -371,9 +371,10 @@
         }
 
         // Point founder biography CTAs cleanly to selected language dossier route
+        var isFileProto = window.location.protocol === 'file:';
         var fHref = (lang === 'tr')
-            ? 'umit-hakan-karakaya.html'
-            : (window.location.protocol === 'file:' ? lang + '/umit-hakan-karakaya.html' : '/' + lang + '/umit-hakan-karakaya.html');
+            ? (isFileProto ? 'umit-hakan-karakaya.html' : '/umit-hakan-karakaya')
+            : (isFileProto ? lang + '/umit-hakan-karakaya.html' : '/' + lang + '/umit-hakan-karakaya');
         var fBtn = document.getElementById('founderProfileLink');
         if (fBtn) fBtn.setAttribute('href', fHref);
         var fFoot = document.getElementById('footerFounderLink');

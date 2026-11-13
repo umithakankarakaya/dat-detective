@@ -2082,6 +2082,15 @@ def main():
     print(f"BUILT FOUNDER BIO PAGES ({len(founder_urls)}):", founder_urls)
     print(f"BUILT TURKISH SEO PAGES ({len(built_seo)}):", [os.path.basename(u) for u in built_seo])
     print(f"SITEMAP TOTAL URLS: {sitemap_count}")
+    try:
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("clean_urls", os.path.join(ROOT, "scripts", "clean_urls.py"))
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        files, n_redir = mod.run(ROOT)
+        print(f"CLEAN URLS: {len(files)} files normalized, _redirects: {n_redir} lines")
+    except Exception as exc:
+        print("CLEAN URLS FAILED:", exc)
 
 
 if __name__ == "__main__":
