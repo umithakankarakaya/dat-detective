@@ -80,6 +80,162 @@ function closeAllModals() {
 }
 
 document.getElementById('panicBtn')?.addEventListener('click', triggerPanicEscape);
+document.getElementById('panicBtnMobile')?.addEventListener('click', triggerPanicEscape);
+
+// ===== THEME SYSTEM (DARK / LIGHT) & NATIVE MOBILE APP TAB BAR =====
+function getCurrentTheme() {
+    const attr = document.documentElement.getAttribute('data-theme');
+    if (attr === 'light' || attr === 'dark') return attr;
+    try {
+        const saved = localStorage.getItem('dat_theme');
+        if (saved === 'light' || saved === 'dark') return saved;
+    } catch (_) {}
+    return 'dark';
+}
+
+function updateThemeToggleUI(theme) {
+    const activeTheme = (theme === 'light' || theme === 'dark') ? theme : getCurrentTheme();
+    const isDark = activeTheme === 'dark';
+
+    const uiFn = (window.DAT_I18N && typeof window.DAT_I18N.getUI === 'function')
+        ? window.DAT_I18N.getUI
+        : ((_, fb) => fb);
+    const darkLabel = uiFn('darkTheme', 'Karanlık');
+    const lightLabel = uiFn('lightTheme', 'Aydınlık');
+
+    const headerIcon = document.getElementById('themeToggleIcon');
+    const headerLabel = document.getElementById('themeToggleLabel');
+    const headerBtn = document.getElementById('themeToggleBtn');
+
+    if (headerIcon) {
+        headerIcon.className = isDark
+            ? 'hgi hgi-stroke hgi-sun-01 text-sm text-[#93F051] shrink-0'
+            : 'hgi hgi-stroke hgi-moon-02 text-sm text-[#15803D] shrink-0';
+    }
+    if (headerLabel) {
+        headerLabel.textContent = isDark ? lightLabel : darkLabel;
+    }
+    if (headerBtn) {
+        headerBtn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+        headerBtn.setAttribute('title', isDark ? lightLabel : darkLabel);
+    }
+
+    const mobileIcon = document.getElementById('mobileThemeIcon');
+    const mobileState = document.getElementById('mobileThemeStateText');
+    const mobileSwitchBtn = document.getElementById('mobileThemeSwitchBtn');
+    const mobileKnob = document.getElementById('mobileThemeKnob');
+
+    if (mobileIcon) {
+        mobileIcon.className = isDark
+            ? 'hgi hgi-stroke hgi-moon-02 text-base text-[#93F051]'
+            : 'hgi hgi-stroke hgi-sun-01 text-base text-[#15803D]';
+    }
+    if (mobileState) {
+        mobileState.textContent = isDark ? darkLabel : lightLabel;
+    }
+    if (mobileSwitchBtn) {
+        mobileSwitchBtn.setAttribute('aria-checked', isDark ? 'true' : 'false');
+        mobileSwitchBtn.classList.toggle('bg-[#93F051]', isDark);
+        mobileSwitchBtn.classList.toggle('bg-[#D1D5DB]', !isDark);
+    }
+    if (mobileKnob) {
+        mobileKnob.classList.toggle('translate-x-5', isDark);
+        mobileKnob.classList.toggle('translate-x-0', !isDark);
+    }
+}
+
+function applySiteTheme(theme, persist = true) {
+    const next = theme === 'light' ? 'light' : 'dark';
+    const root = document.documentElement;
+    root.setAttribute('data-theme', next);
+    root.style.colorScheme = next;
+    root.classList.toggle('dark', next === 'dark');
+
+    const meta = document.getElementById('themeColorMeta');
+    if (meta) {
+        meta.setAttribute('content', next === 'light' ? '#FFFFFF' : '#111111');
+    }
+    if (persist) {
+        try {
+            localStorage.setItem('dat_theme', next);
+        } catch (_) {}
+    }
+    updateThemeToggleUI(next);
+}
+
+function toggleSiteTheme() {
+    applySiteTheme(getCurrentTheme() === 'dark' ? 'light' : 'dark', true);
+}
+
+window.getCurrentTheme = getCurrentTheme;
+window.applySiteTheme = applySiteTheme;
+window.toggleSiteTheme = toggleSiteTheme;
+window.updateThemeToggleUI = updateThemeToggleUI;
+
+window.addEventListener('storage', (ev) => {
+    if (ev.key === 'dat_theme' && (ev.newValue === 'light' || ev.newValue === 'dark')) {
+        applySiteTheme(ev.newValue, false);
+    }
+});
+
+(function initThemeAndMobileTabs() {
+    const initUI = () => {
+        applySiteTheme(getCurrentTheme(), false);
+
+        const tabLinks = Array.from(document.querySelectorAll('#mobileAppTabBar a[data-tab-target]'));
+        if (!tabLinks.length) return;
+
+        const setActiveTab = (targetId) => {
+            tabLinks.forEach((el) => {
+                el.classList.toggle('is-active', el.getAttribute('data-tab-target') === targetId);
+            });
+        };
+
+        tabLinks.forEach((el) => {
+            el.addEventListener('click', () => {
+                const target = el.getAttribute('data-tab-target');
+                if (target) setActiveTab(target);
+            });
+        });
+
+        let scrollTick = false;
+        const trackedIds = ['hizmetler', 'magaza', 'vaka-bildir'];
+        const syncTabOnScroll = () => {
+            scrollTick = false;
+            const y = window.scrollY || window.pageYOffset || 0;
+            if (y < 260) {
+                setActiveTab('top');
+                return;
+            }
+            const mid = y + window.innerHeight * 0.42;
+            let matched = 'top';
+            let bestTop = -Infinity;
+            trackedIds.forEach((id) => {
+                const sec = document.getElementById(id);
+                if (!sec) return;
+                const top = sec.getBoundingClientRect().top + y;
+                if (top <= mid && top > bestTop) {
+                    bestTop = top;
+                    matched = id;
+                }
+            });
+            setActiveTab(matched);
+        };
+
+        window.addEventListener('scroll', () => {
+            if (!scrollTick) {
+                scrollTick = true;
+                window.requestAnimationFrame(syncTabOnScroll);
+            }
+        }, { passive: true });
+    };
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initUI);
+    } else {
+        initUI();
+    }
+})();
 
 window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
@@ -325,8 +481,8 @@ function prefillService(serviceValue) {
 const GOOGLE_APPS_SCRIPT_WEBHOOK_URL = "";
 
 const FORM_RECIPIENT_ENDPOINTS = [
-    "https://formsubmit.co/ajax/uhakankarakaya@gmail.com",
-    "https://formsubmit.co/ajax/umithakankarakaya@gmail.com"
+    "https://formsubmit.co/ajax/umithakankarakaya@gmail.com",
+    "https://formsubmit.co/ajax/uhakankarakaya@gmail.com"
 ];
 
 async function _sendViaGoogleAppsScript(webhookUrl, payload, networkTimeoutMs = 12000) {
@@ -356,7 +512,7 @@ async function _sendViaGoogleAppsScript(webhookUrl, payload, networkTimeoutMs = 
     }
 }
 
-async function _sendFormPayload(payload, networkTimeoutMs = 10000) {
+async function _sendFormPayload(payload, networkTimeoutMs = 60000) {
     const preErrors = [];
     const webhookUrl = typeof GOOGLE_APPS_SCRIPT_WEBHOOK_URL === "string"
         ? GOOGLE_APPS_SCRIPT_WEBHOOK_URL.trim()
@@ -364,7 +520,7 @@ async function _sendFormPayload(payload, networkTimeoutMs = 10000) {
 
     if (webhookUrl) {
         try {
-            await _sendViaGoogleAppsScript(webhookUrl, payload, Math.max(networkTimeoutMs, 12000));
+            await _sendViaGoogleAppsScript(webhookUrl, payload, Math.max(networkTimeoutMs, 20000));
             return {
                 ok: true,
                 deliveredCount: FORM_RECIPIENT_ENDPOINTS.length,
@@ -377,6 +533,7 @@ async function _sendFormPayload(payload, networkTimeoutMs = 10000) {
     }
 
     const body = JSON.stringify(payload);
+    const keepaliveAllowed = body.length < 60000;
     const results = await Promise.allSettled(FORM_RECIPIENT_ENDPOINTS.map(async (url) => {
         const controller = new AbortController();
         const timer = setTimeout(() => controller.abort(), networkTimeoutMs);
@@ -388,6 +545,7 @@ async function _sendFormPayload(payload, networkTimeoutMs = 10000) {
                     "Accept": "application/json"
                 },
                 body,
+                keepalive: keepaliveAllowed,
                 signal: controller.signal
             });
             let data = null;
@@ -409,7 +567,13 @@ async function _sendFormPayload(payload, networkTimeoutMs = 10000) {
         ...preErrors,
         ...results
             .filter((r) => r.status === "rejected")
-            .map((r) => r.reason?.message || "Ağ hatası")
+            .map((r) => {
+                const msg = r.reason?.message || "Ağ hatası";
+                if (/needs activation/i.test(msg)) {
+                    return "Gmail aktivasyonu bekliyor (FormSubmit onay e-postasındaki Activate Form linkine tıklayın)";
+                }
+                return msg;
+            })
     ];
 
     return {
@@ -424,18 +588,21 @@ let _lastCaseSubmitAt = 0;
 function _renderDeliveryStatus(delivery) {
     const statusBox = document.getElementById('formDeliveryStatus');
     if (!statusBox) return;
-    statusBox.classList.remove('hidden', 'bg-[#93F051]/20', 'border-[#15803D]/30', 'text-[#111111]', 'bg-[#FA7E61]/20', 'border-[#FA7E61]/40');
-    if (delivery && delivery.ok && delivery.deliveredCount === delivery.totalCount) {
-        statusBox.classList.add('bg-[#93F051]/20', 'border-[#15803D]/30', 'text-[#111111]');
+    statusBox.classList.remove('hidden', 'bg-[#93F051]/20', 'border-[#15803D]/30', 'dark:border-[#93F051]/40', 'text-[#111111]', 'dark:text-[#FFFFFF]', 'bg-[#FA7E61]/20', 'border-[#FA7E61]/40', 'dark:border-[#FA7E61]/50');
+    if (delivery && delivery.pending) {
+        statusBox.classList.add('bg-[#93F051]/20', 'border-[#15803D]/30', 'dark:border-[#93F051]/40', 'text-[#111111]', 'dark:text-[#FFFFFF]');
+        statusBox.textContent = '⏳ Form yönetim paneline kaydedildi; e-posta sunucusu arka planda gönderimi tamamlıyor (10–30 sn sürebilir)...';
+    } else if (delivery && delivery.ok && delivery.deliveredCount === delivery.totalCount) {
+        statusBox.classList.add('bg-[#93F051]/20', 'border-[#15803D]/30', 'dark:border-[#93F051]/40', 'text-[#111111]', 'dark:text-[#FFFFFF]');
         statusBox.textContent = `✓ E-posta sunucusu teslimatı onayladı (${delivery.deliveredCount}/${delivery.totalCount} alıcı).`;
     } else if (delivery && delivery.ok) {
         const errInfo = (delivery.errors && delivery.errors[0]) ? ` • Not: ${delivery.errors[0]}` : '';
-        statusBox.classList.add('bg-[#93F051]/20', 'border-[#15803D]/30', 'text-[#111111]');
+        statusBox.classList.add('bg-[#93F051]/20', 'border-[#15803D]/30', 'dark:border-[#93F051]/40', 'text-[#111111]', 'dark:text-[#FFFFFF]');
         statusBox.textContent = `✓ Talep iletildi (${delivery.deliveredCount}/${delivery.totalCount} alıcı${errInfo}).`;
     } else {
         const reason = (delivery && delivery.errors && delivery.errors[0]) ? delivery.errors[0] : 'Sunucu yanıt vermedi';
-        statusBox.classList.add('bg-[#FA7E61]/20', 'border-[#FA7E61]/40', 'text-[#111111]');
-        statusBox.textContent = `⚠ E-posta iletilemedi (${reason}). Yerel test (localhost), reklam engelleyici veya FormSubmit aktivasyonu nedeniyle engellenmiş olabilir — aşağıdaki WhatsApp/E-Posta butonuyla iletebilirsiniz.`;
+        statusBox.classList.add('bg-[#FA7E61]/20', 'border-[#FA7E61]/40', 'dark:border-[#FA7E61]/50', 'text-[#111111]', 'dark:text-[#FFFFFF]');
+        statusBox.textContent = `⚠ E-posta iletilemedi (${reason}). Yönetim paneline kaydedildi; dilerseniz aşağıdaki WhatsApp/E-Posta butonuyla da iletebilirsiniz.`;
     }
 }
 
@@ -487,15 +654,42 @@ async function handleFormSubmit(e) {
         Vaka_Detayi: caseDetails
     };
 
-    try {
-        let delivery = { ok: false, deliveredCount: 0, totalCount: FORM_RECIPIENT_ENDPOINTS.length, errors: ['İstek gönderilemedi'] };
-        try {
-            delivery = await _sendFormPayload(payload);
-        } catch (err) {
-            delivery.errors = [err?.message || 'Bağlantı hatası'];
+    const updateSuccessModalTexts = (deliveryState) => {
+        const smTitle = document.getElementById('successModalTitle');
+        const smDesc = document.getElementById('successModalDesc');
+        const smLabel = document.getElementById('successCodeLabel');
+        if (smTitle) {
+            smTitle.textContent = (deliveryState && (deliveryState.ok || deliveryState.pending))
+                ? _getUI('caseSentTitle', 'Vaka Talebiniz İletildi')
+                : _getUI('casePendingTitle', 'E-Posta Teslimatı Doğrulanamadı');
         }
-        if (delivery.ok) {
-            _lastCaseSubmitAt = Date.now();
+        if (smDesc) {
+            smDesc.innerHTML = (deliveryState && (deliveryState.ok || deliveryState.pending))
+                ? _getUI('caseSentDesc', 'Mesajınız DAT Dedektiflik uzman ekibine şifrelenerek iletildi. Acil durumlar için doğrudan <strong>0532 666 77 49</strong> (WhatsApp) veya <strong>0312 284 02 99</strong> hattımızdan da bize ulaşabilirsiniz.')
+                : _getUI('casePendingDesc', 'Talebiniz yönetim panelimize kaydedildi ancak e-posta servisi aktivasyon/engel nedeniyle onay veremedi. Bize anında ulaşmak için aşağıdaki <strong>WhatsApp</strong> veya <strong>Doğrudan E-Posta</strong> butonunu da kullanabilirsiniz.');
+        }
+        if (smLabel) smLabel.textContent = _getUI('caseCodeLabel', 'DOSYA TAKİP KODUNUZ:');
+        _renderDeliveryStatus(deliveryState);
+    };
+
+    try {
+        _lastCaseSubmitAt = Date.now();
+        const deliveryPromise = _sendFormPayload(payload, 60000).catch((err) => ({
+            ok: false,
+            deliveredCount: 0,
+            totalCount: FORM_RECIPIENT_ENDPOINTS.length,
+            errors: [err?.message || 'Bağlantı hatası']
+        }));
+
+        let delivery = await Promise.race([
+            deliveryPromise,
+            new Promise((resolve) => setTimeout(() => resolve({ pending: true }), 4500))
+        ]);
+
+        if (delivery && delivery.pending) {
+            deliveryPromise.then((finalDelivery) => {
+                updateSuccessModalTexts(finalDelivery);
+            });
         }
 
         const emailSubject = encodeURIComponent(`Yeni Vaka & Fiyat Teklifi Talebi (${randomCode}) - DAT Dedektiflik`);
@@ -556,21 +750,7 @@ async function handleFormSubmit(e) {
             }
         } catch (_) {}
 
-        const smTitle = document.getElementById('successModalTitle');
-        const smDesc = document.getElementById('successModalDesc');
-        const smLabel = document.getElementById('successCodeLabel');
-        if (smTitle) {
-            smTitle.textContent = delivery.ok
-                ? _getUI('caseSentTitle', 'Vaka Talebiniz İletildi')
-                : _getUI('casePendingTitle', 'Otomatik E-Posta Doğrulanamadı');
-        }
-        if (smDesc) {
-            smDesc.innerHTML = delivery.ok
-                ? _getUI('caseSentDesc', 'Mesajınız DAT Dedektiflik uzman ekibine şifrelenerek iletildi. Acil durumlar için doğrudan <strong>0532 666 77 49</strong> (WhatsApp) veya <strong>0312 284 02 99</strong> hattımızdan da bize ulaşabilirsiniz.')
-                : _getUI('casePendingDesc', 'E-posta servisi henüz bu alan adı için aktive edilmemiş veya yerel test/reklam engelleyici nedeniyle yanıt vermedi. Talebinizin bize anında ulaşması için aşağıdaki <strong>WhatsApp</strong> veya <strong>Doğrudan E-Posta</strong> butonunu kullanın.');
-        }
-        if (smLabel) smLabel.textContent = _getUI('caseCodeLabel', 'DOSYA TAKİP KODUNUZ:');
-        _renderDeliveryStatus(delivery);
+        updateSuccessModalTexts(delivery);
 
         const codeElement = document.getElementById('caseTrackingCode');
         if (codeElement) {
@@ -582,7 +762,7 @@ async function handleFormSubmit(e) {
             successModal.classList.remove('hidden');
         }
         
-        if (delivery.ok) {
+        if (delivery && (delivery.ok || delivery.pending)) {
             document.getElementById('caseForm')?.reset();
         }
     } finally {
@@ -1415,11 +1595,16 @@ function renderCart() {
 
     const headerBadge = document.getElementById('cartCountBadge');
     const storeBadge = document.getElementById('storeSectionCartCount');
+    const mobileTabBadge = document.getElementById('mobileTabCartBadge');
     const totalPriceEl = document.getElementById('cartTotalPrice');
     const container = document.getElementById('cartItemsContainer');
 
     if (headerBadge) headerBadge.textContent = String(totalItems);
     if (storeBadge) storeBadge.textContent = String(totalItems);
+    if (mobileTabBadge) {
+        mobileTabBadge.textContent = String(totalItems);
+        mobileTabBadge.classList.toggle('hidden', totalItems <= 0);
+    }
     if (totalPriceEl) totalPriceEl.textContent = formatTL(totalAmount);
 
     if (!container) return;
@@ -1655,6 +1840,7 @@ function ackCookieBanner() {
         localStorage.setItem('dat_cookie_ack', '1');
     } catch (_) {}
     document.getElementById('cookieBanner')?.classList.add('hidden');
+    document.getElementById('mobileQuickPills')?.classList.remove('has-cookie-banner');
 }
 
 (function initCookieNotice() {
@@ -1662,7 +1848,10 @@ function ackCookieBanner() {
         if (!localStorage.getItem('dat_cookie_ack')) {
             const banner = document.getElementById('cookieBanner');
             if (banner) {
-                setTimeout(() => banner.classList.remove('hidden'), 900);
+                setTimeout(() => {
+                    banner.classList.remove('hidden');
+                    document.getElementById('mobileQuickPills')?.classList.add('has-cookie-banner');
+                }, 900);
             }
         }
     } catch (_) {}

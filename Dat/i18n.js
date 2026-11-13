@@ -38,7 +38,7 @@
             if (el.hasAttribute('data-no-i18n') || el.hasAttribute('data-i18n-html') || el.hasAttribute('data-live-visitors')) {
                 return true;
             }
-            if (el.id === 'cartCountBadge' || el.id === 'storeSectionCartCount' || el.id === 'liveVisitorSource') {
+            if (el.id === 'cartCountBadge' || el.id === 'storeSectionCartCount' || el.id === 'mobileTabCartBadge' || el.id === 'liveVisitorSource' || el.id === 'themeToggleLabel' || el.id === 'mobileThemeStateText') {
                 return true;
             }
             el = el.parentElement;
@@ -283,6 +283,9 @@
         if (fFoot) fFoot.setAttribute('href', fHref);
 
         updateSwitcherUI(lang);
+        if (typeof window.updateThemeToggleUI === 'function') {
+            window.updateThemeToggleUI();
+        }
     }
 
     function setSiteLanguage(lang) {

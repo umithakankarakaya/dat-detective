@@ -4,8 +4,9 @@
   "description": "2005'ten bugüne ispat ve delil garantili resmi özel dedektiflik bürosu.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#FFFFFF",
-  "theme_color": "#F38020",
+  "orientation": "portrait-primary",
+  "background_color": "#111111",
+  "theme_color": "#111111",
   "icons": [
     {
       "src": "/favicon-48x48.png",

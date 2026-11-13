@@ -194,7 +194,7 @@ export async function onRequest(context) {
             const l = body.lead || {};
             if (!l.name && !l.contact) return jsonResponse({ error: 'empty lead' }, 400);
             store.stats.leadsCount++;
-            store.leads.unshift({
+            const savedLead = {
                 id: clip(l.id || 'lead_' + Date.now(), 60),
                 code: clip(l.code || '#DAT-' + Math.floor(10000 + Math.random() * 90000), 20),
                 name: clip(l.name || 'İsimsiz', 80),
@@ -207,8 +207,30 @@ export async function onRequest(context) {
                 dateStr: new Date().toLocaleString('tr-TR', { timeZone: 'Europe/Istanbul', day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }),
                 details: clip(l.details || '', 2000),
                 city
-            });
+            };
+            store.leads.unshift(savedLead);
             if (store.leads.length > 300) store.leads.length = 300;
+
+            // Optional server-side Google Apps Script relay if configured in Cloudflare Pages Env Vars
+            const gasUrl = context.env && context.env.GOOGLE_APPS_SCRIPT_WEBHOOK_URL ? String(context.env.GOOGLE_APPS_SCRIPT_WEBHOOK_URL).trim() : '';
+            if (gasUrl && type === 'lead_captured' && !savedLead.isTest) {
+                context.waitUntil(
+                    fetch(gasUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                        body: JSON.stringify({
+                            _subject: `Yeni Vaka Talebi (${savedLead.code}) — DAT Dedektiflik`,
+                            Dosya_Takip_Kodu: savedLead.code,
+                            Ad_veya_Rumuz: savedLead.name,
+                            Hizmet_Kategorisi: savedLead.category,
+                            Tercih_Edilen_Kanal: savedLead.channel,
+                            Musteri_Iletisim: savedLead.contact,
+                            Aciliyet_Durumu: savedLead.urgency.toUpperCase(),
+                            Vaka_Detayi: savedLead.details
+                        })
+                    }).catch(() => {})
+                );
+            }
         } else if (type === 'update_lead_status') {
             const target = store.leads.find((x) => x.id === body.leadId);
             if (target && ['new', 'reviewing', 'contacted', 'closed'].includes(body.newStatus)) target.status = body.newStatus;
