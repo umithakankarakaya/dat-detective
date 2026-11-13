@@ -86,7 +86,38 @@ def rewrite_rel_url(url, lang):
     return url
 
 
-def translate_html_text(text, phrases):
+_RTL_NUM_RE = re.compile(r"(\+\d[\d\s()-]{5,}\d|\b0\d{2,3}[\s-]\d{3}[\s-]\d{2}[\s-]\d{2}\b|#DAT-[A-Z0-9-]+|\b\d{4}\s*[–-]\s*\d{4}\b|\+\d[\d.,]*\d|\b\d[\d.,]*\+)")
+
+
+def wrap_rtl_plain(s, is_rtl):
+    if not is_rtl or not s:
+        return s
+    return _RTL_NUM_RE.sub(lambda m: f"\u2066{m.group(1)}\u2069", s)
+
+
+def wrap_rtl_html(s, is_rtl):
+    if not is_rtl or not s:
+        return s
+    parts = re.split(r'(<[^>]+>)', s)
+    in_ltr_span = 0
+    out = []
+    for part in parts:
+        if not part:
+            continue
+        if part.startswith("<"):
+            if re.match(r'<span\b[^>]*dir=["\']ltr["\']', part, re.I):
+                in_ltr_span += 1
+            elif in_ltr_span > 0 and re.match(r'</span\s*>', part, re.I):
+                in_ltr_span -= 1
+            out.append(part)
+        elif in_ltr_span > 0:
+            out.append(part)
+        else:
+            out.append(_RTL_NUM_RE.sub(lambda m: f'<span dir="ltr" style="unicode-bidi:isolate">{m.group(1)}</span>', part))
+    return "".join(out)
+
+
+def translate_html_text(text, phrases, is_rtl=False):
     m = re.match(r"^(\s*)([\s\S]*?)(\s*)$", text)
     if not m:
         return text
@@ -98,6 +129,8 @@ def translate_html_text(text, phrases):
     translated = phrases.get(norm)
     if translated is None:
         return text
+    if is_rtl:
+        translated = wrap_rtl_plain(translated, True)
     return f"{lead}{html_lib.escape(translated, quote=False)}{trail}"
 
 
@@ -132,7 +165,7 @@ class LocalePageRenderer(HTMLParser):
             self.out.append(self.lang.upper())
             return
         if not self.is_text_excluded():
-            self.out.append(translate_html_text(raw, self.phrases))
+            self.out.append(translate_html_text(raw, self.phrases, self.pack.get("dir") == "rtl"))
         else:
             self.out.append(raw)
 
@@ -183,6 +216,8 @@ class LocalePageRenderer(HTMLParser):
             elif not excluded_attr and k in ("placeholder", "title", "aria-label") and v is not None:
                 norm = re.sub(r"\s+", " ", v).strip()
                 v = self.phrases.get(norm, v)
+                if self.pack.get("dir") == "rtl":
+                    v = wrap_rtl_plain(v, True)
 
             if v is None:
                 parts.append(k)
@@ -227,7 +262,10 @@ class LocalePageRenderer(HTMLParser):
 
         block_key = attr_dict.get("data-i18n-html")
         if block_key and block_key in self.html_blocks:
-            self.out.append(self.html_blocks[block_key])
+            blk_val = self.html_blocks[block_key]
+            if self.pack.get("dir") == "rtl":
+                blk_val = wrap_rtl_html(blk_val, True)
+            self.out.append(blk_val)
             self.skip_block_depth = 1
 
         if tag in self.VOID_TAGS:
@@ -942,6 +980,7 @@ def build_turkish_seo_pages():
         .hgi {{ display: inline-flex; align-items: center; justify-content: center; line-height: 1; vertical-align: middle; }}
         .hgi.w-4 {{ font-size: 16px; }} .hgi.w-5 {{ font-size: 20px; }}
         .cf-gradient {{ background: linear-gradient(135deg, #F38020 0%, #F6821F 50%, #FAAD3F 100%); }}
+        [dir="rtl"] a[href^="tel:"], [dir="rtl"] a[href*="wa.me"], [dir="rtl"] .ltr-isolate {{ direction: ltr; unicode-bidi: isolate; }}
     </style>
 </head>
 <body class="bg-[#FFFFFF] text-[#3A3E42] antialiased selection:bg-[#F38020] selection:text-[#FFFFFF]">
@@ -1367,7 +1406,7 @@ FOUNDER_I18N = {
         "h1": "من هو أوميت هاكان قرة قايا؟",
         "hero_p": "وُلد <strong>أوميت هاكان قرة قايا</strong> في أنقرة عام 1973، وخدم في القوات المسلحة التركية بصفته <strong>فني مقاتلات F-16 (ضابط صف)</strong> قبل أن يجمع بين الانضباط العسكري وشهادة البكالوريوس في <strong>القانون الدولي</strong> ليؤسس عام 2005 مكتب <strong>DAT للتحريات الخاصة (DAT Group)</strong>، ويدير حتى اليوم أكثر من <strong>4,000 قضية</strong> داخل تركيا وخارجها.",
         "quote": "«في النظام القضائي التركي يمتلك قضاة محاكم الأسرة صلاحيات واسعة تفوق غيرهم... وأنا أبحث عن ذلك القاضي الشجاع الذي يقول: ليتولَّ المحقق الخاص تقصي الحقائق». — <span class=\"not-italic font-medium text-[#000000]\">حوار مجلة ÜSTAD للمحاماة</span>",
-        "btn_wa": "اتصال المكتب المباشر: 05326667749 90+",
+        "btn_wa": "اتصال المكتب المباشر: \u2066+90 532 666 77 49\u2069",
         "btn_home": "العودة للرئيسية",
         "title": "من هو أوميت هاكان قرة قايا؟ | السيرة الذاتية، الكتاب، الجوائز ومكتب DAT",
         "description": "السيرة الرسمية لأوميت هاكان قرة قايا (مواليد أنقرة 1973): فني طائرات F-16 سابق، خريج القانون الدولي، مؤسس مكتب DAT للتحريات الخاصة، رئيس UÖDED وTÜDED، قائد منصة WPYB، ومؤلف كتاب The Detective's Eye.",
@@ -1677,6 +1716,7 @@ def build_founder_pages():
         .hgi {{ display: inline-flex; align-items: center; justify-content: center; line-height: 1; vertical-align: middle; }}
         .hgi.w-4 {{ font-size: 16px; }} .hgi.w-5 {{ font-size: 20px; }}
         .cf-gradient {{ background: linear-gradient(135deg, #F38020 0%, #F6821F 50%, #FAAD3F 100%); }}
+        [dir="rtl"] a[href^="tel:"], [dir="rtl"] a[href*="wa.me"], [dir="rtl"] .ltr-isolate {{ direction: ltr; unicode-bidi: isolate; }}
     </style>
 </head>
 <body class="bg-[#FFFFFF] text-[#3A3E42] antialiased selection:bg-[#F38020] selection:text-[#FFFFFF]">

@@ -49,8 +49,75 @@ function emptyStore() {
         devices: {},
         hourly: { date: '', buckets: Array.from({ length: 24 }, () => ({ v: 0, c: 0 })) },
         leads: [],
-        recentEvents: []
+        recentEvents: [],
+        webhookUrl: '',
+        lastEmailStatus: null
     };
+}
+
+const GAS_URL_REGEX = /^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/i;
+
+function normalizeStore(raw) {
+    const base = emptyStore();
+    if (!raw || typeof raw !== 'object') return base;
+    if (typeof raw.webhookUrl !== 'string') raw.webhookUrl = '';
+    if (!('lastEmailStatus' in raw)) raw.lastEmailStatus = null;
+    if (!raw.leads) raw.leads = [];
+    if (!raw.recentEvents) raw.recentEvents = [];
+    return raw;
+}
+
+async function forwardToGasWebhook(gasUrl, emailPayload) {
+    const cleanUrl = String(gasUrl || '').trim();
+    if (!cleanUrl) return { ok: false, provider: 'gas', error: 'Webhook URL tanımlı değil.' };
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 8500);
+    try {
+        const res = await fetch(cleanUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify(emailPayload),
+            redirect: 'follow',
+            signal: controller.signal
+        });
+        const rawText = await res.text().catch(() => '');
+        let parsed = null;
+        try { parsed = JSON.parse(rawText); } catch (_) {}
+        if (!parsed) {
+            const authWall = /accounts\.google\.com|ServiceLogin/i.test(rawText) || /<html/i.test(rawText);
+            return {
+                ok: false,
+                provider: 'Google Apps Script (Gmail)',
+                httpStatus: res.status,
+                error: authWall
+                    ? 'Apps Script "Erişimi olanlar: Herkes (Anyone)" olarak dağıtılmamış veya Google oturumu istiyor.'
+                    : `Apps Script beklenmeyen yanıt döndürdü (HTTP ${res.status}).`
+            };
+        }
+        if (!res.ok || parsed.ok !== true) {
+            return {
+                ok: false,
+                provider: 'Google Apps Script (Gmail)',
+                httpStatus: res.status,
+                error: parsed.error || `HTTP ${res.status}`
+            };
+        }
+        return {
+            ok: true,
+            provider: 'Google Apps Script (Gmail)',
+            httpStatus: res.status,
+            recipients: parsed.recipients || 2,
+            message: parsed.message || 'E-posta Gmail üzerinden iletildi.'
+        };
+    } catch (err) {
+        return {
+            ok: false,
+            provider: 'Google Apps Script (Gmail)',
+            error: err && err.name === 'AbortError' ? 'Zaman aşımı (8.5 sn)' : (err && err.message ? err.message : 'Bağlantı hatası')
+        };
+    } finally {
+        clearTimeout(timer);
+    }
 }
 
 let isolateStore = null;
@@ -59,18 +126,18 @@ async function readStore(context) {
     if (context.env && context.env.ANALYTICS_KV) {
         try {
             const raw = await context.env.ANALYTICS_KV.get(KV_KEY, 'json');
-            if (raw && raw.stats) return { store: raw, backend: 'kv' };
+            if (raw && raw.stats) return { store: normalizeStore(raw), backend: 'kv' };
         } catch (_) {}
     }
     try {
         const res = await caches.default.match(SYNTHETIC_CACHE_URL);
         if (res) {
             const data = await res.json();
-            if (data && data.stats) return { store: data, backend: 'edge-cache' };
+            if (data && data.stats) return { store: normalizeStore(data), backend: 'edge-cache' };
         }
     } catch (_) {}
     if (!isolateStore) isolateStore = emptyStore();
-    return { store: isolateStore, backend: context.env && context.env.ANALYTICS_KV ? 'kv' : 'edge-cache' };
+    return { store: normalizeStore(isolateStore), backend: context.env && context.env.ANALYTICS_KV ? 'kv' : 'edge-cache' };
 }
 
 async function writeStore(context, store) {
@@ -161,8 +228,66 @@ export async function onRequest(context) {
         const type = clip(body.type || 'page_view', 40);
 
         // Admin-only mutations
-        if (type === 'update_lead_status' || type === 'admin_lead') {
+        if (['update_lead_status', 'admin_lead', 'save_email_webhook', 'test_email_webhook'].includes(type)) {
             if (!isAdmin(context)) return jsonResponse({ error: 'unauthorized' }, 401);
+        }
+
+        const envGasUrl = (context.env && context.env.GOOGLE_APPS_SCRIPT_WEBHOOK_URL)
+            ? String(context.env.GOOGLE_APPS_SCRIPT_WEBHOOK_URL).trim()
+            : '';
+
+        if (type === 'save_email_webhook') {
+            const nextUrl = String(body.webhookUrl || '').trim();
+            if (nextUrl && !GAS_URL_REGEX.test(nextUrl)) {
+                return jsonResponse({ error: 'Geçersiz URL. Adres https://script.google.com/macros/s/.../exec formatında olmalıdır.' }, 400);
+            }
+            store.webhookUrl = nextUrl;
+            await writeStore(context, store);
+            const activeUrl = envGasUrl || store.webhookUrl;
+            return jsonResponse({
+                status: 'ok',
+                webhookConfigured: !!activeUrl,
+                webhookSource: envGasUrl ? 'env' : (store.webhookUrl ? 'kv' : 'none'),
+                webhookUrl: store.webhookUrl
+            });
+        }
+
+        if (type === 'test_email_webhook') {
+            const submittedUrl = String(body.webhookUrl || '').trim();
+            if (submittedUrl) {
+                if (!GAS_URL_REGEX.test(submittedUrl)) {
+                    return jsonResponse({ error: 'Geçersiz URL. Adres https://script.google.com/macros/s/.../exec formatında olmalıdır.' }, 400);
+                }
+                store.webhookUrl = submittedUrl;
+            }
+            const activeUrl = submittedUrl || envGasUrl || store.webhookUrl;
+            if (!activeUrl) {
+                return jsonResponse({ error: 'Önce Google Apps Script /exec adresini yapıştırın.' }, 400);
+            }
+            const testResult = await forwardToGasWebhook(activeUrl, {
+                _subject: 'DAT Dedektiflik — Yönetim Paneli Canlı Gmail Testi',
+                name: 'Sistem Doğrulama Testi',
+                channel: 'Yönetim Paneli -> Google Apps Script',
+                contact: 'uhakankarakaya@gmail.com / umithakankarakaya@gmail.com',
+                category: 'E-Posta Teslimat Kontrolü',
+                urgency: 'NORMAL',
+                message: `Bu e-posta ${new Date().toLocaleString('tr-TR', { timeZone: 'Europe/Istanbul' })} tarihinde Yönetim Paneli test butonundan gönderildi.`
+            });
+            store.lastEmailStatus = {
+                at: new Date().toISOString(),
+                code: 'PANEL-TEST',
+                ok: !!testResult.ok,
+                provider: testResult.provider || 'Google Apps Script',
+                error: testResult.error || null
+            };
+            await writeStore(context, store);
+            return jsonResponse({
+                status: 'ok',
+                testResult,
+                webhookConfigured: !!(envGasUrl || store.webhookUrl),
+                webhookSource: envGasUrl ? 'env' : (store.webhookUrl ? 'kv' : 'none'),
+                lastEmailStatus: store.lastEmailStatus
+            });
         }
 
         const city = clip(req.headers.get('cf-ipcity') || 'Bilinmiyor', 60);
@@ -171,6 +296,7 @@ export async function onRequest(context) {
         const device = /tablet|ipad/i.test(ua) ? 'Tablet' : /mobile|iphone|android/i.test(ua) ? 'Mobil' : 'Masaüstü';
         const page = clip(body.path || body.page || '/', 160);
         const timeStr = new Date().toLocaleTimeString('tr-TR', { timeZone: 'Europe/Istanbul', hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        let emailDeliveryResult = null;
 
         if (type === 'page_view') {
             store.stats.pageViews++;
@@ -190,7 +316,7 @@ export async function onRequest(context) {
         } else if (type === 'phone_click') {
             store.stats.phoneClicks++;
             bumpHourly(store, 'c');
-        } else if (type === 'lead_captured' || type === 'form_submit' || type === 'admin_lead') {
+        } else if (type === 'lead_captured' || type === 'admin_lead') {
             const l = body.lead || {};
             if (!l.name && !l.contact) return jsonResponse({ error: 'empty lead' }, 400);
             store.stats.leadsCount++;
@@ -211,26 +337,30 @@ export async function onRequest(context) {
             store.leads.unshift(savedLead);
             if (store.leads.length > 300) store.leads.length = 300;
 
-            // Optional server-side Google Apps Script relay if configured in Cloudflare Pages Env Vars
-            const gasUrl = context.env && context.env.GOOGLE_APPS_SCRIPT_WEBHOOK_URL ? String(context.env.GOOGLE_APPS_SCRIPT_WEBHOOK_URL).trim() : '';
-            if (gasUrl && type === 'lead_captured' && !savedLead.isTest) {
-                context.waitUntil(
-                    fetch(gasUrl, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-                        body: JSON.stringify({
-                            _subject: `Yeni Vaka Talebi (${savedLead.code}) — DAT Dedektiflik`,
-                            Dosya_Takip_Kodu: savedLead.code,
-                            Ad_veya_Rumuz: savedLead.name,
-                            Hizmet_Kategorisi: savedLead.category,
-                            Tercih_Edilen_Kanal: savedLead.channel,
-                            Musteri_Iletisim: savedLead.contact,
-                            Aciliyet_Durumu: savedLead.urgency.toUpperCase(),
-                            Vaka_Detayi: savedLead.details
-                        })
-                    }).catch(() => {})
-                );
+            const activeGasUrl = envGasUrl || store.webhookUrl || '';
+            if (activeGasUrl && type === 'lead_captured' && !savedLead.isTest) {
+                emailDeliveryResult = await forwardToGasWebhook(activeGasUrl, {
+                    _subject: `Yeni Vaka Talebi (${savedLead.code}) — DAT Dedektiflik`,
+                    Dosya_Takip_Kodu: savedLead.code,
+                    Ad_veya_Rumuz: savedLead.name,
+                    Hizmet_Kategorisi: savedLead.category,
+                    Tercih_Edilen_Kanal: savedLead.channel,
+                    Musteri_Iletisim: savedLead.contact,
+                    Aciliyet_Durumu: savedLead.urgency.toUpperCase(),
+                    Vaka_Detayi: savedLead.details,
+                    Sehir: savedLead.city,
+                    Sayfa: page
+                });
+                store.lastEmailStatus = {
+                    at: new Date().toISOString(),
+                    code: savedLead.code,
+                    ok: !!emailDeliveryResult.ok,
+                    provider: emailDeliveryResult.provider || 'Google Apps Script',
+                    error: emailDeliveryResult.error || null
+                };
             }
+        } else if (type === 'form_submit') {
+            // Telemetry ping after lead submission
         } else if (type === 'update_lead_status') {
             const target = store.leads.find((x) => x.id === body.leadId);
             if (target && ['new', 'reviewing', 'contacted', 'closed'].includes(body.newStatus)) target.status = body.newStatus;
@@ -253,7 +383,12 @@ export async function onRequest(context) {
         }
 
         await writeStore(context, store);
-        return jsonResponse({ status: 'ok' });
+        return jsonResponse({
+            status: 'ok',
+            emailForwarded: Boolean(emailDeliveryResult && emailDeliveryResult.ok),
+            emailProvider: emailDeliveryResult ? (emailDeliveryResult.provider || 'Google Apps Script') : null,
+            emailError: emailDeliveryResult && !emailDeliveryResult.ok ? emailDeliveryResult.error : null
+        });
     }
 
     if (req.method === 'GET') {
@@ -265,11 +400,19 @@ export async function onRequest(context) {
             return jsonResponse({ status: 'reset_ok' });
         }
 
+        const envGasUrl = (context.env && context.env.GOOGLE_APPS_SCRIPT_WEBHOOK_URL)
+            ? String(context.env.GOOGLE_APPS_SCRIPT_WEBHOOK_URL).trim()
+            : '';
+
         return jsonResponse({
             status: 'ok',
             backend,
             durable: backend === 'kv',
             pinIsDefault: !(context.env && context.env.ADMIN_PIN),
+            webhookConfigured: !!(envGasUrl || store.webhookUrl),
+            webhookSource: envGasUrl ? 'env' : (store.webhookUrl ? 'kv' : 'none'),
+            webhookUrl: store.webhookUrl || '',
+            lastEmailStatus: store.lastEmailStatus || null,
             cloudflareSnapshot: CLOUDFLARE_SNAPSHOT,
             trackingSince: store.trackingSince,
             stats: store.stats,

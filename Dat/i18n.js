@@ -178,6 +178,29 @@
         document.documentElement.lang = HTML_LANG_MAP[lang] || 'tr';
         document.documentElement.setAttribute('data-lang', lang);
 
+        function wrapLtrTokensPlain(str) {
+            if (dir !== 'rtl' || !str) return str;
+            // Wrap phone numbers, tracking codes & number ranges in Unicode LRI..PDI so RTL never reverses digit groups
+            return String(str).replace(/((?:\+\d[\d\s()-]{5,}\d|\b0\d{2,3}[\s-]\d{3}[\s-]\d{2}[\s-]\d{2}\b|#DAT-[A-Z0-9-]+|\b\d{4}\s*[–-]\s*\d{4}\b|\+\d[\d.,]*\d|\b\d[\d.,]*\+))/g, '\u2066$1\u2069');
+        }
+
+        function wrapLtrTokensHtml(htmlStr) {
+            if (dir !== 'rtl' || !htmlStr) return htmlStr;
+            var segs = String(htmlStr).split(/(<[^>]+>)/g);
+            var inLtrSpan = 0;
+            for (var x = 0; x < segs.length; x++) {
+                var seg = segs[x];
+                if (!seg) continue;
+                if (seg.charAt(0) === '<') {
+                    if (/^<span\b[^>]*dir=['"]ltr['"]/i.test(seg)) inLtrSpan++;
+                    else if (inLtrSpan > 0 && /^<\/span\s*>/i.test(seg)) inLtrSpan--;
+                } else if (inLtrSpan === 0) {
+                    segs[x] = seg.replace(/((?:\+\d[\d\s()-]{5,}\d|\b0\d{2,3}[\s-]\d{3}[\s-]\d{2}[\s-]\d{2}\b|#DAT-[A-Z0-9-]+|\b\d{4}\s*[–-]\s*\d{4}\b|\+\d[\d.,]*\d|\b\d[\d.,]*\+))/g, '<span dir="ltr" style="unicode-bidi:isolate">$1</span>');
+                }
+            }
+            return segs.join('');
+        }
+
         // Meta tags
         if (pack && pack.meta) {
             if (pack.meta.title) document.title = pack.meta.title;
@@ -196,7 +219,7 @@
         for (var i = 0; i < origHtmlBlocks.length; i++) {
             var blk = origHtmlBlocks[i];
             if (pack && pack.htmlBlocks && typeof pack.htmlBlocks[blk.key] === 'string') {
-                blk.el.innerHTML = pack.htmlBlocks[blk.key];
+                blk.el.innerHTML = wrapLtrTokensHtml(pack.htmlBlocks[blk.key]);
             } else {
                 blk.el.innerHTML = blk.html;
             }
@@ -212,7 +235,7 @@
             var targetCore = (phrases && Object.prototype.hasOwnProperty.call(phrases, entry.core))
                 ? phrases[entry.core]
                 : entry.core;
-            entry.node.nodeValue = entry.leading + targetCore + entry.trailing;
+            entry.node.nodeValue = entry.leading + wrapLtrTokensPlain(targetCore) + entry.trailing;
         }
 
         // Attributes
@@ -221,7 +244,7 @@
             var targetAttr = (phrases && Object.prototype.hasOwnProperty.call(phrases, a.val))
                 ? phrases[a.val]
                 : a.val;
-            a.el.setAttribute(a.attr, targetAttr);
+            a.el.setAttribute(a.attr, wrapLtrTokensPlain(targetAttr));
         }
 
         // Re-render dynamic interactive widgets from script.js
@@ -344,7 +367,14 @@
         var pack = getPack(currentLang);
         if (!pack || !pack.ui) return fallback;
         if (Object.prototype.hasOwnProperty.call(pack.ui, key)) {
-            return pack.ui[key];
+            var val = pack.ui[key];
+            if (pack.dir === 'rtl' && typeof val === 'string') {
+                var re = /(\+\d[\d\s()-]{5,}\d|\b0\d{2,3}[\s-]\d{3}[\s-]\d{2}[\s-]\d{2}\b|#DAT-[A-Z0-9-]+)/g;
+                return val.indexOf('<') !== -1
+                    ? val.replace(re, '<span dir="ltr" style="unicode-bidi:isolate">$1</span>')
+                    : val.replace(re, '\u2066$1\u2069');
+            }
+            return val;
         }
         return fallback;
     }

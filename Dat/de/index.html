@@ -108,8 +108,8 @@
             ],
             "sameAs": [
                   "https://www.instagram.com/datdedektiflik",
-                  "https://www.facebook.com/dat.dedektif",
-                  "https://twitter.com/DatDedektif"
+                  "https://www.facebook.com/DatDedektiflik/?locale=tr_TR",
+                  "https://x.com/datdedektif"
             ],
             "address": [
                   {
@@ -654,91 +654,184 @@
             color: #111111 !important;
         }
 
-        /* Flip dark text inside light-turned surfaces to light studio ink */
-        html[data-theme="dark"] .bg-\[\#FFFFFF\]:not(.iphone-keep-white) .text-\[\#111111\],
-        html[data-theme="dark"] .bg-\[\#FFFFFF\]:not(.iphone-keep-white) .text-\[\#1D1D1F\],
-        html[data-theme="dark"] .bg-\[\#F2F2F2\] .text-\[\#111111\],
-        html[data-theme="dark"] .bg-\[\#F2F2F2\] .text-\[\#1D1D1F\],
-        html[data-theme="dark"] section.bg-\[\#F2F2F2\] > div > div > h2,
-        html[data-theme="dark"] section.bg-\[\#F2F2F2\] h2.text-\[\#111111\],
-        html[data-theme="dark"] section.bg-\[\#FFFFFF\] h2.text-\[\#111111\],
-        html[data-theme="dark"] .text-\[\#111111\].theme-flip-ink,
-        html[data-theme="dark"] #serviceDetailModal .text-\[\#111111\],
-        html[data-theme="dark"] #articleModal .text-\[\#111111\],
-        html[data-theme="dark"] #privacyModal .text-\[\#111111\],
-        html[data-theme="dark"] #productModal .text-\[\#111111\],
-        html[data-theme="dark"] #cartDrawer .text-\[\#111111\],
-        html[data-theme="dark"] #legalInfoModal .text-\[\#111111\],
-        html[data-theme="dark"] #successModal .text-\[\#111111\],
-        html[data-theme="dark"] #vaka-bildir .text-\[\#111111\],
-        html[data-theme="dark"] #vaka-sureci .text-\[\#111111\],
-        html[data-theme="dark"] #ofislerimiz .text-\[\#111111\],
-        html[data-theme="dark"] #sss .text-\[\#111111\],
-        html[data-theme="dark"] #kurucu .text-\[\#111111\],
-        html[data-theme="dark"] #hizmetler .text-\[\#111111\],
-        html[data-theme="dark"] #makaleler .text-\[\#111111\] {
+        /* Flip dark text inside turned dark surfaces to crisp high-contrast studio ink */
+        html[data-theme="dark"] :where(
+            .bg-\[\#FFFFFF\]:not(.iphone-keep-white) .text-\[\#111111\],
+            .bg-\[\#FFFFFF\]:not(.iphone-keep-white) .text-\[\#1D1D1F\],
+            .bg-\[\#F2F2F2\] .text-\[\#111111\],
+            .bg-\[\#F2F2F2\] .text-\[\#1D1D1F\],
+            section.bg-\[\#F2F2F2\] > div > div > h2,
+            section.bg-\[\#F2F2F2\] h2.text-\[\#111111\],
+            section.bg-\[\#FFFFFF\] h2.text-\[\#111111\],
+            .text-\[\#111111\].theme-flip-ink,
+            .text-\[\#111111\],
+            .text-\[\#1D1D1F\],
+            .text-black
+        ) {
             color: #F5F5F7 !important;
         }
 
-        html[data-theme="dark"] .text-\[\#52525B\],
-        html[data-theme="dark"] .text-\[\#6E6E73\],
-        html[data-theme="dark"] .text-black\/75,
-        html[data-theme="dark"] .text-black\/70,
-        html[data-theme="dark"] .text-black\/65,
-        html[data-theme="dark"] .text-black\/60,
-        html[data-theme="dark"] .text-black\/50 {
-            color: #B4B4BC !important;
+        html[data-theme="dark"] .bg-\[\#E5E5E7\] {
+            background-color: #2A2A2E !important;
+            color: #F5F5F7 !important;
+        }
+
+        html[data-theme="dark"] :where(
+            .text-\[\#3A3E42\],
+            .text-\[\#3A3E42\]\/85,
+            .text-\[\#3A3E42\]\/80,
+            .text-\[\#3A3E42\]\/75,
+            .text-\[\#3A3E42\]\/70,
+            .text-\[\#111111\]\/90,
+            .text-\[\#111111\]\/85,
+            .text-\[\#111111\]\/80,
+            .text-\[\#111111\]\/75,
+            .text-\[\#111111\]\/70,
+            .text-\[\#111111\]\/65,
+            .text-\[\#111111\]\/60,
+            .text-\[\#48484A\],
+            .text-\[\#52525B\],
+            .text-\[\#6E6E73\],
+            .text-black\/75,
+            .text-black\/70,
+            .text-black\/65,
+            .text-black\/60,
+            .text-black\/50
+        ) {
+            color: #D4D4D8 !important;
+        }
+
+        html[data-theme="dark"] :where(
+            .text-\[\#3A3E42\]\/60,
+            .text-\[\#3A3E42\]\/50
+        ) {
+            color: #A1A1AA !important;
+        }
+
+        html[data-theme="dark"] :where(
+            .text-\[\#3A3E42\] strong,
+            .bg-\[\#FFFFFF\]:not(.iphone-keep-white) p strong
+        ) {
+            color: #FFFFFF !important;
+        }
+
+        html[data-theme="dark"] .text-\[\#15803D\] {
+            color: #93F051 !important;
         }
 
         html[data-theme="dark"] .border-black\/5,
         html[data-theme="dark"] .border-black\/10,
         html[data-theme="dark"] .border-black\/15,
-        html[data-theme="dark"] .border-black\/20 {
-            border-color: rgba(255, 255, 255, 0.12) !important;
+        html[data-theme="dark"] .border-black\/20,
+        html[data-theme="dark"] .border-black\/\[0\.06\],
+        html[data-theme="dark"] .border-black\/\[0\.07\],
+        html[data-theme="dark"] .border-black\/\[0\.08\] {
+            border-color: rgba(255, 255, 255, 0.14) !important;
         }
 
         html[data-theme="dark"] #vaka-bildir input,
         html[data-theme="dark"] #vaka-bildir select,
         html[data-theme="dark"] #vaka-bildir textarea,
         html[data-theme="dark"] #cartDrawer input,
-        html[data-theme="dark"] #cartDrawer textarea {
+        html[data-theme="dark"] #cartDrawer textarea,
+        html[data-theme="dark"] #vaka-analizoru input,
+        html[data-theme="dark"] #vaka-analizoru select {
             background-color: #242428 !important;
             color: #F5F5F7 !important;
-            border-color: rgba(255, 255, 255, 0.14) !important;
+            border-color: rgba(255, 255, 255, 0.16) !important;
         }
 
         html[data-theme="dark"] #vaka-bildir input::placeholder,
         html[data-theme="dark"] #vaka-bildir textarea::placeholder,
-        html[data-theme="dark"] #cartDrawer input::placeholder {
-            color: #71717A !important;
+        html[data-theme="dark"] #cartDrawer input::placeholder,
+        html[data-theme="dark"] #cartDrawer textarea::placeholder {
+            color: #9CA3AF !important;
         }
 
-        html[data-theme="dark"] #caseForm label:has(input:checked) {
-            background-color: #93F051 !important;
+        /* Keep Hero iPhone hardware inner display bright with crisp dark ink (must override global dark text rule) */
+        html[data-theme="dark"] .iphone-bezel .bg-\[\#FFFFFF\],
+        html[data-theme="dark"] .iphone-bezel .iphone-keep-white {
+            background-color: #FFFFFF !important;
             color: #111111 !important;
-            border-color: #93F051 !important;
         }
-        html[data-theme="dark"] #caseForm label:has(input:checked) span {
+        html[data-theme="dark"] .iphone-bezel .bg-\[\#FFFFFF\] .text-\[\#111111\],
+        html[data-theme="dark"] .iphone-bezel .bg-\[\#FFFFFF\] .text-\[\#3A3E42\],
+        html[data-theme="dark"] .iphone-bezel .iphone-keep-white .text-\[\#111111\],
+        html[data-theme="dark"] .iphone-bezel .iphone-keep-white .text-\[\#3A3E42\] {
             color: #111111 !important;
+        }
+        html[data-theme="dark"] .iphone-bezel .bg-\[\#FFFFFF\] .bg-\[\#F2F2F2\] {
+            background-color: #F2F2F2 !important;
+            color: #111111 !important;
+        }
+        html[data-theme="dark"] .iphone-bezel .bg-\[\#FFFFFF\] .bg-\[\#111111\],
+        html[data-theme="dark"] .iphone-bezel .bg-\[\#FFFFFF\] .bg-\[\#111111\] * {
+            background-color: #111111 !important;
+            color: #93F051 !important;
         }
 
-        /* CRITICAL DARK GUARD: Preserve #111111 Ink on Signal Lime, Coral & Lemon Badges/Cards/Tabs */
+        /* CRITICAL DARK GUARD: Preserve #111111 Ink on Signal Lime, Coral, Lemon & Editorial Light Cards */
+        html[data-theme="dark"] #caseForm label:has(input:checked),
+        html[data-theme="dark"] #caseForm label:has(input:checked) span,
         html[data-theme="dark"] .bg-\[\#93F051\],
-        html[data-theme="dark"] .bg-\[\#93F051\] *:not(.preserve-light),
+        html[data-theme="dark"] .bg-\[\#93F051\].text-\[\#111111\],
+        html[data-theme="dark"] .bg-\[\#93F051\].text-\[\#1D1D1F\],
+        html[data-theme="dark"] .bg-\[\#93F051\].text-\[\#3A3E42\],
+        html[data-theme="dark"] .bg-\[\#FFFFFF\]:not(.iphone-keep-white) .bg-\[\#93F051\].text-\[\#111111\],
+        html[data-theme="dark"] .bg-\[\#93F051\] .text-\[\#111111\],
+        html[data-theme="dark"] .bg-\[\#93F051\] .text-\[\#3A3E42\],
+        html[data-theme="dark"] .bg-\[\#93F051\] [class*="text-\[\#111111\]"],
+        html[data-theme="dark"] .bg-\[\#93F051\] *:not(.preserve-light):not(.bg-\[\#111111\]):not(.bg-\[\#111111\] *),
         html[data-theme="dark"] .bg-\[\#DDF95E\],
-        html[data-theme="dark"] .bg-\[\#DDF95E\] *:not(.preserve-light),
+        html[data-theme="dark"] .bg-\[\#DDF95E\].text-\[\#111111\],
+        html[data-theme="dark"] .bg-\[\#DDF95E\].text-\[\#1D1D1F\],
+        html[data-theme="dark"] .bg-\[\#DDF95E\].text-\[\#3A3E42\],
+        html[data-theme="dark"] .bg-\[\#FFFFFF\]:not(.iphone-keep-white) .bg-\[\#DDF95E\].text-\[\#111111\],
+        html[data-theme="dark"] .bg-\[\#DDF95E\] .text-\[\#111111\],
+        html[data-theme="dark"] .bg-\[\#DDF95E\] .text-\[\#3A3E42\],
+        html[data-theme="dark"] .bg-\[\#DDF95E\] [class*="text-\[\#111111\]"],
+        html[data-theme="dark"] .bg-\[\#DDF95E\] *:not(.preserve-light):not(.bg-\[\#111111\]):not(.bg-\[\#111111\] *),
         html[data-theme="dark"] .bg-\[\#FA7E61\],
-        html[data-theme="dark"] .bg-\[\#FA7E61\] *:not(.preserve-light),
+        html[data-theme="dark"] .bg-\[\#FA7E61\].text-\[\#111111\],
+        html[data-theme="dark"] .bg-\[\#FA7E61\].text-\[\#1D1D1F\],
+        html[data-theme="dark"] .bg-\[\#FA7E61\].text-\[\#3A3E42\],
+        html[data-theme="dark"] .bg-\[\#FFFFFF\]:not(.iphone-keep-white) .bg-\[\#FA7E61\].text-\[\#111111\],
+        html[data-theme="dark"] .bg-\[\#FA7E61\] .text-\[\#111111\],
+        html[data-theme="dark"] .bg-\[\#FA7E61\] .text-\[\#3A3E42\],
+        html[data-theme="dark"] .bg-\[\#FA7E61\] [class*="text-\[\#111111\]"],
+        html[data-theme="dark"] .bg-\[\#FA7E61\] *:not(.preserve-light):not(.bg-\[\#111111\]):not(.bg-\[\#111111\] *),
+        html[data-theme="dark"] .bg-\[\#E6FAD8\],
+        html[data-theme="dark"] .bg-\[\#E6FAD8\].text-\[\#111111\],
+        html[data-theme="dark"] .bg-\[\#E6FAD8\] *:not(.preserve-light):not(.bg-\[\#111111\]):not(.bg-\[\#111111\] *):not(.bg-\[\#1D1D1F\]):not(.bg-\[\#1D1D1F\] *),
+        html[data-theme="dark"] .bg-\[\#EEFBC5\],
+        html[data-theme="dark"] .bg-\[\#EEFBC5\].text-\[\#111111\],
+        html[data-theme="dark"] .bg-\[\#EEFBC5\] *:not(.preserve-light):not(.bg-\[\#111111\]):not(.bg-\[\#111111\] *):not(.bg-\[\#1D1D1F\]):not(.bg-\[\#1D1D1F\] *),
+        html[data-theme="dark"] .bg-\[\#FDE2DB\],
+        html[data-theme="dark"] .bg-\[\#FDE2DB\].text-\[\#111111\],
+        html[data-theme="dark"] .bg-\[\#FDE2DB\] *:not(.preserve-light):not(.bg-\[\#111111\]):not(.bg-\[\#111111\] *):not(.bg-\[\#1D1D1F\]):not(.bg-\[\#1D1D1F\] *),
         html[data-theme="dark"] [style*="background:#93F051"],
-        html[data-theme="dark"] [style*="background:#93F051"] *:not(.preserve-light),
+        html[data-theme="dark"] [style*="background:#93F051"] *:not(.preserve-light):not(.bg-\[\#111111\]):not(.bg-\[\#111111\] *),
         html[data-theme="dark"] [style*="background:#FA7E61"],
-        html[data-theme="dark"] [style*="background:#FA7E61"] *:not(.preserve-light),
+        html[data-theme="dark"] [style*="background:#FA7E61"] *:not(.preserve-light):not(.bg-\[\#111111\]):not(.bg-\[\#111111\] *),
         html[data-theme="dark"] [style*="background:#DDF95E"],
-        html[data-theme="dark"] [style*="background:#DDF95E"] *:not(.preserve-light),
-        html[data-theme="dark"] article[onclick^="openArticleModal"]:not(.bg-\[\#1D1D1F\]) *,
+        html[data-theme="dark"] [style*="background:#DDF95E"] *:not(.preserve-light):not(.bg-\[\#111111\]):not(.bg-\[\#111111\] *),
+        html[data-theme="dark"] article[onclick^="openArticleModal"]:not(.bg-\[\#1D1D1F\]) .text-\[\#111111\],
+        html[data-theme="dark"] article[onclick^="openArticleModal"]:not(.bg-\[\#1D1D1F\]) [class*="text-\[\#111111\]"],
+        html[data-theme="dark"] article[onclick^="openArticleModal"]:not(.bg-\[\#1D1D1F\]) *:not(.bg-\[\#111111\]):not(.bg-\[\#111111\] *),
         html[data-theme="dark"] .keep-dark-ink,
         html[data-theme="dark"] .keep-dark-ink * {
             color: #111111 !important;
+        }
+        html[data-theme="dark"] .bg-\[\#FFFFFF\]\/95,
+        html[data-theme="dark"] .bg-\[\#FFFFFF\]\/95 *,
+        html[data-theme="dark"] .bg-\[\#FFFFFF\]\/90,
+        html[data-theme="dark"] .bg-\[\#FFFFFF\]\/90 * {
+            background-color: rgba(255, 255, 255, 0.96) !important;
+            color: #111111 !important;
+        }
+        html[data-theme="dark"] #caseForm label:has(input:checked) {
+            background-color: #93F051 !important;
+            border-color: #93F051 !important;
         }
 
         html[data-theme="dark"] .bg-\[\#93F051\] .bg-\[\#111111\],
@@ -752,12 +845,17 @@
             background-color: #111111 !important;
             color: #FFFFFF !important;
         }
+        html[data-theme="dark"] article[onclick^="openArticleModal"] .bg-\[\#111111\] .text-\[\#93F051\],
+        html[data-theme="dark"] .bg-\[\#FA7E61\] .bg-\[\#111111\] .text-\[\#FA7E61\],
+        html[data-theme="dark"] .bg-\[\#93F051\] .bg-\[\#111111\] .text-\[\#93F051\] {
+            color: #93F051 !important;
+        }
         html[data-theme="dark"] article[onclick^="openArticleModal"].bg-\[\#1D1D1F\] .text-\[\#FFFFFF\],
         html[data-theme="dark"] article[onclick^="openArticleModal"].bg-\[\#1D1D1F\] h3 {
             color: #FFFFFF !important;
         }
         html[data-theme="dark"] article[onclick^="openArticleModal"].bg-\[\#1D1D1F\] p {
-            color: rgba(255, 255, 255, 0.78) !important;
+            color: rgba(255, 255, 255, 0.82) !important;
         }
 
         /* High-contrast CTA buttons inside turned dark cards */
@@ -771,6 +869,20 @@
         html[data-theme="dark"] button.bg-\[\#111111\].text-\[\#FFFFFF\] *,
         html[data-theme="dark"] a.bg-\[\#111111\].text-\[\#FFFFFF\] *,
         html[data-theme="dark"] button[type="submit"].bg-\[\#111111\] * {
+            color: #111111 !important;
+        }
+        html[data-theme="dark"] .bg-\[\#F2F2F2\]:hover,
+        html[data-theme="dark"] button.bg-\[\#F2F2F2\]:hover,
+        html[data-theme="dark"] a.bg-\[\#F2F2F2\]:hover {
+            color: #F5F5F7 !important;
+        }
+        html[data-theme="dark"] a.hover\:bg-\[\#111111\]:hover,
+        html[data-theme="dark"] button.hover\:bg-\[\#111111\]:hover {
+            background-color: #93F051 !important;
+            color: #111111 !important;
+        }
+        html[data-theme="dark"] a.hover\:bg-\[\#111111\]:hover *,
+        html[data-theme="dark"] button.hover\:bg-\[\#111111\]:hover * {
             color: #111111 !important;
         }
 
@@ -842,26 +954,32 @@
         }
 
         /* Convert white typography on lightened dark panels to Obsidian Ink */
-        html[data-theme="light"] .text-\[\#FFFFFF\]:not(.theme-keep-light),
-        html[data-theme="light"] .text-white:not(.theme-keep-light),
-        html[data-theme="light"] .text-white\/95,
-        html[data-theme="light"] .text-white\/90,
-        html[data-theme="light"] .text-white\/85,
-        html[data-theme="light"] .text-white\/80 {
+        html[data-theme="light"] :where(
+            .text-\[\#FFFFFF\]:not(.theme-keep-light),
+            .text-white:not(.theme-keep-light),
+            .text-white\/95,
+            .text-white\/90,
+            .text-white\/85,
+            .text-white\/80
+        ) {
             color: #111111 !important;
         }
 
-        html[data-theme="light"] .text-white\/75,
-        html[data-theme="light"] .text-white\/70,
-        html[data-theme="light"] .text-white\/65,
-        html[data-theme="light"] .text-white\/60 {
+        html[data-theme="light"] :where(
+            .text-white\/75,
+            .text-white\/70,
+            .text-white\/65,
+            .text-white\/60
+        ) {
             color: #4B5563 !important;
         }
 
-        html[data-theme="light"] .text-white\/55,
-        html[data-theme="light"] .text-white\/50,
-        html[data-theme="light"] .text-white\/45,
-        html[data-theme="light"] .text-white\/40 {
+        html[data-theme="light"] :where(
+            .text-white\/55,
+            .text-white\/50,
+            .text-white\/45,
+            .text-white\/40
+        ) {
             color: #6B7280 !important;
         }
 
@@ -873,7 +991,7 @@
         }
 
         /* Accessible Forest Emerald #15803D for Lime Text/Gradients directly on light backgrounds */
-        html[data-theme="light"] .text-\[\#93F051\]:not(.theme-keep-lime):not(.pulse-dot) {
+        html[data-theme="light"] :where(.text-\[\#93F051\]:not(.theme-keep-lime):not(.pulse-dot)) {
             color: #15803D !important;
         }
         html[data-theme="light"] .cf-text-gradient {
@@ -907,7 +1025,23 @@
             color: #111111 !important;
         }
 
-        /* Photography caption scrims MUST remain crisp white over dark gradient photos */
+        /* Photography & Video caption scrim cards MUST remain dark with crisp white ink in Light Mode */
+        html[data-theme="light"] #heroServiceCarousel > button,
+        html[data-theme="light"] #heroServiceCarousel > button.bg-\[\#1D1D1F\],
+        html[data-theme="light"] #video-arsivi [onclick*="openVideoModal"],
+        html[data-theme="light"] #basin-galerisi [onclick*="openPhotoModal"],
+        html[data-theme="light"] :is(button, a, div, article):has(> [class*="bg-gradient-to-t"]) {
+            background-color: #1D1D1F !important;
+            color: #FFFFFF !important;
+        }
+        html[data-theme="light"] #heroServiceCarousel > button .text-\[\#FFFFFF\],
+        html[data-theme="light"] #heroServiceCarousel > button .text-white,
+        html[data-theme="light"] #video-arsivi [onclick*="openVideoModal"] .text-\[\#FFFFFF\],
+        html[data-theme="light"] #video-arsivi [onclick*="openVideoModal"] .text-white,
+        html[data-theme="light"] #basin-galerisi [onclick*="openPhotoModal"] .text-\[\#FFFFFF\],
+        html[data-theme="light"] #basin-galerisi [onclick*="openPhotoModal"] .text-white,
+        html[data-theme="light"] :is(button, a, div, article):has(> [class*="bg-gradient-to-t"]) .text-white,
+        html[data-theme="light"] :is(button, a, div, article):has(> [class*="bg-gradient-to-t"]) .text-\[\#FFFFFF\],
         html[data-theme="light"] [class*="bg-gradient-to-t"],
         html[data-theme="light"] [class*="bg-gradient-to-t"] .text-white,
         html[data-theme="light"] [class*="bg-gradient-to-t"] .text-\[\#FFFFFF\],
@@ -916,15 +1050,39 @@
         html[data-theme="light"] [class*="from-black"] [class*="text-white/"] {
             color: #FFFFFF !important;
         }
+        html[data-theme="light"] #heroServiceCarousel > button [class*="text-white/"],
+        html[data-theme="light"] #video-arsivi [onclick*="openVideoModal"] [class*="text-white/"],
+        html[data-theme="light"] #basin-galerisi [onclick*="openPhotoModal"] [class*="text-white/"],
+        html[data-theme="light"] :is(button, a, div, article):has(> [class*="bg-gradient-to-t"]) [class*="text-white/"] {
+            color: rgba(255, 255, 255, 0.86) !important;
+        }
+        html[data-theme="light"] #heroServiceCarousel > button .text-\[\#93F051\],
+        html[data-theme="light"] #video-arsivi [onclick*="openVideoModal"] .text-\[\#93F051\],
+        html[data-theme="light"] #basin-galerisi [onclick*="openPhotoModal"] .text-\[\#93F051\],
+        html[data-theme="light"] :is(button, a, div, article):has(> [class*="bg-gradient-to-t"]) .text-\[\#93F051\],
         html[data-theme="light"] [class*="bg-gradient-to-t"] .text-\[\#93F051\],
         html[data-theme="light"] [class*="from-black"] .text-\[\#93F051\] {
             color: #93F051 !important;
+        }
+        html[data-theme="light"] #heroServiceCarousel > button .bg-\[\#93F051\],
+        html[data-theme="light"] #heroServiceCarousel > button .bg-\[\#93F051\] *,
+        html[data-theme="light"] #video-arsivi [onclick*="openVideoModal"] .bg-\[\#93F051\],
+        html[data-theme="light"] #video-arsivi [onclick*="openVideoModal"] .bg-\[\#93F051\] *,
+        html[data-theme="light"] #heroServiceCarousel > button.group:hover .group-hover\:bg-\[\#93F051\],
+        html[data-theme="light"] #heroServiceCarousel > button.group:hover .group-hover\:bg-\[\#93F051\] * {
+            color: #111111 !important;
         }
 
         /* Deliberate Obsidian CTAs / Active Pills / Obsidian Article Card stay Obsidian with Light/Lime Text */
         html[data-theme="light"] .theme-keep-dark,
         html[data-theme="light"] button.bg-\[\#111111\],
+        html[data-theme="light"] button.bg-\[\#111111\].text-\[\#FFFFFF\],
+        html[data-theme="light"] button.bg-\[\#111111\].text-white,
         html[data-theme="light"] a.bg-\[\#111111\],
+        html[data-theme="light"] a.bg-\[\#111111\].text-\[\#FFFFFF\],
+        html[data-theme="light"] a.bg-\[\#111111\].text-white,
+        html[data-theme="light"] button.bg-\[\#111111\].text-\[\#93F051\],
+        html[data-theme="light"] a.bg-\[\#111111\].text-\[\#93F051\],
         html[data-theme="light"] label:has(input:checked).has-\[\:checked\]\:bg-\[\#111111\],
         html[data-theme="light"] article[onclick^="openArticleModal"].bg-\[\#1D1D1F\],
         html[data-theme="light"] .bg-\[\#93F051\] .bg-\[\#111111\],
@@ -932,6 +1090,35 @@
         html[data-theme="light"] .bg-\[\#DDF95E\] .bg-\[\#111111\] {
             background-color: #111111 !important;
             color: #FFFFFF !important;
+        }
+        /* Keep non-structural Obsidian (#111111) cards, icon boxes & badges high-contrast in Light Mode */
+        html[data-theme="light"] .bg-\[\#111111\]:not(body):not(header):not(nav):not(main):not(section):not(footer):not(aside):not(.bg-\[\#FFFFFF\]):not(.bg-\[\#F2F2F2\]) {
+            background-color: #111111 !important;
+            color: #FFFFFF !important;
+        }
+        html[data-theme="light"] .bg-\[\#111111\]:not(body):not(header):not(nav):not(main):not(section):not(footer):not(aside).text-\[\#93F051\],
+        html[data-theme="light"] .bg-\[\#111111\]:not(body):not(header):not(nav):not(main):not(section):not(footer):not(aside) .text-\[\#93F051\]:not(.bg-\[\#93F051\] *):not(.bg-\[\#DDF95E\] *):not(.bg-\[\#FA7E61\] *):not(.bg-\[\#FFFFFF\] *):not(.bg-\[\#F2F2F2\] *),
+        html[data-theme="light"] article[onclick^="openArticleModal"].bg-\[\#1D1D1F\] .text-\[\#93F051\],
+        html[data-theme="light"] .bg-\[\#1D1D1F\].theme-keep-dark .text-\[\#93F051\] {
+            color: #93F051 !important;
+        }
+        html[data-theme="light"] .bg-\[\#111111\]:not(body):not(header):not(nav):not(main):not(section):not(footer):not(aside) .bg-\[\#1D1D1F\] {
+            background-color: #1D1D1F !important;
+            color: #FFFFFF !important;
+            border-color: rgba(255, 255, 255, 0.14) !important;
+        }
+        html[data-theme="light"] .bg-\[\#111111\]:not(body):not(header):not(nav):not(main):not(section):not(footer):not(aside) :is(.text-\[\#FFFFFF\], .text-white, .text-white\/95, .text-white\/90, .text-white\/85, .text-white\/80, .text-\[\#F5F5F7\]):not(.bg-\[\#93F051\] *):not(.bg-\[\#DDF95E\] *):not(.bg-\[\#FA7E61\] *):not(.bg-\[\#FFFFFF\] *):not(.bg-\[\#F2F2F2\] *),
+        html[data-theme="light"] article[onclick^="openArticleModal"].bg-\[\#1D1D1F\] :is(.text-\[\#FFFFFF\], .text-white, .text-white\/95, .text-white\/90, .text-white\/85, .text-white\/80, .text-\[\#F5F5F7\]),
+        html[data-theme="light"] .bg-\[\#111111\]:not(body):not(header):not(nav):not(main):not(section):not(footer):not(aside) .text-\[\#111111\]:not(.bg-\[\#93F051\]):not(.bg-\[\#93F051\] *):not(.bg-\[\#DDF95E\]):not(.bg-\[\#DDF95E\] *):not(.bg-\[\#FA7E61\]):not(.bg-\[\#FA7E61\] *):not(.bg-\[\#FFFFFF\]):not(.bg-\[\#FFFFFF\] *) {
+            color: #FFFFFF !important;
+        }
+        html[data-theme="light"] .bg-\[\#111111\]:not(body):not(header):not(nav):not(main):not(section):not(footer):not(aside) :is(.text-white\/75, .text-white\/70, .text-white\/65, .text-white\/60, .text-white\/55, .text-white\/50):not(.bg-\[\#93F051\] *):not(.bg-\[\#DDF95E\] *):not(.bg-\[\#FA7E61\] *):not(.bg-\[\#FFFFFF\] *):not(.bg-\[\#F2F2F2\] *),
+        html[data-theme="light"] article[onclick^="openArticleModal"].bg-\[\#1D1D1F\] :is(.text-white\/75, .text-white\/70, .text-white\/65, .text-white\/60, .text-white\/55, .text-white\/50) {
+            color: rgba(255, 255, 255, 0.78) !important;
+        }
+        html[data-theme="light"] a.bg-\[\#111111\].text-\[\#93F051\],
+        html[data-theme="light"] button.bg-\[\#111111\].text-\[\#93F051\] {
+            color: #93F051 !important;
         }
         html[data-theme="light"] .theme-keep-dark *,
         html[data-theme="light"] button.bg-\[\#111111\] *,
@@ -942,9 +1129,25 @@
         html[data-theme="light"] .theme-keep-dark .text-\[\#93F051\],
         html[data-theme="light"] button.bg-\[\#111111\] .text-\[\#93F051\],
         html[data-theme="light"] a.bg-\[\#111111\] .text-\[\#93F051\],
+        html[data-theme="light"] a.bg-\[\#111111\].text-\[\#93F051\] *,
+        html[data-theme="light"] button.bg-\[\#111111\].text-\[\#93F051\] *,
         html[data-theme="light"] label:has(input:checked) *,
         html[data-theme="light"] article[onclick^="openArticleModal"].bg-\[\#1D1D1F\] .text-\[\#93F051\] {
             color: #93F051 !important;
+        }
+        html[data-theme="light"] button.bg-\[\#111111\].hover\:bg-\[\#93F051\]:hover,
+        html[data-theme="light"] button.bg-\[\#111111\].hover\:bg-\[\#93F051\]:hover *,
+        html[data-theme="light"] a.bg-\[\#111111\].hover\:bg-\[\#93F051\]:hover,
+        html[data-theme="light"] a.bg-\[\#111111\].hover\:bg-\[\#93F051\]:hover * {
+            background-color: #93F051 !important;
+            color: #111111 !important;
+        }
+        html[data-theme="light"] a.hover\:bg-\[\#111111\]:hover,
+        html[data-theme="light"] a.hover\:bg-\[\#111111\]:hover *,
+        html[data-theme="light"] button.hover\:bg-\[\#111111\]:hover,
+        html[data-theme="light"] button.hover\:bg-\[\#111111\]:hover * {
+            background-color: #111111 !important;
+            color: #FFFFFF !important;
         }
 
         html[data-theme="light"] .bg-\[\#93F051\] *,
@@ -956,6 +1159,15 @@
         html[data-theme="light"] .bg-\[\#FA7E61\] .bg-\[\#111111\] *,
         html[data-theme="light"] .bg-\[\#DDF95E\] .bg-\[\#111111\] * {
             color: #FFFFFF !important;
+        }
+
+        /* Keep phone numbers, WhatsApp numbers & codes left-to-right even in Arabic (RTL) */
+        [dir="rtl"] a[href^="tel:"],
+        [dir="rtl"] a[href*="wa.me"],
+        [dir="rtl"] #caseTrackingCode,
+        [dir="rtl"] .ltr-isolate {
+            direction: ltr;
+            unicode-bidi: isolate;
         }
     </style>
 </head>
@@ -998,36 +1210,35 @@
 
     <!-- Native Mobile App Bottom Navigation Bar (< lg: iOS / Android Thumb Zone) -->
     <nav id="mobileAppTabBar" aria-label="Mobile App-Navigation" class="lg:hidden fixed fixed-gpu bottom-0 inset-x-0 z-50 theme-chrome bg-[#111111]/95 backdrop-blur-xl border-t border-white/10 shadow-[0_-10px_30px_rgba(0,0,0,0.28)] mobile-tabbar-safe transition-colors duration-200">
-        <div class="grid grid-cols-5 items-end max-w-lg mx-auto pt-1.5">
+        <div class="grid grid-cols-5 items-center max-w-lg mx-auto pt-1.5">
             <a href="#top" data-tab-target="top" class="mobile-tab-item is-active flex flex-col items-center justify-center gap-0.5 py-1 text-[10px] font-medium text-white/65 hover:text-[#93F051] transition">
-                <i class="hgi hgi-stroke hgi-home-01 text-[19px] leading-none"></i>
+                <span class="relative inline-flex items-center justify-center h-5"><i class="hgi hgi-stroke hgi-home-01 text-[20px] leading-none"></i></span>
                 <span class="truncate max-w-[60px]">Start</span>
                 <span class="mobile-tab-dot w-1 h-1 rounded-full bg-current opacity-0 transition"></span>
             </a>
             <a href="#hizmetler" data-tab-target="hizmetler" class="mobile-tab-item flex flex-col items-center justify-center gap-0.5 py-1 text-[10px] font-medium text-white/65 hover:text-[#93F051] transition">
-                <i class="hgi hgi-stroke hgi-grid-view text-[19px] leading-none"></i>
+                <span class="relative inline-flex items-center justify-center h-5"><i class="hgi hgi-stroke hgi-grid-view text-[20px] leading-none"></i></span>
                 <span class="truncate max-w-[60px]">Leistungen</span>
                 <span class="mobile-tab-dot w-1 h-1 rounded-full bg-current opacity-0 transition"></span>
             </a>
-            <a href="#vaka-bildir" data-tab-target="vaka-bildir" class="mobile-tab-item flex flex-col items-center justify-center -mt-3">
-                <span class="inline-flex items-center justify-center w-11 h-11 rounded-2xl bg-[#93F051] text-[#111111] shadow-[0_8px_20px_rgba(147,240,81,0.35)] border-2 border-[#111111]/15 active:scale-95 transition">
-                    <i class="hgi hgi-stroke hgi-shield-02 text-[20px] leading-none"></i>
-                </span>
-                <span class="mt-0.5 text-[10px] font-semibold text-[#FFFFFF] truncate max-w-[64px]">Angebot</span>
+            <a href="#vaka-bildir" data-tab-target="vaka-bildir" class="mobile-tab-item flex flex-col items-center justify-center gap-0.5 py-1 text-[10px] font-medium text-white/65 hover:text-[#93F051] transition">
+                <span class="relative inline-flex items-center justify-center h-5"><i class="hgi hgi-stroke hgi-shield-02 text-[20px] leading-none"></i></span>
+                <span class="truncate max-w-[64px]">Angebot</span>
+                <span class="mobile-tab-dot w-1 h-1 rounded-full bg-current opacity-0 transition"></span>
             </a>
             <a href="#magaza" data-tab-target="magaza" class="mobile-tab-item relative flex flex-col items-center justify-center gap-0.5 py-1 text-[10px] font-medium text-white/65 hover:text-[#93F051] transition">
-                <div class="relative inline-flex">
-                    <i class="hgi hgi-stroke hgi-shopping-bag-02 text-[19px] leading-none"></i>
+                <span class="relative inline-flex items-center justify-center h-5">
+                    <i class="hgi hgi-stroke hgi-shopping-bag-02 text-[20px] leading-none"></i>
                     <span id="mobileTabCartBadge" class="hidden absolute -top-1.5 -right-2.5 min-w-[16px] h-4 px-1 rounded-full bg-[#FA7E61] text-[#111111] text-[9px] font-bold flex items-center justify-center leading-none">0</span>
-                </div>
+                </span>
                 <span class="truncate max-w-[60px]">Shop</span>
                 <span class="mobile-tab-dot w-1 h-1 rounded-full bg-current opacity-0 transition"></span>
             </a>
             <a href="https://wa.me/905326667749?text=Merhaba%2C%20DAT%20Dedektiflik%20hakk%C4%B1nda%20gizli%20dan%C4%B1%C5%9Fmanl%C4%B1k%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="mobile-tab-item flex flex-col items-center justify-center gap-0.5 py-1 text-[10px] font-medium text-white/65 hover:text-[#93F051] transition">
-                <div class="relative inline-flex">
-                    <i class="hgi hgi-stroke hgi-whatsapp text-[19px] leading-none text-[#93F051]"></i>
+                <span class="relative inline-flex items-center justify-center h-5">
+                    <i class="hgi hgi-stroke hgi-whatsapp text-[20px] leading-none text-[#93F051]"></i>
                     <span class="w-1.5 h-1.5 rounded-full bg-[#93F051] pulse-dot absolute -top-0.5 -right-1"></span>
-                </div>
+                </span>
                 <span class="truncate max-w-[60px]">WhatsApp</span>
                 <span class="mobile-tab-dot w-1 h-1 rounded-full bg-current opacity-0 transition"></span>
             </a>
@@ -3002,7 +3213,99 @@
                     </div>
                 </div>
 
-                <!-- Press & Archive 18-Photo Grid -->
+                <!-- Featured Press & Briefing Video Archive -->
+                <div id="video-arsivi">
+                    <div class="flex flex-col lg:flex-row items-center lg:items-end justify-between gap-4 mb-6 sm:mb-8 text-center lg:text-left rtl:lg:text-right">
+                        <div class="space-y-3">
+                            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#1D1D1F] text-xs font-medium text-[#93F051] border border-white/10">
+                                <i class="hgi hgi-stroke hgi-camera-01 w-3.5 h-3.5"></i>
+                                <span>VIDEOARCHIV • PRESSE &amp; BRIEFINGS</span>
+                            </div>
+                            <h2 class="apple-heading text-3xl sm:text-4xl font-medium text-[#FFFFFF]">
+                                Auszeichnungen, TV-Auftritte &amp; Briefings im Video
+                            </h2>
+                            <p class="text-sm sm:text-[15px] text-white/70 font-regular max-w-2xl mx-auto lg:mx-0">
+                                Ausgewählte Videoaufnahmen von Preisverleihungen und TV-Interviews bis zu Familienschutz-Briefings und WPYB-Kampagnen. (Zum Abspielen anklicken).
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                        <div onclick="openVideoModal(&#x27;assets/videos/yilin-enleri-odul-toreni.mp4&#x27;, &#x27;Yılın En\&#x27;leri Ödül Töreni — DAT Group &amp; Ümit Hakan Karakaya Sahne Ödül Takdimi&#x27;, &#x27;assets/videos/yilin-enleri-odul-toreni-poster.jpg&#x27;)" class="group rounded-[22px] bg-[#1D1D1F] border border-white/10 hover:border-[#93F051]/50 overflow-hidden cursor-pointer transition flex flex-col">
+                            <div class="relative aspect-[4/3] bg-[#0B0B0C] overflow-hidden">
+                                <img src="../assets/videos/yilin-enleri-odul-toreni-poster.jpg" loading="lazy" decoding="async" alt="Yılın En&#x27;leri Ödül Töreni Video Kaydı" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-black/20 to-transparent"></div>
+                                <span class="theme-keep-dark theme-keep-lime absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#111111]/85 backdrop-blur-md text-[#93F051] border border-white/10 font-mono text-[10px] font-medium">PREISVERLEIHUNG</span>
+                                <span class="theme-keep-dark theme-keep-light absolute top-3 right-3 px-2 py-0.5 rounded-full bg-[#111111]/85 backdrop-blur-md text-white font-mono text-[10px] font-medium">0:34</span>
+                                <span class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                    <span class="w-12 h-12 rounded-full bg-[#93F051] text-[#111111] shadow-[0_8px_24px_rgba(0,0,0,0.45)] flex items-center justify-center group-hover:scale-110 transition">
+                                        <svg class="w-5 h-5 ml-0.5" viewbox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v14l11-7-11-7z" /></svg>
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="p-4 sm:p-5 space-y-1 flex-1 flex flex-col justify-center">
+                                <h3 class="text-sm font-medium text-[#FFFFFF] group-hover:text-[#93F051] transition">Best of the Year Gala — Bühnenaufnahme</h3>
+                                <p class="text-[12.5px] sm:text-[13px] text-white/65 font-regular leading-relaxed">Übergabe der Kristall-Trophäe als erfolgreiches Ermittlungsunternehmen des Jahres an Gründer Ümit Hakan Karakaya.</p>
+                            </div>
+                        </div>
+
+                        <div onclick="openVideoModal(&#x27;assets/videos/kanal-c-her-insan-bir-dunya.mp4&#x27;, &#x27;Kanal C — Her İnsan Bir Dünya: Ümit Hakan Karakaya Özel Röportajı&#x27;, &#x27;assets/videos/kanal-c-her-insan-bir-dunya-poster.jpg&#x27;)" class="group rounded-[22px] bg-[#1D1D1F] border border-white/10 hover:border-[#93F051]/50 overflow-hidden cursor-pointer transition flex flex-col">
+                            <div class="relative aspect-[4/3] bg-[#0B0B0C] overflow-hidden">
+                                <img src="../assets/videos/kanal-c-her-insan-bir-dunya-poster.jpg" loading="lazy" decoding="async" alt="Kanal C Ümit Hakan Karakaya Röportajı" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-black/20 to-transparent"></div>
+                                <span class="theme-keep-dark theme-keep-lime absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#111111]/85 backdrop-blur-md text-[#93F051] border border-white/10 font-mono text-[10px] font-medium">KANAL C TV</span>
+                                <span class="theme-keep-dark theme-keep-light absolute top-3 right-3 px-2 py-0.5 rounded-full bg-[#111111]/85 backdrop-blur-md text-white font-mono text-[10px] font-medium">1:44</span>
+                                <span class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                    <span class="w-12 h-12 rounded-full bg-[#93F051] text-[#111111] shadow-[0_8px_24px_rgba(0,0,0,0.45)] flex items-center justify-center group-hover:scale-110 transition">
+                                        <svg class="w-5 h-5 ml-0.5" viewbox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v14l11-7-11-7z" /></svg>
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="p-4 sm:p-5 space-y-1 flex-1 flex flex-col justify-center">
+                                <h3 class="text-sm font-medium text-[#FFFFFF] group-hover:text-[#93F051] transition">Kanal C — Interview mit Ümit Hakan Karakaya</h3>
+                                <p class="text-[12.5px] sm:text-[13px] text-white/65 font-regular leading-relaxed">Fernsehgespräch moderiert von Cengizhan Kaya über Privatermittlungen und die Plattform WPYB Global.</p>
+                            </div>
+                        </div>
+
+                        <div onclick="openVideoModal(&#x27;assets/videos/cocuk-guvenligi-brifing.mp4&#x27;, &#x27;Çocukların İnternette Güvenliği — Ümit Hakan Karakaya Dijital Koruma Brifingi&#x27;, &#x27;assets/videos/cocuk-guvenligi-brifing-poster.jpg&#x27;)" class="group rounded-[22px] bg-[#1D1D1F] border border-white/10 hover:border-[#93F051]/50 overflow-hidden cursor-pointer transition flex flex-col">
+                            <div class="relative aspect-[4/3] bg-[#0B0B0C] overflow-hidden">
+                                <img src="../assets/videos/cocuk-guvenligi-brifing-poster.jpg" loading="lazy" decoding="async" alt="Çocukların İnternette Güvenliği Video Brifingi" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-black/20 to-transparent"></div>
+                                <span class="theme-keep-dark theme-keep-lime absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#111111]/85 backdrop-blur-md text-[#93F051] border border-white/10 font-mono text-[10px] font-medium">DIGITALE SICHERHEIT</span>
+                                <span class="theme-keep-dark theme-keep-light absolute top-3 right-3 px-2 py-0.5 rounded-full bg-[#111111]/85 backdrop-blur-md text-white font-mono text-[10px] font-medium">0:50</span>
+                                <span class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                    <span class="w-12 h-12 rounded-full bg-[#93F051] text-[#111111] shadow-[0_8px_24px_rgba(0,0,0,0.45)] flex items-center justify-center group-hover:scale-110 transition">
+                                        <svg class="w-5 h-5 ml-0.5" viewbox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v14l11-7-11-7z" /></svg>
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="p-4 sm:p-5 space-y-1 flex-1 flex flex-col justify-center">
+                                <h3 class="text-sm font-medium text-[#FFFFFF] group-hover:text-[#93F051] transition">Leitfaden für Kindersicherheit im Internet</h3>
+                                <p class="text-[12.5px] sm:text-[13px] text-white/65 font-regular leading-relaxed">Praxisnaher Videovortrag für Eltern zum Schutz von Kindern vor Online-Risiken und Cybermobbing.</p>
+                            </div>
+                        </div>
+
+                        <div onclick="openVideoModal(&#x27;assets/videos/wpyb-marka-koruma-kampanyasi.mp4&#x27;, &#x27;WPYB Türkiye — Taklit Ürün Kullanma, Takımına Sahip Çık Kampanyası&#x27;, &#x27;assets/videos/wpyb-marka-koruma-kampanyasi-poster.jpg&#x27;)" class="group rounded-[22px] bg-[#1D1D1F] border border-white/10 hover:border-[#93F051]/50 overflow-hidden cursor-pointer transition flex flex-col">
+                            <div class="relative aspect-[4/3] bg-[#0B0B0C] overflow-hidden">
+                                <img src="../assets/videos/wpyb-marka-koruma-kampanyasi-poster.jpg" loading="lazy" decoding="async" alt="WPYB Marka Koruma Kampanyası Videosu" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-black/20 to-transparent"></div>
+                                <span class="theme-keep-dark theme-keep-lime absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#111111]/85 backdrop-blur-md text-[#93F051] border border-white/10 font-mono text-[10px] font-medium">WPYB TURKEY</span>
+                                <span class="theme-keep-dark theme-keep-light absolute top-3 right-3 px-2 py-0.5 rounded-full bg-[#111111]/85 backdrop-blur-md text-white font-mono text-[10px] font-medium">0:15</span>
+                                <span class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                    <span class="w-12 h-12 rounded-full bg-[#93F051] text-[#111111] shadow-[0_8px_24px_rgba(0,0,0,0.45)] flex items-center justify-center group-hover:scale-110 transition">
+                                        <svg class="w-5 h-5 ml-0.5" viewbox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v14l11-7-11-7z" /></svg>
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="p-4 sm:p-5 space-y-1 flex-1 flex flex-col justify-center">
+                                <h3 class="text-sm font-medium text-[#FFFFFF] group-hover:text-[#93F051] transition">„Keine Fälschungen — Steh zu deinem Verein“</h3>
+                                <p class="text-[12.5px] sm:text-[13px] text-white/65 font-regular leading-relaxed">Gemeinsame Sensibilisierungskampagne von WPYB Türkei und DAT zur Bekämpfung von Produktpiraterie.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Press & Archive 24-Photo Grid -->
                 <div id="basin-galerisi">
                     <div class="flex flex-col lg:flex-row items-center lg:items-end justify-between gap-4 mb-6 sm:mb-8 text-center lg:text-left rtl:lg:text-right">
                         <div class="space-y-3">
@@ -3275,6 +3578,90 @@
                             <div class="p-4 sm:p-5 space-y-1 flex-1 flex flex-col justify-center">
                                 <h3 class="text-sm font-medium text-[#FFFFFF] group-hover:text-[#93F051] transition">Offizielle Zentrale der DAT Privatdetektei</h3>
                                 <p class="text-[12.5px] sm:text-[13px] text-white/65 font-regular leading-relaxed">Seit 2005 garantieren wir reale Büroadressen und schriftliche Dienstverträge.</p>
+                            </div>
+                        </div>
+                        <div onclick="openPhotoModal(&#x27;assets/photos/acum-uluslararasi-sunum.jpg&#x27;, &#x27;ACUM Uluslararası Araştırma &amp; Güvenlik Konferansı — Çalıntı Araç Tespiti Teknik Sunumu&#x27;)" class="group rounded-[22px] bg-[#1D1D1F] border border-white/10 hover:border-[#93F051]/50 overflow-hidden cursor-pointer transition flex flex-col">
+                            <div class="relative aspect-[4/3] bg-[#0B0B0C] overflow-hidden">
+                                <img src="../assets/photos/acum-uluslararasi-sunum.jpg" loading="lazy" decoding="async" alt="ACUM Uluslararası Güvenlik Konferansı Sunumu" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-transparent to-transparent"></div>
+                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#111111]/85 backdrop-blur-md text-[#93F051] border border-white/10 font-mono text-[10px] font-medium">ACUM KONFERENZ</span>
+                                <span class="absolute bottom-3 right-3 w-7 h-7 rounded-full bg-white/15 backdrop-blur text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                                    <i class="hgi hgi-stroke hgi-maximize-01 w-3.5 h-3.5"></i>
+                                </span>
+                            </div>
+                            <div class="p-4 sm:p-5 space-y-1 flex-1 flex flex-col justify-center">
+                                <h3 class="text-sm font-medium text-[#FFFFFF] group-hover:text-[#93F051] transition">Internationale Sicherheitskonferenz ACUM</h3>
+                                <p class="text-[12.5px] sm:text-[13px] text-white/65 font-regular leading-relaxed">Fachvortrag bei ACUM über das Aufspüren entwendeter Mietfahrzeuge und technische Ermittlungsmethoden.</p>
+                            </div>
+                        </div>
+                        <div onclick="openPhotoModal(&#x27;assets/photos/adli-belge-inceleme-kongre.jpg&#x27;, &#x27;1. Uluslararası Özel Dedektifler Kongresi — Adli Belge &amp; İmza Doğrulama Semineri&#x27;)" class="group rounded-[22px] bg-[#1D1D1F] border border-white/10 hover:border-[#93F051]/50 overflow-hidden cursor-pointer transition flex flex-col">
+                            <div class="relative aspect-[4/3] bg-[#0B0B0C] overflow-hidden">
+                                <img src="../assets/photos/adli-belge-inceleme-kongre.jpg" loading="lazy" decoding="async" alt="1. Uluslararası Kongre Adli Belge İnceleme" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-transparent to-transparent"></div>
+                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#111111]/85 backdrop-blur-md text-[#93F051] border border-white/10 font-mono text-[10px] font-medium">URKUNDENPRÜFUNG</span>
+                                <span class="absolute bottom-3 right-3 w-7 h-7 rounded-full bg-white/15 backdrop-blur text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                                    <i class="hgi hgi-stroke hgi-maximize-01 w-3.5 h-3.5"></i>
+                                </span>
+                            </div>
+                            <div class="p-4 sm:p-5 space-y-1 flex-1 flex flex-col justify-center">
+                                <h3 class="text-sm font-medium text-[#FFFFFF] group-hover:text-[#93F051] transition">Kongress — Forensische Dokumenten- &amp; Unterschriftsprüfung</h3>
+                                <p class="text-[12.5px] sm:text-[13px] text-white/65 font-regular leading-relaxed">Fachpanel zur forensischen Echtheitsprüfung von Verträgen, Schriftstücken und Unterschriften.</p>
+                            </div>
+                        </div>
+                        <div onclick="openPhotoModal(&#x27;assets/photos/wpyb-orijinal-urun-calistay.jpg&#x27;, &#x27;WPYB Platformu — Orijinal &amp; Taklit Ürün Saha İnceleme Çalıştayı&#x27;)" class="group rounded-[22px] bg-[#1D1D1F] border border-white/10 hover:border-[#93F051]/50 overflow-hidden cursor-pointer transition flex flex-col">
+                            <div class="relative aspect-[4/3] bg-[#0B0B0C] overflow-hidden">
+                                <img src="../assets/photos/wpyb-orijinal-urun-calistay.jpg" loading="lazy" decoding="async" alt="WPYB Orijinal ve Taklit Ürün Çalıştayı" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-transparent to-transparent"></div>
+                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#111111]/85 backdrop-blur-md text-[#93F051] border border-white/10 font-mono text-[10px] font-medium">WPYB WORKSHOP</span>
+                                <span class="absolute bottom-3 right-3 w-7 h-7 rounded-full bg-white/15 backdrop-blur text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                                    <i class="hgi hgi-stroke hgi-maximize-01 w-3.5 h-3.5"></i>
+                                </span>
+                            </div>
+                            <div class="p-4 sm:p-5 space-y-1 flex-1 flex flex-col justify-center">
+                                <h3 class="text-sm font-medium text-[#FFFFFF] group-hover:text-[#93F051] transition">WPYB Originalitätsprüfungs-Workshop</h3>
+                                <p class="text-[12.5px] sm:text-[13px] text-white/65 font-regular leading-relaxed">Praxisworkshop mit WPYB-Experten zu Seriennummernprüfung, optischer Technik und Produktpiraterie.</p>
+                            </div>
+                        </div>
+                        <div onclick="openPhotoModal(&#x27;assets/photos/turkiye-romanya-isbirligi.jpg&#x27;, &#x27;Uluslararası Özel Dedektifler İş Birliği — Türkiye &amp; Romanya Plaket Takdimi&#x27;)" class="group rounded-[22px] bg-[#1D1D1F] border border-white/10 hover:border-[#93F051]/50 overflow-hidden cursor-pointer transition flex flex-col">
+                            <div class="relative aspect-[4/3] bg-[#0B0B0C] overflow-hidden">
+                                <img src="../assets/photos/turkiye-romanya-isbirligi.jpg" loading="lazy" decoding="async" alt="Türkiye Romanya Özel Dedektifler İş Birliği" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-transparent to-transparent"></div>
+                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#111111]/85 backdrop-blur-md text-[#93F051] border border-white/10 font-mono text-[10px] font-medium">INTERNATIONALE KOOPERATION</span>
+                                <span class="absolute bottom-3 right-3 w-7 h-7 rounded-full bg-white/15 backdrop-blur text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                                    <i class="hgi hgi-stroke hgi-maximize-01 w-3.5 h-3.5"></i>
+                                </span>
+                            </div>
+                            <div class="p-4 sm:p-5 space-y-1 flex-1 flex flex-col justify-center">
+                                <h3 class="text-sm font-medium text-[#FFFFFF] group-hover:text-[#93F051] transition">Türkisch-Rumänische Detektivkooperation</h3>
+                                <p class="text-[12.5px] sm:text-[13px] text-white/65 font-regular leading-relaxed">Gemeinsame Zertifikats- und Plakettenübergabe im Rahmen internationaler Ermittlerverbände.</p>
+                            </div>
+                        </div>
+                        <div onclick="openPhotoModal(&#x27;assets/photos/yuvarlak-masa-3-istanbul.jpg&#x27;, &#x27;İstanbul 3. Yuvarlak Masa Toplantısı — Anadolu Özel Dedektifler Derneği &amp; UÖDED Takdimi&#x27;)" class="group rounded-[22px] bg-[#1D1D1F] border border-white/10 hover:border-[#93F051]/50 overflow-hidden cursor-pointer transition flex flex-col">
+                            <div class="relative aspect-[4/3] bg-[#0B0B0C] overflow-hidden">
+                                <img src="../assets/photos/yuvarlak-masa-3-istanbul.jpg" loading="lazy" decoding="async" alt="3. Yuvarlak Masa Toplantısı İstanbul Sertifika" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-transparent to-transparent"></div>
+                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#111111]/85 backdrop-blur-md text-[#93F051] border border-white/10 font-mono text-[10px] font-medium">3. RUNDER TISCH ISTANBUL</span>
+                                <span class="absolute bottom-3 right-3 w-7 h-7 rounded-full bg-white/15 backdrop-blur text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                                    <i class="hgi hgi-stroke hgi-maximize-01 w-3.5 h-3.5"></i>
+                                </span>
+                            </div>
+                            <div class="p-4 sm:p-5 space-y-1 flex-1 flex flex-col justify-center">
+                                <h3 class="text-sm font-medium text-[#FFFFFF] group-hover:text-[#93F051] transition">3. Runder Tisch — Gipfeltreffen Istanbul</h3>
+                                <p class="text-[12.5px] sm:text-[13px] text-white/65 font-regular leading-relaxed">Zertifikatsübergabe beim Istanbuler Forum zu Berufsrecht und Ermittlungen im Sportbereich.</p>
+                            </div>
+                        </div>
+                        <div onclick="openPhotoModal(&#x27;assets/photos/yuvarlak-masa-2-izmir.jpg&#x27;, &#x27;İzmir 2. Yuvarlak Masa Toplantısı — Özel Dedektiflik Meslek Normlarının Oluşturulması&#x27;)" class="group rounded-[22px] bg-[#1D1D1F] border border-white/10 hover:border-[#93F051]/50 overflow-hidden cursor-pointer transition flex flex-col">
+                            <div class="relative aspect-[4/3] bg-[#0B0B0C] overflow-hidden">
+                                <img src="../assets/photos/yuvarlak-masa-2-izmir.jpg" loading="lazy" decoding="async" alt="2. Yuvarlak Masa Toplantısı İzmir Çalıştayı" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-transparent to-transparent"></div>
+                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#111111]/85 backdrop-blur-md text-[#93F051] border border-white/10 font-mono text-[10px] font-medium">2. RUNDER TISCH IZMIR</span>
+                                <span class="absolute bottom-3 right-3 w-7 h-7 rounded-full bg-white/15 backdrop-blur text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                                    <i class="hgi hgi-stroke hgi-maximize-01 w-3.5 h-3.5"></i>
+                                </span>
+                            </div>
+                            <div class="p-4 sm:p-5 space-y-1 flex-1 flex flex-col justify-center">
+                                <h3 class="text-sm font-medium text-[#FFFFFF] group-hover:text-[#93F051] transition">Gipfel für Berufsnormen in Izmir</h3>
+                                <p class="text-[12.5px] sm:text-[13px] text-white/65 font-regular leading-relaxed">Gemeinsamer Kongress von UÖDED und dem Anatolischen Detektivverband zur Festlegung von Berufsnormen.</p>
                             </div>
                         </div>
                     </div>
@@ -3864,11 +4251,11 @@
                             <i class="hgi hgi-stroke hgi-instagram w-3.5 h-3.5 shrink-0"></i>
                             <span>Instagram (@datdedektiflik)</span>
                         </a>
-                        <a href="https://www.facebook.com/dat.dedektif" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-full bg-[#1D1D1F] text-[#FFFFFF] text-[11px] font-medium border border-white/10 hover:border-[#93F051]/60 transition inline-flex items-center gap-1.5">
+                        <a href="https://www.facebook.com/DatDedektiflik/?locale=tr_TR" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-full bg-[#1D1D1F] text-[#FFFFFF] text-[11px] font-medium border border-white/10 hover:border-[#93F051]/60 transition inline-flex items-center gap-1.5">
                             <i class="hgi hgi-stroke hgi-facebook-02 w-3.5 h-3.5 text-[#93F051]"></i>
                             <span>Facebook</span>
                         </a>
-                        <a href="https://twitter.com/DatDedektif" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-full bg-[#1D1D1F] text-[#FFFFFF] text-[11px] font-medium border border-white/10 hover:border-[#93F051]/60 transition inline-flex items-center gap-1.5">
+                        <a href="https://x.com/datdedektif" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-full bg-[#1D1D1F] text-[#FFFFFF] text-[11px] font-medium border border-white/10 hover:border-[#93F051]/60 transition inline-flex items-center gap-1.5">
                             <i class="hgi hgi-stroke hgi-new-twitter w-3.5 h-3.5 text-[#93F051]"></i>
                             <span>Twitter / X</span>
                         </a>
@@ -3986,8 +4373,8 @@
                     <span>Im Elsa Fall-Panel ansehen</span>
                 </a>
             </div>
-            <button onclick="closeSuccessModal()" class="w-full py-3 bg-[#111111] hover:bg-[#242426] text-[#FFFFFF] rounded-full font-medium text-xs tracking-tight transition">
-                Verstanden / Schließen
+            <button type="button" onclick="closeSuccessModal()" class="w-full py-3 bg-[#111111] hover:bg-[#93F051] text-[#FFFFFF] hover:text-[#111111] rounded-full font-medium text-xs tracking-tight transition">
+                <span>Verstanden / Schließen</span>
             </button>
         </div>
     </div>
@@ -4003,6 +4390,7 @@
             </div>
             <div class="rounded-[20px] overflow-hidden bg-[#0B0B0C] max-h-[75vh] flex items-center justify-center">
                 <img decoding="async" id="photoModalImg" src="" alt="DAT Dedektiflik Görsel" class="max-h-[75vh] w-auto object-contain">
+                <video id="photoModalVideo" controls playsinline preload="metadata" class="hidden max-h-[75vh] w-full max-w-3xl object-contain rounded-[16px] bg-[#000000]"></video>
             </div>
         </div>
     </div>
@@ -4027,10 +4415,10 @@
             </div>
             <div class="pt-2 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-black/[0.08]">
                 <a href="https://wa.me/905326667749" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-5 py-3 rounded-full bg-[#F2F2F2] hover:bg-[#111111] text-[#111111] hover:text-[#FFFFFF] text-xs font-medium transition text-center">
-                    WhatsApp: +90 532 666 77 49
+                    <span>WhatsApp: +90 532 666 77 49</span>
                 </a>
                 <button type="button" onclick="applyArticleService()" class="w-full sm:w-auto px-6 py-3 rounded-full bg-[#111111] hover:bg-[#93F051] text-[#FFFFFF] hover:text-[#111111] text-xs font-medium transition">
-                    Angebot zu diesem Thema anfordern
+                    <span>Angebot zu diesem Thema anfordern</span>
                 </button>
             </div>
         </div>
@@ -4056,7 +4444,7 @@
             </div>
             <div class="pt-3 border-t border-black/[0.08] flex justify-end">
                 <button type="button" onclick="closePrivacyModal()" class="px-6 py-2.5 rounded-full bg-[#111111] hover:bg-[#93F051] text-[#FFFFFF] hover:text-[#111111] text-xs font-medium transition">
-                    Gelesen &amp; Verstanden
+                    <span>Gelesen &amp; Verstanden</span>
                 </button>
             </div>
         </div>
@@ -4203,7 +4591,7 @@
             <div id="legalModalBody" class="space-y-3.5 text-sm sm:text-[15px] text-[#3A3E42] leading-relaxed font-regular"></div>
             <div class="pt-3 border-t border-black/[0.08] flex justify-end">
                 <button type="button" onclick="closeLegalModal()" class="px-6 py-2.5 rounded-full bg-[#111111] hover:bg-[#93F051] text-[#FFFFFF] hover:text-[#111111] text-xs font-medium transition">
-                    Gelesen &amp; Verstanden
+                    <span>Gelesen &amp; Verstanden</span>
                 </button>
             </div>
         </div>

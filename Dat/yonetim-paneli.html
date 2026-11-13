@@ -349,6 +349,48 @@
 
                     </div>
 
+                    <!-- GMAIL EMAIL DELIVERY & GOOGLE APPS SCRIPT CONNECTION CARD -->
+                    <div id="emailDeliveryCard" class="fynix-card p-5 sm:p-6 space-y-4 border-l-4 border-l-[#9FE870]">
+                        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                            <div class="space-y-1">
+                                <div class="flex flex-wrap items-center gap-2">
+                                    <h3 class="text-sm sm:text-base font-extrabold text-[#062F28]">Gmail Form İletimi (Google Apps Script)</h3>
+                                    <span id="emailWebhookStatusPill" class="px-2.5 py-0.5 rounded-full bg-[#FEF3C7] text-[#92400E] font-mono text-[10px] font-bold">KONTROL EDİLİYOR</span>
+                                </div>
+                                <p id="emailWebhookHelpText" class="text-xs text-[#7B7B7B] leading-relaxed max-w-3xl">
+                                    Üçüncü parti FormSubmit spam filtresine takılmadan tüm formları ve mağaza siparişlerini doğrudan <strong>uhakankarakaya@gmail.com</strong> ve <strong>umithakankarakaya@gmail.com</strong> gelen kutusuna düşürmek için 1 kerelik Google Apps Script Web App adresinizi bağlayın.
+                                </p>
+                                <div id="lastEmailDeliveryLog" class="text-[11px] font-mono text-[#062F28] hidden"></div>
+                            </div>
+                            <div class="flex flex-wrap items-center gap-2 shrink-0">
+                                <button type="button" onclick="copyAppsScriptAndOpen()" class="px-3.5 py-2 rounded-full bg-[#F4F5F7] hover:bg-[#EAF9DE] border border-[#E2E8F0] text-[#062F28] text-xs font-bold transition flex items-center gap-1.5">
+                                    <i class="hgi hgi-stroke hgi-copy-01 w-3.5 h-3.5"></i>
+                                    <span>1. Kodu Kopyala &amp; Google Apps Script'i Aç</span>
+                                </button>
+                                <button type="button" onclick="toggleGasGuide()" class="px-3 py-2 rounded-full bg-[#FFFFFF] hover:bg-[#F4F5F7] border border-[#E2E8F0] text-[#7B7B7B] hover:text-[#062F28] text-xs font-bold transition">
+                                    Nasıl Yapılır?
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="gasSetupGuideBox" class="hidden p-4 rounded-2xl bg-[#F4F5F7] border border-[#E2E8F0] text-xs text-[#062F28] space-y-1.5 leading-relaxed">
+                            <div class="font-extrabold">60 Saniyede Kalıcı Gmail Bağlantısı Adımları:</div>
+                            <div>1. Yukarıdaki <strong>"1. Kodu Kopyala &amp; Google Apps Script'i Aç"</strong> butonuna tıklayın (kod panoya kopyalanır ve <code>script.google.com</code> açılır).</div>
+                            <div>2. Açılan sayfada <strong>Yeni proje</strong> → içindeki her şeyi silip kopyaladığınız kodu yapıştırın (Cmd/Ctrl+V) → 💾 Kaydet.</div>
+                            <div>3. Üst menüden <strong>testWebhookEmail</strong> seçip <strong>Çalıştır</strong>'a basın → çıkan Google ekranında Gmail gönderim iznini onaylayın (İzinler → Gelişmiş → Projeye git → İzin ver).</div>
+                            <div>4. Sağ üstten <strong>Dağıt → Yeni dağıtım</strong> → Tür: <strong>Web uygulaması</strong> → Yürütme: <strong>Ben</strong> → Erişimi olanlar: <strong>Herkes (Anyone)</strong> → <strong>Dağıt</strong> deyip çıkan <code>https://script.google.com/macros/s/.../exec</code> linkini aşağıya yapıştırın.</div>
+                        </div>
+
+                        <form onsubmit="saveAndTestGasWebhook(event)" class="flex flex-col sm:flex-row gap-2.5 items-stretch sm:items-center">
+                            <input type="url" id="gasWebhookUrlInput" placeholder="https://script.google.com/macros/s/.../exec" class="flex-1 px-4 py-2.5 rounded-full bg-[#F4F5F7] border border-[#E2E8F0] focus:border-[#9FE870] focus:bg-[#FFFFFF] text-xs font-mono text-[#062F28] outline-none">
+                            <button type="submit" id="gasTestSaveBtn" class="px-5 py-2.5 rounded-full bg-[#062F28] hover:bg-[#041F1A] text-[#FFFFFF] text-xs font-bold transition flex items-center justify-center gap-1.5 shrink-0">
+                                <i class="hgi hgi-stroke hgi-mail-01 w-3.5 h-3.5 text-[#9FE870]"></i>
+                                <span>2. Bağla &amp; Test Maili Gönder</span>
+                            </button>
+                        </form>
+                        <div id="gasSaveFeedback" class="hidden p-3 rounded-2xl text-xs font-medium leading-relaxed"></div>
+                    </div>
+
                     <!-- 2. Cashflow Hourly Dual-Tone Chart & AI Assistant -->
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
                         
@@ -959,6 +1001,7 @@
         function renderAll(d) {
             if (!d) return;
             renderSystemNotice(d);
+            renderEmailDeliveryCard(d);
             renderTopMetrics(d);
             renderHourlyChart(d);
             renderServiceDonut(d);
@@ -966,6 +1009,120 @@
             filterFullLeads();
             renderAnalyticsTab(d);
             renderLiveFeed(d);
+        }
+
+        function renderEmailDeliveryCard(d) {
+            const pill = document.getElementById('emailWebhookStatusPill');
+            const input = document.getElementById('gasWebhookUrlInput');
+            const logEl = document.getElementById('lastEmailDeliveryLog');
+            const card = document.getElementById('emailDeliveryCard');
+            if (!pill) return;
+
+            if (d.webhookUrl && input && document.activeElement !== input) {
+                input.value = d.webhookUrl;
+            }
+
+            if (d.webhookConfigured) {
+                pill.className = 'px-2.5 py-0.5 rounded-full bg-[#EAF9DE] text-[#062F28] font-mono text-[10px] font-extrabold';
+                pill.textContent = d.webhookSource === 'env' ? '● AKTİF (CLOUDFLARE ENV)' : '● AKTİF (GOOGLE APPS SCRIPT)';
+                if (card) card.style.borderLeftColor = '#9FE870';
+            } else {
+                pill.className = 'px-2.5 py-0.5 rounded-full bg-[#FEF3C7] text-[#92400E] font-mono text-[10px] font-bold';
+                pill.textContent = '⚠ BAĞLI DEĞİL (SADECE FORMSUBMIT YEDEK)';
+                if (card) card.style.borderLeftColor = '#F59E0B';
+            }
+
+            if (logEl) {
+                const st = d.lastEmailStatus;
+                if (st && st.at) {
+                    const dt = new Date(st.at).toLocaleString('tr-TR');
+                    logEl.classList.remove('hidden');
+                    logEl.innerHTML = st.ok
+                        ? `✅ Son mail: <strong>${esc(st.code || '')}</strong> • ${esc(dt)} (${esc(st.provider || 'Gmail')})`
+                        : `❌ Son mail hatası (${esc(st.code || '')} • ${esc(dt)}): <span class="text-[#DC2626]">${esc(st.error || 'Bilinmeyen hata')}</span>`;
+                } else {
+                    logEl.classList.add('hidden');
+                }
+            }
+        }
+
+        function toggleGasGuide() {
+            document.getElementById('gasSetupGuideBox')?.classList.toggle('hidden');
+        }
+
+        async function copyAppsScriptAndOpen() {
+            let code = '';
+            try {
+                const r = await fetch('scripts/google-apps-script-webhook.gs', { cache: 'no-store' });
+                if (r.ok) code = await r.text();
+            } catch (_) {}
+            if (!code) {
+                alert('scripts/google-apps-script-webhook.gs dosyası okunamadı. Masaüstündeki Dat/scripts/google-apps-script-webhook.gs dosyasını kullanabilirsiniz.');
+            } else {
+                try {
+                    await navigator.clipboard.writeText(code);
+                } catch (_) {
+                    const ta = document.createElement('textarea');
+                    ta.value = code;
+                    document.body.appendChild(ta);
+                    ta.select();
+                    document.execCommand('copy');
+                    ta.remove();
+                }
+            }
+            document.getElementById('gasSetupGuideBox')?.classList.remove('hidden');
+            const fb = document.getElementById('gasSaveFeedback');
+            if (fb) {
+                fb.className = 'p-3 rounded-2xl text-xs font-medium bg-[#EAF9DE] text-[#062F28] border border-[#9FE870]';
+                fb.textContent = '✓ Apps Script kodu panoya kopyalandı! Açılan script.google.com sekmesinde yapıştırıp Web App (/exec) olarak dağıtın ve oluşan linki yukarıdaki kutuya yapıştırın.';
+            }
+            window.open('https://script.google.com/home/start', '_blank', 'noopener');
+        }
+
+        async function saveAndTestGasWebhook(e) {
+            e.preventDefault();
+            const input = document.getElementById('gasWebhookUrlInput');
+            const btn = document.getElementById('gasTestSaveBtn');
+            const fb = document.getElementById('gasSaveFeedback');
+            const url = (input?.value || '').trim();
+            if (!url) {
+                if (fb) {
+                    fb.className = 'p-3 rounded-2xl text-xs font-medium bg-[#FEF3C7] text-[#78350F] border border-[#FCD34D]';
+                    fb.textContent = 'Lütfen https://script.google.com/macros/s/.../exec adresini girin.';
+                }
+                return;
+            }
+            const orig = btn.innerHTML;
+            btn.disabled = true;
+            btn.textContent = 'Kaydediliyor & Test Ediliyor...';
+            try {
+                const res = await fetch('/api/analytics', {
+                    method: 'POST',
+                    headers: adminHeaders({ 'Content-Type': 'application/json' }),
+                    body: JSON.stringify({ type: 'test_email_webhook', webhookUrl: url })
+                });
+                const data = await res.json().catch(() => ({}));
+                if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
+                const tr = data.testResult || {};
+                if (fb) {
+                    if (tr.ok) {
+                        fb.className = 'p-3 rounded-2xl text-xs font-bold bg-[#EAF9DE] text-[#062F28] border border-[#9FE870]';
+                        fb.textContent = '✅ BAŞARILI! Bağlantı kaydedildi ve test e-postası Google Apps Script üzerinden uhakankarakaya@gmail.com + umithakankarakaya@gmail.com adreslerine gönderildi. Gelen kutunuzu kontrol edin!';
+                    } else {
+                        fb.className = 'p-3 rounded-2xl text-xs font-bold bg-[#FEE2E2] text-[#991B1B] border border-[#FCA5A5]';
+                        fb.textContent = `❌ Google Apps Script yanıt hatası: ${tr.error || 'Bilinmeyen hata'}`;
+                    }
+                }
+                await loadAllData();
+            } catch (err) {
+                if (fb) {
+                    fb.className = 'p-3 rounded-2xl text-xs font-bold bg-[#FEE2E2] text-[#991B1B] border border-[#FCA5A5]';
+                    fb.textContent = `❌ Hata: ${err?.message || 'Sunucuya ulaşılamadı'}`;
+                }
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = orig;
+            }
         }
 
         // ---------- notices about data reliability ----------

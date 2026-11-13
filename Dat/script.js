@@ -481,8 +481,8 @@ function prefillService(serviceValue) {
 const GOOGLE_APPS_SCRIPT_WEBHOOK_URL = "";
 
 const FORM_RECIPIENT_ENDPOINTS = [
-    "https://formsubmit.co/ajax/umithakankarakaya@gmail.com",
-    "https://formsubmit.co/ajax/uhakankarakaya@gmail.com"
+    { label: "umithakankarakaya@gmail.com", url: "https://formsubmit.co/ajax/umithakankarakaya@gmail.com" },
+    { label: "uhakankarakaya@gmail.com", url: "https://formsubmit.co/ajax/uhakankarakaya@gmail.com" }
 ];
 
 async function _sendViaGoogleAppsScript(webhookUrl, payload, networkTimeoutMs = 12000) {
@@ -512,7 +512,7 @@ async function _sendViaGoogleAppsScript(webhookUrl, payload, networkTimeoutMs = 
     }
 }
 
-async function _sendFormPayload(payload, networkTimeoutMs = 60000) {
+async function _sendFormPayload(payload, networkTimeoutMs = 45000, serverRelayPromise = null) {
     const preErrors = [];
     const webhookUrl = typeof GOOGLE_APPS_SCRIPT_WEBHOOK_URL === "string"
         ? GOOGLE_APPS_SCRIPT_WEBHOOK_URL.trim()
@@ -523,6 +523,7 @@ async function _sendFormPayload(payload, networkTimeoutMs = 60000) {
             await _sendViaGoogleAppsScript(webhookUrl, payload, Math.max(networkTimeoutMs, 20000));
             return {
                 ok: true,
+                viaGas: true,
                 deliveredCount: FORM_RECIPIENT_ENDPOINTS.length,
                 totalCount: FORM_RECIPIENT_ENDPOINTS.length,
                 errors: []
@@ -532,20 +533,38 @@ async function _sendFormPayload(payload, networkTimeoutMs = 60000) {
         }
     }
 
-    const body = JSON.stringify(payload);
-    const keepaliveAllowed = body.length < 60000;
-    const results = await Promise.allSettled(FORM_RECIPIENT_ENDPOINTS.map(async (url) => {
+    const bodyObj = {
+        ...payload,
+        email: payload.email || "form-bildirimi@datdedektiflik.com",
+        _url: window.location.href
+    };
+    const body = JSON.stringify(bodyObj);
+
+    const serverRelay = serverRelayPromise
+        ? await Promise.resolve(serverRelayPromise).catch(() => null)
+        : null;
+
+    if (serverRelay && serverRelay.emailForwarded === true) {
+        return {
+            ok: true,
+            viaGas: true,
+            deliveredCount: FORM_RECIPIENT_ENDPOINTS.length,
+            totalCount: FORM_RECIPIENT_ENDPOINTS.length,
+            errors: []
+        };
+    }
+
+    const formSubmitPromise = Promise.allSettled(FORM_RECIPIENT_ENDPOINTS.map(async (ep) => {
         const controller = new AbortController();
         const timer = setTimeout(() => controller.abort(), networkTimeoutMs);
         try {
-            const res = await fetch(url, {
+            const res = await fetch(ep.url, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                     "Accept": "application/json"
                 },
                 body,
-                keepalive: keepaliveAllowed,
                 signal: controller.signal
             });
             let data = null;
@@ -556,30 +575,38 @@ async function _sendFormPayload(payload, networkTimeoutMs = 60000) {
             if (!res.ok || rejectedByProvider) {
                 throw new Error((data && data.message) || `HTTP ${res.status}`);
             }
-            return (data && data.message) || "ok";
+            return ep.label;
+        } catch (err) {
+            const msg = err?.message || "Ağ hatası";
+            if (/needs activation/i.test(msg)) {
+                throw new Error(`${ep.label} için FormSubmit aktivasyon linkine (Activate Form) tıklanmamış`);
+            }
+            throw new Error(`${ep.label}: ${msg}`);
         } finally {
             clearTimeout(timer);
         }
     }));
 
-    const delivered = results.filter((r) => r.status === "fulfilled");
+    const results = await formSubmitPromise;
+
+    if (serverRelay && serverRelay.emailError) {
+        preErrors.push(`Apps Script: ${serverRelay.emailError}`);
+    }
+
+    const delivered = results.filter((r) => r.status === "fulfilled").map((r) => r.value);
     const errors = [
         ...preErrors,
         ...results
             .filter((r) => r.status === "rejected")
-            .map((r) => {
-                const msg = r.reason?.message || "Ağ hatası";
-                if (/needs activation/i.test(msg)) {
-                    return "Gmail aktivasyonu bekliyor (FormSubmit onay e-postasındaki Activate Form linkine tıklayın)";
-                }
-                return msg;
-            })
+            .map((r) => r.reason?.message || "Ağ hatası")
     ];
 
     return {
         ok: delivered.length > 0,
+        viaGas: false,
         deliveredCount: delivered.length,
         totalCount: FORM_RECIPIENT_ENDPOINTS.length,
+        deliveredTo: delivered,
         errors
     };
 }
@@ -588,21 +615,24 @@ let _lastCaseSubmitAt = 0;
 function _renderDeliveryStatus(delivery) {
     const statusBox = document.getElementById('formDeliveryStatus');
     if (!statusBox) return;
-    statusBox.classList.remove('hidden', 'bg-[#93F051]/20', 'border-[#15803D]/30', 'dark:border-[#93F051]/40', 'text-[#111111]', 'dark:text-[#FFFFFF]', 'bg-[#FA7E61]/20', 'border-[#FA7E61]/40', 'dark:border-[#FA7E61]/50');
+    statusBox.classList.remove('hidden', 'bg-[#93F051]/20', 'border-[#15803D]/30', 'text-[#111111]', 'bg-[#FA7E61]/20', 'border-[#FA7E61]/40');
     if (delivery && delivery.pending) {
-        statusBox.classList.add('bg-[#93F051]/20', 'border-[#15803D]/30', 'dark:border-[#93F051]/40', 'text-[#111111]', 'dark:text-[#FFFFFF]');
-        statusBox.textContent = '⏳ Form yönetim paneline kaydedildi; e-posta sunucusu arka planda gönderimi tamamlıyor (10–30 sn sürebilir)...';
+        statusBox.classList.add('bg-[#93F051]/20', 'border-[#15803D]/30', 'text-[#111111]');
+        statusBox.textContent = '⏳ Form yönetim paneline kaydedildi; e-posta gönderimi doğrulanıyor...';
+    } else if (delivery && delivery.viaGas && delivery.ok) {
+        statusBox.classList.add('bg-[#93F051]/20', 'border-[#15803D]/30', 'text-[#111111]');
+        statusBox.textContent = '✓ E-posta doğrudan Gmail üzerinden iletildi (Google Apps Script → her 2 alıcı).';
     } else if (delivery && delivery.ok && delivery.deliveredCount === delivery.totalCount) {
-        statusBox.classList.add('bg-[#93F051]/20', 'border-[#15803D]/30', 'dark:border-[#93F051]/40', 'text-[#111111]', 'dark:text-[#FFFFFF]');
-        statusBox.textContent = `✓ E-posta sunucusu teslimatı onayladı (${delivery.deliveredCount}/${delivery.totalCount} alıcı).`;
+        statusBox.classList.add('bg-[#93F051]/20', 'border-[#15803D]/30', 'text-[#111111]');
+        statusBox.textContent = `✓ E-posta FormSubmit sunucusuna teslim edildi (${delivery.deliveredCount}/${delivery.totalCount} alıcı). Gelen kutusunda görünmezse Spam/Tanıtımlar klasörünü kontrol edin.`;
     } else if (delivery && delivery.ok) {
-        const errInfo = (delivery.errors && delivery.errors[0]) ? ` • Not: ${delivery.errors[0]}` : '';
-        statusBox.classList.add('bg-[#93F051]/20', 'border-[#15803D]/30', 'dark:border-[#93F051]/40', 'text-[#111111]', 'dark:text-[#FFFFFF]');
-        statusBox.textContent = `✓ Talep iletildi (${delivery.deliveredCount}/${delivery.totalCount} alıcı${errInfo}).`;
+        const errInfo = (delivery.errors && delivery.errors.length) ? ` • Eksik: ${delivery.errors.join(' | ')}` : '';
+        statusBox.classList.add('bg-[#93F051]/20', 'border-[#15803D]/30', 'text-[#111111]');
+        statusBox.textContent = `✓ Talep ${delivery.deliveredCount}/${delivery.totalCount} alıcıya iletildi${errInfo}`;
     } else {
-        const reason = (delivery && delivery.errors && delivery.errors[0]) ? delivery.errors[0] : 'Sunucu yanıt vermedi';
-        statusBox.classList.add('bg-[#FA7E61]/20', 'border-[#FA7E61]/40', 'dark:border-[#FA7E61]/50', 'text-[#111111]', 'dark:text-[#FFFFFF]');
-        statusBox.textContent = `⚠ E-posta iletilemedi (${reason}). Yönetim paneline kaydedildi; dilerseniz aşağıdaki WhatsApp/E-Posta butonuyla da iletebilirsiniz.`;
+        const reason = (delivery && delivery.errors && delivery.errors.length) ? delivery.errors.join(' | ') : 'E-posta servisi yapılandırılmadı veya yanıt vermedi';
+        statusBox.classList.add('bg-[#FA7E61]/20', 'border-[#FA7E61]/40', 'text-[#111111]');
+        statusBox.textContent = `⚠ Yönetim paneline kaydedildi fakat e-posta onayı alınamadı (${reason}). Hemen ulaşmak için aşağıdaki WhatsApp veya Doğrudan E-Posta butonunu kullanabilirsiniz.`;
     }
 }
 
@@ -674,8 +704,28 @@ async function handleFormSubmit(e) {
 
     try {
         _lastCaseSubmitAt = Date.now();
-        const deliveryPromise = _sendFormPayload(payload, 60000).catch((err) => ({
+        let leadTrackPromise = Promise.resolve(null);
+        try {
+            if (window.DATAnalytics && typeof window.DATAnalytics.trackLead === 'function') {
+                leadTrackPromise = window.DATAnalytics.trackLead({
+                    code: randomCode,
+                    name: clientName,
+                    contact: clientContact,
+                    category: categoryText,
+                    channel: channelText,
+                    urgency: urgencyVal,
+                    details: caseDetails
+                }) || Promise.resolve(null);
+                window.DATAnalytics.trackEvent('form_submit', {
+                    code: randomCode,
+                    category: categoryText
+                });
+            }
+        } catch (_) {}
+
+        const deliveryPromise = _sendFormPayload(payload, 45000, leadTrackPromise).catch((err) => ({
             ok: false,
+            viaGas: false,
             deliveredCount: 0,
             totalCount: FORM_RECIPIENT_ENDPOINTS.length,
             errors: [err?.message || 'Bağlantı hatası']
@@ -729,27 +779,6 @@ async function handleFormSubmit(e) {
             localStorage.setItem('dat_client_cases', JSON.stringify(savedCases));
         } catch (_) {}
 
-        // Record into Executive Dashboard Leads Store
-        try {
-            if (window.DATAnalytics && typeof window.DATAnalytics.trackLead === 'function') {
-                window.DATAnalytics.trackLead({
-                    code: randomCode,
-                    name: clientName,
-                    contact: clientContact,
-                    category: categoryText,
-                    channel: channelText,
-                    urgency: urgencyVal,
-                    details: caseDetails
-                });
-                window.DATAnalytics.trackEvent('form_submit', {
-                    code: randomCode,
-                    name: clientName,
-                    category: categoryText,
-                    urgency: urgencyVal
-                });
-            }
-        } catch (_) {}
-
         updateSuccessModalTexts(delivery);
 
         const codeElement = document.getElementById('caseTrackingCode');
@@ -778,20 +807,60 @@ function closeSuccessModal() {
     }
 }
 
-// 7. Apple Lightbox Photo Modal
+// 7. Apple Lightbox Photo & Video Modal
 function openPhotoModal(src, caption) {
     const modal = document.getElementById('photoModal');
     const img = document.getElementById('photoModalImg');
+    const vid = document.getElementById('photoModalVideo');
     const cap = document.getElementById('photoModalCaption');
+    if (vid) {
+        try { vid.pause(); } catch (_) {}
+        vid.removeAttribute('src');
+        vid.removeAttribute('poster');
+        vid.load();
+        vid.classList.add('hidden');
+    }
     if (modal && img) {
+        img.classList.remove('hidden');
         img.src = _resolveAssetPath(src);
         if (cap) cap.textContent = caption || 'DAT Dedektiflik Kurumsal Fotoğraf';
         modal.classList.remove('hidden');
     }
 }
 
+function openVideoModal(videoSrc, caption, posterSrc) {
+    const modal = document.getElementById('photoModal');
+    const img = document.getElementById('photoModalImg');
+    const vid = document.getElementById('photoModalVideo');
+    const cap = document.getElementById('photoModalCaption');
+    if (img) {
+        img.classList.add('hidden');
+        img.removeAttribute('src');
+    }
+    if (modal && vid) {
+        if (posterSrc) {
+            vid.poster = _resolveAssetPath(posterSrc);
+        } else {
+            vid.removeAttribute('poster');
+        }
+        vid.src = _resolveAssetPath(videoSrc);
+        vid.classList.remove('hidden');
+        if (cap) cap.textContent = caption || 'DAT Dedektiflik Video Arşivi';
+        modal.classList.remove('hidden');
+        try { vid.play().catch(() => {}); } catch (_) {}
+    }
+}
+
 function closePhotoModal() {
     const modal = document.getElementById('photoModal');
+    const vid = document.getElementById('photoModalVideo');
+    if (vid) {
+        try { vid.pause(); } catch (_) {}
+        vid.removeAttribute('src');
+        vid.removeAttribute('poster');
+        vid.load();
+        vid.classList.add('hidden');
+    }
     if (modal) {
         modal.classList.add('hidden');
     }
@@ -1751,8 +1820,27 @@ async function submitShopOrder(e) {
 
     let orderDelivery = { ok: false, deliveredCount: 0, totalCount: FORM_RECIPIENT_ENDPOINTS.length, errors: [] };
     try {
+        let leadTrackPromise = Promise.resolve(null);
         try {
-            orderDelivery = await _sendFormPayload(payload);
+            if (window.DATAnalytics && typeof window.DATAnalytics.trackLead === 'function') {
+                leadTrackPromise = window.DATAnalytics.trackLead({
+                    code: orderCode,
+                    name: name,
+                    contact: phone,
+                    category: 'DAT Store Donanım Siparişi',
+                    channel: 'DAT Store Sepeti',
+                    urgency: 'high',
+                    details: `${itemsText}\nAdres: ${address}\nToplam: ${formatTL(totalAmount)}`
+                }) || Promise.resolve(null);
+                window.DATAnalytics.trackEvent('form_submit', {
+                    code: orderCode,
+                    category: 'DAT Store Sipariş'
+                });
+            }
+        } catch (_) {}
+
+        try {
+            orderDelivery = await _sendFormPayload(payload, 45000, leadTrackPromise);
         } catch (err) {
             orderDelivery.errors = [err?.message || 'Bağlantı hatası'];
         }
@@ -1957,14 +2045,17 @@ const DATAnalytics = (function() {
             if (leads.length > 300) leads.length = 300;
             localStorage.setItem(LEADS_KEY, JSON.stringify(leads));
 
-            // Also send to analytics API
-            fetch('/api/analytics', {
+            // Also send to analytics API (returns server email relay confirmation if configured)
+            return fetch('/api/analytics', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ type: 'lead_captured', lead }),
-                keepalive: true
-            }).catch(() => {});
-        } catch (_) {}
+                body: JSON.stringify({ type: 'lead_captured', lead })
+            })
+                .then((r) => (r.ok ? r.json().catch(() => null) : null))
+                .catch(() => null);
+        } catch (_) {
+            return Promise.resolve(null);
+        }
     }
 
     function initAutoTracking() {
