@@ -1323,6 +1323,238 @@ document.querySelectorAll('.faq-trigger').forEach(trigger => {
     });
 });
 
+// ==========================================
+// 10.1 AVRUPA MASASI ACCORDION
+// ==========================================
+document.querySelectorAll('.avrupa-trigger').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+        const item = trigger.closest('.avrupa-item');
+        if (!item) return;
+
+        const content = item.querySelector('.avrupa-content');
+        const icon = item.querySelector('.avrupa-icon');
+        const isHidden = content.classList.contains('hidden');
+        
+        document.querySelectorAll('.avrupa-item').forEach(otherItem => {
+            otherItem.querySelector('.avrupa-content')?.classList.add('hidden');
+            const otherIcon = otherItem.querySelector('.avrupa-icon');
+            if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
+        });
+        
+        if (isHidden) {
+            content.classList.remove('hidden');
+            if (icon) icon.style.transform = 'rotate(180deg)';
+        } else {
+            content.classList.add('hidden');
+            if (icon) icon.style.transform = 'rotate(0deg)';
+        }
+    });
+});
+
+// ==========================================
+// 10.2 DEDEKTİFE SOR AI ENGINE
+// ==========================================
+const AI_PRESETS = {
+    'almanya-es-takibi': {
+        query: "Almanya'da yaşıyoruz, eşim her yaz Antalya veya Bodrum'a tek başına gidiyor. Telefonunu benden gizliyor ve şifrelerini değiştirdi. Mahkemede geçerli delil nasıl toplanır?",
+        riskScore: "YÜKSEK RİSK: %88 ŞÜPHE İNDEKSİ",
+        riskColor: "#FA7E61",
+        p1Title: "1. VAKA TEŞHİSİ VE DAVRANIŞ PATERNİ",
+        p1Desc: "Gurbetçi müvekkillerimizin %74'ünde karşılaşılan klasik profil: Yurt dışından Türkiye'ye tek başına tatil/iş gezisi, telefonun ters konması, bildirimlerin gizlenmesi ve iletişimde ani soğukluk. Bu göstergeler sadakatsizlik ve delil karartma riskinin en yüksek olduğu eşiğe işaret etmektedir.",
+        p2Title: "2. HUKUKİ GEÇERLİLİK (ALMANYA FAMFG & TÜRKİYE HMK)",
+        p2Desc: "TMK m.161 (Zina) ve TMK m.166 (Evlilik Birliğinin Temelden Sarsılması) uyarınca kamuya açık alanda tarih-saat damgalı 4K fotoğraf, video ve dedektif gözlem tutanakları mahkemede kesin delil sayılır. Almanya Familiengericht (FamFG § 29) de hukuka uygun temin edilen özel dedektif raporlarını tazminat ve nafaka davalarında doğrudan delil kabul etmektedir.",
+        p3Items: [
+            { bad: true, label: "Asla Yüzleşmeyin", text: "Eşinize şüphenizi belli ederseniz mesajları siler, otel/araç kayıtlarını temizler ve delilleri karartır." },
+            { bad: true, label: "Casus Program Yüklemeyin", text: "Telefona casus yazılım yüklemek suçtur (TCK 134) ve mahkemede aleyhinize döner." },
+            { bad: false, label: "Profesyonel Takip Başlatın", text: "Kişi havalimanına indiği andan itibaren sahada 4K fiziki takiple somut delil toplanmalıdır." }
+        ],
+        waText: "Merhaba Ümit Bey, Dedektife Sor alanından yazıyorum. Almanya/Avrupa bağlantılı eş takibi ve delil toplama hakkında gizli görüşmek istiyorum."
+    },
+    'aldatan-erkek': {
+        query: "Aldatan bir erkeğin veya eşin en belirgin davranış değişiklikleri nelerdir? Şüphem var ama emin olamıyorum.",
+        riskScore: "ORTA-YÜKSEK RİSK: %82 BELİRTİ UYUMU",
+        riskColor: "#FA7E61",
+        p1Title: "1. VAKA TEŞHİSİ VE 12 BELİRTİ ANALİZİ",
+        p1Desc: "Telefonu ters bırakma, şifrelerin sık değişmesi, ani kişisel bakım/parfüm merakı, açıklanamayan nakit harcamalar ve 'iş/arkadaş toplantısı' bahaneleri aldatma şüphesinin %85 doğrulandığı eşiktir. Masum sorulara aşırı savunmacı tepkiler suçluluk psikolojisinin tipik göstergesidir.",
+        p2Title: "2. HUKUKİ İSPAT STANDARTLARI (HMK m.189/199)",
+        p2Desc: "Yalnızca şüphe veya dedikodu mahkemede nafaka, tazminat veya boşanma için yeterli değildir. İhanetin üçüncü bir şahısla fiziksel ve duygusal temas halinde olduğunu gösteren somut kamusal alan fotoğrafı ve konaklama/buluşma tutanakları gereklidir.",
+        p3Items: [
+            { bad: true, label: "Telefonunu Karıştırmayın", text: "Yakalandığınızda güven ihlaliyle suçlanırsınız ve eşiniz daha gizli yöntemlere geçer." },
+            { bad: true, label: "Akraba veya Arkadaşları Araya Sokmayın", text: "Üçüncü şahıslar durumu karşı tarafa sızdırabilir." },
+            { bad: false, label: "Sessizce Tarih ve Saatleri Kaydedin", text: "Şüpheli gidiş-dönüş saatlerini not edip profesyonel dedektif ekibine aktarın." }
+        ],
+        waText: "Merhaba Ümit Bey, eşimin davranış değişiklikleri ve aldatma şüphesi üzerine yapay zekadan analiz aldım. Profesyonel destek için görüşmek istiyorum."
+    },
+    'delil-gecerliligi': {
+        query: "Özel dedektif delilleri Türkiye'de ve Almanya/Fransa/Belçika mahkemelerinde boşanma için delil sayılır mı?",
+        riskScore: "YASAL GÜVENCE: %100 HUKUKİ GEÇERLİLİK",
+        riskColor: "#93F051",
+        p1Title: "1. HUKUKA UYGUN DELİL PRENSİBİ",
+        p1Desc: "Yargıtay Hukuk Genel Kurulu ve AİHS m.8 içtihatları nettir: Kamuya açık yerlerde (kafe, restoran, cadde, havalimanı, otel lobisi) icra edilen fiziki takip ve görsel kayıtlar hukuka uygundur. Özel hayatın gizliliğini ihlal etmeyen bu raporlar mahkemece bağlayıcı takdiri delil kabul edilir.",
+        p2Title: "2. AVRUPA MAHKEMELERİ VE FAMFG § 29 UYGULAMASI",
+        p2Desc: "Alman Aile Mahkemeleri (Familiengericht), Fransız ve Belçika mahkemeleri yurt dışında usulüne uygun toplanmış dedektif raporlarını 'Freie Beweiswürdigung' (delil serbestisi) kapsamında kabul eder. Deliller noter onaylı yeminli tercüme ve apostil şerhi ile sunulur.",
+        p3Items: [
+            { bad: true, label: "Yasak Delilden Kaçının", text: "Gizli ses kaydı, ortam dinlemesi veya hackleme ile elde edilen deliller ceza davasına sebep olur." },
+            { bad: false, label: "Gözlem Raporu Hazırlatın", text: "Sertifikalı dedektifin tarih, saat, mekan ve fotoğraflarla imzaladığı vaka dosyası tartışmasız kabul görür." },
+            { bad: false, label: "Avukatınızla Entegre Çalışın", text: "DAT ekibi dosyanızı doğrudan avukatınızın taleplerine uygun hazırlar." }
+        ],
+        waText: "Merhaba Ümit Bey, dedektif delillerinin mahkemede geçerliliği ve hazırlanacak resmi dosya formatı hakkında bilgi almak istiyorum."
+    },
+    'tatilde-aldatma': {
+        query: "Eşim tek başına veya arkadaş grubuyla Antalya/Bodrum/Çeşme'ye tatile gidiyor, sadakatinden şüpheleniyorum.",
+        riskScore: "ACİL OPERASYONEL RİSK: %91 KRİTİK SEVİYE",
+        riskColor: "#FA7E61",
+        p1Title: "1. TATİL VE SAYFİYE BÖLGESİ VAKA PROFİLİ",
+        p1Desc: "Yaz ve tatil dönemleri aldatma eylemlerinin %65 arttığı en yoğun takvimdir. 'Arkadaşlarla kafa dinleme' bahanesi çoğu vakada üçüncü şahıslarla gizli buluşmaların paravanı olmaktadır. Tatil beldelerinde delil toplamak hız ve yerel mobil ekip gerektirir.",
+        p2Title: "2. SAHA OPERASYONUNUN İŞLEYİŞİ",
+        p2Desc: "Şahıs havalimanına indiği andan itibaren kiralık araç, otel giriş-çıkışları, plaj ve restoran mekanlarında uzaktan profesyonel lenslerle 4K takip edilir. Birlikte konaklanan şahsın kimlik ve görüntü tespiti yapılır.",
+        p3Items: [
+            { bad: true, label: "Sürekli Arayıp Rahatsız Etmeyin", text: "Aşırı arama şüphenizi ele verir ve dikkatleri artırır." },
+            { bad: true, label: "Kendi Başınıza Gitmeyin", text: "Amatörce takip edilmeye çalışıldığında deşifre olunur ve hukuki haklar zedelenir." },
+            { bad: false, label: "Uçuş Bilgisini Bize Bildirin", text: "Uçuş kodu ve otel ismi verildiğinde inişten itibaren kesintisiz takip başlatılır." }
+        ],
+        waText: "Merhaba Ümit Bey, eşimin Türkiye tatili/seyahati sırasında sadakat araştırması ve fiziki takip yaptırmak istiyorum."
+    },
+    'miras-borclu': {
+        query: "Avrupa'da yaşıyorum. Türkiye'de miras kalan gayrimenkuller benden kaçırılıyor veya borçlu şahsın adresini bulamıyorum.",
+        riskScore: "VARLIK İNTİKAL RİSKİ: %85 TESPİT GEREKLİ",
+        riskColor: "#FA7E61",
+        p1Title: "1. MİRAS VE GİZLENEN MAL VARLIĞI TESPİTİ",
+        p1Desc: "Yurt dışındaki akrabaların haberi olmadan vekaletname hileleriyle veya muvazaalı satışlarla malların üçüncü şahıslara devredilmesi çok yaygındır. Gayrimenkul, araç ve şirket paylarının geriye dönük incelenmesi gerekir.",
+        p2Title: "2. HUKUKİ YOL HARİTASI (MURİS MUVAZAASI)",
+        p2Desc: "Tapu ve ticaret sicil araştırmaları ile sahadaki fiili kullanım durumu belgelendiğinde, Türk mahkemelerinde Muris Muvazaası davası açılarak devredilen mallar mirasçılara iade ettirilebilir.",
+        p3Items: [
+            { bad: true, label: "Zaman Kaybetmeyin", text: "Muvazaalı işlemlerden sonra mallar iyi niyetli 4. şahıslara satılırsa geri dönüş zorlaşır." },
+            { bad: false, label: "Kapsamlı İstihbarat Raporu Alın", text: "Varlıkların güncel durumu ve fiili gelir getirisi tespit edilir." },
+            { bad: false, label: "Vekaletsiz Bilgi Alın", text: "Türkiye'ye gelmeden resmi raporunuz hazırlanıp tarafınıza iletilir." }
+        ],
+        waText: "Merhaba Ümit Bey, yurt dışından Türkiye'de miras, tapu ve borçlu varlık tespiti için danışmanlık almak istiyorum."
+    },
+    'nafaka-gelir': {
+        query: "Eski eşim Avrupa mahkemesinde sıfır gelirim var diyor ama Türkiye'de iş yapıyor ve lüks yaşıyor, nafakayı iptal ettirmek istiyorum.",
+        riskScore: "TİCARİ İSTİHBARAT: %94 İPTAL EDİLEBİLİRLİK",
+        riskColor: "#93F051",
+        p1Title: "1. KAYIT DIŞI GELİR VE ŞİRKET TESPİTİ",
+        p1Desc: "Avrupa'da sosyal yardım alıp veya asgari ücret gösterip Türkiye'de kafe, restoran, otel ortaklığı veya gayrimenkul kira geliri elde eden şahıslar için saha dedektifliği kesin çözümdür.",
+        p2Title: "2. AVRUPA MAHKEMESİNE NAFAKA İPTAL DELİLİ",
+        p2Desc: "Şahsın Türkiye'deki ticari faaliyetlerini, işletmenin başında bizzat durduğunu, müşteri karşıladığını ve kullandığı lüks araçları gösteren 4K video ve fotoğraflar, Avrupa mahkemesine sunulduğunda nafaka yükümlülüğü kaldırılır ve geriye dönük tazminat talep edilebilir.",
+        p3Items: [
+            { bad: false, label: "Fiili Denetim Raporu Alın", text: "Şahsın iş yerindeki aktif yöneticilik konumu gün gün tutanak altına alınır." },
+            { bad: false, label: "Resmi Tercüme ile Sunun", text: "Dosya Almanca/Fransızca yeminli tercüme ile ilgili mahkemeye verilir." },
+            { bad: true, label: "Doğrudan Tehdit Etmeyin", text: "Şahsa 'seni şikayet edeceğim' derseniz ortaklık paylarını hemen devreder." }
+        ],
+        waText: "Merhaba Ümit Bey, eski eşimin Türkiye'deki gizli gelir ve ticari varlıklarının tespiti için nafaka davası delili toplamak istiyorum."
+    }
+};
+
+let currentAIPreset = 'almanya-es-takibi';
+
+function selectAIPreset(key) {
+    if (!AI_PRESETS[key]) return;
+    currentAIPreset = key;
+
+    // Toggle button UI
+    document.querySelectorAll('.ai-chip-btn').forEach(btn => {
+        if (btn.getAttribute('data-preset') === key) {
+            btn.classList.add('active', 'bg-[#242426]', 'border-[#93F051]/40');
+            btn.classList.remove('bg-[#1D1D1F]', 'border-white/10');
+            const icon = btn.querySelector('.hgi-arrow-right-01');
+            if (icon) { icon.classList.remove('text-white/40'); icon.classList.add('text-[#93F051]'); }
+        } else {
+            btn.classList.remove('active', 'bg-[#242426]', 'border-[#93F051]/40');
+            btn.classList.add('bg-[#1D1D1F]', 'border-white/10');
+            const icon = btn.querySelector('.hgi-arrow-right-01');
+            if (icon) { icon.classList.add('text-white/40'); icon.classList.remove('text-[#93F051]'); }
+        }
+    });
+
+    const data = AI_PRESETS[key];
+    const input = document.getElementById('aiDetectiveInput');
+    if (input) input.value = data.query;
+
+    renderAIDiagnostic(data);
+}
+
+function renderAIDiagnostic(data) {
+    const riskBadge = document.getElementById('aiRiskBadge');
+    const p1Title = document.getElementById('aiPillar1Title');
+    const p1Desc = document.getElementById('aiPillar1Desc');
+    const p2Title = document.getElementById('aiPillar2Title');
+    const p2Desc = document.getElementById('aiPillar2Desc');
+    const p3Desc = document.getElementById('aiPillar3Desc');
+    const waBtn = document.getElementById('aiWhatsappBtn');
+
+    if (riskBadge) {
+        riskBadge.textContent = data.riskScore;
+        riskBadge.style.borderColor = data.riskColor + '60';
+        riskBadge.style.color = data.riskColor;
+    }
+    if (p1Title) p1Title.textContent = data.p1Title;
+    if (p1Desc) p1Desc.textContent = data.p1Desc;
+    if (p2Title) p2Title.textContent = data.p2Title;
+    if (p2Desc) p2Desc.textContent = data.p2Desc;
+
+    if (p3Desc && data.p3Items) {
+        p3Desc.innerHTML = data.p3Items.map(item => `
+            <li class="flex items-start gap-1.5 ${item.bad ? 'text-rose-300' : 'text-[#93F051]'}">
+                <span>${item.bad ? '✕' : '✓'}</span>
+                <span><strong>${item.label}:</strong> <span class="text-white/80">${item.text}</span></span>
+            </li>
+        `).join('');
+    }
+
+    if (waBtn) {
+        waBtn.href = `https://wa.me/905326667749?text=${encodeURIComponent(data.waText)}`;
+    }
+}
+
+function runDetectiveAI() {
+    const input = document.getElementById('aiDetectiveInput');
+    const query = input ? input.value.trim().toLowerCase() : '';
+    const btn = document.getElementById('aiRunBtn');
+
+    if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = `<span class="inline-block w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin"></span> <span>Vaka Parametreleri Taranıyor...</span>`;
+    }
+
+    setTimeout(() => {
+        if (btn) {
+            btn.disabled = false;
+            btn.innerHTML = `<i class="hgi hgi-stroke hgi-ai-brain-05 w-4 h-4 text-[#111111]"></i> <span>Vakayı Yapay Zeka ile Analiz Et</span>`;
+        }
+
+        let matchedKey = currentAIPreset;
+        if (query.includes('tatil') || query.includes('antalya') || query.includes('bodrum') || query.includes('otel')) {
+            matchedKey = 'tatilde-aldatma';
+        } else if (query.includes('miras') || query.includes('borç') || query.includes('tapu') || query.includes('gayrimenkul')) {
+            matchedKey = 'miras-borclu';
+        } else if (query.includes('nafaka') || query.includes('gelir') || query.includes('şirket')) {
+            matchedKey = 'nafaka-gelir';
+        } else if (query.includes('delil') || query.includes('mahkeme') || query.includes('yasal') || query.includes('geçerli')) {
+            matchedKey = 'delil-gecerliligi';
+        } else if (query.includes('erkek') || query.includes('aldat') || query.includes('belirti') || query.includes('işaret')) {
+            matchedKey = 'aldatan-erkek';
+        } else if (query.includes('almanya') || query.includes('avusturya') || query.includes('fransa') || query.includes('belçika') || query.includes('yurt dışı')) {
+            matchedKey = 'almanya-es-takibi';
+        }
+
+        const data = Object.assign({}, AI_PRESETS[matchedKey]);
+        if (query && query.length > 10) {
+            data.waText = `Merhaba Ümit Bey, web sitenizdeki Yapay Zeka Dedektife Sor alanından yazıyorum.\n\nVakam: "${input.value.trim()}"\n\nBu durum hakkında gizli bir ön görüşme yapmak istiyorum.`;
+        }
+        renderAIDiagnostic(data);
+
+        // Track lead simulation
+        if (window.DATAnalytics) {
+            window.DATAnalytics.trackEvent('ai_detective_analysis', {
+                preset: matchedKey,
+                hasCustomQuery: Boolean(query && query.length > 5)
+            });
+        }
+    }, 900);
+}
+
 window.addEventListener('click', (e) => {
     const successModal = document.getElementById('successModal');
     if (e.target === successModal) {
