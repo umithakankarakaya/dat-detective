@@ -3,8 +3,8 @@ window.DAT_LANGS = window.DAT_LANGS || {};
 window.DAT_LANGS.de = {
     dir: 'ltr',
     meta: {
-        title: 'DAT DETEKTEI — Zertifizierte Privatdetektei | Istanbul • Ankara • Montenegro • USA',
-        description: 'Seit 2005 mit 100 % Beweis-, Gerichtsverwertbarkeits- und Zufriedenheitsgarantie: Ehepartner-Observation, voreheliche Prüfung, Sorgerechts- & Scheidungsbeweise, Schuldner- & Adressermittlung in der Türkei und weltweit.'
+        title: 'DAT Detektei — Zertifizierte Privatdetektei in der Türkei',
+        description: 'Seit 2005 über 4.000 gelöste Fälle: Ehepartner-Observation, voreheliche Prüfung, Sorgerechts- & Scheidungsbeweise und Schuldnerermittlung.'
     },
     htmlBlocks: {
         live_popover_count: '<span data-live-visitors>1</span> Besucher',

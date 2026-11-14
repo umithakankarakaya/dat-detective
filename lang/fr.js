@@ -3,8 +3,8 @@ window.DAT_LANGS = window.DAT_LANGS || {};
 window.DAT_LANGS.fr = {
     dir: 'ltr',
     meta: {
-        title: 'DAT DÉTECTIVE — Agence de Détectives Privés Certifiée | Istanbul • Ankara • Monténégro • États-Unis',
-        description: 'Depuis 2005 avec garantie à 100 % de preuves recevables en justice et de satisfaction : filature conjugale, enquête prénuptiale, preuves de garde et divorce, localisation de débiteurs et d\'adresses en Turquie et dans le monde.'
+        title: 'DAT Détective — Agence de détectives privés certifiée',
+        description: 'Depuis 2005, plus de 4 000 dossiers résolus : filature conjugale, enquête prénuptiale, preuves de garde et divorce, localisation de débiteurs.'
     },
     htmlBlocks: {
         live_popover_count: '<span data-live-visitors>1</span> Visiteur',

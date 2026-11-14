@@ -3,8 +3,8 @@ window.DAT_LANGS = window.DAT_LANGS || {};
 window.DAT_LANGS.me = {
     dir: 'ltr',
     meta: {
-        title: 'DAT DETEKTIV — Sertifikovana Privatna Detektivska Agencija | Istanbul • Ankara • Podgorica • SAD',
-        description: 'Od 2005. godine uz 100% garanciju dokaza, sudske valjanosti i zadovoljstva: praćenje supružnika, predbračne provjere, dokazi za starateljstvo i razvod, pronalazak dužnika i adresa u Turskoj, Crnoj Gori i širom svijeta.'
+        title: 'DAT Detektiv — Sertifikovana privatna detektivska agencija',
+        description: 'Od 2005. preko 4.000 riješenih slučajeva: praćenje supružnika, predbračne provjere, dokazi za starateljstvo i razvod, pronalazak dužnika.'
     },
     htmlBlocks: {
         live_popover_count: '<span data-live-visitors>1</span> posjetilac',

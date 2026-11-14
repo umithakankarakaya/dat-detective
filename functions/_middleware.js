@@ -1,8 +1,6 @@
-const CANONICAL_HOST = 'www.datdedektiflik.com';
+const CANONICAL_HOST = 'www.datdetective.com';
 const REDIRECT_HOSTS = new Set([
-  'datdedektiflik.com',
   'datdetective.com',
-  'www.datdetective.com',
 ]);
 
 // Yayına çıkmaması gereken iç/geliştirme dosyaları (kaynak kod, PIN, build betikleri)

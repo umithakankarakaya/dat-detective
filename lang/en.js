@@ -3,8 +3,8 @@ window.DAT_LANGS = window.DAT_LANGS || {};
 window.DAT_LANGS.en = {
     dir: 'ltr',
     meta: {
-        title: 'DAT DETECTIVE — Certified Private Detective Agency | Istanbul • Ankara • Montenegro • USA',
-        description: 'Serving since 2005 with 100% proof, court-admissible evidence, and satisfaction guarantee: spouse surveillance, pre-marital investigation, child custody & divorce evidence, debtor & address tracing across Turkey and worldwide.'
+        title: 'DAT Detective — Certified Private Detective Agency in Turkey',
+        description: 'Since 2005, 4,000+ solved cases: spouse surveillance, pre-marital checks, custody & divorce evidence and debtor tracing in Turkey and worldwide.'
     },
     htmlBlocks: {
         live_popover_count: '<span data-live-visitors>1</span> Online',
