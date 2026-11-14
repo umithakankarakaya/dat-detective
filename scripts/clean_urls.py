@@ -14,7 +14,7 @@ import os
 import re
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DOMAIN = "https://www.datdedektiflik.com"
+DOMAIN = "https://www.datdetective.com"
 SKIP_DIRS = {"_archive_raw", "node_modules", ".git", "yeni-medya", "Dat Evraklar", "functions", "src"}
 
 # 1) Mutlak site adresleri: https://www.datdedektiflik.com/x/y.html -> /x/y ; /x/index.html -> /x/

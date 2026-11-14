@@ -5,4 +5,4 @@ Disallow: /yonetim
 Disallow: /admin
 Disallow: /api/
 
-Sitemap: https://www.datdedektiflik.com/sitemap.xml
+Sitemap: https://www.datdetective.com/sitemap.xml

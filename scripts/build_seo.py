@@ -15,7 +15,7 @@ import subprocess
 from html.parser import HTMLParser
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DOMAIN = "https://www.datdedektiflik.com"
+DOMAIN = "https://www.datdetective.com"
 TODAY = "2026-11-12"
 
 LANG_CODES = ["en", "de", "fr", "ar", "ru", "me"]
