@@ -78,8 +78,8 @@ async function relayViaFormSubmitServer(payload, targetList = FORMSUBMIT_RECIPIE
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json',
-                    'Origin': 'https://www.datdedektiflik.com',
-                    'Referer': 'https://www.datdedektiflik.com/'
+                    'Origin': 'https://www.datdetective.com',
+                    'Referer': 'https://www.datdetective.com/'
                 },
                 body,
                 signal: controller.signal
@@ -258,7 +258,7 @@ export async function onRequest(context) {
         return new Response(null, {
             status: 204,
             headers: {
-                'Access-Control-Allow-Origin': 'https://www.datdedektiflik.com',
+                'Access-Control-Allow-Origin': 'https://www.datdetective.com',
                 'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
                 'Access-Control-Allow-Headers': 'Content-Type, X-Admin-Pin'
             }
