@@ -16,7 +16,7 @@ from html.parser import HTMLParser
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOMAIN = "https://www.datdetective.com"
-TODAY = "2026-11-12"
+TODAY = "2026-11-14"
 
 LANG_CODES = ["en", "de", "fr", "ar", "ru", "me"]
 OG_LOCALES = {
