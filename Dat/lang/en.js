@@ -3,8 +3,8 @@ window.DAT_LANGS = window.DAT_LANGS || {};
 window.DAT_LANGS.en = {
     dir: 'ltr',
     meta: {
-        title: 'DAT DETECTIVE — Certified Private Detective Agency | Istanbul • Ankara • Montenegro • USA',
-        description: 'Serving since 2005 with 100% proof, court-admissible evidence, and satisfaction guarantee: spouse surveillance, pre-marital investigation, child custody & divorce evidence, debtor & address tracing across Turkey and worldwide.'
+        title: 'DAT Detective — Certified Private Detective Agency in Turkey',
+        description: 'Since 2005, 4,000+ solved cases: spouse surveillance, pre-marital checks, custody & divorce evidence and debtor tracing in Turkey and worldwide.'
     },
     htmlBlocks: {
         live_popover_count: '<span data-live-visitors>1</span> Online',
@@ -461,7 +461,7 @@ window.DAT_LANGS.en = {
         "WhatsApp Danışma Hattı (+90 532 666 77 49)": "WhatsApp Consultation (+90 532 666 77 49)",
         "Doğrudan Telefon Araması (0312 284 02 99)": "Direct Phone Call (+90 312 284 02 99)",
         "Signal / Telegram (Gizli Sohbet)": "Signal / Telegram (Encrypted Chat)",
-        "E-Posta (info@datdedektiflik.com)": "Email (info@datdedektiflik.com)",
+        "E-Posta (info@datdetective.com)": "Email (info@datdetective.com)",
         "TELEFON NUMARANIZ VEYA E-POSTA": "PHONE NUMBER OR EMAIL",
         "+90 5XX XXX XX XX veya e-posta": "+90 / International Phone or Email",
         "OPERASYON BÖLGESİ & ACİLİYET": "OPERATION PRIORITY & URGENCY",
@@ -1116,7 +1116,7 @@ window.DAT_LANGS.en = {
             paragraphs: [
                 '<strong>1. Zero Advertising Trackers:</strong> This website does not use third-party advertising, behavioral profiling, or cross-site tracking cookies.',
                 '<strong>2. Strictly Necessary State:</strong> Only local language selection (<code>dat_site_lang</code>), shopping cart contents (<code>dat_shop_cart_v1</code>), cookie notice acknowledgment (<code>dat_cookie_ack</code>), and an anonymous live session ID are stored locally.',
-                '<strong>3. Control:</strong> You may clear local storage anytime in your browser settings or contact info@datdedektiflik.com.'
+                '<strong>3. Control:</strong> You may clear local storage anytime in your browser settings or contact info@datdetective.com.'
             ]
         }
     }

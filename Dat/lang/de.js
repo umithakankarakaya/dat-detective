@@ -3,8 +3,8 @@ window.DAT_LANGS = window.DAT_LANGS || {};
 window.DAT_LANGS.de = {
     dir: 'ltr',
     meta: {
-        title: 'DAT DETEKTEI — Zertifizierte Privatdetektei | Istanbul • Ankara • Montenegro • USA',
-        description: 'Seit 2005 mit 100 % Beweis-, Gerichtsverwertbarkeits- und Zufriedenheitsgarantie: Ehepartner-Observation, voreheliche Prüfung, Sorgerechts- & Scheidungsbeweise, Schuldner- & Adressermittlung in der Türkei und weltweit.'
+        title: 'DAT Detektei — Zertifizierte Privatdetektei in der Türkei',
+        description: 'Seit 2005 über 4.000 gelöste Fälle: Ehepartner-Observation, voreheliche Prüfung, Sorgerechts- & Scheidungsbeweise und Schuldnerermittlung.'
     },
     htmlBlocks: {
         live_popover_count: '<span data-live-visitors>1</span> Besucher',
@@ -458,7 +458,7 @@ window.DAT_LANGS.de = {
         "WhatsApp Danışma Hattı (+90 532 666 77 49)": "WhatsApp-Beratung (+90 532 666 77 49)",
         "Doğrudan Telefon Araması (0312 284 02 99)": "Direkter Telefonanruf (+90 312 284 02 99)",
         "Signal / Telegram (Gizli Sohbet)": "Signal / Telegram (Verschlüsselt)",
-        "E-Posta (info@datdedektiflik.com)": "E-Mail (info@datdedektiflik.com)",
+        "E-Posta (info@datdetective.com)": "E-Mail (info@datdetective.com)",
         "TELEFON NUMARANIZ VEYA E-POSTA": "TELEFONNUMMER ODER E-MAIL",
         "+90 5XX XXX XX XX veya e-posta": "Telefonnummer oder E-Mail-Adresse",
         "OPERASYON BÖLGESİ & ACİLİYET": "DRINGLICHKEIT & EINSATZPLANUNG",
@@ -1116,7 +1116,7 @@ window.DAT_LANGS.de = {
             paragraphs: [
                 '<strong>1. Keine Werbe-Tracker:</strong> Unsere Website setzt keine Werbe-, Tracking- oder Retargeting-Cookies von Drittanbietern ein.',
                 '<strong>2. Technisch notwendige Daten:</strong> Im lokalen Browserspeicher verbleiben lediglich Sprachwahl (<code>dat_site_lang</code>), Warenkorb (<code>dat_shop_cart_v1</code>), Hinweisbestätigung (<code>dat_cookie_ack</code>) und eine anonyme Sitzungs-ID.',
-                '<strong>3. Kontrolle:</strong> Sie können die Browserdaten jederzeit löschen; Rückfragen bitte an info@datdedektiflik.com.'
+                '<strong>3. Kontrolle:</strong> Sie können die Browserdaten jederzeit löschen; Rückfragen bitte an info@datdetective.com.'
             ]
         }
     }

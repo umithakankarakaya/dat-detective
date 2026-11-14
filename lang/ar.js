@@ -458,7 +458,7 @@ window.DAT_LANGS.ar = {
         "WhatsApp Danışma Hattı (+90 532 666 77 49)": "واتساب الاستشارات: +90 532 666 77 49",
         "Doğrudan Telefon Araması (0312 284 02 99)": "اتصال هاتفي مباشر: +90 312 284 02 99",
         "Signal / Telegram (Gizli Sohbet)": "Signal / Telegram (محادثة سرية)",
-        "E-Posta (info@datdedektiflik.com)": "البريد الإلكتروني: info@datdedektiflik.com",
+        "E-Posta (info@datdetective.com)": "البريد الإلكتروني: info@datdetective.com",
         "TELEFON NUMARANIZ VEYA E-POSTA": "رقم الهاتف أو البريد الإلكتروني",
         "+90 5XX XXX XX XX veya e-posta": "رقم الهاتف أو البريد الإلكتروني",
         "OPERASYON BÖLGESİ & ACİLİYET": "أولوية التنفيذ والاستعجال",
@@ -1117,7 +1117,7 @@ window.DAT_LANGS.ar = {
             paragraphs: [
                 '<strong>1. خالٍ من ملفات التتبع الإعلانية:</strong> لا يستخدم الموقع أي ملفات تتبع تسويقية أو إعلانية تابعة لجهات خارجية.',
                 '<strong>2. التخزين التقني الضروري فقط:</strong> يُحفظ محلياً في المتصفح اختيار اللغة (<code>dat_site_lang</code>)، محتويات السلة (<code>dat_shop_cart_v1</code>)، تأكيد الإشعار (<code>dat_cookie_ack</code>)، ومعرّف جلسة مجهول لعداد الزوار.',
-                '<strong>3. التحكم:</strong> يمكنك مسح التخزين المحلي من إعدادات المتصفح في أي وقت أو مراسلة info@datdedektiflik.com.'
+                '<strong>3. التحكم:</strong> يمكنك مسح التخزين المحلي من إعدادات المتصفح في أي وقت أو مراسلة info@datdetective.com.'
             ]
         }
     }

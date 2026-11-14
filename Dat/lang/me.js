@@ -3,8 +3,8 @@ window.DAT_LANGS = window.DAT_LANGS || {};
 window.DAT_LANGS.me = {
     dir: 'ltr',
     meta: {
-        title: 'DAT DETEKTIV — Sertifikovana Privatna Detektivska Agencija | Istanbul • Ankara • Podgorica • SAD',
-        description: 'Od 2005. godine uz 100% garanciju dokaza, sudske valjanosti i zadovoljstva: praćenje supružnika, predbračne provjere, dokazi za starateljstvo i razvod, pronalazak dužnika i adresa u Turskoj, Crnoj Gori i širom svijeta.'
+        title: 'DAT Detektiv — Sertifikovana privatna detektivska agencija',
+        description: 'Od 2005. preko 4.000 riješenih slučajeva: praćenje supružnika, predbračne provjere, dokazi za starateljstvo i razvod, pronalazak dužnika.'
     },
     htmlBlocks: {
         live_popover_count: '<span data-live-visitors>1</span> posjetilac',
@@ -458,7 +458,7 @@ window.DAT_LANGS.me = {
         "WhatsApp Danışma Hattı (+90 532 666 77 49)": "WhatsApp savjetovanje (+90 532 666 77 49)",
         "Doğrudan Telefon Araması (0312 284 02 99)": "Direktan telefonski poziv (+90 312 284 02 99)",
         "Signal / Telegram (Gizli Sohbet)": "Signal / Telegram (Tajni razgovor)",
-        "E-Posta (info@datdedektiflik.com)": "Email (info@datdedektiflik.com)",
+        "E-Posta (info@datdetective.com)": "Email (info@datdetective.com)",
         "TELEFON NUMARANIZ VEYA E-POSTA": "BROJ TELEFONA ILI EMAIL",
         "+90 5XX XXX XX XX veya e-posta": "Telefon ili email adresa",
         "OPERASYON BÖLGESİ & ACİLİYET": "PRIORITET I HITNOST",
@@ -1116,7 +1116,7 @@ window.DAT_LANGS.me = {
             paragraphs: [
                 '<strong>1. Bez reklamnih kolačića:</strong> Sajt ne koristi marketinške, retargeting niti kolačiće trećih strana.',
                 '<strong>2. Samo neophodni podaci:</strong> Lokalno se čuvaju izbor jezika (<code>dat_site_lang</code>), korpa (<code>dat_shop_cart_v1</code>), potvrda obavještenja (<code>dat_cookie_ack</code>) i anonimni ID sesije.',
-                '<strong>3. Kontrola:</strong> Podatke možete obrisati u pregledaču u bilo kom trenutku ili kontaktirati info@datdedektiflik.com.'
+                '<strong>3. Kontrola:</strong> Podatke možete obrisati u pregledaču u bilo kom trenutku ili kontaktirati info@datdetective.com.'
             ]
         }
     }

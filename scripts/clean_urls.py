@@ -17,7 +17,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOMAIN = "https://www.datdetective.com"
 SKIP_DIRS = {"_archive_raw", "node_modules", ".git", "yeni-medya", "Dat Evraklar", "functions", "src"}
 
-# 1) Mutlak site adresleri: https://www.datdedektiflik.com/x/y.html -> /x/y ; /x/index.html -> /x/
+# 1) Mutlak site adresleri: https://www.datdetective.com/x/y.html -> /x/y ; /x/index.html -> /x/
 ABS_RE = re.compile(re.escape(DOMAIN) + r"/((?:[A-Za-z0-9_\-]+/)*)([A-Za-z0-9_\-]+)\.html(?=[\"'#?<\s)])")
 
 def _abs_sub(m):

@@ -1,0 +1,17 @@
+Dat/
+_archive_raw/
+yeni-medya/
+WhatsApp Video*
+WhatsApp Audio*
+src/
+scripts/
+server.py
+README.md
+style.css
+tailwind.config.js
+DetectiveDashboard.tsx
+*kopya*
+*kopyası*
+.git/
+.gitignore
+.DS_Store

@@ -458,7 +458,7 @@ window.DAT_LANGS.fr = {
         "WhatsApp Danışma Hattı (+90 532 666 77 49)": "Conseil WhatsApp (+90 532 666 77 49)",
         "Doğrudan Telefon Araması (0312 284 02 99)": "Appel téléphonique direct (+90 312 284 02 99)",
         "Signal / Telegram (Gizli Sohbet)": "Signal / Telegram (Messagerie chiffrée)",
-        "E-Posta (info@datdedektiflik.com)": "E-mail (info@datdedektiflik.com)",
+        "E-Posta (info@datdetective.com)": "E-mail (info@datdetective.com)",
         "TELEFON NUMARANIZ VEYA E-POSTA": "TÉLÉPHONE OU E-MAIL",
         "+90 5XX XXX XX XX veya e-posta": "Téléphone ou adresse e-mail",
         "OPERASYON BÖLGESİ & ACİLİYET": "PRIORITÉ & URGENCE",
@@ -1116,7 +1116,7 @@ window.DAT_LANGS.fr = {
             paragraphs: [
                 '<strong>1. Zéro Traceur Publicitaire :</strong> Aucun cookie publicitaire, profilage marketing ou traçage tiers n\'est déployé sur ce site.',
                 '<strong>2. Données Techniques Essentielles :</strong> Seuls votre langue (<code>dat_site_lang</code>), votre panier (<code>dat_shop_cart_v1</code>), la fermeture de ce bandeau (<code>dat_cookie_ack</code>) et un jeton anonyme de présence sont mémorisés localement.',
-                '<strong>3. Contrôle :</strong> Effacez librement le stockage dans votre navigateur ou écrivez à info@datdedektiflik.com.'
+                '<strong>3. Contrôle :</strong> Effacez librement le stockage dans votre navigateur ou écrivez à info@datdetective.com.'
             ]
         }
     }

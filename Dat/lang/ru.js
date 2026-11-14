@@ -3,8 +3,8 @@ window.DAT_LANGS = window.DAT_LANGS || {};
 window.DAT_LANGS.ru = {
     dir: 'ltr',
     meta: {
-        title: 'ДАТ ДЕТЕКТИВ — Сертифицированное детективное агентство | Стамбул • Анкара • Черногория • США',
-        description: 'С 2005 года со 100% гарантией доказательств, законности и результата: проверка верности, добрачный скрининг, дела об опеке и разводе, розыск должников и адресов в Турции и по всему миру.'
+        title: 'ДАТ Детектив — сертифицированное детективное агентство',
+        description: 'С 2005 года более 4000 раскрытых дел: проверка верности, добрачный скрининг, доказательства по опеке и разводу, розыск должников.'
     },
     htmlBlocks: {
         live_popover_count: '<span data-live-visitors>1</span> чел.',
@@ -458,7 +458,7 @@ window.DAT_LANGS.ru = {
         "WhatsApp Danışma Hattı (+90 532 666 77 49)": "WhatsApp (+90 532 666 77 49)",
         "Doğrudan Telefon Araması (0312 284 02 99)": "Прямой звонок (+90 312 284 02 99)",
         "Signal / Telegram (Gizli Sohbet)": "Signal / Telegram (Секретный чат)",
-        "E-Posta (info@datdedektiflik.com)": "Email (info@datdedektiflik.com)",
+        "E-Posta (info@datdetective.com)": "Email (info@datdetective.com)",
         "TELEFON NUMARANIZ VEYA E-POSTA": "ТЕЛЕФОН ИЛИ EMAIL",
         "+90 5XX XXX XX XX veya e-posta": "Телефон или электронная почта",
         "OPERASYON BÖLGESİ & ACİLİYET": "СРОЧНОСТЬ ОПЕРАЦИИ",
@@ -1116,7 +1116,7 @@ window.DAT_LANGS.ru = {
             paragraphs: [
                 '<strong>1. Без рекламных трекеров:</strong> Сайт не использует сторонние рекламные, маркетинговые или ретаргетинговые cookie.',
                 '<strong>2. Только необходимые параметры:</strong> В браузере сохраняются только выбранный язык (<code>dat_site_lang</code>), корзина (<code>dat_shop_cart_v1</code>), закрытие баннера (<code>dat_cookie_ack</code>) и анонимный ID сессии.',
-                '<strong>3. Управление:</strong> Вы в любой момент можете очистить данные в настройках браузера или написать на info@datdedektiflik.com.'
+                '<strong>3. Управление:</strong> Вы в любой момент можете очистить данные в настройках браузера или написать на info@datdetective.com.'
             ]
         }
     }

@@ -561,7 +561,7 @@ async function _sendFormPayload(payload, networkTimeoutMs = 45000, serverRelayPr
 
     const bodyObj = {
         ...payload,
-        email: payload.email || "info@datdedektiflik.com",
+        email: payload.email || "info@datdetective.com",
         _url: window.location.href
     };
     const body = JSON.stringify(bodyObj);
@@ -1943,7 +1943,7 @@ const LEGAL_DOCS_DATA = {
         paragraphs: [
             "<strong>1. Üçüncü Taraf Reklam Çerezi Yoktur:</strong> Web sitemizde kişileri profilleyen pazarlama, yeniden hedefleme (retargeting) veya üçüncü taraf reklam çerezleri kesinlikle kullanılmaz.",
             "<strong>2. Zorunlu Teknik Oturum & Yerel Tercihler:</strong> Ziyaretçinin seçtiği dil tercihi (<code>dat_site_lang</code>), sepet ürünleri (<code>dat_shop_cart_v1</code>), çerez bilgilendirme onayı (<code>dat_cookie_ack</code>) ve IP/kimlik kaydı tutmayan anonim aktif ziyaretçi sayacı oturum kimliği yalnızca tarayıcı belleğinde tutulur.",
-            "<strong>3. Tercih Kontrolü:</strong> Tarayıcı ayarlarınızdan yerel depolamayı istediğiniz zaman temizleyebilir; tüm gizlilik sorularınız için info@datdedektiflik.com üzerinden bizimle iletişime geçebilirsiniz."
+            "<strong>3. Tercih Kontrolü:</strong> Tarayıcı ayarlarınızdan yerel depolamayı istediğiniz zaman temizleyebilir; tüm gizlilik sorularınız için info@datdetective.com üzerinden bizimle iletişime geçebilirsiniz."
         ]
     }
 };

@@ -1,0 +1,88 @@
+/* DAT DEDEKTİFLİK - Custom Noir Theme Stylesheet */
+
+/* Background Grid Pattern */
+.bg-grid {
+    background-size: 40px 40px;
+    background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+}
+
+/* Vignette Dark Corner Effect */
+.vignette {
+    position: absolute;
+    inset: 0;
+    box-shadow: inset 0 0 120px rgba(0, 0, 0, 0.85);
+    pointer-events: none;
+}
+
+/* Confidential Stamp Effect */
+.stamp-confidential {
+    position: absolute;
+    top: 25px;
+    right: -25px;
+    transform: rotate(25deg);
+    color: rgba(220, 38, 38, 0.28);
+    font-size: 1.15rem;
+    font-weight: 900;
+    font-family: 'JetBrains Mono', monospace;
+    border: 3px dashed rgba(220, 38, 38, 0.35);
+    padding: 4px 24px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    border-radius: 4px;
+    z-index: 10;
+}
+
+/* Service Card Subtle Glow on Hover */
+.service-card {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5);
+}
+
+.service-card:hover {
+    box-shadow: 0 12px 30px -4px rgba(220, 38, 38, 0.15);
+}
+
+/* Custom Scrollbar for Noir Feeling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #06080d;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #dc2626;
+}
+
+/* Smooth Accordion Animation */
+.faq-content {
+    transition: all 0.3s ease-in-out;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(180deg);
+    color: #ef4444;
+}
+
+/* Redacted Text Effect */
+.redacted {
+    background-color: #334155;
+    color: transparent;
+    user-select: none;
+    border-radius: 2px;
+    padding: 0 4px;
+    transition: all 0.2s ease;
+}
+
+.redacted:hover {
+    background-color: #dc2626;
+    color: #ffffff;
+}

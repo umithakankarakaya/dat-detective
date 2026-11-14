@@ -63,7 +63,7 @@ const FORMSUBMIT_RECIPIENTS = [
 
 async function relayViaFormSubmitServer(payload, targetList = FORMSUBMIT_RECIPIENTS) {
     const cleanPayload = (payload && typeof payload === 'object') ? { ...payload } : {};
-    if (!cleanPayload.email) cleanPayload.email = 'info@datdedektiflik.com';
+    if (!cleanPayload.email) cleanPayload.email = 'info@datdetective.com';
     const body = JSON.stringify(cleanPayload);
     const deliveredTo = [];
     const errors = [];
@@ -347,7 +347,7 @@ export async function onRequest(context) {
             const relay = await relayViaFormSubmitServer({
                 _subject: 'DAT Dedektiflik — Alıcı Aktivasyon & Doğrulama Testi',
                 name: 'DAT Yönetim Paneli Kontrolü',
-                email: 'info@datdedektiflik.com',
+                email: 'info@datdetective.com',
                 message: `Bu istek ${new Date().toLocaleString('tr-TR', { timeZone: 'Europe/Istanbul' })} tarihinde Yönetim Paneli üzerinden aktivasyon/teslimat doğrulaması için tetiklendi.`
             }, targetList);
             return jsonResponse({ status: 'ok', ...relay });

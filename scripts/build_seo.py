@@ -1105,7 +1105,7 @@ def build_turkish_seo_pages():
                 "url": canonical,
                 "image": f"{DOMAIN}/{pg['image']}",
                 "telephone": "+90-532-666-77-49",
-                "email": "info@datdedektiflik.com",
+                "email": "info@datdetective.com",
                 "founder": {"@type": "Person", "name": "Ümit Hakan Karakaya"},
                 "foundingDate": "2005",
             },
