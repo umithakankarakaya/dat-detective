@@ -453,7 +453,7 @@ function selectSimulatorCase(caseKey) {
         if (btn.getAttribute('data-sim') === currentSimTabKey) {
             btn.className = "sim-btn w-full text-left px-4 py-3.5 rounded-2xl bg-[#FA7E61] text-[#111111] font-medium text-xs sm:text-sm flex items-center justify-between transition";
         } else {
-            btn.className = "sim-btn w-full text-left px-4 py-3.5 rounded-2xl bg-[#1D1D1F] hover:bg-[#2A2A2D] text-[#FFFFFF] border border-white/10 font-regular text-xs sm:text-sm flex items-center justify-between transition";
+            btn.className = "sim-btn w-full text-left px-4 py-3.5 rounded-2xl bg-[#1D1D1F] hover:bg-[#2A2A2D] text-[#FFFFFF] border border-black/[0.08] font-regular text-xs sm:text-sm flex items-center justify-between transition";
         }
     });
 
@@ -1567,8 +1567,8 @@ function resetAIChat() {
     container.innerHTML = `
         <div class="flex items-start gap-3 text-left animate-fadeIn">
             <img src="assets/photos/elsa-dedektif-asistan.jpg" alt="Elsa & Ümit Hakan Karakaya" class="w-8 h-8 rounded-full border border-[#93F051]/50 object-cover object-top shrink-0 mt-1 shadow-sm">
-            <div class="bg-[#111111] border border-white/10 rounded-2xl rounded-tl-sm p-4 sm:p-5 text-white max-w-[95%] sm:max-w-[85%] space-y-3.5 shadow-lg">
-                <div class="flex items-center justify-between pb-2 border-b border-white/10">
+            <div class="bg-[#111111] border border-black/[0.08] rounded-2xl rounded-tl-sm p-4 sm:p-5 text-white max-w-[95%] sm:max-w-[85%] space-y-3.5 shadow-lg">
+                <div class="flex items-center justify-between pb-2 border-b border-black/[0.08]">
                     <div class="flex items-center gap-1.5">
                         <span class="text-xs font-medium text-white">Yeni Nesil Dedektif (Elsa &amp; Ümit Hakan Karakaya)</span>
                         <span class="w-1.5 h-1.5 rounded-full bg-[#93F051]"></span>
@@ -1581,12 +1581,12 @@ function resetAIChat() {
                     <p class="text-[#93F051] font-medium pt-1">Aşağıdaki popüler başlıklardan birine tıklayarak anında yanıt alabilir veya sorunuzu doğrudan yazıp <strong>"Yeni Nesil Dedektif'e Sor"</strong> butonuna basabilirsiniz:</p>
                 </div>
                 <div class="flex flex-wrap gap-1.5 pt-1">
-                    <button type="button" onclick="selectAIChatPreset('cocuk-velayeti')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#93F051]/15 text-white/85 hover:text-[#93F051] border border-white/10 hover:border-[#93F051]/40 text-xs transition">👶 Çocuk &amp; Velayet Davası</button>
-                    <button type="button" onclick="selectAIChatPreset('dedektif-tutmak')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#93F051]/15 text-white/85 hover:text-[#93F051] border border-white/10 hover:border-[#93F051]/40 text-xs transition">🕵️‍♂️ Dedektif Tutmak Yasal mı?</button>
-                    <button type="button" onclick="selectAIChatPreset('dedektif-ucretleri')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#93F051]/15 text-white/85 hover:text-[#93F051] border border-white/10 hover:border-[#93F051]/40 text-xs transition">💳 Ücretler Nasıl Belirlenir?</button>
-                    <button type="button" onclick="selectAIChatPreset('delil-gecerliligi')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#93F051]/15 text-white/85 hover:text-[#93F051] border border-white/10 hover:border-[#93F051]/40 text-xs transition">⚖️ Deliller Mahkemede Geçerli mi?</button>
-                    <button type="button" onclick="selectAIChatPreset('almanya-es-takibi')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#93F051]/15 text-white/85 hover:text-[#93F051] border border-white/10 hover:border-[#93F051]/40 text-xs transition">🇩🇪 Almanya/Avrupa Eş Takibi</button>
-                    <button type="button" onclick="selectAIChatPreset('aldatan-erkek')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#93F051]/15 text-white/85 hover:text-[#93F051] border border-white/10 hover:border-[#93F051]/40 text-xs transition">💔 Eş Takibi &amp; Aldatma Tespiti</button>
+                    <button type="button" onclick="selectAIChatPreset('cocuk-velayeti')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#93F051]/15 text-white/85 hover:text-[#93F051] border border-black/[0.08] hover:border-[#93F051]/40 text-xs transition">👶 Çocuk &amp; Velayet Davası</button>
+                    <button type="button" onclick="selectAIChatPreset('dedektif-tutmak')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#93F051]/15 text-white/85 hover:text-[#93F051] border border-black/[0.08] hover:border-[#93F051]/40 text-xs transition">🕵️‍♂️ Dedektif Tutmak Yasal mı?</button>
+                    <button type="button" onclick="selectAIChatPreset('dedektif-ucretleri')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#93F051]/15 text-white/85 hover:text-[#93F051] border border-black/[0.08] hover:border-[#93F051]/40 text-xs transition">💳 Ücretler Nasıl Belirlenir?</button>
+                    <button type="button" onclick="selectAIChatPreset('delil-gecerliligi')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#93F051]/15 text-white/85 hover:text-[#93F051] border border-black/[0.08] hover:border-[#93F051]/40 text-xs transition">⚖️ Deliller Mahkemede Geçerli mi?</button>
+                    <button type="button" onclick="selectAIChatPreset('almanya-es-takibi')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#93F051]/15 text-white/85 hover:text-[#93F051] border border-black/[0.08] hover:border-[#93F051]/40 text-xs transition">🇩🇪 Almanya/Avrupa Eş Takibi</button>
+                    <button type="button" onclick="selectAIChatPreset('aldatan-erkek')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#93F051]/15 text-white/85 hover:text-[#93F051] border border-black/[0.08] hover:border-[#93F051]/40 text-xs transition">💔 Eş Takibi &amp; Aldatma Tespiti</button>
                 </div>
             </div>
         </div>
@@ -1644,13 +1644,13 @@ function sendAIChatMessage(overrideQuery, explicitPresetKey) {
     const userBubble = document.createElement('div');
     userBubble.className = 'flex justify-end text-right animate-fadeIn';
     userBubble.innerHTML = `
-        <div class="bg-[#242426] border border-[#93F051]/30 rounded-2xl rounded-tr-sm p-3.5 sm:p-4 text-white max-w-[85%] sm:max-w-[75%] space-y-1 shadow-md">
-            <div class="text-[10px] font-mono text-[#93F051] flex items-center justify-end gap-1">
+        <div class="bg-[#F4F4F5] border border-black/[0.08] rounded-2xl rounded-tr-sm p-3.5 sm:p-4 text-black max-w-[85%] sm:max-w-[75%] space-y-1 shadow-xs">
+            <div class="text-[10px] font-mono text-[#71717A] flex items-center justify-end gap-1">
                 <span>Siz</span>
                 <span>•</span>
                 <span>${timeStr}</span>
             </div>
-            <p class="text-xs sm:text-[13px] leading-relaxed text-left text-white/95">${escapedQuery}</p>
+            <p class="text-xs sm:text-[13.5px] leading-relaxed text-left text-black font-normal">${escapedQuery}</p>
         </div>
     `;
     container.appendChild(userBubble);
@@ -1661,13 +1661,13 @@ function sendAIChatMessage(overrideQuery, explicitPresetKey) {
     typingIndicator.id = 'aiTypingIndicator';
     typingIndicator.className = 'flex items-start gap-3 text-left animate-fadeIn';
     typingIndicator.innerHTML = `
-        <img src="assets/photos/elsa-dedektif-asistan.jpg" alt="Elsa & Ümit Hakan Karakaya" class="w-8 h-8 rounded-full border border-[#93F051]/50 object-cover object-top shrink-0 mt-1 shadow-sm">
-        <div class="bg-[#111111] border border-white/10 rounded-2xl rounded-tl-sm px-4 py-3 text-white flex items-center gap-2.5 shadow-sm">
-            <span class="text-xs text-white/70">Yeni Nesil Dedektif yanıt hazırlıyor</span>
+        <img src="assets/photos/elsa-dedektif-asistan.jpg" alt="Elsa & Ümit Hakan Karakaya" class="w-8 h-8 rounded-full border border-black/10 object-cover object-top shrink-0 mt-1 shadow-xs">
+        <div class="bg-[#FFFFFF] border border-black/[0.12] rounded-2xl rounded-tl-sm px-4 py-3 text-black flex items-center gap-2.5 shadow-xs">
+            <span class="text-xs text-neutral-600 font-normal">Yanıt hazırlanıyor</span>
             <span class="inline-flex gap-1 items-center">
-                <span class="w-1.5 h-1.5 rounded-full bg-[#93F051] animate-bounce"></span>
-                <span class="w-1.5 h-1.5 rounded-full bg-[#93F051] animate-bounce [animation-delay:0.15s]"></span>
-                <span class="w-1.5 h-1.5 rounded-full bg-[#93F051] animate-bounce [animation-delay:0.3s]"></span>
+                <span class="w-1.5 h-1.5 rounded-full bg-black animate-bounce"></span>
+                <span class="w-1.5 h-1.5 rounded-full bg-black animate-bounce [animation-delay:0.15s]"></span>
+                <span class="w-1.5 h-1.5 rounded-full bg-black animate-bounce [animation-delay:0.3s]"></span>
             </span>
         </div>
     `;
@@ -1751,42 +1751,42 @@ Bu konu hakkında dürüst ve objektif hukuki danışmanlık almak istiyorum.`
         const p3ItemsHtml = (data.p3Items || []).map(item => `
             <li class="flex items-start gap-1.5 ${item.bad ? 'text-rose-300' : 'text-[#93F051]'} text-xs">
                 <span class="font-bold">${item.bad ? '✕' : '✓'}</span>
-                <span><strong>${item.label}:</strong> <span class="text-white/80">${item.text}</span></span>
+                <span><strong>${item.label}:</strong> <span class="text-neutral-700">${item.text}</span></span>
             </li>
         `).join('');
 
         const respBubble = document.createElement('div');
         respBubble.className = 'flex items-start gap-3 text-left animate-fadeIn';
         respBubble.innerHTML = `
-            <img src="assets/photos/elsa-dedektif-asistan.jpg" alt="Elsa & Ümit Hakan Karakaya" class="w-8 h-8 rounded-full border border-[#93F051]/50 object-cover object-top shrink-0 mt-1 shadow-sm">
-            <div class="bg-[#111111] border border-white/10 rounded-2xl rounded-tl-sm p-4 sm:p-5 text-white max-w-[95%] sm:max-w-[85%] space-y-3.5 shadow-lg">
-                <div class="flex flex-wrap items-center justify-between gap-2 pb-2.5 border-b border-white/10">
+            <img src="assets/photos/elsa-dedektif-asistan.jpg" alt="Elsa & Ümit Hakan Karakaya" class="w-8 h-8 rounded-full border border-black/10 object-cover object-top shrink-0 mt-1 shadow-xs">
+            <div class="bg-[#FFFFFF] border border-black/[0.14] rounded-2xl rounded-tl-sm p-4 sm:p-5 text-black max-w-[95%] sm:max-w-[85%] space-y-3.5 shadow-sm">
+                <div class="flex flex-wrap items-center justify-between gap-2 pb-2.5 border-b border-black/[0.08]">
                     <div class="flex items-center gap-1.5">
-                        <span class="text-xs font-medium text-white">Yeni Nesil Dedektif (Elsa &amp; Ümit Hakan Karakaya)</span>
-                        <span class="w-1.5 h-1.5 rounded-full bg-[#93F051]"></span>
+                        <span class="text-xs font-medium text-black">Yeni Nesil Dedektif (Elsa &amp; Ümit Hakan Karakaya)</span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
                     </div>
-                    <span class="px-2 py-0.5 rounded-full bg-[#93F051]/15 border border-[#93F051]/30 text-[#93F051] text-[9.5px] font-mono font-medium">${data.riskScore || 'DÜRÜST HUKUKİ ANALİZ'}</span>
+                    <span class="px-2.5 py-0.5 rounded-full bg-black/[0.05] border border-black/[0.08] text-black text-[9.5px] font-mono font-medium">${data.riskScore || 'DÜRÜST HUKUKİ ANALİZ'}</span>
                 </div>
                 
                 <div class="space-y-2.5 text-xs sm:text-[13px] leading-relaxed">
                     <div class="space-y-1">
-                        <div class="text-[#93F051] font-medium text-xs flex items-center gap-1.5">
+                        <div class="text-black font-semibold text-xs flex items-center gap-1.5">
                             <i class="hgi hgi-stroke hgi-alert-circle w-3.5 h-3.5"></i>
                             <span>${data.p1Title}</span>
                         </div>
-                        <p class="text-white/80">${data.p1Desc}</p>
+                        <p class="text-neutral-700">${data.p1Desc}</p>
                     </div>
 
                     <div class="space-y-1">
-                        <div class="text-[#93F051] font-medium text-xs flex items-center gap-1.5">
+                        <div class="text-black font-semibold text-xs flex items-center gap-1.5">
                             <i class="hgi hgi-stroke hgi-justice-scale-01 w-3.5 h-3.5"></i>
                             <span>${data.p2Title}</span>
                         </div>
-                        <p class="text-white/80">${data.p2Desc}</p>
+                        <p class="text-neutral-700">${data.p2Desc}</p>
                     </div>
 
                     <div class="space-y-1">
-                        <div class="text-[#93F051] font-medium text-xs flex items-center gap-1.5">
+                        <div class="text-black font-semibold text-xs flex items-center gap-1.5">
                             <i class="hgi hgi-stroke hgi-shield-alert w-3.5 h-3.5"></i>
                             <span>3. DÜRÜST DEDEKTİFLİK VE KORUYUCU TAVSİYELER</span>
                         </div>
@@ -1796,9 +1796,9 @@ Bu konu hakkında dürüst ve objektif hukuki danışmanlık almak istiyorum.`
                     </div>
                 </div>
 
-                <div class="pt-2.5 border-t border-white/10 flex flex-wrap items-center justify-between gap-2">
-                    <span class="text-[10px] text-white/50 font-mono">${timeStr} • HMK m.199 &amp; TCK m.134 Uyumlu</span>
-                    <a href="https://wa.me/905326667749?text=${encodeURIComponent(data.waText)}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#25D366] hover:bg-[#20ba59] text-[#111111] font-medium text-xs transition">
+                <div class="pt-2.5 border-t border-black/[0.08] flex flex-wrap items-center justify-between gap-2">
+                    <span class="text-[10px] text-neutral-500 font-mono">${timeStr} • HMK m.199 &amp; TCK m.134 Uyumlu</span>
+                    <a href="https://wa.me/905326667749?text=${encodeURIComponent(data.waText)}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-black hover:bg-neutral-800 text-white font-medium text-xs transition shadow-sm">
                         <i class="hgi hgi-stroke hgi-whatsapp w-3.5 h-3.5"></i>
                         <span>Ümit Hakan Karakaya'ya WhatsApp'tan Sorun</span>
                     </a>

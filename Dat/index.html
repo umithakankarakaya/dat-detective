@@ -1303,6 +1303,45 @@
             unicode-bidi: isolate;
         }
     </style>
+
+    <!-- OpenAI Exact Typography & Color System -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style id="openai-exact-system">
+        :root {
+            --font-openai: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --color-bg-primary: #FFFFFF;
+            --color-text-primary: #000000;
+            --color-text-secondary: #595959;
+            --color-border-subtle: rgba(0, 0, 0, 0.12);
+        }
+
+        body {
+            font-family: var(--font-openai) !important;
+            letter-spacing: -0.015em;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5, h6, .apple-heading {
+            font-family: var(--font-openai) !important;
+            letter-spacing: -0.025em !important;
+        }
+
+        /* OpenAI Card Styles */
+        .openai-card {
+            background-color: #FFFFFF !important;
+            border: 1px solid rgba(0, 0, 0, 0.12) !important;
+            border-radius: 24px !important;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+        .openai-card:hover {
+            border-color: rgba(0, 0, 0, 0.24) !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
+        }
+    </style>
+    
 </head>
 <body id="top" class="bg-[#111111] text-[#111111] font-sans antialiased selection:bg-[#93F051] selection:text-[#111111] relative overflow-x-clip transition-colors duration-200">
 
@@ -1432,7 +1471,7 @@
                 <span class="hidden 2xl:inline text-white/65 truncate">İstanbul • Ankara • İzmir • Kıbrıs • Karadağ • Las Vegas</span>
             </div>
             <a href="#dedektife-sor" class="inline-flex md:hidden items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#242426] text-[#FFFFFF] font-medium text-[10px] border border-white/15 whitespace-nowrap shrink-0" title="Yeni Nesil Dedektif: Dedektif'e Sor — Yankı Odasından Uzak, Dürüst ve Objektif Vaka Analizi">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
+                <span class="w-1.5 h-1.5 rounded-full bg-[#93F051] animate-pulse shrink-0"></span>
                 <span>Yeni Nesil Dedektif'e Sor</span>
                 <i class="hgi hgi-stroke hgi-arrow-right-01 w-3 h-3 text-[#93F051] shrink-0"></i>
             </a>
@@ -1456,291 +1495,207 @@
     </aside>
 
     <!-- Sticky Matte Obsidian Studio Header -->
-    <header class="sticky top-0 z-40 studio-glass-dark border-b border-white/[0.08]">
-        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-14 sm:h-[74px] gap-1.5 sm:gap-2">
-                <!-- Brand Identity -->
-                <a href="#top" class="flex items-center gap-1.5 min-[360px]:gap-2 sm:gap-3 min-w-0 group" title="DAT Özel Dedektiflik Bürosu — 7/24 Yasal ve Gizli Özel Dedektiflik Hizmetleri">
-                    <img decoding="async" src="dat-logo.png" alt="DAT Dedektiflik Resmi Logo" class="w-8 h-8 min-[360px]:w-9 min-[360px]:h-9 sm:w-12 sm:h-12 shrink-0 rounded-2xl object-cover ring-1 ring-[#93F051]/50 group-hover:scale-105 transition duration-300">
-                    <div class="leading-none min-w-0">
-                        <div class="text-[13px] min-[390px]:text-[14px] sm:text-[17px] font-medium tracking-tight text-[#FFFFFF] flex items-center gap-1 whitespace-nowrap truncate">
-                            DAT <span class="font-medium text-white">DEDEKTİFLİK</span>
-                        </div>
-                        <p class="hidden min-[420px]:block text-[8.5px] sm:text-[10px] font-mono tracking-normal sm:tracking-widest text-white/50 uppercase mt-0.5 sm:mt-1 truncate">2005'ten Bugüne • Sektör Lideri</p>
-                    </div>
+    <!-- OPENAI EXACT NAVBAR -->
+    <header id="openai-nav" class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-black/[0.08] text-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+            
+            <!-- Left: Brand / Logo -->
+            <div class="flex items-center gap-8">
+                <a href="/" class="flex items-center gap-2.5 text-black hover:opacity-80 transition group" title="DAT Özel Dedektiflik — Ana Sayfa">
+                    <img src="dat-logo.png" alt="DAT Logo" class="w-7 h-7 rounded-full object-cover">
+                    <span class="text-[17px] font-semibold tracking-[-0.03em] text-black">DAT <span class="font-normal text-neutral-600">Dedektiflik</span></span>
                 </a>
 
-                <!-- Center Studio Dark Navigation -->
-                <nav class="hidden lg:flex items-center gap-0.5 p-1 rounded-full bg-[#1D1D1F] border border-white/[0.08] text-xs font-regular text-white/75 whitespace-nowrap shrink-0">
-                    <a href="#dedektife-sor" class="px-2.5 py-1.5 rounded-full hover:bg-white/10 text-white font-medium transition inline-flex items-center gap-1.5 whitespace-nowrap" title="Yeni Nesil Dedektif: Dedektif'e Sor — Yankı Odasından Uzak, Dürüst ve Objektif Vaka Analizi">
-                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
-                        <span>Yeni Nesil Dedektif'e Sor</span>
-                    </a>
-                    <a href="#avrupa-masasi" class="px-2.5 py-1.5 rounded-full hover:bg-white/10 hover:text-[#FFFFFF] transition whitespace-nowrap" title="Almanya ve Avrupa Gurbetçi Özel Dedektiflik Masası — Türkiye'de Eş Takibi ve Miras Araştırması">Avrupa Masası</a>
-                    <a href="#hizmetler" class="px-2.5 py-1.5 rounded-full hover:bg-white/10 hover:text-[#FFFFFF] transition whitespace-nowrap" title="Özel Dedektiflik Hizmetlerimiz — Eş Takibi, Evlilik Öncesi, Adres Tespiti ve Kurumsal Araştırma">12 Hizmet</a>
-                    <a href="#magaza" class="px-2.5 py-1.5 rounded-full hover:bg-white/10 text-[#FFFFFF] font-medium transition inline-flex items-center gap-1.5 whitespace-nowrap" title="DAT Güvenlik ve Anti-Casusluk Donanım Mağazası — Profesyonel Böcek Arama Dedektörleri">
-                        <span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span>
-                        <span>Mağaza</span>
-                    </a>
-                    <a href="elsa-vaka-paneli" class="px-2.5 py-1.5 rounded-full hover:bg-white/10 text-[#FFFFFF] font-medium transition inline-flex items-center gap-1.5 whitespace-nowrap" title="Elsa Dijital Dedektif Asistanı ve Canlı Vaka Takip Paneli — DAT Özel Dedektiflik">
-                        <span class="w-1.5 h-1.5 rounded-full bg-[#FA7E61] shrink-0"></span>
-                        <span>Elsa</span>
-                    </a>
-                    <a href="#ofislerimiz" class="px-2.5 py-1.5 rounded-full hover:bg-white/10 hover:text-[#FFFFFF] transition whitespace-nowrap" title="DAT Özel Dedektiflik Bürosu Merkez ve Bölge Büroları — Ankara, İstanbul, İzmir, Mersin, Konya, Antalya">Bürolar &amp; Şehirler</a>
-                    <a href="#sss" class="px-2.5 py-1.5 rounded-full hover:bg-white/10 hover:text-[#FFFFFF] transition whitespace-nowrap" title="Özel Dedektiflik Hakkında Sıkça Sorulan Sorular, Ücretler ve Hukuki Geçerlilik">S.S.S.</a>
+                <!-- Desktop Nav Links -->
+                <nav class="hidden lg:flex items-center gap-6 text-[14px] font-normal text-black/80">
+                    <a href="#hizmetler" class="hover:text-black transition">12 Hizmet</a>
+                    <a href="#delil-standartlari" class="hover:text-black transition">Delil &amp; Hukuk</a>
+                    <a href="#turkiye-dedektif-agi" class="hover:text-black transition">81 İl Ağı</a>
+                    <a href="#arama-rehberi" class="hover:text-black transition">Arama Rehberi</a>
+                    <a href="#mimari" class="hover:text-black transition">Hakkımızda</a>
+                    <a href="#ofislerimiz" class="hover:text-black transition">Ofisler</a>
+                    <a href="#sss" class="hover:text-black transition">S.S.S.</a>
                 </nav>
+            </div>
 
-                <!-- Right Studio Actions -->
-                <div class="flex items-center gap-1 sm:gap-2 shrink-0">
-                    <!-- Global Language Switcher Pill -->
-                    <div class="relative" id="langSwitcherWrap" data-no-i18n="true">
-                        <button type="button" onclick="toggleLangMenu()" id="langSwitcherBtn" aria-label="Dil Seçimi / Language" class="px-2 sm:px-3 py-1.5 sm:py-2 rounded-full bg-[#1D1D1F] hover:bg-[#2A2A2D] text-[#FFFFFF] text-xs font-medium transition flex items-center gap-1 sm:gap-1.5 border border-white/10">
-                            <i class="hgi hgi-stroke hgi-globe-02 w-3.5 h-3.5 text-[#93F051]"></i>
-                            <span id="currentLangCode" class="font-mono text-[11px] uppercase">TR</span>
-                            <i class="hgi hgi-stroke hgi-arrow-down-01 w-3 h-3 opacity-60"></i>
-                        </button>
-                        <div id="langDropdownMenu" class="hidden absolute right-0 rtl:right-auto rtl:left-0 mt-2 w-48 rounded-2xl bg-[#1D1D1F] border border-white/15 shadow-2xl p-1.5 z-50 space-y-0.5 text-xs text-white/80">
-                            <button type="button" onclick="setSiteLanguage('tr')" data-lang-opt="tr" class="lang-opt-btn w-full text-left rtl:text-right px-3 py-2 rounded-xl flex items-center justify-between bg-[#111111] text-[#93F051] font-medium transition"><span>Türkçe</span><span class="font-mono text-[10px] opacity-80">TR</span></button>
-                            <button type="button" onclick="setSiteLanguage('en')" data-lang-opt="en" class="lang-opt-btn w-full text-left rtl:text-right px-3 py-2 rounded-xl flex items-center justify-between hover:bg-white/10 transition text-white/75"><span>English</span><span class="font-mono text-[10px] opacity-60">EN</span></button>
-                            <button type="button" onclick="setSiteLanguage('de')" data-lang-opt="de" class="lang-opt-btn w-full text-left rtl:text-right px-3 py-2 rounded-xl flex items-center justify-between hover:bg-white/10 transition text-white/75"><span>Deutsch</span><span class="font-mono text-[10px] opacity-60">DE</span></button>
-                            <button type="button" onclick="setSiteLanguage('fr')" data-lang-opt="fr" class="lang-opt-btn w-full text-left rtl:text-right px-3 py-2 rounded-xl flex items-center justify-between hover:bg-white/10 transition text-white/75"><span>Français</span><span class="font-mono text-[10px] opacity-60">FR</span></button>
-                            <button type="button" onclick="setSiteLanguage('ar')" data-lang-opt="ar" class="lang-opt-btn w-full text-left rtl:text-right px-3 py-2 rounded-xl flex items-center justify-between hover:bg-white/10 transition text-white/75"><span>العربية</span><span class="font-mono text-[10px] opacity-60">AR</span></button>
-                            <button type="button" onclick="setSiteLanguage('ru')" data-lang-opt="ru" class="lang-opt-btn w-full text-left rtl:text-right px-3 py-2 rounded-xl flex items-center justify-between hover:bg-white/10 transition text-white/75"><span>Русский</span><span class="font-mono text-[10px] opacity-60">RU</span></button>
-                            <button type="button" onclick="setSiteLanguage('me')" data-lang-opt="me" class="lang-opt-btn w-full text-left rtl:text-right px-3 py-2 rounded-xl flex items-center justify-between hover:bg-white/10 transition text-white/75"><span>Crnogorski</span><span class="font-mono text-[10px] opacity-60">ME</span></button>
-                        </div>
+            <!-- Right: Action Pills (OpenAI Style) -->
+            <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+                <!-- Dil / Lang -->
+                <div class="relative" id="langSwitcherWrap">
+                    <button type="button" onclick="toggleLangMenu()" id="langSwitcherBtn" class="px-2.5 py-1.5 rounded-full bg-black/[0.04] hover:bg-black/[0.08] text-black text-xs font-medium transition flex items-center gap-1 border border-black/[0.08]">
+                        <i class="hgi hgi-stroke hgi-globe-02 w-3.5 h-3.5 text-black/70"></i>
+                        <span id="currentLangCode" class="font-mono text-[11px] uppercase">TR</span>
+                        <i class="hgi hgi-stroke hgi-arrow-down-01 w-3 h-3 opacity-60"></i>
+                    </button>
+                    <div id="langDropdownMenu" class="hidden absolute right-0 mt-2 w-48 rounded-2xl bg-white border border-black/10 shadow-xl p-1.5 z-50 space-y-0.5 text-xs text-black">
+                        <button type="button" onclick="setSiteLanguage('tr')" data-lang-opt="tr" class="lang-opt-btn w-full text-left px-3 py-2 rounded-xl flex items-center justify-between bg-black/[0.05] text-black font-medium transition"><span>Türkçe</span><span class="font-mono text-[10px] opacity-80">TR</span></button>
+                        <button type="button" onclick="setSiteLanguage('en')" data-lang-opt="en" class="lang-opt-btn w-full text-left px-3 py-2 rounded-xl flex items-center justify-between hover:bg-black/[0.04] transition text-black/75"><span>English</span><span class="font-mono text-[10px] opacity-60">EN</span></button>
+                        <button type="button" onclick="setSiteLanguage('de')" data-lang-opt="de" class="lang-opt-btn w-full text-left px-3 py-2 rounded-xl flex items-center justify-between hover:bg-black/[0.04] transition text-black/75"><span>Deutsch</span><span class="font-mono text-[10px] opacity-60">DE</span></button>
+                        <button type="button" onclick="setSiteLanguage('fr')" data-lang-opt="fr" class="lang-opt-btn w-full text-left px-3 py-2 rounded-xl flex items-center justify-between hover:bg-black/[0.04] transition text-black/75"><span>Français</span><span class="font-mono text-[10px] opacity-60">FR</span></button>
+                        <button type="button" onclick="setSiteLanguage('ar')" data-lang-opt="ar" class="lang-opt-btn w-full text-left px-3 py-2 rounded-xl flex items-center justify-between hover:bg-black/[0.04] transition text-black/75"><span>العربية</span><span class="font-mono text-[10px] opacity-60">AR</span></button>
+                        <button type="button" onclick="setSiteLanguage('ru')" data-lang-opt="ru" class="lang-opt-btn w-full text-left px-3 py-2 rounded-xl flex items-center justify-between hover:bg-black/[0.04] transition text-black/75"><span>Русский</span><span class="font-mono text-[10px] opacity-60">RU</span></button>
                     </div>
-
-                    <button type="button" id="themeToggleBtn" onclick="toggleSiteTheme()" aria-label="Görünüm temasını değiştir" title="Aydınlık / Karanlık Mod Değiştir" class="theme-header-pill inline-flex items-center gap-1.5 p-1.5 sm:px-3 sm:py-2 rounded-full bg-[#1D1D1F] hover:bg-[#2A2A2D] text-[#FFFFFF] text-xs font-medium transition border border-white/10 active:scale-95">
-                        <i id="themeToggleIcon" class="hgi hgi-stroke hgi-sun-01 text-sm text-[#93F051] shrink-0"></i>
-                        <span id="themeToggleLabel" class="hidden sm:inline whitespace-nowrap">Aydınlık</span>
-                    </button>
-                    <button type="button" onclick="openCartDrawer()" id="headerCartBtn" title="Sepeti Aç (DAT Yasal Donanım Mağazası)" class="theme-header-pill relative px-2 sm:px-3 py-1.5 sm:py-2 rounded-full bg-[#1D1D1F] hover:bg-[#2A2A2D] text-[#FFFFFF] text-xs font-medium transition flex items-center gap-1 sm:gap-1.5 border border-white/10">
-                        <i class="hgi hgi-stroke hgi-shopping-bag-02 w-3.5 h-3.5 text-[#93F051]"></i>
-                        <span class="hidden xl:inline">Sepet</span>
-                        <span id="cartCountBadge" class="inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 rounded-full bg-white text-black text-[10px] font-mono font-medium">0</span>
-                    </button>
-
-                    <a href="#vaka-bildir" class="hidden sm:flex px-4 py-2 rounded-full bg-white hover:bg-neutral-200 text-black text-xs font-medium tracking-tight transition items-center gap-1.5 active:scale-95 shadow-sm" title="Ücretsiz Ön Görüşme, Vaka Bildirimi ve Dedektif Fiyat Teklifi Formu — DAT Özel Dedektiflik">
-                        <i class="hgi hgi-stroke hgi-square-lock-02 w-3.5 h-3.5"></i>
-                        <span>Fiyat Teklifi</span>
-                    </a>
-
-                    <button id="mobileMenuBtn" aria-label="Menüyü aç/kapat" class="theme-header-pill lg:hidden p-1.5 sm:p-2 rounded-full bg-[#1D1D1F] text-[#FFFFFF] border border-white/10">
-                        <i class="hgi hgi-stroke hgi-menu-01 w-5 h-5"></i>
-                    </button>
                 </div>
+
+                <!-- Sabit Tel Pill (OpenAI "Bizimle konuşun" stili) -->
+                <a href="tel:03122840299" class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-black/[0.04] hover:bg-black/[0.08] text-black text-[13px] font-medium transition" title="Ankara Merkez Büro: 0312 284 02 99">
+                    <span>0312 284 02 99</span>
+                </a>
+
+                <!-- WhatsApp Pill (OpenAI "ChatGPT'yi dene" siyah pill butonu) -->
+                <a href="https://wa.me/905326667749?text=Merhaba%20%C3%9Cmit%20Bey%2C%20web%20sitenizden%20yaz%C4%B1yorum.%20Dan%C4%B1%C5%9Fmanl%C4%B1k%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-black hover:bg-neutral-800 text-white text-[13px] font-medium transition active:scale-95 shadow-sm" title="7/24 WhatsApp Özel Dedektif Danışma Hattı">
+                    <i class="hgi hgi-stroke hgi-whatsapp w-4 h-4 text-[#25D366]"></i>
+                    <span class="hidden sm:inline">WhatsApp</span>
+                    <span>↗</span>
+                </a>
+
+                <!-- Mobile Menu Toggle -->
+                <button id="mobileMenuBtn" aria-label="Menüyü aç/kapat" class="lg:hidden p-2 rounded-full bg-black/[0.04] text-black hover:bg-black/[0.08] transition">
+                    <i class="hgi hgi-stroke hgi-menu-01 w-5 h-5"></i>
+                </button>
             </div>
         </div>
 
-        <!-- Mobile Menu Sheet (Matte Dark) -->
-        <div id="mobileMenu" class="hidden lg:hidden theme-chrome bg-[#18181A] border-b border-white/10 px-5 pt-3 pb-6 space-y-2.5 font-regular text-sm text-white/85">
-            <div id="mobileThemeSwitchRow" class="flex items-center justify-between py-2.5 px-3 rounded-2xl bg-white/5 border border-white/10 mb-2">
-                <div class="flex items-center gap-2.5">
-                    <i id="mobileThemeIcon" class="hgi hgi-stroke hgi-moon-02 text-base text-[#93F051]"></i>
-                    <div class="leading-tight">
-                        <div class="text-xs font-medium text-[#FFFFFF]">Görünüm Teması</div>
-                        <div id="mobileThemeStateText" class="text-[11px] text-white/55">Karanlık</div>
-                    </div>
-                </div>
-                <button type="button" id="mobileThemeSwitchBtn" onclick="toggleSiteTheme()" aria-label="Tema Değiştir" class="relative inline-flex h-7 w-12 items-center rounded-full bg-[#93F051] transition-colors p-1">
-                    <span id="mobileThemeKnob" class="inline-block h-5 w-5 transform rounded-full bg-[#111111] shadow transition-transform translate-x-5"></span>
-                </button>
-            </div>
-            <div id="mobileLangBar" data-no-i18n="true" class="grid grid-cols-7 gap-1 pb-2.5 border-b border-white/10">
-                <button type="button" onclick="setSiteLanguage('tr')" data-lang-opt="tr" class="lang-opt-btn py-1.5 rounded-lg bg-[#93F051] text-[#111111] font-mono text-[11px] font-medium text-center transition">TR</button>
-                <button type="button" onclick="setSiteLanguage('en')" data-lang-opt="en" class="lang-opt-btn py-1.5 rounded-lg bg-[#222224] text-white/75 font-mono text-[11px] text-center transition">EN</button>
-                <button type="button" onclick="setSiteLanguage('de')" data-lang-opt="de" class="lang-opt-btn py-1.5 rounded-lg bg-[#222224] text-white/75 font-mono text-[11px] text-center transition">DE</button>
-                <button type="button" onclick="setSiteLanguage('fr')" data-lang-opt="fr" class="lang-opt-btn py-1.5 rounded-lg bg-[#222224] text-white/75 font-mono text-[11px] text-center transition">FR</button>
-                <button type="button" onclick="setSiteLanguage('ar')" data-lang-opt="ar" class="lang-opt-btn py-1.5 rounded-lg bg-[#222224] text-white/75 font-mono text-[11px] text-center transition">AR</button>
-                <button type="button" onclick="setSiteLanguage('ru')" data-lang-opt="ru" class="lang-opt-btn py-1.5 rounded-lg bg-[#222224] text-white/75 font-mono text-[11px] text-center transition">RU</button>
-                <button type="button" onclick="setSiteLanguage('me')" data-lang-opt="me" class="lang-opt-btn py-1.5 rounded-lg bg-[#222224] text-white/75 font-mono text-[11px] text-center transition">ME</button>
-            </div>
-            <a href="#dedektife-sor" class="flex items-center justify-between py-2 text-xs text-[#93F051] font-medium border-b border-white/[0.07]" title="Yeni Nesil Dedektif: Dedektif'e Sor — Yankı Odasından Uzak, Dürüst ve Objektif Vaka Analizi">
-                <span class="flex items-center gap-2">
-                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
-                    <span>Yeni Nesil Dedektif'e Sor</span>
-                </span>
-                <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#93F051]/20 text-[#93F051]">CANLI CHAT</span>
-            </a>
-            <a href="#avrupa-masasi" class="flex items-center justify-between py-2 text-xs text-[#FFFFFF] font-medium border-b border-white/[0.07]" title="Almanya ve Avrupa Gurbetçi Özel Dedektiflik Masası — Türkiye'de Eş Takibi ve Miras Araştırması">
-                <span>Avrupa Masası &amp; Arama Rehberi</span>
-                <span class="text-[10px] font-mono text-white/50">REHBER</span>
-            </a>
-            <a href="#magaza" class="flex items-center justify-between py-2 text-xs text-[#FFFFFF] font-medium border-b border-white/[0.07]" title="DAT Güvenlik ve Anti-Casusluk Donanım Mağazası — Profesyonel Böcek Arama Dedektörleri">
-                <span>DAT Donanım Mağazası (Yasal Ürünler)</span>
-                <span class="text-[10px] font-mono text-[#93F051]">STORE</span>
-            </a>
-            <a href="elsa-vaka-paneli" class="flex items-center justify-between py-2 text-xs text-[#FFFFFF] font-medium border-b border-white/[0.07]" title="Elsa Dijital Dedektif Asistanı ve Canlı Vaka Takip Paneli — DAT Özel Dedektiflik">
-                <span>Elsa</span>
-                <span class="text-[10px] font-mono text-[#FA7E61]">ELSA PANELİ</span>
-            </a>
-            <a href="#mimari" class="block py-2 text-xs text-white/75 hover:text-[#FFFFFF] border-b border-white/[0.07]" title="DAT Özel Dedektiflik Bürosu — 7/24 Yasal ve Gizli Özel Dedektiflik Hizmetleri">Hakkımızda, UÖDED & Hukuk İlişkileri</a>
-            <a href="#hizmetler" class="block py-2 text-xs text-white/75 hover:text-[#FFFFFF] border-b border-white/[0.07]" title="Özel Dedektiflik Hizmetlerimiz — Eş Takibi, Evlilik Öncesi, Adres Tespiti ve Kurumsal Araştırma">12 Resmi Araştırma Hizmetimiz</a>
-            <a href="#makaleler" class="block py-2 text-xs text-white/75 hover:text-[#FFFFFF] border-b border-white/[0.07]" title="Hukuki Rehber, Makaleler ve Basın Arşivi — DAT Özel Dedektiflik Bürosu">Yılın En'leri Ödülü & Makaleler</a>
-            <a href="#ofislerimiz" class="block py-2 text-xs text-white/75 hover:text-[#FFFFFF] border-b border-white/[0.07]" title="DAT Özel Dedektiflik Bürosu Merkez ve Bölge Büroları — Ankara, İstanbul, İzmir, Mersin, Konya, Antalya">Ofislerimiz (İstanbul • Ankara • Karadağ • ABD)</a>
-            <a href="#sss" class="block py-2 text-xs text-white/75 hover:text-[#FFFFFF]" title="Özel Dedektiflik Hakkında Sıkça Sorulan Sorular, Ücretler ve Hukuki Geçerlilik">Sıkça Sorulan Sorular</a>
+        <!-- Mobile Drawer Menu -->
+        <div id="mobileMenuDrawer" class="hidden lg:hidden bg-white border-b border-black/10 px-5 py-4 space-y-2 text-sm text-black">
+            <a href="#hizmetler" class="block py-2 border-b border-black/[0.06] text-black/80 hover:text-black">12 Resmi Hizmetimiz</a>
+            <a href="#delil-standartlari" class="block py-2 border-b border-black/[0.06] text-black/80 hover:text-black">Delil &amp; Hukuk (HMK m.199)</a>
+            <a href="#turkiye-dedektif-agi" class="block py-2 border-b border-black/[0.06] text-black/80 hover:text-black">81 İl &amp; İlçe Ağı</a>
+            <a href="#arama-rehberi" class="block py-2 border-b border-black/[0.06] text-black/80 hover:text-black">Arama &amp; Bilgi Rehberi</a>
+            <a href="#mimari" class="block py-2 border-b border-black/[0.06] text-black/80 hover:text-black">Hakkımızda &amp; UÖDED</a>
+            <a href="#ofislerimiz" class="block py-2 border-b border-black/[0.06] text-black/80 hover:text-black">Ofislerimiz</a>
+            <a href="#sss" class="block py-2 text-black/80 hover:text-black">S.S.S.</a>
             <div class="pt-3 grid grid-cols-2 gap-2">
-                <a href="tel:+905326667749" class="flex items-center justify-center gap-1.5 py-3 bg-[#242426] text-[#FFFFFF] rounded-xl text-xs font-medium" title="DAT Özel Dedektiflik 7/24 Acil Mobil Hat: 0532 666 77 49">
-                    <i class="hgi hgi-stroke hgi-call w-3.5 h-3.5 text-[#93F051]"></i>
-                    <span>0532 666 77 49</span>
-                </a>
-                <a href="tel:+903122840299" class="flex items-center justify-center gap-1.5 py-3 bg-[#93F051] text-[#111111] rounded-xl text-xs font-medium" title="DAT Özel Dedektiflik Ankara Merkez Büro Sabit Telefon: 0312 284 02 99">
-                    <i class="hgi hgi-stroke hgi-call-02 w-3.5 h-3.5"></i>
-                    <span>0312 284 02 99</span>
-                </a>
+                <a href="tel:03122840299" class="flex items-center justify-center py-2.5 bg-black/[0.04] text-black rounded-full text-xs font-medium">0312 284 02 99</a>
+                <a href="https://wa.me/905326667749" target="_blank" class="flex items-center justify-center py-2.5 bg-black text-white rounded-full text-xs font-medium">WhatsApp ↗</a>
             </div>
-            <a href="https://www.instagram.com/datdedektiflik" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 py-2.5 bg-[#242426] text-[#FFFFFF] rounded-xl text-xs font-medium border border-white/10" title="DAT Özel Dedektiflik Bürosu Resmi Instagram Hesabı (@datdedektiflik)">
-                <i class="hgi hgi-stroke hgi-instagram w-3.5 h-3.5 text-[#93F051] shrink-0"></i>
-                <span>Instagram: @datdedektiflik</span>
-            </a>
         </div>
     </header>
 
     <main>
 
-        <!-- 1. HERO SECTION: OPENAI ULTRA-MINIMALIST DEDEKTİF'E SOR CONSOLE -->
-        <section id="dedektife-sor" class="relative bg-[#080808] text-[#FFFFFF] pt-8 pb-14 sm:pt-14 sm:pb-20 border-b border-white/10 overflow-hidden">
-            <!-- Subtle Ambient Radial Glow -->
-            <div class="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-white/[0.03] rounded-full blur-[140px]"></div>
+        <!-- 1. HERO SECTION: OPENAI EXACT "NASIL YARDIMCI OLABİLİRİM?" KONSOLU -->
+        <section id="dedektife-sor" class="relative bg-[#FFFFFF] text-[#000000] pt-20 sm:pt-28 pb-14 sm:pb-20 overflow-hidden">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
 
-            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-8 sm:space-y-10">
-                
-                <!-- OpenAI Hero Header -->
-                <div class="text-center space-y-4 max-w-3xl mx-auto">
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/10 text-[11px] font-mono tracking-widest text-neutral-300 uppercase">
-                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                        <span>YENİ NESİL ADLİ DANIŞMANLIK • 20+ YILLIK SAHA TECRÜBESİ</span>
-                    </div>
-                    
-                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-normal tracking-[-0.03em] text-white leading-[1.12]">
-                        Doğrulama yanılgısına yer yok.<br>
-                        <span class="text-neutral-400">Sadece somut gerçekler ve yasal deliller.</span>
+                <!-- OpenAI Exact Centered Headline ("Nasıl yardımcı olabilirim?") -->
+                <div class="text-center space-y-3 mb-8 sm:mb-10">
+                    <h1 class="text-3xl sm:text-4xl lg:text-[42px] font-medium tracking-[-0.03em] text-[#000000] leading-tight">
+                        Nasıl yardımcı olabilirim?
                     </h1>
-                    
-                    <p class="text-sm sm:text-base text-neutral-400 font-light leading-relaxed max-w-2xl mx-auto">
-                        Kurucumuz <strong>Ümit Hakan Karakaya</strong> ve yeni nesil dijital asistanımız <strong>Elsa</strong> rehberliğinde; kuruntuları körükleyen sahte şüphe oranlarına değil, mahkemede tek celsede kabul edilen HMK m.199 normlarında hukuki gerçeklere dayalı canlı danışmanlık.
+                    <p class="text-sm sm:text-base text-[#595959] font-normal max-w-xl mx-auto leading-relaxed">
+                        20 yıllık resmi adli tecrübeyle; eş takibinden velayet davalarına, mahkeme delillerinden böcek aramaya vakanızı doğrudan analiz edin.
                     </p>
                 </div>
 
-                <!-- OpenAI ChatGPT-style Console Card -->
-                <div class="rounded-3xl bg-[#111113] border border-white/15 overflow-hidden shadow-2xl transition">
+                <!-- OpenAI Exact Console Card (max-w-[720px], rounded-[28px], 1px border, subtle shadow) -->
+                <div class="max-w-[720px] mx-auto rounded-[28px] border border-black/[0.14] bg-[#FFFFFF] shadow-[0_2px_14px_rgba(0,0,0,0.04)] hover:shadow-[0_4px_20px_rgba(0,0,0,0.07)] focus-within:border-black/35 p-4 sm:p-5 transition relative">
                     
-                    <!-- Console Top Header -->
-                    <div class="px-5 py-3.5 bg-[#161618] border-b border-white/10 flex items-center justify-between">
-                        <div class="flex items-center gap-3">
-                            <div class="relative w-9 h-9 rounded-full overflow-hidden border border-white/20 shrink-0">
-                                <img src="assets/photos/elsa-dedektif-asistan.jpg" alt="Elsa &amp; Ümit Hakan Karakaya" class="w-full h-full object-cover object-top">
-                                <span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-400 border-2 border-[#161618]"></span>
-                            </div>
-                            <div>
-                                <div class="text-xs sm:text-sm font-medium text-white flex items-center gap-2">
-                                    <span>Yeni Nesil Dedektif'e Sor</span>
-                                    <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-white/10 text-neutral-300">Canlı Danışman</span>
-                                </div>
-                                <div class="text-[10.5px] text-neutral-400 font-mono">Elsa &amp; Ümit Hakan Karakaya (UÖDED Başkanı)</div>
-                            </div>
+                    <!-- Textarea Input Area -->
+                    <textarea id="aiChatInput" rows="2" placeholder="Vakanızı veya sorunuzu buraya yazın (örn: Eşim telefonuna şifre koydu, 5 yaşında kızımın velayeti, HMK m.199 delil geçerliliği, dedektif ücretleri...)" class="w-full bg-transparent border-none text-[#000000] placeholder-[#737373] text-[15px] sm:text-[16px] focus:outline-none resize-none leading-relaxed font-normal"></textarea>
+                    
+                    <!-- Bottom Action Row Inside Card -->
+                    <div class="pt-2 flex items-center justify-between gap-3 border-t border-black/[0.06] mt-2">
+                        <div class="flex items-center gap-2 text-[11px] font-mono text-[#8C8C8C]">
+                            <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> %100 Anonim</span>
+                            <span>•</span>
+                            <span>Kayıt Tutulmaz</span>
+                            <span class="hidden sm:inline">•</span>
+                            <span class="hidden sm:inline">HMK m.199 Uyumlu</span>
                         </div>
-                        
-                        <button type="button" onclick="resetAIChat()" class="px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/10 text-neutral-300 hover:text-white text-[11px] font-mono flex items-center gap-1.5 transition" title="Sohbeti Sıfırla">
-                            <i class="hgi hgi-stroke hgi-reload w-3 h-3"></i>
-                            <span>Sıfırla</span>
+
+                        <!-- Circular Send Button (OpenAI Exact 32px Round Arrow Button) -->
+                        <button type="button" id="aiSendBtn" onclick="sendAIChatMessage()" class="w-8 h-8 rounded-full bg-[#000000] hover:bg-neutral-800 text-[#FFFFFF] flex items-center justify-center transition active:scale-95 shrink-0 shadow-sm" title="Soruyu Yanıtla">
+                            <i class="hgi hgi-stroke hgi-arrow-up-01 w-4 h-4 text-white"></i>
                         </button>
-                    </div>
-
-                    <!-- Scrollable Conversation Stream -->
-                    <div class="p-4 sm:p-6 space-y-4 max-h-[380px] sm:max-h-[440px] overflow-y-auto scrollbar-thin scrollbar-thumb-white/15" id="aiChatMessages">
-                        <div class="flex items-start gap-3 text-left animate-fadeIn">
-                            <img src="assets/photos/elsa-dedektif-asistan.jpg" alt="Elsa &amp; Ümit Hakan Karakaya" class="w-8 h-8 rounded-full border border-white/20 object-cover object-top shrink-0 mt-1 shadow-sm">
-                            <div class="bg-[#18181B] border border-white/10 rounded-2xl rounded-tl-sm p-4 sm:p-5 text-white max-w-[95%] sm:max-w-[85%] space-y-3.5 shadow-lg">
-                                <div class="flex items-center justify-between pb-2 border-b border-white/10">
-                                    <div class="flex items-center gap-1.5">
-                                        <span class="text-xs font-medium text-white">Yeni Nesil Dedektif (Elsa &amp; Ümit Hakan Karakaya)</span>
-                                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                                    </div>
-                                    <span class="text-[10px] font-mono text-neutral-400">Çevrimiçi</span>
-                                </div>
-                                <div class="text-xs sm:text-[13px] leading-relaxed text-neutral-300 space-y-2">
-                                    <p>Merhaba! Ben DAT Özel Dedektiflik'in Yeni Nesil Dijital Asistanı <strong>Elsa</strong>. Kurucumuz <strong>Ümit Hakan Karakaya</strong>'nın 20 yılı aşkın dedektiflik ve adli bilişim tecrübesiyle buradayım.</p>
-                                    <p>Burada kuruntuları körükleyen sahte şüphe oranlarına, klişe vaatlere veya yasadışı yöntem tuzaklarına (telefon dinleme, casus yazılım gibi TCK m.134 suçlarına) yer yok. Sorularınızı <strong>doğrulama yanılgısına kapılmadan</strong>, dürüst, gerçekçi ve mahkemede (HMK m.199) tek celsede geçerli hukuki perspektifle yanıtlıyorum.</p>
-                                    <p class="text-neutral-400 font-mono text-[11px] pt-1">Aşağıdaki hızlı konulardan birini seçebilir veya kendi vakanızı doğrudan aşağıdaki kutuya yazabilirsiniz:</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Console Input Area (OpenAI Style) -->
-                    <div class="p-4 sm:p-5 bg-[#161618] border-t border-white/10 space-y-3">
-                        
-                        <!-- Input Box -->
-                        <div class="flex flex-col sm:flex-row items-stretch sm:items-end gap-2.5 bg-[#0A0A0B] border border-white/15 focus-within:border-white/40 rounded-2xl p-2.5 sm:p-2 sm:pl-4 transition shadow-inner">
-                            <textarea id="aiChatInput" rows="2" placeholder="Vakanızı, şüphenizi veya hukuki sorunuzu buraya yazın (örn: Eşim Bodrum'a tatile gitti, 5 yaşında kızımın velayeti, HMK m.199 delil geçerliliği, ücretler...)" class="flex-1 bg-transparent border-0 text-xs sm:text-sm text-white placeholder-neutral-500 focus:outline-none resize-none py-1.5 sm:py-2 max-h-32 leading-relaxed font-light"></textarea>
-                            
-                            <button type="button" id="aiSendBtn" onclick="sendAIChatMessage()" class="px-5 py-3 sm:py-2.5 rounded-xl bg-white text-black hover:bg-neutral-200 font-medium text-xs sm:text-sm flex items-center justify-center gap-2 shrink-0 transition active:scale-95 shadow-md">
-                                <span>Soruyu Yanıtla</span>
-                                <i class="hgi hgi-stroke hgi-arrow-right-01 w-4 h-4 text-black"></i>
-                            </button>
-                        </div>
-
-                        <!-- Suggestion Chips (OpenAI Style Prompts) -->
-                        <div class="space-y-1.5">
-                            <div class="flex items-center justify-between text-[10.5px] font-mono text-neutral-400">
-                                <span>HIZLI SENARYOLAR (1 TIKLA BAŞLATIN):</span>
-                                <span class="text-neutral-500">8 Başlık</span>
-                            </div>
-                            <div class="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none text-[11px]" id="aiQuickChips">
-                                <button type="button" onclick="selectAIChatPreset('cocuk-velayeti')" class="whitespace-nowrap px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/10 text-neutral-300 hover:text-white border border-white/10 transition shrink-0">👶 Çocuk &amp; Velayet (TMK 182)</button>
-                                <button type="button" onclick="selectAIChatPreset('dedektif-tutmak')" class="whitespace-nowrap px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/10 text-neutral-300 hover:text-white border border-white/10 transition shrink-0">🕵️‍♂️ Dedektif Tutmak Yasal mı?</button>
-                                <button type="button" onclick="selectAIChatPreset('dedektif-ucretleri')" class="whitespace-nowrap px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/10 text-neutral-300 hover:text-white border border-white/10 transition shrink-0">💳 Dedektif Ücretleri &amp; Fiyatlar</button>
-                                <button type="button" onclick="selectAIChatPreset('delil-gecerliligi')" class="whitespace-nowrap px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/10 text-neutral-300 hover:text-white border border-white/10 transition shrink-0">⚖️ Mahkemede Delil Geçerliliği</button>
-                                <button type="button" onclick="selectAIChatPreset('aldatan-erkek')" class="whitespace-nowrap px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/10 text-neutral-300 hover:text-white border border-white/10 transition shrink-0">💔 Eş Takibi &amp; Aldatma Belirtileri</button>
-                                <button type="button" onclick="selectAIChatPreset('tatilde-aldatma')" class="whitespace-nowrap px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/10 text-neutral-300 hover:text-white border border-white/10 transition shrink-0">🏖️ Tatil &amp; Şüpheli Seyahat</button>
-                                <button type="button" onclick="selectAIChatPreset('bocek-arama')" class="whitespace-nowrap px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/10 text-neutral-300 hover:text-white border border-white/10 transition shrink-0">🔍 Böcek Arama &amp; TSCM</button>
-                                <button type="button" onclick="selectAIChatPreset('miras-borclu')" class="whitespace-nowrap px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/10 text-neutral-300 hover:text-white border border-white/10 transition shrink-0">📍 Adres &amp; Gizli Borçlu Tespiti</button>
-                            </div>
-                        </div>
-
-                        <!-- Trust Badges & 7/24 Direct WhatsApp Link -->
-                        <div class="pt-2 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] font-mono text-neutral-400">
-                            <div class="flex flex-wrap items-center justify-center gap-3">
-                                <span class="flex items-center gap-1"><i class="hgi hgi-stroke hgi-security-check w-3.5 h-3.5 text-emerald-400"></i> %100 Anonim</span>
-                                <span>•</span>
-                                <span class="flex items-center gap-1"><i class="hgi hgi-stroke hgi-shield-tick w-3.5 h-3.5 text-emerald-400"></i> Kayıt Tutulmaz</span>
-                                <span>•</span>
-                                <span class="flex items-center gap-1"><i class="hgi hgi-stroke hgi-justice-scale-01 w-3.5 h-3.5 text-emerald-400"></i> HMK m.199 Uyumlu</span>
-                            </div>
-
-                            <a href="https://wa.me/905326667749?text=Merhaba%20%C3%9Cmit%20Bey%2C%20Yeni%20Nesil%20Dedektif'e%20Sor%20alan%C4%B1ndan%20yaz%C4%B1yorum.%20Dan%C4%B1%C5%9Fmanl%C4%B1k%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="text-white hover:text-emerald-400 flex items-center gap-1.5 font-medium transition" title="7/24 WhatsApp Özel Dedektif Danışma Hattı">
-                                <i class="hgi hgi-stroke hgi-whatsapp w-4 h-4 text-[#25D366]"></i>
-                                <span>WhatsApp Doğrudan Danışma: 0532 666 77 49</span>
-                            </a>
-                        </div>
-
                     </div>
                 </div>
 
-                <!-- 4-Column Minimal Metrics (OpenAI Stat Bar) -->
-                <div class="pt-6 border-t border-white/10 grid grid-cols-2 lg:grid-cols-4 gap-6 text-center sm:text-left">
+                <!-- OpenAI Prompt Suggestion Pills (Centered Horizontal List) -->
+                <div class="flex items-center justify-center gap-2 flex-wrap mt-4 text-sm" id="aiQuickChips">
+                    <button type="button" onclick="selectAIChatPreset('cocuk-velayeti')" class="px-3.5 py-1.5 rounded-full border border-black/[0.12] bg-[#FFFFFF] hover:bg-black/[0.04] text-[#000000] text-xs sm:text-[13px] transition font-normal shrink-0 shadow-xs">👶 Çocuk &amp; Velayet</button>
+                    <button type="button" onclick="selectAIChatPreset('aldatan-erkek')" class="px-3.5 py-1.5 rounded-full border border-black/[0.12] bg-[#FFFFFF] hover:bg-black/[0.04] text-[#000000] text-xs sm:text-[13px] transition font-normal shrink-0 shadow-xs">💔 Eş Takibi &amp; Aldatma</button>
+                    <button type="button" onclick="selectAIChatPreset('delil-gecerliligi')" class="px-3.5 py-1.5 rounded-full border border-black/[0.12] bg-[#FFFFFF] hover:bg-black/[0.04] text-[#000000] text-xs sm:text-[13px] transition font-normal shrink-0 shadow-xs">⚖️ Mahkemede Delil Geçerliliği</button>
+                    <button type="button" onclick="selectAIChatPreset('dedektif-ucretleri')" class="px-3.5 py-1.5 rounded-full border border-black/[0.12] bg-[#FFFFFF] hover:bg-black/[0.04] text-[#000000] text-xs sm:text-[13px] transition font-normal shrink-0 shadow-xs">💳 Dedektif Ücretleri</button>
+                    <button type="button" onclick="selectAIChatPreset('bocek-arama')" class="px-3.5 py-1.5 rounded-full border border-black/[0.12] bg-[#FFFFFF] hover:bg-black/[0.04] text-[#000000] text-xs sm:text-[13px] transition font-normal shrink-0 shadow-xs">🔍 Böcek Arama &amp; TSCM</button>
+                    <button type="button" onclick="selectAIChatPreset('miras-borclu')" class="px-3.5 py-1.5 rounded-full border border-black/[0.12] bg-[#FFFFFF] hover:bg-black/[0.04] text-[#000000] text-xs sm:text-[13px] transition font-normal shrink-0 shadow-xs">📍 Adres &amp; Borçlu Tespiti</button>
+                </div>
+
+                <!-- Live Conversation Messages Container (Hidden initially until asked or clicked) -->
+                <div class="max-w-[720px] mx-auto mt-6 space-y-4 empty:hidden" id="aiChatMessages">
+                    <div class="flex items-start gap-3 text-left animate-fadeIn">
+                        <img src="assets/photos/elsa-dedektif-asistan.jpg" alt="Elsa &amp; Ümit Hakan Karakaya" class="w-8 h-8 rounded-full border border-black/10 object-cover object-top shrink-0 mt-1 shadow-xs">
+                        <div class="bg-[#F7F7F8] border border-black/[0.08] rounded-2xl rounded-tl-sm p-4 sm:p-5 text-black max-w-[95%] sm:max-w-[85%] space-y-3 shadow-xs">
+                            <div class="flex items-center justify-between pb-2 border-b border-black/[0.08]">
+                                <div class="flex items-center gap-1.5">
+                                    <span class="text-xs font-medium text-black">Yeni Nesil Dedektif (Elsa &amp; Ümit Hakan Karakaya)</span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                </div>
+                                <span class="text-[10px] font-mono text-neutral-500">Çevrimiçi</span>
+                            </div>
+                            <div class="text-xs sm:text-[13.5px] leading-relaxed text-black/85 space-y-2 font-normal">
+                                <p>Merhaba! Ben DAT Özel Dedektiflik'in Yeni Nesil Dijital Asistanı <strong>Elsa</strong>. Kurucumuz <strong>Ümit Hakan Karakaya</strong>'nın 20 yılı aşkın adli saha tecrübesiyle buradayım.</p>
+                                <p>Burada kuruntuları körükleyen sahte şüphe oranlarına veya yasadışı yöntem tuzaklarına (TCK m.134 casus yazılım suçlarına) yer yok. Sorularınızı <strong>doğrulama yanılgısına kapılmadan</strong>, dürüst, gerçekçi ve mahkemede (HMK m.199) tek celsede geçerli hukuki perspektifle yanıtlıyorum.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- OpenAI Two Featured Cards Section (Matches OpenAI /tr-TR/ Hero Bottom Grid) -->
+                <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-4 sm:gap-6 mt-14 sm:mt-18 pt-10 border-t border-black/[0.08]">
+                    <!-- Card 1: Founder & Authority -->
+                    <div class="openai-card p-6 sm:p-8 flex flex-col justify-between space-y-6">
+                        <div class="space-y-3">
+                            <div class="text-[11px] font-mono tracking-widest text-[#595959] uppercase">2005'TEN BUGÜNE • ADLİ SAHA LİDERLİĞİ</div>
+                            <h3 class="text-xl sm:text-2xl font-medium tracking-tight text-black">Ümit Hakan Karakaya &amp; UÖDED Güvencesi</h3>
+                            <p class="text-xs sm:text-sm text-[#595959] leading-relaxed font-normal">
+                                Uluslararası Hukuk mezunu, emekli TSK mensubu ve UÖDED Kurucu Başkanı Ümit Hakan Karakaya liderliğinde; 4.000'in üzerinde sonuçlandırılmış dosya ve resmi yazılı gizlilik sözleşmesi garantisi.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-black/[0.06] flex items-center justify-between text-xs">
+                            <span class="font-mono text-black/70">İstanbul &bull; Ankara &bull; Karadağ &bull; ABD</span>
+                            <a href="#mimari" class="font-medium text-black hover:underline flex items-center gap-1">İncele ↗</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Legal Evidence Standards -->
+                    <div class="openai-card p-6 sm:p-8 flex flex-col justify-between space-y-6" id="delil-standartlari">
+                        <div class="space-y-3">
+                            <div class="text-[11px] font-mono tracking-widest text-[#595959] uppercase">HMK M.199 &bull; TCK M.134 UYUMU</div>
+                            <h3 class="text-xl sm:text-2xl font-medium tracking-tight text-black">Mahkemede Tek Celsede Geçerli Delil Standartları</h3>
+                            <p class="text-xs sm:text-sm text-[#595959] leading-relaxed font-normal">
+                                Telefon dinleme ve casus yazılım gibi 2 ila 5 yıl hapis cezası gerektiren suçlara asla tevessül edilmez. Kamuya açık alanlarda elde edilen tarih-saat damgalı 4K gözlem raporlarıyla aile ve ticaret mahkemelerinde hüküm kurduran yasal delil toplanır.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-black/[0.06] flex items-center justify-between text-xs">
+                            <span class="font-mono text-emerald-600">%100 Hukuki Meşruiyet</span>
+                            <a href="#hizmetler" class="font-medium text-black hover:underline flex items-center gap-1">12 Hizmeti Gör ↗</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4 Metrics Row (OpenAI Subtle Stat Divider) -->
+                <div class="max-w-5xl mx-auto pt-8 mt-6 grid grid-cols-2 lg:grid-cols-4 gap-6 text-center sm:text-left">
                     <div class="space-y-1">
-                        <div class="text-2xl sm:text-3xl font-light text-white tracking-tight">20+ Yıl</div>
-                        <div class="text-xs text-neutral-400 font-light">2005'ten Bugüne Kesintisiz Adli Saha Deneyimi</div>
+                        <div class="text-2xl sm:text-3xl font-medium text-black tracking-tight">20+ Yıl</div>
+                        <div class="text-xs text-[#595959]">2005'ten Bugüne Resmi Saha Tecrübesi</div>
                     </div>
                     <div class="space-y-1">
-                        <div class="text-2xl sm:text-3xl font-light text-white tracking-tight">4.000+</div>
-                        <div class="text-xs text-neutral-400 font-light">Tek Celsede Kabul Edilen Hukuki Delil ve Rapor</div>
+                        <div class="text-2xl sm:text-3xl font-medium text-black tracking-tight">4.000+</div>
+                        <div class="text-xs text-[#595959]">Mahkemelerde Kabul Edilen Sonuçlu Vaka</div>
                     </div>
                     <div class="space-y-1">
-                        <div class="text-2xl sm:text-3xl font-light text-white tracking-tight">%100 Yasal</div>
-                        <div class="text-xs text-neutral-400 font-light">HMK m.199 ve TCK m.134 Sınırlarında Kanıt</div>
+                        <div class="text-2xl sm:text-3xl font-medium text-black tracking-tight">%100 Yasal</div>
+                        <div class="text-xs text-[#595959]">HMK m.199 ve TCK m.134 Delil Güvencesi</div>
                     </div>
                     <div class="space-y-1">
-                        <div class="text-2xl sm:text-3xl font-light text-white tracking-tight">81 İl &amp; Global</div>
-                        <div class="text-xs text-neutral-400 font-light">İstanbul, Ankara, Karadağ ve ABD Temsilcilikleri</div>
+                        <div class="text-2xl sm:text-3xl font-medium text-black tracking-tight">81 İl</div>
+                        <div class="text-xs text-[#595959]">Türkiye Geneli 7/24 Mobil Saha Operasyonu</div>
                     </div>
                 </div>
 
             </div>
         </section>
-        
         <section id="mimari" class="py-12 sm:py-16 bg-[#F2F2F2] text-[#111111]">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10">
 
@@ -2022,8 +1977,8 @@
             </div>
         </section>
 
-        <!-- 4. 12 OFFICIAL SERVICES (#hizmetler - Gallery Light #F2F2F2 + Folder-Tab Notched Cards) -->
-        <section id="hizmetler" class="py-14 sm:py-20 bg-[#F9F9FB] border-t border-black/[0.08]">
+        <!-- 3. YENİ NESİL DEDEKTİF / DEDEKTİF'E SOR (#dedektife-sor - Studio Obsidian Dark #111111) -->
+        <section id="hizmetler" class="py-12 sm:py-16 bg-[#F2F2F2]">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 <div class="flex flex-col lg:flex-row items-center lg:items-end justify-between gap-5 mb-7 sm:mb-9 text-center lg:text-left rtl:lg:text-right">
@@ -7049,7 +7004,7 @@
     </div>
 
     <!-- Core Interactive Scripts & 7-Language i18n Engine -->
-    <script src="script.js?v=8.3"></script>
+    <script src="script.js?v=9.0"></script>
     <script src="lang/en.js?v=7.2"></script>
     <script src="lang/de.js?v=7.2"></script>
     <script src="lang/fr.js?v=7.2"></script>
