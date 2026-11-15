@@ -4963,7 +4963,587 @@
 
     <!-- Studio Architectural Matte Obsidian Footer -->
     
-        <!-- 81 İL & İLÇE ULUSAL DEDEKTİFLİK HİZMET AĞI (#turkiye-dedektif-agi) -->
+        
+        <!-- 11. TÜRKİYE'NİN EN KAPSAMLI ÖZEL DEDEKTİFLİK VE HUKUKİ ARAMA KÜLLİYATI (#arama-rehberi) -->
+        <section id="arama-rehberi" class="py-14 sm:py-20 bg-[#111111] text-[#FFFFFF] border-t border-white/10 relative">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+                
+                <div class="text-center space-y-3 max-w-3xl mx-auto">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#1D1D1F] border border-[#93F051]/30 text-xs font-medium text-[#93F051]">
+                        <i class="hgi hgi-stroke hgi-search-list w-3.5 h-3.5"></i>
+                        <span>A'DAN Z'YE HALKIN EN ÇOK ARADIĞI DEDEKTİFLİK SORULARI VE TERİMLERİ</span>
+                    </div>
+                    <h2 class="apple-heading text-3xl sm:text-4xl font-medium text-white tracking-tight">
+                        Özel Dedektiflik Arama &amp; Hukuki Bilgi Rehberi
+                    </h2>
+                    <p class="text-sm sm:text-base text-white/75 leading-relaxed font-regular">
+                        Google, Gemini, ChatGPT ve diğer arama motorlarında eş takibinden dedektif ücretlerine, mahkeme delillerinden böcek aramaya kadar en sık sorulan soruların <strong>Yargıtay içtihatları ve HMK m.199 normlarında doğrudan yanıtları</strong>.
+                    </p>
+                </div>
+
+                <!-- Instant Live Filter Search Box -->
+                <div class="relative max-w-2xl mx-auto">
+                    <div class="flex items-center gap-3 bg-[#18181A] border border-white/15 focus-within:border-[#93F051] rounded-2xl px-4 py-3 shadow-inner transition">
+                        <i class="hgi hgi-stroke hgi-search-01 w-5 h-5 text-[#93F051] shrink-0"></i>
+                        <input type="text" id="paaSearchInput" oninput="filterPAASearch()" placeholder="Aramak istediğiniz konuyu yazın (örn: eş takibi, fiyatlar, casus program, ankara, yasal mı...)" class="flex-1 bg-transparent border-0 text-xs sm:text-sm text-white placeholder-white/40 focus:outline-none">
+                        <span id="paaMatchCount" class="text-[11px] font-mono text-white/50 shrink-0"></span>
+                    </div>
+                </div>
+
+                <!-- Category Pill Tabs -->
+                <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none justify-start sm:justify-center">
+                    
+    <button type="button" onclick="filterPAACategory('all')" id="paaCatBtn-all" class="paa-cat-btn px-4 py-2 rounded-full text-xs font-mono font-semibold transition shrink-0 bg-[#93F051] text-[#111111] shadow-sm">
+        🔥 Tümü (30+ Temel Soru &amp; Arama)
+    </button>
+        <button type="button" onclick="filterPAACategory('guvenilirlik')" id="paaCatBtn-guvenilirlik" class="paa-cat-btn px-4 py-2 rounded-full text-xs font-mono font-medium transition shrink-0 bg-white/5 text-white/75 hover:text-white hover:bg-white/10">
+            Dedektif Arayışı & Güvenilirlik
+        </button>
+        <button type="button" onclick="filterPAACategory('es-takibi')" id="paaCatBtn-es-takibi" class="paa-cat-btn px-4 py-2 rounded-full text-xs font-mono font-medium transition shrink-0 bg-white/5 text-white/75 hover:text-white hover:bg-white/10">
+            Eş Takibi & Aldatma Tespiti
+        </button>
+        <button type="button" onclick="filterPAACategory('hukuk-delil')" id="paaCatBtn-hukuk-delil" class="paa-cat-btn px-4 py-2 rounded-full text-xs font-mono font-medium transition shrink-0 bg-white/5 text-white/75 hover:text-white hover:bg-white/10">
+            Boşanma & Mahkemede Delil Geçerliliği
+        </button>
+        <button type="button" onclick="filterPAACategory('ucretler')" id="paaCatBtn-ucretler" class="paa-cat-btn px-4 py-2 rounded-full text-xs font-mono font-medium transition shrink-0 bg-white/5 text-white/75 hover:text-white hover:bg-white/10">
+            Dedektif Ücretleri & Fiyatlandırma
+        </button>
+        <button type="button" onclick="filterPAACategory('velayet-cocuk')" id="paaCatBtn-velayet-cocuk" class="paa-cat-btn px-4 py-2 rounded-full text-xs font-mono font-medium transition shrink-0 bg-white/5 text-white/75 hover:text-white hover:bg-white/10">
+            Velayet Davaları & Çocuk Güvenliği
+        </button>
+        <button type="button" onclick="filterPAACategory('borclu-adres')" id="paaCatBtn-borclu-adres" class="paa-cat-btn px-4 py-2 rounded-full text-xs font-mono font-medium transition shrink-0 bg-white/5 text-white/75 hover:text-white hover:bg-white/10">
+            Borçlu, Adres & Varlık Tespiti
+        </button>
+        <button type="button" onclick="filterPAACategory('bocek-arama')" id="paaCatBtn-bocek-arama" class="paa-cat-btn px-4 py-2 rounded-full text-xs font-mono font-medium transition shrink-0 bg-white/5 text-white/75 hover:text-white hover:bg-white/10">
+            Böcek Arama & Dinleme Cihazı (TSCM)
+        </button>
+        <button type="button" onclick="filterPAACategory('sehir-arama')" id="paaCatBtn-sehir-arama" class="paa-cat-btn px-4 py-2 rounded-full text-xs font-mono font-medium transition shrink-0 bg-white/5 text-white/75 hover:text-white hover:bg-white/10">
+            81 İl & İlçe Lokasyon Aramaları
+        </button>
+                </div>
+
+                <!-- FAQ Accordion Container -->
+                <div class="space-y-3" id="paaItemsContainer">
+                    
+            <div class="paa-item bg-[#18181A] border border-white/10 hover:border-[#93F051]/40 rounded-2xl p-4 sm:p-5 transition group" data-category="guvenilirlik" data-keywords="güvenilir dedektif, dedektif arıyorum, en iyi dedektif, tavsiye dedektif, dedektif dolandırıcılığı, dedektif şikayetleri güvenilir özel dedektif nasıl bulunur ve nasıl anlaşılır?">
+                <details class="space-y-3">
+                    <summary class="font-medium text-sm sm:text-base text-white flex items-center justify-between cursor-pointer list-none gap-3">
+                        <span class="flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span>
+                            <span>Güvenilir özel dedektif nasıl bulunur ve nasıl anlaşılır?</span>
+                        </span>
+                        <i class="hgi hgi-stroke hgi-arrow-down-01 w-4 h-4 text-[#93F051] group-open:rotate-180 transition-transform shrink-0"></i>
+                    </summary>
+                    <div class="pt-3 border-t border-white/10 space-y-3 text-xs sm:text-sm text-white/80 leading-relaxed font-regular">
+                        <p>Güvenilir bir dedektif; sabit bir merkez ofise (örn. İstanbul Kartal Helis Metro Tower veya Ankara Çankaya Konutkent), kurumsal sabit hatlara (0312 284 02 99), UÖDED gibi mesleki dernek başkanlığına ve resmi yazılı gizlilik sözleşmesine sahip olmalıdır. Sadece cep telefonu veya WhatsApp üzerinden açık adres vermeden peşin para isteyen sözde dedektiflerden uzak durulmalıdır.</p>
+                        <div class="pt-2 flex flex-wrap items-center justify-between gap-2 text-[10.5px] font-mono text-white/50">
+                            <span class="flex items-center gap-1"><i class="hgi hgi-stroke hgi-search-01 w-3 h-3 text-[#93F051]"></i> İlgili Aramalar: güvenilir dedektif, dedektif arıyorum, en iyi dedektif, tavsiye dedektif, dedektif dolandırıcılığı, dedektif şikayetleri</span>
+                            <a href="https://wa.me/905326667749?text=Merhaba%20%C3%9Cmit%20Bey%2C%20web%20sitenizdeki%20arama%20rehberinden%20yaz%C4%B1yorum.%20Konu%3A%20Güvenilir%20özel%20dedektif%20nasıl%20bulunur%20ve%20nasıl%20anlaşılır?" target="_blank" rel="noopener noreferrer" class="text-[#93F051] hover:underline flex items-center gap-1 font-semibold">
+                                <span>Doğrudan Bilgi Alın</span>
+                                <i class="hgi hgi-stroke hgi-arrow-right-01 w-3 h-3"></i>
+                            </a>
+                        </div>
+                    </div>
+                </details>
+            </div>
+            <div class="paa-item bg-[#18181A] border border-white/10 hover:border-[#93F051]/40 rounded-2xl p-4 sm:p-5 transition group" data-category="guvenilirlik" data-keywords="dedektif tuttuğumu kimse öğrenir mi, dedektif gizlilik sözleşmesi, dedektif deşifre olur mu özel dedektif tuttuğum karşı tarafça veya başkaları tarafından öğrenilir mi?">
+                <details class="space-y-3">
+                    <summary class="font-medium text-sm sm:text-base text-white flex items-center justify-between cursor-pointer list-none gap-3">
+                        <span class="flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span>
+                            <span>Özel dedektif tuttuğum karşı tarafça veya başkaları tarafından öğrenilir mi?</span>
+                        </span>
+                        <i class="hgi hgi-stroke hgi-arrow-down-01 w-4 h-4 text-[#93F051] group-open:rotate-180 transition-transform shrink-0"></i>
+                    </summary>
+                    <div class="pt-3 border-t border-white/10 space-y-3 text-xs sm:text-sm text-white/80 leading-relaxed font-regular">
+                        <p>Kesinlikle hayır. DAT Özel Dedektiflik bünyesinde yürütülen tüm çalışmalar çift taraflı katı gizlilik sözleşmesi (NDA) ve KVKK sıfır-paylaşım protokolüyle korunur. Bilgiler 256-bit şifrelenir, araştırma tamamlandığında tüm kayıtlar kalıcı olarak imha edilir. Hedef şahsın veya üçüncü kişilerin araştırmadan haberdar olması imkansızdır.</p>
+                        <div class="pt-2 flex flex-wrap items-center justify-between gap-2 text-[10.5px] font-mono text-white/50">
+                            <span class="flex items-center gap-1"><i class="hgi hgi-stroke hgi-search-01 w-3 h-3 text-[#93F051]"></i> İlgili Aramalar: dedektif tuttuğumu kimse öğrenir mi, dedektif gizlilik sözleşmesi, dedektif deşifre olur mu</span>
+                            <a href="https://wa.me/905326667749?text=Merhaba%20%C3%9Cmit%20Bey%2C%20web%20sitenizdeki%20arama%20rehberinden%20yaz%C4%B1yorum.%20Konu%3A%20Özel%20dedektif%20tuttuğum%20karşı%20tarafça%20veya%20başkaları%20tarafından%20öğrenilir%20mi?" target="_blank" rel="noopener noreferrer" class="text-[#93F051] hover:underline flex items-center gap-1 font-semibold">
+                                <span>Doğrudan Bilgi Alın</span>
+                                <i class="hgi hgi-stroke hgi-arrow-right-01 w-3 h-3"></i>
+                            </a>
+                        </div>
+                    </div>
+                </details>
+            </div>
+            <div class="paa-item bg-[#18181A] border border-white/10 hover:border-[#93F051]/40 rounded-2xl p-4 sm:p-5 transition group" data-category="guvenilirlik" data-keywords="özel dedektif arıyorum, dedektif tutmak istiyorum, dedektif ilk görüşme, dedektif danışmanlık dedektif arıyorum, ilk görüşmede ne yapmam gerekir?">
+                <details class="space-y-3">
+                    <summary class="font-medium text-sm sm:text-base text-white flex items-center justify-between cursor-pointer list-none gap-3">
+                        <span class="flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span>
+                            <span>Dedektif arıyorum, ilk görüşmede ne yapmam gerekir?</span>
+                        </span>
+                        <i class="hgi hgi-stroke hgi-arrow-down-01 w-4 h-4 text-[#93F051] group-open:rotate-180 transition-transform shrink-0"></i>
+                    </summary>
+                    <div class="pt-3 border-t border-white/10 space-y-3 text-xs sm:text-sm text-white/80 leading-relaxed font-regular">
+                        <p>İlk görüşmede şüphe duyduğunuz konuyu (eş takibi, adres tespiti, boşanma delili vb.) dürüstçe özetlemeniz yeterlidir. Uzman ekibimiz vakanın hukuki altyapısını, delil toplanabilirliğini ve çalışma takvimini ücretsiz olarak analiz eder; dosya uygunsa resmi sözleşme düzenlenir.</p>
+                        <div class="pt-2 flex flex-wrap items-center justify-between gap-2 text-[10.5px] font-mono text-white/50">
+                            <span class="flex items-center gap-1"><i class="hgi hgi-stroke hgi-search-01 w-3 h-3 text-[#93F051]"></i> İlgili Aramalar: özel dedektif arıyorum, dedektif tutmak istiyorum, dedektif ilk görüşme, dedektif danışmanlık</span>
+                            <a href="https://wa.me/905326667749?text=Merhaba%20%C3%9Cmit%20Bey%2C%20web%20sitenizdeki%20arama%20rehberinden%20yaz%C4%B1yorum.%20Konu%3A%20Dedektif%20arıyorum,%20ilk%20görüşmede%20ne%20yapmam%20gerekir?" target="_blank" rel="noopener noreferrer" class="text-[#93F051] hover:underline flex items-center gap-1 font-semibold">
+                                <span>Doğrudan Bilgi Alın</span>
+                                <i class="hgi hgi-stroke hgi-arrow-right-01 w-3 h-3"></i>
+                            </a>
+                        </div>
+                    </div>
+                </details>
+            </div>
+            <div class="paa-item bg-[#18181A] border border-white/10 hover:border-[#93F051]/40 rounded-2xl p-4 sm:p-5 transition group" data-category="guvenilirlik" data-keywords="dedektifler derneği, uöded başkanı, tüded dedektiflik, dedektif odası varmı dedektifler hangi derneğe veya kuruma bağlıdır?">
+                <details class="space-y-3">
+                    <summary class="font-medium text-sm sm:text-base text-white flex items-center justify-between cursor-pointer list-none gap-3">
+                        <span class="flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span>
+                            <span>Dedektifler hangi derneğe veya kuruma bağlıdır?</span>
+                        </span>
+                        <i class="hgi hgi-stroke hgi-arrow-down-01 w-4 h-4 text-[#93F051] group-open:rotate-180 transition-transform shrink-0"></i>
+                    </summary>
+                    <div class="pt-3 border-t border-white/10 space-y-3 text-xs sm:text-sm text-white/80 leading-relaxed font-regular">
+                        <p>Türkiye'de özel dedektiflik alanında en saygın mesleki kurum, kurucumuz Ümit Hakan Karakaya'nın kurucu başkanı olduğu UÖDED (Uluslararası Özel Dedektif Eğitimleri Derneği) ve TÜDED'dir. Kurumumuz uluslararası WPYB (World Protection & Detective Body) akreditasyonuna sahiptir.</p>
+                        <div class="pt-2 flex flex-wrap items-center justify-between gap-2 text-[10.5px] font-mono text-white/50">
+                            <span class="flex items-center gap-1"><i class="hgi hgi-stroke hgi-search-01 w-3 h-3 text-[#93F051]"></i> İlgili Aramalar: dedektifler derneği, uöded başkanı, tüded dedektiflik, dedektif odası varmı</span>
+                            <a href="https://wa.me/905326667749?text=Merhaba%20%C3%9Cmit%20Bey%2C%20web%20sitenizdeki%20arama%20rehberinden%20yaz%C4%B1yorum.%20Konu%3A%20Dedektifler%20hangi%20derneğe%20veya%20kuruma%20bağlıdır?" target="_blank" rel="noopener noreferrer" class="text-[#93F051] hover:underline flex items-center gap-1 font-semibold">
+                                <span>Doğrudan Bilgi Alın</span>
+                                <i class="hgi hgi-stroke hgi-arrow-right-01 w-3 h-3"></i>
+                            </a>
+                        </div>
+                    </div>
+                </details>
+            </div>
+            <div class="paa-item bg-[#18181A] border border-white/10 hover:border-[#93F051]/40 rounded-2xl p-4 sm:p-5 transition group" data-category="es-takibi" data-keywords="kocam beni aldatıyor mu, karım aldatıyor mu nasıl anlarım, eşim beni aldatıyor şüphesi, aldatan erkek belirtileri, aldatan kadın belirtileri eşimin aldattığından şüpheleniyorum, ne yapmalıyım?">
+                <details class="space-y-3">
+                    <summary class="font-medium text-sm sm:text-base text-white flex items-center justify-between cursor-pointer list-none gap-3">
+                        <span class="flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span>
+                            <span>Eşimin aldattığından şüpheleniyorum, ne yapmalıyım?</span>
+                        </span>
+                        <i class="hgi hgi-stroke hgi-arrow-down-01 w-4 h-4 text-[#93F051] group-open:rotate-180 transition-transform shrink-0"></i>
+                    </summary>
+                    <div class="pt-3 border-t border-white/10 space-y-3 text-xs sm:text-sm text-white/80 leading-relaxed font-regular">
+                        <p>İlk kural: Elinizde somut ve yasal bir kanıt olmadan asla fevri yüzleşmeye girmeyiniz. Tartışmak yalnızca karşı tarafın savunma geliştirmesine ve dijital delilleri karartmasına yol açar. Soğukkanlı kalıp durumu uzman bir dedektif ve aile avukatıyla değerlendirerek kamuya açık alanlarda HMK m.199 uyumlu resmi tespit yaptırmalısınız.</p>
+                        <div class="pt-2 flex flex-wrap items-center justify-between gap-2 text-[10.5px] font-mono text-white/50">
+                            <span class="flex items-center gap-1"><i class="hgi hgi-stroke hgi-search-01 w-3 h-3 text-[#93F051]"></i> İlgili Aramalar: kocam beni aldatıyor mu, karım aldatıyor mu nasıl anlarım, eşim beni aldatıyor şüphesi, aldatan erkek belirtileri, aldatan kadın belirtileri</span>
+                            <a href="https://wa.me/905326667749?text=Merhaba%20%C3%9Cmit%20Bey%2C%20web%20sitenizdeki%20arama%20rehberinden%20yaz%C4%B1yorum.%20Konu%3A%20Eşimin%20aldattığından%20şüpheleniyorum,%20ne%20yapmalıyım?" target="_blank" rel="noopener noreferrer" class="text-[#93F051] hover:underline flex items-center gap-1 font-semibold">
+                                <span>Doğrudan Bilgi Alın</span>
+                                <i class="hgi hgi-stroke hgi-arrow-right-01 w-3 h-3"></i>
+                            </a>
+                        </div>
+                    </div>
+                </details>
+            </div>
+            <div class="paa-item bg-[#18181A] border border-white/10 hover:border-[#93F051]/40 rounded-2xl p-4 sm:p-5 transition group" data-category="es-takibi" data-keywords="eşimin telefonuna casus program, whatsapp takip programı suç mu, telefon dinleme delil olur mu, casus yazılım cezası eşimin telefonuna casus program veya takip programı yüklemek suç mu?">
+                <details class="space-y-3">
+                    <summary class="font-medium text-sm sm:text-base text-white flex items-center justify-between cursor-pointer list-none gap-3">
+                        <span class="flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span>
+                            <span>Eşimin telefonuna casus program veya takip programı yüklemek suç mu?</span>
+                        </span>
+                        <i class="hgi hgi-stroke hgi-arrow-down-01 w-4 h-4 text-[#93F051] group-open:rotate-180 transition-transform shrink-0"></i>
+                    </summary>
+                    <div class="pt-3 border-t border-white/10 space-y-3 text-xs sm:text-sm text-white/80 leading-relaxed font-regular">
+                        <p>Evet! Eşinizin dahi olsa telefonuna casus yazılım kurmak, WhatsApp mesajlarını kırmaya çalışmak veya ortam dinlemesi yapmak TCK m.134 (Özel Hayatın Gizliliğini İhlal) ve TCK m.243 (Bilişim Sistemine Hukuka Aykırı Girme) uyarınca 2 ila 5 yıl hapis cezası gerektiren ağır bir suçtur. Bu yolla elde edilen kayıtlar mahkemede geçersiz sayılır ve aleyhinize döner.</p>
+                        <div class="pt-2 flex flex-wrap items-center justify-between gap-2 text-[10.5px] font-mono text-white/50">
+                            <span class="flex items-center gap-1"><i class="hgi hgi-stroke hgi-search-01 w-3 h-3 text-[#93F051]"></i> İlgili Aramalar: eşimin telefonuna casus program, whatsapp takip programı suç mu, telefon dinleme delil olur mu, casus yazılım cezası</span>
+                            <a href="https://wa.me/905326667749?text=Merhaba%20%C3%9Cmit%20Bey%2C%20web%20sitenizdeki%20arama%20rehberinden%20yaz%C4%B1yorum.%20Konu%3A%20Eşimin%20telefonuna%20casus%20program%20veya%20takip%20programı%20yüklemek%20suç%20mu?" target="_blank" rel="noopener noreferrer" class="text-[#93F051] hover:underline flex items-center gap-1 font-semibold">
+                                <span>Doğrudan Bilgi Alın</span>
+                                <i class="hgi hgi-stroke hgi-arrow-right-01 w-3 h-3"></i>
+                            </a>
+                        </div>
+                    </div>
+                </details>
+            </div>
+            <div class="paa-item bg-[#18181A] border border-white/10 hover:border-[#93F051]/40 rounded-2xl p-4 sm:p-5 transition group" data-category="es-takibi" data-keywords="otelde aldatma nasıl yakalanır, tatil takibi dedektif, bodrum otel aldatma delili, seyahat eş takibi otelde veya tatilde aldatan eş nasıl belgelenir?">
+                <details class="space-y-3">
+                    <summary class="font-medium text-sm sm:text-base text-white flex items-center justify-between cursor-pointer list-none gap-3">
+                        <span class="flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span>
+                            <span>Otelde veya tatilde aldatan eş nasıl belgelenir?</span>
+                        </span>
+                        <i class="hgi hgi-stroke hgi-arrow-down-01 w-4 h-4 text-[#93F051] group-open:rotate-180 transition-transform shrink-0"></i>
+                    </summary>
+                    <div class="pt-3 border-t border-white/10 space-y-3 text-xs sm:text-sm text-white/80 leading-relaxed font-regular">
+                        <p>Otel odası kapalı mahrem alandır; odaya gizli kamera koymak suçtur. Ancak şahsın havalimanında, otel lobisinde, restoranda, plajda veya ortak mekanlarda üçüncü bir kişiyle buluşması, kamuya açık alanda 4K teleobjektiflerle tarih-saat damgalı olarak belgelenir. Bu görüntüler TMK m.161 zina davasında tek celsede hükme esas alınır.</p>
+                        <div class="pt-2 flex flex-wrap items-center justify-between gap-2 text-[10.5px] font-mono text-white/50">
+                            <span class="flex items-center gap-1"><i class="hgi hgi-stroke hgi-search-01 w-3 h-3 text-[#93F051]"></i> İlgili Aramalar: otelde aldatma nasıl yakalanır, tatil takibi dedektif, bodrum otel aldatma delili, seyahat eş takibi</span>
+                            <a href="https://wa.me/905326667749?text=Merhaba%20%C3%9Cmit%20Bey%2C%20web%20sitenizdeki%20arama%20rehberinden%20yaz%C4%B1yorum.%20Konu%3A%20Otelde%20veya%20tatilde%20aldatan%20eş%20nasıl%20belgelenir?" target="_blank" rel="noopener noreferrer" class="text-[#93F051] hover:underline flex items-center gap-1 font-semibold">
+                                <span>Doğrudan Bilgi Alın</span>
+                                <i class="hgi hgi-stroke hgi-arrow-right-01 w-3 h-3"></i>
+                            </a>
+                        </div>
+                    </div>
+                </details>
+            </div>
+            <div class="paa-item bg-[#18181A] border border-white/10 hover:border-[#93F051]/40 rounded-2xl p-4 sm:p-5 transition group" data-category="es-takibi" data-keywords="eşim telefonunu saklıyor, kocam şifre koydu, eve geç gelen eş takibi, aldatma şüphesi dedektif kocam/karım gece eve geç geliyor veya telefonuna şifre koydu, dedektif tutmalı mıyım?">
+                <details class="space-y-3">
+                    <summary class="font-medium text-sm sm:text-base text-white flex items-center justify-between cursor-pointer list-none gap-3">
+                        <span class="flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span>
+                            <span>Kocam/karım gece eve geç geliyor veya telefonuna şifre koydu, dedektif tutmalı mıyım?</span>
+                        </span>
+                        <i class="hgi hgi-stroke hgi-arrow-down-01 w-4 h-4 text-[#93F051] group-open:rotate-180 transition-transform shrink-0"></i>
+                    </summary>
+                    <div class="pt-3 border-t border-white/10 space-y-3 text-xs sm:text-sm text-white/80 leading-relaxed font-regular">
+                        <p>Telefon şifrelemek veya geç gelmek tek başına peşin hüküm sebebi değildir (yankı odası yanılgısı). Ancak bu davranışlara hafta sonu tutarsız seyahatler, hesap hareketlerinde gizli harcamalar ve açıklanamayan devamsızlıklar eşlik ediyorsa, 48 saatlik hızlı sadakat gözlemiyle durum netleştirilmelidir.</p>
+                        <div class="pt-2 flex flex-wrap items-center justify-between gap-2 text-[10.5px] font-mono text-white/50">
+                            <span class="flex items-center gap-1"><i class="hgi hgi-stroke hgi-search-01 w-3 h-3 text-[#93F051]"></i> İlgili Aramalar: eşim telefonunu saklıyor, kocam şifre koydu, eve geç gelen eş takibi, aldatma şüphesi dedektif</span>
+                            <a href="https://wa.me/905326667749?text=Merhaba%20%C3%9Cmit%20Bey%2C%20web%20sitenizdeki%20arama%20rehberinden%20yaz%C4%B1yorum.%20Konu%3A%20Kocam/karım%20gece%20eve%20geç%20geliyor%20veya%20telefonuna%20şifre%20koydu,%20dedektif%20tutmalı%20mıyım?" target="_blank" rel="noopener noreferrer" class="text-[#93F051] hover:underline flex items-center gap-1 font-semibold">
+                                <span>Doğrudan Bilgi Alın</span>
+                                <i class="hgi hgi-stroke hgi-arrow-right-01 w-3 h-3"></i>
+                            </a>
+                        </div>
+                    </div>
+                </details>
+            </div>
+            <div class="paa-item bg-[#18181A] border border-white/10 hover:border-[#93F051]/40 rounded-2xl p-4 sm:p-5 transition group" data-category="hukuk-delil" data-keywords="dedektif delilleri mahkemede geçerli mi, yargıtay dedektif kararı, boşanma davasında dedektif raporu, hmk 199 delil özel dedektifin topladığı deliller aile mahkemesinde geçerli midir?">
+                <details class="space-y-3">
+                    <summary class="font-medium text-sm sm:text-base text-white flex items-center justify-between cursor-pointer list-none gap-3">
+                        <span class="flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span>
+                            <span>Özel dedektifin topladığı deliller Aile Mahkemesinde geçerli midir?</span>
+                        </span>
+                        <i class="hgi hgi-stroke hgi-arrow-down-01 w-4 h-4 text-[#93F051] group-open:rotate-180 transition-transform shrink-0"></i>
+                    </summary>
+                    <div class="pt-3 border-t border-white/10 space-y-3 text-xs sm:text-sm text-white/80 leading-relaxed font-regular">
+                        <p>Evet. Yargıtay Hukuk Genel Kurulu ve 2. Hukuk Dairesi'nin yerleşik içtihatlarına göre; kamuya açık alanlarda (sokak, kafe, restoran, havalimanı) çekilen tarih-saat damgalı fotoğraf ve video kayıtları ile uzman gözlem tutanakları HMK m.199 uyarınca resmi belge niteliğindedir ve boşanma/tazminat davalarında hükme esas alınır.</p>
+                        <div class="pt-2 flex flex-wrap items-center justify-between gap-2 text-[10.5px] font-mono text-white/50">
+                            <span class="flex items-center gap-1"><i class="hgi hgi-stroke hgi-search-01 w-3 h-3 text-[#93F051]"></i> İlgili Aramalar: dedektif delilleri mahkemede geçerli mi, yargıtay dedektif kararı, boşanma davasında dedektif raporu, hmk 199 delil</span>
+                            <a href="https://wa.me/905326667749?text=Merhaba%20%C3%9Cmit%20Bey%2C%20web%20sitenizdeki%20arama%20rehberinden%20yaz%C4%B1yorum.%20Konu%3A%20Özel%20dedektifin%20topladığı%20deliller%20Aile%20Mahkemesinde%20geçerli%20midir?" target="_blank" rel="noopener noreferrer" class="text-[#93F051] hover:underline flex items-center gap-1 font-semibold">
+                                <span>Doğrudan Bilgi Alın</span>
+                                <i class="hgi hgi-stroke hgi-arrow-right-01 w-3 h-3"></i>
+                            </a>
+                        </div>
+                    </div>
+                </details>
+            </div>
+            <div class="paa-item bg-[#18181A] border border-white/10 hover:border-[#93F051]/40 rounded-2xl p-4 sm:p-5 transition group" data-category="hukuk-delil" data-keywords="boşanmadan önce delil toplama, dava açmadan dedektif tutmak, boşanma davası delil yetersizliği boşanma davası açmadan önce mi yoksa açtıktan sonra mı dedektif tutulmalıdır?">
+                <details class="space-y-3">
+                    <summary class="font-medium text-sm sm:text-base text-white flex items-center justify-between cursor-pointer list-none gap-3">
+                        <span class="flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span>
+                            <span>Boşanma davası açmadan önce mi yoksa açtıktan sonra mı dedektif tutulmalıdır?</span>
+                        </span>
+                        <i class="hgi hgi-stroke hgi-arrow-down-01 w-4 h-4 text-[#93F051] group-open:rotate-180 transition-transform shrink-0"></i>
+                    </summary>
+                    <div class="pt-3 border-t border-white/10 space-y-3 text-xs sm:text-sm text-white/80 leading-relaxed font-regular">
+                        <p>En stratejik olanı boşanma davası açılmadan önce delillerin eksiksiz toplanmasıdır. Çünkü dava açıldıktan sonra karşı taraf tebligatı aldığı an teyakkuza geçer, şüpheli hareketlerini durdurur ve delil toplamayı güçleştirir. Ancak dava devam ederken de tedbir ve delil tespiti amacıyla araştırma yapılabilir.</p>
+                        <div class="pt-2 flex flex-wrap items-center justify-between gap-2 text-[10.5px] font-mono text-white/50">
+                            <span class="flex items-center gap-1"><i class="hgi hgi-stroke hgi-search-01 w-3 h-3 text-[#93F051]"></i> İlgili Aramalar: boşanmadan önce delil toplama, dava açmadan dedektif tutmak, boşanma davası delil yetersizliği</span>
+                            <a href="https://wa.me/905326667749?text=Merhaba%20%C3%9Cmit%20Bey%2C%20web%20sitenizdeki%20arama%20rehberinden%20yaz%C4%B1yorum.%20Konu%3A%20Boşanma%20davası%20açmadan%20önce%20mi%20yoksa%20açtıktan%20sonra%20mı%20dedektif%20tutulmalıdır?" target="_blank" rel="noopener noreferrer" class="text-[#93F051] hover:underline flex items-center gap-1 font-semibold">
+                                <span>Doğrudan Bilgi Alın</span>
+                                <i class="hgi hgi-stroke hgi-arrow-right-01 w-3 h-3"></i>
+                            </a>
+                        </div>
+                    </div>
+                </details>
+            </div>
+            <div class="paa-item bg-[#18181A] border border-white/10 hover:border-[#93F051]/40 rounded-2xl p-4 sm:p-5 transition group" data-category="hukuk-delil" data-keywords="dedektif tanık olur mu, dedektifin mahkemede ifadesi, dedektif raporu doğrulaması dedektif mahkemede tanıklık yapar mı?">
+                <details class="space-y-3">
+                    <summary class="font-medium text-sm sm:text-base text-white flex items-center justify-between cursor-pointer list-none gap-3">
+                        <span class="flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span>
+                            <span>Dedektif mahkemede tanıklık yapar mı?</span>
+                        </span>
+                        <i class="hgi hgi-stroke hgi-arrow-down-01 w-4 h-4 text-[#93F051] group-open:rotate-180 transition-transform shrink-0"></i>
+                    </summary>
+                    <div class="pt-3 border-t border-white/10 space-y-3 text-xs sm:text-sm text-white/80 leading-relaxed font-regular">
+                        <p>Evet. Mahkemenin veya avukatınızın talep etmesi halinde araştırmayı bizzat icra eden uzman saha dedektifimiz duruşmaya katılarak hazırladığı adli raporu ve delillerin hukuki toplanma sürecini hakime beyan edebilir.</p>
+                        <div class="pt-2 flex flex-wrap items-center justify-between gap-2 text-[10.5px] font-mono text-white/50">
+                            <span class="flex items-center gap-1"><i class="hgi hgi-stroke hgi-search-01 w-3 h-3 text-[#93F051]"></i> İlgili Aramalar: dedektif tanık olur mu, dedektifin mahkemede ifadesi, dedektif raporu doğrulaması</span>
+                            <a href="https://wa.me/905326667749?text=Merhaba%20%C3%9Cmit%20Bey%2C%20web%20sitenizdeki%20arama%20rehberinden%20yaz%C4%B1yorum.%20Konu%3A%20Dedektif%20mahkemede%20tanıklık%20yapar%20mı?" target="_blank" rel="noopener noreferrer" class="text-[#93F051] hover:underline flex items-center gap-1 font-semibold">
+                                <span>Doğrudan Bilgi Alın</span>
+                                <i class="hgi hgi-stroke hgi-arrow-right-01 w-3 h-3"></i>
+                            </a>
+                        </div>
+                    </div>
+                </details>
+            </div>
+            <div class="paa-item bg-[#18181A] border border-white/10 hover:border-[#93F051]/40 rounded-2xl p-4 sm:p-5 transition group" data-category="ucretler" data-keywords="dedektif ücretleri, dedektif fiyatları ne kadar, dedektif kaç para, günlük dedektiflik ücreti, ucuz dedektif fiyatı özel dedektif ücretleri ne kadar, dedektif fiyat tarifesi var mı?">
+                <details class="space-y-3">
+                    <summary class="font-medium text-sm sm:text-base text-white flex items-center justify-between cursor-pointer list-none gap-3">
+                        <span class="flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span>
+                            <span>Özel dedektif ücretleri ne kadar, dedektif fiyat tarifesi var mı?</span>
+                        </span>
+                        <i class="hgi hgi-stroke hgi-arrow-down-01 w-4 h-4 text-[#93F051] group-open:rotate-180 transition-transform shrink-0"></i>
+                    </summary>
+                    <div class="pt-3 border-t border-white/10 space-y-3 text-xs sm:text-sm text-white/80 leading-relaxed font-regular">
+                        <p>Türkiye'de resmi sabit bir dedektiflik tarifesi yoktur. Ücretlendirme; vaka türüne (eş takibi, adres tespiti, böcek arama vb.), çalışma yapılacak şehir ve bölge sayısına, görevlendirilecek sivil araç/motosiklet ve uzman sayısına ve operasyon gün süresine (48 saat ekspres veya 5-7 gün) göre belirlenir. DAT Özel Dedektiflik'te tüm maliyetler sözleşme öncesinde şeffafça sunulur; asla sürpriz masraf çıkarılmaz.</p>
+                        <div class="pt-2 flex flex-wrap items-center justify-between gap-2 text-[10.5px] font-mono text-white/50">
+                            <span class="flex items-center gap-1"><i class="hgi hgi-stroke hgi-search-01 w-3 h-3 text-[#93F051]"></i> İlgili Aramalar: dedektif ücretleri, dedektif fiyatları ne kadar, dedektif kaç para, günlük dedektiflik ücreti, ucuz dedektif fiyatı</span>
+                            <a href="https://wa.me/905326667749?text=Merhaba%20%C3%9Cmit%20Bey%2C%20web%20sitenizdeki%20arama%20rehberinden%20yaz%C4%B1yorum.%20Konu%3A%20Özel%20dedektif%20ücretleri%20ne%20kadar,%20dedektif%20fiyat%20tarifesi%20var%20mı?" target="_blank" rel="noopener noreferrer" class="text-[#93F051] hover:underline flex items-center gap-1 font-semibold">
+                                <span>Doğrudan Bilgi Alın</span>
+                                <i class="hgi hgi-stroke hgi-arrow-right-01 w-3 h-3"></i>
+                            </a>
+                        </div>
+                    </div>
+                </details>
+            </div>
+            <div class="paa-item bg-[#18181A] border border-white/10 hover:border-[#93F051]/40 rounded-2xl p-4 sm:p-5 transition group" data-category="ucretler" data-keywords="dedektif ödeme koşulları, dedektiflik kredi kartı, dedektif fatura keser mi dedektiflik ücreti peşin mi ödenir, taksit yapılır mı?">
+                <details class="space-y-3">
+                    <summary class="font-medium text-sm sm:text-base text-white flex items-center justify-between cursor-pointer list-none gap-3">
+                        <span class="flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span>
+                            <span>Dedektiflik ücreti peşin mi ödenir, taksit yapılır mı?</span>
+                        </span>
+                        <i class="hgi hgi-stroke hgi-arrow-down-01 w-4 h-4 text-[#93F051] group-open:rotate-180 transition-transform shrink-0"></i>
+                    </summary>
+                    <div class="pt-3 border-t border-white/10 space-y-3 text-xs sm:text-sm text-white/80 leading-relaxed font-regular">
+                        <p>Operasyon masrafları (araç yakıtı, teknik teçhizat, saha uzmanları yevmiyesi) sebebiyle ücretin bir kısmı sözleşme anında avans olarak, kalanı ise resmi rapor tesliminde tahsil edilir. Kredi kartı ile ödeme ve faturalandırma imkanı mevcuttur.</p>
+                        <div class="pt-2 flex flex-wrap items-center justify-between gap-2 text-[10.5px] font-mono text-white/50">
+                            <span class="flex items-center gap-1"><i class="hgi hgi-stroke hgi-search-01 w-3 h-3 text-[#93F051]"></i> İlgili Aramalar: dedektif ödeme koşulları, dedektiflik kredi kartı, dedektif fatura keser mi</span>
+                            <a href="https://wa.me/905326667749?text=Merhaba%20%C3%9Cmit%20Bey%2C%20web%20sitenizdeki%20arama%20rehberinden%20yaz%C4%B1yorum.%20Konu%3A%20Dedektiflik%20ücreti%20peşin%20mi%20ödenir,%20taksit%20yapılır%20mı?" target="_blank" rel="noopener noreferrer" class="text-[#93F051] hover:underline flex items-center gap-1 font-semibold">
+                                <span>Doğrudan Bilgi Alın</span>
+                                <i class="hgi hgi-stroke hgi-arrow-right-01 w-3 h-3"></i>
+                            </a>
+                        </div>
+                    </div>
+                </details>
+            </div>
+            <div class="paa-item bg-[#18181A] border border-white/10 hover:border-[#93F051]/40 rounded-2xl p-4 sm:p-5 transition group" data-category="ucretler" data-keywords="dedektif para iadesi, garantili dedektiflik, dedektif sonuç garantisi başarı garantisi veya sonuç alınamazsa para iadesi var mı?">
+                <details class="space-y-3">
+                    <summary class="font-medium text-sm sm:text-base text-white flex items-center justify-between cursor-pointer list-none gap-3">
+                        <span class="flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span>
+                            <span>Başarı garantisi veya sonuç alınamazsa para iadesi var mı?</span>
+                        </span>
+                        <i class="hgi hgi-stroke hgi-arrow-down-01 w-4 h-4 text-[#93F051] group-open:rotate-180 transition-transform shrink-0"></i>
+                    </summary>
+                    <div class="pt-3 border-t border-white/10 space-y-3 text-xs sm:text-sm text-white/80 leading-relaxed font-regular">
+                        <p>DAT Özel Dedektiflik, sözleşmede taahhüt edilen saha gözetiminin eksiksiz ve yasal standartta icra edilmesini garanti eder. Gerçeği (ak ya da kara) olduğu gibi ortaya koyarız. Sözleşme şartlarına riayet edilmemesi durumunda kurumsal para iade politikamız geçerlidir.</p>
+                        <div class="pt-2 flex flex-wrap items-center justify-between gap-2 text-[10.5px] font-mono text-white/50">
+                            <span class="flex items-center gap-1"><i class="hgi hgi-stroke hgi-search-01 w-3 h-3 text-[#93F051]"></i> İlgili Aramalar: dedektif para iadesi, garantili dedektiflik, dedektif sonuç garantisi</span>
+                            <a href="https://wa.me/905326667749?text=Merhaba%20%C3%9Cmit%20Bey%2C%20web%20sitenizdeki%20arama%20rehberinden%20yaz%C4%B1yorum.%20Konu%3A%20Başarı%20garantisi%20veya%20sonuç%20alınamazsa%20para%20iadesi%20var%20mı?" target="_blank" rel="noopener noreferrer" class="text-[#93F051] hover:underline flex items-center gap-1 font-semibold">
+                                <span>Doğrudan Bilgi Alın</span>
+                                <i class="hgi hgi-stroke hgi-arrow-right-01 w-3 h-3"></i>
+                            </a>
+                        </div>
+                    </div>
+                </details>
+            </div>
+            <div class="paa-item bg-[#18181A] border border-white/10 hover:border-[#93F051]/40 rounded-2xl p-4 sm:p-5 transition group" data-category="velayet-cocuk" data-keywords="velayet davası için dedektif, çocuğun velayetini nasıl alırım, velayetin değiştirilmesi delilleri, anne ihmali kanıtlama çocuğumun velayetini anneden/babadan almak için dedektif nasıl yardımcı olur?">
+                <details class="space-y-3">
+                    <summary class="font-medium text-sm sm:text-base text-white flex items-center justify-between cursor-pointer list-none gap-3">
+                        <span class="flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span>
+                            <span>Çocuğumun velayetini anneden/babadan almak için dedektif nasıl yardımcı olur?</span>
+                        </span>
+                        <i class="hgi hgi-stroke hgi-arrow-down-01 w-4 h-4 text-[#93F051] group-open:rotate-180 transition-transform shrink-0"></i>
+                    </summary>
+                    <div class="pt-3 border-t border-white/10 space-y-3 text-xs sm:text-sm text-white/80 leading-relaxed font-regular">
+                        <p>Velayet davalarında tek kriter 'Çocuğun Üstün Yararı'dır (TMK m.182). Karşı tarafın çocuğu gece evde yalnız bırakması, şiddet uygulaması, alkol/madde ortamlarına sokması veya bakımını ağır şekilde ihmal etmesi kamuya açık alanlarda video ve fotoğrafla belgelenerek Aile Mahkemesine sunulur.</p>
+                        <div class="pt-2 flex flex-wrap items-center justify-between gap-2 text-[10.5px] font-mono text-white/50">
+                            <span class="flex items-center gap-1"><i class="hgi hgi-stroke hgi-search-01 w-3 h-3 text-[#93F051]"></i> İlgili Aramalar: velayet davası için dedektif, çocuğun velayetini nasıl alırım, velayetin değiştirilmesi delilleri, anne ihmali kanıtlama</span>
+                            <a href="https://wa.me/905326667749?text=Merhaba%20%C3%9Cmit%20Bey%2C%20web%20sitenizdeki%20arama%20rehberinden%20yaz%C4%B1yorum.%20Konu%3A%20Çocuğumun%20velayetini%20anneden/babadan%20almak%20için%20dedektif%20nasıl%20yardımcı%20olur?" target="_blank" rel="noopener noreferrer" class="text-[#93F051] hover:underline flex items-center gap-1 font-semibold">
+                                <span>Doğrudan Bilgi Alın</span>
+                                <i class="hgi hgi-stroke hgi-arrow-right-01 w-3 h-3"></i>
+                            </a>
+                        </div>
+                    </div>
+                </details>
+            </div>
+            <div class="paa-item bg-[#18181A] border border-white/10 hover:border-[#93F051]/40 rounded-2xl p-4 sm:p-5 transition group" data-category="velayet-cocuk" data-keywords="eski eşimin sevgilisi çocuğuma zarar veriyor mu, velayette üçüncü kişi tehdidi, çocuk güvenliği dedektif eski eşimin yeni sevgilisi çocuğuma zarar veriyor mu, araştırılabilir mi?">
+                <details class="space-y-3">
+                    <summary class="font-medium text-sm sm:text-base text-white flex items-center justify-between cursor-pointer list-none gap-3">
+                        <span class="flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span>
+                            <span>Eski eşimin yeni sevgilisi çocuğuma zarar veriyor mu, araştırılabilir mi?</span>
+                        </span>
+                        <i class="hgi hgi-stroke hgi-arrow-down-01 w-4 h-4 text-[#93F051] group-open:rotate-180 transition-transform shrink-0"></i>
+                    </summary>
+                    <div class="pt-3 border-t border-white/10 space-y-3 text-xs sm:text-sm text-white/80 leading-relaxed font-regular">
+                        <p>Evet. Çocuğun teslim edildiği veya temas halinde olduğu üçüncü kişilerin geçmişi, adli sicil kaygıları ve çocuğa yönelik fiziksel/psikolojik tavırları pedagojik hassasiyetle ve çocuğu korkutmadan uzaktan gözlemlenip belgelenir.</p>
+                        <div class="pt-2 flex flex-wrap items-center justify-between gap-2 text-[10.5px] font-mono text-white/50">
+                            <span class="flex items-center gap-1"><i class="hgi hgi-stroke hgi-search-01 w-3 h-3 text-[#93F051]"></i> İlgili Aramalar: eski eşimin sevgilisi çocuğuma zarar veriyor mu, velayette üçüncü kişi tehdidi, çocuk güvenliği dedektif</span>
+                            <a href="https://wa.me/905326667749?text=Merhaba%20%C3%9Cmit%20Bey%2C%20web%20sitenizdeki%20arama%20rehberinden%20yaz%C4%B1yorum.%20Konu%3A%20Eski%20eşimin%20yeni%20sevgilisi%20çocuğuma%20zarar%20veriyor%20mu,%20araştırılabilir%20mi?" target="_blank" rel="noopener noreferrer" class="text-[#93F051] hover:underline flex items-center gap-1 font-semibold">
+                                <span>Doğrudan Bilgi Alın</span>
+                                <i class="hgi hgi-stroke hgi-arrow-right-01 w-3 h-3"></i>
+                            </a>
+                        </div>
+                    </div>
+                </details>
+            </div>
+            <div class="paa-item bg-[#18181A] border border-white/10 hover:border-[#93F051]/40 rounded-2xl p-4 sm:p-5 transition group" data-category="borclu-adres" data-keywords="borçlu adresi bulma, icradan kaçan borçlu tespiti, tebligat adresi bulma dedektif, fiili adres araştırması resmi tebligattan kaçan borçlunun fiili adresi nasıl bulunur?">
+                <details class="space-y-3">
+                    <summary class="font-medium text-sm sm:text-base text-white flex items-center justify-between cursor-pointer list-none gap-3">
+                        <span class="flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span>
+                            <span>Resmi tebligattan kaçan borçlunun fiili adresi nasıl bulunur?</span>
+                        </span>
+                        <i class="hgi hgi-stroke hgi-arrow-down-01 w-4 h-4 text-[#93F051] group-open:rotate-180 transition-transform shrink-0"></i>
+                    </summary>
+                    <div class="pt-3 border-t border-white/10 space-y-3 text-xs sm:text-sm text-white/80 leading-relaxed font-regular">
+                        <p>Borçlular genellikle MERNİS adreslerini boş veya ilgisiz yerlerde gösterir. Saha ekiplerimiz şahsın fiilen nerede ikamet ettiğini, sabah hangi kapıdan çıkıp akşam nereye girdiğini ve fiilen kullandığı araçları fotoğrafla tespit ederek İcra Mahkemesi ve icra dairesi tebligatı için hazır tutanak düzenler.</p>
+                        <div class="pt-2 flex flex-wrap items-center justify-between gap-2 text-[10.5px] font-mono text-white/50">
+                            <span class="flex items-center gap-1"><i class="hgi hgi-stroke hgi-search-01 w-3 h-3 text-[#93F051]"></i> İlgili Aramalar: borçlu adresi bulma, icradan kaçan borçlu tespiti, tebligat adresi bulma dedektif, fiili adres araştırması</span>
+                            <a href="https://wa.me/905326667749?text=Merhaba%20%C3%9Cmit%20Bey%2C%20web%20sitenizdeki%20arama%20rehberinden%20yaz%C4%B1yorum.%20Konu%3A%20Resmi%20tebligattan%20kaçan%20borçlunun%20fiili%20adresi%20nasıl%20bulunur?" target="_blank" rel="noopener noreferrer" class="text-[#93F051] hover:underline flex items-center gap-1 font-semibold">
+                                <span>Doğrudan Bilgi Alın</span>
+                                <i class="hgi hgi-stroke hgi-arrow-right-01 w-3 h-3"></i>
+                            </a>
+                        </div>
+                    </div>
+                </details>
+            </div>
+            <div class="paa-item bg-[#18181A] border border-white/10 hover:border-[#93F051]/40 rounded-2xl p-4 sm:p-5 transition group" data-category="borclu-adres" data-keywords="mal kaçırma davası delili, paravan şirket tespiti, iik 277 dedektif raporu, borçlu mal varlığı araştırması borçlu şirketini veya mallarını başkasının üzerine devretmişse ne yapılır?">
+                <details class="space-y-3">
+                    <summary class="font-medium text-sm sm:text-base text-white flex items-center justify-between cursor-pointer list-none gap-3">
+                        <span class="flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span>
+                            <span>Borçlu şirketini veya mallarını başkasının üzerine devretmişse ne yapılır?</span>
+                        </span>
+                        <i class="hgi hgi-stroke hgi-arrow-down-01 w-4 h-4 text-[#93F051] group-open:rotate-180 transition-transform shrink-0"></i>
+                    </summary>
+                    <div class="pt-3 border-t border-white/10 space-y-3 text-xs sm:text-sm text-white/80 leading-relaxed font-regular">
+                        <p>İİK m.277 (Tasarrufun İptali) davaları kapsamında; şahsın resmiyette üçüncü şahıs veya akraba üzerine devrettiği işletmede fiilen patronluk yaptığı, para trafiğini yönettiği ve lüks araçları kullandığı gün gün video ile belgelenerek muvazaa ispatlanır.</p>
+                        <div class="pt-2 flex flex-wrap items-center justify-between gap-2 text-[10.5px] font-mono text-white/50">
+                            <span class="flex items-center gap-1"><i class="hgi hgi-stroke hgi-search-01 w-3 h-3 text-[#93F051]"></i> İlgili Aramalar: mal kaçırma davası delili, paravan şirket tespiti, iik 277 dedektif raporu, borçlu mal varlığı araştırması</span>
+                            <a href="https://wa.me/905326667749?text=Merhaba%20%C3%9Cmit%20Bey%2C%20web%20sitenizdeki%20arama%20rehberinden%20yaz%C4%B1yorum.%20Konu%3A%20Borçlu%20şirketini%20veya%20mallarını%20başkasının%20üzerine%20devretmişse%20ne%20yapılır?" target="_blank" rel="noopener noreferrer" class="text-[#93F051] hover:underline flex items-center gap-1 font-semibold">
+                                <span>Doğrudan Bilgi Alın</span>
+                                <i class="hgi hgi-stroke hgi-arrow-right-01 w-3 h-3"></i>
+                            </a>
+                        </div>
+                    </div>
+                </details>
+            </div>
+            <div class="paa-item bg-[#18181A] border border-white/10 hover:border-[#93F051]/40 rounded-2xl p-4 sm:p-5 transition group" data-category="bocek-arama" data-keywords="evde böcek arama, arabada dinleme cihazı nasıl bulunur, gizli kamera tespiti, tscm böcek taraması evimde veya arabamda dinleme cihazı (böcek) olduğunu nasıl anlarım?">
+                <details class="space-y-3">
+                    <summary class="font-medium text-sm sm:text-base text-white flex items-center justify-between cursor-pointer list-none gap-3">
+                        <span class="flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span>
+                            <span>Evimde veya arabamda dinleme cihazı (böcek) olduğunu nasıl anlarım?</span>
+                        </span>
+                        <i class="hgi hgi-stroke hgi-arrow-down-01 w-4 h-4 text-[#93F051] group-open:rotate-180 transition-transform shrink-0"></i>
+                    </summary>
+                    <div class="pt-3 border-t border-white/10 space-y-3 text-xs sm:text-sm text-white/80 leading-relaxed font-regular">
+                        <p>Cihazlar priz içine, avizeye, duman dedektörüne veya araç OBD soketine gizlenebilir. Kulaktan dolma telefon uygulamalarıyla cihaz bulunamaz. 10 kHz - 24 GHz profesyonel RF spektrum analizörleri, Non-Linear Junction Detector (NLJD) ve termal kameralarla profesyonel TSCM taraması yapılması gerekir.</p>
+                        <div class="pt-2 flex flex-wrap items-center justify-between gap-2 text-[10.5px] font-mono text-white/50">
+                            <span class="flex items-center gap-1"><i class="hgi hgi-stroke hgi-search-01 w-3 h-3 text-[#93F051]"></i> İlgili Aramalar: evde böcek arama, arabada dinleme cihazı nasıl bulunur, gizli kamera tespiti, tscm böcek taraması</span>
+                            <a href="https://wa.me/905326667749?text=Merhaba%20%C3%9Cmit%20Bey%2C%20web%20sitenizdeki%20arama%20rehberinden%20yaz%C4%B1yorum.%20Konu%3A%20Evimde%20veya%20arabamda%20dinleme%20cihazı%20(böcek)%20olduğunu%20nasıl%20anlarım?" target="_blank" rel="noopener noreferrer" class="text-[#93F051] hover:underline flex items-center gap-1 font-semibold">
+                                <span>Doğrudan Bilgi Alın</span>
+                                <i class="hgi hgi-stroke hgi-arrow-right-01 w-3 h-3"></i>
+                            </a>
+                        </div>
+                    </div>
+                </details>
+            </div>
+            <div class="paa-item bg-[#18181A] border border-white/10 hover:border-[#93F051]/40 rounded-2xl p-4 sm:p-5 transition group" data-category="bocek-arama" data-keywords="telefonum dinleniyor mu nasıl anlarım, telefonda casus program tespiti, adli bilişim analizi telefonum dinleniyor mu, dedektif bunu tespit edebilir mi?">
+                <details class="space-y-3">
+                    <summary class="font-medium text-sm sm:text-base text-white flex items-center justify-between cursor-pointer list-none gap-3">
+                        <span class="flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span>
+                            <span>Telefonum dinleniyor mu, dedektif bunu tespit edebilir mi?</span>
+                        </span>
+                        <i class="hgi hgi-stroke hgi-arrow-down-01 w-4 h-4 text-[#93F051] group-open:rotate-180 transition-transform shrink-0"></i>
+                    </summary>
+                    <div class="pt-3 border-t border-white/10 space-y-3 text-xs sm:text-sm text-white/80 leading-relaxed font-regular">
+                        <p>Evet. Adli bilişim uzmanlarımız şüpheli telefon üzerinde statik ve dinamik analiz yaparak casus yazılım (spyware), truva atı veya yetkisiz erişim protokollerinin bulunup bulunmadığını resmi adli bilişim raporuyla teslim eder.</p>
+                        <div class="pt-2 flex flex-wrap items-center justify-between gap-2 text-[10.5px] font-mono text-white/50">
+                            <span class="flex items-center gap-1"><i class="hgi hgi-stroke hgi-search-01 w-3 h-3 text-[#93F051]"></i> İlgili Aramalar: telefonum dinleniyor mu nasıl anlarım, telefonda casus program tespiti, adli bilişim analizi</span>
+                            <a href="https://wa.me/905326667749?text=Merhaba%20%C3%9Cmit%20Bey%2C%20web%20sitenizdeki%20arama%20rehberinden%20yaz%C4%B1yorum.%20Konu%3A%20Telefonum%20dinleniyor%20mu,%20dedektif%20bunu%20tespit%20edebilir%20mi?" target="_blank" rel="noopener noreferrer" class="text-[#93F051] hover:underline flex items-center gap-1 font-semibold">
+                                <span>Doğrudan Bilgi Alın</span>
+                                <i class="hgi hgi-stroke hgi-arrow-right-01 w-3 h-3"></i>
+                            </a>
+                        </div>
+                    </div>
+                </details>
+            </div>
+            <div class="paa-item bg-[#18181A] border border-white/10 hover:border-[#93F051]/40 rounded-2xl p-4 sm:p-5 transition group" data-category="sehir-arama" data-keywords="ankara dedektif, istanbul özel dedektif, izmir dedektif bürosu, bodrum dedektif, antalya dedektiflik, adana dedektif, bursa eş takibi, kocaeli özel dedektif ankara, i̇stanbul ve i̇zmir dışında diğer illerde (antalya, muğla, adana, bursa vb.) çalışıyor musunuz?">
+                <details class="space-y-3">
+                    <summary class="font-medium text-sm sm:text-base text-white flex items-center justify-between cursor-pointer list-none gap-3">
+                        <span class="flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span>
+                            <span>Ankara, İstanbul ve İzmir dışında diğer illerde (Antalya, Muğla, Adana, Bursa vb.) çalışıyor musunuz?</span>
+                        </span>
+                        <i class="hgi hgi-stroke hgi-arrow-down-01 w-4 h-4 text-[#93F051] group-open:rotate-180 transition-transform shrink-0"></i>
+                    </summary>
+                    <div class="pt-3 border-t border-white/10 space-y-3 text-xs sm:text-sm text-white/80 leading-relaxed font-regular">
+                        <p>Evet! İstanbul Kartal ve Ankara Çankaya merkez bürolarımız haricinde; İzmir, Antalya, Bursa, Muğla (Bodrum, Marmaris, Fethiye), Kocaeli (Gebze), Adana, Gaziantep, Trabzon, Eskişehir, Kayseri, Samsun, Diyarbakır ve Türkiye'nin 81 ilinin tamamında mobil ekiplerimiz görev yapmaktadır.</p>
+                        <div class="pt-2 flex flex-wrap items-center justify-between gap-2 text-[10.5px] font-mono text-white/50">
+                            <span class="flex items-center gap-1"><i class="hgi hgi-stroke hgi-search-01 w-3 h-3 text-[#93F051]"></i> İlgili Aramalar: ankara dedektif, istanbul özel dedektif, izmir dedektif bürosu, bodrum dedektif, antalya dedektiflik, adana dedektif, bursa eş takibi, kocaeli özel dedektif</span>
+                            <a href="https://wa.me/905326667749?text=Merhaba%20%C3%9Cmit%20Bey%2C%20web%20sitenizdeki%20arama%20rehberinden%20yaz%C4%B1yorum.%20Konu%3A%20Ankara,%20İstanbul%20ve%20İzmir%20dışında%20diğer%20illerde%20(Antalya,%20Muğla,%20Adana,%20Bursa%20vb.)%20çalışıyor%20musunuz?" target="_blank" rel="noopener noreferrer" class="text-[#93F051] hover:underline flex items-center gap-1 font-semibold">
+                                <span>Doğrudan Bilgi Alın</span>
+                                <i class="hgi hgi-stroke hgi-arrow-right-01 w-3 h-3"></i>
+                            </a>
+                        </div>
+                    </div>
+                </details>
+            </div>
+            <div class="paa-item bg-[#18181A] border border-white/10 hover:border-[#93F051]/40 rounded-2xl p-4 sm:p-5 transition group" data-category="sehir-arama" data-keywords="almanyadan dedektif tutmak, avrupa dedektiflik türkiye, gurbetçi eş takibi türkiye, fransa özel dedektif türkiye yurt dışından (almanya, fransa, hollanda, avusturya vb.) türkiye'deki eşi veya borçluyu takip ettirebilir miyim?">
+                <details class="space-y-3">
+                    <summary class="font-medium text-sm sm:text-base text-white flex items-center justify-between cursor-pointer list-none gap-3">
+                        <span class="flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span>
+                            <span>Yurt dışından (Almanya, Fransa, Hollanda, Avusturya vb.) Türkiye'deki eşi veya borçluyu takip ettirebilir miyim?</span>
+                        </span>
+                        <i class="hgi hgi-stroke hgi-arrow-down-01 w-4 h-4 text-[#93F051] group-open:rotate-180 transition-transform shrink-0"></i>
+                    </summary>
+                    <div class="pt-3 border-t border-white/10 space-y-3 text-xs sm:text-sm text-white/80 leading-relaxed font-regular">
+                        <p>Evet. Avrupa'daki gurbetçilerimiz için şifreli online sözleşme düzenlenmekte; Türkiye'deki araştırma 7/24 Elsa paneli ve anlık WhatsApp bilgilendirmesiyle yürütülmektedir. Müvekkillerimizin Türkiye'ye gelmesine gerek kalmaz.</p>
+                        <div class="pt-2 flex flex-wrap items-center justify-between gap-2 text-[10.5px] font-mono text-white/50">
+                            <span class="flex items-center gap-1"><i class="hgi hgi-stroke hgi-search-01 w-3 h-3 text-[#93F051]"></i> İlgili Aramalar: almanyadan dedektif tutmak, avrupa dedektiflik türkiye, gurbetçi eş takibi türkiye, fransa özel dedektif türkiye</span>
+                            <a href="https://wa.me/905326667749?text=Merhaba%20%C3%9Cmit%20Bey%2C%20web%20sitenizdeki%20arama%20rehberinden%20yaz%C4%B1yorum.%20Konu%3A%20Yurt%20dışından%20(Almanya,%20Fransa,%20Hollanda,%20Avusturya%20vb.)%20Türkiye'deki%20eşi%20veya%20borçluyu%20takip%20ettirebilir%20miyim?" target="_blank" rel="noopener noreferrer" class="text-[#93F051] hover:underline flex items-center gap-1 font-semibold">
+                                <span>Doğrudan Bilgi Alın</span>
+                                <i class="hgi hgi-stroke hgi-arrow-right-01 w-3 h-3"></i>
+                            </a>
+                        </div>
+                    </div>
+                </details>
+            </div>
+                </div>
+
+                <!-- Empty State Indicator -->
+                <div id="paaEmptyState" class="hidden text-center py-10 space-y-2 bg-[#18181A] rounded-2xl border border-white/10">
+                    <i class="hgi hgi-stroke hgi-alert-circle w-8 h-8 text-[#93F051] mx-auto"></i>
+                    <p class="text-sm text-white/80">Aradığınız kriterde soru bulunamadı.</p>
+                    <p class="text-xs text-white/50">Sorunuzu doğrudan <a href="#dedektife-sor" class="text-[#93F051] hover:underline">Yeni Nesil Dedektif'e Sor</a> alanından yazabilir veya 7/24 WhatsApp'tan iletebilirsiniz.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <script>
+        var currentPAACategory = 'all';
+
+        function filterPAACategory(catId) {
+            currentPAACategory = catId;
+            document.querySelectorAll('.paa-cat-btn').forEach(function(b) {
+                b.className = 'paa-cat-btn px-4 py-2 rounded-full text-xs font-mono font-medium transition shrink-0 bg-white/5 text-white/75 hover:text-white hover:bg-white/10';
+            });
+            var btn = document.getElementById('paaCatBtn-' + catId);
+            if (btn) btn.className = 'paa-cat-btn px-4 py-2 rounded-full text-xs font-mono font-semibold transition shrink-0 bg-[#93F051] text-[#111111] shadow-sm';
+            filterPAASearch();
+        }
+
+        function filterPAASearch() {
+            var input = document.getElementById('paaSearchInput');
+            var query = input ? (input.value || '').toLowerCase().trim() : '';
+            var items = document.querySelectorAll('.paa-item');
+            var matched = 0;
+
+            items.forEach(function(el) {
+                var cat = el.getAttribute('data-category');
+                var kw = el.getAttribute('data-keywords') || '';
+                var matchCat = (currentPAACategory === 'all' || cat === currentPAACategory);
+                var matchQuery = (!query || kw.indexOf(query) !== -1);
+
+                if (matchCat && matchQuery) {
+                    el.classList.remove('hidden');
+                    matched++;
+                } else {
+                    el.classList.add('hidden');
+                }
+            });
+
+            var counter = document.getElementById('paaMatchCount');
+            if (counter) counter.textContent = query ? (matched + ' soru bulundu') : '';
+
+            var empty = document.getElementById('paaEmptyState');
+            if (empty) {
+                if (matched === 0) empty.classList.remove('hidden');
+                else empty.classList.add('hidden');
+            }
+        }
+        </script>
+    
+    <!-- 81 İL & İLÇE ULUSAL DEDEKTİFLİK HİZMET AĞI (#turkiye-dedektif-agi) -->
         <section id="turkiye-dedektif-agi" class="py-14 sm:py-20 bg-[#141416] text-[#FFFFFF] border-y border-white/10 relative">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
                 
@@ -6993,7 +7573,7 @@
     </div>
 
     <!-- Core Interactive Scripts & 7-Language i18n Engine -->
-    <script src="script.js?v=8.2"></script>
+    <script src="script.js?v=8.3"></script>
     <script src="lang/en.js?v=7.2"></script>
     <script src="lang/de.js?v=7.2"></script>
     <script src="lang/fr.js?v=7.2"></script>

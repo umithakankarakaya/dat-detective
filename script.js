@@ -1505,6 +1505,21 @@ const AI_PRESETS = {
             { bad: false, label: "Ümit Hakan Karakaya ile Dosya Uygunluğunu Değerlendirin", text: "Dosyanızın dedektiflik çalışmasına ve adli delil toplamaya uygun olup olmadığını ücretsiz analiz edelim." }
         ],
         waText: "Merhaba Ümit Bey, Yeni Nesil Dedektif alanından velayet araştırması ve çocuk güvenliği hakkında hukuki danışmanlık almak istiyorum."
+    },
+    'bocek-arama': {
+        query: "Evimde veya arabamda dinleme cihazı (böcek), gizli kamera veya takip cihazı var mı, nasıl tespit edilir?",
+        riskScore: "TSCM TEKNİK KARŞI-CASUSLUK • 10 kHz - 24 GHz RF & NLJD",
+        riskColor: "#93F051",
+        p1Title: "1. YANKI ODASINDAN UZAK GERÇEKÇİ TEKNİK YAKLAŞIM",
+        p1Desc: "İnternette veya telefon mağazalarında satılan ücretsiz casus yazılım bulma uygulamaları veya ucuz Çin malı sinyal tespit dedektörleri amatör oyuncaklardır; profesyonel GSM/Wi-Fi böcekleri veya uyuyan kayıt cihazlarını ASLA tespit edemez. Bu durum insanı gereksiz bir paranoyaya veya sahte bir güvenlik yanılgısına sürükler.",
+        p2Title: "2. PROFESYONEL TSCM SPEKTRUM ANALİZİ (TCK m.132-134)",
+        p2Desc: "DAT Özel Dedektiflik teknik ekibi; konut, makam odası ve VIP araçlarda 10 kHz – 24 GHz RF spektrum analizörleri, Non-Linear Junction Detector (yarı iletken elektronik devre tespiti) ve termal görüntüleme cihazlarıyla aktif ve pasif tüm dinleme cihazlarını, araç altı GPS takip ünitelerini aynı gün tespit eder ve savcılık suç duyurusu için resmi teknik tutanak düzenler.",
+        p3Items: [
+            { bad: true, label: "Telefon Uygulamalarına Güvenmeyin", text: "Mobil marketlerdeki dedektör uygulamaları profesyonel dinleme cihazlarını tespit edemez." },
+            { bad: true, label: "Cihazı Bulursanız Dokunmayın", text: "Şüpheli bir cihaz görürseniz parmak izi ve delil bütünlüğünü bozmamak için çıplak elle ellemeyin." },
+            { bad: false, label: "TSCM Uzman Ekibi Çağırın", text: "Aynı gün içinde eviniz, ofisiniz ve aracınız gizlilikle taranarak teknik temizlik sertifikası verilir." }
+        ],
+        waText: "Merhaba Ümit Bey, Yeni Nesil Dedektif alanından ev/araç/ofis böcek ve dinleme cihazı taraması (TSCM) hakkında bilgi almak istiyorum."
     }
 };
 
@@ -1668,21 +1683,23 @@ function sendAIChatMessage(overrideQuery, explicitPresetKey) {
     if (!matchedKey) {
         if (query.includes('velayet') || query.includes('çocuk') || query.includes('cocuk') || query.includes('oğlum') || query.includes('oglum') || query.includes('kızım') || query.includes('kizim') || query.includes('evlat')) {
             matchedKey = 'cocuk-velayeti';
-        } else if (query.includes('ücret') || query.includes('ucret') || query.includes('fiyat') || query.includes('ne kadar') || query.includes('maliyet') || query.includes('kaç para')) {
+        } else if (query.includes('böcek') || query.includes('bocek') || query.includes('dinleme') || query.includes('gizli kamera') || query.includes('tscm') || query.includes('casus program') || query.includes('takip cihazı') || query.includes('gps')) {
+            matchedKey = 'bocek-arama';
+        } else if (query.includes('ücret') || query.includes('ucret') || query.includes('fiyat') || query.includes('ne kadar') || query.includes('maliyet') || query.includes('kaç para') || query.includes('tarife')) {
             matchedKey = 'dedektif-ucretleri';
         } else if (query.includes('dedektif olmak') || query.includes('nasıl dedektif') || query.includes('eğitim') || query.includes('sertifika') || query.includes('uöded') || query.includes('meslek')) {
             matchedKey = 'dedektif-olmak';
-        } else if (query.includes('dedektif tutmak') || query.includes('nasıl tutulur') || query.includes('sözleşme') || query.includes('güvenilir')) {
+        } else if (query.includes('dedektif arıyorum') || query.includes('dedektif tutmak') || query.includes('güvenilir') || query.includes('tavsiye') || query.includes('en iyi dedektif') || query.includes('nasıl tutulur') || query.includes('sözleşme')) {
             matchedKey = 'dedektif-tutmak';
-        } else if (query.includes('tatil') || query.includes('antalya') || query.includes('bodrum') || query.includes('otel') || query.includes('seyahat')) {
+        } else if (query.includes('tatil') || query.includes('antalya') || query.includes('bodrum') || query.includes('marmaris') || query.includes('fethiye') || query.includes('otel') || query.includes('seyahat')) {
             matchedKey = 'tatilde-aldatma';
         } else if (query.includes('miras') || query.includes('borç') || query.includes('borc') || query.includes('adres') || query.includes('tapu') || query.includes('gayrimenkul')) {
             matchedKey = 'miras-borclu';
         } else if (query.includes('nafaka') || query.includes('gelir') || query.includes('şirket') || query.includes('sirket')) {
             matchedKey = 'nafaka-gelir';
-        } else if (query.includes('delil') || query.includes('mahkeme') || query.includes('yasal') || query.includes('geçerli') || query.includes('kanun') || query.includes('hukuk')) {
+        } else if (query.includes('delil') || query.includes('mahkeme') || query.includes('yasal') || query.includes('geçerli') || query.includes('kanun') || query.includes('hukuk') || query.includes('suç mu')) {
             matchedKey = 'delil-gecerliligi';
-        } else if (query.includes('erkek') || query.includes('aldat') || query.includes('belirti') || query.includes('işaret') || query.includes('eş takibi') || query.includes('es takibi')) {
+        } else if (query.includes('erkek') || query.includes('kocam') || query.includes('karım') || query.includes('aldat') || query.includes('belirti') || query.includes('işaret') || query.includes('sevgili') || query.includes('eş takibi') || query.includes('es takibi')) {
             matchedKey = 'aldatan-erkek';
         } else if (query.includes('almanya') || query.includes('avusturya') || query.includes('fransa') || query.includes('belçika') || query.includes('yurt dışı') || query.includes('gurbet')) {
             matchedKey = 'almanya-es-takibi';
