@@ -941,7 +941,7 @@ const ARTICLES_DATA = {
         serviceKey: "kurumsal-teftis",
         paragraphs: [
             "Ekonomize Dergisi ve Ankara Sesi Gazetesi iş birliğinde düzenlenen prestijli 'Yılın En'leri' ödül töreninde, özel araştırma ve dedektiflik sektöründeki etik standartları, yüksek başarı oranı ve kurumsal disipliniyle öne çıkan DAT Group, 'Yılın Başarılı Araştırma ve Takip Firması' ödülüne layık görülmüştür.",
-            "Ödül, iş, hukuk, siyaset ve medya dünyasından seçkin isimlerin katıldığı gecede DAT Özel Dedektiflik Kurucusu ve Uluslararası Özel Dedektif Eğitimleri Derneği (UÖDED) Başkanı Ümit Hakan Karakaya'ya takdim edilmiştir. Tören, Kanal 24 ve TV8 başta olmak üzere ulusal televizyon kanallarında ve yazılı basında geniş yer bulmuştur.",
+            "Ödül, iş, hukuk, siyaset ve medya dünyasından seçkin isimlerin katıldığı gecede DAT Detective Kurucusu ve Uluslararası Özel Dedektif Eğitimleri Derneği (UÖDED) Başkanı Ümit Hakan Karakaya'ya takdim edilmiştir. Tören, Kanal 24 ve TV8 başta olmak üzere ulusal televizyon kanallarında ve yazılı basında geniş yer bulmuştur.",
             "2005 yılından bu yana Türkiye ve dünya genelinde binlerce bireysel ve kurumsal dosyayı %100 ispat, delil ve müşteri memnuniyeti garantisiyle sonuçlandıran büromuz; W.A.D. (World Association of Detectives), IKD ve TÜRAVAK eğitim standartlarıyla sektöre öncülük etmeye devam etmektedir."
         ],
         highlights: [
@@ -958,7 +958,7 @@ const ARTICLES_DATA = {
         paragraphs: [
             "Evlilik birliğinde sadakat yükümlülüğü Türk Medeni Kanunu'nun 185. maddesiyle güvence altına alınmış olup, zina (aldatma) TMK m.161 kapsamında mutlak ve özel boşanma sebebidir. Ancak mahkemede haklılığınızı kanıtlayabilmeniz için şüphe tek başına yeterli değildir; iddianın Hukuk Muhakemeleri Kanunu (HMK m.199) çerçevesinde hukuka uygun delillerle ispatlanması şarttır.",
             "Eşinizin telefonunu şifreleyip sürekli ters çevirmesi, mesai ve iş seyahati bahanelerinin artması, açıklanamayan harcamalar, giyim ve kişisel bakım alışkanlıklarında ani değişimler ve duygusal uzaklaşma en sık karşılaşılan sadakatsizlik belirtileridir. Bu aşamada öfkeyle hareket etmek veya amatörce takip yapmaya çalışmak, karşı tarafın durumu fark edip tüm delilleri karartmasına yol açar.",
-            "DAT Özel Dedektiflik olarak 48 saatlik hızlı sadakat analizinden 5-7 iş günlük kapsamlı saha gözlemine kadar; hedef şahıs takip edildiğini kesinlikle hissetmeden kamuya açık alanlarda yüksek çözünürlüklü (4K) zaman damgalı fotoğraf, video ve kronolojik saha raporu hazırlıyoruz. Elde edilen tüm kanıtlar Aile Mahkemesi'nde velayet, nafaka ve maddi-manevi tazminat taleplerinizi doğrudan destekleyecek hukuki formatta teslim edilir."
+            "DAT Detective olarak 48 saatlik hızlı sadakat analizinden 5-7 iş günlük kapsamlı saha gözlemine kadar; hedef şahıs takip edildiğini kesinlikle hissetmeden kamuya açık alanlarda yüksek çözünürlüklü (4K) zaman damgalı fotoğraf, video ve kronolojik saha raporu hazırlıyoruz. Elde edilen tüm kanıtlar Aile Mahkemesi'nde velayet, nafaka ve maddi-manevi tazminat taleplerinizi doğrudan destekleyecek hukuki formatta teslim edilir."
         ],
         highlights: [
             "TMK m.161 (Zina) ve TMK m.166 kapsamında mahkemede geçerli somut kanıt üretimi",
@@ -990,7 +990,7 @@ const ARTICLES_DATA = {
         paragraphs: [
             "Gençlerin özellikle lise ve üniversite yıllarında ailesinden uzakta veya yeni sosyal çevrelerde zararlı alışkanlıklara, madde bağımlılığına ya da suça sürüklenen gruplara dahil olma riski her geçen gün artmaktadır. Erken farkındalık, evladınızın geleceğini kurtaran en kritik adımdır.",
             "Okul başarısında ani düşüş, ders devamsızlıkları, eski arkadaş çevresinden tamamen kopup ailesiyle tanıştırmadığı yeni kişilerle vakit geçirme, ani öfke patlamaları veya içe kapanma, göz kızarıklığı, uyku düzeninin bozulması ve sürekli artan para ihtiyacı ebeveynlerin dikkat etmesi gereken başlıca uyarı işaretleridir.",
-            "DAT Özel Dedektiflik Öğrenci Takibi birimi; çocuğunuzun üzerinde baskı oluşturmadan ve takip edildiğini kesinlikle hissettirmeden okul giriş-çıkış saatlerini, gittiği mekanları, görüştüğü arkadaş grubunu ve olası zararlı alışkanlık temaslarını fotoğraflı ve saatli olarak gözlemler. Böylece ebeveynler söylentilere değil, somut gerçeklere dayanarak doğru zamanda koruyucu önlem alabilir."
+            "DAT Detective Öğrenci Takibi birimi; çocuğunuzun üzerinde baskı oluşturmadan ve takip edildiğini kesinlikle hissettirmeden okul giriş-çıkış saatlerini, gittiği mekanları, görüştüğü arkadaş grubunu ve olası zararlı alışkanlık temaslarını fotoğraflı ve saatli olarak gözlemler. Böylece ebeveynler söylentilere değil, somut gerçeklere dayanarak doğru zamanda koruyucu önlem alabilir."
         ],
         highlights: [
             "Okul dışı saatlerde gidilen mekanların ve arkadaş çevresinin gizli gözlemi",
@@ -1395,7 +1395,7 @@ const AI_PRESETS = {
         p1Title: "1. DÜRÜST FİYATLANDIRMA: HER DOSYANIN KAPSAMI VE MALİYETİ FARKLIDIR",
         p1Desc: "Özel dedektiflikte sabit veya gerçek dışı düşük fiyat vadedenler genellikle sahaya hiç çıkmayan kapora avcılarıdır. Gerçek dedektiflikte maliyet; sahada görev alacak araçlı/yaya uzman sayısına, lokasyona (şehir içi, şehirlerarası veya yurt dışı), gün ve saat yoğunluğuna göre şeffaf bir fizibilite ile belirlenir. İhtiyacınız olmayan gereksiz günler sözleşmeye eklenmez.",
         p2Title: "2. RESMİ SÖZLEŞME GÜVENCESİ VE E-FATURA",
-        p2Desc: "DAT Özel Dedektiflik Bürosu'nda ön görüşmede kararlaştırılan rakam dışında müvekkilden asla sürpriz ek masraf talep edilmez. Tüm ödemeler resmi banka hesabımıza yapılır ve e-Fatura düzenlenir. Sözleşme şartları kapsamında %100 ispat ve memnuniyet ilkesiyle çalışılır.",
+        p2Desc: "DAT Detective Bürosu'nda ön görüşmede kararlaştırılan rakam dışında müvekkilden asla sürpriz ek masraf talep edilmez. Tüm ödemeler resmi banka hesabımıza yapılır ve e-Fatura düzenlenir. Sözleşme şartları kapsamında %100 ispat ve memnuniyet ilkesiyle çalışılır.",
         p3Items: [
             { bad: true, label: "Gülünç Derecede Düşük Fiyatlara Kanmayın", text: "Yakıt, araç, teçhizat ve personel maliyetinin altındaki teklifler dolandırıcılık habercisidir." },
             { bad: false, label: "Kritik Eşiğe Odaklanın", text: "7 günlük genel takip yerine şüphenin yoğunlaştığı 48 saatlik nokta operasyonlarla bütçenizi %60 optimize edin." },
@@ -1531,7 +1531,7 @@ const AI_PRESETS = {
         p1Title: "1. YANKI ODASINDAN UZAK GERÇEKÇİ TEKNİK YAKLAŞIM",
         p1Desc: "İnternette veya telefon mağazalarında satılan ücretsiz casus yazılım bulma uygulamaları veya ucuz Çin malı sinyal tespit dedektörleri amatör oyuncaklardır; profesyonel GSM/Wi-Fi böcekleri veya uyuyan kayıt cihazlarını ASLA tespit edemez. Bu durum insanı gereksiz bir paranoyaya veya sahte bir güvenlik yanılgısına sürükler.",
         p2Title: "2. PROFESYONEL TSCM SPEKTRUM ANALİZİ (TCK m.132-134)",
-        p2Desc: "DAT Özel Dedektiflik teknik ekibi; konut, makam odası ve VIP araçlarda 10 kHz – 24 GHz RF spektrum analizörleri, Non-Linear Junction Detector (yarı iletken elektronik devre tespiti) ve termal görüntüleme cihazlarıyla aktif ve pasif tüm dinleme cihazlarını, araç altı GPS takip ünitelerini aynı gün tespit eder ve savcılık suç duyurusu için resmi teknik tutanak düzenler.",
+        p2Desc: "DAT Detective teknik ekibi; konut, makam odası ve VIP araçlarda 10 kHz – 24 GHz RF spektrum analizörleri, Non-Linear Junction Detector (yarı iletken elektronik devre tespiti) ve termal görüntüleme cihazlarıyla aktif ve pasif tüm dinleme cihazlarını, araç altı GPS takip ünitelerini aynı gün tespit eder ve savcılık suç duyurusu için resmi teknik tutanak düzenler.",
         p3Items: [
             { bad: true, label: "Telefon Uygulamalarına Güvenmeyin", text: "Mobil marketlerdeki dedektör uygulamaları profesyonel dinleme cihazlarını tespit edemez." },
             { bad: true, label: "Cihazı Bulursanız Dokunmayın", text: "Şüpheli bir cihaz görürseniz parmak izi ve delil bütünlüğünü bozmamak için çıplak elle ellemeyin." },
@@ -1594,7 +1594,7 @@ function resetAIChat() {
                     <span class="text-[10px] font-mono text-white/40">${timeStr}</span>
                 </div>
                 <div class="text-xs sm:text-[13px] leading-relaxed text-white/85 space-y-2">
-                    <p>Merhaba! Ben DAT Özel Dedektiflik'in Yeni Nesil Dijital Asistanı <strong>Elsa</strong>. Kurucumuz <strong>Ümit Hakan Karakaya</strong>'nın 20 yılı aşkın dedektiflik ve adli bilişim tecrübesiyle buradayım.</p>
+                    <p>Merhaba! Ben DAT Detective'in Yeni Nesil Dijital Asistanı <strong>Elsa</strong>. Kurucumuz <strong>Ümit Hakan Karakaya</strong>'nın 20 yılı aşkın dedektiflik ve adli bilişim tecrübesiyle buradayım.</p>
                     <p>Burada kuruntuları körükleyen sahte şüphe oranları veya yankı odası tuzaklarına yer yok. Dosyanızı dürüst, rasyonel ve <strong>HMK m.199 / TCK m.134</strong> yasal sınırları içinde değerlendiriyoruz.</p>
                     <p class="text-[#000000] font-medium pt-1">Aşağıdaki popüler başlıklardan birine tıklayarak anında yanıt alabilir veya sorunuzu doğrudan yazıp <strong>"Yeni Nesil Dedektif'e Sor"</strong> butonuna basabilirsiniz:</p>
                 </div>

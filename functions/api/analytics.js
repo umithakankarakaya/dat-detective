@@ -314,7 +314,7 @@ export async function onRequest(context) {
                 return jsonResponse({ error: 'Önce Google Apps Script /exec adresini yapıştırın.' }, 400);
             }
             const testResult = await forwardToGasWebhook(activeUrl, {
-                _subject: 'DAT Dedektiflik — Yönetim Paneli Canlı Gmail Testi',
+                _subject: 'DAT Detective — Yönetim Paneli Canlı Gmail Testi',
                 name: 'Sistem Doğrulama Testi',
                 channel: 'Yönetim Paneli -> Google Apps Script',
                 contact: 'uhakankarakaya@gmail.com / umithakankarakaya@gmail.com',
@@ -345,7 +345,7 @@ export async function onRequest(context) {
                 ? [requestedTarget]
                 : FORMSUBMIT_RECIPIENTS;
             const relay = await relayViaFormSubmitServer({
-                _subject: 'DAT Dedektiflik — Alıcı Aktivasyon & Doğrulama Testi',
+                _subject: 'DAT Detective — Alıcı Aktivasyon & Doğrulama Testi',
                 name: 'DAT Yönetim Paneli Kontrolü',
                 email: 'info@datdetective.com',
                 message: `Bu istek ${new Date().toLocaleString('tr-TR', { timeZone: 'Europe/Istanbul' })} tarihinde Yönetim Paneli üzerinden aktivasyon/teslimat doğrulaması için tetiklendi.`
@@ -403,7 +403,7 @@ export async function onRequest(context) {
             const activeGasUrl = envGasUrl || store.webhookUrl || '';
             if (activeGasUrl && type === 'lead_captured' && !savedLead.isTest) {
                 emailDeliveryResult = await forwardToGasWebhook(activeGasUrl, {
-                    _subject: `Yeni Vaka Talebi (${savedLead.code}) — DAT Dedektiflik`,
+                    _subject: `Yeni Vaka Talebi (${savedLead.code}) — DAT Detective`,
                     Dosya_Takip_Kodu: savedLead.code,
                     Ad_veya_Rumuz: savedLead.name,
                     Hizmet_Kategorisi: savedLead.category,
