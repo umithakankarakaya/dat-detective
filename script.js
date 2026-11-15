@@ -90,7 +90,7 @@ function getCurrentTheme() {
         const saved = localStorage.getItem('dat_theme');
         if (saved === 'light' || saved === 'dark') return saved;
     } catch (_) {}
-    return 'dark';
+    return 'light';
 }
 
 function updateThemeToggleUI(theme) {

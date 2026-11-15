@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tr" class="scroll-smooth light" data-theme="light">
+<html lang="tr" class="scroll-smooth light" data-theme="light" style="color-scheme: light;">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -1422,6 +1422,48 @@
         }
     </style>
 
+
+    <style id="openai-exact-white-box">
+        /* OpenAI Tam Beyaz Konsol ve Haplar */
+        #aiChatInputWrap,
+        .openai-box-white {
+            background-color: #FFFFFF !important;
+            border: 1px solid rgba(0, 0, 0, 0.14) !important;
+            box-shadow: 0 2px 14px rgba(0, 0, 0, 0.04) !important;
+            color: #000000 !important;
+        }
+
+        #aiChatInput {
+            background-color: transparent !important;
+            color: #000000 !important;
+        }
+        #aiChatInput::placeholder {
+            color: #737373 !important;
+        }
+
+        #aiQuickChips button,
+        .openai-pill-white {
+            background-color: #FFFFFF !important;
+            border: 1px solid rgba(0, 0, 0, 0.12) !important;
+            color: #000000 !important;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02) !important;
+        }
+        #aiQuickChips button:hover,
+        .openai-pill-white:hover {
+            background-color: rgba(0, 0, 0, 0.04) !important;
+            border-color: rgba(0, 0, 0, 0.20) !important;
+            color: #000000 !important;
+        }
+
+        #aiSendBtn {
+            background-color: #000000 !important;
+            color: #FFFFFF !important;
+        }
+        #aiSendBtn:hover {
+            background-color: #262626 !important;
+        }
+    </style>
+
 </head>
 <body id="top" class="bg-[#111111] text-[#111111] font-sans antialiased selection:bg-[#93F051] selection:text-[#111111] relative overflow-x-clip transition-colors duration-200">
 
@@ -1669,7 +1711,7 @@
                 </div>
 
                 <!-- OpenAI Exact Console Card (max-w-[720px], rounded-[28px], 1px border, subtle shadow) -->
-                <div class="max-w-[720px] mx-auto rounded-[28px] border border-black/[0.14] bg-[#FFFFFF] shadow-[0_2px_14px_rgba(0,0,0,0.04)] hover:shadow-[0_4px_20px_rgba(0,0,0,0.07)] focus-within:border-black/35 p-4 sm:p-5 transition relative">
+                <div id="aiChatInputWrap" class="openai-box-white max-w-[720px] mx-auto rounded-[28px] border border-black/[0.14] bg-[#FFFFFF] shadow-[0_2px_14px_rgba(0,0,0,0.04)] hover:shadow-[0_4px_20px_rgba(0,0,0,0.07)] focus-within:border-black/35 p-4 sm:p-5 transition relative">
                     
                     <!-- Textarea Input Area -->
                     <textarea id="aiChatInput" rows="2" placeholder="Vakanızı veya sorunuzu buraya yazın (örn: Eşim telefonuna şifre koydu, 5 yaşında kızımın velayeti, HMK m.199 delil geçerliliği, dedektif ücretleri...)" class="w-full bg-transparent border-none text-[#000000] placeholder-[#737373] text-[15px] sm:text-[16px] focus:outline-none resize-none leading-relaxed font-normal"></textarea>
@@ -1693,12 +1735,12 @@
 
                 <!-- OpenAI Prompt Suggestion Pills (Centered Horizontal List) -->
                 <div class="flex items-center justify-center gap-2 flex-wrap mt-4 text-sm" id="aiQuickChips">
-                    <button type="button" onclick="selectAIChatPreset('cocuk-velayeti')" class="px-3.5 py-1.5 rounded-full border border-black/[0.12] bg-[#FFFFFF] hover:bg-black/[0.04] text-[#000000] text-xs sm:text-[13px] transition font-normal shrink-0 shadow-xs">👶 Çocuk &amp; Velayet</button>
-                    <button type="button" onclick="selectAIChatPreset('aldatan-erkek')" class="px-3.5 py-1.5 rounded-full border border-black/[0.12] bg-[#FFFFFF] hover:bg-black/[0.04] text-[#000000] text-xs sm:text-[13px] transition font-normal shrink-0 shadow-xs">💔 Eş Takibi &amp; Aldatma</button>
-                    <button type="button" onclick="selectAIChatPreset('delil-gecerliligi')" class="px-3.5 py-1.5 rounded-full border border-black/[0.12] bg-[#FFFFFF] hover:bg-black/[0.04] text-[#000000] text-xs sm:text-[13px] transition font-normal shrink-0 shadow-xs">⚖️ Mahkemede Delil Geçerliliği</button>
-                    <button type="button" onclick="selectAIChatPreset('dedektif-ucretleri')" class="px-3.5 py-1.5 rounded-full border border-black/[0.12] bg-[#FFFFFF] hover:bg-black/[0.04] text-[#000000] text-xs sm:text-[13px] transition font-normal shrink-0 shadow-xs">💳 Dedektif Ücretleri</button>
-                    <button type="button" onclick="selectAIChatPreset('bocek-arama')" class="px-3.5 py-1.5 rounded-full border border-black/[0.12] bg-[#FFFFFF] hover:bg-black/[0.04] text-[#000000] text-xs sm:text-[13px] transition font-normal shrink-0 shadow-xs">🔍 Böcek Arama &amp; TSCM</button>
-                    <button type="button" onclick="selectAIChatPreset('miras-borclu')" class="px-3.5 py-1.5 rounded-full border border-black/[0.12] bg-[#FFFFFF] hover:bg-black/[0.04] text-[#000000] text-xs sm:text-[13px] transition font-normal shrink-0 shadow-xs">📍 Adres &amp; Borçlu Tespiti</button>
+                    <button type="button" onclick="selectAIChatPreset('cocuk-velayeti')" class="openai-pill-white px-3.5 py-1.5 rounded-full border border-black/[0.12] bg-[#FFFFFF] hover:bg-black/[0.04] text-[#000000] text-xs sm:text-[13px] transition font-normal shrink-0 shadow-xs">👶 Çocuk &amp; Velayet</button>
+                    <button type="button" onclick="selectAIChatPreset('aldatan-erkek')" class="openai-pill-white px-3.5 py-1.5 rounded-full border border-black/[0.12] bg-[#FFFFFF] hover:bg-black/[0.04] text-[#000000] text-xs sm:text-[13px] transition font-normal shrink-0 shadow-xs">💔 Eş Takibi &amp; Aldatma</button>
+                    <button type="button" onclick="selectAIChatPreset('delil-gecerliligi')" class="openai-pill-white px-3.5 py-1.5 rounded-full border border-black/[0.12] bg-[#FFFFFF] hover:bg-black/[0.04] text-[#000000] text-xs sm:text-[13px] transition font-normal shrink-0 shadow-xs">⚖️ Mahkemede Delil Geçerliliği</button>
+                    <button type="button" onclick="selectAIChatPreset('dedektif-ucretleri')" class="openai-pill-white px-3.5 py-1.5 rounded-full border border-black/[0.12] bg-[#FFFFFF] hover:bg-black/[0.04] text-[#000000] text-xs sm:text-[13px] transition font-normal shrink-0 shadow-xs">💳 Dedektif Ücretleri</button>
+                    <button type="button" onclick="selectAIChatPreset('bocek-arama')" class="openai-pill-white px-3.5 py-1.5 rounded-full border border-black/[0.12] bg-[#FFFFFF] hover:bg-black/[0.04] text-[#000000] text-xs sm:text-[13px] transition font-normal shrink-0 shadow-xs">🔍 Böcek Arama &amp; TSCM</button>
+                    <button type="button" onclick="selectAIChatPreset('miras-borclu')" class="openai-pill-white px-3.5 py-1.5 rounded-full border border-black/[0.12] bg-[#FFFFFF] hover:bg-black/[0.04] text-[#000000] text-xs sm:text-[13px] transition font-normal shrink-0 shadow-xs">📍 Adres &amp; Borçlu Tespiti</button>
                 </div>
 
                 <!-- Live Conversation Messages Container (Hidden initially until asked or clicked) -->
@@ -7084,7 +7126,7 @@
     </div>
 
     <!-- Core Interactive Scripts & 7-Language i18n Engine -->
-    <script src="script.js?v=9.0"></script>
+    <script src="script.js?v=9.1"></script>
     <script src="lang/en.js?v=7.2"></script>
     <script src="lang/de.js?v=7.2"></script>
     <script src="lang/fr.js?v=7.2"></script>
