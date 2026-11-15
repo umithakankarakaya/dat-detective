@@ -1485,20 +1485,20 @@ const AI_PRESETS = {
         waText: "Merhaba Ümit Bey, Yeni Nesil Dedektif alanından yazıyorum. Eski eşimin gizli gelir ve ticari varlıklarının tespiti için nafaka delili toplamak istiyorum."
     },
     'cocuk-velayeti': {
-        query: "İki çocuğum var (9 ve 5 yaş). Çocuğumun velayetini almak için ne tür belgelere ihtiyacım var ve karşımdaki dedektif bana hangi soruları sormalı?",
+        query: "Velayet ve aile davalarında mahkemede geçerli deliller nasıl toplanır ve süreç nasıl yürütülür?",
         riskScore: "VELAYET HUKUKU • TMK m.182/183 & ÇOCUĞUN ÜSTÜN YARARI",
         riskColor: "#000000",
-        p1Title: "1. YANKI ODASINDAN UZAK HUKUKİ GERÇEKLER (5 VE 9 YAŞ ANALİZİ)",
-        p1Desc: "Aile mahkemelerinde tek kriter 'Çocuğun Üstün Yararı'dır (TMK m.182). 5 yaşındaki bir çocuk Yargıtay yerleşik içtihatlarına göre halen 'anne bakım ve şefkatine muhtaç' yaş grubunda kabul edilir; annenin yalnızca gezmesi, hayatında yeni birinin olması veya fevri suçlamalar velayeti almak için ASLA yeterli değildir. Ancak 9 yaşındaki kardeşin sizinle yaşaması, Türk hukukundaki 'kardeşlerin birbirinden ayrılmaması ilkesi' gereği davanızın en büyük ve meşru kozudur.",
-        p2Title: "2. MAHKEMEDE İHTİYAÇ DUYULAN RESMİ BELGELER & DEDEKTİFİN SORACAĞI 5 SORU",
-        p2Desc: "İhtiyacınız olan belgeler: 1) Sosyal İnceleme Raporu (SİR/Pedagog tespiti), 2) Çocuğun doğrudan ihmal veya tehlike altında olduğunu kanıtlayan meşru sağlık/okul belgeleri, 3) 9 yaşındaki kardeşin düzenli aile ortamı kanıtları, 4) Kamuya açık alanda HMK m.199 uyumlu resmi adli tespit raporu. Dürüst bir dedektif size şunları sormak zorundadır: 1- Çocuğun ihmal veya tehlike altında olduğuna dair somut gözleminiz var mı? 2- Çocuk gün içinde kime emanet ediliyor? 3- 9 yaşındaki kardeş resmi kararla mı yanınızda? 4- Amacınız anneyi cezalandırmak mı, çocuğu korumak mı? 5- Dosyanız bir aile avukatı tarafından incelendi mi?",
+        p1Title: "1. ÇOCUĞUN ÜSTÜN YARARI VE YASAL DELİL İLKELERİ",
+        p1Desc: "Aile mahkemelerinde velayet ve çocuk güvenliği davalarının temel kriteri 'Çocuğun Üstün Yararı'dır (TMK m.182). Ebeveynler arasındaki çekişmeler veya sübjektif iddialar mahkemede dikkate alınmaz. Hakimin incelediği temel husus; çocuğun güvenliği, yaşam koşulları ve gelişim ortamının sağlıklı olup olmadığıdır.",
+        p2Title: "2. MAHKEMEDE KABUL GÖREN HUKUKİ TESPİTLER (HMK m.199)",
+        p2Desc: "Velayet ve aile davalarında ihtiyaç duyulan deliller: 1) Sosyal İnceleme Raporu (SİR/Pedagog tespiti), 2) Kamuya açık alanda çocuğun bakım ve yaşam koşullarını belgeleyen HMK m.199 uyumlu resmi adli tespit raporları, 3) Eğitim, sağlık ve aile düzenine ilişkin resmi kayıtlar. Özel hayatın gizliliğini ihlal eden hiçbir hukuk dışı yöntem kullanılmaz.",
         p3Items: [
-            { bad: true, label: "Telefon Casus Yazılımlarına İtibar Etmeyin", text: "WhatsApp veya telefon casusluğu TCK m.134 uyarınca 2-5 yıl hapis suçu doğurur ve velayet davasını aleyhinize çevirir." },
-            { bad: true, label: "Salt Özel Hayat Şikayetiyle Dava Açmayın", text: "Annenin yeni bir ilişkisinin olması çocuğu doğrudan tehlikeye atmıyorsa velayetin değişmesi için hukuken yetersizdir." },
-            { bad: false, label: "Kardeşlerin Birlikte Büyüme Hakkını Savunun", text: "9 yaşındaki abinin yanınızda olması, kardeşlerin ayrılmaması ilkesi kapsamında lehinize en güçlü hukuki zemindir." },
-            { bad: false, label: "Ümit Hakan Karakaya ile Dosya Uygunluğunu Değerlendirin", text: "Dosyanızın dedektiflik çalışmasına ve adli delil toplamaya uygun olup olmadığını ücretsiz analiz edelim." }
+            { bad: true, label: "Telefon Casus Yazılımlarına İtibar Etmeyin", text: "WhatsApp veya telefon casusluğu TCK m.134 uyarınca suçtur ve davada aleyhinize sonuç doğurur." },
+            { bad: true, label: "Soyut İddialarla Hareket Etmeyin", text: "Somut ihmal veya risk belgelenmedikçe soyut şikayetler hukuken geçersizdir." },
+            { bad: false, label: "Kamuya Açık Alanda Yasal Tespit", text: "Gözlemler yalnızca kamuya açık alanlarda, yasal sınırlar ve çocuk güvenliği gözetilerek yapılır." },
+            { bad: false, label: "Ümit Hakan Karakaya ile Dosya Analizi", text: "Dosyanızın adli delil ve velayet araştırmasına uygunluğunu doğrudan değerlendirelim." }
         ],
-        waText: "Merhaba Ümit Bey, Yeni Nesil Dedektif alanından velayet araştırması ve çocuk güvenliği hakkında hukuki danışmanlık almak istiyorum."
+        waText: "Merhaba Ümit Bey, Yeni Nesil Dedektif alanından velayet ve aile hukuku delil araştırmaları hakkında danışmanlık almak istiyorum."
     },
     'bocek-arama': {
         query: "Evimde veya arabamda dinleme cihazı (böcek), gizli kamera veya takip cihazı var mı, nasıl tespit edilir?",
@@ -1575,7 +1575,7 @@ function resetAIChat() {
                     <p class="text-[#000000] font-medium pt-1">Aşağıdaki popüler başlıklardan birine tıklayarak anında yanıt alabilir veya sorunuzu doğrudan yazıp <strong>"Yeni Nesil Dedektif'e Sor"</strong> butonuna basabilirsiniz:</p>
                 </div>
                 <div class="flex flex-wrap gap-1.5 pt-1">
-                    <button type="button" onclick="selectAIChatPreset('cocuk-velayeti')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#000000]/15 text-white/85 hover:text-[#000000] border border-black/[0.08] hover:border-[#000000]/40 text-xs transition">👶 Çocuk &amp; Velayet Davası</button>
+                    <button type="button" onclick="selectAIChatPreset('cocuk-velayeti')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#000000]/15 text-white/85 hover:text-[#000000] border border-black/[0.08] hover:border-[#000000]/40 text-xs transition">⚖️ Velayet &amp; Aile Delili</button>
                     <button type="button" onclick="selectAIChatPreset('dedektif-tutmak')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#000000]/15 text-white/85 hover:text-[#000000] border border-black/[0.08] hover:border-[#000000]/40 text-xs transition">🕵️‍♂️ Dedektif Tutmak Yasal mı?</button>
                     <button type="button" onclick="selectAIChatPreset('dedektif-ucretleri')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#000000]/15 text-white/85 hover:text-[#000000] border border-black/[0.08] hover:border-[#000000]/40 text-xs transition">💳 Ücretler Nasıl Belirlenir?</button>
                     <button type="button" onclick="selectAIChatPreset('delil-gecerliligi')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#000000]/15 text-white/85 hover:text-[#000000] border border-black/[0.08] hover:border-[#000000]/40 text-xs transition">⚖️ Deliller Mahkemede Geçerli mi?</button>

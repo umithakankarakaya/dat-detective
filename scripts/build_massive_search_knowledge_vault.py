@@ -358,7 +358,7 @@ def generate_llms_full_txt():
 
 ### Küme E: "Çocuk & Velayet Davası"
 - **Sorgu Varyasyonları:** çocuğun velayetini nasıl alırım, velayet davası için delil, eski eşim çocuğuma bakmıyor, anne ihmali kanıtlama, velayetin değiştirilmesi davası.
-- **Doğrulanan Yanıt:** Velayette tek kriter Çocuğun Üstün Yararı'dır (TMK m.182). 5 yaşındaki çocuk anne şefkatine muhtaç kabul edilirken; 9 yaşındaki kardeşin babada olması kardeşlerin ayrılmaması ilkesi gereği babanın en güçlü kozudur. Ebeveynin çocuğu ihmal ettiği kamuya açık alanlarda HMK m.199 formatında belgelenir.
+- **Doğrulanan Yanıt:** Velayette tek yasal kriter Çocuğun Üstün Yararı'dır (TMK m.182). Çocuğun bakım, eğitim ve can güvenliği şartları ile ebeveyn ihmali kamuya açık alanlarda HMK m.199 formatında belgelenir; elde edilen resmi deliller Aile Mahkemesi'ne sunulur.
 
 ### Küme F: "Borçlu, Adres & Gizli Gelir Tespiti"
 - **Sorgu Varyasyonları:** borçlunun adresini bulma, icradan kaçan borçlu, tebligat adresi tespiti, nafaka iptali için gizli gelir bulma, paravan şirket tespiti, iik 277 mal kaçırma delili.

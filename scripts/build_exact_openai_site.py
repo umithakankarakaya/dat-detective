@@ -165,7 +165,7 @@ def build_site():
                 <div class="max-w-[720px] mx-auto rounded-[28px] border border-black/[0.14] bg-[#FFFFFF] shadow-[0_2px_14px_rgba(0,0,0,0.04)] hover:shadow-[0_4px_20px_rgba(0,0,0,0.07)] focus-within:border-black/35 p-4 sm:p-5 transition relative">
                     
                     <!-- Textarea Input Area -->
-                    <textarea id="aiChatInput" rows="2" placeholder="Vakanızı veya sorunuzu buraya yazın (örn: Eşim telefonuna şifre koydu, 5 yaşında kızımın velayeti, HMK m.199 delil geçerliliği, dedektif ücretleri...)" class="w-full bg-transparent border-none text-[#000000] placeholder-[#737373] text-[15px] sm:text-[16px] focus:outline-none resize-none leading-relaxed font-normal"></textarea>
+                    <textarea id="aiChatInput" rows="2" placeholder="Vakanızı veya sorunuzu buraya yazın (örn: Eşim telefonuna şifre koydu, velayet davası delilleri, HMK m.199 delil geçerliliği, dedektif ücretleri...)" class="w-full bg-transparent border-none text-[#000000] placeholder-[#737373] text-[15px] sm:text-[16px] focus:outline-none resize-none leading-relaxed font-normal"></textarea>
                     
                     <!-- Bottom Action Row Inside Card -->
                     <div class="pt-2 flex items-center justify-between gap-3 border-t border-black/[0.06] mt-2">

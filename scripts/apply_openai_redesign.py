@@ -116,7 +116,7 @@ def apply_redesign():
                         
                         <!-- Input Box -->
                         <div class="flex flex-col sm:flex-row items-stretch sm:items-end gap-2.5 bg-[#0A0A0B] border border-white/15 focus-within:border-white/40 rounded-2xl p-2.5 sm:p-2 sm:pl-4 transition shadow-inner">
-                            <textarea id="aiChatInput" rows="2" placeholder="Vakanızı, şüphenizi veya hukuki sorunuzu buraya yazın (örn: Eşim Bodrum'a tatile gitti, 5 yaşında kızımın velayeti, HMK m.199 delil geçerliliği, ücretler...)" class="flex-1 bg-transparent border-0 text-xs sm:text-sm text-white placeholder-neutral-500 focus:outline-none resize-none py-1.5 sm:py-2 max-h-32 leading-relaxed font-light"></textarea>
+                            <textarea id="aiChatInput" rows="2" placeholder="Vakanızı, şüphenizi veya hukuki sorunuzu buraya yazın (örn: Eşim Bodrum'a tatile gitti, velayet davası delilleri, HMK m.199 delil geçerliliği, ücretler...)" class="flex-1 bg-transparent border-0 text-xs sm:text-sm text-white placeholder-neutral-500 focus:outline-none resize-none py-1.5 sm:py-2 max-h-32 leading-relaxed font-light"></textarea>
                             
                             <button type="button" id="aiSendBtn" onclick="sendAIChatMessage()" class="px-5 py-3 sm:py-2.5 rounded-xl bg-white text-black hover:bg-neutral-200 font-medium text-xs sm:text-sm flex items-center justify-center gap-2 shrink-0 transition active:scale-95 shadow-md">
                                 <span>Soruyu Yanıtla</span>
