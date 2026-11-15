@@ -219,7 +219,7 @@
         }
     </style>
 </head>
-<body class="min-h-screen lg:h-full antialiased selection:bg-[#93F051] selection:text-[#111111] lg:overflow-hidden p-1.5 sm:p-3 lg:p-4 block lg:flex lg:items-center lg:justify-center">
+<body class="min-h-screen lg:h-full antialiased selection:bg-black selection:text-white lg:overflow-hidden p-1.5 sm:p-3 lg:p-4 block lg:flex lg:items-center lg:justify-center">
 
     <!-- Studio Obsidian Outer Chassis -->
     <div id="elsaOuterFrame" class="w-full lg:h-full max-w-[1620px] min-h-[calc(100vh-0.75rem)] lg:min-h-0 rounded-[20px] sm:rounded-[28px] bg-gradient-to-b from-[#E2E5E9] via-[#D1D5DC] to-[#B8BCC6] p-1.5 sm:p-2 shadow-[0_25px_70px_rgba(0,0,0,0.22)] border border-white/80 lg:flex lg:flex-col lg:overflow-hidden">
@@ -236,7 +236,7 @@
                     <!-- Brand & Elsa AI Beacon -->
                     <div class="h-16 flex items-center justify-between px-4 lg:px-5 border-b border-[rgba(0,0,0,0.08)]">
                         <div class="flex items-center gap-3 min-w-0">
-                            <div class="h-9 w-9 rounded-xl bg-[#000000] text-[#FFFFFF] flex items-center justify-center shadow-sm shrink-0 relative overflow-hidden ring-2 ring-[#93F051]/60">
+                            <div class="h-9 w-9 rounded-xl bg-[#000000] text-[#FFFFFF] flex items-center justify-center shadow-sm shrink-0 relative overflow-hidden ring-1 ring-black/10/60">
                                 <img src="assets/photos/elsa-dedektif-asistan.jpg" alt="Elsa — DAT Detective Dijital Asistanı" class="w-9 h-9 object-cover object-top">
                                 <span class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-[#10B981] ring-2 ring-white"></span>
                             </div>
@@ -352,11 +352,11 @@
                             <kbd class="rounded bg-[#FFFFFF] px-1.5 py-0.5 text-[9px] font-mono text-[#3A3E42]/70 border border-[rgba(0,0,0,0.06)] shrink-0">⌘K</kbd>
                         </div>
 
-                        <button id="themeToggleBtn" type="button" onclick="toggleElsaTheme()" title="Tema Değiştir" class="inline-flex items-center gap-1 rounded-xl px-2.5 py-2 text-xs font-medium bg-[#F3F4F4] hover:bg-[#000000] text-[#000000] hover:text-[#FFFFFF] transition shrink-0">
+                        <button id="themeToggleBtn" type="button" onclick="toggleElsaTheme()" title="Tema Değiştir" class="inline-flex items-center gap-1 rounded-xl px-2.5 py-2 text-xs font-medium bg-[#F3F4F4] hover:bg-[#000000] text-white hover:text-[#FFFFFF] transition shrink-0">
                             <i id="themeToggleIcon" class="hgi hgi-stroke hgi-sun-03 w-3.5 h-3.5 text-[#93F051]"></i>
                         </button>
 
-                        <button type="button" onclick="openTrackLookupModal()" class="inline-flex items-center gap-1.5 rounded-xl px-2.5 sm:px-3 py-2 text-xs font-medium bg-[#F3F4F4] hover:bg-[#000000] text-[#000000] hover:text-[#FFFFFF] transition whitespace-nowrap shrink-0">
+                        <button type="button" onclick="openTrackLookupModal()" class="inline-flex items-center gap-1.5 rounded-xl px-2.5 sm:px-3 py-2 text-xs font-medium bg-[#F3F4F4] hover:bg-[#000000] text-white hover:text-[#FFFFFF] transition whitespace-nowrap shrink-0">
                             <i class="hgi hgi-stroke hgi-search-list-01 w-3.5 h-3.5 elsa-accent-text text-[#15803D] shrink-0"></i>
                             <span class="hidden sm:inline">Dosya Sorgula</span>
                         </button>
