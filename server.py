@@ -124,13 +124,6 @@ class DatRequestHandler(SimpleHTTPRequestHandler):
             pass
 
     def translate_path(self, path):
-        clean_path = super().translate_path(path)
-        if not os.path.exists(clean_path):
-            if os.path.isfile(clean_path.rstrip("/") + ".html"):
-                return clean_path.rstrip("/") + ".html"
-        return clean_path
-
-    def translate_path(self, path):
         # Temiz URL desteği: /istanbul-ozel-dedektif -> /istanbul-ozel-dedektif.html
         clean_path = path.split('?', 1)[0].split('#', 1)[0]
         rel = unquote(clean_path).lstrip('/')
