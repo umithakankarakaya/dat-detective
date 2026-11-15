@@ -1674,16 +1674,52 @@
             color: inherit;
         }
 
-        /* Prevent washed out white text on light backgrounds */
-        section:not(.theme-dark-feature-banner) .text-white,
-        section:not(.theme-dark-feature-banner) [class*="text-white/"] {
-            color: #1F2937 !important;
+        /* Bulletproof OpenAI Contrast Protection */
+        .openai-cta-btn,
+        .openai-cta-btn *,
+        .bg-black,
+        .bg-black *,
+        .bg-\[\#000000\],
+        .bg-\[\#000000\] *,
+        .bg-\[\#111111\],
+        .bg-\[\#111111\] *,
+        a.bg-black,
+        a.bg-black *,
+        button.bg-black,
+        button.bg-black *,
+        .photo-overlay-label,
+        .photo-overlay-label *,
+        [class*="from-black"] span,
+        [class*="from-[#111111]"] span {
+            color: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
         }
 
-        section:not(.theme-dark-feature-banner) .text-white\/60,
-        section:not(.theme-dark-feature-banner) .text-white\/50,
-        section:not(.theme-dark-feature-banner) .text-white\/40 {
-            color: #4B5563 !important;
+        .openai-cta-btn svg,
+        .openai-cta-btn i,
+        .bg-black svg,
+        .bg-black i,
+        .bg-\[\#000000\] svg,
+        .bg-\[\#000000\] i,
+        .bg-\[\#111111\] svg,
+        .bg-\[\#111111\] i {
+            color: #FFFFFF !important;
+            stroke: #FFFFFF !important;
+        }
+
+        /* City cards interactive hover contrast */
+        .city-arrow {
+            background-color: #F4F4F5 !important;
+            color: #000000 !important;
+        }
+        .group:hover .city-arrow {
+            background-color: #000000 !important;
+            color: #FFFFFF !important;
+        }
+        .group:hover .city-arrow svg,
+        .group:hover .city-arrow i {
+            color: #FFFFFF !important;
+            stroke: #FFFFFF !important;
         }
 
         /* Ensure all card containers in sections render cleanly */
@@ -2328,14 +2364,14 @@
                         <div class="grid grid-cols-2 gap-3">
                             <div onclick="openPhotoModal('assets/photos/uoded-imza-toreni.jpg', 'UÖDED Başkanı Ümit Hakan Karakaya — Yuvarlak Masa Çalıştayı & Sertifika İmza Töreni')" class="group relative aspect-[4/3] rounded-2xl overflow-hidden border border-black/[0.08] cursor-pointer bg-[#0E0E10]">
                                 <img src="assets/photos/uoded-imza-toreni.jpg" alt="UÖDED Başkanı Ümit Hakan Karakaya İmza Töreni" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent flex items-end p-2 pointer-events-none">
-                                    <span class="text-[10px] font-mono text-white font-medium drop-shadow-sm">UÖDED İMZA TÖRENİ</span>
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex items-end p-2.5 pointer-events-none">
+                                    <span class="photo-overlay-label text-[10px] font-mono font-semibold drop-shadow-md tracking-wider" style="color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important;">UÖDED İMZA TÖRENİ</span>
                                 </div>
                             </div>
-                            <div onclick="openPhotoModal('assets/photos/sertifika-toreni-2022.jpg', '01 Ekim 2022 — DAT Detective 1. Dönem Özel Dedektiflik Eğitimi Sertifika Töreni')" class="group relative aspect-[4/3] rounded-2xl overflow-hidden border border-black/[0.08] cursor-pointer bg-[#0E0E10]">
-                                <img src="assets/photos/sertifika-toreni-2022.jpg" alt="DAT Detective Eğitimi Sertifika Töreni" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent flex items-end p-2 pointer-events-none">
-                                    <span class="text-[10px] font-mono text-white font-medium drop-shadow-sm">SERTİFİKA TÖRENİ</span>
+                            <div onclick="openPhotoModal('assets/photos/kiu-sertifika-programi.jpg', 'Kapadokya İlyas Üniversitesi & UÖDED Özel Dedektiflik Sertifika Programı Töreni')" class="group relative aspect-[4/3] rounded-2xl overflow-hidden border border-black/[0.08] cursor-pointer bg-[#0E0E10]">
+                                <img src="assets/photos/kiu-sertifika-programi.jpg" alt="UÖDED & KİÜ Özel Dedektiflik Sertifika Programı" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex items-end p-2.5 pointer-events-none">
+                                    <span class="photo-overlay-label text-[10px] font-mono font-semibold drop-shadow-md tracking-wider" style="color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important;">KİÜ SERTİFİKA EĞİTİMİ</span>
                                 </div>
                             </div>
                         </div>
@@ -2380,16 +2416,16 @@
                         </div>
 
                         <div class="grid grid-cols-2 gap-3">
-                            <div onclick="openPhotoModal('assets/photos/yilin-enleri-odul-1.jpg', 'Yılın En'leri Ödül Töreni — DAT Group & Ümit Hakan Karakaya')" class="group relative aspect-[4/3] rounded-2xl overflow-hidden border border-black/[0.08] cursor-pointer bg-[#0E0E10]">
+                            <div onclick="openPhotoModal('assets/photos/yilin-enleri-odul-1.jpg', 'Yılın En\'leri Ödül Töreni — DAT Group & Ümit Hakan Karakaya')" class="group relative aspect-[4/3] rounded-2xl overflow-hidden border border-black/[0.08] cursor-pointer bg-[#0E0E10]">
                                 <img src="assets/photos/yilin-enleri-odul-1.jpg" alt="Yılın En'leri Ödül Töreni Ümit Hakan Karakaya" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent flex items-end p-2.5 pointer-events-none">
-                                    <span class="text-[10px] font-mono text-white font-medium drop-shadow-sm">ÖDÜL TAKDİMİ</span>
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex items-end p-2.5 pointer-events-none">
+                                    <span class="photo-overlay-label text-[10px] font-mono font-semibold drop-shadow-md tracking-wider" style="color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important;">ÖDÜL TAKDİMİ</span>
                                 </div>
                             </div>
-                            <div onclick="openPhotoModal('assets/photos/kanal24-odul-haber.jpg', 'Kanal 24 Ana Haber — Yılın En'leri Ödül Töreni (DAT Group & Ümit Hakan Karakaya)')" class="group relative aspect-[4/3] rounded-2xl overflow-hidden border border-black/[0.08] cursor-pointer bg-[#0E0E10]">
-                                <img src="assets/photos/kanal24-odul-haber.jpg" alt="Kanal 24 Yılın En'leri Ödül Haberi" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent flex items-end p-2.5 pointer-events-none">
-                                    <span class="text-[10px] font-mono text-white font-medium drop-shadow-sm">KANAL 24 TV YAYINI</span>
+                            <div onclick="openPhotoModal('assets/photos/kanal24-odul-haber.jpg', 'Kanal 24 TV Yayını — Moderatör Gece & Yılın En\'leri Ödül Töreni')" class="group relative aspect-[4/3] rounded-2xl overflow-hidden border border-black/[0.08] cursor-pointer bg-[#0E0E10]">
+                                <img src="assets/photos/kanal24-odul-haber.jpg" alt="Kanal 24 TV Ödül Töreni Canlı Yayın" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex items-end p-2.5 pointer-events-none">
+                                    <span class="photo-overlay-label text-[10px] font-mono font-semibold drop-shadow-md tracking-wider" style="color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important;">KANAL 24 TV YAYINI</span>
                                 </div>
                             </div>
                         </div>
@@ -3421,7 +3457,7 @@
                                     Ümit Hakan Karakaya Kimdir?
                                 </h2>
                                 <p data-i18n-html="founder_lead" class="text-sm sm:text-[15px] text-neutral-800 font-regular leading-relaxed">
-                                    1973 Ankara doğumlu olan <strong>Ümit Hakan Karakaya</strong>, Türk Silahlı Kuvvetleri'nde <strong>F-16 uçak teknisyeni (Astsubay)</strong> olarak görev yaptıktan sonra askerî disiplinini <strong>Uluslararası Hukuk</strong> lisans eğitimiyle birleştirerek 2005 yılında <strong>DAT Özel Dedektiflik Bürosu (DAT Group)</strong>'nu kurmuştur. Bugüne kadar <strong>4.000'in üzerinde vakayı</strong> yöneten Karakaya; <strong>TÜDED</strong> ve <strong>UÖDED</strong> kurucu başkanlığı, <strong>WPYB</strong> marka koruma liderliği, <em>The Detective's Eye</em> kitabı, <em>Özel Dedektif Dergisi</em> yayın yönetmenliği ve <strong>Hayalime Renk Ver / UKAİM</strong> sosyal sorumluluk projeleriyle tanınmaktadır.
+                                    1973 Ankara doğumlu olan <strong>Ümit Hakan Karakaya</strong>, Türk Silahlı Kuvvetleri'nde <strong>F-16 uçak teknisyeni (Astsubay)</strong> olarak görev yaptıktan sonra askerî disiplinini <strong>Uluslararası Hukuk</strong> lisans eğitimiyle birleştirerek 2005 yılında <strong>DAT Detective (DAT Group)</strong>'nu kurmuştur. Bugüne kadar <strong>4.000'in üzerinde vakayı</strong> yöneten Karakaya; <strong>TÜDED</strong> ve <strong>UÖDED</strong> kurucu başkanlığı, <strong>WPYB</strong> marka koruma liderliği, <em>The Detective's Eye</em> kitabı, <em>Özel Dedektif Dergisi</em> yayın yönetmenliği ve <strong>Hayalime Renk Ver / UKAİM</strong> sosyal sorumluluk projeleriyle tanınmaktadır.
                                 </p>
                             </div>
 
@@ -4307,11 +4343,11 @@
 
                     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                         <!-- 1. Ankara Dedektif -->
-                        <a href="ankara-ozel-dedektif" class="group bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-[#000000] rounded-[22px] p-5 border border-black/[0.08] hover:border-black/60 transition-all duration-300 flex flex-col justify-between space-y-4 studio-shadow" aria-label="Ankara Özel Dedektif">
+                        <a href="ankara-ozel-dedektif.html" class="group bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-[#000000] rounded-[22px] p-5 border border-black/[0.08] hover:border-black/60 transition-all duration-300 flex flex-col justify-between space-y-4 studio-shadow" aria-label="Ankara Özel Dedektif">
                             <div class="space-y-2.5">
                                 <div class="flex items-center justify-between gap-2">
                                     <span class="px-2.5 py-0.5 rounded-full bg-black/[0.05] border border-black/[0.08] text-neutral-800 font-mono text-[10px] font-medium">06 • ANKARA MERKEZ OFİS</span>
-                                    <span class="w-7 h-7 rounded-full bg-black/[0.05] group-hover:bg-black text-black group-hover:text-white flex items-center justify-center transition">
+                                    <span class="city-arrow w-7 h-7 rounded-full bg-black/[0.05] group-hover:bg-black text-black group-hover:text-white flex items-center justify-center transition shadow-none" style="background-color:rgba(0,0,0,0.05); color:#000000;">
                                         <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3.5 h-3.5 transition"></i>
                                     </span>
                                 </div>
@@ -4327,11 +4363,11 @@
                         </a>
 
                         <!-- 2. İzmir Dedektif -->
-                        <a href="izmir-ozel-dedektif" class="group bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-[#000000] rounded-[22px] p-5 border border-black/[0.08] hover:border-black/60 transition-all duration-300 flex flex-col justify-between space-y-4 studio-shadow" aria-label="İzmir Özel Dedektif">
+                        <a href="izmir-ozel-dedektif.html" class="group bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-[#000000] rounded-[22px] p-5 border border-black/[0.08] hover:border-black/60 transition-all duration-300 flex flex-col justify-between space-y-4 studio-shadow" aria-label="İzmir Özel Dedektif">
                             <div class="space-y-2.5">
                                 <div class="flex items-center justify-between gap-2">
                                     <span class="px-2.5 py-0.5 rounded-full bg-black/[0.05] border border-black/[0.08] text-neutral-800 font-mono text-[10px] font-medium">35 • EGE BÖLGE OPERASYON</span>
-                                    <span class="w-7 h-7 rounded-full bg-black/[0.05] group-hover:bg-black text-black group-hover:text-white flex items-center justify-center transition">
+                                    <span class="city-arrow w-7 h-7 rounded-full bg-black/[0.05] group-hover:bg-black text-black group-hover:text-white flex items-center justify-center transition shadow-none" style="background-color:rgba(0,0,0,0.05); color:#000000;">
                                         <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3.5 h-3.5 transition"></i>
                                     </span>
                                 </div>
@@ -4347,11 +4383,11 @@
                         </a>
 
                         <!-- 3. Mersin Dedektif -->
-                        <a href="mersin-ozel-dedektif" class="group bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-[#000000] rounded-[22px] p-5 border border-black/[0.08] hover:border-black/60 transition-all duration-300 flex flex-col justify-between space-y-4 studio-shadow" aria-label="Mersin Özel Dedektif">
+                        <a href="mersin-ozel-dedektif.html" class="group bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-[#000000] rounded-[22px] p-5 border border-black/[0.08] hover:border-black/60 transition-all duration-300 flex flex-col justify-between space-y-4 studio-shadow" aria-label="Mersin Özel Dedektif">
                             <div class="space-y-2.5">
                                 <div class="flex items-center justify-between gap-2">
                                     <span class="px-2.5 py-0.5 rounded-full bg-black/[0.05] border border-black/[0.08] text-neutral-800 font-mono text-[10px] font-medium">33 • AKDENİZ &amp; LİMAN HATTI</span>
-                                    <span class="w-7 h-7 rounded-full bg-black/[0.05] group-hover:bg-black text-black group-hover:text-white flex items-center justify-center transition">
+                                    <span class="city-arrow w-7 h-7 rounded-full bg-black/[0.05] group-hover:bg-black text-black group-hover:text-white flex items-center justify-center transition shadow-none" style="background-color:rgba(0,0,0,0.05); color:#000000;">
                                         <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3.5 h-3.5 transition"></i>
                                     </span>
                                 </div>
@@ -4367,11 +4403,11 @@
                         </a>
 
                         <!-- 4. Konya Dedektif -->
-                        <a href="konya-ozel-dedektif" class="group bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-[#000000] rounded-[22px] p-5 border border-black/[0.08] hover:border-black/60 transition-all duration-300 flex flex-col justify-between space-y-4 studio-shadow" aria-label="Konya Özel Dedektif">
+                        <a href="konya-ozel-dedektif.html" class="group bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-[#000000] rounded-[22px] p-5 border border-black/[0.08] hover:border-black/60 transition-all duration-300 flex flex-col justify-between space-y-4 studio-shadow" aria-label="Konya Özel Dedektif">
                             <div class="space-y-2.5">
                                 <div class="flex items-center justify-between gap-2">
                                     <span class="px-2.5 py-0.5 rounded-full bg-black/[0.05] border border-black/[0.08] text-neutral-800 font-mono text-[10px] font-medium">42 • İÇ ANADOLU SAHA MERKEZİ</span>
-                                    <span class="w-7 h-7 rounded-full bg-black/[0.05] group-hover:bg-black text-black group-hover:text-white flex items-center justify-center transition">
+                                    <span class="city-arrow w-7 h-7 rounded-full bg-black/[0.05] group-hover:bg-black text-black group-hover:text-white flex items-center justify-center transition shadow-none" style="background-color:rgba(0,0,0,0.05); color:#000000;">
                                         <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3.5 h-3.5 transition"></i>
                                     </span>
                                 </div>
@@ -4387,11 +4423,11 @@
                         </a>
 
                         <!-- 5. İstanbul Dedektif -->
-                        <a href="istanbul-ozel-dedektif" class="group bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-[#000000] rounded-[22px] p-5 border border-black/[0.08] hover:border-black/60 transition-all duration-300 flex flex-col justify-between space-y-4 studio-shadow" aria-label="İstanbul Özel Dedektif">
+                        <a href="istanbul-ozel-dedektif.html" class="group bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-[#000000] rounded-[22px] p-5 border border-black/[0.08] hover:border-black/60 transition-all duration-300 flex flex-col justify-between space-y-4 studio-shadow" aria-label="İstanbul Özel Dedektif">
                             <div class="space-y-2.5">
                                 <div class="flex items-center justify-between gap-2">
                                     <span class="px-2.5 py-0.5 rounded-full bg-black/[0.05] border border-black/[0.08] text-neutral-800 font-mono text-[10px] font-medium">34 • İSTANBUL MERKEZ BÜRO</span>
-                                    <span class="w-7 h-7 rounded-full bg-black/[0.05] group-hover:bg-black text-black group-hover:text-white flex items-center justify-center transition">
+                                    <span class="city-arrow w-7 h-7 rounded-full bg-black/[0.05] group-hover:bg-black text-black group-hover:text-white flex items-center justify-center transition shadow-none" style="background-color:rgba(0,0,0,0.05); color:#000000;">
                                         <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3.5 h-3.5 transition"></i>
                                     </span>
                                 </div>
@@ -4407,11 +4443,11 @@
                         </a>
 
                         <!-- 6. Antalya Dedektiflik -->
-                        <a href="antalya-ozel-dedektif" class="group bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-[#000000] rounded-[22px] p-5 border border-black/[0.08] hover:border-black/60 transition-all duration-300 flex flex-col justify-between space-y-4 studio-shadow" aria-label="Antalya Özel Dedektif">
+                        <a href="antalya-ozel-dedektif.html" class="group bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-[#000000] rounded-[22px] p-5 border border-black/[0.08] hover:border-black/60 transition-all duration-300 flex flex-col justify-between space-y-4 studio-shadow" aria-label="Antalya Özel Dedektif">
                             <div class="space-y-2.5">
                                 <div class="flex items-center justify-between gap-2">
                                     <span class="px-2.5 py-0.5 rounded-full bg-black/[0.05] border border-black/[0.08] text-neutral-800 font-mono text-[10px] font-medium">07 • AKDENİZ &amp; TURİZM MASASI</span>
-                                    <span class="w-7 h-7 rounded-full bg-black/[0.05] group-hover:bg-black text-black group-hover:text-white flex items-center justify-center transition">
+                                    <span class="city-arrow w-7 h-7 rounded-full bg-black/[0.05] group-hover:bg-black text-black group-hover:text-white flex items-center justify-center transition shadow-none" style="background-color:rgba(0,0,0,0.05); color:#000000;">
                                         <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3.5 h-3.5 transition"></i>
                                     </span>
                                 </div>
@@ -4770,27 +4806,27 @@
                     <div class="space-y-2.5 pt-2 border-t border-black/[0.06]">
                         <h3 class="text-xs sm:text-sm font-mono font-medium text-[#111111] uppercase">02 • Büyükşehir ve İlçe Kapsamlı Özel Dedektiflik Başlıklarımız</h3>
                         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                            <a href="ankara-ozel-dedektif" class="p-3.5 rounded-2xl bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-[#000000] border border-black/[0.06] transition block space-y-1 group" title="Ankara Dedektif & Özel Dedektiflik Bürosu — Çankaya Merkez ve 25 İlçede Eş Takibi, Boşanma Delili">
+                            <a href="ankara-ozel-dedektif.html" class="p-3.5 rounded-2xl bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-[#000000] border border-black/[0.06] transition block space-y-1 group" title="Ankara Dedektif & Özel Dedektiflik Bürosu — Çankaya Merkez ve 25 İlçede Eş Takibi, Boşanma Delili">
                                 <h4 class="text-xs font-medium group-hover:text-black">Ankara Özel Dedektif (25 İlçe)</h4>
                                 <p class="text-[11px] opacity-75 leading-snug">Çankaya Konutkent merkez ofis, Yenimahalle, Keçiören, Gölbaşı, Etimesgut ve Sincan saha ekibi.</p>
                             </a>
-                            <a href="istanbul-ozel-dedektif" class="p-3.5 rounded-2xl bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-[#000000] border border-black/[0.06] transition block space-y-1 group" title="İstanbul Dedektif & Özel Dedektiflik Bürosu — Kartal Merkez ve 39 İlçede Eş Takibi, Hukuki Araştırma">
+                            <a href="istanbul-ozel-dedektif.html" class="p-3.5 rounded-2xl bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-[#000000] border border-black/[0.06] transition block space-y-1 group" title="İstanbul Dedektif & Özel Dedektiflik Bürosu — Kartal Merkez ve 39 İlçede Eş Takibi, Hukuki Araştırma">
                                 <h4 class="text-xs font-medium group-hover:text-black">İstanbul Özel Dedektif (39 İlçe)</h4>
                                 <p class="text-[11px] opacity-75 leading-snug">Kartal Helis Metro Tower merkez, Kadıköy, Beşiktaş, Şişli, Bakırköy ve Ataşehir 7/24 takip.</p>
                             </a>
-                            <a href="izmir-ozel-dedektif" class="p-3.5 rounded-2xl bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-[#000000] border border-black/[0.06] transition block space-y-1 group" title="İzmir Dedektif & Özel Dedektiflik Bürosu — Konak, Karşıyaka, Bornova, Çeşme ve 30 İlçede Özel Dedektif">
+                            <a href="izmir-ozel-dedektif.html" class="p-3.5 rounded-2xl bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-[#000000] border border-black/[0.06] transition block space-y-1 group" title="İzmir Dedektif & Özel Dedektiflik Bürosu — Konak, Karşıyaka, Bornova, Çeşme ve 30 İlçede Özel Dedektif">
                                 <h4 class="text-xs font-medium group-hover:text-black">İzmir Özel Dedektif (30 İlçe)</h4>
                                 <p class="text-[11px] opacity-75 leading-snug">Konak, Alsancak, Karşıyaka, Bornova, Bayraklı, Buca, Çeşme ve Urla Ege saha ağı.</p>
                             </a>
-                            <a href="mersin-ozel-dedektif" class="p-3.5 rounded-2xl bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-[#000000] border border-black/[0.06] transition block space-y-1 group" title="Mersin Dedektif & Özel Dedektiflik Bürosu — Yenişehir, Mezitli, Tarsus, Erdemli ve 13 İlçede Özel Dedektif">
+                            <a href="mersin-ozel-dedektif.html" class="p-3.5 rounded-2xl bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-[#000000] border border-black/[0.06] transition block space-y-1 group" title="Mersin Dedektif & Özel Dedektiflik Bürosu — Yenişehir, Mezitli, Tarsus, Erdemli ve 13 İlçede Özel Dedektif">
                                 <h4 class="text-xs font-medium group-hover:text-black">Mersin Özel Dedektif (13 İlçe)</h4>
                                 <p class="text-[11px] opacity-75 leading-snug">Yenişehir, Mezitli, Toroslar, Akdeniz, Tarsus, Erdemli, Silifke ve Anamur saha birimi.</p>
                             </a>
-                            <a href="konya-ozel-dedektif" class="p-3.5 rounded-2xl bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-[#000000] border border-black/[0.06] transition block space-y-1 group" title="Konya Dedektif & Özel Dedektiflik Bürosu — Selçuklu, Meram, Karatay, Ereğli, Kulu ve 31 İlçede Özel Dedektif">
+                            <a href="konya-ozel-dedektif.html" class="p-3.5 rounded-2xl bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-[#000000] border border-black/[0.06] transition block space-y-1 group" title="Konya Dedektif & Özel Dedektiflik Bürosu — Selçuklu, Meram, Karatay, Ereğli, Kulu ve 31 İlçede Özel Dedektif">
                                 <h4 class="text-xs font-medium group-hover:text-black">Konya Özel Dedektif (31 İlçe)</h4>
                                 <p class="text-[11px] opacity-75 leading-snug">Selçuklu, Meram, Karatay, Ereğli, Akşehir, Beyşehir, Kulu ve Cihanbeyli gizli araştırma.</p>
                             </a>
-                            <a href="antalya-ozel-dedektif" class="p-3.5 rounded-2xl bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-[#000000] border border-black/[0.06] transition block space-y-1 group" title="Antalya Dedektiflik & Özel Dedektif Bürosu — Muratpaşa, Konyaaltı, Alanya, Manavgat ve 19 İlçede Dedektiflik">
+                            <a href="antalya-ozel-dedektif.html" class="p-3.5 rounded-2xl bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-[#000000] border border-black/[0.06] transition block space-y-1 group" title="Antalya Dedektiflik & Özel Dedektif Bürosu — Muratpaşa, Konyaaltı, Alanya, Manavgat ve 19 İlçede Dedektiflik">
                                 <h4 class="text-xs font-medium group-hover:text-black">Antalya Dedektiflik (19 İlçe)</h4>
                                 <p class="text-[11px] opacity-75 leading-snug">Muratpaşa (Lara), Konyaaltı, Kepez, Alanya, Manavgat, Belek, Kemer ve Kaş TR/EN/DE/RU ekip.</p>
                             </a>
@@ -4808,13 +4844,13 @@
                         <div class="space-y-1.5">
                             <h4 class="text-[11px] font-mono font-medium text-[#3A3E42] uppercase">Popüler İl &amp; Bölge Özel Dedektiflik Bürosu Aramaları</h4>
                             <div class="flex flex-wrap justify-center sm:justify-start gap-2">
-                                <a href="ankara-ozel-dedektif" class="px-3 py-1.5 rounded-full bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-black border border-black/[0.07] text-xs font-medium transition" title="Ankara Dedektif & Özel Dedektiflik Bürosu — Çankaya Merkez ve 25 İlçede Eş Takibi, Boşanma Delili">Ankara Özel Dedektif</a>
-                                <a href="istanbul-ozel-dedektif" class="px-3 py-1.5 rounded-full bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-black border border-black/[0.07] text-xs font-medium transition" title="İstanbul Dedektif & Özel Dedektiflik Bürosu — Kartal Merkez ve 39 İlçede Eş Takibi, Hukuki Araştırma">İstanbul Özel Dedektif</a>
-                                <a href="izmir-ozel-dedektif" class="px-3 py-1.5 rounded-full bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-black border border-black/[0.07] text-xs font-medium transition" title="İzmir Dedektif & Özel Dedektiflik Bürosu — Konak, Karşıyaka, Bornova, Çeşme ve 30 İlçede Özel Dedektif">İzmir Özel Dedektif</a>
-                                <a href="mersin-ozel-dedektif" class="px-3 py-1.5 rounded-full bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-black border border-black/[0.07] text-xs font-medium transition" title="Mersin Dedektif & Özel Dedektiflik Bürosu — Yenişehir, Mezitli, Tarsus, Erdemli ve 13 İlçede Özel Dedektif">Mersin Özel Dedektif</a>
-                                <a href="konya-ozel-dedektif" class="px-3 py-1.5 rounded-full bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-black border border-black/[0.07] text-xs font-medium transition" title="Konya Dedektif & Özel Dedektiflik Bürosu — Selçuklu, Meram, Karatay, Ereğli, Kulu ve 31 İlçede Özel Dedektif">Konya Özel Dedektif</a>
-                                <a href="antalya-ozel-dedektif" class="px-3 py-1.5 rounded-full bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-black border border-black/[0.07] text-xs font-medium transition" title="Antalya Dedektiflik & Özel Dedektif Bürosu — Muratpaşa, Konyaaltı, Alanya, Manavgat ve 19 İlçede Dedektiflik">Antalya Dedektiflik</a>
-                                <a href="bursa-ozel-dedektif" class="px-3 py-1.5 rounded-full bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-black border border-black/[0.07] text-xs font-medium transition" title="Bursa Dedektif & Özel Dedektiflik Bürosu — Nilüfer, Osmangazi, Yıldırım, İnegöl ve 17 İlçede Özel Dedektif">Bursa Özel Dedektif</a>
+                                <a href="ankara-ozel-dedektif.html" class="px-3 py-1.5 rounded-full bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-black border border-black/[0.07] text-xs font-medium transition" title="Ankara Dedektif & Özel Dedektiflik Bürosu — Çankaya Merkez ve 25 İlçede Eş Takibi, Boşanma Delili">Ankara Özel Dedektif</a>
+                                <a href="istanbul-ozel-dedektif.html" class="px-3 py-1.5 rounded-full bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-black border border-black/[0.07] text-xs font-medium transition" title="İstanbul Dedektif & Özel Dedektiflik Bürosu — Kartal Merkez ve 39 İlçede Eş Takibi, Hukuki Araştırma">İstanbul Özel Dedektif</a>
+                                <a href="izmir-ozel-dedektif.html" class="px-3 py-1.5 rounded-full bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-black border border-black/[0.07] text-xs font-medium transition" title="İzmir Dedektif & Özel Dedektiflik Bürosu — Konak, Karşıyaka, Bornova, Çeşme ve 30 İlçede Özel Dedektif">İzmir Özel Dedektif</a>
+                                <a href="mersin-ozel-dedektif.html" class="px-3 py-1.5 rounded-full bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-black border border-black/[0.07] text-xs font-medium transition" title="Mersin Dedektif & Özel Dedektiflik Bürosu — Yenişehir, Mezitli, Tarsus, Erdemli ve 13 İlçede Özel Dedektif">Mersin Özel Dedektif</a>
+                                <a href="konya-ozel-dedektif.html" class="px-3 py-1.5 rounded-full bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-black border border-black/[0.07] text-xs font-medium transition" title="Konya Dedektif & Özel Dedektiflik Bürosu — Selçuklu, Meram, Karatay, Ereğli, Kulu ve 31 İlçede Özel Dedektif">Konya Özel Dedektif</a>
+                                <a href="antalya-ozel-dedektif.html" class="px-3 py-1.5 rounded-full bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-black border border-black/[0.07] text-xs font-medium transition" title="Antalya Dedektiflik & Özel Dedektif Bürosu — Muratpaşa, Konyaaltı, Alanya, Manavgat ve 19 İlçede Dedektiflik">Antalya Dedektiflik</a>
+                                <a href="bursa-ozel-dedektif.html" class="px-3 py-1.5 rounded-full bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-black border border-black/[0.07] text-xs font-medium transition" title="Bursa Dedektif & Özel Dedektiflik Bürosu — Nilüfer, Osmangazi, Yıldırım, İnegöl ve 17 İlçede Özel Dedektif">Bursa Özel Dedektif</a>
                             </div>
                         </div>
                         <div class="space-y-1.5">

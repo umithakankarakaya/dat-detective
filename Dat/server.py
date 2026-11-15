@@ -130,6 +130,19 @@ class DatRequestHandler(SimpleHTTPRequestHandler):
                 return clean_path.rstrip("/") + ".html"
         return clean_path
 
+    def translate_path(self, path):
+        # Temiz URL desteği: /istanbul-ozel-dedektif -> /istanbul-ozel-dedektif.html
+        clean_path = path.split('?', 1)[0].split('#', 1)[0]
+        rel = unquote(clean_path).lstrip('/')
+        if rel:
+            candidate = os.path.join(BASE_DIR, rel)
+            if os.path.exists(candidate):
+                return candidate
+            html_candidate = candidate.rstrip('/') + '.html'
+            if os.path.isfile(html_candidate):
+                return html_candidate
+        return super().translate_path(path)
+
     def do_GET(self):
         parsed = urlparse(self.path)
         if parsed.path == "/api/presence":
