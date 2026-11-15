@@ -1,4 +1,4 @@
-// DAT DEDEKTİFLİK — Apple HIG Interactive Architecture Script
+// DAT DETECTIVE — Apple HIG Interactive Architecture Script
 
 // 0. Automatic Stale Cache Self-Healing (Local dev only; production uses Cloudflare _headers)
 (function ensureFreshDocument() {
@@ -739,7 +739,7 @@ async function handleFormSubmit(e) {
 
     const isEmailContact = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(clientContact);
     const payload = {
-        _subject: `Yeni Vaka & Fiyat Teklifi Talebi (${randomCode}) — DAT Dedektiflik`,
+        _subject: `Yeni Vaka & Fiyat Teklifi Talebi (${randomCode}) — DAT Detective`,
         _template: "table",
         _captcha: "false",
         name: clientName,
@@ -762,7 +762,7 @@ async function handleFormSubmit(e) {
             smTitle.textContent = _getUI('caseSentTitle', 'Vaka Talebiniz İletildi');
         }
         if (smDesc) {
-            smDesc.innerHTML = _getUI('caseSentDesc', 'Mesajınız DAT Dedektiflik uzman ekibine şifrelenerek iletildi. Acil durumlar için doğrudan <strong>0532 666 77 49</strong> (WhatsApp) veya <strong>0312 284 02 99</strong> hattımızdan da bize ulaşabilirsiniz.');
+            smDesc.innerHTML = _getUI('caseSentDesc', 'Mesajınız DAT Detective uzman ekibine şifrelenerek iletildi. Acil durumlar için doğrudan <strong>0532 666 77 49</strong> (WhatsApp) veya <strong>0312 284 02 99</strong> hattımızdan da bize ulaşabilirsiniz.');
         }
         if (smLabel) smLabel.textContent = _getUI('caseCodeLabel', 'DOSYA TAKİP KODUNUZ:');
         _renderDeliveryStatus(deliveryState);
@@ -808,7 +808,7 @@ async function handleFormSubmit(e) {
             });
         }
 
-        const emailSubject = encodeURIComponent(`Yeni Vaka & Fiyat Teklifi Talebi (${randomCode}) - DAT Dedektiflik`);
+        const emailSubject = encodeURIComponent(`Yeni Vaka & Fiyat Teklifi Talebi (${randomCode}) - DAT Detective`);
         const emailBody = encodeURIComponent(
             `DAT ÖZEL DEDEKTİFLİK — YENİ VAKA TALEBİ\n` +
             `------------------------------------------\n` +
@@ -889,7 +889,7 @@ function openPhotoModal(src, caption) {
     if (modal && img) {
         img.classList.remove('hidden');
         img.src = _resolveAssetPath(src);
-        if (cap) cap.textContent = caption || 'DAT Dedektiflik Kurumsal Fotoğraf';
+        if (cap) cap.textContent = caption || 'DAT Detective Kurumsal Fotoğraf';
         modal.classList.remove('hidden');
     }
 }
@@ -911,7 +911,7 @@ function openVideoModal(videoSrc, caption, posterSrc) {
         }
         vid.src = _resolveAssetPath(videoSrc);
         vid.classList.remove('hidden');
-        if (cap) cap.textContent = caption || 'DAT Dedektiflik Video Arşivi';
+        if (cap) cap.textContent = caption || 'DAT Detective Video Arşivi';
         modal.classList.remove('hidden');
         try { vid.play().catch(() => {}); } catch (_) {}
     }
@@ -1380,7 +1380,7 @@ const AI_PRESETS = {
         p1Title: "1. YANKI ODASINDAN UZAK RASYONEL BAKIŞ: DEDEKTİF TUTMAK NE ZAMAN GEREKLİDİR?",
         p1Desc: "Özel dedektiflik bir merak giderme veya kuruntu doğrulama aracı değil, hukuki uyuşmazlıklarda somut delil tespit mekanizmasıdır. İlk görüşmede Ümit Hakan Karakaya dosyanızı dürüstçe değerlendirir: Eğer vakanız dedektiflik çalışmasına uygun değilse veya hukuki/somut bir yarar sağlamayacaksa bunu açıkça söyler; gereksiz masraf yapmanızı engeller.",
         p2Title: "2. DÜRÜST HUKUKİ GERÇEKLER (TCK m.134 & HMK m.199)",
-        p2Desc: "Piyasada 'telefon dinleme, WhatsApp mesajı çıkarma, konum hekçiliği' vadeden kişi ve siteler %100 dolandırıcıdır ve bu eylemler TCK m.134-135 kapsamında hapis cezası gerektiren suçlardır. DAT Dedektiflik bünyesinde yalnızca kamuya açık alanlarda, konut ve özel hayat dokunulmazlığına riayet edilerek 4K görsel tespit yapılır; mahkemede tartışmasız hukuka uygun delil niteliği taşır.",
+        p2Desc: "Piyasada 'telefon dinleme, WhatsApp mesajı çıkarma, konum hekçiliği' vadeden kişi ve siteler %100 dolandırıcıdır ve bu eylemler TCK m.134-135 kapsamında hapis cezası gerektiren suçlardır. DAT Detective bünyesinde yalnızca kamuya açık alanlarda, konut ve özel hayat dokunulmazlığına riayet edilerek 4K görsel tespit yapılır; mahkemede tartışmasız hukuka uygun delil niteliği taşır.",
         p3Items: [
             { bad: true, label: "Doğrulama Önyargısına Kapılmayın", text: "Şüphenizi körükleyip 'hemen takip başlatalım' diyen sabit adresi olmayan sözde dedektiflere itibar etmeyin." },
             { bad: false, label: "Şeffaf Sözleşme ve e-Fatura", text: "Resmi hizmet sözleşmesi, KVKK sıfır-paylaşım protokolü ve net bütçelendirme olmadan asla işlem başlatılmaz." },
