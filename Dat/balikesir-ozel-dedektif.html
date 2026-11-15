@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tr" class="scroll-smooth dark" data-theme="dark">
+<html lang="tr" class="scroll-smooth light" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -7,7 +7,7 @@
         (function () {
             try {
                 var saved = localStorage.getItem('dat_theme');
-                var theme = (saved === 'light' || saved === 'dark') ? saved : 'dark';
+                var theme = (saved === 'light' || saved === 'dark') ? saved : 'light';
                 var root = document.documentElement;
                 root.setAttribute('data-theme', theme);
                 root.style.colorScheme = theme;
@@ -212,8 +212,8 @@
 
     <!-- Header Navigation -->
     <header class="sticky top-0 z-50 bg-[#111111]/90 backdrop-blur-md border-b border-white/10 px-4 sm:px-8 py-3.5 flex items-center justify-between">
-        <a href="./" class="flex items-center gap-3 group">
-            <img src="dat-logo.png" alt="DAT Özel Dedektiflik" class="w-8 h-8 rounded-full border border-[#93F051]/40 object-cover">
+        <a href="/" class="flex items-center gap-3 group">
+            <img src="dat-logo.png" alt="DAT Özel Dedektiflik" class="w-8 h-8 rounded-full border border-black/20 object-cover">
             <div>
                 <div class="text-sm font-semibold tracking-tight text-white group-hover:text-black transition"><span class="font-bold">DAT</span> <span class="font-normal opacity-85">Detective</span></div>
                 <div class="text-[10px] text-white/50 font-mono">2005'TEN BUGÜNE SEKTÖR LİDERİ</div>
@@ -221,10 +221,10 @@
         </a>
         <div class="flex items-center gap-3">
             <a href="tel:03122840299" class="hidden sm:inline-flex items-center gap-1.5 text-xs font-mono text-white/80 hover:text-white transition">
-                <i class="hgi hgi-stroke hgi-call w-3.5 h-3.5 text-[#93F051]"></i>
+                <i class="hgi hgi-stroke hgi-call w-3.5 h-3.5 text-black"></i>
                 <span>0312 284 02 99</span>
             </a>
-            <a href="https://wa.me/905326667749?text=Merhaba%20Ümit%20Bey,%20Balıkesir%20Dedektif%20sayfanızdan%20yazıyorum.%20Bölgemizde%20hukuki%20delil%20toplama%20ve%20özel%20dedektiflik%20hizmeti%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#93F051] hover:bg-[#82dc43] text-[#111111] font-semibold text-xs transition">
+            <a href="https://wa.me/905326667749?text=Merhaba%20Ümit%20Bey,%20Balıkesir%20Dedektif%20sayfanızdan%20yazıyorum.%20Bölgemizde%20hukuki%20delil%20toplama%20ve%20özel%20dedektiflik%20hizmeti%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-black text-white hover:bg-[#262626] text-[#111111] font-semibold text-xs transition">
                 <i class="hgi hgi-stroke hgi-whatsapp w-4 h-4 text-[#111111]"></i>
                 <span>WhatsApp 7/24</span>
             </a>
@@ -236,15 +236,15 @@
 
         <!-- Breadcrumb -->
         <nav class="flex items-center gap-2 text-xs font-mono text-white/50">
-            <a href="./" class="hover:text-[#93F051] transition">Ana Sayfa</a>
+            <a href="/" class="hover:text-black transition">Ana Sayfa</a>
             <span>/</span>
             <span class="text-white/80">Balıkesir Dedektif</span>
         </nav>
 
         <!-- Hero Section -->
         <div class="space-y-4">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-[#93F051]/40 text-xs font-medium text-[#93F051]">
-                <span class="w-2 h-2 rounded-full bg-[#93F051] animate-pulse"></span>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-black/20 text-xs font-medium text-black">
+                <span class="w-2 h-2 rounded-full bg-black text-white animate-pulse"></span>
                 <span>MARMARA & EGE KÖRFEZ HATTI • EDREMİT • AYVALIK • BANDIRMA • 20 İLÇE</span>
             </div>
             <h1 class="text-3xl sm:text-4xl lg:text-5xl font-medium text-white tracking-tight leading-tight">
@@ -259,32 +259,32 @@
         <div class="rounded-2xl bg-[#161618] border border-white/10 p-5 sm:p-7 space-y-4 shadow-xl">
             <div class="space-y-1">
                 <h2 class="text-lg sm:text-xl font-medium text-white flex items-center gap-2">
-                    <i class="hgi hgi-stroke hgi-location-01 w-5 h-5 text-[#93F051]"></i>
+                    <i class="hgi hgi-stroke hgi-location-01 w-5 h-5 text-black"></i>
                     <span>Balıkesir Genelinde Hizmet Verdiğimiz İlçeler (20 İlçe)</span>
                 </h2>
                 <p class="text-xs sm:text-sm text-white/70 leading-relaxed">Körfez kıyılarından Marmara ve iç ilçelere kadar Balıkesir genelinde sahadayız:</p>
             </div>
             <div class="flex flex-wrap gap-2 pt-2">
-                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90 hover:border-[#93F051]/50 transition cursor-default">📍 Altıeylül</span>
-<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90 hover:border-[#93F051]/50 transition cursor-default">📍 Karesi</span>
-<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90 hover:border-[#93F051]/50 transition cursor-default">📍 Edremit</span>
-<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90 hover:border-[#93F051]/50 transition cursor-default">📍 Bandırma</span>
-<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90 hover:border-[#93F051]/50 transition cursor-default">📍 Ayvalık</span>
-<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90 hover:border-[#93F051]/50 transition cursor-default">📍 Burhaniye</span>
-<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90 hover:border-[#93F051]/50 transition cursor-default">📍 Gönen</span>
-<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90 hover:border-[#93F051]/50 transition cursor-default">📍 Bigadiç</span>
-<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90 hover:border-[#93F051]/50 transition cursor-default">📍 Susurluk</span>
-<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90 hover:border-[#93F051]/50 transition cursor-default">📍 Dursunbey</span>
-<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90 hover:border-[#93F051]/50 transition cursor-default">📍 Sındırgı</span>
-<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90 hover:border-[#93F051]/50 transition cursor-default">📍 İvrindi</span>
-<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90 hover:border-[#93F051]/50 transition cursor-default">📍 Erdek</span>
-<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90 hover:border-[#93F051]/50 transition cursor-default">📍 Havran</span>
-<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90 hover:border-[#93F051]/50 transition cursor-default">📍 Kepsut</span>
-<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90 hover:border-[#93F051]/50 transition cursor-default">📍 Manyas</span>
-<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90 hover:border-[#93F051]/50 transition cursor-default">📍 Savaştepe</span>
-<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90 hover:border-[#93F051]/50 transition cursor-default">📍 Balya</span>
-<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90 hover:border-[#93F051]/50 transition cursor-default">📍 Gömeç</span>
-<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90 hover:border-[#93F051]/50 transition cursor-default">📍 Marmara</span>
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90 hover:border-black/20/50 transition cursor-default">📍 Altıeylül</span>
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90 hover:border-black/20/50 transition cursor-default">📍 Karesi</span>
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90 hover:border-black/20/50 transition cursor-default">📍 Edremit</span>
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90 hover:border-black/20/50 transition cursor-default">📍 Bandırma</span>
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90 hover:border-black/20/50 transition cursor-default">📍 Ayvalık</span>
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90 hover:border-black/20/50 transition cursor-default">📍 Burhaniye</span>
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90 hover:border-black/20/50 transition cursor-default">📍 Gönen</span>
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90 hover:border-black/20/50 transition cursor-default">📍 Bigadiç</span>
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90 hover:border-black/20/50 transition cursor-default">📍 Susurluk</span>
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90 hover:border-black/20/50 transition cursor-default">📍 Dursunbey</span>
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90 hover:border-black/20/50 transition cursor-default">📍 Sındırgı</span>
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90 hover:border-black/20/50 transition cursor-default">📍 İvrindi</span>
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90 hover:border-black/20/50 transition cursor-default">📍 Erdek</span>
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90 hover:border-black/20/50 transition cursor-default">📍 Havran</span>
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90 hover:border-black/20/50 transition cursor-default">📍 Kepsut</span>
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90 hover:border-black/20/50 transition cursor-default">📍 Manyas</span>
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90 hover:border-black/20/50 transition cursor-default">📍 Savaştepe</span>
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90 hover:border-black/20/50 transition cursor-default">📍 Balya</span>
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90 hover:border-black/20/50 transition cursor-default">📍 Gömeç</span>
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90 hover:border-black/20/50 transition cursor-default">📍 Marmara</span>
             </div>
         </div>
 
@@ -300,7 +300,7 @@
         <!-- FAQ Section -->
         <div class="space-y-5 pt-8 border-t border-white/10">
             <h2 class="text-2xl font-medium text-white tracking-tight flex items-center gap-2">
-                <i class="hgi hgi-stroke hgi-help-circle w-6 h-6 text-[#93F051]"></i>
+                <i class="hgi hgi-stroke hgi-help-circle w-6 h-6 text-black"></i>
                 <span>Sıkça Sorulan Sorular (Balıkesir Dedektif)</span>
             </h2>
             <div class="space-y-3">
@@ -308,7 +308,7 @@
         <details class="group bg-[#18181A] border border-white/10 rounded-2xl p-4 sm:p-5 transition">
             <summary class="font-medium text-sm sm:text-base text-white flex items-center justify-between cursor-pointer list-none">
                 <span>Ayvalık ve Cunda'da takip ekibiniz var mı?</span>
-                <i class="hgi hgi-stroke hgi-arrow-down-01 w-4 h-4 text-[#93F051] group-open:rotate-180 transition-transform"></i>
+                <i class="hgi hgi-stroke hgi-arrow-down-01 w-4 h-4 text-black group-open:rotate-180 transition-transform"></i>
             </summary>
             <p class="mt-3 text-xs sm:text-sm text-white/75 leading-relaxed pt-2 border-t border-white/10">Evet. Körfez bölgesinde konuşlu mobil araç ve motosikletli ekiplerimiz anında intikal sağlamaktadır.</p>
         </details>
@@ -316,9 +316,9 @@
         </div>
 
         <!-- Bottom Action CTA Card -->
-        <div class="rounded-3xl bg-gradient-to-br from-[#18181A] to-[#121214] border border-[#93F051]/30 p-6 sm:p-10 text-center space-y-6 shadow-2xl">
+        <div class="rounded-3xl bg-gradient-to-br from-[#18181A] to-[#121214] border border-black/15 p-6 sm:p-10 text-center space-y-6 shadow-2xl">
             <div class="space-y-2 max-w-2xl mx-auto">
-                <span class="text-xs font-mono text-[#93F051] uppercase tracking-wider">%100 Gizlilik &amp; Hukuki Güvence</span>
+                <span class="text-xs font-mono text-black uppercase tracking-wider">%100 Gizlilik &amp; Hukuki Güvence</span>
                 <h2 class="text-2xl sm:text-3xl font-medium text-white">Balıkesir Dedektif İçin Doğrudan Ön Görüşme Yapın</h2>
                 <p class="text-sm text-white/75 leading-relaxed">Kurucumuz Ümit Hakan Karakaya liderliğindeki uzman adli dedektiflik ekibimizle görüşerek vakanızı şeffaf ve hukuka uygun şekilde değerlendirin.</p>
             </div>
@@ -328,7 +328,7 @@
                     <span>WhatsApp Doğrudan Danışma Hattı</span>
                 </a>
                 <a href="tel:03122840299" class="px-6 py-3 rounded-xl bg-white/10 hover:bg-white/15 text-white font-medium text-sm flex items-center gap-2 transition border border-white/10">
-                    <i class="hgi hgi-stroke hgi-call w-4 h-4 text-[#93F051]"></i>
+                    <i class="hgi hgi-stroke hgi-call w-4 h-4 text-black"></i>
                     <span>0312 284 02 99</span>
                 </a>
             </div>

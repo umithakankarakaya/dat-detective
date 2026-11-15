@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tr" class="scroll-smooth dark" data-theme="dark">
+<html lang="tr" class="scroll-smooth light" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -7,7 +7,7 @@
         (function () {
             try {
                 var saved = localStorage.getItem('dat_theme');
-                var theme = (saved === 'light' || saved === 'dark') ? saved : 'dark';
+                var theme = (saved === 'light' || saved === 'dark') ? saved : 'light';
                 var root = document.documentElement;
                 root.setAttribute('data-theme', theme);
                 root.style.colorScheme = theme;
@@ -287,8 +287,8 @@
         .hgi.w-3\.5 { font-size: 14px; }
         .hgi.w-4 { font-size: 16px; }
         .hgi.w-5 { font-size: 20px; }
-        .studio-lime-btn { background-color: #93F051; color: #111111; }
-        .studio-lime-btn:hover { background-color: #DDF95E; color: #111111; }
+        .studio-lime-btn { background-color: #000000 !important; color: #FFFFFF !important; }
+        .studio-lime-btn:hover { background-color: #262626 !important; color: #FFFFFF !important; }
         [dir="rtl"] .ltr-isolate, [dir="rtl"] [dir="ltr"] { direction: ltr; unicode-bidi: isolate; }
         html.theme-switching,
         html.theme-switching *,
@@ -323,7 +323,7 @@
             color: #F5F5F7 !important;
         }
         html[data-theme="dark"] .studio-pill-muted:hover {
-            background-color: #93F051 !important;
+            background-color: #000000 !important;
             color: #111111 !important;
             border-color: transparent !important;
         }
@@ -333,11 +333,11 @@
         html[data-theme="dark"] .studio-title { color: #FFFFFF !important; }
         html[data-theme="dark"] .studio-body { color: #D4D4D8 !important; }
         html[data-theme="dark"] .studio-muted { color: #A1A1AA !important; }
-        html[data-theme="dark"] .studio-accent-text { color: #93F051 !important; }
+        html[data-theme="dark"] .studio-accent-text { color: #FFFFFF !important; }
         html[data-theme="dark"] .studio-badge {
             background-color: #242428 !important;
-            border-color: rgba(147, 240, 81, 0.35) !important;
-            color: #93F051 !important;
+            border-color: rgba(0, 0, 0, 0.15) !important;
+            color: #000000 !important;
         }
         html[data-theme="dark"] .studio-footer {
             background-color: #161618 !important;
@@ -379,11 +379,11 @@
         html[data-theme="light"] .studio-title { color: #111111 !important; }
         html[data-theme="light"] .studio-body { color: #3A3E42 !important; }
         html[data-theme="light"] .studio-muted { color: #4B5563 !important; }
-        html[data-theme="light"] .studio-accent-text { color: #15803D !important; }
+        html[data-theme="light"] .studio-accent-text { color: #111111 !important; }
         html[data-theme="light"] .studio-badge {
             background-color: #E6FAD8 !important;
             border-color: rgba(21, 128, 61, 0.25) !important;
-            color: #15803D !important;
+            color: #111111 !important;
         }
         html[data-theme="light"] .studio-footer {
             background-color: #ECEEF2 !important;
@@ -396,33 +396,33 @@
             color: #FFFFFF !important;
             border-color: rgba(255, 255, 255, 0.12) !important;
         }
-        html[data-theme="light"] .studio-keep-dark .studio-lime-ink { color: #93F051 !important; }
+        html[data-theme="light"] .studio-keep-dark .studio-lime-ink { color: #FFFFFF !important; }
         html[data-theme="light"] .studio-keep-dark .studio-coral-ink { color: #FA7E61 !important; }
     </style>
 </head>
 <body class="bg-[#111111] text-[#F5F5F7] antialiased selection:bg-black selection:text-white">
-    <div class="h-[3px] w-full bg-[#93F051]"></div>
+    
 
     <header class="studio-header sticky top-0 z-40 bg-[#111111]/90 backdrop-blur-xl border-b border-white/[0.09]">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-2 sm:gap-3">
-            <a href="./" class="flex items-center gap-3 group min-w-0" title="DAT Detective Ana Sayfa — Sertifikalı Özel Dedektiflik Hizmetleri">
+            <a href="/" class="flex items-center gap-3 group min-w-0" title="DAT Detective Ana Sayfa — Sertifikalı Özel Dedektiflik Hizmetleri">
                 <img src="dat-logo.png" alt="DAT Detective Logo" class="w-10 h-10 rounded-full object-cover ring-1 ring-black/10 shrink-0">
                 <div class="leading-none min-w-0">
-                    <div class="studio-title text-sm font-medium text-[#FFFFFF] truncate">DAT <span class="studio-accent-text text-[#93F051]">DEDEKTİFLİK</span></div>
+                    <div class="studio-title text-sm font-medium text-[#FFFFFF] truncate">DAT <span class="font-normal text-neutral-500">Detective</span></div>
                     <p class="studio-muted text-[10px] font-mono text-white/60 uppercase mt-0.5 truncate">2005'ten Bugüne • 4.000+ Vaka</p>
                 </div>
             </a>
             <div class="flex items-center gap-2 shrink-0">
-                <a href="./#dedektife-sor" class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full studio-pill-muted bg-[#242428] border border-[#93F051]/40 text-xs font-medium transition" title="Dedektif'e Sor — Dedektif Tutmak, Dedektif Ücretleri ve Yasal Süreçler Hakkında Uzman Cevapları">
-                    <span class="w-1.5 h-1.5 rounded-full bg-[#93F051] animate-pulse"></span>
+                <a href="./#dedektife-sor" class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full studio-pill-muted bg-[#242428] border border-black/20 text-xs font-medium transition" title="Dedektif'e Sor — Dedektif Tutmak, Dedektif Ücretleri ve Yasal Süreçler Hakkında Uzman Cevapları">
+                    <span class="w-1.5 h-1.5 rounded-full bg-black text-white animate-pulse"></span>
                     <span>Dedektif'e Sor</span>
                 </a>
                 <button id="themeToggleBtn" type="button" onclick="toggleSiteTheme()" class="studio-pill-muted inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-full bg-[#242428] border border-white/15 text-[11px] font-medium transition">
-                    <i id="themeToggleIcon" class="hgi hgi-stroke hgi-sun-03 w-3.5 h-3.5 text-[#93F051]"></i>
+                    <i id="themeToggleIcon" class="hgi hgi-stroke hgi-sun-03 w-3.5 h-3.5 text-black"></i>
                     <span id="themeToggleLabel" class="hidden sm:inline">Açık</span>
                 </button>
                 <a href="https://wa.me/905326667749" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full studio-pill-muted bg-[#242428] border border-white/10 text-xs font-medium transition" title="7/24 WhatsApp Özel Dedektif Danışma Hattı: 0532 666 77 49 — DAT Detective">
-                    <i class="hgi hgi-stroke hgi-whatsapp w-4 h-4 text-[#93F051]"></i>
+                    <i class="hgi hgi-stroke hgi-whatsapp w-4 h-4 text-black"></i>
                     <span>0532 666 77 49</span>
                 </a>
                 <a href="./#vaka-bildir" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full studio-lime-btn text-xs font-medium shadow-sm transition whitespace-nowrap" title="Ücretsiz Ön Görüşme, Vaka Bildirimi ve Dedektif Fiyat Teklifi Formu — DAT Detective">
@@ -435,7 +435,7 @@
     <main class="max-w-5xl mx-auto px-4 sm:px-6 py-7 sm:py-10 space-y-7 sm:space-y-8">
         <!-- Breadcrumb -->
         <nav aria-label="Breadcrumb" class="studio-muted text-xs font-mono text-white/60 flex items-center gap-2">
-            <a href="./" class="hover:underline studio-accent-text text-[#93F051]" title="DAT Detective Ana Sayfa — Sertifikalı Özel Dedektiflik Hizmetleri">Ana Sayfa</a>
+            <a href="/" class="hover:underline studio-accent-text text-black" title="DAT Detective Ana Sayfa — Sertifikalı Özel Dedektiflik Hizmetleri">Ana Sayfa</a>
             <span>/</span>
             <span class="studio-title text-[#FFFFFF] font-medium truncate">İzmir Dedektif: 30 İlçede Özel Dedektiflik ve Ege Bölgesi Delil Araştırması</span>
         </nav>
@@ -443,21 +443,21 @@
         <!-- Studio Hero Card -->
         <div class="studio-surface-soft grid lg:grid-cols-12 gap-8 items-center bg-[#18181A] rounded-[28px] p-6 sm:p-9 border border-white/[0.09] shadow-2xl">
             <div class="lg:col-span-7 space-y-4">
-                <span class="studio-badge inline-block px-3 py-1 rounded-full bg-[#242428] border border-[#93F051]/35 text-[#93F051] font-mono text-[11px] font-medium">İZMİR &amp; EGE BÖLGESİ • 30 İLÇEDE 7/24 SAHA EKİBİ</span>
+                <span class="studio-badge inline-block px-3 py-1 rounded-full bg-[#242428] border border-black/20 text-black font-mono text-[11px] font-medium">İZMİR &amp; EGE BÖLGESİ • 30 İLÇEDE 7/24 SAHA EKİBİ</span>
                 <h1 class="studio-title text-2xl sm:text-4xl font-medium text-[#FFFFFF] leading-tight tracking-tight">İzmir Dedektif: 30 İlçede Özel Dedektiflik ve Ege Bölgesi Delil Araştırması</h1>
                 <p class="studio-body text-sm sm:text-base text-white/80 leading-relaxed">Konak (Alsancak), Karşıyaka (Bostanlı, Mavişehir), Bornova, Bayraklı, Buca, Çiğli, Gaziemir ve Çeşme–Urla–Seferihisar–Foça sahil hattı dahil İzmir&#x27;in 30 ilçesinde %100 gizlilik, yazılı sözleşme ve mahkemede geçerli delil standardıyla 7/24 hizmet veriyoruz.</p>
-                <div class="studio-accent-text text-xs font-mono text-[#93F051] pt-1">TMK m.161 • HMK m.199 • TCK m.134 Tam Uyumlu</div>
+                <div class="studio-accent-text text-xs font-mono text-black pt-1">TMK m.161 • HMK m.199 • TCK m.134 Tam Uyumlu</div>
                 <div class="flex flex-wrap gap-3 pt-2">
                     <a href="https://wa.me/905326667749" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full studio-lime-btn text-xs font-medium inline-flex items-center gap-2 shadow-lg transition" title="7/24 WhatsApp Özel Dedektif Danışma Hattı: 0532 666 77 49 — DAT Detective">
                         <i class="hgi hgi-stroke hgi-whatsapp w-4 h-4"></i>
                         <span>7/24 WhatsApp: 0532 666 77 49</span>
                     </a>
                     <a href="tel:+903122840299" class="studio-keep-dark px-5 py-3 rounded-full bg-[#242428] hover:bg-[#2E2E34] text-[#FFFFFF] border border-white/15 text-xs font-medium inline-flex items-center gap-2 transition" title="DAT Detective Ankara Merkez Büro Sabit Telefon: 0312 284 02 99">
-                        <i class="hgi hgi-stroke hgi-call-02 w-4 h-4 studio-lime-ink text-[#93F051]"></i>
+                        <i class="hgi hgi-stroke hgi-call-02 w-4 h-4 studio-lime-ink text-black"></i>
                         <span>Merkez: 0312 284 02 99</span>
                     </a>
-                    <a href="./#dedektife-sor" class="studio-pill-muted px-5 py-3 rounded-full bg-[#242428] border border-[#93F051]/40 text-xs font-medium inline-flex items-center gap-2 transition" title="Dedektif'e Sor — Dedektif Tutmak, Dedektif Ücretleri ve Yasal Süreçler Hakkında Uzman Cevapları">
-                        <span class="w-1.5 h-1.5 rounded-full bg-[#93F051] animate-pulse"></span>
+                    <a href="./#dedektife-sor" class="studio-pill-muted px-5 py-3 rounded-full bg-[#242428] border border-black/20 text-xs font-medium inline-flex items-center gap-2 transition" title="Dedektif'e Sor — Dedektif Tutmak, Dedektif Ücretleri ve Yasal Süreçler Hakkında Uzman Cevapları">
+                        <span class="w-1.5 h-1.5 rounded-full bg-black text-white animate-pulse"></span>
                         <span>Dedektif'e Sor</span>
                     </a>
                 </div>
@@ -492,59 +492,59 @@
         <!-- District Coverage SEO Section -->
         <section class="studio-surface bg-[#1C1C1F] rounded-3xl p-6 sm:p-8 border border-white/[0.09] shadow-sm space-y-4">
             <div class="flex flex-wrap items-center justify-between gap-2">
-                <span class="studio-badge px-3 py-1 rounded-full bg-[#242428] border border-[#93F051]/35 text-[#93F051] font-mono text-[11px] font-medium">TÜM İLÇELERDE 7/24 AKTİF SAHA AĞI</span>
+                <span class="studio-badge px-3 py-1 rounded-full bg-[#242428] border border-black/20 text-black font-mono text-[11px] font-medium">TÜM İLÇELERDE 7/24 AKTİF SAHA AĞI</span>
                 <span class="studio-muted text-xs font-mono text-white/60">30 Resmi İlçe</span>
             </div>
             <h2 class="studio-title text-lg sm:text-xl font-medium text-[#FFFFFF] tracking-tight">İzmir&#x27;de Hizmet Verdiğimiz Tüm İlçeler (30 İlçe &amp; Ege Sahil Hattı)</h2>
             <p class="studio-body text-sm sm:text-[15px] text-white/80 leading-relaxed">Ege Bölgesi koordinasyon ekiplerimiz, İzmir&#x27;in merkez metropol ilçelerinden Yarımada tatil beldelerine, Bakırçay ve Küçük Menderes havzalarındaki ilçelere kadar 30 ilçenin tamamında saha takibi ve hukuki delil araştırması yürütmektedir:</p>
             <div class="flex flex-wrap gap-2 pt-1">
-                <span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span><span>Aliağa Dedektif</span></span>
-<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span><span>Balçova Dedektif</span></span>
-<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span><span>Bayındır Dedektif</span></span>
-<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span><span>Bayraklı Dedektif</span></span>
-<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span><span>Bergama Dedektif</span></span>
-<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span><span>Beydağ Dedektif</span></span>
-<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span><span>Bornova Dedektif</span></span>
-<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span><span>Buca Dedektif</span></span>
-<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span><span>Çeşme Dedektif</span></span>
-<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span><span>Çiğli Dedektif</span></span>
-<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span><span>Dikili Dedektif</span></span>
-<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span><span>Foça Dedektif</span></span>
-<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span><span>Gaziemir Dedektif</span></span>
-<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span><span>Güzelbahçe Dedektif</span></span>
-<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span><span>Karabağlar Dedektif</span></span>
-<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span><span>Karaburun Dedektif</span></span>
-<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span><span>Karşıyaka Dedektif</span></span>
-<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span><span>Kemalpaşa Dedektif</span></span>
-<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span><span>Kınık Dedektif</span></span>
-<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span><span>Kiraz Dedektif</span></span>
-<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span><span>Konak Dedektif</span></span>
-<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span><span>Menderes Dedektif</span></span>
-<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span><span>Menemen Dedektif</span></span>
-<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span><span>Narlıdere Dedektif</span></span>
-<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span><span>Ödemiş Dedektif</span></span>
-<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span><span>Seferihisar Dedektif</span></span>
-<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span><span>Selçuk Dedektif</span></span>
-<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span><span>Tire Dedektif</span></span>
-<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span><span>Torbalı Dedektif</span></span>
-<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span><span>Urla Dedektif</span></span>
+                <span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-black text-white shrink-0"></span><span>Aliağa Dedektif</span></span>
+<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-black text-white shrink-0"></span><span>Balçova Dedektif</span></span>
+<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-black text-white shrink-0"></span><span>Bayındır Dedektif</span></span>
+<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-black text-white shrink-0"></span><span>Bayraklı Dedektif</span></span>
+<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-black text-white shrink-0"></span><span>Bergama Dedektif</span></span>
+<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-black text-white shrink-0"></span><span>Beydağ Dedektif</span></span>
+<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-black text-white shrink-0"></span><span>Bornova Dedektif</span></span>
+<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-black text-white shrink-0"></span><span>Buca Dedektif</span></span>
+<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-black text-white shrink-0"></span><span>Çeşme Dedektif</span></span>
+<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-black text-white shrink-0"></span><span>Çiğli Dedektif</span></span>
+<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-black text-white shrink-0"></span><span>Dikili Dedektif</span></span>
+<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-black text-white shrink-0"></span><span>Foça Dedektif</span></span>
+<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-black text-white shrink-0"></span><span>Gaziemir Dedektif</span></span>
+<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-black text-white shrink-0"></span><span>Güzelbahçe Dedektif</span></span>
+<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-black text-white shrink-0"></span><span>Karabağlar Dedektif</span></span>
+<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-black text-white shrink-0"></span><span>Karaburun Dedektif</span></span>
+<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-black text-white shrink-0"></span><span>Karşıyaka Dedektif</span></span>
+<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-black text-white shrink-0"></span><span>Kemalpaşa Dedektif</span></span>
+<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-black text-white shrink-0"></span><span>Kınık Dedektif</span></span>
+<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-black text-white shrink-0"></span><span>Kiraz Dedektif</span></span>
+<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-black text-white shrink-0"></span><span>Konak Dedektif</span></span>
+<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-black text-white shrink-0"></span><span>Menderes Dedektif</span></span>
+<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-black text-white shrink-0"></span><span>Menemen Dedektif</span></span>
+<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-black text-white shrink-0"></span><span>Narlıdere Dedektif</span></span>
+<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-black text-white shrink-0"></span><span>Ödemiş Dedektif</span></span>
+<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-black text-white shrink-0"></span><span>Seferihisar Dedektif</span></span>
+<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-black text-white shrink-0"></span><span>Selçuk Dedektif</span></span>
+<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-black text-white shrink-0"></span><span>Tire Dedektif</span></span>
+<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-black text-white shrink-0"></span><span>Torbalı Dedektif</span></span>
+<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-black text-white shrink-0"></span><span>Urla Dedektif</span></span>
             </div>
             <div class="pt-4 border-t border-white/10 space-y-3">
                 <h3 class="studio-title text-sm sm:text-base font-medium text-[#FFFFFF]">Tüm İlçelerde En Çok Talep Edilen Özel Dedektiflik Hizmetlerimiz</h3>
                 <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
-                    <a href="hizmetler/es-takibi" title="Eş Takibi, Aldatma Tespiti ve Boşanma Davası Delil Toplama" class="studio-surface-soft p-3.5 rounded-2xl bg-[#18181A] border border-white/10 hover:border-[#93F051]/60 transition block space-y-1">
+                    <a href="hizmetler/es-takibi" title="Eş Takibi, Aldatma Tespiti ve Boşanma Davası Delil Toplama" class="studio-surface-soft p-3.5 rounded-2xl bg-[#18181A] border border-white/10 hover:border-black/20/60 transition block space-y-1">
                         <h4 class="studio-title text-xs sm:text-sm font-medium text-[#FFFFFF]">Eş Takibi &amp; Boşanma Delili</h4>
                         <p class="studio-muted text-[11.5px] text-white/65 leading-snug">TMK m.161 ve HMK m.199 uyumlu 4K zaman damgalı sadakat araştırması.</p>
                     </a>
-                    <a href="hizmetler/evlilik-oncesi-arastirma" title="Evlilik Öncesi Araştırma ve Nişanlı Geçmiş Tahkikatı" class="studio-surface-soft p-3.5 rounded-2xl bg-[#18181A] border border-white/10 hover:border-[#93F051]/60 transition block space-y-1">
+                    <a href="hizmetler/evlilik-oncesi-arastirma" title="Evlilik Öncesi Araştırma ve Nişanlı Geçmiş Tahkikatı" class="studio-surface-soft p-3.5 rounded-2xl bg-[#18181A] border border-white/10 hover:border-black/20/60 transition block space-y-1">
                         <h4 class="studio-title text-xs sm:text-sm font-medium text-[#FFFFFF]">Evlilik Öncesi Araştırma</h4>
                         <p class="studio-muted text-[11.5px] text-white/65 leading-snug">%100 gizli nişanlı geçmiş, meslek, aile ve mali güvenilirlik teyidi.</p>
                     </a>
-                    <a href="hizmetler/adres-ve-borclu-takibi" title="Fiili Adres Tespiti, Kayıp Şahıs ve Borçlu Mal Varlığı Araştırması" class="studio-surface-soft p-3.5 rounded-2xl bg-[#18181A] border border-white/10 hover:border-[#93F051]/60 transition block space-y-1">
+                    <a href="hizmetler/adres-ve-borclu-takibi" title="Fiili Adres Tespiti, Kayıp Şahıs ve Borçlu Mal Varlığı Araştırması" class="studio-surface-soft p-3.5 rounded-2xl bg-[#18181A] border border-white/10 hover:border-black/20/60 transition block space-y-1">
                         <h4 class="studio-title text-xs sm:text-sm font-medium text-[#FFFFFF]">Adres &amp; Borçlu Tespiti</h4>
                         <p class="studio-muted text-[11.5px] text-white/65 leading-snug">Tebligat yapılamayan kişiler ve İİK m.277 mal kaçırma delilleri.</p>
                     </a>
-                    <a href="hizmetler/kurumsal-ve-marka-koruma" title="Kurumsal Firma Araştırması, Marka Taklidi ve TSCM Böcek Arama" class="studio-surface-soft p-3.5 rounded-2xl bg-[#18181A] border border-white/10 hover:border-[#93F051]/60 transition block space-y-1">
+                    <a href="hizmetler/kurumsal-ve-marka-koruma" title="Kurumsal Firma Araştırması, Marka Taklidi ve TSCM Böcek Arama" class="studio-surface-soft p-3.5 rounded-2xl bg-[#18181A] border border-white/10 hover:border-black/20/60 transition block space-y-1">
                         <h4 class="studio-title text-xs sm:text-sm font-medium text-[#FFFFFF]">Kurumsal &amp; Marka Koruma</h4>
                         <p class="studio-muted text-[11.5px] text-white/65 leading-snug">Firma istihbaratı, SMK m.29 sahte ürün baskın delili ve böcek tarama.</p>
                     </a>
@@ -555,10 +555,10 @@
         <div class="studio-keep-dark bg-[#111111] text-[#FFFFFF] rounded-3xl p-6 sm:p-8 space-y-4 shadow-2xl border border-white/15">
             <div class="font-mono text-[11px] studio-coral-ink text-[#FA7E61] uppercase tracking-wider">DAT ÖZEL DEDEKTİFLİK • RESMİ TESLİMAT STANDARTLARI</div>
             <ul class="space-y-2.5">
-                <li class="flex items-start gap-2.5 text-sm text-[#FFFFFF]/95"><span class="studio-lime-ink text-[#93F051] font-bold">✓</span><span>İzmir&#x27;in 30 ilçesi ile Çeşme, Alaçatı, Urla, Kuşadası ve Bodrum hattında mobil takip ekibi</span></li>
-<li class="flex items-start gap-2.5 text-sm text-[#FFFFFF]/95"><span class="studio-lime-ink text-[#93F051] font-bold">✓</span><span>İzmir Bayraklı ve Karşıyaka Aile/Ticaret Mahkemelerine uygun HMK m.199 uyumlu rapor</span></li>
-<li class="flex items-start gap-2.5 text-sm text-[#FFFFFF]/95"><span class="studio-lime-ink text-[#93F051] font-bold">✓</span><span>Yazılı resmi gizlilik sözleşmesi, fatura ve %100 memnuniyet garantisi</span></li>
-<li class="flex items-start gap-2.5 text-sm text-[#FFFFFF]/95"><span class="studio-lime-ink text-[#93F051] font-bold">✓</span><span>7/24 WhatsApp (0532 666 77 49) ve merkez hat (0312 284 02 99) desteği</span></li>
+                <li class="flex items-start gap-2.5 text-sm text-[#FFFFFF]/95"><span class="studio-lime-ink text-black font-bold">✓</span><span>İzmir&#x27;in 30 ilçesi ile Çeşme, Alaçatı, Urla, Kuşadası ve Bodrum hattında mobil takip ekibi</span></li>
+<li class="flex items-start gap-2.5 text-sm text-[#FFFFFF]/95"><span class="studio-lime-ink text-black font-bold">✓</span><span>İzmir Bayraklı ve Karşıyaka Aile/Ticaret Mahkemelerine uygun HMK m.199 uyumlu rapor</span></li>
+<li class="flex items-start gap-2.5 text-sm text-[#FFFFFF]/95"><span class="studio-lime-ink text-black font-bold">✓</span><span>Yazılı resmi gizlilik sözleşmesi, fatura ve %100 memnuniyet garantisi</span></li>
+<li class="flex items-start gap-2.5 text-sm text-[#FFFFFF]/95"><span class="studio-lime-ink text-black font-bold">✓</span><span>7/24 WhatsApp (0532 666 77 49) ve merkez hat (0312 284 02 99) desteği</span></li>
             </ul>
         </div>
 
@@ -589,7 +589,7 @@
         <section class="studio-divider pt-5 border-t border-white/10 space-y-3">
             <h3 class="studio-muted text-xs font-mono text-white/60 uppercase">Google Trend Türkiye En Çok Aranan Özel Dedektiflik Konuları &amp; Şehir Bürolarımız</h3>
             <div class="flex flex-wrap gap-2">
-                <a href="./#dedektife-sor" title="Dedektif'e Sor — Dedektif Tutmak, Dedektif Fiyatları ve Yasal Süreçler" class="studio-badge px-3.5 py-2 rounded-full bg-[#242428] border border-[#93F051]/35 text-[#93F051] text-xs font-medium hover:opacity-90 transition">Dedektif'e Sor</a>
+                <a href="./#dedektife-sor" title="Dedektif'e Sor — Dedektif Tutmak, Dedektif Fiyatları ve Yasal Süreçler" class="studio-badge px-3.5 py-2 rounded-full bg-[#242428] border border-black/20 text-black text-xs font-medium hover:opacity-90 transition">Dedektif'e Sor</a>
                 <a href="./#dedektife-sor" title="Özel Dedektif Fiyatları ve Dedektif Ücretleri Ne Kadar? — DAT Detective" class="studio-pill-muted px-3.5 py-2 rounded-full bg-[#242428] border border-white/10 text-white/85 text-xs font-medium transition">Özel Dedektif Fiyatları</a>
                 <a href="./#dedektife-sor" title="Türkiye'de Özel Dedektif Tutmak Yasal mı ve Süreç Nasıl İşler? — DAT Detective" class="studio-pill-muted px-3.5 py-2 rounded-full bg-[#242428] border border-white/10 text-white/85 text-xs font-medium transition">Dedektif Tutmak Yasal mı?</a>
                 <a href="./#dedektife-sor" title="Özel Dedektif Nasıl Olunur? UÖDED Eğitim ve Sertifika Şartları" class="studio-pill-muted px-3.5 py-2 rounded-full bg-[#242428] border border-white/10 text-white/85 text-xs font-medium transition">Özel Dedektif Nasıl Olunur?</a>
@@ -613,14 +613,14 @@
 <a href="hizmetler/marka-taklidi-arastirmasi" class="px-3.5 py-2 rounded-full text-xs font-medium transition border studio-pill-muted bg-[#242428] border-white/10 text-white/85" title="Marka Taklidi, Sahte Ürün Tespiti ve SMK m.29 Baskın Delili — WPYB & DAT Detective">Marka Taklidi</a>
 <a href="hizmetler/bocek-tarama-tscm" class="px-3.5 py-2 rounded-full text-xs font-medium transition border studio-pill-muted bg-[#242428] border-white/10 text-white/85" title="Profesyonel Böcek Arama, Dinleme Cihazı ve Gizli Kamera Tespiti (TSCM) — DAT Detective">Böcek Arama (TSCM)</a>
 <a href="hizmetler/kurumsal-ve-marka-koruma" class="px-3.5 py-2 rounded-full text-xs font-medium transition border studio-pill-muted bg-[#242428] border-white/10 text-white/85" title="Kurumsal Araştırma, Marka Koruma ve WPYB Global Hizmetleri — DAT Detective">Kurumsal &amp; WPYB</a>
-                <a href="./#magaza" class="studio-badge px-3.5 py-2 rounded-full bg-[#242428] border border-[#93F051]/35 text-[#93F051] text-xs font-medium hover:opacity-90 transition" title="DAT Güvenlik ve Anti-Casusluk Donanım Mağazası — Profesyonel Böcek Arama Dedektörleri">DAT Donanım Mağazası</a>
+                <a href="./#magaza" class="studio-badge px-3.5 py-2 rounded-full bg-[#242428] border border-black/20 text-black text-xs font-medium hover:opacity-90 transition" title="DAT Güvenlik ve Anti-Casusluk Donanım Mağazası — Profesyonel Böcek Arama Dedektörleri">DAT Donanım Mağazası</a>
             </div>
         </section>
     </main>
 
     <footer class="studio-footer bg-[#161618] border-t border-white/[0.08] py-8 px-4 text-center text-xs text-white/60 space-y-2">
         <div>&copy; 2005 – 2026 DAT ÖZEL DEDEKTİFLİK BÜROSU (DAT Group) • Ümit Hakan Karakaya • UÖDED Kurucu Üyesi</div>
-        <div>İstanbul (Kartal) • Ankara (Çankaya) • Podgorica (Karadağ) • Las Vegas (ABD) • <a href="./" class="studio-accent-text text-[#93F051] underline" title="DAT Detective Ana Sayfa — Sertifikalı Özel Dedektiflik Hizmetleri">Ana Sayfaya Dön</a></div>
+        <div>İstanbul (Kartal) • Ankara (Çankaya) • Podgorica (Karadağ) • Las Vegas (ABD) • <a href="/" class="studio-accent-text text-black underline" title="DAT Detective Ana Sayfa — Sertifikalı Özel Dedektiflik Hizmetleri">Ana Sayfaya Dön</a></div>
     </footer>
     <script>
         (function syncSubpageThemeUI() {
@@ -628,7 +628,7 @@
                 var ico = document.getElementById('themeToggleIcon');
                 var lbl = document.getElementById('themeToggleLabel');
                 var meta = document.getElementById('themeColorMeta');
-                if (ico) ico.className = 'hgi hgi-stroke w-3.5 h-3.5 text-[#93F051] ' + (t === 'light' ? 'hgi-moon-02' : 'hgi-sun-03');
+                if (ico) ico.className = 'hgi hgi-stroke w-3.5 h-3.5 text-black ' + (t === 'light' ? 'hgi-moon-02' : 'hgi-sun-03');
                 if (lbl) lbl.textContent = t === 'light' ? 'Koyu' : 'Açık';
                 if (meta) meta.setAttribute('content', t === 'light' ? '#FFFFFF' : '#111111');
             }

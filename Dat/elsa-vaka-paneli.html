@@ -118,11 +118,11 @@
             color: #93F051 !important;
         }
         html[data-theme="dark"] .elsa-accent-text { color: #93F051 !important; }
-        html[data-theme="light"] .elsa-accent-text { color: #15803D !important; }
+        html[data-theme="light"] .elsa-accent-text { color: #111111 !important; }
         html[data-theme="light"] .elsa-badge-accent {
             background-color: #E6FAD8 !important;
             border-color: rgba(21,128,61,0.28) !important;
-            color: #15803D !important;
+            color: #111111 !important;
         }
         html[data-theme="dark"] .elsa-nav-btn.bg-\[\#000000\],
         html[data-theme="dark"] .elsa-mob-btn.bg-\[\#000000\],
@@ -238,7 +238,7 @@
                         <div class="flex items-center gap-3 min-w-0">
                             <div class="h-9 w-9 rounded-xl bg-[#000000] text-[#FFFFFF] flex items-center justify-center shadow-sm shrink-0 relative overflow-hidden ring-1 ring-black/10/60">
                                 <img src="assets/photos/elsa-dedektif-asistan.jpg" alt="Elsa — DAT Detective Dijital Asistanı" class="w-9 h-9 object-contain p-2 object-top">
-                                <span class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-[#10B981] ring-2 ring-white"></span>
+                                <span class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-[#111111] ring-2 ring-white"></span>
                             </div>
                             <div class="min-w-0">
                                 <div class="text-xs font-medium text-[#000000] tracking-tight flex items-center gap-1.5 truncate">
@@ -256,7 +256,7 @@
                     <!-- Navigation Links -->
                     <nav class="p-3 space-y-1 text-xs font-medium">
                         <a href="./" class="flex items-center gap-3 rounded-xl p-2.5 text-[#3A3E42]/75 hover:text-[#000000] hover:bg-[#F3F4F4] transition" title="DAT Detective Ana Sayfa — Sertifikalı Özel Dedektiflik Hizmetleri">
-                            <i class="hgi hgi-stroke hgi-arrow-left-02 w-4 h-4 shrink-0 elsa-accent-text text-[#15803D]"></i>
+                            <i class="hgi hgi-stroke hgi-arrow-left-02 w-4 h-4 shrink-0 elsa-accent-text text-[#111111]"></i>
                             <span>Ana Sayfaya Dön</span>
                         </a>
 
@@ -290,7 +290,7 @@
 
                         <button type="button" onclick="switchTab('ai')" data-nav-tab="ai" class="elsa-nav-btn w-full flex items-center justify-between rounded-xl p-2.5 transition text-[#3A3E42] hover:bg-[#F3F4F4]">
                             <span class="flex items-center gap-2.5">
-                                <i class="hgi hgi-stroke hgi-sparkles w-4 h-4 shrink-0 elsa-accent-text text-[#15803D]"></i>
+                                <i class="hgi hgi-stroke hgi-sparkles w-4 h-4 shrink-0 elsa-accent-text text-[#111111]"></i>
                                 <span>Elsa AI Asistan</span>
                             </span>
                             <span class="h-2 w-2 rounded-full bg-[#93F051]"></span>
@@ -357,7 +357,7 @@
                         </button>
 
                         <button type="button" onclick="openTrackLookupModal()" class="inline-flex items-center gap-1.5 rounded-xl px-2.5 sm:px-3 py-2 text-xs font-medium bg-[#F3F4F4] hover:bg-[#000000] text-white hover:text-[#FFFFFF] transition whitespace-nowrap shrink-0">
-                            <i class="hgi hgi-stroke hgi-search-list-01 w-3.5 h-3.5 elsa-accent-text text-[#15803D] shrink-0"></i>
+                            <i class="hgi hgi-stroke hgi-search-list-01 w-3.5 h-3.5 elsa-accent-text text-[#111111] shrink-0"></i>
                             <span class="hidden sm:inline">Dosya Sorgula</span>
                         </button>
 
@@ -402,7 +402,7 @@
 
                                 <div class="flex flex-wrap gap-2.5 pt-1">
                                     <button type="button" onclick="runElsaAnomalyScan()" class="flex items-center gap-2 rounded-xl bg-[#FFFFFF] text-[#111111] px-4 py-2 text-xs font-medium hover:bg-slate-100 transition shadow-sm active:scale-95 whitespace-nowrap">
-                                        <i class="hgi hgi-stroke hgi-sparkles w-3.5 h-3.5 text-[#15803D] shrink-0"></i>
+                                        <i class="hgi hgi-stroke hgi-sparkles w-3.5 h-3.5 text-[#111111] shrink-0"></i>
                                         <span>Elsa AI Anomali Analizi</span>
                                     </button>
                                     <button type="button" onclick="verifyChainOfCustody()" class="flex items-center gap-2 rounded-xl bg-white/10 text-white px-4 py-2 text-xs font-medium hover:bg-white/15 transition border border-white/15 active:scale-95 whitespace-nowrap">
@@ -424,7 +424,7 @@
                                 </div>
                                 <div class="p-3.5 rounded-xl bg-white/5 border border-white/10 min-w-0 overflow-hidden">
                                     <div class="text-slate-400 text-[10px] truncate">ADLİ DOĞRULAMA</div>
-                                    <div id="metricVerified" class="text-base sm:text-lg font-medium text-[#10B981] mt-1 whitespace-nowrap">24 / 28</div>
+                                    <div id="metricVerified" class="text-base sm:text-lg font-medium text-[#111111] mt-1 whitespace-nowrap">24 / 28</div>
                                     <div class="text-[10px] text-slate-400 mt-0.5 truncate">SHA-256 Mühürlü</div>
                                 </div>
                                 <div class="p-3.5 rounded-xl bg-white/5 border border-white/10 min-w-0 overflow-hidden">
@@ -442,9 +442,9 @@
                     </section>
 
                     <!-- Live Status Toast Container -->
-                    <div id="elsaToast" class="hidden rounded-xl border border-[#10B981]/30 bg-[#ECFDF5] px-4 py-3 text-xs text-[#065F46] flex items-center justify-between gap-3">
+                    <div id="elsaToast" class="hidden rounded-xl border border-[#111111]/30 bg-[#ECFDF5] px-4 py-3 text-xs text-[#065F46] flex items-center justify-between gap-3">
                         <div class="flex items-center gap-2.5">
-                            <i class="hgi hgi-stroke hgi-checkmark-circle-02 w-4 h-4 text-[#10B981] shrink-0"></i>
+                            <i class="hgi hgi-stroke hgi-checkmark-circle-02 w-4 h-4 text-[#111111] shrink-0"></i>
                             <span id="elsaToastMsg" class="font-medium"></span>
                         </div>
                         <button type="button" onclick="hideToast()" class="text-[#065F46]/60 hover:text-[#065F46]">
@@ -476,13 +476,13 @@
                         <div class="rounded-2xl border border-[rgba(0,0,0,0.08)] bg-[#FFFFFF] overflow-hidden shadow-[0_2px_12px_rgba(0,0,0,0.03)]">
                             <div class="p-4 border-b border-[rgba(0,0,0,0.08)] flex flex-wrap items-center justify-between gap-2">
                                 <div class="flex items-center gap-2 min-w-0">
-                                    <i class="hgi hgi-stroke hgi-activity-01 w-4 h-4 elsa-accent-text text-[#15803D] shrink-0"></i>
+                                    <i class="hgi hgi-stroke hgi-activity-01 w-4 h-4 elsa-accent-text text-[#111111] shrink-0"></i>
                                     <h3 class="text-xs font-medium uppercase tracking-wider text-[#000000] truncate">
                                         Adli Kanıt &amp; İşlem Çizelgesi (Audit Trail)
                                     </h3>
                                 </div>
-                                <span class="text-[11px] font-mono text-[#10B981] flex items-center gap-1.5 whitespace-nowrap shrink-0">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-[#10B981]"></span>
+                                <span class="text-[11px] font-mono text-[#111111] flex items-center gap-1.5 whitespace-nowrap shrink-0">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#111111]"></span>
                                     Senkronize
                                 </span>
                             </div>
@@ -530,21 +530,21 @@
                         <div class="elsa-card rounded-2xl border border-[rgba(0,0,0,0.08)] bg-[#F9FAFB] p-5 space-y-4">
                             <div class="flex items-center justify-between">
                                 <h4 class="text-xs font-medium uppercase tracking-wider text-[#000000]">48 Saatlik Standart Operasyon Protokolü</h4>
-                                <span class="text-[11px] font-mono elsa-accent-text text-[#15803D]">AKTİF DOSYA SÜRECİ</span>
+                                <span class="text-[11px] font-mono elsa-accent-text text-[#111111]">AKTİF DOSYA SÜRECİ</span>
                             </div>
                             <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3 text-xs">
                                 <div class="elsa-card p-3.5 rounded-xl bg-white border border-[rgba(0,0,0,0.06)] space-y-1">
-                                    <div class="font-mono text-[10px] elsa-accent-text text-[#15803D]">FAZ 01 • 0-6 SAAT</div>
+                                    <div class="font-mono text-[10px] elsa-accent-text text-[#111111]">FAZ 01 • 0-6 SAAT</div>
                                     <div class="font-medium text-[#000000]">İstihbarat &amp; Ön Analiz</div>
                                     <p class="text-[11px] text-[#3A3E42]/75">Açık kaynak ve dijital iz eşleştirmesi tamamlandı.</p>
                                 </div>
                                 <div class="elsa-card p-3.5 rounded-xl bg-white border border-[rgba(0,0,0,0.06)] space-y-1">
-                                    <div class="font-mono text-[10px] elsa-accent-text text-[#15803D]">FAZ 02 • 6-24 SAAT</div>
+                                    <div class="font-mono text-[10px] elsa-accent-text text-[#111111]">FAZ 02 • 6-24 SAAT</div>
                                     <div class="font-medium text-[#000000]">Saha &amp; Teknik Gözlem</div>
                                     <p class="text-[11px] text-[#3A3E42]/75">Zaman damgalı 4K görüntüleme ve güzergâh kaydı.</p>
                                 </div>
                                 <div class="elsa-card p-3.5 rounded-xl bg-white border border-[#93F051]/60 space-y-1 ring-1 ring-[#93F051]/30">
-                                    <div class="font-mono text-[10px] elsa-accent-text text-[#15803D]">FAZ 03 • 24-36 SAAT</div>
+                                    <div class="font-mono text-[10px] elsa-accent-text text-[#111111]">FAZ 03 • 24-36 SAAT</div>
                                     <div class="font-medium text-[#000000]">SHA-256 Delil Doğrulama</div>
                                     <p class="text-[11px] text-[#3A3E42]/75">Elsa AI çapraz kontrol ve kriptografik mühürleme sürüyor.</p>
                                 </div>
@@ -628,7 +628,7 @@
                     </div>
 
                     <div class="space-y-1.5">
-                        <span id="inspCode" class="text-[11px] font-mono font-medium elsa-accent-text text-[#15803D]">EV-8841-CYBER</span>
+                        <span id="inspCode" class="text-[11px] font-mono font-medium elsa-accent-text text-[#111111]">EV-8841-CYBER</span>
                         <h3 id="inspTitle" class="text-base font-medium tracking-tight text-[#000000] leading-snug"></h3>
                         <p id="inspNotes" class="text-xs text-[#3A3E42]/85 leading-relaxed"></p>
                     </div>
@@ -660,7 +660,7 @@
                             </div>
                             <div class="flex justify-between gap-2">
                                 <span class="text-[#3A3E42]/60">MÜHÜR DURUMU:</span>
-                                <span id="inspSealStatus" class="text-[#10B981] font-medium">Doğrulandı</span>
+                                <span id="inspSealStatus" class="text-[#111111] font-medium">Doğrulandı</span>
                             </div>
                         </div>
                     </div>
@@ -712,7 +712,7 @@
                 </button>
             </div>
             <p class="text-xs text-[#3A3E42]/80 leading-relaxed">
-                Ana sayfadan form gönderdiğinizde size verilen <code class="font-mono elsa-accent-text text-[#15803D]">#DAT-XXXXX</code> takip kodunu yazarak Elsa Vaka Paneli içinde dosyanızı görüntüleyebilir veya doğrudan uzman ekibe bağlanabilirsiniz.
+                Ana sayfadan form gönderdiğinizde size verilen <code class="font-mono elsa-accent-text text-[#111111]">#DAT-XXXXX</code> takip kodunu yazarak Elsa Vaka Paneli içinde dosyanızı görüntüleyebilir veya doğrudan uzman ekibe bağlanabilirsiniz.
             </p>
             <form onsubmit="submitTrackLookup(event)" class="space-y-3">
                 <input id="trackCodeInput" type="text" required placeholder="Örn: #DAT-38898" class="w-full rounded-xl bg-[#F3F4F4] border border-[rgba(0,0,0,0.08)] px-4 py-3 text-sm font-mono text-[#000000] focus:outline-none focus:bg-white focus:border-[#93F051]">
@@ -1013,7 +1013,7 @@
                             </span>
                         </td>
                         <td class="py-3.5 px-4 text-right">
-                            <span class="text-xs font-medium elsa-accent-text text-[#15803D] inline-flex items-center gap-1 whitespace-nowrap">
+                            <span class="text-xs font-medium elsa-accent-text text-[#111111] inline-flex items-center gap-1 whitespace-nowrap">
                                 <span>İncele</span>
                                 <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3 h-3"></i>
                             </span>
@@ -1062,7 +1062,7 @@
                     <div onclick="selectCase('${escapeHtml(c.id)}'); switchTab('evidence')" class="elsa-card cursor-pointer rounded-2xl p-5 border transition ${active ? 'border-[#93F051] ring-1 ring-[#93F051]' : 'border-[rgba(0,0,0,0.08)] bg-white hover:border-black/20'} space-y-3">
                         <div class="flex items-center justify-between gap-2">
                             <span class="font-mono text-xs font-medium px-2.5 py-1 rounded-full ${c.isUserSubmitted ? 'studio-lime-btn font-semibold' : 'bg-[#F3F4F4] text-[#000000]'}">${escapeHtml(c.code)}</span>
-                            <span class="text-[11px] font-mono elsa-accent-text text-[#15803D] font-medium">${escapeHtml(c.status)}</span>
+                            <span class="text-[11px] font-mono elsa-accent-text text-[#111111] font-medium">${escapeHtml(c.status)}</span>
                         </div>
                         <h4 class="text-base font-medium text-[#000000]">${escapeHtml(c.title)}</h4>
                         <p class="text-xs text-[#3A3E42]/80 leading-relaxed">${escapeHtml(c.summary)}</p>
@@ -1098,7 +1098,7 @@
                     </div>
                     <div class="pt-3 border-t border-[rgba(0,0,0,0.06)] flex items-center justify-between text-[11px] text-[#3A3E42]/75">
                         <span>${s.location}</span>
-                        <span class="font-medium elsa-accent-text text-[#15803D]">${s.evidenceCount} Delili Göster →</span>
+                        <span class="font-medium elsa-accent-text text-[#111111]">${s.evidenceCount} Delili Göster →</span>
                     </div>
                 </div>
             `).join('');
@@ -1125,7 +1125,7 @@
             document.getElementById('inspSource').textContent = item.source;
             document.getElementById('inspTime').textContent = item.timestamp;
             document.getElementById('inspSealStatus').textContent = item.sealed ? 'HMK Mühürlü ✓' : 'Onay Bekliyor';
-            document.getElementById('inspSealStatus').className = item.sealed ? 'text-[#10B981] font-medium' : 'text-[#FA7E61] font-medium';
+            document.getElementById('inspSealStatus').className = item.sealed ? 'text-[#111111] font-medium' : 'text-[#FA7E61] font-medium';
             document.getElementById('inspSuspectInitials').textContent = item.suspect.initials;
             document.getElementById('inspSuspectName').textContent = item.suspect.name;
             document.getElementById('inspSuspectRole').textContent = item.suspect.role;
@@ -1364,7 +1364,7 @@
             root.classList.toggle('dark', next === 'dark');
             try { localStorage.setItem('dat_theme', next); } catch (_) {}
             var ico = document.getElementById('themeToggleIcon');
-            if (ico) ico.className = 'hgi hgi-stroke w-3.5 h-3.5 ' + (next === 'light' ? 'hgi-moon-02 text-[#15803D]' : 'hgi-sun-03 text-[#93F051]');
+            if (ico) ico.className = 'hgi hgi-stroke w-3.5 h-3.5 ' + (next === 'light' ? 'hgi-moon-02 text-[#111111]' : 'hgi-sun-03 text-[#93F051]');
             var meta = document.getElementById('themeColorMeta');
             if (meta) meta.setAttribute('content', next === 'light' ? '#FFFFFF' : '#111111');
             requestAnimationFrame(function () {
@@ -1376,7 +1376,7 @@
         (function syncElsaThemeIcon() {
             var t = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
             var ico = document.getElementById('themeToggleIcon');
-            if (ico) ico.className = 'hgi hgi-stroke w-3.5 h-3.5 ' + (t === 'light' ? 'hgi-moon-02 text-[#15803D]' : 'hgi-sun-03 text-[#93F051]');
+            if (ico) ico.className = 'hgi hgi-stroke w-3.5 h-3.5 ' + (t === 'light' ? 'hgi-moon-02 text-[#111111]' : 'hgi-sun-03 text-[#93F051]');
         })();
 
         function askElsaPreset(question) {
