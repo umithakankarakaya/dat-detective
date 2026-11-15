@@ -1588,7 +1588,7 @@ function sendAIChatMessage(overrideQuery, explicitPresetKey) {
     const input = document.getElementById('aiChatInput');
     const sendBtn = document.getElementById('aiSendBtn');
 
-    const rawQuery = (typeof overrideQuery === 'string' && overrideQuery.trim().length > 0) 
+    let rawQuery = (typeof overrideQuery === 'string' && overrideQuery.trim().length > 0) 
         ? overrideQuery.trim() 
         : (input ? input.value.trim() : '');
 
@@ -1773,11 +1773,15 @@ Bu konu hakkında dürüst ve objektif hukuki danışmanlık almak istiyorum.`
         _scrollAIChatToBottom();
 
         // Track event
-        if (window.DATAnalytics) {
-            window.DATAnalytics.trackEvent('ai_detective_chat', {
-                preset: matchedKey || 'custom',
-                hasCustomQuery: isCustom
-            });
+        try {
+            if (window.DATAnalytics && typeof window.DATAnalytics.trackEvent === 'function') {
+                window.DATAnalytics.trackEvent('ai_detective_chat', {
+                    preset: matchedKey || 'custom',
+                    hasCustomQuery: isCustom
+                });
+            }
+        } catch (e) {
+            console.warn('DATAnalytics tracking error:', e);
         }
     }, 550);
 }
