@@ -1129,36 +1129,38 @@
             color: #111111 !important;
         }
 
-        /* Photography & Video caption scrim cards MUST remain dark with crisp white ink in Light Mode */
-        html[data-theme="light"] #heroServiceCarousel > button,
-        html[data-theme="light"] #heroServiceCarousel > button.bg-\[\#1D1D1F\],
-        html[data-theme="light"] #video-arsivi [onclick*="openVideoModal"],
+        /* Basin Galerisi & Video Arşivi Cards: Clean Light Aesthetic with High-Contrast Typography */
+        #basin-galerisi [onclick*="openPhotoModal"],
+        #video-arsivi [onclick*="openVideoModal"],
         html[data-theme="light"] #basin-galerisi [onclick*="openPhotoModal"],
-        html[data-theme="light"] :is(button, a, div, article):has(> [class*="bg-gradient-to-t"]) {
-            background-color: #1D1D1F !important;
-            color: #FFFFFF !important;
+        html[data-theme="light"] #video-arsivi [onclick*="openVideoModal"] {
+            background-color: #F7F7F8 !important;
+            border-color: rgba(0, 0, 0, 0.08) !important;
+            color: #111111 !important;
         }
-        html[data-theme="light"] #heroServiceCarousel > button .text-\[\#FFFFFF\],
-        html[data-theme="light"] #heroServiceCarousel > button .text-white,
-        html[data-theme="light"] #video-arsivi [onclick*="openVideoModal"] .text-\[\#FFFFFF\],
-        html[data-theme="light"] #video-arsivi [onclick*="openVideoModal"] .text-white,
-        html[data-theme="light"] #basin-galerisi [onclick*="openPhotoModal"] .text-\[\#FFFFFF\],
-        html[data-theme="light"] #basin-galerisi [onclick*="openPhotoModal"] .text-white,
-        html[data-theme="light"] :is(button, a, div, article):has(> [class*="bg-gradient-to-t"]) .text-white,
-        html[data-theme="light"] :is(button, a, div, article):has(> [class*="bg-gradient-to-t"]) .text-\[\#FFFFFF\],
-        html[data-theme="light"] [class*="bg-gradient-to-t"],
-        html[data-theme="light"] [class*="bg-gradient-to-t"] .text-white,
-        html[data-theme="light"] [class*="bg-gradient-to-t"] .text-\[\#FFFFFF\],
-        html[data-theme="light"] [class*="bg-gradient-to-t"] [class*="text-white/"],
-        html[data-theme="light"] [class*="from-black"] .text-white,
-        html[data-theme="light"] [class*="from-black"] [class*="text-white/"] {
-            color: #FFFFFF !important;
+        #basin-galerisi [onclick*="openPhotoModal"] h3,
+        #video-arsivi [onclick*="openVideoModal"] h3,
+        html[data-theme="light"] #basin-galerisi [onclick*="openPhotoModal"] h3,
+        html[data-theme="light"] #video-arsivi [onclick*="openVideoModal"] h3 {
+            color: #000000 !important;
+            font-weight: 600 !important;
+            -webkit-text-fill-color: #000000 !important;
         }
-        html[data-theme="light"] #heroServiceCarousel > button [class*="text-white/"],
-        html[data-theme="light"] #video-arsivi [onclick*="openVideoModal"] [class*="text-white/"],
-        html[data-theme="light"] #basin-galerisi [onclick*="openPhotoModal"] [class*="text-white/"],
-        html[data-theme="light"] :is(button, a, div, article):has(> [class*="bg-gradient-to-t"]) [class*="text-white/"] {
-            color: rgba(255, 255, 255, 0.86) !important;
+        #basin-galerisi [onclick*="openPhotoModal"] p,
+        #video-arsivi [onclick*="openVideoModal"] p,
+        html[data-theme="light"] #basin-galerisi [onclick*="openPhotoModal"] p,
+        html[data-theme="light"] #video-arsivi [onclick*="openVideoModal"] p {
+            color: #374151 !important;
+            -webkit-text-fill-color: #374151 !important;
+        }
+        #basin-galerisi [onclick*="openPhotoModal"] .aspect-\[4\/3\],
+        #video-arsivi [onclick*="openVideoModal"] .aspect-\[4\/3\] {
+            background-color: #0B0B0C !important;
+        }
+        #basin-galerisi [onclick*="openPhotoModal"] .aspect-\[4\/3\] span,
+        #video-arsivi [onclick*="openVideoModal"] .aspect-\[4\/3\] span {
+            color: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
         }
         /* All overlay gradients and dark media cards MUST have crisp white text */
         [class*="bg-gradient-to-t"],
