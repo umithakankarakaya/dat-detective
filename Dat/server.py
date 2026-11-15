@@ -123,6 +123,13 @@ class DatRequestHandler(SimpleHTTPRequestHandler):
         except (BrokenPipeError, ConnectionResetError):
             pass
 
+    def translate_path(self, path):
+        clean_path = super().translate_path(path)
+        if not os.path.exists(clean_path):
+            if os.path.isfile(clean_path.rstrip("/") + ".html"):
+                return clean_path.rstrip("/") + ".html"
+        return clean_path
+
     def do_GET(self):
         parsed = urlparse(self.path)
         if parsed.path == "/api/presence":
