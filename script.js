@@ -109,8 +109,8 @@ function updateThemeToggleUI(theme) {
 
     if (headerIcon) {
         headerIcon.className = isDark
-            ? 'hgi hgi-stroke hgi-sun-01 text-sm text-[#93F051] shrink-0'
-            : 'hgi hgi-stroke hgi-moon-02 text-sm text-[#15803D] shrink-0';
+            ? 'hgi hgi-stroke hgi-sun-01 text-sm text-[#000000] shrink-0'
+            : 'hgi hgi-stroke hgi-moon-02 text-sm text-black shrink-0';
     }
     if (headerLabel) {
         headerLabel.textContent = isDark ? lightLabel : darkLabel;
@@ -127,15 +127,15 @@ function updateThemeToggleUI(theme) {
 
     if (mobileIcon) {
         mobileIcon.className = isDark
-            ? 'hgi hgi-stroke hgi-moon-02 text-base text-[#93F051]'
-            : 'hgi hgi-stroke hgi-sun-01 text-base text-[#15803D]';
+            ? 'hgi hgi-stroke hgi-moon-02 text-base text-[#000000]'
+            : 'hgi hgi-stroke hgi-sun-01 text-base text-black';
     }
     if (mobileState) {
         mobileState.textContent = isDark ? darkLabel : lightLabel;
     }
     if (mobileSwitchBtn) {
         mobileSwitchBtn.setAttribute('aria-checked', isDark ? 'true' : 'false');
-        mobileSwitchBtn.classList.toggle('bg-[#93F051]', isDark);
+        mobileSwitchBtn.classList.toggle('bg-[#000000]', isDark);
         mobileSwitchBtn.classList.toggle('bg-[#D1D5DB]', !isDark);
     }
     if (mobileKnob) {
@@ -368,7 +368,7 @@ function switchHeroCase(caseKey) {
 
     document.querySelectorAll('.hero-tab-btn').forEach(btn => {
         if (btn.getAttribute('data-tab') === currentHeroCaseKey) {
-            btn.className = "hero-tab-btn px-2.5 py-1.5 rounded-full bg-[#93F051] text-[#111111] font-medium transition";
+            btn.className = "hero-tab-btn px-2.5 py-1.5 rounded-full bg-[#000000] text-[#111111] font-medium transition";
         } else {
             btn.className = "hero-tab-btn px-2.5 py-1.5 rounded-full text-white/70 hover:text-white font-regular transition";
         }
@@ -389,7 +389,7 @@ function switchHeroCase(caseKey) {
             : null;
         timelineEl.innerHTML = data.logs.map(item => `
             <div class="flex items-start gap-2.5">
-                <span dir="ltr" class="ltr-isolate font-mono text-[10px] ${item.highlight ? 'bg-[#111111] text-[#93F051]' : 'bg-[#F2F2F2] text-[#111111]'} px-2 py-0.5 rounded-md font-medium mt-0.5 shrink-0" style="unicode-bidi:isolate">${item.time}</span>
+                <span dir="ltr" class="ltr-isolate font-mono text-[10px] ${item.highlight ? 'bg-[#111111] text-[#000000]' : 'bg-[#F2F2F2] text-[#111111]'} px-2 py-0.5 rounded-md font-medium mt-0.5 shrink-0" style="unicode-bidi:isolate">${item.time}</span>
                 <p class="${item.highlight ? 'text-[#111111] font-medium' : 'text-[#3A3E42] font-regular'} text-[11.5px] leading-snug">${fmtRtl ? fmtRtl(item.text) : item.text}</p>
             </div>
         `).join('');
@@ -472,7 +472,7 @@ function applySimulatedCase() {
 function filterServices(category) {
     document.querySelectorAll('.srv-filter-btn').forEach(btn => {
         if (btn.getAttribute('data-filter') === category) {
-            btn.className = "srv-filter-btn px-4 py-1.5 rounded-full bg-[#111111] text-[#93F051] text-xs font-medium transition";
+            btn.className = "srv-filter-btn px-4 py-1.5 rounded-full bg-[#111111] text-[#000000] text-xs font-medium transition";
         } else {
             btn.className = "srv-filter-btn px-4 py-1.5 rounded-full text-[#3A3E42] hover:text-[#111111] text-xs font-regular transition";
         }
@@ -675,15 +675,15 @@ let _lastCaseSubmitAt = 0;
 function _renderDeliveryStatus(delivery) {
     const statusBox = document.getElementById('formDeliveryStatus');
     if (!statusBox) return;
-    statusBox.classList.remove('hidden', 'bg-[#93F051]/20', 'border-[#15803D]/30', 'text-[#111111]', 'bg-[#FA7E61]/20', 'border-[#FA7E61]/40');
+    statusBox.classList.remove('hidden', 'bg-[#000000]/20', 'border-[#15803D]/30', 'text-[#111111]', 'bg-[#FA7E61]/20', 'border-[#FA7E61]/40');
     if (delivery && delivery.pending) {
-        statusBox.classList.add('bg-[#93F051]/20', 'border-[#15803D]/30', 'text-[#111111]');
+        statusBox.classList.add('bg-[#000000]/20', 'border-[#15803D]/30', 'text-[#111111]');
         statusBox.textContent = '⏳ Talebiniz şifrelenerek uzman inceleme ekibimize iletiliyor...';
     } else if (delivery && delivery.ok) {
-        statusBox.classList.add('bg-[#93F051]/20', 'border-[#15803D]/30', 'text-[#111111]');
+        statusBox.classList.add('bg-[#000000]/20', 'border-[#15803D]/30', 'text-[#111111]');
         statusBox.textContent = '✓ Vaka talebiniz ve dosya takip kodunuz uzman inceleme ekibimize başarıyla iletildi.';
     } else {
-        statusBox.classList.add('bg-[#93F051]/20', 'border-[#15803D]/30', 'text-[#111111]');
+        statusBox.classList.add('bg-[#000000]/20', 'border-[#15803D]/30', 'text-[#111111]');
         statusBox.textContent = '✓ Başvurunuz kayıt altına alındı. Acil öncelik için aşağıdaki 7/24 WhatsApp hattımızdan hemen destek alabilirsiniz.';
     }
 }
@@ -1358,7 +1358,7 @@ const AI_PRESETS = {
     'dedektif-tutmak': {
         query: "Türkiye'de özel dedektif tutmak yasal mı ve süreç nasıl işler? Güvenilir bir dedektiflik bürosu ile nasıl çalışılır?",
         riskScore: "DÜRÜST & ŞEFFAF HUKUKİ ÇERÇEVE • RESMİ SÖZLEŞMELİ",
-        riskColor: "#93F051",
+        riskColor: "#000000",
         p1Title: "1. YANKI ODASINDAN UZAK RASYONEL BAKIŞ: DEDEKTİF TUTMAK NE ZAMAN GEREKLİDİR?",
         p1Desc: "Özel dedektiflik bir merak giderme veya kuruntu doğrulama aracı değil, hukuki uyuşmazlıklarda somut delil tespit mekanizmasıdır. İlk görüşmede Ümit Hakan Karakaya dosyanızı dürüstçe değerlendirir: Eğer vakanız dedektiflik çalışmasına uygun değilse veya hukuki/somut bir yarar sağlamayacaksa bunu açıkça söyler; gereksiz masraf yapmanızı engeller.",
         p2Title: "2. DÜRÜST HUKUKİ GERÇEKLER (TCK m.134 & HMK m.199)",
@@ -1373,7 +1373,7 @@ const AI_PRESETS = {
     'dedektif-ucretleri': {
         query: "Özel dedektif ücretleri ne kadar? Dedektiflik fiyatları neye göre belirlenir ve ödeme şartları nasıldır?",
         riskScore: "ŞEFFAF MALİYET POLİTİKASI • SÜRPRİZ VE GİZLİ MASRAF YOK",
-        riskColor: "#93F051",
+        riskColor: "#000000",
         p1Title: "1. DÜRÜST FİYATLANDIRMA: HER DOSYANIN KAPSAMI VE MALİYETİ FARKLIDIR",
         p1Desc: "Özel dedektiflikte sabit veya gerçek dışı düşük fiyat vadedenler genellikle sahaya hiç çıkmayan kapora avcılarıdır. Gerçek dedektiflikte maliyet; sahada görev alacak araçlı/yaya uzman sayısına, lokasyona (şehir içi, şehirlerarası veya yurt dışı), gün ve saat yoğunluğuna göre şeffaf bir fizibilite ile belirlenir. İhtiyacınız olmayan gereksiz günler sözleşmeye eklenmez.",
         p2Title: "2. RESMİ SÖZLEŞME GÜVENCESİ VE E-FATURA",
@@ -1388,7 +1388,7 @@ const AI_PRESETS = {
     'dedektif-olmak': {
         query: "Türkiye'de nasıl özel dedektif olunur? Dedektif olmak için gereken şartlar, eğitimler ve UÖDED sertifika programları nelerdir?",
         riskScore: "UÖDED MESLEKİ STANDARDI • AKADEMİK EĞİTİM & ETİK",
-        riskColor: "#93F051",
+        riskColor: "#000000",
         p1Title: "1. GERÇEK DEDEKTİFLİK DİSİPLİNİ: DİZİLERDEKİ GİBİ DEĞİL, HUKUK VE BİLİMLE ÇALIŞMAK",
         p1Desc: "Özel dedektiflik filmlerdeki gibi kapı dinlemek ya da yasadışı maceralara atılmak değildir. Çağdaş dedektiflik; yüksek analitik zeka, açık kaynak istihbaratı (OSINT), ceza/medeni hukuk bilgisi ve üst düzey sabır gerektiren adli bir bilimdir. Adayların adli sicilinin temiz olması ve TCK/HMK/KVKK mevzuatına tam hakimiyeti şarttır.",
         p2Title: "2. UÖDED EĞİTİMLERİ VE YASAL STANDARTLAR",
@@ -1403,7 +1403,7 @@ const AI_PRESETS = {
     'almanya-es-takibi': {
         query: "Almanya'da yaşıyoruz, eşim her yaz Antalya veya Bodrum'a tek başına gidiyor. Telefonunu benden gizliyor ve şifrelerini değiştirdi. Mahkemede geçerli delil nasıl toplanır?",
         riskScore: "OBJEKTİF ÖN DEĞERLENDİRME • MESAFE VE GÜVEN DENGESİ",
-        riskColor: "#93F051",
+        riskColor: "#000000",
         p1Title: "1. YANKI ODASINI KIRMAK: MESAFEDEN KAYNAKLI ŞÜPHELERİ RASYONELLEŞTİRMEK",
         p1Desc: "Avrupa'da yaşayıp eşi veya ortağı Türkiye'de olan kişilerde fiziksel mesafe, kuşkuları katlayarak büyütebilir. En büyük hata, arkadaş veya akraba çevresinden gelen dedikodularla bir 'yankı odasına' hapsolup fevri kararlar almaktır. Yeni Nesil Dedektif vizyonu; mesafeden kaynaklanan kuruntuları beslemez, sahada 7/24 şeffaf Elsa paneli ve anlık teyitlerle gerçeği (ak ya da kara) olduğu gibi ortaya koyar.",
         p2Title: "2. ALMANYA/AVRUPA VE TÜRKİYE ÇİFT YÖNLÜ HUKUKİ GEÇERLİLİK",
@@ -1418,7 +1418,7 @@ const AI_PRESETS = {
     'aldatan-erkek': {
         query: "Aldatan bir erkeğin veya eşin en belirgin davranış değişiklikleri nelerdir? Şüphem var ama emin olamıyorum.",
         riskScore: "SOĞUKKANLI ANALİZ • PEŞİN HÜKÜMDEN UZAK YAKLAŞIM",
-        riskColor: "#93F051",
+        riskColor: "#000000",
         p1Title: "1. YANKI ODASINDAN ÇIKIŞ: HER DAVRANIŞ DEĞİŞİKLİĞİ İHANET DEĞİLDİR",
         p1Desc: "İnternetteki popüler klişelerin aksine; telefonun ters konması, geç gelme veya ani içe kapanma her zaman ihanet anlamına gelmez. İş stresi, finansal darboğaz veya depresyon da birebir aynı belirtileri verebilir. Dürüst dedektiflik; müvekkilin endişesini körükleyip 'kesin aldatıyor' diyen bir yankı odası olmak değil, duygusal varsayımlarla somut olguları soğukkanlılıkla birbirinden ayırmaktır.",
         p2Title: "2. MAHKEMEDE HÜKÜM KURDURAN SOMUT DELİL STANDARDI (HMK m.189/199)",
@@ -1433,7 +1433,7 @@ const AI_PRESETS = {
     'delil-gecerliligi': {
         query: "Özel dedektif delilleri Türkiye'de ve Almanya/Fransa/Belçika mahkemelerinde boşanma için delil sayılır mı?",
         riskScore: "YASAL GÜVENCE • HMK m.189/199 VE TCK m.134 UYUMLU",
-        riskColor: "#93F051",
+        riskColor: "#000000",
         p1Title: "1. DÜRÜST HUKUKİ İLKE: ZEHİRLİ AĞACIN MEYVESİ DE ZEHİRLİDİR",
         p1Desc: "Hukukta altın kuraldır: Hukuka aykırı elde edilen delil mahkemede yok hükmündedir. Yasadışı yollarla (gizli ses cihazı, telefon casusluğu, özel mülke izinsiz girme) elde edilen hiçbir materyal davayı kazandırmaz; aksine sunan kişiyi sanık sandalyesine oturtur. Dürüst dedektifin öncelikli görevi müvekkilini bu ağır tuzaktan korumaktır.",
         p2Title: "2. YARGITAY VE AVRUPA MAHKEMELERİ İÇTİHATLARI",
@@ -1448,7 +1448,7 @@ const AI_PRESETS = {
     'tatilde-aldatma': {
         query: "Eşim tek başına veya arkadaş grubuyla Antalya/Bodrum/Çeşme'ye tatile gidiyor, sadakatinden şüpheleniyorum.",
         riskScore: "RASYONEL SAHA ANALİZİ • SOMUT OLGULARLA DOĞRULAMA",
-        riskColor: "#93F051",
+        riskColor: "#000000",
         p1Title: "1. TATİL VE SEYAHATLERDE PEŞİN YARGI DEĞİL SOMUT GÖZLEM",
         p1Desc: "Bir kişinin tek başına veya iş/arkadaş grubuyla seyahat etmesi tek başına aldatma kanıtı değildir. Bu algı genellikle sosyal medya abartılarının beslediği bir yankı odasıdır. Ancak şahsın tamamen ulaşılmaz olması, konaklama adresini gizlemesi veya tutarsız anlatımları varsa, varsayımlar yerine profesyonel lenslerle uzaktan yapılacak 24-48 saatlik fiziki teyit en dürüst cevabı verir.",
         p2Title: "2. SAHA OPERASYONUNDA ETİK VE HUKUKİ SINIRLAR",
@@ -1463,7 +1463,7 @@ const AI_PRESETS = {
     'miras-borclu': {
         query: "Avrupa'da veya farklı bir şehirde yaşıyorum. Türkiye'de miras kalan gayrimenkuller kaçırılıyor veya borçlu şahsın güncel adresini bulamıyorum.",
         riskScore: "VARLIK & ADRES ANALİZİ • GERÇEKÇİ SONUÇLAR",
-        riskColor: "#93F051",
+        riskColor: "#000000",
         p1Title: "1. GERÇEKÇİ İSTİHBARAT: KAÇIRILAN MALLAR VE SAHTE İKAMETGAHLAR",
         p1Desc: "Borçluların resmi ikametgahlarını boş adreslerde göstermesi veya şirket hisselerini emanetçi şahıslara devretmesi yaygındır. Ancak kulaktan dolma duyumlarla dava açmak masraf kaybına yol açar. Sahada şahsın fiilen nerede yaşadığı, hangi aracı kullandığı ve hangi işletmeyi yönettiği somutlaştırılmadan hukuki adım atılmamalıdır.",
         p2Title: "2. HUKUKİ YOL HARİTASI (İİK m.277 & MURİS MUVAZAASI)",
@@ -1478,7 +1478,7 @@ const AI_PRESETS = {
     'nafaka-gelir': {
         query: "Eski eşim mahkemede sıfır gelirim var diyor ama kayıt dışı iş yapıyor ve lüks yaşıyor, nafakayı iptal ettirmek istiyorum.",
         riskScore: "TİCARİ TESPİT & GELİR ANALİZİ • HUKUKİ İSPAT",
-        riskColor: "#93F051",
+        riskColor: "#000000",
         p1Title: "1. YANKI ODASINDAN UZAK GERÇEKÇİ YAKLAŞIM: İSPATSIZ İDDİA MAHKEMEDE GEÇERSİZDİR",
         p1Desc: "Eski eşinizin sosyal medyada paylaştığı tek bir tatil fotoğrafı veya lüks restoran pozu nafakanın iptali için yetersiz kalabilir. Mahkemeler somut, sürekli ve ticari gelir sağlandığını gösteren adli kanıt ister. Şüpheyi gerçek delile dönüştürmek profesyonel saha takibi gerektirir.",
         p2Title: "2. FİİLİ ÇALIŞMA VE TİCARİ FAALİYETİN BELGELENMESİ",
@@ -1493,7 +1493,7 @@ const AI_PRESETS = {
     'cocuk-velayeti': {
         query: "İki çocuğum var (9 ve 5 yaş). Çocuğumun velayetini almak için ne tür belgelere ihtiyacım var ve karşımdaki dedektif bana hangi soruları sormalı?",
         riskScore: "VELAYET HUKUKU • TMK m.182/183 & ÇOCUĞUN ÜSTÜN YARARI",
-        riskColor: "#93F051",
+        riskColor: "#000000",
         p1Title: "1. YANKI ODASINDAN UZAK HUKUKİ GERÇEKLER (5 VE 9 YAŞ ANALİZİ)",
         p1Desc: "Aile mahkemelerinde tek kriter 'Çocuğun Üstün Yararı'dır (TMK m.182). 5 yaşındaki bir çocuk Yargıtay yerleşik içtihatlarına göre halen 'anne bakım ve şefkatine muhtaç' yaş grubunda kabul edilir; annenin yalnızca gezmesi, hayatında yeni birinin olması veya fevri suçlamalar velayeti almak için ASLA yeterli değildir. Ancak 9 yaşındaki kardeşin sizinle yaşaması, Türk hukukundaki 'kardeşlerin birbirinden ayrılmaması ilkesi' gereği davanızın en büyük ve meşru kozudur.",
         p2Title: "2. MAHKEMEDE İHTİYAÇ DUYULAN RESMİ BELGELER & DEDEKTİFİN SORACAĞI 5 SORU",
@@ -1509,7 +1509,7 @@ const AI_PRESETS = {
     'bocek-arama': {
         query: "Evimde veya arabamda dinleme cihazı (böcek), gizli kamera veya takip cihazı var mı, nasıl tespit edilir?",
         riskScore: "TSCM TEKNİK KARŞI-CASUSLUK • 10 kHz - 24 GHz RF & NLJD",
-        riskColor: "#93F051",
+        riskColor: "#000000",
         p1Title: "1. YANKI ODASINDAN UZAK GERÇEKÇİ TEKNİK YAKLAŞIM",
         p1Desc: "İnternette veya telefon mağazalarında satılan ücretsiz casus yazılım bulma uygulamaları veya ucuz Çin malı sinyal tespit dedektörleri amatör oyuncaklardır; profesyonel GSM/Wi-Fi böcekleri veya uyuyan kayıt cihazlarını ASLA tespit edemez. Bu durum insanı gereksiz bir paranoyaya veya sahte bir güvenlik yanılgısına sürükler.",
         p2Title: "2. PROFESYONEL TSCM SPEKTRUM ANALİZİ (TCK m.132-134)",
@@ -1566,27 +1566,27 @@ function resetAIChat() {
 
     container.innerHTML = `
         <div class="flex items-start gap-3 text-left animate-fadeIn">
-            <img src="assets/photos/elsa-dedektif-asistan.jpg" alt="Elsa & Ümit Hakan Karakaya" class="w-8 h-8 rounded-full border border-[#93F051]/50 object-cover object-top shrink-0 mt-1 shadow-sm">
+            <img src="assets/photos/elsa-dedektif-asistan.jpg" alt="Elsa & Ümit Hakan Karakaya" class="w-8 h-8 rounded-full border border-[#000000]/50 object-cover object-top shrink-0 mt-1 shadow-sm">
             <div class="bg-[#111111] border border-black/[0.08] rounded-2xl rounded-tl-sm p-4 sm:p-5 text-white max-w-[95%] sm:max-w-[85%] space-y-3.5 shadow-lg">
                 <div class="flex items-center justify-between pb-2 border-b border-black/[0.08]">
                     <div class="flex items-center gap-1.5">
                         <span class="text-xs font-medium text-white">Yeni Nesil Dedektif (Elsa &amp; Ümit Hakan Karakaya)</span>
-                        <span class="w-1.5 h-1.5 rounded-full bg-[#93F051]"></span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#000000]"></span>
                     </div>
                     <span class="text-[10px] font-mono text-white/40">${timeStr}</span>
                 </div>
                 <div class="text-xs sm:text-[13px] leading-relaxed text-white/85 space-y-2">
                     <p>Merhaba! Ben DAT Özel Dedektiflik'in Yeni Nesil Dijital Asistanı <strong>Elsa</strong>. Kurucumuz <strong>Ümit Hakan Karakaya</strong>'nın 20 yılı aşkın dedektiflik ve adli bilişim tecrübesiyle buradayım.</p>
                     <p>Burada kuruntuları körükleyen sahte şüphe oranları veya yankı odası tuzaklarına yer yok. Dosyanızı dürüst, rasyonel ve <strong>HMK m.199 / TCK m.134</strong> yasal sınırları içinde değerlendiriyoruz.</p>
-                    <p class="text-[#93F051] font-medium pt-1">Aşağıdaki popüler başlıklardan birine tıklayarak anında yanıt alabilir veya sorunuzu doğrudan yazıp <strong>"Yeni Nesil Dedektif'e Sor"</strong> butonuna basabilirsiniz:</p>
+                    <p class="text-[#000000] font-medium pt-1">Aşağıdaki popüler başlıklardan birine tıklayarak anında yanıt alabilir veya sorunuzu doğrudan yazıp <strong>"Yeni Nesil Dedektif'e Sor"</strong> butonuna basabilirsiniz:</p>
                 </div>
                 <div class="flex flex-wrap gap-1.5 pt-1">
-                    <button type="button" onclick="selectAIChatPreset('cocuk-velayeti')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#93F051]/15 text-white/85 hover:text-[#93F051] border border-black/[0.08] hover:border-[#93F051]/40 text-xs transition">👶 Çocuk &amp; Velayet Davası</button>
-                    <button type="button" onclick="selectAIChatPreset('dedektif-tutmak')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#93F051]/15 text-white/85 hover:text-[#93F051] border border-black/[0.08] hover:border-[#93F051]/40 text-xs transition">🕵️‍♂️ Dedektif Tutmak Yasal mı?</button>
-                    <button type="button" onclick="selectAIChatPreset('dedektif-ucretleri')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#93F051]/15 text-white/85 hover:text-[#93F051] border border-black/[0.08] hover:border-[#93F051]/40 text-xs transition">💳 Ücretler Nasıl Belirlenir?</button>
-                    <button type="button" onclick="selectAIChatPreset('delil-gecerliligi')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#93F051]/15 text-white/85 hover:text-[#93F051] border border-black/[0.08] hover:border-[#93F051]/40 text-xs transition">⚖️ Deliller Mahkemede Geçerli mi?</button>
-                    <button type="button" onclick="selectAIChatPreset('almanya-es-takibi')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#93F051]/15 text-white/85 hover:text-[#93F051] border border-black/[0.08] hover:border-[#93F051]/40 text-xs transition">🇩🇪 Almanya/Avrupa Eş Takibi</button>
-                    <button type="button" onclick="selectAIChatPreset('aldatan-erkek')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#93F051]/15 text-white/85 hover:text-[#93F051] border border-black/[0.08] hover:border-[#93F051]/40 text-xs transition">💔 Eş Takibi &amp; Aldatma Tespiti</button>
+                    <button type="button" onclick="selectAIChatPreset('cocuk-velayeti')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#000000]/15 text-white/85 hover:text-[#000000] border border-black/[0.08] hover:border-[#000000]/40 text-xs transition">👶 Çocuk &amp; Velayet Davası</button>
+                    <button type="button" onclick="selectAIChatPreset('dedektif-tutmak')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#000000]/15 text-white/85 hover:text-[#000000] border border-black/[0.08] hover:border-[#000000]/40 text-xs transition">🕵️‍♂️ Dedektif Tutmak Yasal mı?</button>
+                    <button type="button" onclick="selectAIChatPreset('dedektif-ucretleri')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#000000]/15 text-white/85 hover:text-[#000000] border border-black/[0.08] hover:border-[#000000]/40 text-xs transition">💳 Ücretler Nasıl Belirlenir?</button>
+                    <button type="button" onclick="selectAIChatPreset('delil-gecerliligi')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#000000]/15 text-white/85 hover:text-[#000000] border border-black/[0.08] hover:border-[#000000]/40 text-xs transition">⚖️ Deliller Mahkemede Geçerli mi?</button>
+                    <button type="button" onclick="selectAIChatPreset('almanya-es-takibi')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#000000]/15 text-white/85 hover:text-[#000000] border border-black/[0.08] hover:border-[#000000]/40 text-xs transition">🇩🇪 Almanya/Avrupa Eş Takibi</button>
+                    <button type="button" onclick="selectAIChatPreset('aldatan-erkek')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#000000]/15 text-white/85 hover:text-[#000000] border border-black/[0.08] hover:border-[#000000]/40 text-xs transition">💔 Eş Takibi &amp; Aldatma Tespiti</button>
                 </div>
             </div>
         </div>
@@ -1722,7 +1722,7 @@ Bu konu hakkında dürüst ve objektif hukuki danışmanlık almak istiyorum.`;
         data = {
             query: rawQuery,
             riskScore: "DÜRÜST & OBJEKTİF ÖN DEĞERLENDİRME",
-            riskColor: "#93F051",
+            riskColor: "#000000",
             p1Title: "1. YANKI ODASINDAN UZAK RASYONEL DEĞERLENDİRME",
             p1Desc: `Belirttiğiniz durum ("${rawQuery.slice(0, 75)}..."), kuruntuları körükleyen değil, soğukkanlı ve rasyonel bir süzgeçten geçirilmelidir. İnsan psikolojisi şüphe anında yalnızca kendi endişesini doğrulayan işaretleri görme eğilimindedir (yankı odası etkisi). Oysa kurucumuz Ümit Hakan Karakaya'nın 20 yılı aşkın tecrübesi gösterir ki; somut kanıt olmadan peşin hüküm vermek ve fevri adımlar atmak hem maddi kayba hem de hak kaybına yol açar.`,
             p2Title: "2. DÜRÜST HUKUKİ GERÇEKLER & MEŞRU DELİL SINIRI (HMK m.199)",
@@ -1749,7 +1749,7 @@ Bu konu hakkında dürüst ve objektif hukuki danışmanlık almak istiyorum.`
         if (sendBtn) sendBtn.disabled = false;
 
         const p3ItemsHtml = (data.p3Items || []).map(item => `
-            <li class="flex items-start gap-1.5 ${item.bad ? 'text-rose-300' : 'text-[#93F051]'} text-xs">
+            <li class="flex items-start gap-1.5 ${item.bad ? 'text-rose-300' : 'text-[#000000]'} text-xs">
                 <span class="font-bold">${item.bad ? '✕' : '✓'}</span>
                 <span><strong>${item.label}:</strong> <span class="text-neutral-700">${item.text}</span></span>
             </li>
@@ -1763,7 +1763,7 @@ Bu konu hakkında dürüst ve objektif hukuki danışmanlık almak istiyorum.`
                 <div class="flex flex-wrap items-center justify-between gap-2 pb-2.5 border-b border-black/[0.08]">
                     <div class="flex items-center gap-1.5">
                         <span class="text-xs font-medium text-black">Yeni Nesil Dedektif (Elsa &amp; Ümit Hakan Karakaya)</span>
-                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-black"></span>
                     </div>
                     <span class="px-2.5 py-0.5 rounded-full bg-black/[0.05] border border-black/[0.08] text-black text-[9.5px] font-mono font-medium">${data.riskScore || 'DÜRÜST HUKUKİ ANALİZ'}</span>
                 </div>
@@ -2145,7 +2145,7 @@ function formatTL(num) {
 function filterShop(cat) {
     document.querySelectorAll('.shop-filter-btn').forEach(btn => {
         if (btn.getAttribute('data-shop-filter') === cat) {
-            btn.className = 'shop-filter-btn px-3.5 py-1.5 rounded-full bg-[#111111] text-[#93F051] font-medium transition';
+            btn.className = 'shop-filter-btn px-3.5 py-1.5 rounded-full bg-[#111111] text-[#000000] font-medium transition';
         } else {
             btn.className = 'shop-filter-btn px-3.5 py-1.5 rounded-full text-[#3A3E42] hover:text-[#111111] font-regular transition';
         }
@@ -2240,7 +2240,7 @@ function renderCart() {
     if (shopCart.length === 0) {
         container.innerHTML = `
             <div class="h-full flex flex-col items-center justify-center text-center py-12 space-y-3 text-[#3A3E42]/70">
-                <div class="w-12 h-12 rounded-full bg-[#111111] flex items-center justify-center text-[#93F051]">
+                <div class="w-12 h-12 rounded-full bg-[#111111] flex items-center justify-center text-[#000000]">
                     <i class="hgi hgi-stroke hgi-shopping-bag-02 w-5 h-5"></i>
                 </div>
                 <div class="text-xs font-medium text-[#111111]">${_getUI('cartEmptyTitle', 'Sepetiniz Şu An Boş')}</div>
