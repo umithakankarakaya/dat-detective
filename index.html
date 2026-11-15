@@ -2488,9 +2488,9 @@
                             </div>
 
                             <!-- Input Row -->
-                            <div class="flex items-end gap-2 bg-[#1A1A1D] border border-white/15 focus-within:border-[#93F051] rounded-2xl p-1.5 pl-3 transition shadow-inner">
-                                <textarea id="aiChatInput" rows="1" placeholder="Yeni Nesil Dedektif'e merak ettiğiniz konuyu dürüstçe sorun..." class="flex-1 bg-transparent border-0 text-xs sm:text-sm text-white placeholder-white/40 focus:outline-none resize-none py-2 max-h-28 leading-relaxed"></textarea>
-                                <button type="button" id="aiSendBtn" onclick="sendAIChatMessage()" class="px-4 sm:px-5 py-2.5 rounded-xl bg-[#93F051] hover:bg-[#82dc43] text-[#111111] font-semibold text-xs sm:text-sm flex items-center justify-center gap-1.5 shrink-0 transition active:scale-95 shadow-md shadow-[#93F051]/20">
+                            <div class="flex flex-col sm:flex-row items-stretch sm:items-end gap-2 bg-[#1A1A1D] border border-white/15 focus-within:border-[#93F051] rounded-2xl p-2 sm:p-1.5 sm:pl-3 transition shadow-inner">
+                                <textarea id="aiChatInput" rows="2" placeholder="Yeni Nesil Dedektif'e sorunuzu veya vakanızı yazın (örn: Yasal sınırlar, delil geçerliliği, ücretler...)" class="flex-1 bg-transparent border-0 text-xs sm:text-sm text-white placeholder-white/40 focus:outline-none resize-none py-1.5 sm:py-2 max-h-28 leading-relaxed"></textarea>
+                                <button type="button" id="aiSendBtn" onclick="sendAIChatMessage()" class="w-full sm:w-auto px-4 sm:px-5 py-3 sm:py-2.5 rounded-xl bg-[#93F051] hover:bg-[#82dc43] text-[#111111] font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 shrink-0 transition active:scale-95 shadow-md shadow-[#93F051]/20">
                                     <span>Yeni Nesil Dedektif'e Sor</span>
                                     <i class="hgi hgi-stroke hgi-sent w-4 h-4 text-[#111111]"></i>
                                 </button>
@@ -5317,7 +5317,7 @@
     </div>
 
     <!-- Core Interactive Scripts & 7-Language i18n Engine -->
-    <script src="script.js?v=7.2"></script>
+    <script src="script.js?v=8.0"></script>
     <script src="lang/en.js?v=7.2"></script>
     <script src="lang/de.js?v=7.2"></script>
     <script src="lang/fr.js?v=7.2"></script>
