@@ -1321,6 +1321,21 @@
             -webkit-text-fill-color: #000000 !important;
         }
         
+    
+        /* Guaranteed contrast on all hover-black elements */
+        .group:hover .group-hover\:bg-black,
+        .group:hover .group-hover\:bg-\[\#000000\],
+        .group:hover .group-hover\:bg-\[\#111111\] {
+            background-color: #000000 !important;
+            color: #FFFFFF !important;
+        }
+        .group:hover .group-hover\:bg-black *,
+        .group:hover .group-hover\:bg-\[\#000000\] *,
+        .group:hover .group-hover\:bg-\[\#111111\] * {
+            color: #FFFFFF !important;
+            stroke: #FFFFFF !important;
+        }
+
     </style>
 
     <!-- OpenAI Exact Typography & Color System -->
@@ -3918,108 +3933,72 @@
                     </div>
                     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
                         
-                        <article onclick="openArticleModal('yilin-enleri')" class="group rounded-[26px] overflow-hidden bg-[#E6FAD8] cursor-pointer transition hover:-translate-y-1 flex flex-col shadow-xl">
-                            <div class="flex items-stretch">
-                                <div style="background:#000000" class="rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center shrink-0">
-                                    <span class="font-mono text-[10px] font-medium text-[#111111]">ÖDÜL & BASIN</span>
+                        <article onclick="openArticleModal('yilin-enleri')" class="group rounded-[22px] bg-[#FFFFFF] border border-black/[0.08] hover:border-black/60 cursor-pointer transition-all duration-300 flex flex-col justify-between p-6 space-y-5 shadow-sm hover:shadow-md">
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between">
+                                    <span class="px-2.5 py-0.5 rounded-full bg-black/[0.05] border border-black/[0.1] text-black font-mono text-[10px] font-medium">ÖDÜL & BASIN</span>
+                                    <span class="font-mono text-[10px] text-neutral-500">DAT GROUP</span>
                                 </div>
-                                <svg class="w-7 h-[32px] shrink-0 block -ml-px -mb-px" viewBox="0 0 32 34" preserveAspectRatio="none" fill="none" aria-hidden="true">
-                                    <path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#000000"/>
-                                </svg>
-                                <div class="flex-1 flex items-center justify-end pr-4 pl-2">
-                                    <span class="font-mono text-[10px] font-medium px-2 py-0.5 rounded-full bg-[#F7F7F8]/10 text-[#111111] truncate">DAT GROUP</span>
+                                <div class="w-10 h-10 rounded-xl bg-black/[0.04] text-black flex items-center justify-center">
+                                    <i class="hgi hgi-stroke hgi-champion w-4 h-4"></i>
                                 </div>
+                                <h3 class="text-base font-medium text-black leading-snug group-hover:text-black transition">Yılın En'leri Ödül Töreni — Yılın En İyi Araştırma Takip Firması</h3>
+                                <p class="text-[13px] text-[#3A3E42] font-regular leading-relaxed">Ekonomize Dergisi ve Ankara Sesi Gazetesi işbirliğinde düzenlenen törende DAT Group "Yılın Başarılı Araştırma Takip Firması" ödülüne layık görüldü.</p>
                             </div>
-                            <div style="background:#000000" class="-mt-px rounded-tr-[24px] rounded-b-[24px] p-6 flex-1 flex flex-col justify-between space-y-5">
-                                <div class="space-y-3">
-                                    <div class="w-10 h-10 rounded-xl bg-[#F7F7F8] text-[#000000] flex items-center justify-center">
-                                        <i class="hgi hgi-stroke hgi-champion w-4 h-4"></i>
-                                    </div>
-                                    <h3 class="text-base font-medium text-[#111111] leading-snug">Yılın En'leri Ödül Töreni — Yılın En İyi Araştırma Takip Firması</h3>
-                                    <p class="text-[13px] text-[#111111]/80 font-regular leading-relaxed">Ekonomize Dergisi ve Ankara Sesi Gazetesi işbirliğinde düzenlenen törende DAT Group "Yılın Başarılı Araştırma Takip Firması" ödülüne layık görüldü.</p>
-                                </div>
-                                <div class="w-full py-2.5 px-4 rounded-full bg-[#F7F7F8] group-hover:bg-[#000000] text-white text-xs font-medium flex items-center justify-between transition">
-                                    <span>Makaleyi Oku</span>
-                                    <i class="hgi hgi-stroke hgi-arrow-right-02 w-3.5 h-3.5 text-black"></i>
-                                </div>
+                            <div class="w-full py-2.5 px-4 rounded-full bg-black/[0.04] group-hover:bg-black text-black group-hover:text-white text-xs font-medium flex items-center justify-between transition">
+                                <span>Makaleyi Oku</span>
+                                <i class="hgi hgi-stroke hgi-arrow-right-02 w-3.5 h-3.5 text-black group-hover:text-white transition"></i>
                             </div>
                         </article>
-                        <article onclick="openArticleModal('es-takibi-rehberi')" class="group rounded-[26px] overflow-hidden bg-[#E9E9EC] cursor-pointer transition hover:-translate-y-1 flex flex-col shadow-xl">
-                            <div class="flex items-stretch">
-                                <div style="background:#FFFFFF" class="rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center shrink-0">
-                                    <span class="font-mono text-[10px] font-medium text-[#111111]">EŞ TAKİBİ REHBERİ</span>
+                        <article onclick="openArticleModal('es-takibi-rehberi')" class="group rounded-[22px] bg-[#FFFFFF] border border-black/[0.08] hover:border-black/60 cursor-pointer transition-all duration-300 flex flex-col justify-between p-6 space-y-5 shadow-sm hover:shadow-md">
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between">
+                                    <span class="px-2.5 py-0.5 rounded-full bg-black/[0.05] border border-black/[0.1] text-black font-mono text-[10px] font-medium">EŞ TAKİBİ REHBERİ</span>
+                                    <span class="font-mono text-[10px] text-neutral-500">TMK m.161 & DELİL</span>
                                 </div>
-                                <svg class="w-7 h-[32px] shrink-0 block -ml-px -mb-px" viewBox="0 0 32 34" preserveAspectRatio="none" fill="none" aria-hidden="true">
-                                    <path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#FFFFFF"/>
-                                </svg>
-                                <div class="flex-1 flex items-center justify-end pr-4 pl-2">
-                                    <span class="font-mono text-[10px] font-medium px-2 py-0.5 rounded-full bg-[#F7F7F8]/10 text-[#111111] truncate">TMK m.161 & DELİL</span>
+                                <div class="w-10 h-10 rounded-xl bg-black/[0.04] text-black flex items-center justify-center">
+                                    <i class="hgi hgi-stroke hgi-user-check-01 w-4 h-4"></i>
                                 </div>
+                                <h3 class="text-base font-medium text-black leading-snug group-hover:text-black transition">Eşinden Şüpheleniyor İsen Takip Et! Aldatma Belirtileri</h3>
+                                <p class="text-[13px] text-[#3A3E42] font-regular leading-relaxed">Hayatını paylaştığı insana dürüst davranmayan kişilerin sergilediği davranış değişiklikleri ve mahkemede geçerli delil toplamanın altın kuralları.</p>
                             </div>
-                            <div style="background:#FFFFFF" class="-mt-px rounded-tr-[24px] rounded-b-[24px] p-6 flex-1 flex flex-col justify-between space-y-5">
-                                <div class="space-y-3">
-                                    <div class="w-10 h-10 rounded-xl bg-[#F7F7F8] text-[#000000] flex items-center justify-center">
-                                        <i class="hgi hgi-stroke hgi-user-check-01 w-4 h-4"></i>
-                                    </div>
-                                    <h3 class="text-base font-medium text-[#111111] leading-snug">Eşinden Şüpheleniyor İsen Takip Et! Aldatma Belirtileri</h3>
-                                    <p class="text-[13px] text-[#111111]/80 font-regular leading-relaxed">Hayatını paylaştığı insana dürüst davranmayan kişilerin sergilediği davranış değişiklikleri ve mahkemede geçerli delil toplamanın altın kuralları.</p>
-                                </div>
-                                <div class="w-full py-2.5 px-4 rounded-full bg-[#F7F7F8] group-hover:bg-[#000000] text-white text-xs font-medium flex items-center justify-between transition">
-                                    <span>Makaleyi Oku</span>
-                                    <i class="hgi hgi-stroke hgi-arrow-right-02 w-3.5 h-3.5 text-black"></i>
-                                </div>
+                            <div class="w-full py-2.5 px-4 rounded-full bg-black/[0.04] group-hover:bg-black text-black group-hover:text-white text-xs font-medium flex items-center justify-between transition">
+                                <span>Makaleyi Oku</span>
+                                <i class="hgi hgi-stroke hgi-arrow-right-02 w-3.5 h-3.5 text-black group-hover:text-white transition"></i>
                             </div>
                         </article>
-                        <article onclick="openArticleModal('nisanli-arastirmasi')" class="group rounded-[26px] overflow-hidden bg-[#EEFBC5] cursor-pointer transition hover:-translate-y-1 flex flex-col shadow-xl">
-                            <div class="flex items-stretch">
-                                <div style="background:#000000" class="rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center shrink-0">
-                                    <span class="font-mono text-[10px] font-medium text-[#111111]">EVLİLİK ÖNCESİ</span>
+                        <article onclick="openArticleModal('nisanli-arastirmasi')" class="group rounded-[22px] bg-[#FFFFFF] border border-black/[0.08] hover:border-black/60 cursor-pointer transition-all duration-300 flex flex-col justify-between p-6 space-y-5 shadow-sm hover:shadow-md">
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between">
+                                    <span class="px-2.5 py-0.5 rounded-full bg-black/[0.05] border border-black/[0.1] text-black font-mono text-[10px] font-medium">EVLİLİK ÖNCESİ</span>
+                                    <span class="font-mono text-[10px] text-neutral-500">ÖNLEYİCİ TAHKİKAT</span>
                                 </div>
-                                <svg class="w-7 h-[32px] shrink-0 block -ml-px -mb-px" viewBox="0 0 32 34" preserveAspectRatio="none" fill="none" aria-hidden="true">
-                                    <path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#000000"/>
-                                </svg>
-                                <div class="flex-1 flex items-center justify-end pr-4 pl-2">
-                                    <span class="font-mono text-[10px] font-medium px-2 py-0.5 rounded-full bg-[#F7F7F8]/10 text-[#111111] truncate">ÖNLEYİCİ TAHKİKAT</span>
+                                <div class="w-10 h-10 rounded-xl bg-black/[0.04] text-black flex items-center justify-center">
+                                    <i class="hgi hgi-stroke hgi-agreement-01 w-4 h-4"></i>
                                 </div>
+                                <h3 class="text-base font-medium text-black leading-snug group-hover:text-black transition">Nişanlı Araştırması: Nişanlımın Geçmişini Öğrenmek İstiyorum</h3>
+                                <p class="text-[13px] text-[#3A3E42] font-regular leading-relaxed">Evlilik kararı almadan önce müstakbel eşinizin gerçek kimliği, mali geçmişi ve sosyal çevresi hakkında yapılan gizli tahkikatın önemi.</p>
                             </div>
-                            <div style="background:#000000" class="-mt-px rounded-tr-[24px] rounded-b-[24px] p-6 flex-1 flex flex-col justify-between space-y-5">
-                                <div class="space-y-3">
-                                    <div class="w-10 h-10 rounded-xl bg-[#F7F7F8] text-[#000000] flex items-center justify-center">
-                                        <i class="hgi hgi-stroke hgi-agreement-01 w-4 h-4"></i>
-                                    </div>
-                                    <h3 class="text-base font-medium text-[#111111] leading-snug">Nişanlı Araştırması: Nişanlımın Geçmişini Öğrenmek İstiyorum</h3>
-                                    <p class="text-[13px] text-[#111111]/80 font-regular leading-relaxed">Evlilik kararı almadan önce müstakbel eşinizin gerçek kimliği, mali geçmişi ve sosyal çevresi hakkında yapılan gizli tahkikatın önemi.</p>
-                                </div>
-                                <div class="w-full py-2.5 px-4 rounded-full bg-[#F7F7F8] group-hover:bg-[#000000] text-white text-xs font-medium flex items-center justify-between transition">
-                                    <span>Makaleyi Oku</span>
-                                    <i class="hgi hgi-stroke hgi-arrow-right-02 w-3.5 h-3.5 text-black"></i>
-                                </div>
+                            <div class="w-full py-2.5 px-4 rounded-full bg-black/[0.04] group-hover:bg-black text-black group-hover:text-white text-xs font-medium flex items-center justify-between transition">
+                                <span>Makaleyi Oku</span>
+                                <i class="hgi hgi-stroke hgi-arrow-right-02 w-3.5 h-3.5 text-black group-hover:text-white transition"></i>
                             </div>
                         </article>
-                        <article onclick="openArticleModal('ogrenci-takibi-rehberi')" class="group rounded-[26px] overflow-hidden bg-[#F7F7F8] border border-black/[0.08] cursor-pointer transition hover:-translate-y-1 flex flex-col shadow-xl">
-                            <div class="flex items-stretch">
-                                <div class="bg-black text-white" class="rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center shrink-0">
-                                    <span class="font-mono text-[10px] font-medium text-[#111111]">ÖĞRENCİ & AİLE</span>
+                        <article onclick="openArticleModal('ogrenci-takibi-rehberi')" class="group rounded-[22px] bg-[#FFFFFF] border border-black/[0.08] hover:border-black/60 cursor-pointer transition-all duration-300 flex flex-col justify-between p-6 space-y-5 shadow-sm hover:shadow-md">
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between">
+                                    <span class="px-2.5 py-0.5 rounded-full bg-black/[0.05] border border-black/[0.1] text-black font-mono text-[10px] font-medium">ÖĞRENCİ & AİLE</span>
+                                    <span class="font-mono text-[10px] text-neutral-500">AİLE KORUMA</span>
                                 </div>
-                                <svg class="w-7 h-[32px] shrink-0 block -ml-px -mb-px" viewBox="0 0 32 34" preserveAspectRatio="none" fill="none" aria-hidden="true">
-                                    <path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#111111"/>
-                                </svg>
-                                <div class="flex-1 flex items-center justify-end pr-4 pl-2">
-                                    <span class="font-mono text-[10px] font-medium px-2 py-0.5 rounded-full bg-[#F7F7F8]/10 text-[#111111] truncate">AİLE KORUMA</span>
+                                <div class="w-10 h-10 rounded-xl bg-black/[0.04] text-black flex items-center justify-center">
+                                    <i class="hgi hgi-stroke hgi-shield-02 w-4 h-4"></i>
                                 </div>
+                                <h3 class="text-base font-medium text-black leading-snug group-hover:text-black transition">Uyuşturucu Kullanan Çocuklar Nasıl Anlaşılır?</h3>
+                                <p class="text-[13px] text-[#3A3E42] font-regular leading-relaxed">Evladınız eve geç geliyor, gereksiz para harcıyor ve sürekli bahaneler üretiyorsa; geç kalmadan alınması gereken profesyonel gözlem tedbirleri.</p>
                             </div>
-                            <div class="bg-black text-white" class="-mt-px rounded-tr-[24px] rounded-b-[24px] p-6 flex-1 flex flex-col justify-between space-y-5">
-                                <div class="space-y-3">
-                                    <div class="w-10 h-10 rounded-xl bg-[#F7F7F8] text-[#000000] flex items-center justify-center">
-                                        <i class="hgi hgi-stroke hgi-shield-02 w-4 h-4"></i>
-                                    </div>
-                                    <h3 class="text-base font-medium text-[#111111] leading-snug">Uyuşturucu Kullanan Çocuklar Nasıl Anlaşılır?</h3>
-                                    <p class="text-[13px] text-[#111111]/80 font-regular leading-relaxed">Evladınız eve geç geliyor, gereksiz para harcıyor ve sürekli bahaneler üretiyorsa; geç kalmadan alınması gereken profesyonel gözlem tedbirleri.</p>
-                                </div>
-                                <div class="w-full py-2.5 px-4 rounded-full bg-[#F7F7F8] group-hover:bg-[#000000] text-white text-xs font-medium flex items-center justify-between transition">
-                                    <span>Makaleyi Oku</span>
-                                    <i class="hgi hgi-stroke hgi-arrow-right-02 w-3.5 h-3.5 text-black"></i>
-                                </div>
+                            <div class="w-full py-2.5 px-4 rounded-full bg-black/[0.04] group-hover:bg-black text-black group-hover:text-white text-xs font-medium flex items-center justify-between transition">
+                                <span>Makaleyi Oku</span>
+                                <i class="hgi hgi-stroke hgi-arrow-right-02 w-3.5 h-3.5 text-black group-hover:text-white transition"></i>
                             </div>
                         </article>
                     </div>
@@ -4330,9 +4309,9 @@
                         <a href="ankara-ozel-dedektif" class="group bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-[#000000] rounded-[22px] p-5 border border-black/[0.08] hover:border-black/60 transition-all duration-300 flex flex-col justify-between space-y-4 studio-shadow" title="Ankara Dedektif & Özel Dedektiflik Bürosu — Çankaya Merkez ve 25 İlçede Eş Takibi, Boşanma Delili">
                             <div class="space-y-2.5">
                                 <div class="flex items-center justify-between gap-2">
-                                    <span class="px-2.5 py-0.5 rounded-full bg-black text-white text-white font-mono text-[10px] font-medium">06 • ANKARA MERKEZ OFİS</span>
-                                    <span class="w-7 h-7 rounded-full bg-[#FFFFFF] group-hover:bg-black text-black text-[#111111] flex items-center justify-center transition">
-                                        <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3.5 h-3.5"></i>
+                                    <span class="px-2.5 py-0.5 rounded-full bg-black/[0.05] border border-black/[0.1] text-black font-mono text-[10px] font-medium transition group-hover:bg-black group-hover:text-white group-hover:border-black">06 • ANKARA MERKEZ OFİS</span>
+                                    <span class="w-7 h-7 rounded-full bg-black/[0.04] group-hover:bg-black text-black group-hover:text-white flex items-center justify-center transition shadow-none">
+                                        <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3.5 h-3.5 group-hover:text-white text-black transition"></i>
                                     </span>
                                 </div>
                                 <h4 class="text-lg font-medium tracking-tight group-hover:text-black transition">Ankara Dedektif</h4>
@@ -4350,9 +4329,9 @@
                         <a href="izmir-ozel-dedektif" class="group bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-[#000000] rounded-[22px] p-5 border border-black/[0.08] hover:border-black/60 transition-all duration-300 flex flex-col justify-between space-y-4 studio-shadow" title="İzmir Dedektif & Özel Dedektiflik Bürosu — Konak, Karşıyaka, Bornova, Çeşme ve 30 İlçede Özel Dedektif">
                             <div class="space-y-2.5">
                                 <div class="flex items-center justify-between gap-2">
-                                    <span class="px-2.5 py-0.5 rounded-full bg-[#F7F7F8] group-hover:bg-black text-white text-white group-hover:text-white font-mono text-[10px] font-medium transition">35 • EGE BÖLGE OPERASYON</span>
-                                    <span class="w-7 h-7 rounded-full bg-[#FFFFFF] group-hover:bg-black text-black text-[#111111] flex items-center justify-center transition">
-                                        <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3.5 h-3.5"></i>
+                                    <span class="px-2.5 py-0.5 rounded-full bg-black/[0.05] border border-black/[0.1] text-black font-mono text-[10px] font-medium transition group-hover:bg-black group-hover:text-white group-hover:border-black">35 • EGE BÖLGE OPERASYON</span>
+                                    <span class="w-7 h-7 rounded-full bg-black/[0.04] group-hover:bg-black text-black group-hover:text-white flex items-center justify-center transition shadow-none">
+                                        <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3.5 h-3.5 group-hover:text-white text-black transition"></i>
                                     </span>
                                 </div>
                                 <h4 class="text-lg font-medium tracking-tight group-hover:text-black transition">İzmir Dedektif</h4>
@@ -4370,9 +4349,9 @@
                         <a href="mersin-ozel-dedektif" class="group bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-[#000000] rounded-[22px] p-5 border border-black/[0.08] hover:border-black/60 transition-all duration-300 flex flex-col justify-between space-y-4 studio-shadow" title="Mersin Dedektif & Özel Dedektiflik Bürosu — Yenişehir, Mezitli, Tarsus, Erdemli ve 13 İlçede Özel Dedektif">
                             <div class="space-y-2.5">
                                 <div class="flex items-center justify-between gap-2">
-                                    <span class="px-2.5 py-0.5 rounded-full bg-[#F7F7F8] border border-black/[0.08] text-black text-[#111111] font-mono text-[10px] font-medium">33 • AKDENİZ &amp; LİMAN HATTI</span>
-                                    <span class="w-7 h-7 rounded-full bg-[#FFFFFF] group-hover:bg-black text-black text-[#111111] flex items-center justify-center transition">
-                                        <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3.5 h-3.5"></i>
+                                    <span class="px-2.5 py-0.5 rounded-full bg-black/[0.05] border border-black/[0.1] text-black font-mono text-[10px] font-medium transition group-hover:bg-black group-hover:text-white group-hover:border-black">33 • AKDENİZ &amp; LİMAN HATTI</span>
+                                    <span class="w-7 h-7 rounded-full bg-black/[0.04] group-hover:bg-black text-black group-hover:text-white flex items-center justify-center transition shadow-none">
+                                        <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3.5 h-3.5 group-hover:text-white text-black transition"></i>
                                     </span>
                                 </div>
                                 <h4 class="text-lg font-medium tracking-tight group-hover:text-black transition">Mersin Dedektif</h4>
@@ -4390,9 +4369,9 @@
                         <a href="konya-ozel-dedektif" class="group bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-[#000000] rounded-[22px] p-5 border border-black/[0.08] hover:border-black/60 transition-all duration-300 flex flex-col justify-between space-y-4 studio-shadow" title="Konya Dedektif & Özel Dedektiflik Bürosu — Selçuklu, Meram, Karatay, Ereğli, Kulu ve 31 İlçede Özel Dedektif">
                             <div class="space-y-2.5">
                                 <div class="flex items-center justify-between gap-2">
-                                    <span class="px-2.5 py-0.5 rounded-full bg-[#000000] text-white font-mono text-[10px] font-medium">42 • İÇ ANADOLU SAHA MERKEZİ</span>
-                                    <span class="w-7 h-7 rounded-full bg-[#FFFFFF] group-hover:bg-black text-black text-[#111111] flex items-center justify-center transition">
-                                        <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3.5 h-3.5"></i>
+                                    <span class="px-2.5 py-0.5 rounded-full bg-black/[0.05] border border-black/[0.1] text-black font-mono text-[10px] font-medium transition group-hover:bg-black group-hover:text-white group-hover:border-black">42 • İÇ ANADOLU SAHA MERKEZİ</span>
+                                    <span class="w-7 h-7 rounded-full bg-black/[0.04] group-hover:bg-black text-black group-hover:text-white flex items-center justify-center transition shadow-none">
+                                        <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3.5 h-3.5 group-hover:text-white text-black transition"></i>
                                     </span>
                                 </div>
                                 <h4 class="text-lg font-medium tracking-tight group-hover:text-black transition">Konya Dedektif</h4>
@@ -4410,9 +4389,9 @@
                         <a href="istanbul-ozel-dedektif" class="group bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-[#000000] rounded-[22px] p-5 border border-black/[0.08] hover:border-black/60 transition-all duration-300 flex flex-col justify-between space-y-4 studio-shadow" title="İstanbul Dedektif & Özel Dedektiflik Bürosu — Kartal Merkez ve 39 İlçede Eş Takibi, Hukuki Araştırma">
                             <div class="space-y-2.5">
                                 <div class="flex items-center justify-between gap-2">
-                                    <span class="px-2.5 py-0.5 rounded-full bg-black text-white text-white font-mono text-[10px] font-medium">34 • İSTANBUL MERKEZ BÜRO</span>
-                                    <span class="w-7 h-7 rounded-full bg-[#FFFFFF] group-hover:bg-black text-black text-[#111111] flex items-center justify-center transition">
-                                        <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3.5 h-3.5"></i>
+                                    <span class="px-2.5 py-0.5 rounded-full bg-black/[0.05] border border-black/[0.1] text-black font-mono text-[10px] font-medium transition group-hover:bg-black group-hover:text-white group-hover:border-black">34 • İSTANBUL MERKEZ BÜRO</span>
+                                    <span class="w-7 h-7 rounded-full bg-black/[0.04] group-hover:bg-black text-black group-hover:text-white flex items-center justify-center transition shadow-none">
+                                        <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3.5 h-3.5 group-hover:text-white text-black transition"></i>
                                     </span>
                                 </div>
                                 <h4 class="text-lg font-medium tracking-tight group-hover:text-black transition">İstanbul Dedektif</h4>
@@ -4430,9 +4409,9 @@
                         <a href="antalya-ozel-dedektif" class="group bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-[#000000] rounded-[22px] p-5 border border-black/[0.08] hover:border-black/60 transition-all duration-300 flex flex-col justify-between space-y-4 studio-shadow" title="Antalya Dedektiflik & Özel Dedektif Bürosu — Muratpaşa, Konyaaltı, Alanya, Manavgat ve 19 İlçede Dedektiflik">
                             <div class="space-y-2.5">
                                 <div class="flex items-center justify-between gap-2">
-                                    <span class="px-2.5 py-0.5 rounded-full bg-[#F7F7F8] group-hover:bg-black text-white text-white group-hover:text-white font-mono text-[10px] font-medium transition">07 • AKDENİZ &amp; TURİZM MASASI</span>
-                                    <span class="w-7 h-7 rounded-full bg-[#FFFFFF] group-hover:bg-black text-black text-[#111111] flex items-center justify-center transition">
-                                        <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3.5 h-3.5"></i>
+                                    <span class="px-2.5 py-0.5 rounded-full bg-black/[0.05] border border-black/[0.1] text-black font-mono text-[10px] font-medium transition group-hover:bg-black group-hover:text-white group-hover:border-black">07 • AKDENİZ &amp; TURİZM MASASI</span>
+                                    <span class="w-7 h-7 rounded-full bg-black/[0.04] group-hover:bg-black text-black group-hover:text-white flex items-center justify-center transition shadow-none">
+                                        <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3.5 h-3.5 group-hover:text-white text-black transition"></i>
                                     </span>
                                 </div>
                                 <h4 class="text-lg font-medium tracking-tight group-hover:text-black transition">Antalya Dedektiflik</h4>
