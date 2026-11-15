@@ -84,12 +84,6 @@ document.getElementById('panicBtnMobile')?.addEventListener('click', triggerPani
 
 // ===== THEME SYSTEM (DARK / LIGHT) & NATIVE MOBILE APP TAB BAR =====
 function getCurrentTheme() {
-    const attr = document.documentElement.getAttribute('data-theme');
-    if (attr === 'light' || attr === 'dark') return attr;
-    try {
-        const saved = localStorage.getItem('dat_theme');
-        if (saved === 'light' || saved === 'dark') return saved;
-    } catch (_) {}
     return 'light';
 }
 
