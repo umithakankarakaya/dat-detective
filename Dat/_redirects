@@ -1,31 +1,21 @@
-/mugla-ozel-dedektif /mugla-ozel-dedektif.html 200
-/Dedektif/ozel-dedektif-MUGLA* /mugla-ozel-dedektif 301
-/adana-ozel-dedektif /adana-ozel-dedektif.html 200
-/Dedektif/ozel-dedektif-ADANA* /adana-ozel-dedektif 301
-/kocaeli-ozel-dedektif /kocaeli-ozel-dedektif.html 200
-/Dedektif/ozel-dedektif-KOCAELI* /kocaeli-ozel-dedektif 301
-/gaziantep-ozel-dedektif /gaziantep-ozel-dedektif.html 200
-/Dedektif/ozel-dedektif-GAZIANTEP* /gaziantep-ozel-dedektif 301
-/eskisehir-ozel-dedektif /eskisehir-ozel-dedektif.html 200
-/Dedektif/ozel-dedektif-ESKISEHIR* /eskisehir-ozel-dedektif 301
-/trabzon-ozel-dedektif /trabzon-ozel-dedektif.html 200
-/Dedektif/ozel-dedektif-TRABZON* /trabzon-ozel-dedektif 301
-/kayseri-ozel-dedektif /kayseri-ozel-dedektif.html 200
-/Dedektif/ozel-dedektif-KAYSERI* /kayseri-ozel-dedektif 301
-/aydin-ozel-dedektif /aydin-ozel-dedektif.html 200
-/Dedektif/ozel-dedektif-AYDIN* /aydin-ozel-dedektif 301
-/balikesir-ozel-dedektif /balikesir-ozel-dedektif.html 200
-/Dedektif/ozel-dedektif-BALIKESIR* /balikesir-ozel-dedektif 301
-/tekirdag-ozel-dedektif /tekirdag-ozel-dedektif.html 200
-/Dedektif/ozel-dedektif-TEKIRDAG* /tekirdag-ozel-dedektif 301
-/samsun-ozel-dedektif /samsun-ozel-dedektif.html 200
-/Dedektif/ozel-dedektif-SAMSUN* /samsun-ozel-dedektif 301
-/diyarbakir-ozel-dedektif /diyarbakir-ozel-dedektif.html 200
-/Dedektif/ozel-dedektif-DIYARBAKIR* /diyarbakir-ozel-dedektif 301
-
 https://datdetective.com/* https://www.datdetective.com/:splat 301!
 http://datdetective.com/* https://www.datdetective.com/:splat 301!
 http://www.datdetective.com/* https://www.datdetective.com/:splat 301!
+
+/Dedektif/ozel-dedektif-MUGLA* /mugla-ozel-dedektif 301
+/Dedektif/ozel-dedektif-ADANA* /adana-ozel-dedektif 301
+/Dedektif/ozel-dedektif-KOCAELI* /kocaeli-ozel-dedektif 301
+/Dedektif/ozel-dedektif-GAZIANTEP* /gaziantep-ozel-dedektif 301
+/Dedektif/ozel-dedektif-ESKISEHIR* /eskisehir-ozel-dedektif 301
+/Dedektif/ozel-dedektif-TRABZON* /trabzon-ozel-dedektif 301
+/Dedektif/ozel-dedektif-KAYSERI* /kayseri-ozel-dedektif 301
+/Dedektif/ozel-dedektif-AYDIN* /aydin-ozel-dedektif 301
+/Dedektif/ozel-dedektif-BALIKESIR* /balikesir-ozel-dedektif 301
+/Dedektif/ozel-dedektif-TEKIRDAG* /tekirdag-ozel-dedektif 301
+/Dedektif/ozel-dedektif-SAMSUN* /samsun-ozel-dedektif 301
+/Dedektif/ozel-dedektif-DIYARBAKIR* /diyarbakir-ozel-dedektif 301
+
+
 
 # Panel kisa yollari
 /yonetim /yonetim-paneli.html 200
