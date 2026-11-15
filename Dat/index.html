@@ -2366,6 +2366,13 @@
                                     <span class="text-[9.5px] font-mono text-[#93F051]">9 Başlık</span>
                                 </div>
                                 <div class="grid grid-cols-1 gap-1.5 max-h-[280px] overflow-y-auto pr-1 scrollbar-thin scrollbar-thumb-white/10" id="aiQuickChips">
+                                    <button type="button" onclick="selectAIChatPreset('cocuk-velayeti')" class="w-full text-left px-3 py-2 rounded-xl bg-[#1D1D1F] hover:bg-[#252528] text-white/80 hover:text-white text-xs border border-white/10 flex items-center justify-between transition group">
+                                        <span class="flex items-center gap-2 truncate">
+                                            <span class="text-sm shrink-0">👶</span>
+                                            <span class="truncate">Çocuk &amp; Velayet Davası Delilleri</span>
+                                        </span>
+                                        <i class="hgi hgi-stroke hgi-arrow-right-01 w-3 h-3 text-white/40 group-hover:text-[#93F051] shrink-0"></i>
+                                    </button>
                                     <button type="button" onclick="selectAIChatPreset('dedektif-tutmak')" class="w-full text-left px-3 py-2 rounded-xl bg-[#1D1D1F] hover:bg-[#252528] text-white/80 hover:text-white text-xs border border-white/10 flex items-center justify-between transition group">
                                         <span class="flex items-center gap-2 truncate">
                                             <span class="text-sm shrink-0">🕵️‍♂️</span>
@@ -2471,13 +2478,37 @@
 
                         <!-- Chat Messages Container (Scrollable) -->
                         <div class="flex-1 p-4 sm:p-6 space-y-4 overflow-y-auto scrollbar-thin scrollbar-thumb-white/15" id="aiChatMessages">
-                            <!-- Populated dynamically by script.js -->
+                            <div class="flex items-start gap-3 text-left animate-fadeIn">
+                                <img src="assets/photos/elsa-dedektif-asistan.jpg" alt="Elsa &amp; Ümit Hakan Karakaya" class="w-8 h-8 rounded-full border border-[#93F051]/50 object-cover object-top shrink-0 mt-1 shadow-sm">
+                                <div class="bg-[#111111] border border-white/10 rounded-2xl rounded-tl-sm p-4 sm:p-5 text-white max-w-[95%] sm:max-w-[85%] space-y-3.5 shadow-lg">
+                                    <div class="flex items-center justify-between pb-2 border-b border-white/10">
+                                        <div class="flex items-center gap-1.5">
+                                            <span class="text-xs font-medium text-white">Yeni Nesil Dedektif (Elsa &amp; Ümit Hakan Karakaya)</span>
+                                            <span class="w-1.5 h-1.5 rounded-full bg-[#93F051]"></span>
+                                        </div>
+                                        <span class="text-[10px] font-mono text-white/40">Çevrimiçi</span>
+                                    </div>
+                                    <div class="text-xs sm:text-[13px] leading-relaxed text-white/85 space-y-2">
+                                        <p>Merhaba! Ben DAT Özel Dedektiflik'in Yeni Nesil Dijital Asistanı <strong>Elsa</strong>. Kurucumuz <strong>Ümit Hakan Karakaya</strong>'nın 20 yılı aşkın dedektiflik ve adli bilişim tecrübesiyle buradayım.</p>
+                                        <p>Burada kuruntuları körükleyen sahte şüphe oranları veya yankı odası tuzaklarına yer yok. Dosyanızı dürüst, rasyonel ve <strong>HMK m.199 / TCK m.134</strong> yasal sınırları içinde değerlendiriyoruz.</p>
+                                        <p class="text-[#93F051] font-medium pt-1">Aşağıdaki popüler başlıklardan birine tıklayarak anında yanıt alabilir veya sorunuzu doğrudan yazıp <strong>"Yeni Nesil Dedektif'e Sor"</strong> butonuna basabilirsiniz:</p>
+                                    </div>
+                                    <div class="flex flex-wrap gap-1.5 pt-1">
+                                        <button type="button" onclick="selectAIChatPreset('cocuk-velayeti')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#93F051]/15 text-white/85 hover:text-[#93F051] border border-white/10 hover:border-[#93F051]/40 text-xs transition">👶 Çocuk &amp; Velayet Davası</button>
+                                        <button type="button" onclick="selectAIChatPreset('dedektif-tutmak')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#93F051]/15 text-white/85 hover:text-[#93F051] border border-white/10 hover:border-[#93F051]/40 text-xs transition">🕵️‍♂️ Dedektif Tutmak Yasal mı?</button>
+                                        <button type="button" onclick="selectAIChatPreset('dedektif-ucretleri')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#93F051]/15 text-white/85 hover:text-[#93F051] border border-white/10 hover:border-[#93F051]/40 text-xs transition">💳 Ücretler Nasıl Belirlenir?</button>
+                                        <button type="button" onclick="selectAIChatPreset('delil-gecerliligi')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#93F051]/15 text-white/85 hover:text-[#93F051] border border-white/10 hover:border-[#93F051]/40 text-xs transition">⚖️ Deliller Mahkemede Geçerli mi?</button>
+                                        <button type="button" onclick="selectAIChatPreset('almanya-es-takibi')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#93F051]/15 text-white/85 hover:text-[#93F051] border border-white/10 hover:border-[#93F051]/40 text-xs transition">🇩🇪 Almanya/Avrupa Eş Takibi</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <!-- Chat Footer / Input Area -->
                         <div class="p-3 sm:p-4 bg-[#141416] border-t border-white/10 space-y-2.5 shrink-0">
                             <!-- Mobile-only horizontal chip scroll -->
                             <div class="flex lg:hidden items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none text-[10.5px]">
+                                <button type="button" onclick="selectAIChatPreset('cocuk-velayeti')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-white/5 text-white/80 border border-white/10 shrink-0">👶 Çocuk &amp; Velayet</button>
                                 <button type="button" onclick="selectAIChatPreset('dedektif-tutmak')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-white/5 text-white/80 border border-white/10 shrink-0">🕵️‍♂️ Yasal mı?</button>
                                 <button type="button" onclick="selectAIChatPreset('dedektif-ucretleri')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-white/5 text-white/80 border border-white/10 shrink-0">💳 Ücretler</button>
                                 <button type="button" onclick="selectAIChatPreset('delil-gecerliligi')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-white/5 text-white/80 border border-white/10 shrink-0">⚖️ Delil Geçerliliği</button>
@@ -5317,7 +5348,7 @@
     </div>
 
     <!-- Core Interactive Scripts & 7-Language i18n Engine -->
-    <script src="script.js?v=8.1"></script>
+    <script src="script.js?v=8.2"></script>
     <script src="lang/en.js?v=7.2"></script>
     <script src="lang/de.js?v=7.2"></script>
     <script src="lang/fr.js?v=7.2"></script>
