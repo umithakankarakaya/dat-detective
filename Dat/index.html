@@ -1160,21 +1160,18 @@
         html[data-theme="light"] :is(button, a, div, article):has(> [class*="bg-gradient-to-t"]) [class*="text-white/"] {
             color: rgba(255, 255, 255, 0.86) !important;
         }
-        html[data-theme="light"] #heroServiceCarousel > button .text-\[\#000000\],
-        html[data-theme="light"] #video-arsivi [onclick*="openVideoModal"] .text-\[\#000000\],
-        html[data-theme="light"] #basin-galerisi [onclick*="openPhotoModal"] .text-\[\#000000\],
-        html[data-theme="light"] :is(button, a, div, article):has(> [class*="bg-gradient-to-t"]) .text-\[\#000000\],
-        html[data-theme="light"] [class*="bg-gradient-to-t"] .text-\[\#000000\],
-        html[data-theme="light"] [class*="from-black"] .text-\[\#000000\] {
-            color: #000000 !important;
+        /* All overlay gradients and dark media cards MUST have crisp white text */
+        [class*="bg-gradient-to-t"],
+        [class*="bg-gradient-to-t"] *,
+        [class*="from-black"],
+        [class*="from-black"] *,
+        [class*="from-[#111111]"],
+        [class*="from-[#111111]"] * {
+            color: #FFFFFF !important;
         }
-        html[data-theme="light"] #heroServiceCarousel > button .bg-\[\#000000\],
-        html[data-theme="light"] #heroServiceCarousel > button .bg-\[\#000000\] *,
-        html[data-theme="light"] #video-arsivi [onclick*="openVideoModal"] .bg-\[\#000000\],
-        html[data-theme="light"] #video-arsivi [onclick*="openVideoModal"] .bg-\[\#000000\] *,
-        html[data-theme="light"] #heroServiceCarousel > button.group:hover .group-hover\:bg-\[\#000000\],
-        html[data-theme="light"] #heroServiceCarousel > button.group:hover .group-hover\:bg-\[\#000000\] * {
-            color: #111111 !important;
+        [class*="bg-gradient-to-t"] .text-neutral-300,
+        [class*="from-black"] .text-neutral-300 {
+            color: #D1D5DB !important;
         }
 
         /* Deliberate Obsidian CTAs / Active Pills / Obsidian Article Card stay Obsidian with Light/Lime Text */
@@ -1289,40 +1286,32 @@
         h1, h2, h3, h4, h5, h6 {
             color: #000000 !important;
         }
-        /* No orange, coral or green badges or icons anywhere */
-        .bg-\[\#111111\], [class*="bg-[#F7F7F8] border border-black/[0.08] text-black"] {
-            background-color: #F7F7F8 !important;
+        /* All dark buttons and dark surfaces MUST have crisp white text & icons */
+        .bg-black,
+        .bg-\[\#000000\],
+        .bg-\[\#111111\],
+        .bg-\[\#0B0B0C\],
+        .bg-\[\#0E0E10\],
+        .bg-neutral-900 {
+            color: #FFFFFF !important;
+        }
+        .bg-black:not(:has(.bg-white, .bg-\[\#FFFFFF\], .bg-\[\#F7F7F8\])) *,
+        .bg-\[\#000000\]:not(:has(.bg-white, .bg-\[\#FFFFFF\], .bg-\[\#F7F7F8\])) *,
+        .bg-\[\#111111\]:not(:has(.bg-white, .bg-\[\#FFFFFF\], .bg-\[\#F7F7F8\])) *,
+        .bg-\[\#0B0B0C\]:not(:has(.bg-white, .bg-\[\#FFFFFF\], .bg-\[\#F7F7F8\])) *,
+        .bg-\[\#0E0E10\]:not(:has(.bg-white, .bg-\[\#FFFFFF\], .bg-\[\#F7F7F8\])) * {
+            color: #FFFFFF !important;
+            stroke: #FFFFFF !important;
+        }
+        /* Explicit white child containers within dark areas retain dark text */
+        .bg-black .bg-white, .bg-black .bg-white *,
+        .bg-black .bg-\[\#FFFFFF\], .bg-black .bg-\[\#FFFFFF\] *,
+        .bg-black .bg-\[\#F7F7F8\], .bg-black .bg-\[\#F7F7F8\] * {
             color: #111111 !important;
-            border-color: rgba(0, 0, 0, 0.08) !important;
+            stroke: #111111 !important;
         }
-        .text-\[\#111111\], [class*="text-neutral-700"],
-        .text-\[\#000000\], [class*="text-black"] {
-            color: #111111 !important;
-        }
-    
-    
-        /* ==================================================== */
-        /* OPENAI MONOCHROME & HIGH-CONTRAST TYPOGRAPHY LOCK    */
-        /* ==================================================== */
-        body {
-            background-color: #FFFFFF !important;
-            color: #111111 !important;
-        }
-        strong, b {
-            color: #000000 !important;
-            font-weight: 600 !important;
-            -webkit-text-fill-color: #000000 !important;
-        }
-        p {
-            color: #1F2937 !important;
-        }
-        h1, h2, h3, h4, h5, h6 {
-            color: #000000 !important;
-            -webkit-text-fill-color: #000000 !important;
-        }
-        
-    
-        /* Guaranteed contrast on all hover-black elements */
+
+        /* Guaranteed white contrast on all hover-black elements */
         .group:hover .group-hover\:bg-black,
         .group:hover .group-hover\:bg-\[\#000000\],
         .group:hover .group-hover\:bg-\[\#111111\] {
@@ -1334,6 +1323,9 @@
         .group:hover .group-hover\:bg-\[\#111111\] * {
             color: #FFFFFF !important;
             stroke: #FFFFFF !important;
+        }
+        .group:hover .group-hover\:text-white {
+            color: #FFFFFF !important;
         }
 
     </style>
@@ -2084,7 +2076,7 @@
                     <!-- Card 2 -->
                     <a href="#dedektife-sor" class="group block space-y-3">
                         <div class="rounded-2xl overflow-hidden aspect-[4/3] bg-neutral-100 border border-black/[0.08]">
-                            <img src="assets/photos/elsa-dedektif-asistan.jpg" alt="Elsa Yapay Zeka Danışmanı" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <img src="assets/photos/elsa-dedektif-asistan.jpg" alt="Elsa Yapay Zeka Danışmanı" class="w-full h-full object-contain p-2 group-hover:scale-105 transition duration-500">
                         </div>
                         <h3 class="text-lg sm:text-xl font-semibold text-black group-hover:opacity-75 transition leading-snug">
                             Elsa 2.0: Yeni Nesil Yapay Zeka Danışmanı
@@ -2167,7 +2159,7 @@
 
                     <!-- Feed Item 4 -->
                     <div class="flex items-center gap-5 sm:gap-6 group cursor-pointer" onclick="document.querySelector('#makaleler')?.scrollIntoView({behavior: 'smooth'})">
-                        <div class="w-20 h-20 sm:w-28 sm:h-28 rounded-2xl bg-neutral-100 border border-black/[0.08] shrink-0 overflow-hidden shadow-xs"><img src="assets/photos/turkiye-romanya-isbirligi.jpg" alt="Avrupa ve Sınır Ötesi Araştırma Masası" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"></div>
+                        <div class="w-20 h-20 sm:w-28 sm:h-28 rounded-2xl bg-neutral-100 border border-black/[0.08] shrink-0 overflow-hidden shadow-xs"><img src="assets/photos/turkiye-romanya-isbirligi.jpg" alt="Avrupa ve Sınır Ötesi Araştırma Masası" class="w-full h-full object-contain p-2 group-hover:scale-105 transition duration-500"></div>
                         <div class="space-y-1.5 flex-1 min-w-0">
                             <h3 class="text-base sm:text-lg font-semibold text-black group-hover:opacity-70 transition leading-snug">
                                 Almanya ve Avrupa Gurbetçi Aileleri İçin Sınır Ötesi Araştırma Masası
@@ -2261,16 +2253,16 @@
                         </div>
 
                         <div class="grid grid-cols-2 gap-3">
-                            <div onclick="openPhotoModal('assets/photos/turavak-aile-hukuku-sertifika.jpg', 'Türkiye Barolar Birliği Vakfı (TÜRAVAK) — Aile Hukuku İleri Eğitim Sertifikası (Ümit Hakan Karakaya)')" class="group relative h-28 rounded-2xl overflow-hidden border border-black/[0.08] cursor-pointer">
-                                <img src="assets/photos/turavak-aile-hukuku-sertifika.jpg" alt="TÜRAVAK Aile Hukuku İleri Eğitim Sertifikası" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
-                                <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-black/20 to-transparent flex items-end p-2.5">
-                                    <span class="text-[10px] font-mono text-[#000000] font-medium">TÜRAVAK AİLE HUKUKU</span>
+                            <div onclick="openPhotoModal('assets/photos/turavak-aile-hukuku-sertifika.jpg', 'Türkiye Barolar Birliği Vakfı (TÜRAVAK) — Aile Hukuku İleri Eğitim Sertifikası (Ümit Hakan Karakaya)')" class="group relative aspect-[4/3] rounded-2xl overflow-hidden border border-black/[0.08] cursor-pointer bg-[#0E0E10]">
+                                <img src="assets/photos/turavak-aile-hukuku-sertifika.jpg" alt="TÜRAVAK Aile Hukuku İleri Eğitim Sertifikası" class="w-full h-full object-contain p-1 group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent flex items-end p-2 pointer-events-none">
+                                    <span class="text-[10px] font-mono text-white font-medium drop-shadow-sm">TÜRAVAK AİLE HUKUKU</span>
                                 </div>
                             </div>
-                            <div onclick="openPhotoModal('assets/photos/dedektif-haber-canli-yayin.jpg', 'Dedektif Haber Canlı Yayını — Özel Dedektiflik Stratejik Bir Uzmanlık Alanıdır')" class="group relative h-28 rounded-2xl overflow-hidden border border-black/[0.08] cursor-pointer">
-                                <img src="assets/photos/dedektif-haber-canli-yayin.jpg" alt="Dedektif Haber Canlı Yayını" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
-                                <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-black/20 to-transparent flex items-end p-2.5">
-                                    <span class="text-[10px] font-mono text-[#000000] font-medium">CANLI YAYIN &amp; HUKUK</span>
+                            <div onclick="openPhotoModal('assets/photos/dedektif-haber-canli-yayin.jpg', 'Dedektif Haber Canlı Yayını — Özel Dedektiflik Stratejik Bir Uzmanlık Alanıdır')" class="group relative aspect-[4/3] rounded-2xl overflow-hidden border border-black/[0.08] cursor-pointer bg-[#0E0E10]">
+                                <img src="assets/photos/dedektif-haber-canli-yayin.jpg" alt="Dedektif Haber Canlı Yayını" class="w-full h-full object-contain p-1 group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent flex items-end p-2 pointer-events-none">
+                                    <span class="text-[10px] font-mono text-white font-medium drop-shadow-sm">CANLI YAYIN &amp; HUKUK</span>
                                 </div>
                             </div>
                         </div>
@@ -2325,16 +2317,16 @@
                         </div>
 
                         <div class="grid grid-cols-2 gap-3">
-                            <div onclick="openPhotoModal('assets/photos/uoded-imza-toreni.jpg', 'UÖDED Başkanı Ümit Hakan Karakaya — Yuvarlak Masa Çalıştayı & Sertifika İmza Töreni')" class="group relative h-24 rounded-2xl overflow-hidden border border-black/[0.08] cursor-pointer">
-                                <img src="assets/photos/uoded-imza-toreni.jpg" alt="UÖDED Başkanı Ümit Hakan Karakaya İmza Töreni" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
-                                <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-black/20 to-transparent flex items-end p-2">
-                                    <span class="text-[10px] font-mono text-[#000000] font-medium">UÖDED İMZA TÖRENİ</span>
+                            <div onclick="openPhotoModal('assets/photos/uoded-imza-toreni.jpg', 'UÖDED Başkanı Ümit Hakan Karakaya — Yuvarlak Masa Çalıştayı & Sertifika İmza Töreni')" class="group relative aspect-[4/3] rounded-2xl overflow-hidden border border-black/[0.08] cursor-pointer bg-[#0E0E10]">
+                                <img src="assets/photos/uoded-imza-toreni.jpg" alt="UÖDED Başkanı Ümit Hakan Karakaya İmza Töreni" class="w-full h-full object-contain p-1 group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent flex items-end p-2 pointer-events-none">
+                                    <span class="text-[10px] font-mono text-white font-medium drop-shadow-sm">UÖDED İMZA TÖRENİ</span>
                                 </div>
                             </div>
-                            <div onclick="openPhotoModal('assets/photos/sertifika-toreni-2022.jpg', '01 Ekim 2022 — DAT Detective 1. Dönem Özel Dedektiflik Eğitimi Sertifika Töreni')" class="group relative h-24 rounded-2xl overflow-hidden border border-black/[0.08] cursor-pointer">
-                                <img src="assets/photos/sertifika-toreni-2022.jpg" alt="DAT Detective Eğitimi Sertifika Töreni" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
-                                <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-black/20 to-transparent flex items-end p-2">
-                                    <span class="text-[10px] font-mono text-[#000000] font-medium">SERTİFİKA TÖRENİ</span>
+                            <div onclick="openPhotoModal('assets/photos/sertifika-toreni-2022.jpg', '01 Ekim 2022 — DAT Detective 1. Dönem Özel Dedektiflik Eğitimi Sertifika Töreni')" class="group relative aspect-[4/3] rounded-2xl overflow-hidden border border-black/[0.08] cursor-pointer bg-[#0E0E10]">
+                                <img src="assets/photos/sertifika-toreni-2022.jpg" alt="DAT Detective Eğitimi Sertifika Töreni" class="w-full h-full object-contain p-1 group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent flex items-end p-2 pointer-events-none">
+                                    <span class="text-[10px] font-mono text-white font-medium drop-shadow-sm">SERTİFİKA TÖRENİ</span>
                                 </div>
                             </div>
                         </div>
@@ -2379,16 +2371,16 @@
                         </div>
 
                         <div class="grid grid-cols-2 gap-3">
-                            <div onclick="openPhotoModal('assets/photos/yilin-enleri-odul-1.jpg', 'Yılın En'leri Ödül Töreni — DAT Group & Ümit Hakan Karakaya')" class="group relative h-32 rounded-2xl overflow-hidden border border-black/[0.08] cursor-pointer">
-                                <img src="assets/photos/yilin-enleri-odul-1.jpg" alt="Yılın En'leri Ödül Töreni Ümit Hakan Karakaya" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
-                                <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-transparent to-transparent flex items-end p-2.5">
-                                    <span class="text-[10px] font-mono text-[#000000] font-medium">ÖDÜL TAKDİMİ</span>
+                            <div onclick="openPhotoModal('assets/photos/yilin-enleri-odul-1.jpg', 'Yılın En'leri Ödül Töreni — DAT Group & Ümit Hakan Karakaya')" class="group relative aspect-[4/3] rounded-2xl overflow-hidden border border-black/[0.08] cursor-pointer bg-[#0E0E10]">
+                                <img src="assets/photos/yilin-enleri-odul-1.jpg" alt="Yılın En'leri Ödül Töreni Ümit Hakan Karakaya" class="w-full h-full object-contain p-1 group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent flex items-end p-2.5 pointer-events-none">
+                                    <span class="text-[10px] font-mono text-white font-medium drop-shadow-sm">ÖDÜL TAKDİMİ</span>
                                 </div>
                             </div>
-                            <div onclick="openPhotoModal('assets/photos/kanal24-odul-haber.jpg', 'Kanal 24 Ana Haber — Yılın En'leri Ödül Töreni (DAT Group & Ümit Hakan Karakaya)')" class="group relative h-32 rounded-2xl overflow-hidden border border-black/[0.08] cursor-pointer">
-                                <img src="assets/photos/kanal24-odul-haber.jpg" alt="Kanal 24 Yılın En'leri Ödül Haberi" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
-                                <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-transparent to-transparent flex items-end p-2.5">
-                                    <span class="text-[10px] font-mono text-[#000000] font-medium">KANAL 24 TV YAYINI</span>
+                            <div onclick="openPhotoModal('assets/photos/kanal24-odul-haber.jpg', 'Kanal 24 Ana Haber — Yılın En'leri Ödül Töreni (DAT Group & Ümit Hakan Karakaya)')" class="group relative aspect-[4/3] rounded-2xl overflow-hidden border border-black/[0.08] cursor-pointer bg-[#0E0E10]">
+                                <img src="assets/photos/kanal24-odul-haber.jpg" alt="Kanal 24 Yılın En'leri Ödül Haberi" class="w-full h-full object-contain p-1 group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent flex items-end p-2.5 pointer-events-none">
+                                    <span class="text-[10px] font-mono text-white font-medium drop-shadow-sm">KANAL 24 TV YAYINI</span>
                                 </div>
                             </div>
                         </div>
@@ -2423,16 +2415,16 @@
                         </div>
 
                         <div class="grid grid-cols-2 gap-3">
-                            <div onclick="openPhotoModal('assets/photos/dat-buro-tabela.jpg', 'DAT Özel Dedektiflik Bürosu — Merkez Ofis Girişi')" class="group relative h-32 rounded-2xl overflow-hidden border border-black/[0.08] cursor-pointer">
-                                <img src="assets/photos/dat-buro-tabela.jpg" alt="DAT Özel Dedektiflik Merkez Bürosu" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
-                                <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-transparent to-transparent flex items-end p-2.5">
-                                    <span class="text-[10px] font-mono text-[#000000] font-medium">DAT MERKEZ BÜRO</span>
+                            <div onclick="openPhotoModal('assets/photos/dat-buro-tabela.jpg', 'DAT Özel Dedektiflik Bürosu — Merkez Ofis Girişi')" class="group relative aspect-[4/3] rounded-2xl overflow-hidden border border-black/[0.08] cursor-pointer bg-[#0E0E10]">
+                                <img src="assets/photos/dat-buro-tabela.jpg" alt="DAT Özel Dedektiflik Merkez Bürosu" class="w-full h-full object-contain p-1 group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent flex items-end p-2.5 pointer-events-none">
+                                    <span class="text-[10px] font-mono text-white font-medium drop-shadow-sm">DAT MERKEZ BÜRO</span>
                                 </div>
                             </div>
-                            <div onclick="openPhotoModal('assets/photos/wpyb-marka-dedektifligi-panel.jpg', 'WPYB Akademi & DAT Group — Marka Dedektifliği Eğitimi ve Taklit Ürünle Mücadele Paneli')" class="group relative h-32 rounded-2xl overflow-hidden border border-black/[0.08] cursor-pointer">
-                                <img src="assets/photos/wpyb-marka-dedektifligi-panel.jpg" alt="WPYB Akademi Marka Dedektifliği Paneli" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
-                                <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-transparent to-transparent flex items-end p-2.5">
-                                    <span class="text-[10px] font-mono text-[#000000] font-medium">WPYB GLOBAL AKADEMİ</span>
+                            <div onclick="openPhotoModal('assets/photos/wpyb-marka-dedektifligi-panel.jpg', 'WPYB Akademi & DAT Group — Marka Dedektifliği Eğitimi ve Taklit Ürünle Mücadele Paneli')" class="group relative aspect-[4/3] rounded-2xl overflow-hidden border border-black/[0.08] cursor-pointer bg-[#0E0E10]">
+                                <img src="assets/photos/wpyb-marka-dedektifligi-panel.jpg" alt="WPYB Akademi Marka Dedektifliği Paneli" class="w-full h-full object-contain p-1 group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent flex items-end p-2.5 pointer-events-none">
+                                    <span class="text-[10px] font-mono text-white font-medium drop-shadow-sm">WPYB GLOBAL AKADEMİ</span>
                                 </div>
                             </div>
                         </div>
@@ -3395,12 +3387,12 @@
                 <div id="kurucu" class="bg-[#F7F7F8] rounded-[32px] p-6 sm:p-10 border border-black/[0.08]">
                     <div class="grid lg:grid-cols-12 gap-8 lg:gap-10 items-center">
                         <div class="lg:col-span-5 min-w-0 space-y-3">
-                            <div onclick="openPhotoModal('assets/photos/wpyb-marka-dedektifligi-panel.jpg', 'Ümit Hakan Karakaya — DAT Özel Dedektiflik Kurucusu, UÖDED & TÜDED Kurucu Başkanı, WPYB Lideri')" class="group relative rounded-[24px] overflow-hidden border border-black/[0.08] aspect-[4/3] bg-[#0B0B0C] cursor-pointer">
-                                <img src="assets/photos/wpyb-marka-dedektifligi-panel.jpg" loading="lazy" decoding="async" alt="Ümit Hakan Karakaya — DAT Özel Dedektiflik Kurucusu" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-500">
-                                <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/90 via-black/15 to-transparent flex items-end justify-between p-4">
+                            <div onclick="openPhotoModal('assets/photos/wpyb-marka-dedektifligi-panel.jpg', 'Ümit Hakan Karakaya — DAT Detective Kurucusu, UÖDED & TÜDED Kurucu Başkanı, WPYB Lideri')" class="group relative rounded-[24px] overflow-hidden border border-black/[0.08] aspect-[3/2] bg-[#0B0B0C] cursor-pointer">
+                                <img src="assets/photos/wpyb-marka-dedektifligi-panel.jpg" loading="lazy" decoding="async" alt="Ümit Hakan Karakaya — DAT Detective Kurucusu" class="w-full h-full object-contain p-1 group-hover:scale-105 transition duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent flex items-end justify-between p-4 pointer-events-none">
                                     <div>
-                                        <div class="text-[10px] font-mono text-neutral-400 uppercase">1973 Ankara • 2005 Kuruluş</div>
-                                        <div class="text-sm sm:text-base font-medium text-[#000000]">Ümit Hakan Karakaya</div>
+                                        <div class="text-[10px] font-mono text-neutral-300 uppercase">1973 Ankara • 2005 Kuruluş</div>
+                                        <div class="text-sm sm:text-base font-medium text-white">Ümit Hakan Karakaya</div>
                                     </div>
                                     <span class="px-2.5 py-1 rounded-full bg-black text-white text-white font-mono text-[10px] font-medium shrink-0">4.000+ VAKA</span>
                                 </div>
@@ -3457,9 +3449,9 @@
 
                             <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-1">
                                 <a id="founderProfileLink" href="umit-hakan-karakaya" class="px-6 py-3 rounded-full bg-black hover:bg-neutral-800 text-white text-xs font-medium inline-flex items-center gap-2 transition shadow-sm" style="background-color:#000000 !important; color:#FFFFFF !important;" title="Ümit Hakan Karakaya Kimdir? — DAT Detective Kurucusu, UÖDED & TÜDED Başkanı">
-                                    <i class="hgi hgi-stroke hgi-file-02 w-4 h-4 shrink-0"></i>
-                                    <span>Tüm Biyografi, Kitaplar &amp; Basın Dosyasını İncele</span>
-                                    <i class="hgi hgi-stroke hgi-arrow-right-02 w-3.5 h-3.5 shrink-0"></i>
+                                    <i class="hgi hgi-stroke hgi-file-02 w-4 h-4 shrink-0" style="color:#FFFFFF !important;"></i>
+                                    <span style="color:#FFFFFF !important;">Tüm Biyografi, Kitaplar &amp; Basın Dosyasını İncele</span>
+                                    <i class="hgi hgi-stroke hgi-arrow-right-02 w-3.5 h-3.5 shrink-0" style="color:#FFFFFF !important;"></i>
                                 </a>
                                 <a href="#basin-galerisi" class="theme-keep-dark px-5 py-3 rounded-full bg-[#F7F7F8] hover:bg-[#F0F0F2] text-[#000000] border border-black/[0.08] text-xs font-medium inline-flex items-center gap-1.5 transition" title="Basında Biz, Sertifikalar ve Kongre Fotoğraf Arşivi — DAT Detective">
                                     <span>Basın &amp; Sertifika Galerisi</span>
@@ -3565,7 +3557,7 @@
                 <div id="basin-galerisi">
                     <div class="flex flex-col lg:flex-row items-center lg:items-end justify-between gap-4 mb-6 sm:mb-8 text-center lg:text-left rtl:lg:text-right">
                         <div class="space-y-3">
-                            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F7F7F8] text-xs font-medium text-black border border-black/[0.08]">
+                            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F7F7F8] text-xs font-medium text-white border border-white/20 bg-black/60">
                                 <i class="hgi hgi-stroke hgi-camera-01 w-3.5 h-3.5"></i>
                                 <span>ÖDÜL TÖRENLERİ • ULUSAL BASIN • KONGRELER</span>
                             </div>
@@ -3586,9 +3578,9 @@
                         
                         <div onclick="openPhotoModal(&#x27;assets/photos/yilin-enleri-odul-2.jpg&#x27;, &#x27;Ankara Sesi &amp; Ekonomize Dergisi Yılın En\&#x27;leri Ödül Töreni — DAT Group &amp; Ümit Hakan Karakaya&#x27;)" class="group rounded-[22px] bg-[#F7F7F8] border border-black/[0.08] hover:border-black/50 overflow-hidden cursor-pointer transition flex flex-col">
                             <div class="relative aspect-[4/3] bg-[#0B0B0C] overflow-hidden">
-                                <img src="assets/photos/yilin-enleri-odul-2.jpg" loading="lazy" decoding="async" alt="Yılın En&#x27;leri Ödül Töreni DAT Group" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <img src="assets/photos/yilin-enleri-odul-2.jpg" loading="lazy" decoding="async" alt="Yılın En&#x27;leri Ödül Töreni DAT Group" class="w-full h-full object-contain p-1.5 group-hover:scale-105 transition duration-500">
                                 <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-transparent to-transparent"></div>
-                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-black border border-black/[0.08] font-mono text-[10px] font-medium">YILIN EN'LERİ ÖDÜLÜ</span>
+                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-white border border-white/20 bg-black/60 font-mono text-[10px] font-medium">YILIN EN'LERİ ÖDÜLÜ</span>
                                 <span class="absolute bottom-3 right-3 w-7 h-7 rounded-full bg-white/15 backdrop-blur text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
                                     <i class="hgi hgi-stroke hgi-maximize-01 w-3.5 h-3.5"></i>
                                 </span>
@@ -3600,9 +3592,9 @@
                         </div>
                         <div onclick="openPhotoModal(&#x27;assets/photos/kanal24-odul-haber.jpg&#x27;, &#x27;Kanal 24 TV Yayını — İstanbul Yılın En\&#x27;leri Ödül Töreni: DAT Group&#x27;)" class="group rounded-[22px] bg-[#F7F7F8] border border-black/[0.08] hover:border-black/50 overflow-hidden cursor-pointer transition flex flex-col">
                             <div class="relative aspect-[4/3] bg-[#0B0B0C] overflow-hidden">
-                                <img src="assets/photos/kanal24-odul-haber.jpg" loading="lazy" decoding="async" alt="Kanal 24 TV Ödül Haberi" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <img src="assets/photos/kanal24-odul-haber.jpg" loading="lazy" decoding="async" alt="Kanal 24 TV Ödül Haberi" class="w-full h-full object-contain p-1.5 group-hover:scale-105 transition duration-500">
                                 <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-transparent to-transparent"></div>
-                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-black border border-black/[0.08] font-mono text-[10px] font-medium">ULUSAL TV (KANAL 24)</span>
+                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-white border border-white/20 bg-black/60 font-mono text-[10px] font-medium">ULUSAL TV (KANAL 24)</span>
                                 <span class="absolute bottom-3 right-3 w-7 h-7 rounded-full bg-white/15 backdrop-blur text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
                                     <i class="hgi hgi-stroke hgi-maximize-01 w-3.5 h-3.5"></i>
                                 </span>
@@ -3614,9 +3606,9 @@
                         </div>
                         <div onclick="openPhotoModal(&#x27;assets/photos/sertifika-toreni-2022.jpg&#x27;, &#x27;01 Ekim 2022 — DAT Detective 1. Dönem Özel Dedektiflik Eğitimi Sertifika Töreni&#x27;)" class="group rounded-[22px] bg-[#F7F7F8] border border-black/[0.08] hover:border-black/50 overflow-hidden cursor-pointer transition flex flex-col">
                             <div class="relative aspect-[4/3] bg-[#0B0B0C] overflow-hidden">
-                                <img src="assets/photos/sertifika-toreni-2022.jpg" loading="lazy" decoding="async" alt="DAT Detective Sertifika Töreni" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <img src="assets/photos/sertifika-toreni-2022.jpg" loading="lazy" decoding="async" alt="DAT Detective Sertifika Töreni" class="w-full h-full object-contain p-1.5 group-hover:scale-105 transition duration-500">
                                 <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-transparent to-transparent"></div>
-                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-black border border-black/[0.08] font-mono text-[10px] font-medium">AKADEMİK EĞİTİM & SERTİFİKA</span>
+                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-white border border-white/20 bg-black/60 font-mono text-[10px] font-medium">AKADEMİK EĞİTİM & SERTİFİKA</span>
                                 <span class="absolute bottom-3 right-3 w-7 h-7 rounded-full bg-white/15 backdrop-blur text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
                                     <i class="hgi hgi-stroke hgi-maximize-01 w-3.5 h-3.5"></i>
                                 </span>
@@ -3628,9 +3620,9 @@
                         </div>
                         <div onclick="openPhotoModal(&#x27;assets/photos/uluslararasi-kongre.jpg&#x27;, &#x27;W.A.D. (World Association of Detectives) &amp; IKD İşbirliğiyle Uluslararası Özel Dedektifler Kongresi&#x27;)" class="group rounded-[22px] bg-[#F7F7F8] border border-black/[0.08] hover:border-black/50 overflow-hidden cursor-pointer transition flex flex-col">
                             <div class="relative aspect-[4/3] bg-[#0B0B0C] overflow-hidden">
-                                <img src="assets/photos/uluslararasi-kongre.jpg" loading="lazy" decoding="async" alt="Uluslararası Özel Dedektifler Kongresi" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <img src="assets/photos/uluslararasi-kongre.jpg" loading="lazy" decoding="async" alt="Uluslararası Özel Dedektifler Kongresi" class="w-full h-full object-contain p-1.5 group-hover:scale-105 transition duration-500">
                                 <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-transparent to-transparent"></div>
-                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-black border border-black/[0.08] font-mono text-[10px] font-medium">ULUSLARARASI KONGRE</span>
+                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-white border border-white/20 bg-black/60 font-mono text-[10px] font-medium">ULUSLARARASI KONGRE</span>
                                 <span class="absolute bottom-3 right-3 w-7 h-7 rounded-full bg-white/15 backdrop-blur text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
                                     <i class="hgi hgi-stroke hgi-maximize-01 w-3.5 h-3.5"></i>
                                 </span>
@@ -3642,9 +3634,9 @@
                         </div>
                         <div onclick="openPhotoModal(&#x27;assets/photos/uoded-katilim-belgesi.jpg&#x27;, &#x27;W.A.D., IKD, UÖDED ve AÖDD Onaylı Resmi Meslek Normları Katılım Belgesi&#x27;)" class="group rounded-[22px] bg-[#F7F7F8] border border-black/[0.08] hover:border-black/50 overflow-hidden cursor-pointer transition flex flex-col">
                             <div class="relative aspect-[4/3] bg-[#0B0B0C] overflow-hidden">
-                                <img src="assets/photos/uoded-katilim-belgesi.jpg" loading="lazy" decoding="async" alt="UÖDED WAD IKD Resmi Katılım Belgesi" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <img src="assets/photos/uoded-katilim-belgesi.jpg" loading="lazy" decoding="async" alt="UÖDED WAD IKD Resmi Katılım Belgesi" class="w-full h-full object-contain p-1.5 group-hover:scale-105 transition duration-500">
                                 <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-transparent to-transparent"></div>
-                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-black border border-black/[0.08] font-mono text-[10px] font-medium">W.A.D. • IKD • UÖDED</span>
+                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-white border border-white/20 bg-black/60 font-mono text-[10px] font-medium">W.A.D. • IKD • UÖDED</span>
                                 <span class="absolute bottom-3 right-3 w-7 h-7 rounded-full bg-white/15 backdrop-blur text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
                                     <i class="hgi hgi-stroke hgi-maximize-01 w-3.5 h-3.5"></i>
                                 </span>
@@ -3656,9 +3648,9 @@
                         </div>
                         <div onclick="openPhotoModal(&#x27;assets/photos/pi-magazin-hukuk.jpg&#x27;, &#x27;PI Magazin (Private Investigator) — Medeni, Aile ve Ticaret Hukukunda Dedektiflerin Rolü&#x27;)" class="group rounded-[22px] bg-[#F7F7F8] border border-black/[0.08] hover:border-black/50 overflow-hidden cursor-pointer transition flex flex-col">
                             <div class="relative aspect-[4/3] bg-[#0B0B0C] overflow-hidden">
-                                <img src="assets/photos/pi-magazin-hukuk.jpg" loading="lazy" decoding="async" alt="PI Magazin Hukuk ve Dedektiflik" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <img src="assets/photos/pi-magazin-hukuk.jpg" loading="lazy" decoding="async" alt="PI Magazin Hukuk ve Dedektiflik" class="w-full h-full object-contain p-1.5 group-hover:scale-105 transition duration-500">
                                 <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-transparent to-transparent"></div>
-                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-black border border-black/[0.08] font-mono text-[10px] font-medium">PI MAGAZİN & HUKUK</span>
+                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-white border border-white/20 bg-black/60 font-mono text-[10px] font-medium">PI MAGAZİN & HUKUK</span>
                                 <span class="absolute bottom-3 right-3 w-7 h-7 rounded-full bg-white/15 backdrop-blur text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
                                     <i class="hgi hgi-stroke hgi-maximize-01 w-3.5 h-3.5"></i>
                                 </span>
@@ -3670,9 +3662,9 @@
                         </div>
                         <div onclick="openPhotoModal(&#x27;assets/photos/ustad-dergi-roportaj.jpg&#x27;, &#x27;ÜSTAD Avukatlık Meslek Dergisi — Özel Dedektif Ümit Hakan Karakaya Röportajı&#x27;)" class="group rounded-[22px] bg-[#F7F7F8] border border-black/[0.08] hover:border-black/50 overflow-hidden cursor-pointer transition flex flex-col">
                             <div class="relative aspect-[4/3] bg-[#0B0B0C] overflow-hidden">
-                                <img src="assets/photos/ustad-dergi-roportaj.jpg" loading="lazy" decoding="async" alt="ÜSTAD Avukatlık Meslek Dergisi Ümit Hakan Karakaya Röportajı" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <img src="assets/photos/ustad-dergi-roportaj.jpg" loading="lazy" decoding="async" alt="ÜSTAD Avukatlık Meslek Dergisi Ümit Hakan Karakaya Röportajı" class="w-full h-full object-contain p-1.5 group-hover:scale-105 transition duration-500">
                                 <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-transparent to-transparent"></div>
-                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-black border border-black/[0.08] font-mono text-[10px] font-medium">ÜSTAD HUKUK DERGİSİ</span>
+                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-white border border-white/20 bg-black/60 font-mono text-[10px] font-medium">ÜSTAD HUKUK DERGİSİ</span>
                                 <span class="absolute bottom-3 right-3 w-7 h-7 rounded-full bg-white/15 backdrop-blur text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
                                     <i class="hgi hgi-stroke hgi-maximize-01 w-3.5 h-3.5"></i>
                                 </span>
@@ -3684,9 +3676,9 @@
                         </div>
                         <div onclick="openPhotoModal(&#x27;assets/photos/uluslararasi-kongre-tabela.jpg&#x27;, &#x27;1st Conference of International Private Investigators — International Private Detective Trainings Association (UÖDED)&#x27;)" class="group rounded-[22px] bg-[#F7F7F8] border border-black/[0.08] hover:border-black/50 overflow-hidden cursor-pointer transition flex flex-col">
                             <div class="relative aspect-[4/3] bg-[#0B0B0C] overflow-hidden">
-                                <img src="assets/photos/uluslararasi-kongre-tabela.jpg" loading="lazy" decoding="async" alt="1. Uluslararası Özel Dedektifler Kongresi UÖDED" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <img src="assets/photos/uluslararasi-kongre-tabela.jpg" loading="lazy" decoding="async" alt="1. Uluslararası Özel Dedektifler Kongresi UÖDED" class="w-full h-full object-contain p-1.5 group-hover:scale-105 transition duration-500">
                                 <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-transparent to-transparent"></div>
-                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-black border border-black/[0.08] font-mono text-[10px] font-medium">1. ULUSLARARASI KONGRE</span>
+                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-white border border-white/20 bg-black/60 font-mono text-[10px] font-medium">1. ULUSLARARASI KONGRE</span>
                                 <span class="absolute bottom-3 right-3 w-7 h-7 rounded-full bg-white/15 backdrop-blur text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
                                     <i class="hgi hgi-stroke hgi-maximize-01 w-3.5 h-3.5"></i>
                                 </span>
@@ -3698,9 +3690,9 @@
                         </div>
                         <div onclick="openPhotoModal(&#x27;assets/photos/uluslararasi-kongre-sahne.jpg&#x27;, &#x27;Uluslararası Özel Dedektifler Kongresi — Sertifika Takdim Töreni&#x27;)" class="group rounded-[22px] bg-[#F7F7F8] border border-black/[0.08] hover:border-black/50 overflow-hidden cursor-pointer transition flex flex-col">
                             <div class="relative aspect-[4/3] bg-[#0B0B0C] overflow-hidden">
-                                <img src="assets/photos/uluslararasi-kongre-sahne.jpg" loading="lazy" decoding="async" alt="Uluslararası Kongre Sertifika Töreni" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <img src="assets/photos/uluslararasi-kongre-sahne.jpg" loading="lazy" decoding="async" alt="Uluslararası Kongre Sertifika Töreni" class="w-full h-full object-contain p-1.5 group-hover:scale-105 transition duration-500">
                                 <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-transparent to-transparent"></div>
-                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-black border border-black/[0.08] font-mono text-[10px] font-medium">KONGRE & AKREDİTASYON</span>
+                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-white border border-white/20 bg-black/60 font-mono text-[10px] font-medium">KONGRE & AKREDİTASYON</span>
                                 <span class="absolute bottom-3 right-3 w-7 h-7 rounded-full bg-white/15 backdrop-blur text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
                                     <i class="hgi hgi-stroke hgi-maximize-01 w-3.5 h-3.5"></i>
                                 </span>
@@ -3712,9 +3704,9 @@
                         </div>
                         <div onclick="openPhotoModal(&#x27;assets/photos/turavak-aile-hukuku-sertifika.jpg&#x27;, &#x27;Türkiye Barolar Birliği Vakfı (TÜRAVAK) — Aile Hukuku İleri Eğitim Sertifikası (Ümit Hakan Karakaya)&#x27;)" class="group rounded-[22px] bg-[#F7F7F8] border border-black/[0.08] hover:border-black/50 overflow-hidden cursor-pointer transition flex flex-col">
                             <div class="relative aspect-[4/3] bg-[#0B0B0C] overflow-hidden">
-                                <img src="assets/photos/turavak-aile-hukuku-sertifika.jpg" loading="lazy" decoding="async" alt="TÜRAVAK Aile Hukuku Sertifikası Ümit Hakan Karakaya" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <img src="assets/photos/turavak-aile-hukuku-sertifika.jpg" loading="lazy" decoding="async" alt="TÜRAVAK Aile Hukuku Sertifikası Ümit Hakan Karakaya" class="w-full h-full object-contain p-1.5 group-hover:scale-105 transition duration-500">
                                 <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-transparent to-transparent"></div>
-                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-black border border-black/[0.08] font-mono text-[10px] font-medium">TÜRAVAK • BAROLAR BİRLİĞİ</span>
+                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-white border border-white/20 bg-black/60 font-mono text-[10px] font-medium">TÜRAVAK • BAROLAR BİRLİĞİ</span>
                                 <span class="absolute bottom-3 right-3 w-7 h-7 rounded-full bg-white/15 backdrop-blur text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
                                     <i class="hgi hgi-stroke hgi-maximize-01 w-3.5 h-3.5"></i>
                                 </span>
@@ -3726,9 +3718,9 @@
                         </div>
                         <div onclick="openPhotoModal(&#x27;assets/photos/ozel-dedektif-dergisi-kapak.jpg&#x27;, &#x27;Özel Dedektif Dergisi 4. Sayı Kapak Konuğu — Ümit Hakan Karakaya Röportajı&#x27;)" class="group rounded-[22px] bg-[#F7F7F8] border border-black/[0.08] hover:border-black/50 overflow-hidden cursor-pointer transition flex flex-col">
                             <div class="relative aspect-[4/3] bg-[#0B0B0C] overflow-hidden">
-                                <img src="assets/photos/ozel-dedektif-dergisi-kapak.jpg" loading="lazy" decoding="async" alt="Özel Dedektif Dergisi Ümit Hakan Karakaya Kapak" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <img src="assets/photos/ozel-dedektif-dergisi-kapak.jpg" loading="lazy" decoding="async" alt="Özel Dedektif Dergisi Ümit Hakan Karakaya Kapak" class="w-full h-full object-contain p-1.5 group-hover:scale-105 transition duration-500">
                                 <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-transparent to-transparent"></div>
-                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-black border border-black/[0.08] font-mono text-[10px] font-medium">ÖZEL DEDEKTİF DERGİSİ</span>
+                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-white border border-white/20 bg-black/60 font-mono text-[10px] font-medium">ÖZEL DEDEKTİF DERGİSİ</span>
                                 <span class="absolute bottom-3 right-3 w-7 h-7 rounded-full bg-white/15 backdrop-blur text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
                                     <i class="hgi hgi-stroke hgi-maximize-01 w-3.5 h-3.5"></i>
                                 </span>
@@ -3740,9 +3732,9 @@
                         </div>
                         <div onclick="openPhotoModal(&#x27;assets/photos/zirve-odul-toreni-kristal.jpg&#x27;, &#x27;Yılın En\&#x27;leri Zirvesi — Kristal Onur Ödülü Takdim Töreni (Ümit Hakan Karakaya)&#x27;)" class="group rounded-[22px] bg-[#F7F7F8] border border-black/[0.08] hover:border-black/50 overflow-hidden cursor-pointer transition flex flex-col">
                             <div class="relative aspect-[4/3] bg-[#0B0B0C] overflow-hidden">
-                                <img src="assets/photos/zirve-odul-toreni-kristal.jpg" loading="lazy" decoding="async" alt="Kristal Onur Ödülü Töreni Ümit Hakan Karakaya" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <img src="assets/photos/zirve-odul-toreni-kristal.jpg" loading="lazy" decoding="async" alt="Kristal Onur Ödülü Töreni Ümit Hakan Karakaya" class="w-full h-full object-contain p-1.5 group-hover:scale-105 transition duration-500">
                                 <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-transparent to-transparent"></div>
-                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-black border border-black/[0.08] font-mono text-[10px] font-medium">KRİSTAL ONUR ÖDÜLÜ</span>
+                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-white border border-white/20 bg-black/60 font-mono text-[10px] font-medium">KRİSTAL ONUR ÖDÜLÜ</span>
                                 <span class="absolute bottom-3 right-3 w-7 h-7 rounded-full bg-white/15 backdrop-blur text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
                                     <i class="hgi hgi-stroke hgi-maximize-01 w-3.5 h-3.5"></i>
                                 </span>
@@ -3754,9 +3746,9 @@
                         </div>
                         <div onclick="openPhotoModal(&#x27;assets/photos/wpyb-marka-dedektifligi-panel.jpg&#x27;, &#x27;WPYB Akademi — Marka Dedektifliği Eğitimi &amp; Taklit Ürünle Mücadele Semineri (Ümit Hakan Karakaya)&#x27;)" class="group rounded-[22px] bg-[#F7F7F8] border border-black/[0.08] hover:border-black/50 overflow-hidden cursor-pointer transition flex flex-col">
                             <div class="relative aspect-[4/3] bg-[#0B0B0C] overflow-hidden">
-                                <img src="assets/photos/wpyb-marka-dedektifligi-panel.jpg" loading="lazy" decoding="async" alt="WPYB Akademi Marka Dedektifliği Eğitimi" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <img src="assets/photos/wpyb-marka-dedektifligi-panel.jpg" loading="lazy" decoding="async" alt="WPYB Akademi Marka Dedektifliği Eğitimi" class="w-full h-full object-contain p-1.5 group-hover:scale-105 transition duration-500">
                                 <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-transparent to-transparent"></div>
-                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-black border border-black/[0.08] font-mono text-[10px] font-medium">MARKA DEDEKTİFLİĞİ</span>
+                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-white border border-white/20 bg-black/60 font-mono text-[10px] font-medium">MARKA DEDEKTİFLİĞİ</span>
                                 <span class="absolute bottom-3 right-3 w-7 h-7 rounded-full bg-white/15 backdrop-blur text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
                                     <i class="hgi hgi-stroke hgi-maximize-01 w-3.5 h-3.5"></i>
                                 </span>
@@ -3768,9 +3760,9 @@
                         </div>
                         <div onclick="openPhotoModal(&#x27;assets/photos/wpyb-sertifika-mezuniyet.jpg&#x27;, &#x27;WPYB Akademi &amp; DAT Detective — Marka Dedektifliği Eğitimi Sertifika Töreni&#x27;)" class="group rounded-[22px] bg-[#F7F7F8] border border-black/[0.08] hover:border-black/50 overflow-hidden cursor-pointer transition flex flex-col">
                             <div class="relative aspect-[4/3] bg-[#0B0B0C] overflow-hidden">
-                                <img src="assets/photos/wpyb-sertifika-mezuniyet.jpg" loading="lazy" decoding="async" alt="WPYB Akademi Marka Dedektifliği Sertifika Töreni" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <img src="assets/photos/wpyb-sertifika-mezuniyet.jpg" loading="lazy" decoding="async" alt="WPYB Akademi Marka Dedektifliği Sertifika Töreni" class="w-full h-full object-contain p-1.5 group-hover:scale-105 transition duration-500">
                                 <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-transparent to-transparent"></div>
-                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-black border border-black/[0.08] font-mono text-[10px] font-medium">WPYB SERTİFİKA TÖRENİ</span>
+                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-white border border-white/20 bg-black/60 font-mono text-[10px] font-medium">WPYB SERTİFİKA TÖRENİ</span>
                                 <span class="absolute bottom-3 right-3 w-7 h-7 rounded-full bg-white/15 backdrop-blur text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
                                     <i class="hgi hgi-stroke hgi-maximize-01 w-3.5 h-3.5"></i>
                                 </span>
@@ -3782,9 +3774,9 @@
                         </div>
                         <div onclick="openPhotoModal(&#x27;assets/photos/dedektif-haber-canli-yayin.jpg&#x27;, &#x27;Dedektif Haber Canlı Yayını: Özel Dedektiflik Bir Merak Değil, Stratejik Bir Uzmanlık Alanıdır&#x27;)" class="group rounded-[22px] bg-[#F7F7F8] border border-black/[0.08] hover:border-black/50 overflow-hidden cursor-pointer transition flex flex-col">
                             <div class="relative aspect-[4/3] bg-[#0B0B0C] overflow-hidden">
-                                <img src="assets/photos/dedektif-haber-canli-yayin.jpg" loading="lazy" decoding="async" alt="Dedektif Haber Canlı Yayını" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <img src="assets/photos/dedektif-haber-canli-yayin.jpg" loading="lazy" decoding="async" alt="Dedektif Haber Canlı Yayını" class="w-full h-full object-contain p-1.5 group-hover:scale-105 transition duration-500">
                                 <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-transparent to-transparent"></div>
-                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-black border border-black/[0.08] font-mono text-[10px] font-medium">DEDEKTİF HABER TV</span>
+                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-white border border-white/20 bg-black/60 font-mono text-[10px] font-medium">DEDEKTİF HABER TV</span>
                                 <span class="absolute bottom-3 right-3 w-7 h-7 rounded-full bg-white/15 backdrop-blur text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
                                     <i class="hgi hgi-stroke hgi-maximize-01 w-3.5 h-3.5"></i>
                                 </span>
@@ -3796,9 +3788,9 @@
                         </div>
                         <div onclick="openPhotoModal(&#x27;assets/photos/kiu-sertifika-programi.jpg&#x27;, &#x27;Kıbrıs İlim Üniversitesi (KİÜ) &amp; AÖDD — Adli Bilimler, Araştırma, Olay Yeri İnceleme ve Özel Dedektiflik Sertifika Programı&#x27;)" class="group rounded-[22px] bg-[#F7F7F8] border border-black/[0.08] hover:border-black/50 overflow-hidden cursor-pointer transition flex flex-col">
                             <div class="relative aspect-[4/3] bg-[#0B0B0C] overflow-hidden">
-                                <img src="assets/photos/kiu-sertifika-programi.jpg" loading="lazy" decoding="async" alt="Kıbrıs İlim Üniversitesi Özel Dedektiflik Sertifika Programı" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <img src="assets/photos/kiu-sertifika-programi.jpg" loading="lazy" decoding="async" alt="Kıbrıs İlim Üniversitesi Özel Dedektiflik Sertifika Programı" class="w-full h-full object-contain p-1.5 group-hover:scale-105 transition duration-500">
                                 <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-transparent to-transparent"></div>
-                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-black border border-black/[0.08] font-mono text-[10px] font-medium">ÜNİVERSİTE SERTİFİKA PROGRAMI</span>
+                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-white border border-white/20 bg-black/60 font-mono text-[10px] font-medium">ÜNİVERSİTE SERTİFİKA PROGRAMI</span>
                                 <span class="absolute bottom-3 right-3 w-7 h-7 rounded-full bg-white/15 backdrop-blur text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
                                     <i class="hgi hgi-stroke hgi-maximize-01 w-3.5 h-3.5"></i>
                                 </span>
@@ -3810,9 +3802,9 @@
                         </div>
                         <div onclick="openPhotoModal(&#x27;assets/photos/tv8-ozel-dedektif-dergisi.jpg&#x27;, &#x27;TV8 Özel Röportajı &amp; Özel Dedektif Dergisi Basın Çekimi&#x27;)" class="group rounded-[22px] bg-[#F7F7F8] border border-black/[0.08] hover:border-black/50 overflow-hidden cursor-pointer transition flex flex-col">
                             <div class="relative aspect-[4/3] bg-[#0B0B0C] overflow-hidden">
-                                <img src="assets/photos/tv8-ozel-dedektif-dergisi.jpg" loading="lazy" decoding="async" alt="TV8 Röportajı ve Özel Dedektif Dergisi" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <img src="assets/photos/tv8-ozel-dedektif-dergisi.jpg" loading="lazy" decoding="async" alt="TV8 Röportajı ve Özel Dedektif Dergisi" class="w-full h-full object-contain p-1.5 group-hover:scale-105 transition duration-500">
                                 <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-transparent to-transparent"></div>
-                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-black border border-black/[0.08] font-mono text-[10px] font-medium">TV8 & ULUSAL MEDYA</span>
+                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-white border border-white/20 bg-black/60 font-mono text-[10px] font-medium">TV8 & ULUSAL MEDYA</span>
                                 <span class="absolute bottom-3 right-3 w-7 h-7 rounded-full bg-white/15 backdrop-blur text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
                                     <i class="hgi hgi-stroke hgi-maximize-01 w-3.5 h-3.5"></i>
                                 </span>
@@ -3824,9 +3816,9 @@
                         </div>
                         <div onclick="openPhotoModal(&#x27;assets/photos/dat-buro-tabela.jpg&#x27;, &#x27;DAT Özel Dedektiflik Bürosu — Kurumsal Merkez Ofis&#x27;)" class="group rounded-[22px] bg-[#F7F7F8] border border-black/[0.08] hover:border-black/50 overflow-hidden cursor-pointer transition flex flex-col">
                             <div class="relative aspect-[4/3] bg-[#0B0B0C] overflow-hidden">
-                                <img src="assets/photos/dat-buro-tabela.jpg" loading="lazy" decoding="async" alt="DAT Özel Dedektiflik Merkez Büro Tabela" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <img src="assets/photos/dat-buro-tabela.jpg" loading="lazy" decoding="async" alt="DAT Özel Dedektiflik Merkez Büro Tabela" class="w-full h-full object-contain p-1.5 group-hover:scale-105 transition duration-500">
                                 <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-transparent to-transparent"></div>
-                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-black border border-black/[0.08] font-mono text-[10px] font-medium">KURUMSAL MERKEZ OFİS</span>
+                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-white border border-white/20 bg-black/60 font-mono text-[10px] font-medium">KURUMSAL MERKEZ OFİS</span>
                                 <span class="absolute bottom-3 right-3 w-7 h-7 rounded-full bg-white/15 backdrop-blur text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
                                     <i class="hgi hgi-stroke hgi-maximize-01 w-3.5 h-3.5"></i>
                                 </span>
@@ -3838,9 +3830,9 @@
                         </div>
                         <div onclick="openPhotoModal(&#x27;assets/photos/acum-uluslararasi-sunum.jpg&#x27;, &#x27;ACUM Uluslararası Araştırma &amp; Güvenlik Konferansı — Çalıntı Araç Tespiti Teknik Sunumu&#x27;)" class="group rounded-[22px] bg-[#F7F7F8] border border-black/[0.08] hover:border-black/50 overflow-hidden cursor-pointer transition flex flex-col">
                             <div class="relative aspect-[4/3] bg-[#0B0B0C] overflow-hidden">
-                                <img src="assets/photos/acum-uluslararasi-sunum.jpg" loading="lazy" decoding="async" alt="ACUM Uluslararası Güvenlik Konferansı Sunumu" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <img src="assets/photos/acum-uluslararasi-sunum.jpg" loading="lazy" decoding="async" alt="ACUM Uluslararası Güvenlik Konferansı Sunumu" class="w-full h-full object-contain p-1.5 group-hover:scale-105 transition duration-500">
                                 <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-transparent to-transparent"></div>
-                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-black border border-black/[0.08] font-mono text-[10px] font-medium">ACUM KONFERANS</span>
+                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-white border border-white/20 bg-black/60 font-mono text-[10px] font-medium">ACUM KONFERANS</span>
                                 <span class="absolute bottom-3 right-3 w-7 h-7 rounded-full bg-white/15 backdrop-blur text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
                                     <i class="hgi hgi-stroke hgi-maximize-01 w-3.5 h-3.5"></i>
                                 </span>
@@ -3852,9 +3844,9 @@
                         </div>
                         <div onclick="openPhotoModal(&#x27;assets/photos/adli-belge-inceleme-kongre.jpg&#x27;, &#x27;1. Uluslararası Özel Dedektifler Kongresi — Adli Belge &amp; İmza Doğrulama Semineri&#x27;)" class="group rounded-[22px] bg-[#F7F7F8] border border-black/[0.08] hover:border-black/50 overflow-hidden cursor-pointer transition flex flex-col">
                             <div class="relative aspect-[4/3] bg-[#0B0B0C] overflow-hidden">
-                                <img src="assets/photos/adli-belge-inceleme-kongre.jpg" loading="lazy" decoding="async" alt="1. Uluslararası Kongre Adli Belge İnceleme" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <img src="assets/photos/adli-belge-inceleme-kongre.jpg" loading="lazy" decoding="async" alt="1. Uluslararası Kongre Adli Belge İnceleme" class="w-full h-full object-contain p-1.5 group-hover:scale-105 transition duration-500">
                                 <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-transparent to-transparent"></div>
-                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-black border border-black/[0.08] font-mono text-[10px] font-medium">ADLİ BELGE İNCELEME</span>
+                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-white border border-white/20 bg-black/60 font-mono text-[10px] font-medium">ADLİ BELGE İNCELEME</span>
                                 <span class="absolute bottom-3 right-3 w-7 h-7 rounded-full bg-white/15 backdrop-blur text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
                                     <i class="hgi hgi-stroke hgi-maximize-01 w-3.5 h-3.5"></i>
                                 </span>
@@ -3866,9 +3858,9 @@
                         </div>
                         <div onclick="openPhotoModal(&#x27;assets/photos/wpyb-orijinal-urun-calistay.jpg&#x27;, &#x27;WPYB Platformu — Orijinal &amp; Taklit Ürün Saha İnceleme Çalıştayı&#x27;)" class="group rounded-[22px] bg-[#F7F7F8] border border-black/[0.08] hover:border-black/50 overflow-hidden cursor-pointer transition flex flex-col">
                             <div class="relative aspect-[4/3] bg-[#0B0B0C] overflow-hidden">
-                                <img src="assets/photos/wpyb-orijinal-urun-calistay.jpg" loading="lazy" decoding="async" alt="WPYB Orijinal ve Taklit Ürün Çalıştayı" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <img src="assets/photos/wpyb-orijinal-urun-calistay.jpg" loading="lazy" decoding="async" alt="WPYB Orijinal ve Taklit Ürün Çalıştayı" class="w-full h-full object-contain p-1.5 group-hover:scale-105 transition duration-500">
                                 <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-transparent to-transparent"></div>
-                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-black border border-black/[0.08] font-mono text-[10px] font-medium">WPYB ÇALIŞTAYI</span>
+                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-white border border-white/20 bg-black/60 font-mono text-[10px] font-medium">WPYB ÇALIŞTAYI</span>
                                 <span class="absolute bottom-3 right-3 w-7 h-7 rounded-full bg-white/15 backdrop-blur text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
                                     <i class="hgi hgi-stroke hgi-maximize-01 w-3.5 h-3.5"></i>
                                 </span>
@@ -3880,9 +3872,9 @@
                         </div>
                         <div onclick="openPhotoModal(&#x27;assets/photos/turkiye-romanya-isbirligi.jpg&#x27;, &#x27;Uluslararası Özel Dedektifler İş Birliği — Türkiye &amp; Romanya Plaket Takdimi&#x27;)" class="group rounded-[22px] bg-[#F7F7F8] border border-black/[0.08] hover:border-black/50 overflow-hidden cursor-pointer transition flex flex-col">
                             <div class="relative aspect-[4/3] bg-[#0B0B0C] overflow-hidden">
-                                <img src="assets/photos/turkiye-romanya-isbirligi.jpg" loading="lazy" decoding="async" alt="Türkiye Romanya Özel Dedektifler İş Birliği" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-500">
+                                <img src="assets/photos/turkiye-romanya-isbirligi.jpg" loading="lazy" decoding="async" alt="Türkiye Romanya Özel Dedektifler İş Birliği" class="w-full h-full object-contain p-1.5 object-top group-hover:scale-105 transition duration-500">
                                 <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-transparent to-transparent"></div>
-                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-black border border-black/[0.08] font-mono text-[10px] font-medium">ULUSLARARASI İŞ BİRLİĞİ</span>
+                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-white border border-white/20 bg-black/60 font-mono text-[10px] font-medium">ULUSLARARASI İŞ BİRLİĞİ</span>
                                 <span class="absolute bottom-3 right-3 w-7 h-7 rounded-full bg-white/15 backdrop-blur text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
                                     <i class="hgi hgi-stroke hgi-maximize-01 w-3.5 h-3.5"></i>
                                 </span>
@@ -3894,9 +3886,9 @@
                         </div>
                         <div onclick="openPhotoModal(&#x27;assets/photos/yuvarlak-masa-3-istanbul.jpg&#x27;, &#x27;İstanbul 3. Yuvarlak Masa Toplantısı — Anadolu Özel Dedektifler Derneği &amp; UÖDED Takdimi&#x27;)" class="group rounded-[22px] bg-[#F7F7F8] border border-black/[0.08] hover:border-black/50 overflow-hidden cursor-pointer transition flex flex-col">
                             <div class="relative aspect-[4/3] bg-[#0B0B0C] overflow-hidden">
-                                <img src="assets/photos/yuvarlak-masa-3-istanbul.jpg" loading="lazy" decoding="async" alt="3. Yuvarlak Masa Toplantısı İstanbul Sertifika" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-500">
+                                <img src="assets/photos/yuvarlak-masa-3-istanbul.jpg" loading="lazy" decoding="async" alt="3. Yuvarlak Masa Toplantısı İstanbul Sertifika" class="w-full h-full object-contain p-1.5 object-top group-hover:scale-105 transition duration-500">
                                 <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-transparent to-transparent"></div>
-                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-black border border-black/[0.08] font-mono text-[10px] font-medium">3. YUVARLAK MASA İSTANBUL</span>
+                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-white border border-white/20 bg-black/60 font-mono text-[10px] font-medium">3. YUVARLAK MASA İSTANBUL</span>
                                 <span class="absolute bottom-3 right-3 w-7 h-7 rounded-full bg-white/15 backdrop-blur text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
                                     <i class="hgi hgi-stroke hgi-maximize-01 w-3.5 h-3.5"></i>
                                 </span>
@@ -3908,9 +3900,9 @@
                         </div>
                         <div onclick="openPhotoModal(&#x27;assets/photos/yuvarlak-masa-2-izmir.jpg&#x27;, &#x27;İzmir 2. Yuvarlak Masa Toplantısı — Özel Dedektiflik Meslek Normlarının Oluşturulması&#x27;)" class="group rounded-[22px] bg-[#F7F7F8] border border-black/[0.08] hover:border-black/50 overflow-hidden cursor-pointer transition flex flex-col">
                             <div class="relative aspect-[4/3] bg-[#0B0B0C] overflow-hidden">
-                                <img src="assets/photos/yuvarlak-masa-2-izmir.jpg" loading="lazy" decoding="async" alt="2. Yuvarlak Masa Toplantısı İzmir Çalıştayı" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-500">
+                                <img src="assets/photos/yuvarlak-masa-2-izmir.jpg" loading="lazy" decoding="async" alt="2. Yuvarlak Masa Toplantısı İzmir Çalıştayı" class="w-full h-full object-contain p-1.5 object-top group-hover:scale-105 transition duration-500">
                                 <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-transparent to-transparent"></div>
-                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-black border border-black/[0.08] font-mono text-[10px] font-medium">2. YUVARLAK MASA İZMİR</span>
+                                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#F7F7F8]/85 backdrop-blur-md text-white border border-white/20 bg-black/60 font-mono text-[10px] font-medium">2. YUVARLAK MASA İZMİR</span>
                                 <span class="absolute bottom-3 right-3 w-7 h-7 rounded-full bg-white/15 backdrop-blur text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
                                     <i class="hgi hgi-stroke hgi-maximize-01 w-3.5 h-3.5"></i>
                                 </span>
@@ -4306,12 +4298,12 @@
 
                     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                         <!-- 1. Ankara Dedektif -->
-                        <a href="ankara-ozel-dedektif" class="group bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-[#000000] rounded-[22px] p-5 border border-black/[0.08] hover:border-black/60 transition-all duration-300 flex flex-col justify-between space-y-4 studio-shadow" title="Ankara Dedektif & Özel Dedektiflik Bürosu — Çankaya Merkez ve 25 İlçede Eş Takibi, Boşanma Delili">
+                        <a href="ankara-ozel-dedektif" class="group bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-[#000000] rounded-[22px] p-5 border border-black/[0.08] hover:border-black/60 transition-all duration-300 flex flex-col justify-between space-y-4 studio-shadow" aria-label="Ankara Özel Dedektif">
                             <div class="space-y-2.5">
                                 <div class="flex items-center justify-between gap-2">
-                                    <span class="px-2.5 py-0.5 rounded-full bg-black/[0.05] border border-black/[0.1] text-black font-mono text-[10px] font-medium transition group-hover:bg-black group-hover:text-white group-hover:border-black">06 • ANKARA MERKEZ OFİS</span>
-                                    <span class="w-7 h-7 rounded-full bg-black/[0.04] group-hover:bg-black text-black group-hover:text-white flex items-center justify-center transition shadow-none">
-                                        <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3.5 h-3.5 group-hover:text-white text-black transition"></i>
+                                    <span class="px-2.5 py-0.5 rounded-full bg-black/[0.05] border border-black/[0.08] text-neutral-800 font-mono text-[10px] font-medium">06 • ANKARA MERKEZ OFİS</span>
+                                    <span class="w-7 h-7 rounded-full bg-black/[0.05] group-hover:bg-black text-black group-hover:text-white flex items-center justify-center transition">
+                                        <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3.5 h-3.5 transition"></i>
                                     </span>
                                 </div>
                                 <h4 class="text-lg font-medium tracking-tight group-hover:text-black transition">Ankara Dedektif</h4>
@@ -4326,12 +4318,12 @@
                         </a>
 
                         <!-- 2. İzmir Dedektif -->
-                        <a href="izmir-ozel-dedektif" class="group bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-[#000000] rounded-[22px] p-5 border border-black/[0.08] hover:border-black/60 transition-all duration-300 flex flex-col justify-between space-y-4 studio-shadow" title="İzmir Dedektif & Özel Dedektiflik Bürosu — Konak, Karşıyaka, Bornova, Çeşme ve 30 İlçede Özel Dedektif">
+                        <a href="izmir-ozel-dedektif" class="group bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-[#000000] rounded-[22px] p-5 border border-black/[0.08] hover:border-black/60 transition-all duration-300 flex flex-col justify-between space-y-4 studio-shadow" aria-label="İzmir Özel Dedektif">
                             <div class="space-y-2.5">
                                 <div class="flex items-center justify-between gap-2">
-                                    <span class="px-2.5 py-0.5 rounded-full bg-black/[0.05] border border-black/[0.1] text-black font-mono text-[10px] font-medium transition group-hover:bg-black group-hover:text-white group-hover:border-black">35 • EGE BÖLGE OPERASYON</span>
-                                    <span class="w-7 h-7 rounded-full bg-black/[0.04] group-hover:bg-black text-black group-hover:text-white flex items-center justify-center transition shadow-none">
-                                        <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3.5 h-3.5 group-hover:text-white text-black transition"></i>
+                                    <span class="px-2.5 py-0.5 rounded-full bg-black/[0.05] border border-black/[0.08] text-neutral-800 font-mono text-[10px] font-medium">35 • EGE BÖLGE OPERASYON</span>
+                                    <span class="w-7 h-7 rounded-full bg-black/[0.05] group-hover:bg-black text-black group-hover:text-white flex items-center justify-center transition">
+                                        <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3.5 h-3.5 transition"></i>
                                     </span>
                                 </div>
                                 <h4 class="text-lg font-medium tracking-tight group-hover:text-black transition">İzmir Dedektif</h4>
@@ -4346,12 +4338,12 @@
                         </a>
 
                         <!-- 3. Mersin Dedektif -->
-                        <a href="mersin-ozel-dedektif" class="group bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-[#000000] rounded-[22px] p-5 border border-black/[0.08] hover:border-black/60 transition-all duration-300 flex flex-col justify-between space-y-4 studio-shadow" title="Mersin Dedektif & Özel Dedektiflik Bürosu — Yenişehir, Mezitli, Tarsus, Erdemli ve 13 İlçede Özel Dedektif">
+                        <a href="mersin-ozel-dedektif" class="group bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-[#000000] rounded-[22px] p-5 border border-black/[0.08] hover:border-black/60 transition-all duration-300 flex flex-col justify-between space-y-4 studio-shadow" aria-label="Mersin Özel Dedektif">
                             <div class="space-y-2.5">
                                 <div class="flex items-center justify-between gap-2">
-                                    <span class="px-2.5 py-0.5 rounded-full bg-black/[0.05] border border-black/[0.1] text-black font-mono text-[10px] font-medium transition group-hover:bg-black group-hover:text-white group-hover:border-black">33 • AKDENİZ &amp; LİMAN HATTI</span>
-                                    <span class="w-7 h-7 rounded-full bg-black/[0.04] group-hover:bg-black text-black group-hover:text-white flex items-center justify-center transition shadow-none">
-                                        <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3.5 h-3.5 group-hover:text-white text-black transition"></i>
+                                    <span class="px-2.5 py-0.5 rounded-full bg-black/[0.05] border border-black/[0.08] text-neutral-800 font-mono text-[10px] font-medium">33 • AKDENİZ &amp; LİMAN HATTI</span>
+                                    <span class="w-7 h-7 rounded-full bg-black/[0.05] group-hover:bg-black text-black group-hover:text-white flex items-center justify-center transition">
+                                        <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3.5 h-3.5 transition"></i>
                                     </span>
                                 </div>
                                 <h4 class="text-lg font-medium tracking-tight group-hover:text-black transition">Mersin Dedektif</h4>
@@ -4366,12 +4358,12 @@
                         </a>
 
                         <!-- 4. Konya Dedektif -->
-                        <a href="konya-ozel-dedektif" class="group bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-[#000000] rounded-[22px] p-5 border border-black/[0.08] hover:border-black/60 transition-all duration-300 flex flex-col justify-between space-y-4 studio-shadow" title="Konya Dedektif & Özel Dedektiflik Bürosu — Selçuklu, Meram, Karatay, Ereğli, Kulu ve 31 İlçede Özel Dedektif">
+                        <a href="konya-ozel-dedektif" class="group bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-[#000000] rounded-[22px] p-5 border border-black/[0.08] hover:border-black/60 transition-all duration-300 flex flex-col justify-between space-y-4 studio-shadow" aria-label="Konya Özel Dedektif">
                             <div class="space-y-2.5">
                                 <div class="flex items-center justify-between gap-2">
-                                    <span class="px-2.5 py-0.5 rounded-full bg-black/[0.05] border border-black/[0.1] text-black font-mono text-[10px] font-medium transition group-hover:bg-black group-hover:text-white group-hover:border-black">42 • İÇ ANADOLU SAHA MERKEZİ</span>
-                                    <span class="w-7 h-7 rounded-full bg-black/[0.04] group-hover:bg-black text-black group-hover:text-white flex items-center justify-center transition shadow-none">
-                                        <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3.5 h-3.5 group-hover:text-white text-black transition"></i>
+                                    <span class="px-2.5 py-0.5 rounded-full bg-black/[0.05] border border-black/[0.08] text-neutral-800 font-mono text-[10px] font-medium">42 • İÇ ANADOLU SAHA MERKEZİ</span>
+                                    <span class="w-7 h-7 rounded-full bg-black/[0.05] group-hover:bg-black text-black group-hover:text-white flex items-center justify-center transition">
+                                        <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3.5 h-3.5 transition"></i>
                                     </span>
                                 </div>
                                 <h4 class="text-lg font-medium tracking-tight group-hover:text-black transition">Konya Dedektif</h4>
@@ -4386,12 +4378,12 @@
                         </a>
 
                         <!-- 5. İstanbul Dedektif -->
-                        <a href="istanbul-ozel-dedektif" class="group bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-[#000000] rounded-[22px] p-5 border border-black/[0.08] hover:border-black/60 transition-all duration-300 flex flex-col justify-between space-y-4 studio-shadow" title="İstanbul Dedektif & Özel Dedektiflik Bürosu — Kartal Merkez ve 39 İlçede Eş Takibi, Hukuki Araştırma">
+                        <a href="istanbul-ozel-dedektif" class="group bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-[#000000] rounded-[22px] p-5 border border-black/[0.08] hover:border-black/60 transition-all duration-300 flex flex-col justify-between space-y-4 studio-shadow" aria-label="İstanbul Özel Dedektif">
                             <div class="space-y-2.5">
                                 <div class="flex items-center justify-between gap-2">
-                                    <span class="px-2.5 py-0.5 rounded-full bg-black/[0.05] border border-black/[0.1] text-black font-mono text-[10px] font-medium transition group-hover:bg-black group-hover:text-white group-hover:border-black">34 • İSTANBUL MERKEZ BÜRO</span>
-                                    <span class="w-7 h-7 rounded-full bg-black/[0.04] group-hover:bg-black text-black group-hover:text-white flex items-center justify-center transition shadow-none">
-                                        <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3.5 h-3.5 group-hover:text-white text-black transition"></i>
+                                    <span class="px-2.5 py-0.5 rounded-full bg-black/[0.05] border border-black/[0.08] text-neutral-800 font-mono text-[10px] font-medium">34 • İSTANBUL MERKEZ BÜRO</span>
+                                    <span class="w-7 h-7 rounded-full bg-black/[0.05] group-hover:bg-black text-black group-hover:text-white flex items-center justify-center transition">
+                                        <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3.5 h-3.5 transition"></i>
                                     </span>
                                 </div>
                                 <h4 class="text-lg font-medium tracking-tight group-hover:text-black transition">İstanbul Dedektif</h4>
@@ -4406,12 +4398,12 @@
                         </a>
 
                         <!-- 6. Antalya Dedektiflik -->
-                        <a href="antalya-ozel-dedektif" class="group bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-[#000000] rounded-[22px] p-5 border border-black/[0.08] hover:border-black/60 transition-all duration-300 flex flex-col justify-between space-y-4 studio-shadow" title="Antalya Dedektiflik & Özel Dedektif Bürosu — Muratpaşa, Konyaaltı, Alanya, Manavgat ve 19 İlçede Dedektiflik">
+                        <a href="antalya-ozel-dedektif" class="group bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-[#000000] rounded-[22px] p-5 border border-black/[0.08] hover:border-black/60 transition-all duration-300 flex flex-col justify-between space-y-4 studio-shadow" aria-label="Antalya Özel Dedektif">
                             <div class="space-y-2.5">
                                 <div class="flex items-center justify-between gap-2">
-                                    <span class="px-2.5 py-0.5 rounded-full bg-black/[0.05] border border-black/[0.1] text-black font-mono text-[10px] font-medium transition group-hover:bg-black group-hover:text-white group-hover:border-black">07 • AKDENİZ &amp; TURİZM MASASI</span>
-                                    <span class="w-7 h-7 rounded-full bg-black/[0.04] group-hover:bg-black text-black group-hover:text-white flex items-center justify-center transition shadow-none">
-                                        <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3.5 h-3.5 group-hover:text-white text-black transition"></i>
+                                    <span class="px-2.5 py-0.5 rounded-full bg-black/[0.05] border border-black/[0.08] text-neutral-800 font-mono text-[10px] font-medium">07 • AKDENİZ &amp; TURİZM MASASI</span>
+                                    <span class="w-7 h-7 rounded-full bg-black/[0.05] group-hover:bg-black text-black group-hover:text-white flex items-center justify-center transition">
+                                        <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3.5 h-3.5 transition"></i>
                                     </span>
                                 </div>
                                 <h4 class="text-lg font-medium tracking-tight group-hover:text-black transition">Antalya Dedektiflik</h4>
