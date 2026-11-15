@@ -132,7 +132,6 @@ window.DAT_LANGS.me = {
         "ÖRNEK SAHA & DELİL DOSYASI": "PRIMJER TERENSKOG I DOKAZNOG SPISA",
         "Velayet & Dava": "Starateljstvo i spor",
         "Adres & Borçlu": "Adresa i dužnik",
-        "DOSYA #DAT-2026-VR774 • ANKARA & İSTANBUL": "SPIS #DAT-2026-VR774 • ANKARA & ISTANBUL",
         "Eş Takibi & Evlilik Birliği Sadakat Tespiti": "Praćenje supružnika i provjera bračne vjernosti",
         "TMK m.161 / HMK m.199": "PZ čl. 161 / ZPP čl. 199",
         "DELİL STANDARDI": "STANDARD DOKAZA",
@@ -637,47 +636,47 @@ window.DAT_LANGS.me = {
       "Elsa Vaka Panelinde Görüntüle": "Prikaži u Elsa panelu predmeta",
       "Doğrudan E-Posta İle Gönder": "Pošalji direktno putem e-pošte"
     },
-    heroCases: {
+                heroCases: {
         sadakat: {
-            code: 'PREDMET #DAT-2026-VR774 • ANKARA & ISTANBUL',
-            title: 'Praćenje supružnika i provjera bračne vjernosti',
+            code: 'PRAVNI OKVIR • PORODIČNO PRAVO & VJERNOST',
+            title: 'Nadzor supružnika i pravni standardi dokaza',
             lawBadge: 'PZ čl. 161 / ZPP čl. 199',
-            metric1: '4K Foto i Video',
-            metric2: '100% Garancija dokaza',
+            metric1: '4K Video i Foto',
+            metric2: 'Vremenski žig',
             metric3: 'Spremno za sud',
-            timestamp: 'SERTIFIKOVANI TIM',
+            timestamp: 'ZAKONITI POSTUPAK',
             logs: [
-                { time: '19:14', text: 'Po osnovu sumnje, sertifikovani istražitelji započeli su diskretno praćenje susreta i kretanja supružnika.', highlight: false },
-                { time: '21:40', text: 'Foto i video dokazi snimljeni su zakonito na javnim mjestima bez otkrivanja nadzora.', highlight: false },
-                { time: 'REZULTAT', text: 'Zvanični dokazni dosije sa vremenskim oznakama predat je klijentu za brakorazvodni i postupak naknade štete.', highlight: true }
+                { time: 'FAZA 01', text: 'Otvaranje predmeta uz ugovor o radu, punomoćje i strogi protokol o povjerljivosti podataka.', highlight: false },
+                { time: 'FAZA 02', text: 'Nadzor isključivo na javnim površinama uz puno poštovanje privatnosti i nepovredivosti doma.', highlight: false },
+                { time: 'FAZA 03', text: 'Predaja zvaničnog dosijea sa vremenski žigosanim 4K dokazima direktno vašem advokatu.', highlight: true }
             ]
         },
         tscm: {
-            code: 'PREDMET #DAT-2026-VL810 • STARATELJSTVO & RAZVOD',
-            title: 'Postupak starateljstva i zaštite interesa djeteta',
+            code: 'PRAVNI OKVIR • STARATELJSTVO & RAZVOD',
+            title: 'Postupak starateljstva i najbolji interes djeteta',
             lawBadge: 'PZ čl. 182 / PORODIČNO PRAVO',
-            metric1: 'Analiza načina života',
-            metric2: 'Zvanični sudski spis',
-            metric3: '100% Zakonito',
-            timestamp: 'DOKAZ GARANTOVAN',
+            metric1: 'Uslovi života',
+            metric2: 'Zvanični izvještaj',
+            metric3: 'Spremno za sud',
+            timestamp: 'FORENZIČKI STANDARD',
             logs: [
-                { time: 'DAN 01', text: 'Specijalizovani terenski tim započeo je opažanje uslova bezbjednosti i razvoja djeteta.', highlight: false },
-                { time: 'DAN 04', text: 'Način života drugog roditelja, znaci zanemarivanja i skriveni prihodi dokumentovani su sudski validno.', highlight: false },
-                { time: 'REZULTAT', text: 'Pripremljen je kompletan dokazni dosije za podnošenje sudu u postupku dodjele starateljstva.', highlight: true }
+                { time: 'FAZA 01', text: 'Pokretanje zakonite istrage činjenica koje utiču na bezbjednost i razvoj djeteta.', highlight: false },
+                { time: 'FAZA 02', text: 'Dokumentovanje načina života i ispunjavanja roditeljskih obaveza u okviru građanskog prava.', highlight: false },
+                { time: 'FAZA 03', text: 'Izrada zvaničnog dokaznog spisa za odlučivanje sudije za porodične odnose.', highlight: true }
             ]
         },
         kurumsal: {
-            code: 'PREDMET #DAT-2026-FN418 • ADRESA & DUŽNIK',
-            title: 'Pronalazak stvarne adrese, dužnika i imovine',
-            lawBadge: 'ZIO čl. 277 / TRAGANJE',
-            metric1: 'Turska, MNE & Svijet',
-            metric2: 'Potvrđena realna adresa',
+            code: 'PRAVNI OKVIR • DUŽNICI & IMOVINA',
+            title: 'Stvarna adresa i provjera imovine dužnika',
+            lawBadge: 'ZIO čl. 277 / ISTRAGA',
+            metric1: '81 Pokrajina & Svijet',
+            metric2: 'Provjera adrese',
             metric3: 'Dokaz za izvršenje',
-            timestamp: 'LOKACIJA POTVRĐENA',
+            timestamp: 'ZVANIČNI IZVJEŠTAJ',
             logs: [
-                { time: 'KORAK 01', text: 'Pokrenuta terenska potraga za dužnikom nedostupnim za sudsku dostavu na prijavljenoj adresi.', highlight: false },
-                { time: 'KORAK 02', text: 'Fotografisano je stvarno prebivalište, vozila koja koristi i imovina prebačena na treća lica.', highlight: false },
-                { time: 'REZULTAT', text: 'Predat potvrđen izvještaj o adresi i imovini za naplatu potraživanja i pobijanje pravnih radnji.', highlight: true }
+                { time: 'FAZA 01', text: 'Pokretanje terenske potrage za dužnikom koji izbjegava prijem sudskih pismena.', highlight: false },
+                { time: 'FAZA 02', text: 'Utvrđivanje stvarnog prebivališta, poslovnih aktivnosti i imovine prebačene na treća lica.', highlight: false },
+                { time: 'FAZA 03', text: 'Uručenje verifikovanog izvještaja za potrebe prinudnog izvršenja i paulijanske tužbe.', highlight: true }
             ]
         }
     },

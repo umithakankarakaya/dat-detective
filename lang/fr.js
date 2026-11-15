@@ -133,7 +133,6 @@ window.DAT_LANGS.fr = {
         "ÖRNEK SAHA & DELİL DOSYASI": "EXEMPLE DE DOSSIER DE TERRAIN",
         "Velayet & Dava": "Garde & Procès",
         "Adres & Borçlu": "Adresse & Débiteur",
-        "DOSYA #DAT-2026-VR774 • ANKARA & İSTANBUL": "DOSSIER #DAT-2026-VR774 • ANKARA & ISTANBUL",
         "Eş Takibi & Evlilik Birliği Sadakat Tespiti": "Filature Conjugale & Vérification de Fidélité",
         "TMK m.161 / HMK m.199": "CC art. 161 / CPC art. 199",
         "DELİL STANDARDI": "NORME DE PREUVE",
@@ -637,47 +636,47 @@ window.DAT_LANGS.fr = {
       "Elsa Vaka Panelinde Görüntüle": "Ouvrir dans le panneau Elsa",
       "Doğrudan E-Posta İle Gönder": "Envoyer directement par e-mail"
     },
-    heroCases: {
+                heroCases: {
         sadakat: {
-            code: 'DOSSIER #DAT-2026-VR774 • ANKARA & ISTANBUL',
-            title: 'Filature Conjugale & Vérification de Fidélité',
-            lawBadge: 'CC art. 161 / CPC art. 199',
-            metric1: 'Photo & Vidéo 4K',
-            metric2: 'Preuve garantie 100 %',
-            metric3: 'Recevable au tribunal',
-            timestamp: 'ÉQUIPE CERTIFIÉE',
+            code: "CADRE JURIDIQUE • DROIT DE LA FAMILLE & FIDÉLITÉ",
+            title: "Filature Conjugale & Standards Légaux de Preuve",
+            lawBadge: "CC art. 161 / CPC art. 199",
+            metric1: "Preuves Visuelles 4K",
+            metric2: "Horodatage Certifié",
+            metric3: "Recevable en Justice",
+            timestamp: "PROCÉDURE LÉGALE",
             logs: [
-                { time: '19:14', text: 'Suite aux soupçons, nos enquêteurs certifiés ont initié une filature discrète des rencontres et déplacements du conjoint.', highlight: false },
-                { time: '21:40', text: 'Sans alerter la cible, des preuves photographiques et vidéo ont été recueillies légalement dans des lieux publics.', highlight: false },
-                { time: 'RÉSULTAT', text: 'Dossier officiel horodaté remis au client pour la procédure de divorce et indemnisation devant le tribunal.', highlight: true }
+                { time: "ÉTAPE 01", text: "Ouverture du dossier avec signature d'un contrat officiel, mandat et protocole strict de confidentialité RGPD.", highlight: false },
+                { time: "ÉTAPE 02", text: "Observations effectuées exclusivement dans les lieux publics dans le respect absolu de la vie privée.", highlight: false },
+                { time: "ÉTAPE 03", text: "Remise directe à votre avocat d'un dossier horodaté de preuves 4K et rapports officiels d'enquête.", highlight: true }
             ]
         },
         tscm: {
-            code: 'DOSSIER #DAT-2026-VL810 • GARDE & DIVORCE',
-            title: 'Droit de Garde & Preuves dans l\'Intérêt de l\'Enfant',
-            lawBadge: 'CC art. 182 / DROIT FAMILIAL',
-            metric1: 'Analyse du mode de vie',
-            metric2: 'Rapport officiel',
-            metric3: '100 % Conforme à la loi',
-            timestamp: 'PREUVE GARANTIE',
+            code: "CADRE JURIDIQUE • GARDE D'ENFANTS & DIVORCE",
+            title: "Droit de Garde & Intérêt Supérieur de l'Enfant",
+            lawBadge: "CC art. 182 / DROIT FAMILIAL",
+            metric1: "Conditions de Vie",
+            metric2: "Rapport Officiel",
+            metric3: "Conforme Tribunal",
+            timestamp: "STANDARD JUDICIAIRE",
             logs: [
-                { time: 'JOUR 01', text: 'L\'équipe spécialisée a entamé l\'observation des facteurs affectant la sécurité et le développement de l\'enfant.', highlight: false },
-                { time: 'JOUR 04', text: 'Mode de vie de l\'autre parent, négligences et revenus dissimulés ont été documentés légalement.', highlight: false },
-                { time: 'RÉSULTAT', text: 'Dossier complet de preuves livré pour soumission immédiate lors de l\'audience de garde.', highlight: true }
+                { time: "ÉTAPE 01", text: "Enquête légale sur les circonstances matérielles affectant la sécurité et le bien-être de l'enfant.", highlight: false },
+                { time: "ÉTAPE 02", text: "Documentation conforme au droit civil et pénal du mode de vie et des devoirs de garde du conjoint.", highlight: false },
+                { time: "ÉTAPE 03", text: "Constitution du dossier officiel de preuves soumis à l'appréciation du Juge aux Affaires Familiales.", highlight: true }
             ]
         },
         kurumsal: {
-            code: 'DOSSIER #DAT-2026-FN418 • ADRESSE & DÉBITEUR',
-            title: 'Localisation Réelle, Débiteurs & Actifs Cachés',
-            lawBadge: 'VOIES D\'EXÉCUTION art. 277',
-            metric1: '81 Provinces & Étranger',
-            metric2: 'Adresse physique confirmée',
-            metric3: 'Preuve pour saisie',
-            timestamp: 'POSITION VÉRIFIÉE',
+            code: "CADRE JURIDIQUE • DÉBITEURS & ACTIFS",
+            title: "Adresse Réelle & Recherche de Patrimoine",
+            lawBadge: "VOIES D'EXÉCUTION art. 277",
+            metric1: "81 Provinces & Étranger",
+            metric2: "Confirmation Domicile",
+            metric3: "Preuve pour Saisie",
+            timestamp: "RAPPORT OFFICIEL",
             logs: [
-                { time: 'ÉTAPE 01', text: 'Lancement d\'une recherche terrain pour un débiteur introuvable à son domicile déclaré.', highlight: false },
-                { time: 'ÉTAPE 02', text: 'Résidence effective, véhicules utilisés et actifs transférés à des tiers identifiés et photographiés.', highlight: false },
-                { time: 'RÉSULTAT', text: 'Rapport d\'adresse et de patrimoine remis pour saisie conservatoire et action paulienne.', highlight: true }
+                { time: "ÉTAPE 01", text: "Lancement de vérifications terrain légales pour localiser un débiteur dissimulant son adresse.", highlight: false },
+                { time: "ÉTAPE 02", text: "Identification du domicile effectif, des activités commerciales et des actifs cédés à des tiers.", highlight: false },
+                { time: "ÉTAPE 03", text: "Délivrance du rapport officiel pour saisie conservatoire et action paulienne.", highlight: true }
             ]
         }
     },

@@ -279,45 +279,45 @@ if (mobileMenuBtn && mobileMenu) {
 // 3. Hero Interactive Case Console Switcher
 const HERO_CASES = {
     sadakat: {
-        code: "DOSYA #DAT-2026-VR774 • ANKARA & İSTANBUL",
-        title: "Eş Takibi & Evlilik Birliği Sadakat Tespiti",
+        code: "HUKUKİ ÇERÇEVE • AİLE HUKUKU & SADAKAT",
+        title: "Eş Takibi & Aile Hukuku Delil Standartları",
         lawBadge: "TMK m.161 / HMK m.199",
-        metric1: "4K Fotoğraf & Video",
-        metric2: "%100 İspat Garantili",
-        metric3: "Mahkemeye Hazır",
-        timestamp: "SERTİFİKALI EKİP",
+        metric1: "4K Görsel Tespit",
+        metric2: "Zaman Damgası",
+        metric3: "HMK m.199 Uyum",
+        timestamp: "YASAL PROSEDÜR",
         logs: [
-            { time: "19:14", text: "Siz yokken eşinizin kimlerle görüştüğü ve nereye gittiği şüphe üzerine sertifikalı özel araştırma görevlilerimizce takibe alındı.", highlight: false },
-            { time: "21:40", text: "Hedefin kendini takip edildiğini hissetmemesi sağlanarak, yasal sınırlar içinde fotoğraf ve video kanıtları kayıt altına alındı.", highlight: false },
-            { time: "SONUÇ", text: "Aile Mahkemesi boşanma ve tazminat davasında kullanılmak üzere zaman damgalı resmi delil klasörü müşterimize teslim edildi.", highlight: true }
+            { time: "AŞAMA 01", text: "Resmi hizmet sözleşmesi, vekalet ve KVKK gizlilik protokolü imzalanarak dosya açılır.", highlight: false },
+            { time: "AŞAMA 02", text: "Konut ve özel hayat dokunulmazlığına tam riayet edilerek yalnızca kamuya açık alanlarda tespit icra edilir.", highlight: false },
+            { time: "AŞAMA 03", text: "Zaman damgalı 4K görsel deliller ve resmi dedektif tutanağı doğrudan avukatınıza teslim edilir.", highlight: true }
         ]
     },
     tscm: {
-        code: "DOSYA #DAT-2026-VL810 • VELAYET & BOŞANMA",
-        title: "Velayet Davası & Çocuk Üstün Menfaati Delil Tespiti",
+        code: "HUKUKİ ÇERÇEVE • VELAYET & BOŞANMA",
+        title: "Velayet Davaları & Çocuğun Üstün Yararı",
         lawBadge: "TMK m.182 / AİLE HUKUKU",
-        metric1: "Yaşam Tarzı Analizi",
-        metric2: "Resmi Dava Raporu",
-        metric3: "%100 Hukuka Uygun",
-        timestamp: "DELİL GARANTİLİ",
+        metric1: "Yaşam Şartları",
+        metric2: "Resmi Rapor",
+        metric3: "Mahkemeye Uygun",
+        timestamp: "ADLİ STANDART",
         logs: [
-            { time: "GÜN 01", text: "Velayet davasında çocuğun güvenliğini ve gelişimini etkileyen unsurların tespiti için uzman saha ekibimizce gözlem başlatıldı.", highlight: false },
-            { time: "GÜN 04", text: "Diğer ebeveynin yaşam tarzı, ihmal durumu ve gerçek mali koşulları Ceza ve Medeni Hukuk sınırları içinde somut kanıtlarla belgelendi.", highlight: false },
-            { time: "SONUÇ", text: "Haklılığınızı mahkeme önünde ispatlayan kapsamlı delil dosyası hazırlanarak velayet davasına sunulmak üzere teslim edildi.", highlight: true }
+            { time: "AŞAMA 01", text: "Çocuğun fiziksel ve psikolojik güvenliğini etkileyen fiili durumların tespiti için yasal inceleme başlatılır.", highlight: false },
+            { time: "AŞAMA 02", text: "Diğer ebeveynin yaşam tarzı ve bakım yükümlülüğü ceza/medeni hukuk sınırlarında belgelenir.", highlight: false },
+            { time: "AŞAMA 03", text: "Aile Mahkemesi hâkiminin takdirine sunulacak resmi delil klasörü tanzim edilir.", highlight: true }
         ]
     },
     kurumsal: {
-        code: "DOSYA #DAT-2026-FN418 • ADRES & BORÇLU TAKİBİ",
-        title: "Fiili Adres Tespiti, Borçlu & Mal Varlığı Araştırması",
-        lawBadge: "İİK m.277 / ADRES TESPİTİ",
+        code: "HUKUKİ ÇERÇEVE • BORÇLU & MAL VARLIĞI",
+        title: "Fiili Adres & Borçlu Varlık Tespiti",
+        lawBadge: "İİK m.277 / TESPİT",
         metric1: "81 İl & Yurt Dışı",
-        metric2: "Fiili Konum Tespiti",
+        metric2: "Fiili Adres Teyidi",
         metric3: "İcra & Dava Delili",
-        timestamp: "DOĞRULANMIŞ KONUM",
+        timestamp: "RESMİ TUTANAK",
         logs: [
-            { time: "ADIM 01", text: "Resmi adresinde bulunamayan ve tebligat yapılamayan borçlu şahsın saha araştırması ve istihbarat çalışması başlatıldı.", highlight: false },
-            { time: "ADIM 02", text: "Şahsın fiilen ikamet ettiği gizli adres, kullandığı araçlar ve üçüncü kişiler üzerine devrettiği varlıklar fotoğraflı olarak tespit edildi.", highlight: false },
-            { time: "SONUÇ", text: "İcra takibi ve dava süreçlerinde kullanılmak üzere doğrulanmış adres ve mal varlığı raporu müşterimize sunuldu.", highlight: true }
+            { time: "AŞAMA 01", text: "Tebligat yapılamayan borçlunun açık kaynak ve saha istihbaratıyla fiili durumu incelenir.", highlight: false },
+            { time: "AŞAMA 02", text: "Şahsın fiilen ikamet ettiği yer, kullandığı araçlar ve muvazaalı devirleri yerinde tespit edilir.", highlight: false },
+            { time: "AŞAMA 03", text: "Tasarrufun iptali ve icra takipleri için adli delil klasörü avukatınıza iletilir.", highlight: true }
         ]
     }
 };
@@ -1352,207 +1352,446 @@ document.querySelectorAll('.avrupa-trigger').forEach(trigger => {
 });
 
 // ==========================================
-// 10.2 DEDEKTİFE SOR AI ENGINE
+// 10.2 YENİ NESİL DEDEKTİF / DEDEKTİFE SOR AI ENGINE (Yankı Odasından Uzak, Dürüst & Objektif)
 // ==========================================
 const AI_PRESETS = {
+    'dedektif-tutmak': {
+        query: "Türkiye'de özel dedektif tutmak yasal mı ve süreç nasıl işler? Güvenilir bir dedektiflik bürosu ile nasıl çalışılır?",
+        riskScore: "DÜRÜST & ŞEFFAF HUKUKİ ÇERÇEVE • RESMİ SÖZLEŞMELİ",
+        riskColor: "#93F051",
+        p1Title: "1. YANKI ODASINDAN UZAK RASYONEL BAKIŞ: DEDEKTİF TUTMAK NE ZAMAN GEREKLİDİR?",
+        p1Desc: "Özel dedektiflik bir merak giderme veya kuruntu doğrulama aracı değil, hukuki uyuşmazlıklarda somut delil tespit mekanizmasıdır. İlk görüşmede Ümit Hakan Karakaya dosyanızı dürüstçe değerlendirir: Eğer vakanız dedektiflik çalışmasına uygun değilse veya hukuki/somut bir yarar sağlamayacaksa bunu açıkça söyler; gereksiz masraf yapmanızı engeller.",
+        p2Title: "2. DÜRÜST HUKUKİ GERÇEKLER (TCK m.134 & HMK m.199)",
+        p2Desc: "Piyasada 'telefon dinleme, WhatsApp mesajı çıkarma, konum hekçiliği' vadeden kişi ve siteler %100 dolandırıcıdır ve bu eylemler TCK m.134-135 kapsamında hapis cezası gerektiren suçlardır. DAT Dedektiflik bünyesinde yalnızca kamuya açık alanlarda, konut ve özel hayat dokunulmazlığına riayet edilerek 4K görsel tespit yapılır; mahkemede tartışmasız hukuka uygun delil niteliği taşır.",
+        p3Items: [
+            { bad: true, label: "Doğrulama Önyargısına Kapılmayın", text: "Şüphenizi körükleyip 'hemen takip başlatalım' diyen sabit adresi olmayan sözde dedektiflere itibar etmeyin." },
+            { bad: false, label: "Şeffaf Sözleşme ve e-Fatura", text: "Resmi hizmet sözleşmesi, KVKK sıfır-paylaşım protokolü ve net bütçelendirme olmadan asla işlem başlatılmaz." },
+            { bad: false, label: "Doğrudan Ümit Hakan Karakaya ile Görüşün", text: "Dosyanızın dedektifliğe gerçekten ihtiyacı olup olmadığını Ümit Bey ile yapacağınız objektif ön görüşmeyle netleştirin." }
+        ],
+        waText: "Merhaba Ümit Bey, Yeni Nesil Dedektif (Dedektif'e Sor) sekmesinden yazıyorum. Dedektif tutmak, yasal süreç ve sözleşme şartları hakkında dürüst bilgi almak istiyorum."
+    },
+    'dedektif-ucretleri': {
+        query: "Özel dedektif ücretleri ne kadar? Dedektiflik fiyatları neye göre belirlenir ve ödeme şartları nasıldır?",
+        riskScore: "ŞEFFAF MALİYET POLİTİKASI • SÜRPRİZ VE GİZLİ MASRAF YOK",
+        riskColor: "#93F051",
+        p1Title: "1. DÜRÜST FİYATLANDIRMA: HER DOSYANIN KAPSAMI VE MALİYETİ FARKLIDIR",
+        p1Desc: "Özel dedektiflikte sabit veya gerçek dışı düşük fiyat vadedenler genellikle sahaya hiç çıkmayan kapora avcılarıdır. Gerçek dedektiflikte maliyet; sahada görev alacak araçlı/yaya uzman sayısına, lokasyona (şehir içi, şehirlerarası veya yurt dışı), gün ve saat yoğunluğuna göre şeffaf bir fizibilite ile belirlenir. İhtiyacınız olmayan gereksiz günler sözleşmeye eklenmez.",
+        p2Title: "2. RESMİ SÖZLEŞME GÜVENCESİ VE E-FATURA",
+        p2Desc: "DAT Özel Dedektiflik Bürosu'nda ön görüşmede kararlaştırılan rakam dışında müvekkilden asla sürpriz ek masraf talep edilmez. Tüm ödemeler resmi banka hesabımıza yapılır ve e-Fatura düzenlenir. Sözleşme şartları kapsamında %100 ispat ve memnuniyet ilkesiyle çalışılır.",
+        p3Items: [
+            { bad: true, label: "Gülünç Derecede Düşük Fiyatlara Kanmayın", text: "Yakıt, araç, teçhizat ve personel maliyetinin altındaki teklifler dolandırıcılık habercisidir." },
+            { bad: false, label: "Kritik Eşiğe Odaklanın", text: "7 günlük genel takip yerine şüphenin yoğunlaştığı 48 saatlik nokta operasyonlarla bütçenizi %60 optimize edin." },
+            { bad: false, label: "Önceden Net Bütçe Alın", text: "Vakanızın kapsamını Ümit Hakan Karakaya'ya anlatarak aynı gün yazılı maliyet tablosu alabilirsiniz." }
+        ],
+        waText: "Merhaba Ümit Bey, Yeni Nesil Dedektif alanından yazıyorum. Dedektif ücretleri ve vaka bütçelendirmesi hakkında şeffaf bilgi almak istiyorum."
+    },
+    'dedektif-olmak': {
+        query: "Türkiye'de nasıl özel dedektif olunur? Dedektif olmak için gereken şartlar, eğitimler ve UÖDED sertifika programları nelerdir?",
+        riskScore: "UÖDED MESLEKİ STANDARDI • AKADEMİK EĞİTİM & ETİK",
+        riskColor: "#93F051",
+        p1Title: "1. GERÇEK DEDEKTİFLİK DİSİPLİNİ: DİZİLERDEKİ GİBİ DEĞİL, HUKUK VE BİLİMLE ÇALIŞMAK",
+        p1Desc: "Özel dedektiflik filmlerdeki gibi kapı dinlemek ya da yasadışı maceralara atılmak değildir. Çağdaş dedektiflik; yüksek analitik zeka, açık kaynak istihbaratı (OSINT), ceza/medeni hukuk bilgisi ve üst düzey sabır gerektiren adli bir bilimdir. Adayların adli sicilinin temiz olması ve TCK/HMK/KVKK mevzuatına tam hakimiyeti şarttır.",
+        p2Title: "2. UÖDED EĞİTİMLERİ VE YASAL STANDARTLAR",
+        p2Desc: "Ümit Hakan Karakaya liderliğindeki UÖDED (Uluslararası Özel Dedektif Eğitimleri Derneği), Türkiye'de dedektifliğin yasal çerçeveye kavuşması ve uluslararası etik kodlarla icra edilmesi için akademik sertifika programları yürütmekte ve Özel Dedektiflik Yasası çalışmalarına öncülük etmektedir.",
+        p3Items: [
+            { bad: true, label: "İnternette Rozet / Kimlik Satan Dolandırıcılara Kanmayın", text: "Para karşılığı kimlik kartı dağıttığını iddia eden kişilerin hiçbir meşruiyeti yoktur." },
+            { bad: false, label: "Hukuk ve Adli Bilimler Eğitimi Alın", text: "TCK 134, HMK 199, KVKK ve kriminalistik prensiplerini öğrenerek mesleğe sağlam adımlarla girin." },
+            { bad: false, label: "Resmi UÖDED Çalıştaylarını Takip Edin", text: "Akademisyenler ve kıdemli dedektiflerin katıldığı sertifika programlarına başvurun." }
+        ],
+        waText: "Merhaba Ümit Bey, Yeni Nesil Dedektif alanından yazıyorum. Özel dedektiflik mesleği ve UÖDED eğitim/sertifika programları hakkında bilgi almak istiyorum."
+    },
     'almanya-es-takibi': {
         query: "Almanya'da yaşıyoruz, eşim her yaz Antalya veya Bodrum'a tek başına gidiyor. Telefonunu benden gizliyor ve şifrelerini değiştirdi. Mahkemede geçerli delil nasıl toplanır?",
-        riskScore: "YÜKSEK RİSK: %88 ŞÜPHE İNDEKSİ",
-        riskColor: "#FA7E61",
-        p1Title: "1. VAKA TEŞHİSİ VE DAVRANIŞ PATERNİ",
-        p1Desc: "Gurbetçi müvekkillerimizin %74'ünde karşılaşılan klasik profil: Yurt dışından Türkiye'ye tek başına tatil/iş gezisi, telefonun ters konması, bildirimlerin gizlenmesi ve iletişimde ani soğukluk. Bu göstergeler sadakatsizlik ve delil karartma riskinin en yüksek olduğu eşiğe işaret etmektedir.",
-        p2Title: "2. HUKUKİ GEÇERLİLİK (ALMANYA FAMFG & TÜRKİYE HMK)",
-        p2Desc: "TMK m.161 (Zina) ve TMK m.166 (Evlilik Birliğinin Temelden Sarsılması) uyarınca kamuya açık alanda tarih-saat damgalı 4K fotoğraf, video ve dedektif gözlem tutanakları mahkemede kesin delil sayılır. Almanya Familiengericht (FamFG § 29) de hukuka uygun temin edilen özel dedektif raporlarını tazminat ve nafaka davalarında doğrudan delil kabul etmektedir.",
+        riskScore: "OBJEKTİF ÖN DEĞERLENDİRME • MESAFE VE GÜVEN DENGESİ",
+        riskColor: "#93F051",
+        p1Title: "1. YANKI ODASINI KIRMAK: MESAFEDEN KAYNAKLI ŞÜPHELERİ RASYONELLEŞTİRMEK",
+        p1Desc: "Avrupa'da yaşayıp eşi veya ortağı Türkiye'de olan kişilerde fiziksel mesafe, kuşkuları katlayarak büyütebilir. En büyük hata, arkadaş veya akraba çevresinden gelen dedikodularla bir 'yankı odasına' hapsolup fevri kararlar almaktır. Yeni Nesil Dedektif vizyonu; mesafeden kaynaklanan kuruntuları beslemez, sahada 7/24 şeffaf Elsa paneli ve anlık teyitlerle gerçeği (ak ya da kara) olduğu gibi ortaya koyar.",
+        p2Title: "2. ALMANYA/AVRUPA VE TÜRKİYE ÇİFT YÖNLÜ HUKUKİ GEÇERLİLİK",
+        p2Desc: "Alman Aile Mahkemeleri (FamFG § 29) ile Fransız, Belçika ve Türk Aile Mahkemeleri (HMK 199); hukuka uygun elde edilmiş dedektif raporlarını tazminat, velayet ve nafaka davalarında kesin takdiri delil kabul eder. Dosyalar noter tasdikli tercüme ve apostil şerhi ile Avrupa mahkemelerine sunulacak standartta hazırlanır.",
         p3Items: [
-            { bad: true, label: "Asla Yüzleşmeyin", text: "Eşinize şüphenizi belli ederseniz mesajları siler, otel/araç kayıtlarını temizler ve delilleri karartır." },
-            { bad: true, label: "Casus Program Yüklemeyin", text: "Telefona casus yazılım yüklemek suçtur (TCK 134) ve mahkemede aleyhinize döner." },
-            { bad: false, label: "Profesyonel Takip Başlatın", text: "Kişi havalimanına indiği andan itibaren sahada 4K fiziki takiple somut delil toplanmalıdır." }
+            { bad: true, label: "Akraba ve Tanıdıkları Araya Sokmayın", text: "Amatör girişimler durumu karşı tarafa sızdırır, delilleri karartır ve ailevi krizleri büyütür." },
+            { bad: false, label: "Elsa Paneli ile Anlık İzleyin", text: "Almanya saatiyle şifreli Elsa sisteminizden saha adımlarını anbean izler, gerçek durumu net olarak görürsünüz." },
+            { bad: false, label: "Gereksiz Masraftan Kaçının", text: "Tüm seyahat yerine yalnızca kritik gün ve saatlere odaklanarak bütçenizi koruyan verimli planlama yapılır." }
         ],
-        waText: "Merhaba Ümit Bey, Dedektife Sor alanından yazıyorum. Almanya/Avrupa bağlantılı eş takibi ve delil toplama hakkında gizli görüşmek istiyorum."
+        waText: "Merhaba Ümit Bey, Yeni Nesil Dedektif alanından yazıyorum. Almanya/Avrupa bağlantılı aile araştırması ve delil toplama hakkında gizli danışmak istiyorum."
     },
     'aldatan-erkek': {
         query: "Aldatan bir erkeğin veya eşin en belirgin davranış değişiklikleri nelerdir? Şüphem var ama emin olamıyorum.",
-        riskScore: "ORTA-YÜKSEK RİSK: %82 BELİRTİ UYUMU",
-        riskColor: "#FA7E61",
-        p1Title: "1. VAKA TEŞHİSİ VE 12 BELİRTİ ANALİZİ",
-        p1Desc: "Telefonu ters bırakma, şifrelerin sık değişmesi, ani kişisel bakım/parfüm merakı, açıklanamayan nakit harcamalar ve 'iş/arkadaş toplantısı' bahaneleri aldatma şüphesinin %85 doğrulandığı eşiktir. Masum sorulara aşırı savunmacı tepkiler suçluluk psikolojisinin tipik göstergesidir.",
-        p2Title: "2. HUKUKİ İSPAT STANDARTLARI (HMK m.189/199)",
-        p2Desc: "Yalnızca şüphe veya dedikodu mahkemede nafaka, tazminat veya boşanma için yeterli değildir. İhanetin üçüncü bir şahısla fiziksel ve duygusal temas halinde olduğunu gösteren somut kamusal alan fotoğrafı ve konaklama/buluşma tutanakları gereklidir.",
+        riskScore: "SOĞUKKANLI ANALİZ • PEŞİN HÜKÜMDEN UZAK YAKLAŞIM",
+        riskColor: "#93F051",
+        p1Title: "1. YANKI ODASINDAN ÇIKIŞ: HER DAVRANIŞ DEĞİŞİKLİĞİ İHANET DEĞİLDİR",
+        p1Desc: "İnternetteki popüler klişelerin aksine; telefonun ters konması, geç gelme veya ani içe kapanma her zaman ihanet anlamına gelmez. İş stresi, finansal darboğaz veya depresyon da birebir aynı belirtileri verebilir. Dürüst dedektiflik; müvekkilin endişesini körükleyip 'kesin aldatıyor' diyen bir yankı odası olmak değil, duygusal varsayımlarla somut olguları soğukkanlılıkla birbirinden ayırmaktır.",
+        p2Title: "2. MAHKEMEDE HÜKÜM KURDURAN SOMUT DELİL STANDARDI (HMK m.189/199)",
+        p2Desc: "Aile mahkemelerinde dedikodu, şüphe, telefon kurcalama veya gizli ses kayıtları delil sayılamaz; aksine karşı dava sebebi olabilir. Boşanma ve tazminat davalarında yalnızca kamuya açık alanda üçüncü şahısla fiziki/duygusal birlikteliği kanıtlayan tarih-saat damgalı 4K gözlem raporları hükme esas alınır.",
         p3Items: [
-            { bad: true, label: "Telefonunu Karıştırmayın", text: "Yakalandığınızda güven ihlaliyle suçlanırsınız ve eşiniz daha gizli yöntemlere geçer." },
-            { bad: true, label: "Akraba veya Arkadaşları Araya Sokmayın", text: "Üçüncü şahıslar durumu karşı tarafa sızdırabilir." },
-            { bad: false, label: "Sessizce Tarih ve Saatleri Kaydedin", text: "Şüpheli gidiş-dönüş saatlerini not edip profesyonel dedektif ekibine aktarın." }
+            { bad: true, label: "Duygusal Patlamayla Yüzleşmeyin", text: "Elinizde somut delil yokken yapılan suçlamalar yalnızca karşı tarafın savunma geliştirmesine ve varsa delilleri karartmasına yarar." },
+            { bad: true, label: "Casus Program ve Hacker Tuzaklarına Düşmeyin", text: "Telefona casus program yüklemek suçtur (TCK 134) ve tazminat davasında aleyhinize delil oluşturur." },
+            { bad: false, label: "Olayları Not Edin, Soğukkanlı Kalın", text: "Şüpheli tarih ve saatleri not alın; takip gerekip gerekmediğini profesyonel adli bakış açısıyla değerlendirin." }
         ],
-        waText: "Merhaba Ümit Bey, eşimin davranış değişiklikleri ve aldatma şüphesi üzerine yapay zekadan analiz aldım. Profesyonel destek için görüşmek istiyorum."
+        waText: "Merhaba Ümit Bey, eşimle ilgili yaşadığım şüpheler üzerine Yeni Nesil Dedektif alanından objektif analiz aldım. Profesyonel rehberlik için görüşmek istiyorum."
     },
     'delil-gecerliligi': {
         query: "Özel dedektif delilleri Türkiye'de ve Almanya/Fransa/Belçika mahkemelerinde boşanma için delil sayılır mı?",
-        riskScore: "YASAL GÜVENCE: %100 HUKUKİ GEÇERLİLİK",
+        riskScore: "YASAL GÜVENCE • HMK m.189/199 VE TCK m.134 UYUMLU",
         riskColor: "#93F051",
-        p1Title: "1. HUKUKA UYGUN DELİL PRENSİBİ",
-        p1Desc: "Yargıtay Hukuk Genel Kurulu ve AİHS m.8 içtihatları nettir: Kamuya açık yerlerde (kafe, restoran, cadde, havalimanı, otel lobisi) icra edilen fiziki takip ve görsel kayıtlar hukuka uygundur. Özel hayatın gizliliğini ihlal etmeyen bu raporlar mahkemece bağlayıcı takdiri delil kabul edilir.",
-        p2Title: "2. AVRUPA MAHKEMELERİ VE FAMFG § 29 UYGULAMASI",
-        p2Desc: "Alman Aile Mahkemeleri (Familiengericht), Fransız ve Belçika mahkemeleri yurt dışında usulüne uygun toplanmış dedektif raporlarını 'Freie Beweiswürdigung' (delil serbestisi) kapsamında kabul eder. Deliller noter onaylı yeminli tercüme ve apostil şerhi ile sunulur.",
+        p1Title: "1. DÜRÜST HUKUKİ İLKE: ZEHİRLİ AĞACIN MEYVESİ DE ZEHİRLİDİR",
+        p1Desc: "Hukukta altın kuraldır: Hukuka aykırı elde edilen delil mahkemede yok hükmündedir. Yasadışı yollarla (gizli ses cihazı, telefon casusluğu, özel mülke izinsiz girme) elde edilen hiçbir materyal davayı kazandırmaz; aksine sunan kişiyi sanık sandalyesine oturtur. Dürüst dedektifin öncelikli görevi müvekkilini bu ağır tuzaktan korumaktır.",
+        p2Title: "2. YARGITAY VE AVRUPA MAHKEMELERİ İÇTİHATLARI",
+        p2Desc: "Kamuya açık yerlerde çekilen 4K fotoğraf, video ve tarih-saat kayıtlı dedektif saha raporları; Yargıtay Hukuk Genel Kurulu ve AİHS m.8 içtihatlarına göre hukuka uygun delildir ve doğrudan delil klasörüne girer.",
         p3Items: [
-            { bad: true, label: "Yasak Delilden Kaçının", text: "Gizli ses kaydı, ortam dinlemesi veya hackleme ile elde edilen deliller ceza davasına sebep olur." },
-            { bad: false, label: "Gözlem Raporu Hazırlatın", text: "Sertifikalı dedektifin tarih, saat, mekan ve fotoğraflarla imzaladığı vaka dosyası tartışmasız kabul görür." },
-            { bad: false, label: "Avukatınızla Entegre Çalışın", text: "DAT ekibi dosyanızı doğrudan avukatınızın taleplerine uygun hazırlar." }
+            { bad: true, label: "İnternetteki Casus Cihazlara Para Vermeyin", text: "Bu cihazların kullanımı TCK 134 ve 135 uyarınca 2 ila 5 yıl hapis cezası gerektirir." },
+            { bad: false, label: "Resmi Vaka Klasörü Alın", text: "Dedektiflik büromuzun imza ve kaşesiyle hazırlanan raporlar avukatınızın dava dilekçesini doğrudan güçlendirir." },
+            { bad: false, label: "Avukatınızla Birlikte Çalışıyoruz", text: "Saha araştırmasını davanızın hukuki stratejisine uygun şekilde avukatınızla koordineli yürütürüz." }
         ],
-        waText: "Merhaba Ümit Bey, dedektif delillerinin mahkemede geçerliliği ve hazırlanacak resmi dosya formatı hakkında bilgi almak istiyorum."
+        waText: "Merhaba Ümit Bey, Yeni Nesil Dedektif alanından yazıyorum. Dedektif delillerinin mahkemede geçerliliği ve resmi dosya formatı hakkında bilgi almak istiyorum."
     },
     'tatilde-aldatma': {
         query: "Eşim tek başına veya arkadaş grubuyla Antalya/Bodrum/Çeşme'ye tatile gidiyor, sadakatinden şüpheleniyorum.",
-        riskScore: "ACİL OPERASYONEL RİSK: %91 KRİTİK SEVİYE",
-        riskColor: "#FA7E61",
-        p1Title: "1. TATİL VE SAYFİYE BÖLGESİ VAKA PROFİLİ",
-        p1Desc: "Yaz ve tatil dönemleri aldatma eylemlerinin %65 arttığı en yoğun takvimdir. 'Arkadaşlarla kafa dinleme' bahanesi çoğu vakada üçüncü şahıslarla gizli buluşmaların paravanı olmaktadır. Tatil beldelerinde delil toplamak hız ve yerel mobil ekip gerektirir.",
-        p2Title: "2. SAHA OPERASYONUNUN İŞLEYİŞİ",
-        p2Desc: "Şahıs havalimanına indiği andan itibaren kiralık araç, otel giriş-çıkışları, plaj ve restoran mekanlarında uzaktan profesyonel lenslerle 4K takip edilir. Birlikte konaklanan şahsın kimlik ve görüntü tespiti yapılır.",
+        riskScore: "RASYONEL SAHA ANALİZİ • SOMUT OLGULARLA DOĞRULAMA",
+        riskColor: "#93F051",
+        p1Title: "1. TATİL VE SEYAHATLERDE PEŞİN YARGI DEĞİL SOMUT GÖZLEM",
+        p1Desc: "Bir kişinin tek başına veya iş/arkadaş grubuyla seyahat etmesi tek başına aldatma kanıtı değildir. Bu algı genellikle sosyal medya abartılarının beslediği bir yankı odasıdır. Ancak şahsın tamamen ulaşılmaz olması, konaklama adresini gizlemesi veya tutarsız anlatımları varsa, varsayımlar yerine profesyonel lenslerle uzaktan yapılacak 24-48 saatlik fiziki teyit en dürüst cevabı verir.",
+        p2Title: "2. SAHA OPERASYONUNDA ETİK VE HUKUKİ SINIRLAR",
+        p2Desc: "Otel odası veya konut mahrem alandır; kapalı alana gizli kamera yerleştirmek suçtur. Saha ekiplerimiz havalimanı, otel lobisi, restoran ve plaj gibi kamuya açık ortak alanlarda 4K teleobjektiflerle tespit yapar; elde edilen belgeler mahkemede tek celsede kabul görür.",
         p3Items: [
-            { bad: true, label: "Sürekli Arayıp Rahatsız Etmeyin", text: "Aşırı arama şüphenizi ele verir ve dikkatleri artırır." },
-            { bad: true, label: "Kendi Başınıza Gitmeyin", text: "Amatörce takip edilmeye çalışıldığında deşifre olunur ve hukuki haklar zedelenir." },
-            { bad: false, label: "Uçuş Bilgisini Bize Bildirin", text: "Uçuş kodu ve otel ismi verildiğinde inişten itibaren kesintisiz takip başlatılır." }
+            { bad: true, label: "Kendi Başınıza Takibe Kalkışmayın", text: "Amatörce takip hem can güvenliğinizi tehlikeye atar hem de şahsı uyararak gerçeğe ulaşmayı imkansız kılar." },
+            { bad: true, label: "Telefonla Sürekli Sorgulamayın", text: "Aşırı hesap sorma karşı tarafın savunma mekanizmasını tetikler." },
+            { bad: false, label: "Havalimanı & Otel Bilgisi Yeterlidir", text: "Uçuş saati ve şehir bilgisi verildiğinde yerel ekibimiz durumu objektif olarak raporlar." }
         ],
-        waText: "Merhaba Ümit Bey, eşimin Türkiye tatili/seyahati sırasında sadakat araştırması ve fiziki takip yaptırmak istiyorum."
+        waText: "Merhaba Ümit Bey, Yeni Nesil Dedektif alanından yazıyorum. Eşimin Türkiye tatili/seyahati sırasında objektif fiziki teyit için bilgi almak istiyorum."
     },
     'miras-borclu': {
-        query: "Avrupa'da yaşıyorum. Türkiye'de miras kalan gayrimenkuller benden kaçırılıyor veya borçlu şahsın adresini bulamıyorum.",
-        riskScore: "VARLIK İNTİKAL RİSKİ: %85 TESPİT GEREKLİ",
-        riskColor: "#FA7E61",
-        p1Title: "1. MİRAS VE GİZLENEN MAL VARLIĞI TESPİTİ",
-        p1Desc: "Yurt dışındaki akrabaların haberi olmadan vekaletname hileleriyle veya muvazaalı satışlarla malların üçüncü şahıslara devredilmesi çok yaygındır. Gayrimenkul, araç ve şirket paylarının geriye dönük incelenmesi gerekir.",
-        p2Title: "2. HUKUKİ YOL HARİTASI (MURİS MUVAZAASI)",
-        p2Desc: "Tapu ve ticaret sicil araştırmaları ile sahadaki fiili kullanım durumu belgelendiğinde, Türk mahkemelerinde Muris Muvazaası davası açılarak devredilen mallar mirasçılara iade ettirilebilir.",
+        query: "Avrupa'da veya farklı bir şehirde yaşıyorum. Türkiye'de miras kalan gayrimenkuller kaçırılıyor veya borçlu şahsın güncel adresini bulamıyorum.",
+        riskScore: "VARLIK & ADRES ANALİZİ • GERÇEKÇİ SONUÇLAR",
+        riskColor: "#93F051",
+        p1Title: "1. GERÇEKÇİ İSTİHBARAT: KAÇIRILAN MALLAR VE SAHTE İKAMETGAHLAR",
+        p1Desc: "Borçluların resmi ikametgahlarını boş adreslerde göstermesi veya şirket hisselerini emanetçi şahıslara devretmesi yaygındır. Ancak kulaktan dolma duyumlarla dava açmak masraf kaybına yol açar. Sahada şahsın fiilen nerede yaşadığı, hangi aracı kullandığı ve hangi işletmeyi yönettiği somutlaştırılmadan hukuki adım atılmamalıdır.",
+        p2Title: "2. HUKUKİ YOL HARİTASI (İİK m.277 & MURİS MUVAZAASI)",
+        p2Desc: "Tasarrufun iptali veya mirastan mal kaçırma davalarında mahkemenin aradığı 'fiili hayat standardı ve muvazaa' kanıtları, dedektif saha raporları ve ticari gözlem tutanaklarıyla ispatlanır.",
         p3Items: [
-            { bad: true, label: "Zaman Kaybetmeyin", text: "Muvazaalı işlemlerden sonra mallar iyi niyetli 4. şahıslara satılırsa geri dönüş zorlaşır." },
-            { bad: false, label: "Kapsamlı İstihbarat Raporu Alın", text: "Varlıkların güncel durumu ve fiili gelir getirisi tespit edilir." },
-            { bad: false, label: "Vekaletsiz Bilgi Alın", text: "Türkiye'ye gelmeden resmi raporunuz hazırlanıp tarafınıza iletilir." }
+            { bad: true, label: "Zaman Aşımını Unutmayın", text: "İİK m.277 kapsamındaki tasarrufun iptali davalarında süreler hak düşürücüdür, gecikmeyin." },
+            { bad: false, label: "Fiili Adres Teyidi Yaptırın", text: "Resmi tebligatın yapılabileceği fiili ikamet ve iş adresi saha ekibimizce fotoğrafla belgelenir." },
+            { bad: false, label: "Uzaktan Rapor Alın", text: "Yurt dışından gelmenize gerek kalmadan Türkiye'deki varlıkların güncel durumu resmi raporlanır." }
         ],
-        waText: "Merhaba Ümit Bey, yurt dışından Türkiye'de miras, tapu ve borçlu varlık tespiti için danışmanlık almak istiyorum."
+        waText: "Merhaba Ümit Bey, Yeni Nesil Dedektif alanından yazıyorum. Adres tespiti, miras ve borçlu varlık araştırması hakkında danışmanlık almak istiyorum."
     },
     'nafaka-gelir': {
-        query: "Eski eşim Avrupa mahkemesinde sıfır gelirim var diyor ama Türkiye'de iş yapıyor ve lüks yaşıyor, nafakayı iptal ettirmek istiyorum.",
-        riskScore: "TİCARİ İSTİHBARAT: %94 İPTAL EDİLEBİLİRLİK",
+        query: "Eski eşim mahkemede sıfır gelirim var diyor ama kayıt dışı iş yapıyor ve lüks yaşıyor, nafakayı iptal ettirmek istiyorum.",
+        riskScore: "TİCARİ TESPİT & GELİR ANALİZİ • HUKUKİ İSPAT",
         riskColor: "#93F051",
-        p1Title: "1. KAYIT DIŞI GELİR VE ŞİRKET TESPİTİ",
-        p1Desc: "Avrupa'da sosyal yardım alıp veya asgari ücret gösterip Türkiye'de kafe, restoran, otel ortaklığı veya gayrimenkul kira geliri elde eden şahıslar için saha dedektifliği kesin çözümdür.",
-        p2Title: "2. AVRUPA MAHKEMESİNE NAFAKA İPTAL DELİLİ",
-        p2Desc: "Şahsın Türkiye'deki ticari faaliyetlerini, işletmenin başında bizzat durduğunu, müşteri karşıladığını ve kullandığı lüks araçları gösteren 4K video ve fotoğraflar, Avrupa mahkemesine sunulduğunda nafaka yükümlülüğü kaldırılır ve geriye dönük tazminat talep edilebilir.",
+        p1Title: "1. YANKI ODASINDAN UZAK GERÇEKÇİ YAKLAŞIM: İSPATSIZ İDDİA MAHKEMEDE GEÇERSİZDİR",
+        p1Desc: "Eski eşinizin sosyal medyada paylaştığı tek bir tatil fotoğrafı veya lüks restoran pozu nafakanın iptali için yetersiz kalabilir. Mahkemeler somut, sürekli ve ticari gelir sağlandığını gösteren adli kanıt ister. Şüpheyi gerçek delile dönüştürmek profesyonel saha takibi gerektirir.",
+        p2Title: "2. FİİLİ ÇALIŞMA VE TİCARİ FAALİYETİN BELGELENMESİ",
+        p2Desc: "Şahsın resmiyette asgari ücretli veya işsiz görünüp fiiliyatta iş yerinde bulunması, ticareti yönetmesi, müşteri ağırlaması ve lüks araç kullanım paternleri gün gün video ile belgelenerek nafakanın kaldırılması davasına sunulur.",
         p3Items: [
-            { bad: false, label: "Fiili Denetim Raporu Alın", text: "Şahsın iş yerindeki aktif yöneticilik konumu gün gün tutanak altına alınır." },
-            { bad: false, label: "Resmi Tercüme ile Sunun", text: "Dosya Almanca/Fransızca yeminli tercüme ile ilgili mahkemeye verilir." },
-            { bad: true, label: "Doğrudan Tehdit Etmeyin", text: "Şahsa 'seni şikayet edeceğim' derseniz ortaklık paylarını hemen devreder." }
+            { bad: false, label: "Süreklilik Arz Eden Delil Toplayın", text: "Tek bir anlık görüntü yerine en az 3-5 günlük devamlılık gösteren iş yeri hareketliliği belgelenir." },
+            { bad: true, label: "Karşı Tarafı Uyarmayın", text: "'Seni mahkemeye vereceğim' demek sadece şahsın şirket üzerindeki fiili görünürlüğünü gizlemesine yol açar." },
+            { bad: false, label: "Resmi Delil Dosyası Edinin", text: "Avukatınızın HMK kapsamında mahkemeye sunabileceği nitelikte adli dosya hazırlanır." }
         ],
-        waText: "Merhaba Ümit Bey, eski eşimin Türkiye'deki gizli gelir ve ticari varlıklarının tespiti için nafaka davası delili toplamak istiyorum."
+        waText: "Merhaba Ümit Bey, Yeni Nesil Dedektif alanından yazıyorum. Eski eşimin gizli gelir ve ticari varlıklarının tespiti için nafaka delili toplamak istiyorum."
     }
 };
 
-let currentAIPreset = 'almanya-es-takibi';
+let currentAIPreset = 'dedektif-tutmak';
 
+// 10. Yeni Nesil Dedektif'e Sor (Canlı Adli Chat Alanı)
+let aiChatInitialized = false;
+
+function _getCurrentTimeStr() {
+    const now = new Date();
+    return String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0');
+}
+
+function initAIChat() {
+    const container = document.getElementById('aiChatMessages');
+    if (!container) return;
+    
+    // Setup initial welcome bubble if empty
+    if (!container.hasChildNodes() || container.children.length === 0) {
+        resetAIChat();
+    }
+
+    const input = document.getElementById('aiChatInput');
+    if (input && !input.dataset.listenerAttached) {
+        input.dataset.listenerAttached = 'true';
+        input.addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+        });
+        input.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendAIChatMessage();
+            }
+        });
+    }
+    aiChatInitialized = true;
+}
+
+function resetAIChat() {
+    const container = document.getElementById('aiChatMessages');
+    if (!container) return;
+    const timeStr = _getCurrentTimeStr();
+
+    container.innerHTML = `
+        <div class="flex items-start gap-3 text-left animate-fadeIn">
+            <img src="assets/photos/elsa-dedektif-asistan.jpg" alt="Elsa & Ümit Hakan Karakaya" class="w-8 h-8 rounded-full border border-[#93F051]/50 object-cover object-top shrink-0 mt-1 shadow-sm">
+            <div class="bg-[#111111] border border-white/10 rounded-2xl rounded-tl-sm p-4 sm:p-5 text-white max-w-[95%] sm:max-w-[85%] space-y-3.5 shadow-lg">
+                <div class="flex items-center justify-between pb-2 border-b border-white/10">
+                    <div class="flex items-center gap-1.5">
+                        <span class="text-xs font-medium text-white">Yeni Nesil Dedektif (Elsa &amp; Ümit Hakan Karakaya)</span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#93F051]"></span>
+                    </div>
+                    <span class="text-[10px] font-mono text-white/40">${timeStr}</span>
+                </div>
+                <div class="text-xs sm:text-[13px] leading-relaxed text-white/85 space-y-2">
+                    <p>Merhaba! Ben DAT Özel Dedektiflik'in Yeni Nesil Dijital Asistanı <strong>Elsa</strong>. Kurucumuz <strong>Ümit Hakan Karakaya</strong>'nın 20 yılı aşkın dedektiflik ve adli bilişim tecrübesiyle buradayım.</p>
+                    <p>Burada kuruntuları körükleyen sahte şüphe oranları veya yankı odası tuzaklarına yer yok. Dosyanızı dürüst, rasyonel ve <strong>HMK m.199 / TCK m.134</strong> yasal sınırları içinde değerlendiriyoruz.</p>
+                    <p class="text-[#93F051] font-medium pt-1">Aşağıdaki popüler başlıklardan birine tıklayarak anında yanıt alabilir veya sorunuzu doğrudan yazıp <strong>"Yeni Nesil Dedektif'e Sor"</strong> butonuna basabilirsiniz:</p>
+                </div>
+                <div class="flex flex-wrap gap-1.5 pt-1">
+                    <button type="button" onclick="selectAIChatPreset('dedektif-tutmak')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#93F051]/15 text-white/85 hover:text-[#93F051] border border-white/10 hover:border-[#93F051]/40 text-xs transition">🕵️‍♂️ Dedektif Tutmak Yasal mı?</button>
+                    <button type="button" onclick="selectAIChatPreset('dedektif-ucretleri')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#93F051]/15 text-white/85 hover:text-[#93F051] border border-white/10 hover:border-[#93F051]/40 text-xs transition">💳 Ücretler Nasıl Belirlenir?</button>
+                    <button type="button" onclick="selectAIChatPreset('delil-gecerliligi')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#93F051]/15 text-white/85 hover:text-[#93F051] border border-white/10 hover:border-[#93F051]/40 text-xs transition">⚖️ Deliller Mahkemede Geçerli mi?</button>
+                    <button type="button" onclick="selectAIChatPreset('almanya-es-takibi')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#93F051]/15 text-white/85 hover:text-[#93F051] border border-white/10 hover:border-[#93F051]/40 text-xs transition">🇩🇪 Almanya/Avrupa Eş Takibi</button>
+                    <button type="button" onclick="selectAIChatPreset('aldatan-erkek')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#93F051]/15 text-white/85 hover:text-[#93F051] border border-white/10 hover:border-[#93F051]/40 text-xs transition">💔 Eş Takibi &amp; Aldatma Tespiti</button>
+                </div>
+            </div>
+        </div>
+    `;
+    _scrollAIChatToBottom();
+}
+
+function _scrollAIChatToBottom() {
+    const container = document.getElementById('aiChatMessages');
+    if (container) {
+        setTimeout(() => {
+            container.scrollTo({ top: container.scrollHeight, behavior: 'smooth' });
+        }, 50);
+    }
+}
+
+function selectAIChatPreset(key) {
+    if (AI_PRESETS[key]) {
+        currentAIPreset = key;
+        sendAIChatMessage(AI_PRESETS[key].query, key);
+    }
+}
+
+// Backwards compatibility alias
 function selectAIPreset(key) {
-    if (!AI_PRESETS[key]) return;
-    currentAIPreset = key;
+    selectAIChatPreset(key);
+}
 
-    // Toggle button UI
-    document.querySelectorAll('.ai-chip-btn').forEach(btn => {
-        if (btn.getAttribute('data-preset') === key) {
-            btn.classList.add('active', 'bg-[#242426]', 'border-[#93F051]/40');
-            btn.classList.remove('bg-[#1D1D1F]', 'border-white/10');
-            const icon = btn.querySelector('.hgi-arrow-right-01');
-            if (icon) { icon.classList.remove('text-white/40'); icon.classList.add('text-[#93F051]'); }
-        } else {
-            btn.classList.remove('active', 'bg-[#242426]', 'border-[#93F051]/40');
-            btn.classList.add('bg-[#1D1D1F]', 'border-white/10');
-            const icon = btn.querySelector('.hgi-arrow-right-01');
-            if (icon) { icon.classList.add('text-white/40'); icon.classList.remove('text-[#93F051]'); }
+function sendAIChatMessage(overrideQuery, explicitPresetKey) {
+    const container = document.getElementById('aiChatMessages');
+    const input = document.getElementById('aiChatInput');
+    const sendBtn = document.getElementById('aiSendBtn');
+
+    const rawQuery = (typeof overrideQuery === 'string' && overrideQuery.trim().length > 0) 
+        ? overrideQuery.trim() 
+        : (input ? input.value.trim() : '');
+
+    if (!rawQuery) {
+        rawQuery = (AI_PRESETS && AI_PRESETS[currentAIPreset]) 
+            ? AI_PRESETS[currentAIPreset].query 
+            : "Türkiye'de özel dedektif tutmak yasal mı ve süreç nasıl işler?";
+    }
+
+    if (input) {
+        input.value = '';
+        input.style.height = 'auto';
+    }
+
+    if (!container) return;
+
+    const timeStr = _getCurrentTimeStr();
+
+    // 1. Render User Message Bubble
+    const escapedQuery = rawQuery.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    const userBubble = document.createElement('div');
+    userBubble.className = 'flex justify-end text-right animate-fadeIn';
+    userBubble.innerHTML = `
+        <div class="bg-[#242426] border border-[#93F051]/30 rounded-2xl rounded-tr-sm p-3.5 sm:p-4 text-white max-w-[85%] sm:max-w-[75%] space-y-1 shadow-md">
+            <div class="text-[10px] font-mono text-[#93F051] flex items-center justify-end gap-1">
+                <span>Siz</span>
+                <span>•</span>
+                <span>${timeStr}</span>
+            </div>
+            <p class="text-xs sm:text-[13px] leading-relaxed text-left text-white/95">${escapedQuery}</p>
+        </div>
+    `;
+    container.appendChild(userBubble);
+    _scrollAIChatToBottom();
+
+    // 2. Render Typing Indicator
+    const typingIndicator = document.createElement('div');
+    typingIndicator.id = 'aiTypingIndicator';
+    typingIndicator.className = 'flex items-start gap-3 text-left animate-fadeIn';
+    typingIndicator.innerHTML = `
+        <img src="assets/photos/elsa-dedektif-asistan.jpg" alt="Elsa & Ümit Hakan Karakaya" class="w-8 h-8 rounded-full border border-[#93F051]/50 object-cover object-top shrink-0 mt-1 shadow-sm">
+        <div class="bg-[#111111] border border-white/10 rounded-2xl rounded-tl-sm px-4 py-3 text-white flex items-center gap-2.5 shadow-sm">
+            <span class="text-xs text-white/70">Yeni Nesil Dedektif yanıt hazırlıyor</span>
+            <span class="inline-flex gap-1 items-center">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#93F051] animate-bounce"></span>
+                <span class="w-1.5 h-1.5 rounded-full bg-[#93F051] animate-bounce [animation-delay:0.15s]"></span>
+                <span class="w-1.5 h-1.5 rounded-full bg-[#93F051] animate-bounce [animation-delay:0.3s]"></span>
+            </span>
+        </div>
+    `;
+    container.appendChild(typingIndicator);
+    _scrollAIChatToBottom();
+
+    if (sendBtn) sendBtn.disabled = true;
+
+    // 3. Process matched data
+    const query = rawQuery.toLowerCase();
+    let matchedKey = explicitPresetKey || null;
+
+    if (!matchedKey) {
+        if (query.includes('ücret') || query.includes('ucret') || query.includes('fiyat') || query.includes('ne kadar') || query.includes('maliyet') || query.includes('kaç para')) {
+            matchedKey = 'dedektif-ucretleri';
+        } else if (query.includes('dedektif olmak') || query.includes('nasıl dedektif') || query.includes('eğitim') || query.includes('sertifika') || query.includes('uöded') || query.includes('meslek')) {
+            matchedKey = 'dedektif-olmak';
+        } else if (query.includes('dedektif tutmak') || query.includes('nasıl tutulur') || query.includes('sözleşme') || query.includes('güvenilir')) {
+            matchedKey = 'dedektif-tutmak';
+        } else if (query.includes('tatil') || query.includes('antalya') || query.includes('bodrum') || query.includes('otel') || query.includes('seyahat')) {
+            matchedKey = 'tatilde-aldatma';
+        } else if (query.includes('miras') || query.includes('borç') || query.includes('borc') || query.includes('adres') || query.includes('tapu') || query.includes('gayrimenkul')) {
+            matchedKey = 'miras-borclu';
+        } else if (query.includes('nafaka') || query.includes('gelir') || query.includes('şirket') || query.includes('sirket')) {
+            matchedKey = 'nafaka-gelir';
+        } else if (query.includes('delil') || query.includes('mahkeme') || query.includes('yasal') || query.includes('geçerli') || query.includes('kanun') || query.includes('hukuk')) {
+            matchedKey = 'delil-gecerliligi';
+        } else if (query.includes('erkek') || query.includes('aldat') || query.includes('belirti') || query.includes('işaret') || query.includes('eş takibi') || query.includes('es takibi')) {
+            matchedKey = 'aldatan-erkek';
+        } else if (query.includes('almanya') || query.includes('avusturya') || query.includes('fransa') || query.includes('belçika') || query.includes('yurt dışı') || query.includes('gurbet')) {
+            matchedKey = 'almanya-es-takibi';
         }
-    });
-
-    const data = AI_PRESETS[key];
-    const input = document.getElementById('aiDetectiveInput');
-    if (input) input.value = data.query;
-
-    renderAIDiagnostic(data);
-}
-
-function renderAIDiagnostic(data) {
-    const riskBadge = document.getElementById('aiRiskBadge');
-    const p1Title = document.getElementById('aiPillar1Title');
-    const p1Desc = document.getElementById('aiPillar1Desc');
-    const p2Title = document.getElementById('aiPillar2Title');
-    const p2Desc = document.getElementById('aiPillar2Desc');
-    const p3Desc = document.getElementById('aiPillar3Desc');
-    const waBtn = document.getElementById('aiWhatsappBtn');
-
-    if (riskBadge) {
-        riskBadge.textContent = data.riskScore;
-        riskBadge.style.borderColor = data.riskColor + '60';
-        riskBadge.style.color = data.riskColor;
-    }
-    if (p1Title) p1Title.textContent = data.p1Title;
-    if (p1Desc) p1Desc.textContent = data.p1Desc;
-    if (p2Title) p2Title.textContent = data.p2Title;
-    if (p2Desc) p2Desc.textContent = data.p2Desc;
-
-    if (p3Desc && data.p3Items) {
-        p3Desc.innerHTML = data.p3Items.map(item => `
-            <li class="flex items-start gap-1.5 ${item.bad ? 'text-rose-300' : 'text-[#93F051]'}">
-                <span>${item.bad ? '✕' : '✓'}</span>
-                <span><strong>${item.label}:</strong> <span class="text-white/80">${item.text}</span></span>
-            </li>
-        `).join('');
     }
 
-    if (waBtn) {
-        waBtn.href = `https://wa.me/905326667749?text=${encodeURIComponent(data.waText)}`;
-    }
-}
+    let data;
+    const isCustom = Boolean(rawQuery && rawQuery.length > 5 && !explicitPresetKey);
 
-function runDetectiveAI() {
-    const input = document.getElementById('aiDetectiveInput');
-    const query = input ? input.value.trim().toLowerCase() : '';
-    const btn = document.getElementById('aiRunBtn');
+    if (matchedKey && AI_PRESETS[matchedKey]) {
+        data = Object.assign({}, AI_PRESETS[matchedKey]);
+        if (isCustom) {
+            data.waText = `Merhaba Ümit Bey, web sitenizdeki Yeni Nesil Dedektif (Dedektif'e Sor) alanından yazıyorum.
 
-    if (btn) {
-        btn.disabled = true;
-        btn.innerHTML = `<span class="inline-block w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin"></span> <span>Vaka Parametreleri Taranıyor...</span>`;
+Sorum: "${rawQuery}"
+
+Bu konu hakkında dürüst ve objektif hukuki danışmanlık almak istiyorum.`;
+        }
+    } else if (isCustom) {
+        data = {
+            query: rawQuery,
+            riskScore: "DÜRÜST & OBJEKTİF ÖN DEĞERLENDİRME",
+            riskColor: "#93F051",
+            p1Title: "1. YANKI ODASINDAN UZAK RASYONEL DEĞERLENDİRME",
+            p1Desc: `Belirttiğiniz durum ("${rawQuery.slice(0, 75)}..."), kuruntuları körükleyen değil, soğukkanlı ve rasyonel bir süzgeçten geçirilmelidir. İnsan psikolojisi şüphe anında yalnızca kendi endişesini doğrulayan işaretleri görme eğilimindedir (yankı odası etkisi). Oysa kurucumuz Ümit Hakan Karakaya'nın 20 yılı aşkın tecrübesi gösterir ki; somut kanıt olmadan peşin hüküm vermek ve fevri adımlar atmak hem maddi kayba hem de hak kaybına yol açar.`,
+            p2Title: "2. DÜRÜST HUKUKİ GERÇEKLER & MEŞRU DELİL SINIRI (HMK m.199)",
+            p2Desc: "İnternette vadedilen telefon casus yazılımları, WhatsApp sızmaları veya ortam dinlemeleri TCK m.134 kapsamında hapis cezası gerektiren suçlardır ve mahkemelerde aleyhinize döner. Gerçek dedektiflik; yalnızca kamuya açık alanlarda, konut ve özel hayat dokunulmazlığını ihlal etmeden HMK m.199 standartlarında 4K tarih-saat damgalı yasal delil üretmektir.",
+            p3Items: [
+                { bad: true, label: "Fevri Yüzleşmeden Kaçının", text: "Elinizde resmi delil olmadan karşı tarafla yüzleşmek yalnızca delillerin karartılmasına ve savunma geliştirmesine yarar." },
+                { bad: true, label: "Gereksiz Masrafa Girmeyin", text: "Her şüphede dedektif tutulmaz; önce hukuki altyapının ve somut riskin varlığı netleştirilmelidir." },
+                { bad: false, label: "Ümit Hakan Karakaya ile Doğrudan Görüşün", text: "Dosyanızın dedektiflik çalışmasına uygun olup olmadığını dürüst bir ön görüşmeyle ücretsiz analiz edelim." }
+            ],
+            waText: `Merhaba Ümit Bey, web sitenizdeki Yeni Nesil Dedektif (Dedektif'e Sor) alanından yazıyorum.
+
+Sorum / Durumum: "${rawQuery}"
+
+Bu konu hakkında dürüst ve objektif hukuki danışmanlık almak istiyorum.`
+        };
+    } else {
+        data = Object.assign({}, AI_PRESETS[currentAIPreset] || AI_PRESETS['dedektif-tutmak']);
     }
 
     setTimeout(() => {
-        if (btn) {
-            btn.disabled = false;
-            btn.innerHTML = `<i class="hgi hgi-stroke hgi-ai-brain-05 w-4 h-4 text-[#111111]"></i> <span>Vakayı Yapay Zeka ile Analiz Et</span>`;
-        }
+        const ind = document.getElementById('aiTypingIndicator');
+        if (ind) ind.remove();
 
-        let matchedKey = currentAIPreset;
-        if (query.includes('tatil') || query.includes('antalya') || query.includes('bodrum') || query.includes('otel')) {
-            matchedKey = 'tatilde-aldatma';
-        } else if (query.includes('miras') || query.includes('borç') || query.includes('tapu') || query.includes('gayrimenkul')) {
-            matchedKey = 'miras-borclu';
-        } else if (query.includes('nafaka') || query.includes('gelir') || query.includes('şirket')) {
-            matchedKey = 'nafaka-gelir';
-        } else if (query.includes('delil') || query.includes('mahkeme') || query.includes('yasal') || query.includes('geçerli')) {
-            matchedKey = 'delil-gecerliligi';
-        } else if (query.includes('erkek') || query.includes('aldat') || query.includes('belirti') || query.includes('işaret')) {
-            matchedKey = 'aldatan-erkek';
-        } else if (query.includes('almanya') || query.includes('avusturya') || query.includes('fransa') || query.includes('belçika') || query.includes('yurt dışı')) {
-            matchedKey = 'almanya-es-takibi';
-        }
+        if (sendBtn) sendBtn.disabled = false;
 
-        const data = Object.assign({}, AI_PRESETS[matchedKey]);
-        if (query && query.length > 10) {
-            data.waText = `Merhaba Ümit Bey, web sitenizdeki Yapay Zeka Dedektife Sor alanından yazıyorum.\n\nVakam: "${input.value.trim()}"\n\nBu durum hakkında gizli bir ön görüşme yapmak istiyorum.`;
-        }
-        renderAIDiagnostic(data);
+        const p3ItemsHtml = (data.p3Items || []).map(item => `
+            <li class="flex items-start gap-1.5 ${item.bad ? 'text-rose-300' : 'text-[#93F051]'} text-xs">
+                <span class="font-bold">${item.bad ? '✕' : '✓'}</span>
+                <span><strong>${item.label}:</strong> <span class="text-white/80">${item.text}</span></span>
+            </li>
+        `).join('');
 
-        // Track lead simulation
+        const respBubble = document.createElement('div');
+        respBubble.className = 'flex items-start gap-3 text-left animate-fadeIn';
+        respBubble.innerHTML = `
+            <img src="assets/photos/elsa-dedektif-asistan.jpg" alt="Elsa & Ümit Hakan Karakaya" class="w-8 h-8 rounded-full border border-[#93F051]/50 object-cover object-top shrink-0 mt-1 shadow-sm">
+            <div class="bg-[#111111] border border-white/10 rounded-2xl rounded-tl-sm p-4 sm:p-5 text-white max-w-[95%] sm:max-w-[85%] space-y-3.5 shadow-lg">
+                <div class="flex flex-wrap items-center justify-between gap-2 pb-2.5 border-b border-white/10">
+                    <div class="flex items-center gap-1.5">
+                        <span class="text-xs font-medium text-white">Yeni Nesil Dedektif (Elsa &amp; Ümit Hakan Karakaya)</span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#93F051]"></span>
+                    </div>
+                    <span class="px-2 py-0.5 rounded-full bg-[#93F051]/15 border border-[#93F051]/30 text-[#93F051] text-[9.5px] font-mono font-medium">${data.riskScore || 'DÜRÜST HUKUKİ ANALİZ'}</span>
+                </div>
+                
+                <div class="space-y-2.5 text-xs sm:text-[13px] leading-relaxed">
+                    <div class="space-y-1">
+                        <div class="text-[#93F051] font-medium text-xs flex items-center gap-1.5">
+                            <i class="hgi hgi-stroke hgi-alert-circle w-3.5 h-3.5"></i>
+                            <span>${data.p1Title}</span>
+                        </div>
+                        <p class="text-white/80">${data.p1Desc}</p>
+                    </div>
+
+                    <div class="space-y-1">
+                        <div class="text-[#93F051] font-medium text-xs flex items-center gap-1.5">
+                            <i class="hgi hgi-stroke hgi-justice-scale-01 w-3.5 h-3.5"></i>
+                            <span>${data.p2Title}</span>
+                        </div>
+                        <p class="text-white/80">${data.p2Desc}</p>
+                    </div>
+
+                    <div class="space-y-1">
+                        <div class="text-[#93F051] font-medium text-xs flex items-center gap-1.5">
+                            <i class="hgi hgi-stroke hgi-shield-alert w-3.5 h-3.5"></i>
+                            <span>3. DÜRÜST DEDEKTİFLİK VE KORUYUCU TAVSİYELER</span>
+                        </div>
+                        <ul class="space-y-1 pt-0.5">
+                            ${p3ItemsHtml}
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="pt-2.5 border-t border-white/10 flex flex-wrap items-center justify-between gap-2">
+                    <span class="text-[10px] text-white/50 font-mono">${timeStr} • HMK m.199 &amp; TCK m.134 Uyumlu</span>
+                    <a href="https://wa.me/905326667749?text=${encodeURIComponent(data.waText)}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#25D366] hover:bg-[#20ba59] text-[#111111] font-medium text-xs transition">
+                        <i class="hgi hgi-stroke hgi-whatsapp w-3.5 h-3.5"></i>
+                        <span>Ümit Hakan Karakaya'ya WhatsApp'tan Sorun</span>
+                    </a>
+                </div>
+            </div>
+        `;
+        container.appendChild(respBubble);
+        _scrollAIChatToBottom();
+
+        // Track event
         if (window.DATAnalytics) {
-            window.DATAnalytics.trackEvent('ai_detective_analysis', {
-                preset: matchedKey,
-                hasCustomQuery: Boolean(query && query.length > 5)
+            window.DATAnalytics.trackEvent('ai_detective_chat', {
+                preset: matchedKey || 'custom',
+                hasCustomQuery: isCustom
             });
         }
-    }, 900);
+    }, 550);
+}
+
+// Backwards compatibility alias
+function runDetectiveAI() {
+    sendAIChatMessage();
+}
+
+// Boot AI chat on ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAIChat);
+} else {
+    initAIChat();
 }
 
 window.addEventListener('click', (e) => {

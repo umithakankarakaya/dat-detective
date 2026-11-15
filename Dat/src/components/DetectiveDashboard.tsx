@@ -253,7 +253,7 @@ export const DetectiveDashboard: React.FC = () => {
 
                 <div className="flex items-center gap-2">
                   <span className="rounded-full bg-[#F3F4F4] px-2.5 py-1 text-[11px] font-mono font-medium text-[#3A3E42]">
-                    DOSYA #2024-VR774
+                    DELİL PROTOKOLÜ (HMK m.199)
                   </span>
                   <ChevronRight className="w-3.5 h-3.5 text-[#3A3E42]/40" />
                   <h1 className="text-xs sm:text-sm font-medium text-[#000000] tracking-tight truncate">

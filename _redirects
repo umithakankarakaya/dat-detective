@@ -75,6 +75,8 @@ http://www.datdetective.com/* https://www.datdetective.com/:splat 301!
 /Dedektif/ozel-dedektif-ANKARA* /ankara-ozel-dedektif 301
 /Dedektif/ozel-dedektif-ISTANBUL* /istanbul-ozel-dedektif 301
 /Dedektif/ozel-dedektif-IZMIR* /izmir-ozel-dedektif 301
+/Dedektif/ozel-dedektif-MERSIN* /mersin-ozel-dedektif 301
+/Dedektif/ozel-dedektif-KONYA* /konya-ozel-dedektif 301
 /Dedektif/ozel-dedektif-ANTALYA* /antalya-ozel-dedektif 301
 /Dedektif/ozel-dedektif-BURSA* /bursa-ozel-dedektif 301
 /Dedektif/* / 301

@@ -48,11 +48,23 @@ ASSET_PREFIXES = (
     "lang/",
     "hizmetler/",
     "elsa-vaka-paneli.html",
+    "elsa-vaka-paneli",
+    "umit-hakan-karakaya.html",
+    "umit-hakan-karakaya",
     "istanbul-ozel-dedektif.html",
+    "istanbul-ozel-dedektif",
     "ankara-ozel-dedektif.html",
+    "ankara-ozel-dedektif",
     "izmir-ozel-dedektif.html",
+    "izmir-ozel-dedektif",
+    "mersin-ozel-dedektif.html",
+    "mersin-ozel-dedektif",
+    "konya-ozel-dedektif.html",
+    "konya-ozel-dedektif",
     "antalya-ozel-dedektif.html",
+    "antalya-ozel-dedektif",
     "bursa-ozel-dedektif.html",
+    "bursa-ozel-dedektif",
 )
 
 
@@ -445,55 +457,75 @@ def build_locale_pages(index_src, langs):
 SEO_LANDING_PAGES = [
     {
         "rel_path": "istanbul-ozel-dedektif.html",
-        "title": "İstanbul Özel Dedektif Bürosu (Kartal) — DAT Dedektiflik",
-        "description": "İstanbul'un 39 ilçesinde 2005'ten beri 4.000+ vaka deneyimiyle eş takibi, boşanma delili, adres tespiti ve firma araştırması. 7/24 gizli danışma.",
-        "keywords": "istanbul özel dedektif, istanbul dedektiflik bürosu, kartal dedektif, kadıköy özel dedektif, beşiktaş özel dedektif, eş takibi istanbul",
-        "badge": "İSTANBUL MERKEZ BÜRO • 39 İLÇE 7/24 SAHA EKİBİ",
-        "h1": "İstanbul Özel Dedektiflik ve Resmi Araştırma Hizmetleri",
-        "lead": "Helis Metro Tower (Kartal / İstanbul) merkez büromuzdan Kadıköy, Beşiktaş, Şişli, Bakırköy, Ataşehir, Sarıyer ve Büyükçekmece dahil 39 ilçede %100 ispat ve yasal delil garantisiyle 7/24 görev yapıyoruz.",
+        "title": "İstanbul Dedektif & Özel Dedektiflik Bürosu (39 İlçe) | DAT",
+        "description": "İstanbul özel dedektif bürosu (Kartal). Kadıköy, Beşiktaş, Şişli, Bakırköy, Ataşehir ve 39 ilçede eş takibi, boşanma delili ve kurumsal araştırma hizmeti.",
+        "keywords": "istanbul dedektif, istanbul özel dedektif, istanbul dedektiflik bürosu, kartal dedektif, kadıköy özel dedektif, beşiktaş özel dedektif, şişli dedektif, bakırköy dedektif, ataşehir dedektif, eş takibi istanbul",
+        "badge": "İSTANBUL MERKEZ BÜRO • 39 İLÇEDE 7/24 SAHA OPERASYONU",
+        "h1": "İstanbul Dedektif: 39 İlçede Özel Dedektiflik ve Resmi Araştırma Hizmetleri",
+        "lead": "Helis Metro Tower (Kartal / İstanbul) merkez büromuzdan Kadıköy, Beşiktaş, Şişli, Bakırköy, Ataşehir, Üsküdar, Sarıyer, Başakşehir, Beylikdüzü ve Pendik dahil İstanbul'un 39 ilçesinde 2005'ten bu yana %100 ispat ve yasal delil garantisiyle 7/24 görev yapıyoruz.",
         "image": "assets/services/es-takibi.jpg",
         "law": "TMK m.161 • HMK m.199 • TCK m.134 Tam Uyumlu",
         "form_cat": "es-takibi",
+        "districts_title": "İstanbul'da Hizmet Verdiğimiz Tüm İlçeler (Avrupa & Anadolu Yakası 39 İlçe)",
+        "districts_intro": "DAT Özel Dedektiflik Bürosu olarak İstanbul'un hem Anadolu Yakası hem de Avrupa Yakası'ndaki 39 ilçesinin tamamında yerel saha ekiplerimiz, motosikletli ve sivil araçlı takip birimlerimizle kesintisiz faaliyet gösteriyoruz:",
+        "districts": [
+            "Adalar", "Arnavutköy", "Ataşehir", "Avcılar", "Bağcılar", "Bahçelievler", "Bakırköy", "Başakşehir",
+            "Bayrampaşa", "Beşiktaş", "Beykoz", "Beylikdüzü", "Beyoğlu", "Büyükçekmece", "Çatalca", "Çekmeköy",
+            "Esenler", "Esenyurt", "Eyüpsultan", "Fatih", "Gaziosmanpaşa", "Güngören", "Kadıköy", "Kağıthane",
+            "Kartal", "Küçükçekmece", "Maltepe", "Pendik", "Sancaktepe", "Sarıyer", "Silivri", "Sultanbeyli",
+            "Sultangazi", "Şile", "Şişli", "Tuzla", "Ümraniye", "Üsküdar", "Zeytinburnu"
+        ],
         "sections": [
-            ("İstanbul Genelinde 7/24 Mobil Saha Gözetimi", "İstanbul'un yoğun trafiği, Boğaz geçişleri ve çok merkezli yapısı nedeniyle amatör takip girişimleri dakikalar içinde fark edilir ve davadaki delil gücünüzü yok eder. DAT Özel Dedektiflik, İstanbul'un iki yakasında konuşlu çift vardiya saha ekipleriyle hedef şahıs fark etmeden 4K zaman damgalı görüntüleme yürütür."),
-            ("İstanbul Merkez Ofisimizde Sunulan Başlıca Hizmetler", "Aile Hukuku davalarına yönelik eş takibi ve velayet delil toplama dosyalarından; İkitelli, Tuzla, Dudullu ve Gebze sanayi hatlarında marka taklidi baskın araştırmalarına, Boğaziçi ve Levent plazalarında VIP makam odası ve araç TSCM böcek taramalarına kadar 12 ana uzmanlıkta yazılı sözleşmeli hizmet veriyoruz."),
-            ("Kartal Helis Metro Tower Merkez Ofis Güvencesi", "Sadece telefon veya internet sitesinden açık adres vermeden çalışan yetkisiz kişilerden farklı olarak, İstanbul Kartal Metro çıkışındaki resmi merkez ofisimizde yüz yüze ön görüşme ve imzalı gizlilik sözleşmesi düzenliyoruz.")
+            ("İstanbul Özel Dedektiflik Hizmetlerinde 2005'ten Bugüne Sektör Lideri", "Türkiye'nin en büyük metropolü olan İstanbul'da özel dedektiflik hizmeti yürütmek; şehrin karmaşık ulaşım ağını, Boğaz köprüleri ve Avrasya Tüneli geçişlerini, rezidans ve plaza güvenliğini çok iyi bilen profesyonel bir saha organizasyonu gerektirir. 2005 yılından bu yana 4.000'in üzerinde vakayı başarıyla sonuçlandıran kurucumuz Ümit Hakan Karakaya liderliğindeki DAT Özel Dedektiflik Bürosu, İstanbul Kartal Helis Metro Tower'daki resmi merkez ofisiyle hem bireysel hem de kurumsal müvekkillerine yazılı sözleşmeli ve faturalı araştırma hizmeti sunmaktadır."),
+            ("Anadolu ve Avrupa Yakası İlçelerinde Kesintisiz Saha Gözlemi", "Anadolu Yakası'nda Kartal merkezimiz başta olmak üzere Kadıköy (Bağdat Caddesi, Fenerbahçe, Moda), Ataşehir (Finans Merkezi, Batı Ataşehir), Üsküdar, Maltepe, Pendik, Tuzla, Ümraniye, Beykoz ve Çekmeköy hatlarında; Avrupa Yakası'nda ise Beşiktaş (Etiler, Levent, Bebek), Şişli (Nişantaşı, Mecidiyeköy, Maslak), Sarıyer, Bakırköy (Ataköy, Florya, Yeşilköy), Bahçelievler, Başakşehir, Küçükçekmece, Beylikdüzü, Büyükçekmece ve Fatih ilçelerinde çift vardiyalı saha ekiplerimiz görev yapmaktadır. Hedef şahsın yaka değiştirmesi veya şehir dışına çıkması halinde nöbetçi araç ve motosikletli birimlerimiz senkronize devir sistemiyle takibi sıfır fark edilme riskiyle sürdürür."),
+            ("İstanbul Merkez Ofisimizde Sunulan Başlıca Dedektiflik Hizmetleri", "İstanbul'da en yoğun talep gören hizmetlerimiz arasında; TMK m.161 zina ve TMK m.166 sadakatsizlik nedeniyle açılacak çekişmeli boşanma davaları için eş takibi ve delil tespiti, evlilik öncesi nişanlı geçmiş araştırması, velayet ve nafaka davalarında yaşam standardı/gelir araştırması, üniversite ve lise öğrencilerinin zararlı çevrelerden korunmasına yönelik öğrenci takibi, icradan mal kaçıran borçluların fiili adres ve mal varlığı tespiti yer almaktadır. Kurumsal alanda ise İkitelli, Tuzla, Dudullu, Hadımköy ve Beylikdüzü organize sanayi bölgelerinde marka taklidi (SMK m.29 baskın delili), şirket içi hırsızlık/suistimal araştırması ve Levent–Maslak plazalarında TSCM böcek ve gizli kamera taraması icra edilmektedir."),
+            ("Hukuka Uygun Delil Standartları ve Kartal Merkez Büro Güvencesi", "Sadece cep telefonu veya sahte internet siteleri üzerinden açık adres vermeden çalışan sözde dedektiflerin aksine, DAT Özel Dedektiflik tüm çalışmalarını TCK m.134 özel hayatın gizliliği sınırlarına riayet ederek kamuya açık alanlarda yürütür. Hazırlanan 4K tarih-saat damgalı fotoğraf, video ve kronolojik gözlem raporları HMK m.199 kapsamında İstanbul Adliyesi (Çağlayan), Anadolu Adliyesi (Kartal) ve Bakırköy Adliyesi Aile ve Ticaret Mahkemelerinde resmi delil olarak kullanılır.")
         ],
         "deliverables": [
-            "İstanbul 39 ilçede aynı gün saha ekibi yönlendirme imkanı",
-            "Aile Mahkemesi (Çağlayan, Kartal, Bakırköy Adliyeleri) formatında delil klasörü",
+            "İstanbul'un 39 ilçesinde aynı gün (2–4 saat içinde) saha ekibi yönlendirme imkanı",
+            "Çağlayan, Kartal (Anadolu) ve Bakırköy Adliyeleri Aile Mahkemesi formatında delil klasörü",
+            "Kartal Helis Metro Tower merkez ofisimizde yüz yüze görüşme ve resmi gizlilik sözleşmesi",
             "4.000+ sonuçlandırılmış dosya tecrübesi ve %100 memnuniyet garantisi"
         ],
         "faqs": [
-            ("İstanbul içinde ne kadar sürede ekip çıkarabiliyorsunuz?", "İstanbul Kartal merkezli mobil ekiplerimiz acil vakalarda aynı gün (2–4 saat içinde) saha gözetimine başlayabilir."),
-            ("Görüşmeleri İstanbul ofisinizde yüz yüze yapabilir miyiz?", "Evet. Helis Metro Tower Kat:16 Kartal merkez büromuzda randevu alarak bizzat kurucu ve uzman ekibimizle görüşebilirsiniz."),
+            ("İstanbul içinde ne kadar sürede ekip çıkarabiliyorsunuz?", "İstanbul Kartal merkezli ve Avrupa Yakası konuşlu mobil ekiplerimiz acil vakalarda aynı gün (2–4 saat içinde) saha gözetimine başlayabilir."),
+            ("Görüşmeleri İstanbul ofisinizde yüz yüze yapabilir miyiz?", "Evet. Yeşilbağlar Mah. Kaptan Sokak Helis Metro Tower No:19 Kat:16 D:67 Kartal / İstanbul merkez büromuzda randevu alarak bizzat kurucu ve uzman ekibimizle görüşebilirsiniz."),
             ("İstanbul özel dedektiflik ücretleri nasıl belirlenir?", "Ücretlendirme vaka türüne, takip yapılacak yaka ve ilçe sayısına, ekip yoğunluğuna ve çalışma süresine göre Kartal merkez ofisimizde yapılan ön görüşmede netleştirilir; gizli ek masraf çıkarılmaz."),
             ("İstanbul'da elde edilen fotoğraf ve video delilleri Aile Mahkemesinde geçerli mi?", "Evet. TCK m.134 sınırlarına uyularak kamuya açık mekanlarda elde edilen tarih/saat damgalı görüntüler HMK m.199 kapsamında İstanbul Aile Mahkemelerine sunulabilir.")
         ]
     },
     {
         "rel_path": "ankara-ozel-dedektif.html",
-        "title": "Ankara Özel Dedektif Bürosu (Çankaya) — DAT Dedektiflik",
-        "description": "Ankara Çankaya, Konutkent ve tüm ilçelerde 2005'ten beri resmi büro güvencesiyle eş takibi, evlilik öncesi araştırma, adres tespiti ve böcek arama.",
-        "keywords": "ankara özel dedektif, çankaya dedektif, ankara dedektiflik bürosu, eş takibi ankara, konutkent dedektif",
-        "badge": "ANKARA OFİS • ÇANKAYA / KONUTKENT",
-        "h1": "Ankara Özel Dedektiflik ve Hukuki Delil Toplama",
-        "lead": "Konutkent 3029. Cadde (Çankaya / Ankara) büromuz ile Çankaya, Çayyolu, Oran, GOP, Yenimahalle ve Batıkent başta olmak üzere Başkent genelinde resmi sözleşmeli özel araştırma hizmeti sunuyoruz.",
+        "title": "Ankara Dedektif & Özel Dedektiflik Bürosu (25 İlçe) | DAT",
+        "description": "Ankara özel dedektif bürosu (Çankaya Konutkent). Çankaya, Yenimahalle, Keçiören, Gölbaşı, Etimesgut ve 25 ilçede eş takibi, boşanma delili ve böcek arama.",
+        "keywords": "ankara dedektif, ankara özel dedektif, çankaya dedektif, ankara dedektiflik bürosu, eş takibi ankara, konutkent dedektif, yenimahalle dedektif, keçiören dedektif, gölbaşı dedektif, etimesgut dedektif",
+        "badge": "ANKARA MERKEZ OFİS • ÇANKAYA / KONUTKENT • 25 İLÇE",
+        "h1": "Ankara Dedektif: 25 İlçede Özel Dedektiflik ve Hukuki Delil Toplama",
+        "lead": "Konutkent 3029. Cadde (Çankaya / Ankara) merkez büromuz ile Çankaya, Yenimahalle, Keçiören, Etimesgut, Gölbaşı, Mamak, Sincan ve Polatlı başta olmak üzere Başkent Ankara'nın 25 ilçesinde resmi sözleşmeli özel araştırma hizmeti sunuyoruz.",
         "image": "assets/photos/yilin-enleri-odul-1.jpg",
-        "law": "TÜRAVAK Aile Hukuku Normları • HMK m.199",
+        "law": "TÜRAVAK Aile Hukuku Normları • TMK m.161 • HMK m.199",
         "form_cat": "es-takibi",
+        "districts_title": "Ankara'da Hizmet Verdiğimiz Tüm İlçeler (Başkent 25 İlçe Saha Ağı)",
+        "districts_intro": "Çankaya Konutkent'te yer alan Ankara bölge müdürlüğümüz, Başkent'in merkez metropol ilçelerinden çevre sanayi ve tarım ilçelerine kadar 25 ilçenin tamamında 7/24 aktif saha operasyonu yürütmektedir:",
+        "districts": [
+            "Akyurt", "Altındağ", "Ayaş", "Bala", "Beypazarı", "Çamlıdere", "Çankaya", "Çubuk", "Elmadağ",
+            "Etimesgut", "Evren", "Gölbaşı", "Güdül", "Haymana", "Kahramankazan", "Kalecik", "Keçiören",
+            "Kızılcahamam", "Mamak", "Nallıhan", "Polatlı", "Pursaklar", "Sincan", "Şereflikoçhisar", "Yenimahalle"
+        ],
         "sections": [
-            ("Başkent Protokolüne ve Gizliliğe Uygun Operasyon Disiplini", "Ankara; bürokrasi, savunma, hukuk ve iş dünyasının kalbi olması nedeniyle sıfır hata ve azami gizlilik gerektirir. Ümit Hakan Karakaya liderliğindeki Ankara ekibimiz 2005 yılından bu yana Yüksek Yargı içtihatlarına tam uyumlu delil standartlarıyla çalışmaktadır."),
-            ("Ankara'da En Yoğun Talep Edilen 5 Başlık", "Başkentte özellikle eş takibi ve zina ispatı, kamu ve özel sektör yönetici odalarında TSCM dinleme cihazı (böcek) taraması, evlilik öncesi nişanlı tahkikatı, icradan mal kaçıran borçluların fiili adres tespiti ve üniversite öğrenci güvenliği alanlarında 7/24 görev yapıyoruz."),
-            ("Ekonomize & Ankara Sesi Yılın Firması Ödüllü Kurum", "Ankara Sesi Gazetesi ve Ekonomize Dergisi işbirliğiyle verilen 'Yılın Başarılı Araştırma Takip Firması' ödülü Ankara merkezli köklü kurumsal geçmişimizin tescilidir.")
+            ("Ankara Özel Dedektiflik Hizmetlerinde Kurumsal Merkez Ofis Güvencesi", "Türkiye'nin başkenti Ankara; bürokrasi, diplomasi, savunma sanayii, üniversiteler ve iş dünyasının merkezi olması sebebiyle özel dedektiflik çalışmalarında en yüksek gizlilik ve hukuk disiplini gerektiren şehirdir. 1973 Ankara doğumlu olan ve 2005 yılından bu yana 4.000'in üzerinde dosyayı başarıyla yöneten kurucumuz Ümit Hakan Karakaya liderliğindeki DAT Özel Dedektiflik Bürosu, Çankaya Konutkent'teki resmi ofisinde Başkentlilere yazılı sözleşmeli ve %100 gizlilik garantili hizmet vermektedir."),
+            ("Ankara'nın 25 İlçesinde ve Semtlerinde Saha Operasyonlarımız", "Ankara saha ekiplerimiz özellikle Çankaya (Konutkent, Çayyolu, Ümitköy, Yaşamkent, İncek, Oran, Gaziosmanpaşa, Yıldız, Bahçelievler, Kızılay, Tunalı Hilmi, Söğütözü, Çukurambar), Yenimahalle (Batıkent, Demetevler, Ostim, İvedik), Etimesgut (Eryaman, Bağlıca, Elvankent), Gölbaşı (İncek, Mogan çevresi villa ve siteleri), Keçiören (Etlik, İncirli, Subayevleri), Mamak, Sincan, Altındağ ve Pursaklar ilçelerinde 7/24 görev yapmaktadır. Ayrıca Polatlı, Beypazarı, Kızılcahamam, Çubuk, Kahramankazan, Akyurt, Elmadağ ve Şereflikoçhisar gibi dış ilçelerde de hem aile hukuku takipleri hem de ticari/icra adres araştırmaları aynı gün başlatılmaktadır."),
+            ("Başkent Ankara'da En Yoğun Talep Edilen Özel Dedektiflik Hizmetleri", "Ankara ofisimizde en çok başvurulan konuların başında; boşanma ve tazminat davalarına esas eş takibi ve sadakatsizlik (zina) ispatı, evlilik öncesi nişanlı geçmiş ve güvenilirlik araştırması, velayet davalarında çocuğun üstün menfaatini kanıtlayan yaşam tarzı gözlemi ve Ankara'daki üniversitelerde (ODTÜ, Bilkent, Hacettepe, Ankara, Gazi, Başkent, Çankaya, Atılım, TOBB ETÜ) okuyan gençler için öğrenci takibi gelmektedir. Kurumsal ve teknik alanda ise Söğütözü, Çukurambar, Ostim ve İvedik OSB'deki şirketler için firma araştırması, marka taklidi tespiti, borçlu mal varlığı araştırması ve VIP makam odası/araç TSCM böcek (dinleme cihazı ve gizli kamera) taraması gerçekleştirilmektedir."),
+            ("Yargıtay İçtihatlarına Tam Uyumlu Delil Dosyası ve Ödüllü Kurum", "Ankara Sesi Gazetesi ve Ekonomize Dergisi işbirliğiyle düzenlenen Yılın En'leri ödül töreninde 'Yılın Başarılı Araştırma Takip Firması' ödülüne layık görülen DAT Group, tüm delilleri TCK m.134 sınırlarına saygılı biçimde kamuya açık alanlarda toplar. Hazırlanan tarih-saat damgalı 4K fotoğraf, video ve uzman gözlem raporları Ankara Sıhhiye, Söğütözü (Ek Hizmet Binası), Sincan (Batı) ve Gölbaşı Adliyelerindeki Aile ve Hukuk Mahkemelerinde doğrudan delil olarak sunulmaktadır.")
         ],
         "deliverables": [
-            "Çankaya Konutkent ofisimizde gizlilik sözleşmeli ön değerlendirme",
-            "TCK m.134 özel hayat sınırlarına tam saygılı mahkeme dosyası",
-            "0312 284 02 99 sabit merkez hattımızla 7/24 kesintisiz erişim"
+            "Çankaya Konutkent ofisimizde yüz yüze görüşme ve yazılı gizlilik sözleşmesi",
+            "Ankara'nın 25 ilçesinde aynı gün sivil araçlı ve yaya saha ekibi yönlendirme",
+            "Ankara Merkez ve Batı Adliyeleri Aile Mahkemesi standartlarında HMK m.199 delil klasörü",
+            "0312 284 02 99 sabit merkez hattımız ve 0532 666 77 49 WhatsApp ile 7/24 erişim"
         ],
         "faqs": [
-            ("Ankara dışı çevre illere (Eskişehir, Konya, Kırıkkale) hizmet var mı?", "Evet. Ankara merkezimiz İç Anadolu ve tüm 81 ile talep üzerine mobil saha ekibi yönlendirmektedir."),
+            ("Ankara dışı çevre illere (Eskişehir, Konya, Kırıkkale, Çankırı, Bolu) hizmet var mı?", "Evet. Ankara Çankaya merkezimiz İç Anadolu ve Batı Karadeniz başta olmak üzere tüm 81 ile talep üzerine mobil saha ekibi yönlendirmektedir."),
             ("Sabit telefonunuzdan mesai dışı da ulaşabilir miyiz?", "Merkez hattımız 0312 284 02 99 ve WhatsApp hattımız 0532 666 77 49 günün 24 saati nöbetçi uzmanlara bağlıdır."),
             ("Ankara Konutkent büronuzda yazılı gizlilik sözleşmesi yapılıyor mu?", "Evet. Tüm bireysel ve kurumsal dosyalarda Çankaya Konutkent ofisimizde karşılıklı yazılı gizlilik sözleşmesi imzalanır ve resmi e-Fatura düzenlenir."),
             ("Ankara'da makam odası ve araç böcek taraması (TSCM) ne kadar sürer?", "10 kHz – 24 GHz RF spektrum analizörleri ve NLJD cihazlarıyla standart makam ofisi ve VIP araç taraması aynı gün 2 ila 5 saat içinde tamamlanır.")
@@ -501,85 +533,184 @@ SEO_LANDING_PAGES = [
     },
     {
         "rel_path": "izmir-ozel-dedektif.html",
-        "title": "İzmir Özel Dedektif Bürosu (Alsancak) — DAT Dedektiflik",
-        "description": "İzmir Konak, Alsancak, Karşıyaka, Bornova ve Çeşme'de resmi sözleşmeli eş takibi, boşanma delili, adres tespiti ve kurumsal araştırma.",
-        "keywords": "izmir özel dedektif, izmir dedektiflik bürosu, karşıyaka dedektif, alsancak dedektif, eş takibi izmir, çeşme özel dedektif",
-        "badge": "İZMİR & EGE BÖLGESİ • 30 İLÇE 7/24 SAHA EKİBİ",
-        "h1": "İzmir Özel Dedektiflik ve Ege Bölgesi Delil Araştırması",
-        "lead": "Konak, Alsancak, Karşıyaka, Bornova, Bayraklı, Buca ve Çeşme–Urla sahil hattı dahil İzmir'in 30 ilçesinde %100 gizlilik, yazılı sözleşme ve mahkemede geçerli delil standardıyla 7/24 hizmet veriyoruz.",
+        "title": "İzmir Dedektif & Özel Dedektiflik Bürosu (30 İlçe) | DAT",
+        "description": "İzmir özel dedektiflik bürosu. Konak, Alsancak, Karşıyaka, Bornova, Bayraklı, Buca, Çeşme, Urla ve 30 ilçede eş takibi, boşanma delili ve kurumsal araştırma.",
+        "keywords": "izmir dedektif, izmir özel dedektif, izmir dedektiflik bürosu, karşıyaka dedektif, alsancak dedektif, bornova dedektif, buca dedektif, eş takibi izmir, çeşme özel dedektif",
+        "badge": "İZMİR & EGE BÖLGESİ • 30 İLÇEDE 7/24 SAHA EKİBİ",
+        "h1": "İzmir Dedektif: 30 İlçede Özel Dedektiflik ve Ege Bölgesi Delil Araştırması",
+        "lead": "Konak (Alsancak), Karşıyaka (Bostanlı, Mavişehir), Bornova, Bayraklı, Buca, Çiğli, Gaziemir ve Çeşme–Urla–Seferihisar–Foça sahil hattı dahil İzmir'in 30 ilçesinde %100 gizlilik, yazılı sözleşme ve mahkemede geçerli delil standardıyla 7/24 hizmet veriyoruz.",
         "image": "assets/photos/yilin-enleri-odul-2.jpg",
         "law": "TMK m.161 • HMK m.199 • TCK m.134 Tam Uyumlu",
         "form_cat": "es-takibi",
+        "districts_title": "İzmir'de Hizmet Verdiğimiz Tüm İlçeler (30 İlçe & Ege Sahil Hattı)",
+        "districts_intro": "Ege Bölgesi koordinasyon ekiplerimiz, İzmir'in merkez metropol ilçelerinden Yarımada tatil beldelerine, Bakırçay ve Küçük Menderes havzalarındaki ilçelere kadar 30 ilçenin tamamında saha takibi ve hukuki delil araştırması yürütmektedir:",
+        "districts": [
+            "Aliağa", "Balçova", "Bayındır", "Bayraklı", "Bergama", "Beydağ", "Bornova", "Buca", "Çeşme",
+            "Çiğli", "Dikili", "Foça", "Gaziemir", "Güzelbahçe", "Karabağlar", "Karaburun", "Karşıyaka",
+            "Kemalpaşa", "Kınık", "Kiraz", "Konak", "Menderes", "Menemen", "Narlıdere", "Ödemiş", "Seferihisar",
+            "Selçuk", "Tire", "Torbalı", "Urla"
+        ],
         "sections": [
-            ("İzmir ve Ege Sahil Hattında Çift Vardiya Saha Operasyonu", "İzmir şehir merkezindeki yoğun trafik ile Çeşme, Urla, Alaçatı ve Kuşadası gibi sezonluk geçiş noktaları profesyonel araç-ekip rotasyonu gerektirir. Ege mobil ekibimiz hedef şahsa hissettirmeden 4K zaman damgalı görüntüleme ve mekan kronolojisi oluşturur."),
-            ("Ege Bölgesinde En Sık Talep Edilen Dosyalar", "Aile Hukuku (zina ispatı, velayet ve mal kaçırma), yazlık/kışlık dönemlerde nişanlı veya eş gözlemi, İzmir serbest bölge ve sanayi hatlarında şirket/ortaklık tahkikatı ile tebligat adresi tespiti başlıca uzmanlıklarımızdır."),
-            ("Resmi Sözleşme, Fatura ve UÖDED Güvencesi", "İzmir ve çevre illerdeki (Manisa, Aydın, Muğla, Denizli) tüm araştırmalar Ümit Hakan Karakaya koordinasyonunda imzalı gizlilik sözleşmesi ve KVKK veri imha taahhüdüyle yürütülür.")
+            ("İzmir ve Ege Bölgesi'nde Kurumsal Özel Dedektiflik Standardı", "Ege Bölgesi'nin ticaret, liman, turizm ve üniversite merkezi olan İzmir; hem yoğun metropol yaşamı hem de Çeşme, Alaçatı, Urla, Foça ve Dikili gibi hareketli sahil beldeleriyle özel araştırma süreçlerinde yüksek saha tecrübesi gerektirir. UÖDED (Uluslararası Özel Dedektif Eğitimleri Derneği) ve Anadolu Özel Dedektifler Derneği ortaklığında İzmir'de düzenlenen Meslek Normları Yuvarlak Masa Çalıştayı'na da liderlik eden kurucumuz Ümit Hakan Karakaya yönetimindeki DAT Özel Dedektiflik, İzmir'in 30 ilçesinde yasal ve sözleşmeli dedektiflik hizmeti sunmaktadır."),
+            ("İzmir'in 30 İlçesinde Saha Gözlemi ve Takip Operasyonları", "İzmir merkezde Konak (Alsancak, Göztepe, Hatay, Pasaport), Karşıyaka (Bostanlı, Mavişehir, Aksoy), Bayraklı (Adliye çevresi, Folkart/Manavkuyu plazalar bölgesi), Bornova (Özkanlar, Küçükpark, Kazımdirik), Buca, Karabağlar, Balçova, Narlıdere, Güzelbahçe, Çiğli ve Gaziemir ilçelerinde sivil araçlı ve motosikletli ekiplerimiz 7/24 görev başındadır. Yaz ve hafta sonu dönemlerinde nüfusun yoğunlaştığı Çeşme (Alaçatı, Ilıca, Dalyan), Urla, Seferihisar (Sığacık), Menderes (Gümüldür, Özdere), Selçuk, Foça, Dikili ve Karaburun sahil şeridinde; ayrıca sanayi ve tarım aksları olan Aliağa, Menemen, Kemalpaşa, Torbalı, Tire, Ödemiş ve Bergama ilçelerinde kesintisiz takip ve tahkikat yürütülmektedir."),
+            ("İzmir'de En Çok Başvurulan Bireysel ve Kurumsal Araştırma Konuları", "İzmirli müvekkillerimiz ve yurt dışından (özellikle Almanya, Fransa, İngiltere ve Hollanda'dan) İzmir bağlantılı dosya açtıran gurbetçilerimiz tarafından en sık talep edilen hizmetler; eş takibi ve aldatma (zina) delili tespiti, yazlık/tatil beldelerinde şüpheli seyahat takibi, evlilik öncesi nişanlı araştırması, velayet ve nafaka davası delilleri ile Ege, Dokuz Eylül, İYTE ve Ekonomi Üniversitelerinde okuyan gençler için öğrenci takibidir. Kurumsal alanda ise İzmir Atatürk OSB (Çiğli), Kemalpaşa, Torbalı, Aliağa ve Ege Serbest Bölgesi'ndeki (ESBAŞ) firmalar için ticari istihbarat, marka taklidi baskın delili, depo/fabrika hırsızlık araştırması ve TSCM böcek arama hizmetleri sunulmaktadır."),
+            ("Bayraklı İzmir Adliyesi Standartlarında Hukuka Uygun Delil Klasörü", "Tüm saha çalışmalarımız TCK m.134 özel hayatın gizliliği sınırları içinde, yalnızca kamuya açık mekanlarda yürütülür. Elde edilen 4K tarih-saat damgalı fotoğraf, video ve uzman gözlem tutanakları HMK m.199 kapsamında İzmir Bayraklı Adliyesi, Karşıyaka Adliyesi ve ilçe mahkemelerinde doğrudan geçerli delil olarak kabul edilmektedir.")
         ],
         "deliverables": [
-            "İzmir 30 ilçe ile Çeşme, Bodrum ve Kuşadası hattında mobil takip ekibi",
-            "İzmir Aile ve İcra Mahkemelerine uygun HMK m.199 uyumlu rapor",
+            "İzmir'in 30 ilçesi ile Çeşme, Alaçatı, Urla, Kuşadası ve Bodrum hattında mobil takip ekibi",
+            "İzmir Bayraklı ve Karşıyaka Aile/Ticaret Mahkemelerine uygun HMK m.199 uyumlu rapor",
+            "Yazılı resmi gizlilik sözleşmesi, fatura ve %100 memnuniyet garantisi",
             "7/24 WhatsApp (0532 666 77 49) ve merkez hat (0312 284 02 99) desteği"
         ],
         "faqs": [
-            ("İzmir merkez dışında Çeşme, Urla veya Bodrum için hizmet alabilir miyiz?", "Evet. İzmir mobil ekibimiz Ege Bölgesi'ndeki tüm tatil beldeleri ve çevre illere (Aydın, Muğla, Manisa) aynı gün yönlendirilir."),
+            ("İzmir merkez dışında Çeşme, Urla, Ödemiş veya Aliağa için hizmet alabilir miyiz?", "Evet. İzmir mobil ekibimiz İzmir'in 30 ilçesinin tamamına ve Aydın (Kuşadası), Muğla (Bodrum, Marmaris, Fethiye), Manisa gibi çevre illere aynı gün yönlendirilir."),
             ("İzmir'de eş takibi ve boşanma delili ne kadar sürede tamamlanır?", "Hızlı şüphe doğrulaması için 48 saatlik ekspres takip, kapsamlı dava klasörleri için ise ortalama 3–7 iş günü saha gözlemi uygulanır."),
             ("Elde edilen görseller İzmir mahkemelerinde delil olarak kabul edilir mi?", "Özel hayat alanına müdahale edilmeden yalnızca kamuya açık mekanlarda elde edilen zaman damgalı görüntüler HMK m.199 kapsamında hukuka uygun delil niteliğindedir."),
-            ("İzmir büro ön görüşmesi ve sözleşme süreci nasıl işler?", "Randevu ve dosya kapsamı belirlendikten sonra resmi gizlilik sözleşmeniz hazırlanır; çalışma süresince tek muhatap ve mutlak kimlik gizliliği sağlanır.")
+            ("İzmir özel dedektiflik sözleşme ve gizlilik süreci nasıl işler?", "Randevu ve dosya kapsamı belirlendikten sonra resmi gizlilik sözleşmeniz hazırlanır; çalışma süresince tek muhatap ve mutlak kimlik gizliliği sağlanır.")
+        ]
+    },
+    {
+        "rel_path": "mersin-ozel-dedektif.html",
+        "title": "Mersin Dedektif & Özel Dedektiflik Bürosu (13 İlçe) | DAT",
+        "description": "Mersin özel dedektiflik bürosu. Yenişehir, Mezitli, Toroslar, Akdeniz, Tarsus, Erdemli, Silifke ve 13 ilçede eş takibi, boşanma delili ve kurumsal araştırma.",
+        "keywords": "mersin dedektif, mersin özel dedektif, mersin dedektiflik bürosu, yenişehir dedektif, mezitli dedektif, tarsus dedektif, erdemli dedektif, silifke dedektif, eş takibi mersin",
+        "badge": "MERSİN & DOĞU AKDENİZ • 13 İLÇEDE 7/24 SAHA EKİBİ",
+        "h1": "Mersin Dedektif: 13 İlçede Özel Dedektiflik ve Hukuki Araştırma Hizmetleri",
+        "lead": "Yenişehir, Mezitli, Toroslar, Akdeniz merkez ilçeleri ile Tarsus, Erdemli, Silifke ve Anamur dahil Mersin'in 13 ilçesinde %100 gizlilik, resmi sözleşme ve mahkemede geçerli delil garantisiyle 7/24 özel dedektiflik hizmeti sunuyoruz.",
+        "image": "assets/services/es-takibi.jpg",
+        "law": "TMK m.161 • HMK m.199 • TCK m.134 Tam Uyumlu",
+        "form_cat": "es-takibi",
+        "districts_title": "Mersin'de Hizmet Verdiğimiz Tüm İlçeler (13 İlçe & Akdeniz Sahil Şeridi)",
+        "districts_intro": "DAT Özel Dedektiflik Bürosu Akdeniz bölge ekiplerimiz, Mersin merkezdeki 4 büyük metropol ilçeden Tarsus sanayi hattına ve Anamur'a uzanan 321 kilometrelik sahil şeridindeki 13 ilçenin tamamında aktif saha görevi yürütmektedir:",
+        "districts": [
+            "Akdeniz", "Anamur", "Aydıncık", "Bozyazı", "Çamlıyayla", "Erdemli", "Gülnar",
+            "Mezitli", "Mut", "Silifke", "Tarsus", "Toroslar", "Yenişehir"
+        ],
+        "sections": [
+            ("Mersin'de Kurumsal ve Yasal Özel Dedektiflik Hizmetleri", "Türkiye'nin en büyük limanlarından birine, serbest bölgeye, gelişmiş tarım/lojistik ağlarına ve uzun bir turizm sahiline sahip olan Mersin; hem bireysel aile hukuku vakalarında hem de ticari araştırmalarda profesyonel dedektiflik desteğine yoğun ihtiyaç duyan bir metropoldür. 2005 yılından bu yana 4.000'i aşkın vakayı başarıyla sonuçlandıran Ümit Hakan Karakaya yönetimindeki DAT Özel Dedektiflik Bürosu, Mersin genelinde resmi sözleşmeli, faturalı ve %100 gizlilik esaslı araştırma hizmeti vermektedir."),
+            ("Mersin'in 13 İlçesinde Saha Takibi ve Bölgesel Operasyon Gücümüz", "Saha ekiplerimiz Mersin merkezini oluşturan Yenişehir (Pozcu, Kushimoto Sokağı, Marina, Forum çevresi, Çiftlikköy), Mezitli (Viranşehir, Soli, Tece, Davultepe), Akdeniz (Serbest Bölge, Liman, Çarşı) ve Toroslar ilçelerinde 7/24 sivil araçlı ve mobil gözetim yürütmektedir. Doğu aksında Çukurova Havalimanı ve Adana geçiş koridorunun kalbi olan Tarsus ve yayla bölgesi Çamlıyayla'da; batı sahil hattında ise yazlık sitelerin ve tatil köylerinin yoğunlaştığı Erdemli (Kızkalesi, Ayaş, Kumkuyu, Tömük, Çeşmeli), Silifke (Taşucu, Susanoğlu, Atakent, Narlıkuyu), Gülnar, Aydıncık, Bozyazı, Anamur ve İçel-İç Anadolu bağlantı noktası Mut ilçesinde kesintisiz saha takibi ve delil tespiti gerçekleştirilmektedir."),
+            ("Mersin'de En Yoğun Talep Edilen Dedektiflik ve Delil Hizmetlerimiz", "Mersin'de bireysel müvekkillerimizin en çok başvurduğu konular; çekişmeli boşanma ve zina (TMK m.161) davaları için eş takibi ve sadakat araştırması, yazlık siteler ve tatil beldelerinde şüpheli seyahat gözlemi, evlilik öncesi nişanlı geçmiş tahkikatı, velayet ve nafaka davaları için yaşam tarzı/gizli gelir tespiti ve Mersin ile Çağ Üniversitelerinde okuyan gençler için öğrenci takibidir. Ticari ve hukuki alanda ise Mersin Limanı, Mersin Serbest Bölgesi ve Tarsus OSB'de faaliyet gösteren firmalar için kurumsal istihbarat, lojistik/depo hırsızlık araştırması, marka taklidi tespiti, icradan mal kaçıran borçluların fiili adres/varlık tespiti ve TSCM böcek arama hizmetleri verilmektedir."),
+            ("Mersin Mahkemelerinde Geçerli HMK m.199 Uyumlu Delil Raporu", "Amatör kişilerce yapılan yasadışı dinleme veya takip girişimleri mahkemede reddedildiği gibi ağır ceza sorumluluğu doğurur. DAT Özel Dedektiflik, TCK m.134 özel hayatın gizliliği sınırlarına tam riayet ederek yalnızca kamuya açık alanlarda 4K tarih-saat damgalı fotoğraf, video ve kronolojik gözlem tutanağı hazırlar. Teslim edilen resmi dosya Mersin, Tarsus, Erdemli, Silifke ve Anamur Adliyelerindeki Aile, Hukuk ve Ticaret Mahkemelerinde geçerli delil niteliğindedir.")
+        ],
+        "deliverables": [
+            "Yenişehir, Mezitli, Toroslar, Akdeniz, Tarsus, Erdemli ve Silifke dahil 13 ilçede mobil saha ekibi",
+            "Mersin ve Tarsus Aile/Ticaret Mahkemelerine uygun 4K zaman damgalı delil klasörü",
+            "Mersin Limanı, Serbest Bölge ve OSB'lere özel kurumsal araştırma ve TSCM böcek taraması",
+            "Resmi yazılı gizlilik sözleşmesi ve %100 müşteri memnuniyeti garantisi"
+        ],
+        "faqs": [
+            ("Mersin merkez dışında Tarsus, Erdemli, Kızkalesi veya Silifke'de takip yapıyor musunuz?", "Evet. Mersin saha ekiplerimiz Yenişehir ve Mezitli merkez ilçelerinin yanı sıra Tarsus, Erdemli, Kızkalesi, Silifke, Taşucu, Anamur ve Mut dahil 13 ilçenin tamamında görev yapmaktadır."),
+            ("Kıbrıs (KKTC) bağlantılı Mersin–Taşucu vakalarında hizmet veriyor musunuz?", "Evet. Taşucu feribot hattı ve Çukurova Havalimanı üzerinden KKTC'ye geçiş yapan şahıslar için Kıbrıs saha ağımızla entegre kesintisiz takip yürütüyoruz."),
+            ("Mersin özel dedektiflik fiyatları neye göre belirlenir?", "Ücretler dosyanın türüne (eş takibi, adres tespiti, kurumsal araştırma), çalışılacak ilçe mesafesine ve gün sayısına göre sözleşme öncesi şeffafça belirlenir."),
+            ("Toplanan deliller Mersin Aile Mahkemelerinde boşanma davasında geçerli midir?", "Evet. Kamuya açık alanlarda TCK m.134 sınırlarına uygun olarak toplanan tarih-saat damgalı fotoğraf, video ve gözlem raporları HMK m.199 uyarınca mahkemede geçerli delildir.")
+        ]
+    },
+    {
+        "rel_path": "konya-ozel-dedektif.html",
+        "title": "Konya Dedektif & Özel Dedektiflik Bürosu (31 İlçe) | DAT",
+        "description": "Konya özel dedektiflik bürosu. Selçuklu, Meram, Karatay, Ereğli, Akşehir, Beyşehir, Kulu ve 31 ilçede eş takibi, boşanma delili ve kurumsal araştırma hizmeti.",
+        "keywords": "konya dedektif, konya özel dedektif, konya dedektiflik bürosu, selçuklu dedektif, meram dedektif, karatay dedektif, ereğli dedektif, akşehir dedektif, beyşehir dedektif, eş takibi konya",
+        "badge": "KONYA & İÇ ANADOLU • 31 İLÇEDE 7/24 SAHA EKİBİ",
+        "h1": "Konya Dedektif: 31 İlçede Özel Dedektiflik ve Resmi Araştırma Hizmetleri",
+        "lead": "Selçuklu, Meram ve Karatay merkez ilçeleri başta olmak üzere Ereğli, Akşehir, Beyşehir, Seydişehir, Çumra, Ilgın, Kulu ve Cihanbeyli dahil Konya'nın 31 ilçesinde %100 gizlilik ve yasal delil garantisiyle 7/24 özel dedektiflik hizmeti veriyoruz.",
+        "image": "assets/photos/dat-buro-tabela.jpg",
+        "law": "TMK m.161 • HMK m.199 • TTK & TCK m.134 Tam Uyumlu",
+        "form_cat": "es-takibi",
+        "districts_title": "Konya'da Hizmet Verdiğimiz Tüm İlçeler (31 İlçe Kapsamlı Saha Ağı)",
+        "districts_intro": "Türkiye'nin yüzölçümü bakımından en geniş ili olan Konya'da, Selçuklu–Meram–Karatay metropol üçgeninden Avrupa gurbetçi nüfusunun yoğun olduğu Kulu ve Cihanbeyli'ye, sanayi ve ticaret merkezleri Ereğli, Akşehir ve Beyşehir'e kadar 31 ilçenin tamamında hizmet veriyoruz:",
+        "districts": [
+            "Ahırlı", "Akören", "Akşehir", "Altınekin", "Beyşehir", "Bozkır", "Cihanbeyli", "Çeltik", "Çumra",
+            "Derbent", "Derebucak", "Doğanhisar", "Emirgazi", "Ereğli", "Güneysınır", "Hadim", "Halkapınar",
+            "Hüyük", "Ilgın", "Kadınhanı", "Karapınar", "Karatay", "Kulu", "Meram", "Sarayönü", "Selçuklu",
+            "Seydişehir", "Taşkent", "Tuzlukçu", "Yalıhüyük", "Yunak"
+        ],
+        "sections": [
+            ("Konya'da Mahremiyet ve Güven Esaslı Kurumsal Özel Dedektiflik", "Sanayi, üretim, tarım ve yükseköğretim şehri olan Konya'da aile yapısı ve ticari itibar son derece hassastır. Bu nedenle Konya'da yürütülecek bir özel dedektiflik çalışmasında en önemli kriter, araştırmanın dış çevreye veya üçüncü şahıslara kesinlikle hissettirilmeden sıfır hata ile tamamlanmasıdır. 2005 yılından bu yana 4.000'in üzerinde vakayı sonuçlandıran Ümit Hakan Karakaya liderliğindeki DAT Özel Dedektiflik Bürosu, Ankara merkez ofisimizle de entegre çalışan Konya saha ekibiyle 31 ilçede yazılı sözleşmeli ve %100 gizli araştırma hizmeti yürütmektedir."),
+            ("Selçuklu, Meram, Karatay ve 31 İlçede Saha Gözlem Operasyonları", "Konya merkezinde Selçuklu (Bosna Hersek, Yazır, Real, Sancak, Binkonutlar, İhsaniye, Nalçacı, Büsan ve Konya OSB), Meram (Havzan, Aşkan, Konevi, Meram Yeniyol, Kozağaç) ve Karatay (Fevziçakmak sanayi hattı, Mevlana çevresi, Mengene) ilçelerinde sivil araçlı uzman ekiplerimiz 7/24 görev yapmaktadır. Merkez dışında Konya'nın büyük ilçeleri olan Ereğli, Akşehir, Beyşehir, Seydişehir, Çumra, Ilgın ve Karapınar'da; ayrıca başta İsveç, Almanya, Danimarka, Avusturya ve İsviçre olmak üzere Avrupa'da yaşayan gurbetçi vatandaşlarımızın memleketi olan Kulu, Cihanbeyli, Yunak, Çeltik ve Sarayönü ilçelerinde eş takibi, miras/tapu araştırması ve adres tespiti dosyaları titizlikle sonuçlandırılmaktadır."),
+            ("Konya'da Bireysel Aile Hukuku, Gurbetçi Masası ve OSB Sanayi Araştırmaları", "Konya'da sunduğumuz başlıca bireysel hizmetler; boşanma davalarında TMK m.161 zina ve sadakatsizlik ispatı için eş takibi, evlilik öncesi nişanlı ve aile geçmişi araştırması, velayet ve nafaka davaları için delil tespiti, Selçuk Üniversitesi, Necmettin Erbakan Üniversitesi ve KTO Karatay Üniversitesi öğrencileri için ebeveyn talepli öğrenci takibidir. Kurumsal alanda ise Konya Organize Sanayi Bölgesi, Büsan, Anadolu Sanayi ve Ereğli/Akşehir OSB'deki üretici firmalar için marka taklidi ve sahte yedek parça/ürün tespiti (SMK m.29), fabrika/depo içi hırsızlık araştırması, borçlu mal varlığı/adres tespiti ve makam odası/araç TSCM böcek arama hizmetleri icra edilmektedir."),
+            ("Konya Adliyesi Standartlarında Hukuka Uygun Delil Teslimi", "Yasadışı yöntemlerden tamamen uzak durarak, TCK m.134 özel hayatın gizliliği sınırları içinde ve yalnızca kamuya açık alanlarda elde ettiğimiz 4K tarih-saat damgalı fotoğraf, video ve saha gözlem raporları; Konya Adliyesi ile Ereğli, Akşehir, Beyşehir, Seydişehir, Ilgın, Kulu ve Cihanbeyli Adliyelerindeki Aile ve Ticaret Mahkemelerinde HMK m.199 kapsamında kesin delil olarak kullanılmaktadır.")
+        ],
+        "deliverables": [
+            "Selçuklu, Meram, Karatay, Ereğli, Akşehir, Beyşehir ve Kulu dahil 31 ilçede mobil ekip",
+            "Konya Aile ve Ticaret Mahkemelerine uygun HMK m.199 standartlarında delil klasörü",
+            "Avrupa'daki (İsveç, Almanya, Danimarka, Avusturya) gurbetçiler için uzaktan sözleşmeli takip",
+            "Konya OSB ve sanayi tesislerine özel kurumsal istihbarat, marka koruma ve TSCM taraması"
+        ],
+        "faqs": [
+            ("Konya'da yapılan araştırmada ailemizin veya çevremizin haberi olur mu?", "Kesinlikle hayır. Konya'nın sosyal hassasiyetlerini çok iyi bilen sivil uzmanlarımız tamamen görünmez pasif gözlem uygular ve KVKK sıfır-paylaşım protokolüyle çalışır."),
+            ("Avrupa'da yaşıyorum; Kulu, Cihanbeyli veya Konya merkezde eş takibi / miras araştırması yaptırabilir miyim?", "Evet. Konya'ya bizzat gelmenize gerek kalmadan WhatsApp veya telefon üzerinden resmi dijital sözleşme ile çalışmayı başlatabilir, raporunuzu güvenle teslim alabilirsiniz."),
+            ("Konya Selçuklu ve Meram'da aynı gün ekip yönlendirmesi yapılabiliyor mu?", "Evet, Konya saha ekibimiz ve Ankara merkez takviye birimlerimizle acil dosyalarda aynı gün saha gözlemine başlanmaktadır."),
+            ("Konya organize sanayi bölgesindeki fabrikamız için marka taklidi ve hırsızlık araştırması yapıyor musunuz?", "Evet. Otomotiv yedek parça, makine, tarım ekipmanları ve gıda sektörlerinde sahte üretim tespiti ve iç suistimal araştırmalarında savcılık dosyasına uygun delil üretiyoruz.")
         ]
     },
     {
         "rel_path": "antalya-ozel-dedektif.html",
-        "title": "Antalya Özel Dedektif Bürosu (Lara) — DAT Dedektiflik",
-        "description": "Antalya Lara, Konyaaltı, Alanya ve Belek'te çok dilli (TR/EN/RU/DE) eş takibi, tatil dönemi saha gözlemi, adres tespiti ve uluslararası tahkikat.",
-        "keywords": "antalya özel dedektif, antalya dedektiflik bürosu, alanya dedektif, kemer dedektif, lara dedektif, eş takibi antalya",
-        "badge": "ANTALYA & AKDENİZ • ÇOK DİLLİ (TR/EN/RU/DE) EKİP",
-        "h1": "Antalya Özel Dedektiflik ve Çok Dilli Akdeniz Saha Ekibi",
-        "lead": "Muratpaşa, Lara, Konyaaltı, Kemer, Belek, Side ve Alanya hattında hem Türkçe hem de İngilizce, Rusça ve Almanca bilen profesyonel kadromuzla turizm ve ikamet odaklı tüm araştırmaları yürütüyoruz.",
+        "title": "Antalya Dedektiflik & Özel Dedektif Bürosu (19 İlçe) | DAT",
+        "description": "Antalya özel dedektiflik bürosu. Muratpaşa (Lara), Konyaaltı, Kepez, Alanya, Manavgat, Belek, Kemer, Kaş ve 19 ilçede çok dilli eş takibi ve araştırma.",
+        "keywords": "antalya dedektiflik, antalya dedektif, antalya özel dedektif, antalya dedektiflik bürosu, alanya dedektif, manavgat dedektif, kemer dedektif, lara dedektif, konyaaltı dedektif, belek dedektif, eş takibi antalya",
+        "badge": "ANTALYA & AKDENİZ • 19 İLÇEDE ÇOK DİLLİ (TR/EN/RU/DE) EKİP",
+        "h1": "Antalya Dedektiflik: 19 İlçede Özel Dedektif ve Çok Dilli Akdeniz Saha Ekibi",
+        "lead": "Muratpaşa (Lara), Konyaaltı, Kepez, Döşemealtı ve Aksu merkez ilçeleri ile Alanya, Manavgat (Side), Serik (Belek), Kemer, Kaş, Kalkan, Kumluca ve Finike dahil Antalya'nın 19 ilçesinde Türkçe, İngilizce, Rusça ve Almanca bilen profesyonel kadromuzla 7/24 görev yapıyoruz.",
         "image": "assets/photos/uluslararasi-kongre-sahne.jpg",
-        "law": "TMK m.161 • MÖHUK • HMK m.199 Uyumlu",
+        "law": "TMK m.161 • MÖHUK • HMK m.199 • TCK m.134 Uyumlu",
         "form_cat": "es-takibi",
+        "districts_title": "Antalya'da Hizmet Verdiğimiz Tüm İlçeler (19 İlçe & Turizm Beldeleri)",
+        "districts_intro": "Antalya ve Doğu-Batı Akdeniz turizm koridorunda görev yapan saha ekiplerimiz, Kaş'tan Gazipaşa'ya kadar uzanan tüm sahil ve iç ilçelerin tamamında 7/24 kesintisiz takip ve delil toplama hizmeti sunmaktadır:",
+        "districts": [
+            "Akseki", "Aksu", "Alanya", "Demre", "Döşemealtı", "Elmalı", "Finike", "Gazipaşa", "Gündoğmuş",
+            "İbradı", "Kaş", "Kemer", "Kepez", "Konyaaltı", "Korkuteli", "Kumluca", "Manavgat", "Muratpaşa", "Serik"
+        ],
         "sections": [
-            ("Turizm, Otel ve Yazlık Bölgelerde Hassas Saha Gözlemi", "Antalya ve Alanya; yabancı uyruklu evlilikler, kısa süreli tatil/iş seyahatleri ve rezidans yaşamı nedeniyle standart takip yöntemlerinin yetersiz kaldığı özel bir coğrafyadır. DAT saha ekibi kamuya açık otel çevreleri, marinalar ve şehir merkezlerinde sıfır fark edilme riskiyle çalışır."),
-            ("Yabancı Uyruklu Dosyalar ve Çapraz Sınır Araştırmaları", "Avrupa, Rusya ve BDT ülkelerinden Antalya'ya gelen şahıslara yönelik evlilik öncesi tahkikat, boşanma/velayet delili ve taşınmaz/ticari dolandırıcılık araştırmalarında uluslararası ağımız (WPYB Global) eş zamanlı destek verir."),
-            ("Konut, Rezidans ve Yat/Araç TSCM Böcek Taraması", "Antalya'da iş insanları ve yönetici konutlarında gizli kamera, RF dinleme cihazı ve araç GPS takip modülü taramaları profesyonel spektrum analizörleriyle aynı gün gerçekleştirilir.")
+            ("Antalya Dedektiflik Hizmetlerinde Turizm, Otel ve Rezidans Uzmanlığı", "Türkiye'nin turizm başkenti olan ve yoğun yabancı yerleşik nüfusa ev sahipliği yapan Antalya; kısa süreli tatil/iş seyahatleri, otel konaklamaları, yat/marina hareketliliği ve uluslararası evlilikler nedeniyle standart takip yöntemlerinin ötesinde özel bir uzmanlık gerektirir. 2005 yılından bu yana 4.000'in üzerinde vakayı sonuçlandıran Ümit Hakan Karakaya liderliğindeki DAT Özel Dedektiflik Bürosu, Antalya'nın 19 ilçesinde çok dilli (Türkçe, İngilizce, Almanca, Rusça) saha uzmanlarıyla %100 yasal ve sözleşmeli hizmet vermektedir."),
+            ("Muratpaşa, Konyaaltı, Alanya, Manavgat, Kemer ve 19 İlçede Saha Ağı", "Antalya şehir merkezinde Muratpaşa (Lara, Şirinyalı, Fener, Kaleiçi, Güzeloba, Kundu), Konyaaltı (Liman, Hurma, Gürsu, Uncalı, Arapsuyu), Kepez, Aksu (Kundu oteller bölgesi, Antalya Havalimanı çevresi) ve Döşemealtı villa bölgelerinde mobil ekiplerimiz 7/24 konuşludur. Doğu hattında Serik (Belek, Kadriye golf ve resort otelleri), Manavgat (Side, Çolaklı, Evrenseki, Kızılağaç), Alanya (Mahmutlar, Oba, Kleopatra, Avsallar, Konaklı, İncekum) ve Gazipaşa Havalimanı aksında; batı hattında ise Kemer (Beldibi, Göynük, Tekirova, Çamyuva), Kumluca (Olimpos, Adrasan, Mavikent), Finike, Demre ve Kaş (Kalkan) ile iç ilçeler Korkuteli ve Elmalı'da kesintisiz saha gözlemi yürütülmektedir."),
+            ("Avrupa & Rusya Bağlantılı Eş Takibi, Evlilik Öncesi ve Kurumsal Araştırma", "Antalya'da özellikle Almanya, Avusturya, İsviçre, Belçika, İngiltere ve Rusya'da yaşayan müvekkillerimizin Türkiye'ye yalnız tatile veya iş gezisine gelen eşlerine yönelik havalimanı inişinden itibaren 4K fiziki takip hizmeti en yoğun çalışma alanımızdır. Bunun yanı sıra yabancı uyruklu kişilerle yapılacak evlilikler öncesinde nişanlı geçmiş araştırması, velayet ve uluslararası çocuk kaçırma/koruma dosyaları, gayrimenkul/yatırım dolandırıcılığı tespiti, borçlu adres araştırması ve lüks konut/yat/VIP araçlarda TSCM böcek ve gizli kamera taraması gerçekleştirilmektedir."),
+            ("Türk ve Avrupa/Yabancı Mahkemelerde Geçerli Resmi Delil Klasörü", "Tüm saha çalışmalarımız otel odası veya konut içi gibi özel alanlara girilmeden, TCK m.134 sınırlarına tam uygun biçimde kamuya ve müşterilere açık alanlarda (havalimanı, lobi/giriş-çıkış, restoran, plaj, marina, cadde) icra edilir. Hazırlanan tarih-saat damgalı 4K fotoğraf ve video raporu hem Antalya/Alanya/Manavgat Aile Mahkemelerinde (HMK m.199) hem de Almanya (FamFG § 29) ve diğer Avrupa mahkemelerinde doğrudan geçerli delil olarak sunulmaktadır.")
         ],
         "deliverables": [
-            "Antalya merkez, Alanya, Kemer, Kaş ve Belek'te aynı gün mobil ekip",
-            "Yabancı uyruklu muhataplar için EN / RU / DE uyumlu uluslararası tahkikat",
-            "Mahkemede geçerli tarih-saat damgalı kanıt ve konum raporu"
+            "Antalya Havalimanı ve Gazipaşa Havalimanı inişinden itibaren kesintisiz saha takibi",
+            "Muratpaşa, Konyaaltı, Lara, Alanya, Manavgat, Belek, Kemer ve Kaş dahil 19 ilçede mobil ekip",
+            "TR / EN / DE / RU dillerinde uluslararası mahkemelere ve avukatlara uygun delil raporu",
+            "Yazılı resmi gizlilik sözleşmesi ve %100 ispat/memnuniyet güvencesi"
         ],
         "faqs": [
-            ("Alanya, Kemer veya Belek'teki otel çevresi için takip yapılabilir mi?", "Evet. Otel iç özel alanlarına (oda vb.) girilmeden yalnızca halka ve müşteriye açık genel alan, giriş-çıkış ve çevre güzergahlarında yasal gözlem yapılır."),
-            ("Yabancı uyruklu nişanlı veya eş için araştırma hizmeti veriyor musunuz?", "Evet. Antalya yerleşik veya yurt dışı bağlantılı yabancı uyruklu şahıslar için evlilik öncesi ve ticari güvenlik araştırması yürütüyoruz."),
-            ("Antalya'da çalışma başlatmak için bizzat Antalya'da olmam şart mı?", "Hayır. Yurt dışından veya farklı illerden çevrimiçi ön görüşme ve dijital gizlilik sözleşmesi ile çalışmayı aynı gün başlatabilirsiniz."),
-            ("Antalya dışı çevre illere (Isparta, Burdur, Mersin) ekip gidiyor mu?", "Evet, Akdeniz bölge ekibimiz talep doğrultusunda tüm çevre il ve ilçelere kesintisiz hizmet vermektedir.")
+            ("Alanya, Kemer, Side veya Belek'teki otel çevresi için takip yapılabilir mi?", "Evet. Otel iç özel alanlarına (oda vb.) girilmeden yalnızca halka ve müşteriye açık genel alan, giriş-çıkış, plaj/restoran ve çevre güzergahlarında yasal gözlem yapılır."),
+            ("Yabancı uyruklu nişanlı veya eş için araştırma hizmeti veriyor musunuz?", "Evet. Antalya yerleşik veya Avrupa, Rusya ve BDT ülkeleri bağlantılı yabancı uyruklu şahıslar için evlilik öncesi ve ticari güvenlik araştırması yürütüyoruz."),
+            ("Antalya'da çalışma başlatmak için bizzat Antalya'da olmam şart mı?", "Hayır. Almanya, Avrupa veya Türkiye'nin farklı bir şehrinden WhatsApp/telefon ön görüşmesi ve resmi dijital gizlilik sözleşmesi ile çalışmayı aynı gün başlatabilirsiniz."),
+            ("Antalya dışı çevre illere (Muğla/Fethiye, Isparta, Burdur, Mersin) ekip gidiyor mu?", "Evet, Akdeniz bölge ekibimiz talep doğrultusunda Fethiye, Göcek, Isparta, Burdur ve Mersin dahil tüm çevre il ve ilçelere kesintisiz hizmet vermektedir.")
         ]
     },
     {
         "rel_path": "bursa-ozel-dedektif.html",
-        "title": "Bursa Özel Dedektif Bürosu (Nilüfer) — DAT Dedektiflik",
-        "description": "Bursa Nilüfer, Osmangazi, Mudanya ve İnegöl'de eş takibi, aile hukuku delilleri, fabrika hırsızlık ve marka taklidi araştırmaları.",
-        "keywords": "bursa özel dedektif, bursa dedektiflik bürosu, nilüfer dedektif, inegöl dedektif, eş takibi bursa, kurumsal araştırma bursa",
-        "badge": "BURSA & GÜNEY MARMARA • AİLE + SANAYİ UZMANLIĞI",
-        "h1": "Bursa Özel Dedektiflik, Aile Hukuku ve Sanayi Tahkikatı",
-        "lead": "Nilüfer, Osmangazi, Yıldırım, Mudanya ve İnegöl başta olmak üzere Bursa'nın 17 ilçesinde bireysel aile dosyalarının yanında OSB ve ticari işletmelere özel iç suistimal ve marka koruma hizmeti sunuyoruz.",
+        "title": "Bursa Dedektif & Özel Dedektiflik Bürosu (17 İlçe) | DAT",
+        "description": "Bursa özel dedektiflik bürosu. Nilüfer, Osmangazi, Yıldırım, Mudanya, Gemlik ve İnegöl dahil 17 ilçede eş takibi, boşanma delili ve fabrika/marka araştırması.",
+        "keywords": "bursa dedektif, bursa özel dedektif, bursa dedektiflik bürosu, nilüfer dedektif, osmangazi dedektif, inegöl dedektif, mudanya dedektif, eş takibi bursa, kurumsal araştırma bursa",
+        "badge": "BURSA & GÜNEY MARMARA • 17 İLÇEDE AİLE + SANAYİ UZMANLIĞI",
+        "h1": "Bursa Dedektif: 17 İlçede Özel Dedektiflik, Aile Hukuku ve Sanayi Tahkikatı",
+        "lead": "Nilüfer, Osmangazi, Yıldırım, Mudanya, Gemlik ve İnegöl başta olmak üzere Bursa'nın 17 ilçesinde bireysel aile dosyalarının yanında OSB ve ticari işletmelere özel iç suistimal ve marka koruma hizmeti sunuyoruz.",
         "image": "assets/photos/kiu-sertifika-programi.jpg",
-        "law": "TMK m.161 • TTK Haksız Rekabet • SMK m.29",
+        "law": "TMK m.161 • TTK Haksız Rekabet • SMK m.29 • HMK m.199",
         "form_cat": "es-takibi",
+        "districts_title": "Bursa'da Hizmet Verdiğimiz Tüm İlçeler (17 İlçe Saha Ağı)",
+        "districts_intro": "Güney Marmara saha ekiplerimiz, Bursa merkez ilçelerinden sahil hatlarına ve sanayi merkezlerine kadar 17 ilçenin tamamında 7/24 görev yapmaktadır:",
+        "districts": [
+            "Büyükorhan", "Gemlik", "Gürsu", "Harmancık", "İnegöl", "İznik", "Karacabey", "Keles",
+            "Kestel", "Mudanya", "Mustafakemalpaşa", "Nilüfer", "Orhaneli", "Orhangazi", "Osmangazi",
+            "Yenişehir", "Yıldırım"
+        ],
         "sections": [
-            ("Bursa Merkez ve Marmara Geçiş Hattında Kesintisiz Takip", "Osmangazi Köprüsü, İstanbul–Bursa–İzmir otoyolu ve feribot hatları nedeniyle Bursa'daki vakalar şehirlerarası hareketlilik içerir. İstanbul Kartal merkezimizle koordineli çalışan Bursa saha ekibimiz şehir içi ve şehirlerarası geçişleri kopmadan kayıt altına alır."),
-            ("Sanayi, Otomotiv ve Tekstil Sektöründe Kurumsal İstihbarat", "Bursa Organize Sanayi Bölgeleri ve İnegöl mobilya/tekstil merkezlerinde personel hırsızlığı, tedarikçi suistimali, rakip haksız rekabeti ve taklit ürün üretiminin belgelenmesi konusunda savcılık baskınına hazır dosyalar oluşturuyoruz."),
-            ("Bireysel Aile Dosyalarında Kanuni Çerçeve", "Eş takibi, evlilik öncesi araştırma, öğrenci güvenliği ve velayet/nafaka gelir tespiti işlemlerinin tamamı TCK m.134'e tam uyumlu şekilde yürütülür.")
+            ("Bursa Merkez ve Marmara Geçiş Hattında Kesintisiz Takip", "Osmangazi Köprüsü, İstanbul–Bursa–İzmir otoyolu, BUDO/İDO feribot hatları ve Uludağ turizm aksı nedeniyle Bursa'daki vakalar dinamik bir şehir içi ve şehirlerarası hareketlilik içerir. İstanbul Kartal merkezimizle koordineli çalışan Bursa saha ekibimiz Nilüfer (FSM Bulvarı, Özlüce, Balat, Görükle, Beşevler), Osmangazi (Çekirge, Heykel, Demirtaş), Yıldırım, Mudanya (Güzelyalı, Bademli) ve Gemlik hatlarında hedefe hissettirmeden 4K zaman damgalı gözlem yürütür."),
+            ("Sanayi, Otomotiv, Mobilya ve Tekstil Sektöründe Kurumsal İstihbarat", "Bursa Organize Sanayi Bölgeleri (BOSB, NOSAB, DOSAB, Hasanağa, Kayapa) ile İnegöl, Kestel, Gürsu, Karacabey, Mustafakemalpaşa ve Orhangazi sanayi merkezlerinde personel hırsızlığı, tedarikçi suistimali, rakip haksız rekabeti ve taklit ürün üretiminin belgelenmesi konusunda savcılık baskınına hazır dosyalar oluşturuyoruz."),
+            ("Bireysel Aile Dosyalarında Kanuni Çerçeve ve Mahkeme Delili", "Eş takibi, evlilik öncesi nişanlı araştırması, Uludağ Üniversitesi (Görükle) öğrenci güvenliği ve velayet/nafaka gelir tespiti işlemlerinin tamamı TCK m.134'e tam uyumlu şekilde yürütülür ve Bursa Adliyesi Aile Mahkemelerine uygun HMK m.199 delil klasörü olarak teslim edilir.")
         ],
         "deliverables": [
-            "Nilüfer, Osmangazi, Mudanya ve İnegöl'de hızlı mobil ekip koordinasyonu",
-            "İstanbul–Bursa hattında kesintisiz şehirlerarası saha takibi",
+            "Nilüfer, Osmangazi, Yıldırım, Mudanya, Gemlik ve İnegöl dahil 17 ilçede mobil ekip",
+            "İstanbul–Bursa–İzmir otoyolu ve feribot hattında kesintisiz şehirlerarası saha takibi",
             "Bireysel aile hukuku ve OSB kurumsal hırsızlık/marka taklidi raporlaması"
         ],
         "faqs": [
             ("İstanbul–Bursa arasında sık seyahat eden eş veya personel takip edilebiliyor mu?", "Evet. Kartal (İstanbul) ve Bursa saha ekiplerimiz feribot ve otoyol güzergahlarında vardiya devri yaparak kesintisiz takip sağlar."),
             ("Bursa'daki fabrikamızda yaşanan hammadde ve malzeme kayıpları için çalışıyor musunuz?", "Evet. Depo, sevkiyat ve vardiya çıkışlarında yasal gözetim yaparak iç suistimal veya dış işbirlikçileri savcılık dosyasına uygun şekilde tespit ediyoruz."),
-            ("Bursa öğrenci takibi hizmeti üniversite kampüs çevresini kapsıyor mu?", "Evet, Bursa Uludağ Üniversitesi çevresinde ebeveyn talebiyle çocuğun güvenliği ve riskli çevre tespiti gizlilikle yapılmaktadır."),
+            ("Bursa öğrenci takibi hizmeti üniversite kampüs çevresini kapsıyor mu?", "Evet, Bursa Uludağ Üniversitesi (Görükle) çevresinde ebeveyn talebiyle çocuğun güvenliği ve riskli çevre tespiti gizlilikle yapılmaktadır."),
             ("Çalışma öncesi resmi sözleşme ve fatura veriliyor mu?", "Tüm bireysel ve kurumsal Bursa dosyalarında yazılı gizlilik sözleşmesi ve resmi e-Fatura düzenlenir.")
         ]
     },
@@ -1061,11 +1192,13 @@ def build_turkish_seo_pages():
     # Quick nav map for cross-linking
     sibling_links = [
         ("umit-hakan-karakaya.html", "Ümit Hakan Karakaya"),
-        ("elsa-vaka-paneli.html", "Elsa Vaka Paneli"),
-        ("istanbul-ozel-dedektif.html", "İstanbul Büro"),
-        ("ankara-ozel-dedektif.html", "Ankara Büro"),
+        ("elsa-vaka-paneli.html", "Elsa"),
+        ("ankara-ozel-dedektif.html", "Ankara Dedektif"),
         ("izmir-ozel-dedektif.html", "İzmir Dedektif"),
-        ("antalya-ozel-dedektif.html", "Antalya Dedektif"),
+        ("mersin-ozel-dedektif.html", "Mersin Dedektif"),
+        ("konya-ozel-dedektif.html", "Konya Dedektif"),
+        ("istanbul-ozel-dedektif.html", "İstanbul Dedektif"),
+        ("antalya-ozel-dedektif.html", "Antalya Dedektiflik"),
         ("bursa-ozel-dedektif.html", "Bursa Dedektif"),
         ("hizmetler/es-takibi.html", "Eş Takibi"),
         ("hizmetler/evlilik-oncesi-arastirma.html", "Evlilik Öncesi"),
@@ -1097,18 +1230,24 @@ def build_turkish_seo_pages():
             }
             for q, a in pg["faqs"]
         ]
+        legal_service_obj = {
+            "@context": "https://schema.org",
+            "@type": "LegalService",
+            "name": f"{pg['h1']} — DAT Özel Dedektiflik",
+            "url": canonical,
+            "image": f"{DOMAIN}/{pg['image']}",
+            "telephone": "+90-532-666-77-49",
+            "email": "info@datdetective.com",
+            "founder": {"@type": "Person", "name": "Ümit Hakan Karakaya"},
+            "foundingDate": "2005",
+        }
+        if pg.get("districts"):
+            legal_service_obj["areaServed"] = [
+                {"@type": "AdministrativeArea", "name": d} for d in pg["districts"]
+            ]
+
         schema = [
-            {
-                "@context": "https://schema.org",
-                "@type": "LegalService",
-                "name": f"{pg['h1']} — DAT Özel Dedektiflik",
-                "url": canonical,
-                "image": f"{DOMAIN}/{pg['image']}",
-                "telephone": "+90-532-666-77-49",
-                "email": "info@datdetective.com",
-                "founder": {"@type": "Person", "name": "Ümit Hakan Karakaya"},
-                "foundingDate": "2005",
-            },
+            legal_service_obj,
             {
                 "@context": "https://schema.org",
                 "@type": "BreadcrumbList",
@@ -1119,6 +1258,16 @@ def build_turkish_seo_pages():
                 "@type": "FAQPage",
                 "mainEntity": faq_entities,
             },
+            {
+                "@context": "https://schema.org",
+                "@type": "WebPage",
+                "url": canonical,
+                "name": pg["title"],
+                "speakable": {
+                    "@type": "SpeakableSpecification",
+                    "cssSelector": ["h1", "h2", "h3", "h4"],
+                },
+            },
         ]
 
         sections_html = "\n".join(
@@ -1128,6 +1277,84 @@ def build_turkish_seo_pages():
             </section>'''
             for sec_t, sec_b in pg["sections"]
         )
+
+        districts_html = ""
+        if pg.get("districts"):
+            d_pills = "\n".join(
+                f'<span class="studio-pill-muted px-3 py-1.5 rounded-xl bg-[#242428] border border-white/10 text-xs font-medium text-[#FFFFFF] inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#93F051] shrink-0"></span><span>{html_lib.escape(d)} Dedektif</span></span>'
+                for d in pg["districts"]
+            )
+            districts_html = f'''
+        <!-- District Coverage SEO Section -->
+        <section class="studio-surface bg-[#1C1C1F] rounded-3xl p-6 sm:p-8 border border-white/[0.09] shadow-sm space-y-4">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+                <span class="studio-badge px-3 py-1 rounded-full bg-[#242428] border border-[#93F051]/35 text-[#93F051] font-mono text-[11px] font-medium">TÜM İLÇELERDE 7/24 AKTİF SAHA AĞI</span>
+                <span class="studio-muted text-xs font-mono text-white/60">{len(pg["districts"])} Resmi İlçe</span>
+            </div>
+            <h2 class="studio-title text-lg sm:text-xl font-medium text-[#FFFFFF] tracking-tight">{html_lib.escape(pg.get("districts_title", "Hizmet Verdiğimiz İlçeler"))}</h2>
+            <p class="studio-body text-sm sm:text-[15px] text-white/80 leading-relaxed">{html_lib.escape(pg.get("districts_intro", ""))}</p>
+            <div class="flex flex-wrap gap-2 pt-1">
+                {d_pills}
+            </div>
+            <div class="pt-4 border-t border-white/10 space-y-3">
+                <h3 class="studio-title text-sm sm:text-base font-medium text-[#FFFFFF]">Tüm İlçelerde En Çok Talep Edilen Özel Dedektiflik Hizmetlerimiz</h3>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                    <a href="{prefix}hizmetler/es-takibi.html" title="Eş Takibi, Aldatma Tespiti ve Boşanma Davası Delil Toplama" class="studio-surface-soft p-3.5 rounded-2xl bg-[#18181A] border border-white/10 hover:border-[#93F051]/60 transition block space-y-1">
+                        <h4 class="studio-title text-xs sm:text-sm font-medium text-[#FFFFFF]">Eş Takibi &amp; Boşanma Delili</h4>
+                        <p class="studio-muted text-[11.5px] text-white/65 leading-snug">TMK m.161 ve HMK m.199 uyumlu 4K zaman damgalı sadakat araştırması.</p>
+                    </a>
+                    <a href="{prefix}hizmetler/evlilik-oncesi-arastirma.html" title="Evlilik Öncesi Araştırma ve Nişanlı Geçmiş Tahkikatı" class="studio-surface-soft p-3.5 rounded-2xl bg-[#18181A] border border-white/10 hover:border-[#93F051]/60 transition block space-y-1">
+                        <h4 class="studio-title text-xs sm:text-sm font-medium text-[#FFFFFF]">Evlilik Öncesi Araştırma</h4>
+                        <p class="studio-muted text-[11.5px] text-white/65 leading-snug">%100 gizli nişanlı geçmiş, meslek, aile ve mali güvenilirlik teyidi.</p>
+                    </a>
+                    <a href="{prefix}hizmetler/adres-ve-borclu-takibi.html" title="Fiili Adres Tespiti, Kayıp Şahıs ve Borçlu Mal Varlığı Araştırması" class="studio-surface-soft p-3.5 rounded-2xl bg-[#18181A] border border-white/10 hover:border-[#93F051]/60 transition block space-y-1">
+                        <h4 class="studio-title text-xs sm:text-sm font-medium text-[#FFFFFF]">Adres &amp; Borçlu Tespiti</h4>
+                        <p class="studio-muted text-[11.5px] text-white/65 leading-snug">Tebligat yapılamayan kişiler ve İİK m.277 mal kaçırma delilleri.</p>
+                    </a>
+                    <a href="{prefix}hizmetler/kurumsal-ve-marka-koruma.html" title="Kurumsal Firma Araştırması, Marka Taklidi ve TSCM Böcek Arama" class="studio-surface-soft p-3.5 rounded-2xl bg-[#18181A] border border-white/10 hover:border-[#93F051]/60 transition block space-y-1">
+                        <h4 class="studio-title text-xs sm:text-sm font-medium text-[#FFFFFF]">Kurumsal &amp; Marka Koruma</h4>
+                        <p class="studio-muted text-[11.5px] text-white/65 leading-snug">Firma istihbaratı, SMK m.29 sahte ürün baskın delili ve böcek tarama.</p>
+                    </a>
+                </div>
+            </div>
+        </section>'''
+        else:
+            districts_html = f'''
+        <!-- Regional City Offices SEO Section -->
+        <section class="studio-surface bg-[#1C1C1F] rounded-3xl p-6 sm:p-8 border border-white/[0.09] shadow-sm space-y-4">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+                <span class="studio-badge px-3 py-1 rounded-full bg-[#242428] border border-[#93F051]/35 text-[#93F051] font-mono text-[11px] font-medium">TÜRKİYE 81 İL &amp; AVRUPA SAHA AĞI</span>
+                <span class="studio-muted text-xs font-mono text-white/60">7/24 Aktif Bölge Büroları</span>
+            </div>
+            <h2 class="studio-title text-lg sm:text-xl font-medium text-[#FFFFFF] tracking-tight">Türkiye Genelinde Hizmet Verdiğimiz Başlıca Şehir Bürolarımız</h2>
+            <h3 class="studio-body text-xs sm:text-sm font-medium text-white/75">Büyükşehir ve İlçe Kapsamlı Özel Dedektiflik Operasyon Merkezlerimiz</h3>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 pt-1">
+                <a href="{prefix}ankara-ozel-dedektif.html" title="Ankara Dedektif — Çankaya Merkez ve 25 İlçede Özel Dedektiflik Bürosu" class="studio-surface-soft p-3.5 rounded-2xl bg-[#18181A] border border-white/10 hover:border-[#93F051]/60 transition block space-y-1">
+                    <h4 class="studio-title text-xs sm:text-sm font-medium text-[#FFFFFF]">Ankara Dedektif (25 İlçe)</h4>
+                    <p class="studio-muted text-[11.5px] text-white/65 leading-snug">Çankaya Konutkent merkez ofis, Yenimahalle, Keçiören, Gölbaşı, Etimesgut.</p>
+                </a>
+                <a href="{prefix}istanbul-ozel-dedektif.html" title="İstanbul Dedektif — Kartal Merkez ve 39 İlçede Özel Dedektiflik Bürosu" class="studio-surface-soft p-3.5 rounded-2xl bg-[#18181A] border border-white/10 hover:border-[#93F051]/60 transition block space-y-1">
+                    <h4 class="studio-title text-xs sm:text-sm font-medium text-[#FFFFFF]">İstanbul Dedektif (39 İlçe)</h4>
+                    <p class="studio-muted text-[11.5px] text-white/65 leading-snug">Kartal Helis Metro Tower merkez, Kadıköy, Beşiktaş, Şişli, Bakırköy.</p>
+                </a>
+                <a href="{prefix}izmir-ozel-dedektif.html" title="İzmir Dedektif — Konak, Karşıyaka, Bornova, Çeşme ve 30 İlçede Özel Dedektif" class="studio-surface-soft p-3.5 rounded-2xl bg-[#18181A] border border-white/10 hover:border-[#93F051]/60 transition block space-y-1">
+                    <h4 class="studio-title text-xs sm:text-sm font-medium text-[#FFFFFF]">İzmir Dedektif (30 İlçe)</h4>
+                    <p class="studio-muted text-[11.5px] text-white/65 leading-snug">Konak, Alsancak, Karşıyaka, Bornova, Bayraklı, Çeşme ve Urla saha ağı.</p>
+                </a>
+                <a href="{prefix}mersin-ozel-dedektif.html" title="Mersin Dedektif — Yenişehir, Mezitli, Tarsus, Erdemli ve 13 İlçede Özel Dedektif" class="studio-surface-soft p-3.5 rounded-2xl bg-[#18181A] border border-white/10 hover:border-[#93F051]/60 transition block space-y-1">
+                    <h4 class="studio-title text-xs sm:text-sm font-medium text-[#FFFFFF]">Mersin Dedektif (13 İlçe)</h4>
+                    <p class="studio-muted text-[11.5px] text-white/65 leading-snug">Yenişehir, Mezitli, Toroslar, Akdeniz, Tarsus, Erdemli ve Silifke.</p>
+                </a>
+                <a href="{prefix}konya-ozel-dedektif.html" title="Konya Dedektif — Selçuklu, Meram, Karatay, Ereğli, Kulu ve 31 İlçede Özel Dedektif" class="studio-surface-soft p-3.5 rounded-2xl bg-[#18181A] border border-white/10 hover:border-[#93F051]/60 transition block space-y-1">
+                    <h4 class="studio-title text-xs sm:text-sm font-medium text-[#FFFFFF]">Konya Dedektif (31 İlçe)</h4>
+                    <p class="studio-muted text-[11.5px] text-white/65 leading-snug">Selçuklu, Meram, Karatay, Ereğli, Akşehir, Beyşehir ve Kulu saha ağı.</p>
+                </a>
+                <a href="{prefix}antalya-ozel-dedektif.html" title="Antalya Dedektiflik — Muratpaşa, Konyaaltı, Alanya, Manavgat ve 19 İlçede Özel Dedektif" class="studio-surface-soft p-3.5 rounded-2xl bg-[#18181A] border border-white/10 hover:border-[#93F051]/60 transition block space-y-1">
+                    <h4 class="studio-title text-xs sm:text-sm font-medium text-[#FFFFFF]">Antalya Dedektiflik (19 İlçe)</h4>
+                    <p class="studio-muted text-[11.5px] text-white/65 leading-snug">Muratpaşa (Lara), Konyaaltı, Alanya, Manavgat, Belek, Kemer ve Kaş.</p>
+                </a>
+            </div>
+        </section>'''
 
         deliv_html = "\n".join(
             f'<li class="flex items-start gap-2.5 text-sm text-[#FFFFFF]/95"><span class="studio-lime-ink text-[#93F051] font-bold">✓</span><span>{html_lib.escape(d)}</span></li>'
@@ -1192,6 +1419,10 @@ def build_turkish_seo_pages():
                 </div>
             </a>
             <div class="flex items-center gap-2 shrink-0">
+                <a href="{prefix}index.html#dedektife-sor" class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full studio-pill-muted bg-[#242428] border border-[#93F051]/40 text-xs font-medium transition">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#93F051] animate-pulse"></span>
+                    <span>Dedektif'e Sor</span>
+                </a>
                 <button id="themeToggleBtn" type="button" onclick="toggleSiteTheme()" class="studio-pill-muted inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-full bg-[#242428] border border-white/15 text-[11px] font-medium transition">
                     <i id="themeToggleIcon" class="hgi hgi-stroke hgi-sun-03 w-3.5 h-3.5 text-[#93F051]"></i>
                     <span id="themeToggleLabel" class="hidden sm:inline">Açık</span>
@@ -1231,6 +1462,10 @@ def build_turkish_seo_pages():
                         <i class="hgi hgi-stroke hgi-call-02 w-4 h-4 studio-lime-ink text-[#93F051]"></i>
                         <span>Merkez: 0312 284 02 99</span>
                     </a>
+                    <a href="{prefix}index.html#dedektife-sor" class="studio-pill-muted px-5 py-3 rounded-full bg-[#242428] border border-[#93F051]/40 text-xs font-medium inline-flex items-center gap-2 transition">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#93F051] animate-pulse"></span>
+                        <span>Dedektif'e Sor</span>
+                    </a>
                 </div>
             </div>
             <div class="lg:col-span-5">
@@ -1244,7 +1479,7 @@ def build_turkish_seo_pages():
         <div class="grid gap-5">
             {sections_html}
         </div>
-
+{districts_html}
         <!-- Deliverables Box -->
         <div class="studio-keep-dark bg-[#111111] text-[#FFFFFF] rounded-3xl p-6 sm:p-8 space-y-4 shadow-2xl border border-white/15">
             <div class="font-mono text-[11px] studio-coral-ink text-[#FA7E61] uppercase tracking-wider">DAT ÖZEL DEDEKTİFLİK • RESMİ TESLİMAT STANDARTLARI</div>
@@ -1261,10 +1496,14 @@ def build_turkish_seo_pages():
             </div>
         </section>
 
-        <!-- Cross-Navigation across Services & Cities -->
+        <!-- Cross-Navigation across Services & Cities (Google Trends Türkiye Popüler Dedektif Aramaları) -->
         <section class="studio-divider pt-5 border-t border-white/10 space-y-3">
-            <div class="studio-muted text-xs font-mono text-white/60 uppercase">Diğer Uzmanlık Alanlarımız & Merkezlerimiz</div>
+            <h3 class="studio-muted text-xs font-mono text-white/60 uppercase">Google Trend Türkiye En Çok Aranan Özel Dedektiflik Konuları &amp; Şehir Bürolarımız</h3>
             <div class="flex flex-wrap gap-2">
+                <a href="{prefix}index.html#dedektife-sor" title="Dedektif'e Sor — Dedektif Tutmak, Dedektif Fiyatları ve Yasal Süreçler" class="studio-badge px-3.5 py-2 rounded-full bg-[#242428] border border-[#93F051]/35 text-[#93F051] text-xs font-medium hover:opacity-90 transition">Dedektif'e Sor</a>
+                <a href="{prefix}index.html#dedektife-sor" title="Özel Dedektif Fiyatları ve Dedektif Ücretleri Ne Kadar? — DAT Özel Dedektiflik" class="studio-pill-muted px-3.5 py-2 rounded-full bg-[#242428] border border-white/10 text-white/85 text-xs font-medium transition">Özel Dedektif Fiyatları</a>
+                <a href="{prefix}index.html#dedektife-sor" title="Türkiye'de Özel Dedektif Tutmak Yasal mı ve Süreç Nasıl İşler? — DAT Özel Dedektiflik" class="studio-pill-muted px-3.5 py-2 rounded-full bg-[#242428] border border-white/10 text-white/85 text-xs font-medium transition">Dedektif Tutmak Yasal mı?</a>
+                <a href="{prefix}index.html#dedektife-sor" title="Özel Dedektif Nasıl Olunur? UÖDED Eğitim ve Sertifika Şartları" class="studio-pill-muted px-3.5 py-2 rounded-full bg-[#242428] border border-white/10 text-white/85 text-xs font-medium transition">Özel Dedektif Nasıl Olunur?</a>
                 {sib_html}
                 <a href="{prefix}index.html#magaza" class="studio-badge px-3.5 py-2 rounded-full bg-[#242428] border border-[#93F051]/35 text-[#93F051] text-xs font-medium hover:opacity-90 transition">DAT Donanım Mağazası</a>
             </div>
@@ -1866,7 +2105,7 @@ def build_founder_pages():
                 <div class="relative aspect-[4/3] rounded-xl overflow-hidden bg-[#111111]">
                     <img src="{prefix}{img}" loading="lazy" decoding="async" alt="{html_lib.escape(cap, quote=True)}" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-500">
                 </div>
-                <p class="studio-title mt-2 px-1 text-xs sm:text-[13px] font-medium text-[#FFFFFF] leading-snug">{html_lib.escape(cap)}</p>
+                <h4 class="studio-title mt-2 px-1 text-xs sm:text-[13px] font-medium text-[#FFFFFF] leading-snug">{html_lib.escape(cap)}</h4>
             </button>'''
             for img, cap in f["gallery"]
         )

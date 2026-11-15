@@ -132,7 +132,6 @@ window.DAT_LANGS.de = {
         "ÖRNEK SAHA & DELİL DOSYASI": "MUSTER-EINSATZ- & BEWEISAKTE",
         "Velayet & Dava": "Sorgerecht & Prozess",
         "Adres & Borçlu": "Adresse & Schuldner",
-        "DOSYA #DAT-2026-VR774 • ANKARA & İSTANBUL": "AKTE #DAT-2026-VR774 • ANKARA & ISTANBUL",
         "Eş Takibi & Evlilik Birliği Sadakat Tespiti": "Partnerobservation & Ehetreue-Prüfung",
         "TMK m.161 / HMK m.199": "TMK § 161 / HMK § 199",
         "DELİL STANDARDI": "BEWEISSTANDARD",
@@ -637,47 +636,47 @@ window.DAT_LANGS.de = {
       "Elsa Vaka Panelinde Görüntüle": "Im Elsa Fall-Panel ansehen",
       "Doğrudan E-Posta İle Gönder": "Direkt per E-Mail-App senden"
     },
-    heroCases: {
+                heroCases: {
         sadakat: {
-            code: 'AKTE #DAT-2026-VR774 • ANKARA & ISTANBUL',
-            title: 'Partnerobservation & Ehetreue-Prüfung',
+            code: 'RECHTLICHER RAHMEN • FAMILIENRECHT & TREUE',
+            title: 'Partnerobservation & Beweisstandards im Familienrecht',
             lawBadge: 'TMK § 161 / HMK § 199',
-            metric1: '4K Foto & Video',
-            metric2: '100 % Beweisgarantie',
+            metric1: '4K Bildbeweis',
+            metric2: 'Zeitstempel-Kette',
             metric3: 'Gerichtsverwertbar',
-            timestamp: 'ZERTIFIZIERTES TEAM',
+            timestamp: 'GESETZLICHES VERFAHREN',
             logs: [
-                { time: '19:14', text: 'Bei begründetem Verdacht begann unser zertifiziertes Team die diskrete Observation von Kontakten und Wegen des Partners.', highlight: false },
-                { time: '21:40', text: 'Ohne dass die Zielperson etwas bemerkte, wurden Foto- und Videoaufnahmen im öffentlichen Raum rechtskonform gesichert.', highlight: false },
-                { time: 'ERGEBNIS', text: 'Ein zeitgestempeltes Beweisdossier für das Familien- und Scheidungsverfahren wurde dem Mandanten ausgehändigt.', highlight: true }
+                { time: 'STUFE 01', text: 'Eröffnung der Akte nach Unterzeichnung von Dienstvertrag, Vollmacht und strengem Datenschutzprotokoll (DSGVO).', highlight: false },
+                { time: 'STUFE 02', text: 'Rechtskonforme Observation ausschließlich im öffentlichen Raum unter strikter Wahrung der Privatsphäre.', highlight: false },
+                { time: 'STUFE 03', text: 'Übergabe zeitgestempelter 4K-Bildbeweise und offizieller Ermittlungsberichte direkt an Ihren Rechtsbeistand.', highlight: true }
             ]
         },
         tscm: {
-            code: 'AKTE #DAT-2026-VL810 • SORGERECHT & SCHEIDUNG',
-            title: 'Sorgerechtsprozess & Kindeswohl-Beweissicherung',
+            code: 'RECHTLICHER RAHMEN • SORGERECHT & SCHEIDUNG',
+            title: 'Sorgerechtsprozesse & Kindeswohl-Beweise',
             lawBadge: 'TMK § 182 / FAMILIENRECHT',
-            metric1: 'Umfeldanalyse',
-            metric2: 'Gerichtsbericht',
-            metric3: '100 % Rechtskonform',
-            timestamp: 'BEWEISGARANTIE',
+            metric1: 'Lebensbedingungen',
+            metric2: 'Offizieller Bericht',
+            metric3: 'Gerichtsverwertbar',
+            timestamp: 'FORENSISCHER STANDARD',
             logs: [
-                { time: 'TAG 01', text: 'Spezialisierte Ermittler nahmen die Beobachtung von Faktoren auf, die Sicherheit und Entwicklung des Kindes betreffen.', highlight: false },
-                { time: 'TAG 04', text: 'Lebenswandel, Vernachlässigungsanzeichen und reales Einkommen des anderen Elternteils wurden gerichtsfest dokumentiert.', highlight: false },
-                { time: 'ERGEBNIS', text: 'Umfassendes Beweispaket zur Vorlage im Sorgerechtsverfahren an den Mandanten übergeben.', highlight: true }
+                { time: 'STUFE 01', text: 'Einleitung rechtlicher Recherchen zur Dokumentation von Faktoren bezüglich Kindeswohl und Sicherheit.', highlight: false },
+                { time: 'STUFE 02', text: 'Dokumentation des realen Lebenswandels und der Fürsorgepflichten im Rahmen des Zivil- und Strafrechts.', highlight: false },
+                { time: 'STUFE 03', text: 'Erstellung eines offiziellen Beweisdossiers zur Vorlage beim Familiengericht.', highlight: true }
             ]
         },
         kurumsal: {
-            code: 'AKTE #DAT-2026-FN418 • ADRESSE & SCHULDNER',
-            title: 'Reale Adressermittlung, Schuldner & Vermögensprüfung',
-            lawBadge: 'İİK § 277 / ADRESSSUCHE',
+            code: 'RECHTLICHER RAHMEN • SCHULDNER & VERMÖGEN',
+            title: 'Tatsächliche Adresse & Schuldnervermögen',
+            lawBadge: 'İİK § 277 / ERMITTLUNG',
             metric1: '81 Provinzen & Ausland',
-            metric2: 'Verifizierter Wohnsitz',
+            metric2: 'Wohnsitz-Verifikation',
             metric3: 'Vollstreckungsbeweis',
-            timestamp: 'STANDORT BESTÄTIGT',
+            timestamp: 'AMTLICHER BERICHT',
             logs: [
-                { time: 'SCHRITT 01', text: 'Recherche zu einem unter der Meldeadresse unauffindbaren Schuldner gestartet.', highlight: false },
-                { time: 'SCHRITT 02', text: 'Tatsächlicher Wohnort, genutzte Fahrzeuge und auf Dritte übertragene Vermögenswerte fotografisch belegt.', highlight: false },
-                { time: 'ERGEBNIS', text: 'Bestätigter Adress- und Vermögensbericht für Zwangsvollstreckung und Anfechtungsklage geliefert.', highlight: true }
+                { time: 'STUFE 01', text: 'Einleitung gesetzeskonformer Recherchen zu Schuldnern, die an der Meldeadresse unauffindbar sind.', highlight: false },
+                { time: 'STUFE 02', text: 'Ermittlung des tatsächlichen Wohnsitzes, wirtschaftlicher Aktivitäten und auf Dritte übertragener Vermögenswerte.', highlight: false },
+                { time: 'STUFE 03', text: 'Übergabe eines zertifizierten Ermittlungsberichts für Vollstreckungsverfahren und Anfechtungsklagen.', highlight: true }
             ]
         }
     },

@@ -132,7 +132,6 @@ window.DAT_LANGS.en = {
         "ÖRNEK SAHA & DELİL DOSYASI": "SAMPLE FIELD & EVIDENCE DOSSIER",
         "Velayet & Dava": "Custody & Case",
         "Adres & Borçlu": "Address & Debtor",
-        "DOSYA #DAT-2026-VR774 • ANKARA & İSTANBUL": "CASE #DAT-2026-VR774 • ANKARA & ISTANBUL",
         "Eş Takibi & Evlilik Birliği Sadakat Tespiti": "Spouse Surveillance & Marital Fidelity Verification",
         "TMK m.161 / HMK m.199": "TCC Art. 161 / CCP Art. 199",
         "DELİL STANDARDI": "EVIDENCE STANDARD",
@@ -637,47 +636,47 @@ window.DAT_LANGS.en = {
       "Elsa Vaka Panelinde Görüntüle": "View in Elsa Case Panel",
       "Doğrudan E-Posta İle Gönder": "Send Directly via Email App"
     },
-    heroCases: {
+                heroCases: {
         sadakat: {
-            code: 'CASE #DAT-2026-VR774 • ANKARA & ISTANBUL',
-            title: 'Spouse Surveillance & Marital Fidelity Verification',
+            code: 'LEGAL FRAMEWORK • FAMILY LAW & FIDELITY',
+            title: 'Spouse Surveillance & Family Law Evidence Standards',
             lawBadge: 'TCC Art. 161 / CCP Art. 199',
-            metric1: '4K Photo & Video',
-            metric2: '100% Proof Guaranteed',
-            metric3: 'Court-Ready',
-            timestamp: 'CERTIFIED TEAM',
+            metric1: '4K Visual Evidence',
+            metric2: 'Timestamped Chain',
+            metric3: 'Court-Admissible',
+            timestamp: 'LEGAL PROCEDURE',
             logs: [
-                { time: '19:14', text: 'Upon client suspicion, certified field investigators initiated discreet surveillance of who the spouse met in the client\'s absence.', highlight: false },
-                { time: '21:40', text: 'Photo and video evidence was lawfully documented in public venues while ensuring the subject never suspected surveillance.', highlight: false },
-                { time: 'RESULT', text: 'Timestamped official evidence dossier for Family Court divorce and compensation proceedings was delivered to the client.', highlight: true }
+                { time: 'STAGE 01', text: 'A formal service contract, authorization, and strict KVKK/GDPR confidentiality protocol are signed to open the file.', highlight: false },
+                { time: 'STAGE 02', text: 'With strict adherence to privacy rights, observations are conducted solely in public open spaces.', highlight: false },
+                { time: 'STAGE 03', text: 'Timestamped 4K visual evidence and certified investigator reports are delivered directly to your legal counsel.', highlight: true }
             ]
         },
         tscm: {
-            code: 'CASE #DAT-2026-VL810 • CUSTODY & DIVORCE',
-            title: 'Child Custody Litigation & Best-Interest Evidence',
+            code: 'LEGAL FRAMEWORK • CUSTODY & DIVORCE',
+            title: 'Custody Proceedings & Child Best Interest',
             lawBadge: 'TCC Art. 182 / FAMILY LAW',
-            metric1: 'Lifestyle Profiling',
-            metric2: 'Official Court Dossier',
-            metric3: '100% Statutory Fit',
-            timestamp: 'PROOF GUARANTEED',
+            metric1: 'Living Conditions',
+            metric2: 'Official Report',
+            metric3: 'Court-Ready',
+            timestamp: 'FORENSIC STANDARD',
             logs: [
-                { time: 'DAY 01', text: 'Specialized field team began discreet observation to document factors impacting child safety and development.', highlight: false },
-                { time: 'DAY 04', text: 'The opposing parent\'s lifestyle, neglect indicators, and undisclosed income were recorded within Civil & Criminal Law limits.', highlight: false },
-                { time: 'RESULT', text: 'A comprehensive court-ready evidence file proving our client\'s rightful position was delivered for custody hearings.', highlight: true }
+                { time: 'STAGE 01', text: 'Statutory inquiries are launched to establish factual circumstances impacting child safety and emotional welfare.', highlight: false },
+                { time: 'STAGE 02', text: 'Parental lifestyle and care compliance are documented within civil and criminal law boundaries.', highlight: false },
+                { time: 'STAGE 03', text: 'An official evidence folder is compiled for evaluation by the Family Court judge.', highlight: true }
             ]
         },
         kurumsal: {
-            code: 'CASE #DAT-2026-FN418 • ADDRESS & DEBTOR TRACE',
-            title: 'Actual Address Tracing, Debtor & Asset Investigation',
+            code: 'LEGAL FRAMEWORK • DEBTORS & ASSETS',
+            title: 'Actual Address & Debtor Asset Verification',
             lawBadge: 'EBL Art. 277 / ASSET TRACE',
-            metric1: '81 Provinces & Abroad',
-            metric2: 'Verified Physical Address',
-            metric3: 'Enforcement Evidence',
-            timestamp: 'VERIFIED LOCATION',
+            metric1: '81 Provinces & Global',
+            metric2: 'Physical Residence Check',
+            metric3: 'Enforcement Proof',
+            timestamp: 'OFFICIAL REPORT',
             logs: [
-                { time: 'STEP 01', text: 'Field intelligence initiated for an evasive debtor unreachable at registered address for court service.', highlight: false },
-                { time: 'STEP 02', text: 'Hidden residence, active vehicles, and assets transferred to third-party nominees were photographed and verified.', highlight: false },
-                { time: 'RESULT', text: 'Verified residence and asset report delivered for immediate enforcement and fraudulent conveyance litigation.', highlight: true }
+                { time: 'STAGE 01', text: 'Lawful field investigation is initiated for elusive debtors unreachable for formal service.', highlight: false },
+                { time: 'STAGE 02', text: 'Actual residence, commercial operations, and assets concealed or transferred to third parties are documented.', highlight: false },
+                { time: 'STAGE 03', text: 'Certified verification reports are submitted for direct debt enforcement and fraudulent conveyance suits.', highlight: true }
             ]
         }
     },
