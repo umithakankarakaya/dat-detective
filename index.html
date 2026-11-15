@@ -11,16 +11,13 @@
     <script id="datThemeBoot">
         (function () {
             try {
-                var saved = localStorage.getItem('dat_theme');
-                var theme = (saved === 'light' || saved === 'dark') ? saved : 'dark';
+                localStorage.setItem('dat_theme', 'light');
+                localStorage.removeItem('theme');
                 var root = document.documentElement;
-                root.setAttribute('data-theme', theme);
-                root.style.colorScheme = theme;
-                if (theme === 'dark') {
-                    root.classList.add('dark');
-                } else {
-                    root.classList.remove('dark');
-                }
+                root.setAttribute('data-theme', 'light');
+                root.style.colorScheme = 'light';
+                root.classList.remove('dark');
+                root.classList.add('light');
             } catch (e) {}
         })();
     </script>
@@ -1553,6 +1550,23 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style id="openai-master-system">
+        
+        /* EXPLICIT WHITE TEXT DEFINITIONS FOR DARK ELEMENTS */
+        .text-white, [class*="text-white"] {
+            color: #FFFFFF !important;
+        }
+        .theme-dark-feature-banner,
+        .theme-dark-feature-banner * {
+            color: #FFFFFF !important;
+        }
+        .theme-dark-feature-banner h2 {
+            color: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
+        }
+        .theme-dark-feature-banner p {
+            color: rgba(255, 255, 255, 0.85) !important;
+        }
+
         /* ==================================================== */
         /* ABSOLUTE HIGH-CONTRAST & READABILITY GUARANTEE (OPENAI PURE) */
         /* ==================================================== */
@@ -1870,17 +1884,17 @@
 
             <!-- FEATURE BANNER: OPENAI EXACT "CYBER AT FRONTIER" BANNER (Screenshot 1 Bottom) -->
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 sm:mt-16">
-                <div class="relative rounded-3xl overflow-hidden aspect-[16/7] sm:aspect-[21/7] bg-black text-white flex flex-col justify-between p-6 sm:p-10 lg:p-12 shadow-sm border border-black/10">
+                <div class="theme-dark-feature-banner relative rounded-3xl overflow-hidden aspect-[16/7] sm:aspect-[21/7] bg-black text-white flex flex-col justify-between p-6 sm:p-10 lg:p-12 shadow-sm border border-black/10">
                     <img src="assets/og-banner.jpg" alt="DAT Özel Dedektiflik Adli Saha Masası" class="absolute inset-0 w-full h-full object-cover opacity-35 filter brightness-90">
                     <div class="relative z-10 flex items-center justify-between">
-                        <span class="text-lg sm:text-2xl font-bold tracking-tight text-white">DAT Dedektiflik</span>
-                        <span class="text-[11px] sm:text-xs font-mono uppercase tracking-wider text-white/90 border border-white/20 bg-black/40 backdrop-blur-md px-3 py-1 rounded-full">Soruşturma &amp; Adli Kanıt Masası</span>
+                        <span class="text-lg sm:text-2xl font-bold tracking-tight" style="color: #FFFFFF !important;">DAT Dedektiflik</span>
+                        <span class="text-[11px] sm:text-xs font-mono uppercase tracking-wider border border-white/30 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full" style="color: #FFFFFF !important;">Soruşturma &amp; Adli Kanıt Masası</span>
                     </div>
                     <div class="relative z-10 max-w-2xl space-y-2">
-                        <h2 class="text-xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-white leading-tight">
+                        <h2 class="text-xl sm:text-3xl lg:text-4xl font-semibold tracking-tight leading-tight" style="color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important;">
                             Yargıtay Uyumlu Adli Delil ve 81 İlde Gizli Saha Operasyonları
                         </h2>
-                        <p class="text-xs sm:text-sm text-white/80 font-normal leading-relaxed">
+                        <p class="text-xs sm:text-sm font-normal leading-relaxed" style="color: rgba(255, 255, 255, 0.85) !important;">
                             20 yıllık resmi kurumsal tecrübe, HMK m.189/199 ve TCK m.134 tam yasal güvencesiyle tek celsede kabul gören mahkeme delilleri.
                         </p>
                     </div>
@@ -2147,8 +2161,11 @@
                                 <div class="text-xs font-medium text-[#111111]">%100 İade Güvencesi</div>
                                 <p class="text-xs text-[#3A3E42] font-regular">Sözleşmeli çalışmamızda memnun kalmadığınız takdirde %100 iade garantisi.</p>
                             </div>
-                            <div class="p-4 rounded-2xl bg-black text-black space-y-1">
-                                <div class="font-mono text-[10px] text-[#111111]/70 font-medium">GARANTİ 03</div>
+                            <div class="p-4 rounded-2xl bg-[#F7F7F8] border border-black/[0.08] text-black space-y-1">
+                                <div class="font-mono text-[10px] text-neutral-500 font-medium">GARANTİ 03</div>
+                                <div class="text-xs font-semibold text-black">Mutlak Mahremiyet</div>
+                                <p class="text-xs text-neutral-600 font-normal">Paylaştığınız tüm bilgiler katı gizlilik politikamızla korunur.</p>
+                            </div>
                                 <div class="text-xs font-medium text-[#111111]">Mutlak Mahremiyet</div>
                                 <p class="text-xs text-[#111111]/85 font-regular">Paylaştığınız tüm bilgiler katı gizlilik politikamızla korunur.</p>
                             </div>
@@ -2368,7 +2385,7 @@
                                     <path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#000000"/>
                                 </svg>
                                 <div class="flex-1 flex items-center justify-end pr-4 pl-2">
-                                    <span class="font-mono text-[10px] text-neutral-900 px-2.5 py-0.5 rounded-full bg-white/10 truncate max-w-[170px]">01 • TMK m.161</span>
+                                    <span class="font-mono text-[10px] text-neutral-900 px-2.5 py-0.5 rounded-full bg-black/80 text-white font-medium backdrop-blur-md truncate max-w-[170px]">01 • TMK m.161</span>
                                 </div>
                             </div>
                             <div style="background:#000000" class="h-1.5 w-full -mt-px"></div>
@@ -2407,7 +2424,7 @@
                                     <path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#000000"/>
                                 </svg>
                                 <div class="flex-1 flex items-center justify-end pr-4 pl-2">
-                                    <span class="font-mono text-[10px] text-neutral-900 px-2.5 py-0.5 rounded-full bg-white/10 truncate max-w-[170px]">02 • NİŞANLI ARAŞTIRMASI</span>
+                                    <span class="font-mono text-[10px] text-neutral-900 px-2.5 py-0.5 rounded-full bg-black/80 text-white font-medium backdrop-blur-md truncate max-w-[170px]">02 • NİŞANLI ARAŞTIRMASI</span>
                                 </div>
                             </div>
                             <div style="background:#000000" class="h-1.5 w-full -mt-px"></div>
@@ -2446,7 +2463,7 @@
                                     <path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#000000"/>
                                 </svg>
                                 <div class="flex-1 flex items-center justify-end pr-4 pl-2">
-                                    <span class="font-mono text-[10px] text-neutral-900 px-2.5 py-0.5 rounded-full bg-white/10 truncate max-w-[170px]">03 • TMK m.182</span>
+                                    <span class="font-mono text-[10px] text-neutral-900 px-2.5 py-0.5 rounded-full bg-black/80 text-white font-medium backdrop-blur-md truncate max-w-[170px]">03 • TMK m.182</span>
                                 </div>
                             </div>
                             <div style="background:#000000" class="h-1.5 w-full -mt-px"></div>
@@ -2485,7 +2502,7 @@
                                     <path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#000000"/>
                                 </svg>
                                 <div class="flex-1 flex items-center justify-end pr-4 pl-2">
-                                    <span class="font-mono text-[10px] text-neutral-900 px-2.5 py-0.5 rounded-full bg-white/10 truncate max-w-[170px]">04 • GENÇ KORUMA</span>
+                                    <span class="font-mono text-[10px] text-neutral-900 px-2.5 py-0.5 rounded-full bg-black/80 text-white font-medium backdrop-blur-md truncate max-w-[170px]">04 • GENÇ KORUMA</span>
                                 </div>
                             </div>
                             <div style="background:#000000" class="h-1.5 w-full -mt-px"></div>
@@ -2524,7 +2541,7 @@
                                     <path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#FA7E61"/>
                                 </svg>
                                 <div class="flex-1 flex items-center justify-end pr-4 pl-2">
-                                    <span class="font-mono text-[10px] text-neutral-900 px-2.5 py-0.5 rounded-full bg-white/10 truncate max-w-[170px]">05 • KONUM & KAYIP</span>
+                                    <span class="font-mono text-[10px] text-neutral-900 px-2.5 py-0.5 rounded-full bg-black/80 text-white font-medium backdrop-blur-md truncate max-w-[170px]">05 • KONUM & KAYIP</span>
                                 </div>
                             </div>
                             <div style="background:#FA7E61" class="h-1.5 w-full -mt-px"></div>
@@ -2563,7 +2580,7 @@
                                     <path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#FA7E61"/>
                                 </svg>
                                 <div class="flex-1 flex items-center justify-end pr-4 pl-2">
-                                    <span class="font-mono text-[10px] text-neutral-900 px-2.5 py-0.5 rounded-full bg-white/10 truncate max-w-[170px]">06 • İİK m.277</span>
+                                    <span class="font-mono text-[10px] text-neutral-900 px-2.5 py-0.5 rounded-full bg-black/80 text-white font-medium backdrop-blur-md truncate max-w-[170px]">06 • İİK m.277</span>
                                 </div>
                             </div>
                             <div style="background:#FA7E61" class="h-1.5 w-full -mt-px"></div>
@@ -2602,7 +2619,7 @@
                                     <path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#FA7E61"/>
                                 </svg>
                                 <div class="flex-1 flex items-center justify-end pr-4 pl-2">
-                                    <span class="font-mono text-[10px] text-neutral-900 px-2.5 py-0.5 rounded-full bg-white/10 truncate max-w-[170px]">07 • TCK m.157-158</span>
+                                    <span class="font-mono text-[10px] text-neutral-900 px-2.5 py-0.5 rounded-full bg-black/80 text-white font-medium backdrop-blur-md truncate max-w-[170px]">07 • TCK m.157-158</span>
                                 </div>
                             </div>
                             <div style="background:#FA7E61" class="h-1.5 w-full -mt-px"></div>
@@ -2641,7 +2658,7 @@
                                     <path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#FA7E61"/>
                                 </svg>
                                 <div class="flex-1 flex items-center justify-end pr-4 pl-2">
-                                    <span class="font-mono text-[10px] text-neutral-900 px-2.5 py-0.5 rounded-full bg-white/10 truncate max-w-[170px]">08 • ADLİ TAHKİKAT</span>
+                                    <span class="font-mono text-[10px] text-neutral-900 px-2.5 py-0.5 rounded-full bg-black/80 text-white font-medium backdrop-blur-md truncate max-w-[170px]">08 • ADLİ TAHKİKAT</span>
                                 </div>
                             </div>
                             <div style="background:#FA7E61" class="h-1.5 w-full -mt-px"></div>
@@ -2680,7 +2697,7 @@
                                     <path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#000000"/>
                                 </svg>
                                 <div class="flex-1 flex items-center justify-end pr-4 pl-2">
-                                    <span class="font-mono text-[10px] text-neutral-900 px-2.5 py-0.5 rounded-full bg-white/10 truncate max-w-[170px]">09 • TTK & KURUMSAL</span>
+                                    <span class="font-mono text-[10px] text-neutral-900 px-2.5 py-0.5 rounded-full bg-black/80 text-white font-medium backdrop-blur-md truncate max-w-[170px]">09 • TTK & KURUMSAL</span>
                                 </div>
                             </div>
                             <div style="background:#000000" class="h-1.5 w-full -mt-px"></div>
@@ -2719,7 +2736,7 @@
                                     <path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#000000"/>
                                 </svg>
                                 <div class="flex-1 flex items-center justify-end pr-4 pl-2">
-                                    <span class="font-mono text-[10px] text-neutral-900 px-2.5 py-0.5 rounded-full bg-white/10 truncate max-w-[170px]">10 • SMK m.29</span>
+                                    <span class="font-mono text-[10px] text-neutral-900 px-2.5 py-0.5 rounded-full bg-black/80 text-white font-medium backdrop-blur-md truncate max-w-[170px]">10 • SMK m.29</span>
                                 </div>
                             </div>
                             <div style="background:#000000" class="h-1.5 w-full -mt-px"></div>
@@ -2758,7 +2775,7 @@
                                     <path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#000000"/>
                                 </svg>
                                 <div class="flex-1 flex items-center justify-end pr-4 pl-2">
-                                    <span class="font-mono text-[10px] text-neutral-900 px-2.5 py-0.5 rounded-full bg-white/10 truncate max-w-[170px]">11 • ADLİ BİLİŞİM</span>
+                                    <span class="font-mono text-[10px] text-neutral-900 px-2.5 py-0.5 rounded-full bg-black/80 text-white font-medium backdrop-blur-md truncate max-w-[170px]">11 • ADLİ BİLİŞİM</span>
                                 </div>
                             </div>
                             <div style="background:#000000" class="h-1.5 w-full -mt-px"></div>
@@ -2797,7 +2814,7 @@
                                     <path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#000000"/>
                                 </svg>
                                 <div class="flex-1 flex items-center justify-end pr-4 pl-2">
-                                    <span class="font-mono text-[10px] text-neutral-900 px-2.5 py-0.5 rounded-full bg-white/10 truncate max-w-[170px]">12 • İZLEME & TSCM</span>
+                                    <span class="font-mono text-[10px] text-neutral-900 px-2.5 py-0.5 rounded-full bg-black/80 text-white font-medium backdrop-blur-md truncate max-w-[170px]">12 • İZLEME & TSCM</span>
                                 </div>
                             </div>
                             <div style="background:#000000" class="h-1.5 w-full -mt-px"></div>
@@ -7347,7 +7364,7 @@
     </div>
 
     <!-- Core Interactive Scripts & 7-Language i18n Engine -->
-    <script src="script.js?v=9.3"></script>
+    <script src="script.js?v=9.4"></script>
     <script src="lang/en.js?v=7.2"></script>
     <script src="lang/de.js?v=7.2"></script>
     <script src="lang/fr.js?v=7.2"></script>
