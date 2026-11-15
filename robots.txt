@@ -30,3 +30,8 @@ User-agent: Applebot-Extended
 Allow: /
 
 Sitemap: https://www.datdetective.com/sitemap.xml
+
+# LLM & AI Agents Protocols:
+# https://www.datdetective.com/llms.txt
+# https://www.datdetective.com/llms-full.txt
+# https://www.datdetective.com/dat-dedektiflik-tum-arama-anahtar-kelimeleri.txt
