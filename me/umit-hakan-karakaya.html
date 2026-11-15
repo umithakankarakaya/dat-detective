@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="cnr" dir="ltr" class="scroll-smooth dark" data-theme="dark">
+<html lang="cnr" dir="ltr" class="scroll-smooth light" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -7,7 +7,7 @@
         (function () {
             try {
                 var saved = localStorage.getItem('dat_theme');
-                var theme = (saved === 'light' || saved === 'dark') ? saved : 'dark';
+                var theme = (saved === 'light' || saved === 'dark') ? saved : 'light';
                 var root = document.documentElement;
                 root.setAttribute('data-theme', theme);
                 root.style.colorScheme = theme;
@@ -55,8 +55,8 @@
         .hgi.w-3\.5 { font-size: 14px; }
         .hgi.w-4 { font-size: 16px; }
         .hgi.w-5 { font-size: 20px; }
-        .studio-lime-btn { background-color: #93F051; color: #111111; }
-        .studio-lime-btn:hover { background-color: #DDF95E; color: #111111; }
+        .studio-lime-btn { background-color: #000000 !important; color: #FFFFFF !important; }
+        .studio-lime-btn:hover { background-color: #262626 !important; color: #FFFFFF !important; }
         [dir="rtl"] .ltr-isolate, [dir="rtl"] [dir="ltr"] { direction: ltr; unicode-bidi: isolate; }
         html.theme-switching,
         html.theme-switching *,
@@ -91,7 +91,7 @@
             color: #F5F5F7 !important;
         }
         html[data-theme="dark"] .studio-pill-muted:hover {
-            background-color: #93F051 !important;
+            background-color: #000000 !important;
             color: #111111 !important;
             border-color: transparent !important;
         }
@@ -101,11 +101,11 @@
         html[data-theme="dark"] .studio-title { color: #FFFFFF !important; }
         html[data-theme="dark"] .studio-body { color: #D4D4D8 !important; }
         html[data-theme="dark"] .studio-muted { color: #A1A1AA !important; }
-        html[data-theme="dark"] .studio-accent-text { color: #93F051 !important; }
+        html[data-theme="dark"] .studio-accent-text { color: #FFFFFF !important; }
         html[data-theme="dark"] .studio-badge {
             background-color: #242428 !important;
-            border-color: rgba(147, 240, 81, 0.35) !important;
-            color: #93F051 !important;
+            border-color: rgba(0, 0, 0, 0.15) !important;
+            color: #000000 !important;
         }
         html[data-theme="dark"] .studio-footer {
             background-color: #161618 !important;
@@ -147,11 +147,11 @@
         html[data-theme="light"] .studio-title { color: #111111 !important; }
         html[data-theme="light"] .studio-body { color: #3A3E42 !important; }
         html[data-theme="light"] .studio-muted { color: #4B5563 !important; }
-        html[data-theme="light"] .studio-accent-text { color: #15803D !important; }
+        html[data-theme="light"] .studio-accent-text { color: #111111 !important; }
         html[data-theme="light"] .studio-badge {
             background-color: #E6FAD8 !important;
             border-color: rgba(21, 128, 61, 0.25) !important;
-            color: #15803D !important;
+            color: #111111 !important;
         }
         html[data-theme="light"] .studio-footer {
             background-color: #ECEEF2 !important;
@@ -164,19 +164,19 @@
             color: #FFFFFF !important;
             border-color: rgba(255, 255, 255, 0.12) !important;
         }
-        html[data-theme="light"] .studio-keep-dark .studio-lime-ink { color: #93F051 !important; }
+        html[data-theme="light"] .studio-keep-dark .studio-lime-ink { color: #FFFFFF !important; }
         html[data-theme="light"] .studio-keep-dark .studio-coral-ink { color: #FA7E61 !important; }
     </style>
 </head>
 <body class="bg-[#111111] text-[#F5F5F7] antialiased selection:bg-black selection:text-white">
-    <div class="h-[3px] w-full bg-[#93F051]"></div>
+    
 
     <header class="studio-header sticky top-0 z-40 bg-[#111111]/90 backdrop-blur-xl border-b border-white/[0.09]">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 min-h-16 py-2 flex flex-wrap items-center justify-between gap-2 sm:gap-3">
             <a href="./" class="flex items-center gap-3 group" title="DAT Detective Ana Sayfa — Sertifikalı Özel Dedektiflik Hizmetleri">
                 <img src="../dat-logo.png" alt="DAT Detective Logo" class="w-10 h-10 rounded-full object-cover ring-1 ring-black/10">
                 <div class="leading-none">
-                    <div class="studio-title text-sm font-medium text-[#FFFFFF]">DAT <span class="studio-accent-text text-[#93F051]">DEDEKTİFLİK</span></div>
+                    <div class="studio-title text-sm font-medium text-[#FFFFFF]">DAT <span class="font-normal text-neutral-500">Detective</span></div>
                     <p class="studio-muted text-[10px] font-mono text-white/60 uppercase mt-0.5">Profil osnivača i press arhiva</p>
                 </div>
             </a>
@@ -191,7 +191,7 @@
                 <a href="umit-hakan-karakaya" onclick="try{localStorage.setItem('dat_site_lang','me')}catch(_){}" class="px-2 py-1 rounded-full font-mono text-[10px] font-medium transition border studio-lime-btn border-transparent shadow-sm" title="Ümit Hakan Karakaya Kimdir? — DAT Özel Dedektiflik Kurucusu, UÖDED & TÜDED Başkanı">ME</a>
                 </nav>
                 <button id="themeToggleBtn" type="button" onclick="toggleSiteTheme()" aria-label="Theme" class="studio-pill-muted inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#242428] border border-white/15 text-[11px] font-medium transition">
-                    <i id="themeToggleIcon" class="hgi hgi-stroke hgi-sun-03 w-3.5 h-3.5 text-[#93F051]"></i>
+                    <i id="themeToggleIcon" class="hgi hgi-stroke hgi-sun-03 w-3.5 h-3.5 text-black"></i>
                 </button>
                 <a href="./#makaleler" class="hidden md:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full studio-pill-muted bg-[#242428] border border-white/10 text-xs font-medium transition" title="Hukuki Rehber, Makaleler ve Basın Arşivi — DAT Özel Dedektiflik Bürosu">
                     <span>Štampa i nagrade</span>
@@ -205,7 +205,7 @@
 
     <main class="max-w-5xl mx-auto px-4 sm:px-6 py-7 sm:py-10 space-y-7 sm:space-y-8">
         <nav aria-label="Breadcrumb" class="studio-muted text-xs font-mono text-white/60 flex items-center gap-2">
-            <a href="./" class="studio-accent-text text-[#93F051] hover:underline" title="DAT Detective Ana Sayfa — Sertifikalı Özel Dedektiflik Hizmetleri">Početna</a>
+            <a href="./" class="studio-accent-text text-black hover:underline" title="DAT Detective Ana Sayfa — Sertifikalı Özel Dedektiflik Hizmetleri">Početna</a>
             <span>/</span>
             <span class="studio-title text-[#FFFFFF] font-medium">Ko je Ümit Hakan Karakaya?</span>
         </nav>
@@ -225,14 +225,14 @@
                         <div class="studio-muted text-[10px] font-mono text-white/60">Osnivanje DAT</div>
                     </div>
                     <div class="studio-surface p-2.5 rounded-xl bg-[#1C1C1F] border border-white/[0.08]">
-                        <div class="studio-accent-text text-sm font-medium text-[#93F051]">4.000+</div>
+                        <div class="studio-accent-text text-sm font-medium text-black">4.000+</div>
                         <div class="studio-muted text-[10px] font-mono text-white/60">Vođenih predmeta</div>
                     </div>
                 </div>
             </div>
 
             <div class="lg:col-span-7 space-y-4">
-                <span class="studio-badge inline-block px-3 py-1 rounded-full bg-[#242428] border border-[#93F051]/35 text-[#93F051] font-mono text-[11px] font-medium">OSNIVAČ I PRIVATNI DETEKTIV • AUTOR • PREDSJEDNIK UDRUŽENJA</span>
+                <span class="studio-badge inline-block px-3 py-1 rounded-full bg-[#242428] border border-black/20 text-black font-mono text-[11px] font-medium">OSNIVAČ I PRIVATNI DETEKTIV • AUTOR • PREDSJEDNIK UDRUŽENJA</span>
                 <h1 class="studio-title text-2xl sm:text-4xl font-medium text-[#FFFFFF] leading-tight tracking-tight">Ko je Ümit Hakan Karakaya?</h1>
                 <p class="studio-body text-sm sm:text-base text-white/80 leading-relaxed">Rođen 1973. u Ankari, <strong>Ümit Hakan Karakaya</strong> služio je u Oružanim snagama Turske kao <strong>tehničar borbenih aviona F-16 (podoficir)</strong>, a potom je vojnu disciplinu povezao sa diplomom <strong>Međunarodnog prava</strong> i 2005. godine osnovao agenciju <strong>DAT Detektiv (DAT Group)</strong>, sa preko <strong>4.000 uspješno riješenih slučajeva</strong>.</p>
                 <blockquote class="studio-surface p-4 rounded-2xl bg-[#1C1C1F] border border-white/[0.09] text-xs studio-body text-white/80 italic leading-relaxed">„U pravnom sistemu Turske sudije porodičnog suda imaju najšira ovlašćenja... Tražim tog hrabrog sudiju koji će reći: Neka privatni detektiv istraži činjenice.“ — <span class="not-italic font-medium text-[#000000]">Intervju za advokatski časopis ÜSTAD</span></blockquote>
@@ -250,22 +250,22 @@
 
         <section class="grid md:grid-cols-2 gap-5">
             <article class="studio-surface bg-[#1C1C1F] rounded-3xl p-6 sm:p-7 border border-white/[0.09] shadow-sm space-y-3">
-                <span class="studio-badge font-mono text-[10px] px-2.5 py-0.5 rounded-full bg-[#242428] text-[#93F051] border border-[#93F051]/35">01 • VOJNA DISCIPLINA I PRAVO</span>
+                <span class="studio-badge font-mono text-[10px] px-2.5 py-0.5 rounded-full bg-[#242428] text-black border border-black/20">01 • VOJNA DISCIPLINA I PRAVO</span>
                 <h2 class="studio-title text-lg font-medium text-[#FFFFFF]">Služba na F-16 i pravno obrazovanje</h2>
                 <p class="studio-body text-sm sm:text-[15px] text-white/80 leading-relaxed">Iskustvo tehničara borbenih aviona F-16 u turskim oružanim snagama dalo mu je izuzetnu operativnu preciznost. Nakon studija <strong>Međunarodnog prava</strong>, usavršio je standarde zakonitog prikupljanja dokaza kroz sertifikat <strong>TÜRAVAK</strong> za porodično pravo i program forenzičkih nauka na Univerzitetu <strong>KİÜ</strong>.</p>
             </article>
 <article class="studio-surface bg-[#1C1C1F] rounded-3xl p-6 sm:p-7 border border-white/[0.09] shadow-sm space-y-3">
-                <span class="studio-badge font-mono text-[10px] px-2.5 py-0.5 rounded-full bg-[#242428] text-[#93F051] border border-[#93F051]/35">02 • DAT GROUP (OD 2005.)</span>
+                <span class="studio-badge font-mono text-[10px] px-2.5 py-0.5 rounded-full bg-[#242428] text-black border border-black/20">02 • DAT GROUP (OD 2005.)</span>
                 <h2 class="studio-title text-lg font-medium text-[#FFFFFF]">DAT Detektiv i međunarodne kancelarije</h2>
                 <p class="studio-body text-sm sm:text-[15px] text-white/80 leading-relaxed">Pod okriljem agencije <strong>DAT Detektiv</strong>, osnovane 2005. godine, vodio je više od <strong>4.000 predmeta</strong> (provjera bračne vjernosti, predbračne istrage, dokazi za starateljstvo i razvod, traganje za dužnicima, TSCM zaštita) putem centara u Istanbulu, Ankari, <strong>Podgorici (Crna Gora — WPYB Global)</strong> i <strong>Las Vegasu (SAD)</strong>.</p>
             </article>
 <article class="studio-surface bg-[#1C1C1F] rounded-3xl p-6 sm:p-7 border border-white/[0.09] shadow-sm space-y-3">
-                <span class="studio-badge font-mono text-[10px] px-2.5 py-0.5 rounded-full bg-[#242428] text-[#93F051] border border-[#93F051]/35">03 • UDRUŽENJA I ZAŠTITA BRENDOVA</span>
+                <span class="studio-badge font-mono text-[10px] px-2.5 py-0.5 rounded-full bg-[#242428] text-black border border-black/20">03 • UDRUŽENJA I ZAŠTITA BRENDOVA</span>
                 <h2 class="studio-title text-lg font-medium text-[#FFFFFF]">Predsjedavanje TÜDED-om, UÖDED-om i WPYB Global</h2>
                 <p class="studio-body text-sm sm:text-[15px] text-white/80 leading-relaxed">U cilju zakonskog uređenja i etičkih standarda detektivske struke osnovao je i vodio <strong>TÜDED</strong> i <strong>UÖDED</strong> te pokrenuo <em>1. Međunarodnu konferenciju privatnih detektiva</em>. Takođe vodi platformu za zaštitu brendova od falsifikata <strong>WPYB (We Protect Your Brand)</strong> i <em>WPYB Akademiju</em>.</p>
             </article>
 <article class="studio-surface bg-[#1C1C1F] rounded-3xl p-6 sm:p-7 border border-white/[0.09] shadow-sm space-y-3">
-                <span class="studio-badge font-mono text-[10px] px-2.5 py-0.5 rounded-full bg-[#242428] text-[#93F051] border border-[#93F051]/35">04 • KNJIGA, ČASOPISI I NAGRADE</span>
+                <span class="studio-badge font-mono text-[10px] px-2.5 py-0.5 rounded-full bg-[#242428] text-black border border-black/20">04 • KNJIGA, ČASOPISI I NAGRADE</span>
                 <h2 class="studio-title text-lg font-medium text-[#FFFFFF]">„The Detective's Eye“, mediji i priznanja</h2>
                 <p class="studio-body text-sm sm:text-[15px] text-white/80 leading-relaxed">Autor je knjige <strong><em>„The Detective’s Eye — In Search of Secrets and Traces“</em></strong> i glavni urednik časopisa <strong><em>Özel Dedektif Dergisi</em></strong>. Objavljivan je u <em>ÜSTAD</em>, <em>PI Magazin</em>, na TV <em>Kanal 24</em>, <em>TV8</em>, u <em>Hürriyet</em> i <em>Bolu Gündem</em>; dobitnik je nagrade <strong>„Najuspješnija istraživačka firma godine“</strong> i <strong>Kristalne nagrade časti</strong>.</p>
             </article>
@@ -371,7 +371,7 @@
 
     <div id="bioPhotoModal" class="fixed inset-0 z-50 hidden bg-[#000000]/85 backdrop-blur-md flex items-center justify-center p-4" onclick="closeBioPhoto()">
         <div class="studio-surface relative max-w-3xl w-full bg-[#1C1C1F] border border-white/15 rounded-3xl overflow-hidden shadow-2xl" onclick="event.stopPropagation()">
-            <button type="button" onclick="closeBioPhoto()" class="studio-keep-dark absolute top-3 right-3 rtl:right-auto rtl:left-3 z-10 w-9 h-9 rounded-full bg-[#111111]/85 text-[#FFFFFF] flex items-center justify-center hover:bg-[#93F051] hover:text-[#111111] transition">
+            <button type="button" onclick="closeBioPhoto()" class="studio-keep-dark absolute top-3 right-3 rtl:right-auto rtl:left-3 z-10 w-9 h-9 rounded-full bg-[#111111]/85 text-[#FFFFFF] flex items-center justify-center hover:bg-black text-white hover:text-[#111111] transition">
                 <i class="hgi hgi-stroke hgi-cancel-01 w-4 h-4"></i>
             </button>
             <img id="bioPhotoImg" src="" alt="" class="w-full max-h-[75vh] object-contain bg-[#111111]">
@@ -381,7 +381,7 @@
 
     <footer class="studio-footer bg-[#161618] border-t border-white/[0.08] py-8 px-4 text-center text-xs text-white/60 space-y-2">
         <div>&copy; 2005 – 2026 DAT DETEKTIV (DAT Group) • Ümit Hakan Karakaya • Osnivač UÖDED-a</div>
-        <div>Istanbul (Kartal) • Ankara (Çankaya) • Podgorica (Crna Gora) • Las Vegas (SAD) • <a href="./" class="studio-accent-text text-[#93F051] underline" title="DAT Detective Ana Sayfa — Sertifikalı Özel Dedektiflik Hizmetleri">Nazad na početnu</a></div>
+        <div>Istanbul (Kartal) • Ankara (Çankaya) • Podgorica (Crna Gora) • Las Vegas (SAD) • <a href="./" class="studio-accent-text text-black underline" title="DAT Detective Ana Sayfa — Sertifikalı Özel Dedektiflik Hizmetleri">Nazad na početnu</a></div>
     </footer>
 
     <script>
@@ -391,7 +391,7 @@
                 var ico = document.getElementById('themeToggleIcon');
                 var lbl = document.getElementById('themeToggleLabel');
                 var meta = document.getElementById('themeColorMeta');
-                if (ico) ico.className = 'hgi hgi-stroke w-3.5 h-3.5 text-[#93F051] ' + (t === 'light' ? 'hgi-moon-02' : 'hgi-sun-03');
+                if (ico) ico.className = 'hgi hgi-stroke w-3.5 h-3.5 text-black ' + (t === 'light' ? 'hgi-moon-02' : 'hgi-sun-03');
                 if (lbl) lbl.textContent = t === 'light' ? 'Koyu' : 'Açık';
                 if (meta) meta.setAttribute('content', t === 'light' ? '#FFFFFF' : '#111111');
             }
