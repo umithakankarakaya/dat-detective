@@ -24,7 +24,7 @@
     <title>Özel Dedektif &amp; Dedektiflik Bürosu — DAT Detective (4.000+ Vaka • 81 İl)</title>
     <meta name="description" content="2005'ten beri 4.000+ vaka tecrübesiyle Ankara, İstanbul, İzmir, Mersin, Konya ve Antalya'da eş takibi, boşanma delili ve adres tespiti için özel dedektif.">
     <meta name="keywords" content="özel dedektif, özel dedektiflik bürosu, dat detective, ankara dedektif, istanbul dedektif, izmir dedektif, mersin dedektif, konya dedektif, antalya dedektiflik, dedektif tutmak, dedektif ücretleri, dedektif olmak, dedektife sor, eş takibi, evlilik öncesi araştırma, velayet davası delil, adres tespiti, borçlu takibi, böcek arama, ümit hakan karakaya, uöded">
-        <meta name="google-site-verification" content="GSC_VERIFICATION_TOKEN">
+        <meta name="google-site-verification" content="DV57ZTHI5GDgmhI8p68t5RkwtziWF-FcyUewWRbrRA0">
     <meta name="msvalidate.01" content="BING_VERIFICATION_TOKEN">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <meta name="author" content="Ümit Hakan Karakaya — DAT Detective">
@@ -1418,12 +1418,12 @@
             box-shadow: 0 10px 30px rgba(17, 17, 17, 0.06);
         }
 
-        html[data-theme="light"] .bg-white\/5:not(.theme-keep-dark),
-        html[data-theme="light"] .bg-white\/\[0\.03\]:not(.theme-keep-dark),
-        html[data-theme="light"] .bg-white\/\[0\.04\]:not(.theme-keep-dark),
-        html[data-theme="light"] .bg-white\/10:not(.theme-keep-dark),
-        html[data-theme="light"] .bg-black\/40:not(.theme-keep-dark),
-        html[data-theme="light"] .bg-black\/50:not(.theme-keep-dark) {
+        html[data-theme="light"] .bg-white\/5:not(.theme-keep-dark):not(.theme-keep-dark *),
+        html[data-theme="light"] .bg-white\/\[0\.03\]:not(.theme-keep-dark):not(.theme-keep-dark *),
+        html[data-theme="light"] .bg-white\/\[0\.04\]:not(.theme-keep-dark):not(.theme-keep-dark *),
+        html[data-theme="light"] .bg-white\/10:not(.theme-keep-dark):not(.theme-keep-dark *),
+        html[data-theme="light"] .bg-black\/40:not(.theme-keep-dark):not(.theme-keep-dark *),
+        html[data-theme="light"] .bg-black\/50:not(.theme-keep-dark):not(.theme-keep-dark *) {
             background-color: #EEF1F5 !important;
             border-color: rgba(17, 17, 17, 0.09) !important;
         }
@@ -1644,6 +1644,37 @@
         html[data-theme="light"] article[onclick^="openArticleModal"].bg-\[\#1D1D1F\] * {
             color: #FFFFFF !important;
             -webkit-text-fill-color: #FFFFFF !important;
+        }
+
+        /* High-contrast protection for badges and translucent items inside dark containers */
+        .theme-keep-dark .bg-white\/5,
+        .theme-keep-dark .bg-white\/10,
+        .theme-keep-dark .bg-white\/15,
+        .theme-keep-dark .bg-white\/20,
+        .theme-keep-dark .bg-white\/25,
+        html[data-theme="light"] .theme-keep-dark .bg-white\/5,
+        html[data-theme="light"] .theme-keep-dark .bg-white\/10,
+        html[data-theme="light"] .theme-keep-dark .bg-white\/15,
+        html[data-theme="light"] .theme-keep-dark .bg-white\/20,
+        html[data-theme="light"] .theme-keep-dark .bg-white\/25 {
+            background-color: rgba(255, 255, 255, 0.12) !important;
+            color: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
+            border-color: rgba(255, 255, 255, 0.20) !important;
+        }
+
+        /* Solid white elements INSIDE dark containers MUST have pitch black text */
+        .theme-keep-dark .bg-white,
+        .theme-keep-dark .bg-white *,
+        .theme-keep-dark .bg-\[\#FFFFFF\],
+        .theme-keep-dark .bg-\[\#FFFFFF\] *,
+        html[data-theme="light"] .theme-keep-dark .bg-white,
+        html[data-theme="light"] .theme-keep-dark .bg-white *,
+        html[data-theme="light"] .theme-keep-dark .bg-\[\#FFFFFF\],
+        html[data-theme="light"] .theme-keep-dark .bg-\[\#FFFFFF\] * {
+            background-color: #FFFFFF !important;
+            color: #000000 !important;
+            -webkit-text-fill-color: #000000 !important;
         }
         html[data-theme="light"] .theme-keep-dark :is(.text-white\/75, .text-white\/70, .text-white\/65, .text-white\/60) {
             color: rgba(255, 255, 255, 0.78) !important;
@@ -1909,6 +1940,19 @@
         [class*="bg-[#25D366]"] {
             background-color: #000000 !important;
             color: #FFFFFF !important;
+        }
+
+        /* High-contrast safety: dark text must NEVER apply inside dark elements */
+        .theme-keep-dark [class*="text-[#000000]"],
+        .bg-black [class*="text-[#000000]"],
+        .bg-\[\#000000\] [class*="text-[#000000]"],
+        .bg-\[\#111111\] [class*="text-[#000000]"],
+        .bg-\[\#18181A\] [class*="text-[#000000]"],
+        .bg-\[\#1D1D1F\] [class*="text-[#000000]"],
+        .bg-\[\#222226\] [class*="text-[#000000]"],
+        .bg-\[\#26262B\] [class*="text-[#000000]"] {
+            color: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
         }
 
         /* WhatsApp butonu OpenAI tarzı siyah hap buton */
@@ -2655,19 +2699,19 @@
                         <svg viewBox="0 0 360 110" class="w-full h-full drop-shadow-[0_8px_20px_rgba(0,0,0,0.12)]" aria-hidden="true">
                             <path d="M55 8 H108 C142 8 156 32 180 32 C204 32 218 8 252 8 H305 C334 8 355 29 355 55 C355 81 334 102 305 102 H252 C218 102 204 78 180 78 C156 78 142 102 108 102 H55 C26 102 5 81 5 55 C5 29 26 8 55 8 Z" fill="#000000"/>
                         </svg>
-                        <div class="keep-dark-ink absolute inset-0 grid grid-cols-12 items-center px-5">
+                        <div class="absolute inset-0 grid grid-cols-12 items-center px-5">
                             <div class="col-span-5 text-center">
-                                <div class="text-2xl sm:text-[28px] font-normal text-black leading-none tracking-tight">2005</div>
-                                <div class="text-[10px] font-medium text-neutral-900 mt-1">Kuruluş Yılı</div>
+                                <div class="text-2xl sm:text-[28px] font-normal leading-none tracking-tight" style="color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important;">2005</div>
+                                <div class="text-[10px] font-medium mt-1" style="color: rgba(255, 255, 255, 0.75) !important; -webkit-text-fill-color: rgba(255, 255, 255, 0.75) !important;">Kuruluş Yılı</div>
                             </div>
                             <div class="col-span-2 flex justify-center">
-                                <span class="w-7 h-7 rounded-full bg-[#F7F7F8] text-black flex items-center justify-center shadow-sm">
-                                    <i class="hgi hgi-stroke hgi-security-check w-3.5 h-3.5 text-black"></i>
+                                <span class="w-7 h-7 rounded-full bg-white/15 text-white flex items-center justify-center shadow-sm">
+                                    <i class="hgi hgi-stroke hgi-security-check w-3.5 h-3.5" style="color: #FFFFFF !important;"></i>
                                 </span>
                             </div>
                             <div class="col-span-5 text-center">
-                                <div class="text-2xl sm:text-[28px] font-normal text-black leading-none tracking-tight">4.000+</div>
-                                <div class="text-[10px] font-medium text-[#111111]/80 mt-1">Çözümlenen Vaka</div>
+                                <div class="text-2xl sm:text-[28px] font-normal leading-none tracking-tight" style="color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important;">4.000+</div>
+                                <div class="text-[10px] font-medium mt-1" style="color: rgba(255, 255, 255, 0.75) !important; -webkit-text-fill-color: rgba(255, 255, 255, 0.75) !important;">Çözümlenen Vaka</div>
                             </div>
                         </div>
                     </div>
@@ -2743,9 +2787,6 @@
                                 <div class="font-mono text-[10px] text-neutral-500 font-medium">GARANTİ 03</div>
                                 <div class="text-xs font-semibold text-black">Mutlak Mahremiyet</div>
                                 <p class="text-xs text-neutral-600 font-normal">Paylaştığınız tüm bilgiler katı gizlilik politikamızla korunur.</p>
-                            </div>
-                                <div class="text-xs font-medium text-[#111111]">Mutlak Mahremiyet</div>
-                                <p class="text-xs text-[#111111]/85 font-regular">Paylaştığınız tüm bilgiler katı gizlilik politikamızla korunur.</p>
                             </div>
                         </div>
                     </div>
@@ -2944,17 +2985,17 @@
                         <div>
                             <!-- Studio Folder-Tab Notch Header -->
                             <div class="bg-[#F7F7F8] flex items-stretch">
-                                <div style="background:#000000" class="rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center gap-2 shrink-0">
-                                    <span class="font-mono text-[11px] font-medium text-[#111111]"><span>01</span> • <span>AİLE & BİREYSEL</span></span>
+                                <div class="bg-black text-white rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center gap-2 shrink-0">
+                                    <span class="font-mono text-[11px] font-semibold text-white" style="color: #FFFFFF !important;"><span>01</span> • <span>AİLE & BİREYSEL</span></span>
                                 </div>
                                 <svg class="w-7 h-[32px] shrink-0 block -ml-px -mb-px" viewBox="0 0 32 34" preserveAspectRatio="none" fill="none" aria-hidden="true">
                                     <path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#000000"/>
                                 </svg>
                                 <div class="flex-1 flex items-center justify-end pr-4 pl-2">
-                                    <span class="font-mono text-[10px] text-neutral-900 px-2.5 py-0.5 rounded-full bg-black/80 text-white font-medium backdrop-blur-md truncate max-w-[170px]">01 • TMK m.161</span>
+                                    <span class="font-mono text-[10px] text-white px-2.5 py-0.5 rounded-full bg-black/80 font-medium backdrop-blur-md truncate max-w-[170px]" style="color: #FFFFFF !important;">01 • TMK m.161</span>
                                 </div>
                             </div>
-                            <div style="background:#000000" class="h-1.5 w-full -mt-px"></div>
+                            <div class="bg-black h-1.5 w-full -mt-px"></div>
 
                             <div class="p-6 sm:p-7 pb-4">
                                 <div class="w-11 h-11 rounded-2xl bg-[#F7F7F8] text-[#000000] flex items-center justify-center mb-4 group-hover:scale-105 transition">
@@ -2971,10 +3012,10 @@
                                 <i class="hgi hgi-stroke hgi-information-circle w-3.5 h-3.5"></i>
                                 <span>Süreç & Hukuki Kapsam</span>
                             </button>
-                            <button type="button" onclick="prefillService('es-takibi')" class="inline-flex items-center gap-1.5 pl-3 pr-1.5 py-1 rounded-full bg-[#F7F7F8] hover:bg-black text-white text-white hover:text-white text-xs font-medium transition">
+                            <button type="button" onclick="prefillService('es-takibi')" class="inline-flex items-center gap-1.5 pl-3 pr-1.5 py-1 rounded-full bg-black hover:bg-neutral-800 text-white text-xs font-medium transition shadow-xs" style="background-color: #000000 !important; color: #FFFFFF !important;">
                                 <span>Teklif Al</span>
-                                <span class="w-5 h-5 rounded-full bg-white/15 flex items-center justify-center">
-                                    <i class="hgi hgi-stroke hgi-arrow-right-02 w-3 h-3"></i>
+                                <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center">
+                                    <i class="hgi hgi-stroke hgi-arrow-right-02 w-3 h-3 text-white"></i>
                                 </span>
                             </button>
                         </div>
@@ -2983,17 +3024,17 @@
                         <div>
                             <!-- Studio Folder-Tab Notch Header -->
                             <div class="bg-[#F7F7F8] flex items-stretch">
-                                <div style="background:#000000" class="rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center gap-2 shrink-0">
-                                    <span class="font-mono text-[11px] font-medium text-[#111111]"><span>02</span> • <span>AİLE & BİREYSEL</span></span>
+                                <div class="bg-black text-white rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center gap-2 shrink-0">
+                                    <span class="font-mono text-[11px] font-semibold text-white" style="color: #FFFFFF !important;"><span>02</span> • <span>AİLE & BİREYSEL</span></span>
                                 </div>
                                 <svg class="w-7 h-[32px] shrink-0 block -ml-px -mb-px" viewBox="0 0 32 34" preserveAspectRatio="none" fill="none" aria-hidden="true">
                                     <path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#000000"/>
                                 </svg>
                                 <div class="flex-1 flex items-center justify-end pr-4 pl-2">
-                                    <span class="font-mono text-[10px] text-neutral-900 px-2.5 py-0.5 rounded-full bg-black/80 text-white font-medium backdrop-blur-md truncate max-w-[170px]">02 • NİŞANLI ARAŞTIRMASI</span>
+                                    <span class="font-mono text-[10px] text-white px-2.5 py-0.5 rounded-full bg-black/80 font-medium backdrop-blur-md truncate max-w-[170px]" style="color: #FFFFFF !important;">02 • NİŞANLI ARAŞTIRMASI</span>
                                 </div>
                             </div>
-                            <div style="background:#000000" class="h-1.5 w-full -mt-px"></div>
+                            <div class="bg-black h-1.5 w-full -mt-px"></div>
 
                             <div class="p-6 sm:p-7 pb-4">
                                 <div class="w-11 h-11 rounded-2xl bg-[#F7F7F8] text-[#000000] flex items-center justify-center mb-4 group-hover:scale-105 transition">
@@ -3010,10 +3051,10 @@
                                 <i class="hgi hgi-stroke hgi-information-circle w-3.5 h-3.5"></i>
                                 <span>Süreç & Hukuki Kapsam</span>
                             </button>
-                            <button type="button" onclick="prefillService('evlilik-oncesi')" class="inline-flex items-center gap-1.5 pl-3 pr-1.5 py-1 rounded-full bg-[#F7F7F8] hover:bg-black text-white text-white hover:text-white text-xs font-medium transition">
+                            <button type="button" onclick="prefillService('evlilik-oncesi')" class="inline-flex items-center gap-1.5 pl-3 pr-1.5 py-1 rounded-full bg-black hover:bg-neutral-800 text-white text-xs font-medium transition shadow-xs" style="background-color: #000000 !important; color: #FFFFFF !important;">
                                 <span>Teklif Al</span>
-                                <span class="w-5 h-5 rounded-full bg-white/15 flex items-center justify-center">
-                                    <i class="hgi hgi-stroke hgi-arrow-right-02 w-3 h-3"></i>
+                                <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center">
+                                    <i class="hgi hgi-stroke hgi-arrow-right-02 w-3 h-3 text-white"></i>
                                 </span>
                             </button>
                         </div>
@@ -3022,17 +3063,17 @@
                         <div>
                             <!-- Studio Folder-Tab Notch Header -->
                             <div class="bg-[#F7F7F8] flex items-stretch">
-                                <div style="background:#000000" class="rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center gap-2 shrink-0">
-                                    <span class="font-mono text-[11px] font-medium text-[#111111]"><span>03</span> • <span>AİLE & BİREYSEL</span></span>
+                                <div class="bg-black text-white rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center gap-2 shrink-0">
+                                    <span class="font-mono text-[11px] font-semibold text-white" style="color: #FFFFFF !important;"><span>03</span> • <span>AİLE & BİREYSEL</span></span>
                                 </div>
                                 <svg class="w-7 h-[32px] shrink-0 block -ml-px -mb-px" viewBox="0 0 32 34" preserveAspectRatio="none" fill="none" aria-hidden="true">
                                     <path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#000000"/>
                                 </svg>
                                 <div class="flex-1 flex items-center justify-end pr-4 pl-2">
-                                    <span class="font-mono text-[10px] text-neutral-900 px-2.5 py-0.5 rounded-full bg-black/80 text-white font-medium backdrop-blur-md truncate max-w-[170px]">03 • TMK m.182</span>
+                                    <span class="font-mono text-[10px] text-white px-2.5 py-0.5 rounded-full bg-black/80 font-medium backdrop-blur-md truncate max-w-[170px]" style="color: #FFFFFF !important;">03 • TMK m.182</span>
                                 </div>
                             </div>
-                            <div style="background:#000000" class="h-1.5 w-full -mt-px"></div>
+                            <div class="bg-black h-1.5 w-full -mt-px"></div>
 
                             <div class="p-6 sm:p-7 pb-4">
                                 <div class="w-11 h-11 rounded-2xl bg-[#F7F7F8] text-[#000000] flex items-center justify-center mb-4 group-hover:scale-105 transition">
@@ -3049,10 +3090,10 @@
                                 <i class="hgi hgi-stroke hgi-information-circle w-3.5 h-3.5"></i>
                                 <span>Süreç & Hukuki Kapsam</span>
                             </button>
-                            <button type="button" onclick="prefillService('velayet-bosanma')" class="inline-flex items-center gap-1.5 pl-3 pr-1.5 py-1 rounded-full bg-[#F7F7F8] hover:bg-black text-white text-white hover:text-white text-xs font-medium transition">
+                            <button type="button" onclick="prefillService('velayet-bosanma')" class="inline-flex items-center gap-1.5 pl-3 pr-1.5 py-1 rounded-full bg-black hover:bg-neutral-800 text-white text-xs font-medium transition shadow-xs" style="background-color: #000000 !important; color: #FFFFFF !important;">
                                 <span>Teklif Al</span>
-                                <span class="w-5 h-5 rounded-full bg-white/15 flex items-center justify-center">
-                                    <i class="hgi hgi-stroke hgi-arrow-right-02 w-3 h-3"></i>
+                                <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center">
+                                    <i class="hgi hgi-stroke hgi-arrow-right-02 w-3 h-3 text-white"></i>
                                 </span>
                             </button>
                         </div>
@@ -3061,17 +3102,17 @@
                         <div>
                             <!-- Studio Folder-Tab Notch Header -->
                             <div class="bg-[#F7F7F8] flex items-stretch">
-                                <div style="background:#000000" class="rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center gap-2 shrink-0">
-                                    <span class="font-mono text-[11px] font-medium text-[#111111]"><span>04</span> • <span>AİLE & BİREYSEL</span></span>
+                                <div class="bg-black text-white rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center gap-2 shrink-0">
+                                    <span class="font-mono text-[11px] font-semibold text-white" style="color: #FFFFFF !important;"><span>04</span> • <span>AİLE & BİREYSEL</span></span>
                                 </div>
                                 <svg class="w-7 h-[32px] shrink-0 block -ml-px -mb-px" viewBox="0 0 32 34" preserveAspectRatio="none" fill="none" aria-hidden="true">
                                     <path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#000000"/>
                                 </svg>
                                 <div class="flex-1 flex items-center justify-end pr-4 pl-2">
-                                    <span class="font-mono text-[10px] text-neutral-900 px-2.5 py-0.5 rounded-full bg-black/80 text-white font-medium backdrop-blur-md truncate max-w-[170px]">04 • GENÇ KORUMA</span>
+                                    <span class="font-mono text-[10px] text-white px-2.5 py-0.5 rounded-full bg-black/80 font-medium backdrop-blur-md truncate max-w-[170px]" style="color: #FFFFFF !important;">04 • GENÇ KORUMA</span>
                                 </div>
                             </div>
-                            <div style="background:#000000" class="h-1.5 w-full -mt-px"></div>
+                            <div class="bg-black h-1.5 w-full -mt-px"></div>
 
                             <div class="p-6 sm:p-7 pb-4">
                                 <div class="w-11 h-11 rounded-2xl bg-[#F7F7F8] text-[#000000] flex items-center justify-center mb-4 group-hover:scale-105 transition">
@@ -3088,10 +3129,10 @@
                                 <i class="hgi hgi-stroke hgi-information-circle w-3.5 h-3.5"></i>
                                 <span>Süreç & Hukuki Kapsam</span>
                             </button>
-                            <button type="button" onclick="prefillService('ogrenci-takibi')" class="inline-flex items-center gap-1.5 pl-3 pr-1.5 py-1 rounded-full bg-[#F7F7F8] hover:bg-black text-white text-white hover:text-white text-xs font-medium transition">
+                            <button type="button" onclick="prefillService('ogrenci-takibi')" class="inline-flex items-center gap-1.5 pl-3 pr-1.5 py-1 rounded-full bg-black hover:bg-neutral-800 text-white text-xs font-medium transition shadow-xs" style="background-color: #000000 !important; color: #FFFFFF !important;">
                                 <span>Teklif Al</span>
-                                <span class="w-5 h-5 rounded-full bg-white/15 flex items-center justify-center">
-                                    <i class="hgi hgi-stroke hgi-arrow-right-02 w-3 h-3"></i>
+                                <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center">
+                                    <i class="hgi hgi-stroke hgi-arrow-right-02 w-3 h-3 text-white"></i>
                                 </span>
                             </button>
                         </div>
@@ -3100,17 +3141,17 @@
                         <div>
                             <!-- Studio Folder-Tab Notch Header -->
                             <div class="bg-[#F7F7F8] flex items-stretch">
-                                <div class="bg-black text-white" class="rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center gap-2 shrink-0">
-                                    <span class="font-mono text-[11px] font-medium text-[#111111]"><span>05</span> • <span>HUKUKİ & DELİL</span></span>
+                                <div class="bg-black text-white rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center gap-2 shrink-0">
+                                    <span class="font-mono text-[11px] font-semibold text-white" style="color: #FFFFFF !important;"><span>05</span> • <span>HUKUKİ & DELİL</span></span>
                                 </div>
                                 <svg class="w-7 h-[32px] shrink-0 block -ml-px -mb-px" viewBox="0 0 32 34" preserveAspectRatio="none" fill="none" aria-hidden="true">
                                     <path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#111111"/>
                                 </svg>
                                 <div class="flex-1 flex items-center justify-end pr-4 pl-2">
-                                    <span class="font-mono text-[10px] text-neutral-900 px-2.5 py-0.5 rounded-full bg-black/80 text-white font-medium backdrop-blur-md truncate max-w-[170px]">05 • KONUM & KAYIP</span>
+                                    <span class="font-mono text-[10px] text-white px-2.5 py-0.5 rounded-full bg-black/80 font-medium backdrop-blur-md truncate max-w-[170px]" style="color: #FFFFFF !important;">05 • KONUM & KAYIP</span>
                                 </div>
                             </div>
-                            <div class="bg-black text-white" class="h-1.5 w-full -mt-px"></div>
+                            <div class="bg-black h-1.5 w-full -mt-px"></div>
 
                             <div class="p-6 sm:p-7 pb-4">
                                 <div class="w-11 h-11 rounded-2xl bg-[#F7F7F8] text-[#000000] flex items-center justify-center mb-4 group-hover:scale-105 transition">
@@ -3127,10 +3168,10 @@
                                 <i class="hgi hgi-stroke hgi-information-circle w-3.5 h-3.5"></i>
                                 <span>Süreç & Hukuki Kapsam</span>
                             </button>
-                            <button type="button" onclick="prefillService('adres-tespiti')" class="inline-flex items-center gap-1.5 pl-3 pr-1.5 py-1 rounded-full bg-[#F7F7F8] hover:bg-black text-white text-white hover:text-white text-xs font-medium transition">
+                            <button type="button" onclick="prefillService('adres-tespiti')" class="inline-flex items-center gap-1.5 pl-3 pr-1.5 py-1 rounded-full bg-black hover:bg-neutral-800 text-white text-xs font-medium transition shadow-xs" style="background-color: #000000 !important; color: #FFFFFF !important;">
                                 <span>Teklif Al</span>
-                                <span class="w-5 h-5 rounded-full bg-white/15 flex items-center justify-center">
-                                    <i class="hgi hgi-stroke hgi-arrow-right-02 w-3 h-3"></i>
+                                <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center">
+                                    <i class="hgi hgi-stroke hgi-arrow-right-02 w-3 h-3 text-white"></i>
                                 </span>
                             </button>
                         </div>
@@ -3139,17 +3180,17 @@
                         <div>
                             <!-- Studio Folder-Tab Notch Header -->
                             <div class="bg-[#F7F7F8] flex items-stretch">
-                                <div class="bg-black text-white" class="rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center gap-2 shrink-0">
-                                    <span class="font-mono text-[11px] font-medium text-[#111111]"><span>06</span> • <span>HUKUKİ & DELİL</span></span>
+                                <div class="bg-black text-white rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center gap-2 shrink-0">
+                                    <span class="font-mono text-[11px] font-semibold text-white" style="color: #FFFFFF !important;"><span>06</span> • <span>HUKUKİ & DELİL</span></span>
                                 </div>
                                 <svg class="w-7 h-[32px] shrink-0 block -ml-px -mb-px" viewBox="0 0 32 34" preserveAspectRatio="none" fill="none" aria-hidden="true">
                                     <path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#111111"/>
                                 </svg>
                                 <div class="flex-1 flex items-center justify-end pr-4 pl-2">
-                                    <span class="font-mono text-[10px] text-neutral-900 px-2.5 py-0.5 rounded-full bg-black/80 text-white font-medium backdrop-blur-md truncate max-w-[170px]">06 • İİK m.277</span>
+                                    <span class="font-mono text-[10px] text-white px-2.5 py-0.5 rounded-full bg-black/80 font-medium backdrop-blur-md truncate max-w-[170px]" style="color: #FFFFFF !important;">06 • İİK m.277</span>
                                 </div>
                             </div>
-                            <div class="bg-black text-white" class="h-1.5 w-full -mt-px"></div>
+                            <div class="bg-black h-1.5 w-full -mt-px"></div>
 
                             <div class="p-6 sm:p-7 pb-4">
                                 <div class="w-11 h-11 rounded-2xl bg-[#F7F7F8] text-[#000000] flex items-center justify-center mb-4 group-hover:scale-105 transition">
@@ -3166,10 +3207,10 @@
                                 <i class="hgi hgi-stroke hgi-information-circle w-3.5 h-3.5"></i>
                                 <span>Süreç & Hukuki Kapsam</span>
                             </button>
-                            <button type="button" onclick="prefillService('borclu-takibi')" class="inline-flex items-center gap-1.5 pl-3 pr-1.5 py-1 rounded-full bg-[#F7F7F8] hover:bg-black text-white text-white hover:text-white text-xs font-medium transition">
+                            <button type="button" onclick="prefillService('borclu-takibi')" class="inline-flex items-center gap-1.5 pl-3 pr-1.5 py-1 rounded-full bg-black hover:bg-neutral-800 text-white text-xs font-medium transition shadow-xs" style="background-color: #000000 !important; color: #FFFFFF !important;">
                                 <span>Teklif Al</span>
-                                <span class="w-5 h-5 rounded-full bg-white/15 flex items-center justify-center">
-                                    <i class="hgi hgi-stroke hgi-arrow-right-02 w-3 h-3"></i>
+                                <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center">
+                                    <i class="hgi hgi-stroke hgi-arrow-right-02 w-3 h-3 text-white"></i>
                                 </span>
                             </button>
                         </div>
@@ -3178,17 +3219,17 @@
                         <div>
                             <!-- Studio Folder-Tab Notch Header -->
                             <div class="bg-[#F7F7F8] flex items-stretch">
-                                <div class="bg-black text-white" class="rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center gap-2 shrink-0">
-                                    <span class="font-mono text-[11px] font-medium text-[#111111]"><span>07</span> • <span>HUKUKİ & DELİL</span></span>
+                                <div class="bg-black text-white rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center gap-2 shrink-0">
+                                    <span class="font-mono text-[11px] font-semibold text-white" style="color: #FFFFFF !important;"><span>07</span> • <span>HUKUKİ & DELİL</span></span>
                                 </div>
                                 <svg class="w-7 h-[32px] shrink-0 block -ml-px -mb-px" viewBox="0 0 32 34" preserveAspectRatio="none" fill="none" aria-hidden="true">
                                     <path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#111111"/>
                                 </svg>
                                 <div class="flex-1 flex items-center justify-end pr-4 pl-2">
-                                    <span class="font-mono text-[10px] text-neutral-900 px-2.5 py-0.5 rounded-full bg-black/80 text-white font-medium backdrop-blur-md truncate max-w-[170px]">07 • TCK m.157-158</span>
+                                    <span class="font-mono text-[10px] text-white px-2.5 py-0.5 rounded-full bg-black/80 font-medium backdrop-blur-md truncate max-w-[170px]" style="color: #FFFFFF !important;">07 • TCK m.157-158</span>
                                 </div>
                             </div>
-                            <div class="bg-black text-white" class="h-1.5 w-full -mt-px"></div>
+                            <div class="bg-black h-1.5 w-full -mt-px"></div>
 
                             <div class="p-6 sm:p-7 pb-4">
                                 <div class="w-11 h-11 rounded-2xl bg-[#F7F7F8] text-[#000000] flex items-center justify-center mb-4 group-hover:scale-105 transition">
@@ -3205,10 +3246,10 @@
                                 <i class="hgi hgi-stroke hgi-information-circle w-3.5 h-3.5"></i>
                                 <span>Süreç & Hukuki Kapsam</span>
                             </button>
-                            <button type="button" onclick="prefillService('dolandiricilik-davalari')" class="inline-flex items-center gap-1.5 pl-3 pr-1.5 py-1 rounded-full bg-[#F7F7F8] hover:bg-black text-white text-white hover:text-white text-xs font-medium transition">
+                            <button type="button" onclick="prefillService('dolandiricilik-davalari')" class="inline-flex items-center gap-1.5 pl-3 pr-1.5 py-1 rounded-full bg-black hover:bg-neutral-800 text-white text-xs font-medium transition shadow-xs" style="background-color: #000000 !important; color: #FFFFFF !important;">
                                 <span>Teklif Al</span>
-                                <span class="w-5 h-5 rounded-full bg-white/15 flex items-center justify-center">
-                                    <i class="hgi hgi-stroke hgi-arrow-right-02 w-3 h-3"></i>
+                                <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center">
+                                    <i class="hgi hgi-stroke hgi-arrow-right-02 w-3 h-3 text-white"></i>
                                 </span>
                             </button>
                         </div>
@@ -3217,17 +3258,17 @@
                         <div>
                             <!-- Studio Folder-Tab Notch Header -->
                             <div class="bg-[#F7F7F8] flex items-stretch">
-                                <div class="bg-black text-white" class="rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center gap-2 shrink-0">
-                                    <span class="font-mono text-[11px] font-medium text-[#111111]"><span>08</span> • <span>HUKUKİ & DELİL</span></span>
+                                <div class="bg-black text-white rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center gap-2 shrink-0">
+                                    <span class="font-mono text-[11px] font-semibold text-white" style="color: #FFFFFF !important;"><span>08</span> • <span>HUKUKİ & DELİL</span></span>
                                 </div>
                                 <svg class="w-7 h-[32px] shrink-0 block -ml-px -mb-px" viewBox="0 0 32 34" preserveAspectRatio="none" fill="none" aria-hidden="true">
                                     <path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#111111"/>
                                 </svg>
                                 <div class="flex-1 flex items-center justify-end pr-4 pl-2">
-                                    <span class="font-mono text-[10px] text-neutral-900 px-2.5 py-0.5 rounded-full bg-black/80 text-white font-medium backdrop-blur-md truncate max-w-[170px]">08 • ADLİ TAHKİKAT</span>
+                                    <span class="font-mono text-[10px] text-white px-2.5 py-0.5 rounded-full bg-black/80 font-medium backdrop-blur-md truncate max-w-[170px]" style="color: #FFFFFF !important;">08 • ADLİ TAHKİKAT</span>
                                 </div>
                             </div>
-                            <div class="bg-black text-white" class="h-1.5 w-full -mt-px"></div>
+                            <div class="bg-black h-1.5 w-full -mt-px"></div>
 
                             <div class="p-6 sm:p-7 pb-4">
                                 <div class="w-11 h-11 rounded-2xl bg-[#F7F7F8] text-[#000000] flex items-center justify-center mb-4 group-hover:scale-105 transition">
@@ -3244,10 +3285,10 @@
                                 <i class="hgi hgi-stroke hgi-information-circle w-3.5 h-3.5"></i>
                                 <span>Süreç & Hukuki Kapsam</span>
                             </button>
-                            <button type="button" onclick="prefillService('hirsizlik-arastirma')" class="inline-flex items-center gap-1.5 pl-3 pr-1.5 py-1 rounded-full bg-[#F7F7F8] hover:bg-black text-white text-white hover:text-white text-xs font-medium transition">
+                            <button type="button" onclick="prefillService('hirsizlik-arastirma')" class="inline-flex items-center gap-1.5 pl-3 pr-1.5 py-1 rounded-full bg-black hover:bg-neutral-800 text-white text-xs font-medium transition shadow-xs" style="background-color: #000000 !important; color: #FFFFFF !important;">
                                 <span>Teklif Al</span>
-                                <span class="w-5 h-5 rounded-full bg-white/15 flex items-center justify-center">
-                                    <i class="hgi hgi-stroke hgi-arrow-right-02 w-3 h-3"></i>
+                                <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center">
+                                    <i class="hgi hgi-stroke hgi-arrow-right-02 w-3 h-3 text-white"></i>
                                 </span>
                             </button>
                         </div>
@@ -3256,17 +3297,17 @@
                         <div>
                             <!-- Studio Folder-Tab Notch Header -->
                             <div class="bg-[#F7F7F8] flex items-stretch">
-                                <div style="background:#000000" class="rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center gap-2 shrink-0">
-                                    <span class="font-mono text-[11px] font-medium text-[#111111]"><span>09</span> • <span>KURUMSAL & TSCM</span></span>
+                                <div class="bg-black text-white rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center gap-2 shrink-0">
+                                    <span class="font-mono text-[11px] font-semibold text-white" style="color: #FFFFFF !important;"><span>09</span> • <span>KURUMSAL & TSCM</span></span>
                                 </div>
                                 <svg class="w-7 h-[32px] shrink-0 block -ml-px -mb-px" viewBox="0 0 32 34" preserveAspectRatio="none" fill="none" aria-hidden="true">
                                     <path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#000000"/>
                                 </svg>
                                 <div class="flex-1 flex items-center justify-end pr-4 pl-2">
-                                    <span class="font-mono text-[10px] text-neutral-900 px-2.5 py-0.5 rounded-full bg-black/80 text-white font-medium backdrop-blur-md truncate max-w-[170px]">09 • TTK & KURUMSAL</span>
+                                    <span class="font-mono text-[10px] text-white px-2.5 py-0.5 rounded-full bg-black/80 font-medium backdrop-blur-md truncate max-w-[170px]" style="color: #FFFFFF !important;">09 • TTK & KURUMSAL</span>
                                 </div>
                             </div>
-                            <div style="background:#000000" class="h-1.5 w-full -mt-px"></div>
+                            <div class="bg-black h-1.5 w-full -mt-px"></div>
 
                             <div class="p-6 sm:p-7 pb-4">
                                 <div class="w-11 h-11 rounded-2xl bg-[#F7F7F8] text-[#000000] flex items-center justify-center mb-4 group-hover:scale-105 transition">
@@ -3283,10 +3324,10 @@
                                 <i class="hgi hgi-stroke hgi-information-circle w-3.5 h-3.5"></i>
                                 <span>Süreç & Hukuki Kapsam</span>
                             </button>
-                            <button type="button" onclick="prefillService('kurumsal-teftis')" class="inline-flex items-center gap-1.5 pl-3 pr-1.5 py-1 rounded-full bg-[#F7F7F8] hover:bg-black text-white text-white hover:text-white text-xs font-medium transition">
+                            <button type="button" onclick="prefillService('kurumsal-teftis')" class="inline-flex items-center gap-1.5 pl-3 pr-1.5 py-1 rounded-full bg-black hover:bg-neutral-800 text-white text-xs font-medium transition shadow-xs" style="background-color: #000000 !important; color: #FFFFFF !important;">
                                 <span>Teklif Al</span>
-                                <span class="w-5 h-5 rounded-full bg-white/15 flex items-center justify-center">
-                                    <i class="hgi hgi-stroke hgi-arrow-right-02 w-3 h-3"></i>
+                                <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center">
+                                    <i class="hgi hgi-stroke hgi-arrow-right-02 w-3 h-3 text-white"></i>
                                 </span>
                             </button>
                         </div>
@@ -3295,17 +3336,17 @@
                         <div>
                             <!-- Studio Folder-Tab Notch Header -->
                             <div class="bg-[#F7F7F8] flex items-stretch">
-                                <div style="background:#000000" class="rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center gap-2 shrink-0">
-                                    <span class="font-mono text-[11px] font-medium text-[#111111]"><span>10</span> • <span>KURUMSAL & TSCM</span></span>
+                                <div class="bg-black text-white rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center gap-2 shrink-0">
+                                    <span class="font-mono text-[11px] font-semibold text-white" style="color: #FFFFFF !important;"><span>10</span> • <span>KURUMSAL & TSCM</span></span>
                                 </div>
                                 <svg class="w-7 h-[32px] shrink-0 block -ml-px -mb-px" viewBox="0 0 32 34" preserveAspectRatio="none" fill="none" aria-hidden="true">
                                     <path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#000000"/>
                                 </svg>
                                 <div class="flex-1 flex items-center justify-end pr-4 pl-2">
-                                    <span class="font-mono text-[10px] text-neutral-900 px-2.5 py-0.5 rounded-full bg-black/80 text-white font-medium backdrop-blur-md truncate max-w-[170px]">10 • SMK m.29</span>
+                                    <span class="font-mono text-[10px] text-white px-2.5 py-0.5 rounded-full bg-black/80 font-medium backdrop-blur-md truncate max-w-[170px]" style="color: #FFFFFF !important;">10 • SMK m.29</span>
                                 </div>
                             </div>
-                            <div style="background:#000000" class="h-1.5 w-full -mt-px"></div>
+                            <div class="bg-black h-1.5 w-full -mt-px"></div>
 
                             <div class="p-6 sm:p-7 pb-4">
                                 <div class="w-11 h-11 rounded-2xl bg-[#F7F7F8] text-[#000000] flex items-center justify-center mb-4 group-hover:scale-105 transition">
@@ -3322,10 +3363,10 @@
                                 <i class="hgi hgi-stroke hgi-information-circle w-3.5 h-3.5"></i>
                                 <span>Süreç & Hukuki Kapsam</span>
                             </button>
-                            <button type="button" onclick="prefillService('marka-taklidi')" class="inline-flex items-center gap-1.5 pl-3 pr-1.5 py-1 rounded-full bg-[#F7F7F8] hover:bg-black text-white text-white hover:text-white text-xs font-medium transition">
+                            <button type="button" onclick="prefillService('marka-taklidi')" class="inline-flex items-center gap-1.5 pl-3 pr-1.5 py-1 rounded-full bg-black hover:bg-neutral-800 text-white text-xs font-medium transition shadow-xs" style="background-color: #000000 !important; color: #FFFFFF !important;">
                                 <span>Teklif Al</span>
-                                <span class="w-5 h-5 rounded-full bg-white/15 flex items-center justify-center">
-                                    <i class="hgi hgi-stroke hgi-arrow-right-02 w-3 h-3"></i>
+                                <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center">
+                                    <i class="hgi hgi-stroke hgi-arrow-right-02 w-3 h-3 text-white"></i>
                                 </span>
                             </button>
                         </div>
@@ -3334,17 +3375,17 @@
                         <div>
                             <!-- Studio Folder-Tab Notch Header -->
                             <div class="bg-[#F7F7F8] flex items-stretch">
-                                <div style="background:#000000" class="rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center gap-2 shrink-0">
-                                    <span class="font-mono text-[11px] font-medium text-[#111111]"><span>11</span> • <span>KURUMSAL & TSCM</span></span>
+                                <div class="bg-black text-white rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center gap-2 shrink-0">
+                                    <span class="font-mono text-[11px] font-semibold text-white" style="color: #FFFFFF !important;"><span>11</span> • <span>KURUMSAL & TSCM</span></span>
                                 </div>
                                 <svg class="w-7 h-[32px] shrink-0 block -ml-px -mb-px" viewBox="0 0 32 34" preserveAspectRatio="none" fill="none" aria-hidden="true">
                                     <path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#000000"/>
                                 </svg>
                                 <div class="flex-1 flex items-center justify-end pr-4 pl-2">
-                                    <span class="font-mono text-[10px] text-neutral-900 px-2.5 py-0.5 rounded-full bg-black/80 text-white font-medium backdrop-blur-md truncate max-w-[170px]">11 • ADLİ BİLİŞİM</span>
+                                    <span class="font-mono text-[10px] text-white px-2.5 py-0.5 rounded-full bg-black/80 font-medium backdrop-blur-md truncate max-w-[170px]" style="color: #FFFFFF !important;">11 • ADLİ BİLİŞİM</span>
                                 </div>
                             </div>
-                            <div style="background:#000000" class="h-1.5 w-full -mt-px"></div>
+                            <div class="bg-black h-1.5 w-full -mt-px"></div>
 
                             <div class="p-6 sm:p-7 pb-4">
                                 <div class="w-11 h-11 rounded-2xl bg-[#F7F7F8] text-[#000000] flex items-center justify-center mb-4 group-hover:scale-105 transition">
@@ -3361,10 +3402,10 @@
                                 <i class="hgi hgi-stroke hgi-information-circle w-3.5 h-3.5"></i>
                                 <span>Süreç & Hukuki Kapsam</span>
                             </button>
-                            <button type="button" onclick="prefillService('bilisim-dolandiriciligi')" class="inline-flex items-center gap-1.5 pl-3 pr-1.5 py-1 rounded-full bg-[#F7F7F8] hover:bg-black text-white text-white hover:text-white text-xs font-medium transition">
+                            <button type="button" onclick="prefillService('bilisim-dolandiriciligi')" class="inline-flex items-center gap-1.5 pl-3 pr-1.5 py-1 rounded-full bg-black hover:bg-neutral-800 text-white text-xs font-medium transition shadow-xs" style="background-color: #000000 !important; color: #FFFFFF !important;">
                                 <span>Teklif Al</span>
-                                <span class="w-5 h-5 rounded-full bg-white/15 flex items-center justify-center">
-                                    <i class="hgi hgi-stroke hgi-arrow-right-02 w-3 h-3"></i>
+                                <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center">
+                                    <i class="hgi hgi-stroke hgi-arrow-right-02 w-3 h-3 text-white"></i>
                                 </span>
                             </button>
                         </div>
@@ -3373,17 +3414,17 @@
                         <div>
                             <!-- Studio Folder-Tab Notch Header -->
                             <div class="bg-[#F7F7F8] flex items-stretch">
-                                <div style="background:#000000" class="rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center gap-2 shrink-0">
-                                    <span class="font-mono text-[11px] font-medium text-[#111111]"><span>12</span> • <span>KURUMSAL & TSCM</span></span>
+                                <div class="bg-black text-white rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center gap-2 shrink-0">
+                                    <span class="font-mono text-[11px] font-semibold text-white" style="color: #FFFFFF !important;"><span>12</span> • <span>KURUMSAL & TSCM</span></span>
                                 </div>
                                 <svg class="w-7 h-[32px] shrink-0 block -ml-px -mb-px" viewBox="0 0 32 34" preserveAspectRatio="none" fill="none" aria-hidden="true">
                                     <path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#000000"/>
                                 </svg>
                                 <div class="flex-1 flex items-center justify-end pr-4 pl-2">
-                                    <span class="font-mono text-[10px] text-neutral-900 px-2.5 py-0.5 rounded-full bg-black/80 text-white font-medium backdrop-blur-md truncate max-w-[170px]">12 • İZLEME & TSCM</span>
+                                    <span class="font-mono text-[10px] text-white px-2.5 py-0.5 rounded-full bg-black/80 font-medium backdrop-blur-md truncate max-w-[170px]" style="color: #FFFFFF !important;">12 • İZLEME & TSCM</span>
                                 </div>
                             </div>
-                            <div style="background:#000000" class="h-1.5 w-full -mt-px"></div>
+                            <div class="bg-black h-1.5 w-full -mt-px"></div>
 
                             <div class="p-6 sm:p-7 pb-4">
                                 <div class="w-11 h-11 rounded-2xl bg-[#F7F7F8] text-[#000000] flex items-center justify-center mb-4 group-hover:scale-105 transition">
@@ -3400,10 +3441,10 @@
                                 <i class="hgi hgi-stroke hgi-information-circle w-3.5 h-3.5"></i>
                                 <span>Süreç & Hukuki Kapsam</span>
                             </button>
-                            <button type="button" onclick="prefillService('bocek-tarama')" class="inline-flex items-center gap-1.5 pl-3 pr-1.5 py-1 rounded-full bg-[#F7F7F8] hover:bg-black text-white text-white hover:text-white text-xs font-medium transition">
+                            <button type="button" onclick="prefillService('bocek-tarama')" class="inline-flex items-center gap-1.5 pl-3 pr-1.5 py-1 rounded-full bg-black hover:bg-neutral-800 text-white text-xs font-medium transition shadow-xs" style="background-color: #000000 !important; color: #FFFFFF !important;">
                                 <span>Teklif Al</span>
-                                <span class="w-5 h-5 rounded-full bg-white/15 flex items-center justify-center">
-                                    <i class="hgi hgi-stroke hgi-arrow-right-02 w-3 h-3"></i>
+                                <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center">
+                                    <i class="hgi hgi-stroke hgi-arrow-right-02 w-3 h-3 text-white"></i>
                                 </span>
                             </button>
                         </div>
@@ -3438,7 +3479,7 @@
                             <button type="button" onclick="filterShop('ses-guvenlik')" data-shop-filter="ses-guvenlik" class="shop-filter-btn px-3.5 py-1.5 rounded-full text-[#3A3E42] hover:text-[#111111] font-regular transition">Ses Kayıt &amp; Kamera</button>
                             <button type="button" onclick="filterShop('bocek-arama')" data-shop-filter="bocek-arama" class="shop-filter-btn px-3.5 py-1.5 rounded-full text-[#3A3E42] hover:text-[#111111] font-regular transition">Böcek Arama (TSCM)</button>
                         </div>
-                        <button type="button" onclick="openCartDrawer()" class="px-4 py-2 rounded-full bg-[#F7F7F8] hover:bg-black text-white text-white hover:text-white text-xs font-medium inline-flex items-center gap-2 transition">
+                        <button type="button" onclick="openCartDrawer()" class="px-4 py-2 rounded-full bg-black hover:bg-neutral-800 text-white text-xs font-medium inline-flex items-center gap-2 transition shadow-xs" style="background-color: #000000 !important; color: #FFFFFF !important;">
                             <i class="hgi hgi-stroke hgi-shopping-cart-01 w-4 h-4"></i>
                             <span data-i18n-html="store_cart_btn">Sepetim (<span id="storeSectionCartCount">0</span>)</span>
                         </button>
@@ -3452,7 +3493,7 @@
                             <img src="assets/shop/gps-tracker-pro.jpg" loading="lazy" decoding="async" alt="DAT Fleet Tracker X1 Araç ve Mülk GPS Takip Cihazı" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                             <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-[#F7F7F8] text-[#000000] font-mono text-[10px] font-medium">BTK IMEI KAYITLI</span>
                             <div class="absolute inset-x-3 bottom-3 flex items-center gap-2 opacity-100 lg:opacity-0 lg:translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300" onclick="event.stopPropagation()">
-                                <button type="button" onclick="addToCart('DAT-GPS-01')" class="flex-1 py-2.5 rounded-full bg-[#F7F7F8] hover:bg-black text-white text-white hover:text-white text-xs font-medium transition shadow-md inline-flex items-center justify-center gap-1.5">
+                                <button type="button" onclick="addToCart('DAT-GPS-01')" class="flex-1 py-2.5 rounded-full bg-black hover:bg-neutral-800 text-white text-xs font-medium transition shadow-md inline-flex items-center justify-center gap-1.5" style="background-color: #000000 !important; color: #FFFFFF !important;">
                                     <i class="hgi hgi-stroke hgi-add-01 w-3.5 h-3.5"></i>
                                     <span>Sepete Ekle</span>
                                 </button>
@@ -3477,7 +3518,7 @@
                             <img src="assets/shop/kid-safety-tracker.jpg" loading="lazy" decoding="async" alt="DAT KidGuard 4G Çocuk ve Aile Güvenliği Akıllı Takip Saati" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                             <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black text-white text-white font-mono text-[10px] font-medium">SOS + GEO-FENCE</span>
                             <div class="absolute inset-x-3 bottom-3 flex items-center gap-2 opacity-100 lg:opacity-0 lg:translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300" onclick="event.stopPropagation()">
-                                <button type="button" onclick="addToCart('DAT-KID-05')" class="flex-1 py-2.5 rounded-full bg-[#F7F7F8] hover:bg-black text-white text-white hover:text-white text-xs font-medium transition shadow-md inline-flex items-center justify-center gap-1.5">
+                                <button type="button" onclick="addToCart('DAT-KID-05')" class="flex-1 py-2.5 rounded-full bg-black hover:bg-neutral-800 text-white text-xs font-medium transition shadow-md inline-flex items-center justify-center gap-1.5" style="background-color: #000000 !important; color: #FFFFFF !important;">
                                     <i class="hgi hgi-stroke hgi-add-01 w-3.5 h-3.5"></i>
                                     <span>Sepete Ekle</span>
                                 </button>
@@ -3502,7 +3543,7 @@
                             <img src="assets/shop/asset-beacon-tag.jpg" loading="lazy" decoding="async" alt="DAT Smart AirTag Uyumlu Eşya ve Valiz Takip Modülü" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                             <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-[#F7F7F8] text-[#000000] font-mono text-[10px] font-medium">APPLE FIND MY / AIRTAG</span>
                             <div class="absolute inset-x-3 bottom-3 flex items-center gap-2 opacity-100 lg:opacity-0 lg:translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300" onclick="event.stopPropagation()">
-                                <button type="button" onclick="addToCart('DAT-AIR-04')" class="flex-1 py-2.5 rounded-full bg-[#F7F7F8] hover:bg-black text-white text-white hover:text-white text-xs font-medium transition shadow-md inline-flex items-center justify-center gap-1.5">
+                                <button type="button" onclick="addToCart('DAT-AIR-04')" class="flex-1 py-2.5 rounded-full bg-black hover:bg-neutral-800 text-white text-xs font-medium transition shadow-md inline-flex items-center justify-center gap-1.5" style="background-color: #000000 !important; color: #FFFFFF !important;">
                                     <i class="hgi hgi-stroke hgi-add-01 w-3.5 h-3.5"></i>
                                     <span>Sepete Ekle</span>
                                 </button>
@@ -3527,7 +3568,7 @@
                             <img src="assets/shop/voice-recorder-pro.jpg" loading="lazy" decoding="async" alt="DAT Voice Vault S1 Şifreli Toplantı ve Not Ses Kayıt Cihazı" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                             <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black text-white text-white font-mono text-[10px] font-medium">AES-256 PIN ŞİFRELİ</span>
                             <div class="absolute inset-x-3 bottom-3 flex items-center gap-2 opacity-100 lg:opacity-0 lg:translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300" onclick="event.stopPropagation()">
-                                <button type="button" onclick="addToCart('DAT-REC-06')" class="flex-1 py-2.5 rounded-full bg-[#F7F7F8] hover:bg-black text-white text-white hover:text-white text-xs font-medium transition shadow-md inline-flex items-center justify-center gap-1.5">
+                                <button type="button" onclick="addToCart('DAT-REC-06')" class="flex-1 py-2.5 rounded-full bg-black hover:bg-neutral-800 text-white text-xs font-medium transition shadow-md inline-flex items-center justify-center gap-1.5" style="background-color: #000000 !important; color: #FFFFFF !important;">
                                     <i class="hgi hgi-stroke hgi-add-01 w-3.5 h-3.5"></i>
                                     <span>Sepete Ekle</span>
                                 </button>
@@ -3552,7 +3593,7 @@
                             <img src="assets/shop/tscm-service-kit.jpg" loading="lazy" decoding="async" alt="DAT Yerinde Böcek ve Gizli Kamera Tarama Hizmeti Paketi" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                             <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black text-white text-white font-mono text-[10px] font-medium">UZMAN YERİNDE HİZMET</span>
                             <div class="absolute inset-x-3 bottom-3 flex items-center gap-2 opacity-100 lg:opacity-0 lg:translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300" onclick="event.stopPropagation()">
-                                <button type="button" onclick="addToCart('DAT-SVC-TSCM')" class="flex-1 py-2.5 rounded-full bg-[#F7F7F8] hover:bg-black text-white text-white hover:text-white text-xs font-medium transition shadow-md inline-flex items-center justify-center gap-1.5">
+                                <button type="button" onclick="addToCart('DAT-SVC-TSCM')" class="flex-1 py-2.5 rounded-full bg-black hover:bg-neutral-800 text-white text-xs font-medium transition shadow-md inline-flex items-center justify-center gap-1.5" style="background-color: #000000 !important; color: #FFFFFF !important;">
                                     <i class="hgi hgi-stroke hgi-add-01 w-3.5 h-3.5"></i>
                                     <span>Paketi Al</span>
                                 </button>
@@ -3577,7 +3618,7 @@
                             <img src="assets/shop/tscm-rf-detector.jpg" loading="lazy" decoding="async" alt="DAT RF Guard S3 Böcek ve Gizli Kamera Dedektörü" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                             <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-[#F7F7F8] text-[#000000] font-mono text-[10px] font-medium">TSCM CİHAZ SATIŞI</span>
                             <div class="absolute inset-x-3 bottom-3 flex items-center gap-2 opacity-100 lg:opacity-0 lg:translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300" onclick="event.stopPropagation()">
-                                <button type="button" onclick="addToCart('DAT-TSCM-02')" class="flex-1 py-2.5 rounded-full bg-[#F7F7F8] hover:bg-black text-white text-white hover:text-white text-xs font-medium transition shadow-md inline-flex items-center justify-center gap-1.5">
+                                <button type="button" onclick="addToCart('DAT-TSCM-02')" class="flex-1 py-2.5 rounded-full bg-black hover:bg-neutral-800 text-white text-xs font-medium transition shadow-md inline-flex items-center justify-center gap-1.5" style="background-color: #000000 !important; color: #FFFFFF !important;">
                                     <i class="hgi hgi-stroke hgi-add-01 w-3.5 h-3.5"></i>
                                     <span>Sepete Ekle</span>
                                 </button>
@@ -3602,7 +3643,7 @@
                             <img src="assets/shop/safety-dash-cam.jpg" loading="lazy" decoding="async" alt="DAT Cam Q2 Araç İçi ve Kişisel Güvenlik Delil Kamerası" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                             <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-[#F7F7F8] text-[#000000] font-mono text-[10px] font-medium">4K ZAMAN DAMGALI</span>
                             <div class="absolute inset-x-3 bottom-3 flex items-center gap-2 opacity-100 lg:opacity-0 lg:translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300" onclick="event.stopPropagation()">
-                                <button type="button" onclick="addToCart('DAT-CAM-07')" class="flex-1 py-2.5 rounded-full bg-[#F7F7F8] hover:bg-black text-white text-white hover:text-white text-xs font-medium transition shadow-md inline-flex items-center justify-center gap-1.5">
+                                <button type="button" onclick="addToCart('DAT-CAM-07')" class="flex-1 py-2.5 rounded-full bg-black hover:bg-neutral-800 text-white text-xs font-medium transition shadow-md inline-flex items-center justify-center gap-1.5" style="background-color: #000000 !important; color: #FFFFFF !important;">
                                     <i class="hgi hgi-stroke hgi-add-01 w-3.5 h-3.5"></i>
                                     <span>Sepete Ekle</span>
                                 </button>
@@ -3627,7 +3668,7 @@
                             <img src="assets/shop/faraday-shield-pouch.jpg" loading="lazy" decoding="async" alt="DAT Faraday Shield Sinyal Kesici Güvenlik Kılıfı" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                             <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-[#F7F7F8] text-[#000000] font-mono text-[10px] font-medium">90 dB RF KALKAN</span>
                             <div class="absolute inset-x-3 bottom-3 flex items-center gap-2 opacity-100 lg:opacity-0 lg:translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300" onclick="event.stopPropagation()">
-                                <button type="button" onclick="addToCart('DAT-SHIELD-03')" class="flex-1 py-2.5 rounded-full bg-[#F7F7F8] hover:bg-black text-white text-white hover:text-white text-xs font-medium transition shadow-md inline-flex items-center justify-center gap-1.5">
+                                <button type="button" onclick="addToCart('DAT-SHIELD-03')" class="flex-1 py-2.5 rounded-full bg-black hover:bg-neutral-800 text-white text-xs font-medium transition shadow-md inline-flex items-center justify-center gap-1.5" style="background-color: #000000 !important; color: #FFFFFF !important;">
                                     <i class="hgi hgi-stroke hgi-add-01 w-3.5 h-3.5"></i>
                                     <span>Sepete Ekle</span>
                                 </button>
@@ -3693,17 +3734,17 @@
                     </div>
 
                     <!-- Step 02: Volt Chartreuse Folder-Tab -->
-                    <div class="rounded-[26px] overflow-hidden bg-[#EEFBC5] flex flex-col studio-shadow">
+                    <div class="rounded-[26px] overflow-hidden bg-[#F7F7F8] border border-black/[0.08] flex flex-col studio-shadow">
                         <div class="flex items-stretch">
-                            <div class="bg-[#000000] rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center shrink-0">
-                                <span class="font-mono text-[11px] font-medium text-[#111111]">02 • BİLGİLENDİRME</span>
+                            <div class="bg-black text-white rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center shrink-0">
+                                <span class="font-mono text-[11px] font-medium text-white" style="color:#FFFFFF !important;">02 • BİLGİLENDİRME</span>
                             </div>
                             <svg class="w-7 h-[32px] shrink-0 block -ml-px -mb-px" viewBox="0 0 32 34" preserveAspectRatio="none" fill="none" aria-hidden="true"><path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#000000"/></svg>
                             <div class="flex-1 flex items-center justify-end pr-4"><i class="hgi hgi-stroke hgi-file-02 w-4 h-4 text-[#111111]"></i></div>
                         </div>
-                        <div class="bg-[#000000] -mt-px rounded-tr-[24px] rounded-b-[24px] p-6 flex-1 space-y-2.5">
-                            <h4 class="text-base font-medium text-[#111111]">Ön Bilgilendirme &amp; Sözleşme</h4>
-                            <p class="text-[13px] font-regular text-[#111111]/85 leading-relaxed">
+                        <div class="bg-black text-white -mt-px rounded-tr-[24px] rounded-b-[24px] p-6 flex-1 space-y-2.5">
+                            <h4 class="text-base font-medium text-white" style="color:#FFFFFF !important;">Ön Bilgilendirme &amp; Sözleşme</h4>
+                            <p class="text-[13px] font-regular text-neutral-300 leading-relaxed">
                                 Araştırması yapılacak kişi veya konu ile ilgili bilgileri gizlilik sözleşmesi güvencesiyle paylaşın, yol haritasını belirleyelim.
                             </p>
                         </div>
@@ -3727,17 +3768,17 @@
                     </div>
 
                     <!-- Step 04: Signal Lime Folder-Tab on Obsidian outer -->
-                    <div class="theme-keep-dark rounded-[26px] overflow-hidden bg-[#F7F7F8] flex flex-col shadow-xl">
+                    <div class="rounded-[26px] overflow-hidden bg-[#F7F7F8] border border-black/[0.08] flex flex-col shadow-xl">
                         <div class="flex items-stretch">
                             <div class="bg-black text-white rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center shrink-0">
-                                <span class="font-mono text-[11px] font-medium text-[#111111]">04 • MEMNUNİYET</span>
+                                <span class="font-mono text-[11px] font-medium text-white" style="color:#FFFFFF !important;">04 • MEMNUNİYET</span>
                             </div>
                             <svg class="w-7 h-[32px] shrink-0 block -ml-px -mb-px" viewBox="0 0 32 34" preserveAspectRatio="none" fill="none" aria-hidden="true"><path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#000000"/></svg>
-                            <div class="flex-1 flex items-center justify-end pr-4"><i class="theme-keep-lime hgi hgi-stroke hgi-security-check w-4 h-4 text-black"></i></div>
+                            <div class="flex-1 flex items-center justify-end pr-4"><i class="hgi hgi-stroke hgi-security-check w-4 h-4 text-black"></i></div>
                         </div>
                         <div class="bg-black text-white -mt-px rounded-tr-[24px] rounded-b-[24px] p-6 flex-1 space-y-2.5">
-                            <h4 class="text-base font-medium text-[#111111]">İspatlı Sonuç &amp; Memnuniyet</h4>
-                            <p class="text-[13px] font-regular text-[#111111]/85 leading-relaxed">
+                            <h4 class="text-base font-medium text-white" style="color:#FFFFFF !important;">İspatlı Sonuç &amp; Memnuniyet</h4>
+                            <p class="text-[13px] font-regular text-neutral-300 leading-relaxed">
                                 Araştırmaya dayalı garantili ve ispatlı çalışma sonucunda resmi delil dosyanızı teslim alın.
                             </p>
                         </div>
@@ -3748,9 +3789,9 @@
                 <div onclick="openPhotoModal('assets/photos/48-saatte-sadakat-analizi.jpg', 'DAT Özel Dedektiflik — 48 Saatte Evlilikte Sadakat Analizi Süreci (0 Saat → 12 Saat → 24 Saat → 48 Saat)')" class="theme-keep-dark mt-8 bg-[#111111] text-[#FFFFFF] rounded-[28px] p-5 sm:p-8 cursor-pointer group border border-white/15 shadow-2xl">
                     <div class="grid lg:grid-cols-12 gap-6 items-center">
                         <div class="lg:col-span-5 space-y-3.5 text-center lg:text-left rtl:lg:text-right">
-                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white border border-white/15 font-mono text-xs font-medium">
-                                <i class="hgi hgi-stroke hgi-clock-01 w-3.5 h-3.5"></i>
-                                <span>HIZLI &amp; İSPATLI PROTOKOL</span>
+                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white border border-white/15 font-mono text-xs font-medium" style="background-color: rgba(255, 255, 255, 0.12) !important; color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important;">
+                                <i class="hgi hgi-stroke hgi-clock-01 w-3.5 h-3.5" style="color: #FFFFFF !important;"></i>
+                                <span style="color: #FFFFFF !important;">HIZLI &amp; İSPATLI PROTOKOL</span>
                             </div>
                             <h3 class="apple-subhead text-xl sm:text-2xl font-medium text-white">
                                 48 Saatte Evlilikte Sadakat Analizi Süreci
@@ -3770,9 +3811,9 @@
                                     <span class="font-mono text-[10px] tracking-wider text-neutral-300 uppercase">DAT OPS • 48 SAAT PROTOKOLÜ</span>
                                 </div>
                                 <div class="flex items-center gap-1.5 text-[10px] font-mono">
-                                    <span class="px-2 py-0.5 rounded-full bg-white/10 border border-white/15 text-white">48 Saat</span>
-                                    <span class="px-2 py-0.5 rounded-full bg-white/10 border border-white/15 text-white">4K Delil</span>
-                                    <span class="px-2 py-0.5 rounded-full bg-white/10 border border-white/15 text-white">%100 Gizli</span>
+                                    <span class="px-2 py-0.5 rounded-full border border-white/15 font-medium" style="background-color: rgba(255, 255, 255, 0.12) !important; color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important;">48 Saat</span>
+                                    <span class="px-2 py-0.5 rounded-full border border-white/15 font-medium" style="background-color: rgba(255, 255, 255, 0.12) !important; color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important;">4K Delil</span>
+                                    <span class="px-2 py-0.5 rounded-full border border-white/15 font-medium" style="background-color: rgba(255, 255, 255, 0.12) !important; color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important;">%100 Gizli</span>
                                 </div>
                             </div>
                             <div class="grid sm:grid-cols-3 gap-3 text-left rtl:text-right">
@@ -3902,7 +3943,7 @@
                                     <span style="color:#FFFFFF !important;">Tüm Biyografi, Kitaplar &amp; Basın Dosyasını İncele</span>
                                     <i class="hgi hgi-stroke hgi-arrow-right-02 w-3.5 h-3.5 shrink-0" style="color:#FFFFFF !important;"></i>
                                 </a>
-                                <a href="#basin-galerisi" class="theme-keep-dark px-5 py-3 rounded-full bg-[#F7F7F8] hover:bg-[#F0F0F2] text-[#000000] border border-black/[0.08] text-xs font-medium inline-flex items-center gap-1.5 transition" title="Basında Biz, Sertifikalar ve Kongre Fotoğraf Arşivi — DAT Detective">
+                                <a href="#basin-galerisi" class="px-5 py-3 rounded-full bg-[#F7F7F8] hover:bg-[#F0F0F2] text-black border border-black/[0.08] text-xs font-medium inline-flex items-center gap-1.5 transition" title="Basında Biz, Sertifikalar ve Kongre Fotoğraf Arşivi — DAT Detective">
                                     <span>Basın &amp; Sertifika Galerisi</span>
                                 </a>
                             </div>
@@ -4006,7 +4047,7 @@
                 <div id="basin-galerisi">
                     <div class="flex flex-col lg:flex-row items-center lg:items-end justify-between gap-4 mb-6 sm:mb-8 text-center lg:text-left rtl:lg:text-right">
                         <div class="space-y-3">
-                            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F7F7F8] text-xs font-medium text-white border border-white/20 bg-black/60">
+                            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F7F7F8] text-xs font-medium text-black border border-black/[0.08]">
                                 <i class="hgi hgi-stroke hgi-camera-01 w-3.5 h-3.5"></i>
                                 <span>ÖDÜL TÖRENLERİ • ULUSAL BASIN • KONGRELER</span>
                             </div>
@@ -4454,7 +4495,7 @@
 
                 <div class="text-center max-w-3xl mx-auto space-y-3">
                     <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FFFFFF] text-xs font-medium text-[#111111] border border-black/[0.06]">
-                        <span class="text-base">🇪🇺</span>
+                        <i class="hgi hgi-stroke hgi-globe-02 w-4 h-4 text-black inline-block align-middle mr-1.5"></i>
                         <span>KULLANICILAR ŞUNLARI DA ARADI • AVRUPA &amp; GURBETÇİ MASASI</span>
                     </div>
                     <h2 class="apple-heading text-3xl sm:text-4xl lg:text-5xl font-medium text-[#111111] tracking-tight">
@@ -4991,7 +5032,7 @@
                                 </label>
                             </div>
 
-                            <button type="submit" id="submitBtn" class="w-full py-4 bg-[#F7F7F8] hover:bg-black text-white text-white hover:text-white rounded-full font-medium text-[13px] sm:text-sm tracking-tight transition flex items-center justify-center gap-2 active:scale-[0.99]">
+                            <button type="submit" id="submitBtn" class="w-full py-4 bg-black hover:bg-neutral-800 text-white rounded-full font-medium text-[13px] sm:text-sm tracking-tight transition flex items-center justify-center gap-2 active:scale-[0.99] shadow-md" style="background-color: #000000 !important; color: #FFFFFF !important;">
                                 <i class="hgi hgi-stroke hgi-square-lock-02 w-4 h-4"></i>
                                 <span>Fiyat Teklifi ve Vaka Talebini İlet</span>
                             </button>
@@ -5274,7 +5315,7 @@
                                 <a href="hizmetler/marka-taklidi-arastirmasi" class="px-3 py-1.5 rounded-full bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-black border border-black/[0.07] text-xs font-medium transition" title="Marka Taklidi, Sahte Ürün Tespiti ve SMK m.29 Baskın Delili — WPYB & DAT Detective">Marka Taklidi Araştırması</a>
                                 <a href="hizmetler/bocek-tarama-tscm" class="px-3 py-1.5 rounded-full bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-black border border-black/[0.07] text-xs font-medium transition" title="Profesyonel Böcek Arama, Dinleme Cihazı ve Gizli Kamera Tespiti (TSCM) — DAT Detective">Böcek Arama (TSCM)</a>
                                 <a href="hizmetler/kurumsal-ve-marka-koruma" class="px-3 py-1.5 rounded-full bg-[#FFFFFF] hover:bg-[#F7F7F8] text-[#111111] hover:text-black border border-black/[0.07] text-xs font-medium transition" title="Kurumsal Araştırma, Marka Koruma ve WPYB Global Hizmetleri — DAT Detective">Kurumsal &amp; WPYB</a>
-                                <a href="umit-hakan-karakaya" class="px-3 py-1.5 rounded-full bg-[#F7F7F8] hover:bg-black text-white text-white hover:text-white text-xs font-medium transition" title="Ümit Hakan Karakaya Kimdir? — DAT Özel Dedektiflik Kurucusu, UÖDED & TÜDED Başkanı">Ümit Hakan Karakaya Kimdir?</a>
+                                <a href="umit-hakan-karakaya" class="px-3 py-1.5 rounded-full bg-black hover:bg-neutral-800 text-white text-xs font-medium transition shadow-xs" style="background-color: #000000 !important; color: #FFFFFF !important;" title="Ümit Hakan Karakaya Kimdir? — DAT Özel Dedektiflik Kurucusu, UÖDED & TÜDED Başkanı">Ümit Hakan Karakaya Kimdir?</a>
                             </div>
                         </div>
                     </div>
@@ -5317,33 +5358,33 @@
                 <!-- Category Pill Tabs -->
                 <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none justify-start sm:justify-center">
                     
-    <button type="button" onclick="filterPAACategory('all')" id="paaCatBtn-all" class="paa-cat-btn px-4 py-2 rounded-full text-xs font-mono font-semibold transition shrink-0 bg-black text-white text-white shadow-sm">
-        🔥 Tümü (30+ Temel Soru &amp; Arama)
-    </button>
-        <button type="button" onclick="filterPAACategory('guvenilirlik')" id="paaCatBtn-guvenilirlik" class="paa-cat-btn px-4 py-2 rounded-full text-xs font-mono font-medium transition shrink-0 bg-white/5 text-neutral-800 hover:text-black hover:bg-white/10">
-            Dedektif Arayışı & Güvenilirlik
-        </button>
-        <button type="button" onclick="filterPAACategory('es-takibi')" id="paaCatBtn-es-takibi" class="paa-cat-btn px-4 py-2 rounded-full text-xs font-mono font-medium transition shrink-0 bg-white/5 text-neutral-800 hover:text-black hover:bg-white/10">
-            Eş Takibi & Aldatma Tespiti
-        </button>
-        <button type="button" onclick="filterPAACategory('hukuk-delil')" id="paaCatBtn-hukuk-delil" class="paa-cat-btn px-4 py-2 rounded-full text-xs font-mono font-medium transition shrink-0 bg-white/5 text-neutral-800 hover:text-black hover:bg-white/10">
-            Boşanma & Mahkemede Delil Geçerliliği
-        </button>
-        <button type="button" onclick="filterPAACategory('ucretler')" id="paaCatBtn-ucretler" class="paa-cat-btn px-4 py-2 rounded-full text-xs font-mono font-medium transition shrink-0 bg-white/5 text-neutral-800 hover:text-black hover:bg-white/10">
-            Dedektif Ücretleri & Fiyatlandırma
-        </button>
-        <button type="button" onclick="filterPAACategory('velayet-cocuk')" id="paaCatBtn-velayet-cocuk" class="paa-cat-btn px-4 py-2 rounded-full text-xs font-mono font-medium transition shrink-0 bg-white/5 text-neutral-800 hover:text-black hover:bg-white/10">
-            Velayet Davaları & Çocuk Güvenliği
-        </button>
-        <button type="button" onclick="filterPAACategory('borclu-adres')" id="paaCatBtn-borclu-adres" class="paa-cat-btn px-4 py-2 rounded-full text-xs font-mono font-medium transition shrink-0 bg-white/5 text-neutral-800 hover:text-black hover:bg-white/10">
-            Borçlu, Adres & Varlık Tespiti
-        </button>
-        <button type="button" onclick="filterPAACategory('bocek-arama')" id="paaCatBtn-bocek-arama" class="paa-cat-btn px-4 py-2 rounded-full text-xs font-mono font-medium transition shrink-0 bg-white/5 text-neutral-800 hover:text-black hover:bg-white/10">
-            Böcek Arama & Dinleme Cihazı (TSCM)
-        </button>
-        <button type="button" onclick="filterPAACategory('sehir-arama')" id="paaCatBtn-sehir-arama" class="paa-cat-btn px-4 py-2 rounded-full text-xs font-mono font-medium transition shrink-0 bg-white/5 text-neutral-800 hover:text-black hover:bg-white/10">
-            81 İl & İlçe Lokasyon Aramaları
-        </button>
+                    <button type="button" onclick="filterPAACategory('all')" id="paaCatBtn-all" class="paa-cat-btn px-4 py-2 rounded-full text-xs font-mono font-semibold transition shrink-0 bg-black text-white shadow-sm">
+                        <i class="hgi hgi-stroke hgi-layers-01 w-3.5 h-3.5 inline-block align-middle mr-1.5 text-white"></i><span>Tümü (30+ Temel Soru &amp; Arama)</span>
+                    </button>
+                    <button type="button" onclick="filterPAACategory('guvenilirlik')" id="paaCatBtn-guvenilirlik" class="paa-cat-btn px-4 py-2 rounded-full text-xs font-mono font-medium transition shrink-0 bg-[#F7F7F8] text-neutral-800 hover:text-black hover:bg-neutral-200 border border-black/[0.08]">
+                        Dedektif Arayışı &amp; Güvenilirlik
+                    </button>
+                    <button type="button" onclick="filterPAACategory('es-takibi')" id="paaCatBtn-es-takibi" class="paa-cat-btn px-4 py-2 rounded-full text-xs font-mono font-medium transition shrink-0 bg-[#F7F7F8] text-neutral-800 hover:text-black hover:bg-neutral-200 border border-black/[0.08]">
+                        Eş Takibi &amp; Aldatma Tespiti
+                    </button>
+                    <button type="button" onclick="filterPAACategory('hukuk-delil')" id="paaCatBtn-hukuk-delil" class="paa-cat-btn px-4 py-2 rounded-full text-xs font-mono font-medium transition shrink-0 bg-[#F7F7F8] text-neutral-800 hover:text-black hover:bg-neutral-200 border border-black/[0.08]">
+                        Boşanma &amp; Mahkemede Delil Geçerliliği
+                    </button>
+                    <button type="button" onclick="filterPAACategory('ucretler')" id="paaCatBtn-ucretler" class="paa-cat-btn px-4 py-2 rounded-full text-xs font-mono font-medium transition shrink-0 bg-[#F7F7F8] text-neutral-800 hover:text-black hover:bg-neutral-200 border border-black/[0.08]">
+                        Dedektif Ücretleri &amp; Fiyatlandırma
+                    </button>
+                    <button type="button" onclick="filterPAACategory('velayet-cocuk')" id="paaCatBtn-velayet-cocuk" class="paa-cat-btn px-4 py-2 rounded-full text-xs font-mono font-medium transition shrink-0 bg-[#F7F7F8] text-neutral-800 hover:text-black hover:bg-neutral-200 border border-black/[0.08]">
+                        Velayet Davaları &amp; Çocuk Güvenliği
+                    </button>
+                    <button type="button" onclick="filterPAACategory('borclu-adres')" id="paaCatBtn-borclu-adres" class="paa-cat-btn px-4 py-2 rounded-full text-xs font-mono font-medium transition shrink-0 bg-[#F7F7F8] text-neutral-800 hover:text-black hover:bg-neutral-200 border border-black/[0.08]">
+                        Borçlu, Adres &amp; Varlık Tespiti
+                    </button>
+                    <button type="button" onclick="filterPAACategory('bocek-arama')" id="paaCatBtn-bocek-arama" class="paa-cat-btn px-4 py-2 rounded-full text-xs font-mono font-medium transition shrink-0 bg-[#F7F7F8] text-neutral-800 hover:text-black hover:bg-neutral-200 border border-black/[0.08]">
+                        Böcek Arama &amp; Dinleme Cihazı (TSCM)
+                    </button>
+                    <button type="button" onclick="filterPAACategory('sehir-arama')" id="paaCatBtn-sehir-arama" class="paa-cat-btn px-4 py-2 rounded-full text-xs font-mono font-medium transition shrink-0 bg-[#F7F7F8] text-neutral-800 hover:text-black hover:bg-neutral-200 border border-black/[0.08]">
+                        81 İl &amp; İlçe Lokasyon Aramaları
+                    </button>
                 </div>
 
                 <!-- FAQ Accordion Container -->
@@ -5829,10 +5870,10 @@
         function filterPAACategory(catId) {
             currentPAACategory = catId;
             document.querySelectorAll('.paa-cat-btn').forEach(function(b) {
-                b.className = 'paa-cat-btn px-4 py-2 rounded-full text-xs font-mono font-medium transition shrink-0 bg-white/5 text-white/75 hover:text-white hover:bg-white/10';
+                b.className = 'paa-cat-btn px-4 py-2 rounded-full text-xs font-mono font-medium transition shrink-0 bg-[#F7F7F8] text-neutral-800 hover:text-black hover:bg-neutral-200 border border-black/[0.08]';
             });
             var btn = document.getElementById('paaCatBtn-' + catId);
-            if (btn) btn.className = 'paa-cat-btn px-4 py-2 rounded-full text-xs font-mono font-semibold transition shrink-0 bg-black text-white text-[#111111] shadow-sm';
+            if (btn) btn.className = 'paa-cat-btn px-4 py-2 rounded-full text-xs font-mono font-semibold transition shrink-0 bg-black text-white shadow-sm';
             filterPAASearch();
         }
 
@@ -5918,7 +5959,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>İstanbul Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">Merkez Büro</span>
@@ -5937,7 +5978,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Kocaeli Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">Sanayi & OSB</span>
@@ -5956,7 +5997,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Bursa Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">Bölge Merkezi</span>
@@ -5975,7 +6016,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Balıkesir Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">Körfez Hattı</span>
@@ -5994,7 +6035,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Tekirdağ Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">Trakya Sanayi</span>
@@ -6013,7 +6054,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Çanakkale Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -6032,7 +6073,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Sakarya Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -6051,7 +6092,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Edirne Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -6070,7 +6111,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Kırklareli Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -6089,7 +6130,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Yalova Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -6108,7 +6149,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Bilecik Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -6130,7 +6171,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>İzmir Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">Bölge Merkezi</span>
@@ -6149,7 +6190,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Muğla Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">Turizm & Tatil</span>
@@ -6168,7 +6209,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Aydın Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">Turizm & Kıyı</span>
@@ -6187,7 +6228,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Denizli Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -6206,7 +6247,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Manisa Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -6225,7 +6266,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Afyonkarahisar Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -6244,7 +6285,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Kütahya Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -6263,7 +6304,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Uşak Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -6285,7 +6326,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Ankara Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">Genel Merkez</span>
@@ -6304,7 +6345,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Konya Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">Bölge Merkezi</span>
@@ -6323,7 +6364,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Eskişehir Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">Üniversite & Kent</span>
@@ -6342,7 +6383,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Kayseri Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">Sanayi & Ticaret</span>
@@ -6361,7 +6402,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Sivas Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -6380,7 +6421,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Kırıkkale Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -6399,7 +6440,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Aksaray Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -6418,7 +6459,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Karaman Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -6437,7 +6478,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Kırşehir Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -6456,7 +6497,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Nevşehir Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">Kapadokya Hattı</span>
@@ -6475,7 +6516,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Niğde Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -6494,7 +6535,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Yozgat Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -6513,7 +6554,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Çankırı Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -6535,7 +6576,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Antalya Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">Turizm Merkezi</span>
@@ -6554,7 +6595,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Adana Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">Bölge Merkezi</span>
@@ -6573,7 +6614,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Mersin Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">Liman & Ticaret</span>
@@ -6592,7 +6633,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Hatay Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -6611,7 +6652,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Kahramanmaraş Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -6630,7 +6671,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Osmaniye Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -6649,7 +6690,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Isparta Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -6668,7 +6709,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Burdur Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -6690,7 +6731,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Trabzon Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">Bölge Merkezi</span>
@@ -6709,7 +6750,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Samsun Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">Bölge Merkezi</span>
@@ -6728,7 +6769,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Ordu Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -6747,7 +6788,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Giresun Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -6766,7 +6807,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Rize Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -6785,7 +6826,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Zonguldak Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -6804,7 +6845,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Bolu Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -6823,7 +6864,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Düzce Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -6842,7 +6883,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Kastamonu Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -6861,7 +6902,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Tokat Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -6880,7 +6921,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Çorum Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -6899,7 +6940,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Sinop Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -6918,7 +6959,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Amasya Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -6937,7 +6978,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Bartın Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -6956,7 +6997,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Karabük Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -6975,7 +7016,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Artvin Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -6994,7 +7035,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Gümüşhane Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -7013,7 +7054,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Bayburt Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -7035,7 +7076,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Gaziantep Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">Bölge Merkezi</span>
@@ -7054,7 +7095,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Diyarbakır Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">Bölge Merkezi</span>
@@ -7073,7 +7114,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Şanlıurfa Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -7092,7 +7133,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Mardin Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -7111,7 +7152,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Batman Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -7130,7 +7171,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Adıyaman Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -7149,7 +7190,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Siirt Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -7168,7 +7209,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Kilis Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -7187,7 +7228,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Şırnak Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -7209,7 +7250,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Malatya Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">Bölge Ağı</span>
@@ -7228,7 +7269,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Erzurum Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">Bölge Ağı</span>
@@ -7247,7 +7288,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Van Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">Bölge Ağı</span>
@@ -7266,7 +7307,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Elazığ Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">Bölge Ağı</span>
@@ -7285,7 +7326,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Ağrı Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -7304,7 +7345,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Kars Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -7323,7 +7364,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Muş Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -7342,7 +7383,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Bitlis Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -7361,7 +7402,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Erzincan Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -7380,7 +7421,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Bingöl Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -7399,7 +7440,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Iğdır Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -7418,7 +7459,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Hakkari Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -7437,7 +7478,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Ardahan Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -7456,7 +7497,7 @@
             <div class="rounded-2xl bg-[#F7F7F8] border border-black/[0.08] hover:border-black/40 p-4 space-y-2.5 transition group">
                 <div class="flex items-center justify-between">
                     <h4 class="text-sm font-semibold text-black flex items-center gap-1.5">
-                        <span class="text-xs">📍</span>
+                        <i class="hgi hgi-stroke hgi-location-01 w-3.5 h-3.5 text-black shrink-0"></i>
                         <span>Tunceli Dedektif</span>
                     </h4>
                     <span class="px-2 py-0.5 rounded-full text-[9.5px] font-mono bg-white/5 border border-black/[0.08] text-black">7/24 Mobil Ağ</span>
@@ -7502,12 +7543,12 @@
         function switchGeoRegion(regionId) {
             document.querySelectorAll('.geo-region-panel').forEach(function(p) { p.classList.add('hidden'); });
             document.querySelectorAll('.geo-tab-btn').forEach(function(b) {
-                b.className = 'geo-tab-btn px-3.5 py-1.5 rounded-full text-xs font-mono transition shrink-0 bg-white/5 text-white/70 hover:text-white hover:bg-white/10';
+                b.className = 'geo-tab-btn px-3.5 py-1.5 rounded-full text-xs font-mono transition shrink-0 bg-[#F7F7F8] text-neutral-800 hover:text-black hover:bg-neutral-200 border border-black/[0.08]';
             });
             var panel = document.getElementById('geoPanel-' + regionId);
             var btn = document.getElementById('geoTabBtn-' + regionId);
             if (panel) panel.classList.remove('hidden');
-            if (btn) btn.className = 'geo-tab-btn px-3.5 py-1.5 rounded-full text-xs font-mono transition shrink-0 bg-black text-white text-[#111111] font-semibold shadow-sm';
+            if (btn) btn.className = 'geo-tab-btn px-3.5 py-1.5 rounded-full text-xs font-mono transition shrink-0 bg-black text-white font-semibold shadow-sm';
         }
         </script>
     
@@ -7689,7 +7730,7 @@
                     <h3 id="articleModalTitle" class="text-lg sm:text-xl font-medium text-[#111111] leading-snug">Makale Başlığı</h3>
                     <div id="articleModalMeta" class="text-[10px] font-mono text-[#3A3E42] uppercase">DAT ÖZEL DEDEKTİFLİK</div>
                 </div>
-                <button type="button" onclick="closeArticleModal()" class="w-8 h-8 shrink-0 rounded-full bg-[#FFFFFF] hover:bg-[#111111] text-[#111111] hover:text-black flex items-center justify-center transition">
+                <button type="button" onclick="closeArticleModal()" class="w-8 h-8 shrink-0 rounded-full bg-[#FFFFFF] hover:bg-[#111111] text-[#111111] hover:text-white flex items-center justify-center transition">
                     <i class="hgi hgi-stroke hgi-cancel-01 w-4 h-4"></i>
                 </button>
             </div>
@@ -7717,7 +7758,7 @@
                     <span class="inline-block font-mono text-[10px] px-2.5 py-0.5 rounded-full bg-[#111111] text-white font-medium">6698 SAYILI KVKK &amp; MAHREMİYET PROTOKOLÜ</span>
                     <h3 class="text-lg sm:text-xl font-medium text-[#111111]">Gizlilik Politikası ve KVKK Aydınlatma Metni</h3>
                 </div>
-                <button type="button" onclick="closePrivacyModal()" class="w-8 h-8 shrink-0 rounded-full bg-[#FFFFFF] hover:bg-[#111111] text-[#111111] hover:text-black flex items-center justify-center transition">
+                <button type="button" onclick="closePrivacyModal()" class="w-8 h-8 shrink-0 rounded-full bg-[#FFFFFF] hover:bg-[#111111] text-[#111111] hover:text-white flex items-center justify-center transition">
                     <i class="hgi hgi-stroke hgi-cancel-01 w-4 h-4"></i>
                 </button>
             </div>
@@ -7752,7 +7793,7 @@
                     <h3 id="serviceModalTitle" class="text-lg sm:text-xl font-medium text-[#111111] leading-snug">Hizmet Başlığı</h3>
                     <div id="serviceModalLaw" class="text-[11px] font-mono text-[#3A3E42] font-medium">HUKUKİ DAYANAK: HMK m.199</div>
                 </div>
-                <button type="button" onclick="closeServiceModal()" class="w-8 h-8 shrink-0 rounded-full bg-[#FFFFFF] hover:bg-[#111111] text-[#111111] hover:text-black flex items-center justify-center transition">
+                <button type="button" onclick="closeServiceModal()" class="w-8 h-8 shrink-0 rounded-full bg-[#FFFFFF] hover:bg-[#111111] text-[#111111] hover:text-white flex items-center justify-center transition">
                     <i class="hgi hgi-stroke hgi-cancel-01 w-4 h-4"></i>
                 </button>
             </div>
@@ -7767,8 +7808,8 @@
                     <div id="serviceModalRegion" class="text-sm sm:text-[15px] font-medium text-[#111111] mt-0.5">81 İl &amp; Yurt Dışı</div>
                 </div>
                 <div class="col-span-2 sm:col-span-1 p-3 rounded-xl bg-black text-white">
-                    <div class="text-[10px] font-mono text-[#111111]/75 uppercase">GARANTİ PROTOKOLÜ</div>
-                    <div class="text-sm sm:text-[15px] font-medium text-[#111111] mt-0.5">%100 İspat &amp; Sözleşmeli</div>
+                    <div class="text-[10px] font-mono text-neutral-400 uppercase">GARANTİ PROTOKOLÜ</div>
+                    <div class="text-sm sm:text-[15px] font-medium text-white mt-0.5">%100 İspat &amp; Sözleşmeli</div>
                 </div>
             </div>
 
@@ -7797,7 +7838,7 @@
         <div class="relative max-w-2xl w-full bg-[#FFFFFF] rounded-[28px] p-5 sm:p-8 shadow-2xl max-h-[90vh] overflow-y-auto" onclick="event.stopPropagation()">
             <div class="flex items-center justify-between pb-4 border-b border-black/[0.08]">
                 <span id="pmSkuBadge" class="font-mono text-[10px] px-2.5 py-1 rounded-full bg-[#111111] text-white font-medium">DAT-SKU</span>
-                <button type="button" onclick="closeProductModal()" class="w-8 h-8 rounded-full bg-[#FFFFFF] hover:bg-[#111111] text-[#111111] hover:text-black flex items-center justify-center transition">
+                <button type="button" onclick="closeProductModal()" class="w-8 h-8 rounded-full bg-[#FFFFFF] hover:bg-[#111111] text-[#111111] hover:text-white flex items-center justify-center transition">
                     <i class="hgi hgi-stroke hgi-cancel-01 w-4 h-4"></i>
                 </button>
             </div>
@@ -7879,7 +7920,7 @@
                     <span id="legalModalBadge" class="inline-block font-mono text-[10px] px-2.5 py-0.5 rounded-full bg-[#111111] text-white font-medium">RESMİ MEVZUAT &amp; SATIŞ PROTOKOLÜ</span>
                     <h3 id="legalModalTitle" class="text-lg sm:text-xl font-medium text-[#111111]">Mesafeli Satış, Teslimat ve İade Koşulları</h3>
                 </div>
-                <button type="button" onclick="closeLegalModal()" class="w-8 h-8 shrink-0 rounded-full bg-[#FFFFFF] hover:bg-[#111111] text-[#111111] hover:text-black flex items-center justify-center transition">
+                <button type="button" onclick="closeLegalModal()" class="w-8 h-8 shrink-0 rounded-full bg-[#FFFFFF] hover:bg-[#111111] text-[#111111] hover:text-white flex items-center justify-center transition">
                     <i class="hgi hgi-stroke hgi-cancel-01 w-4 h-4"></i>
                 </button>
             </div>

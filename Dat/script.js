@@ -407,7 +407,7 @@ function switchHeroCase(caseKey) {
             : null;
         timelineEl.innerHTML = data.logs.map(item => `
             <div class="flex items-start gap-2.5">
-                <span dir="ltr" class="ltr-isolate font-mono text-[10px] ${item.highlight ? 'bg-[#111111] text-[#000000]' : 'bg-[#F2F2F2] text-[#111111]'} px-2 py-0.5 rounded-md font-medium mt-0.5 shrink-0" style="unicode-bidi:isolate">${item.time}</span>
+                <span dir="ltr" class="ltr-isolate font-mono text-[10px] ${item.highlight ? 'bg-[#111111] text-white' : 'bg-[#F2F2F2] text-[#111111]'} px-2 py-0.5 rounded-md font-medium mt-0.5 shrink-0" style="unicode-bidi:isolate">${item.time}</span>
                 <p class="${item.highlight ? 'text-[#111111] font-medium' : 'text-[#3A3E42] font-regular'} text-[11.5px] leading-snug">${fmtRtl ? fmtRtl(item.text) : item.text}</p>
             </div>
         `).join('');
@@ -490,7 +490,7 @@ function applySimulatedCase() {
 function filterServices(category) {
     document.querySelectorAll('.srv-filter-btn').forEach(btn => {
         if (btn.getAttribute('data-filter') === category) {
-            btn.className = "srv-filter-btn px-4 py-1.5 rounded-full bg-[#111111] text-[#000000] text-xs font-medium transition";
+            btn.className = "srv-filter-btn px-4 py-1.5 rounded-full bg-[#111111] text-white text-xs font-medium transition";
         } else {
             btn.className = "srv-filter-btn px-4 py-1.5 rounded-full text-[#3A3E42] hover:text-[#111111] text-xs font-regular transition";
         }
@@ -696,13 +696,13 @@ function _renderDeliveryStatus(delivery) {
     statusBox.classList.remove('hidden', 'bg-[#000000]/20', 'border-[#15803D]/30', 'text-[#111111]', 'bg-[#FA7E61]/20', 'border-[#FA7E61]/40');
     if (delivery && delivery.pending) {
         statusBox.classList.add('bg-[#000000]/20', 'border-[#15803D]/30', 'text-[#111111]');
-        statusBox.textContent = '⏳ Talebiniz şifrelenerek uzman inceleme ekibimize iletiliyor...';
+        statusBox.innerHTML = '<i class="hgi hgi-stroke hgi-loading-02 animate-spin w-4 h-4 inline-block align-middle mr-1.5"></i>Talebiniz şifrelenerek uzman inceleme ekibimize iletiliyor...';
     } else if (delivery && delivery.ok) {
         statusBox.classList.add('bg-[#000000]/20', 'border-[#15803D]/30', 'text-[#111111]');
-        statusBox.textContent = '✓ Vaka talebiniz ve dosya takip kodunuz uzman inceleme ekibimize başarıyla iletildi.';
+        statusBox.innerHTML = '<i class="hgi hgi-stroke hgi-checkmark-circle-01 w-4 h-4 inline-block align-middle mr-1.5 text-emerald-600"></i>Vaka talebiniz ve dosya takip kodunuz uzman inceleme ekibimize başarıyla iletildi.';
     } else {
         statusBox.classList.add('bg-[#000000]/20', 'border-[#15803D]/30', 'text-[#111111]');
-        statusBox.textContent = '✓ Başvurunuz kayıt altına alındı. Acil öncelik için aşağıdaki 7/24 WhatsApp hattımızdan hemen destek alabilirsiniz.';
+        statusBox.innerHTML = '<i class="hgi hgi-stroke hgi-checkmark-circle-01 w-4 h-4 inline-block align-middle mr-1.5 text-emerald-600"></i>Başvurunuz kayıt altına alındı. Acil öncelik için aşağıdaki 7/24 WhatsApp hattımızdan hemen destek alabilirsiniz.';
     }
 }
 
@@ -1599,12 +1599,12 @@ function resetAIChat() {
                     <p class="text-[#000000] font-medium pt-1">Aşağıdaki popüler başlıklardan birine tıklayarak anında yanıt alabilir veya sorunuzu doğrudan yazıp <strong>"Yeni Nesil Dedektif'e Sor"</strong> butonuna basabilirsiniz:</p>
                 </div>
                 <div class="flex flex-wrap gap-1.5 pt-1">
-                    <button type="button" onclick="selectAIChatPreset('cocuk-velayeti')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#000000]/15 text-white/85 hover:text-[#000000] border border-black/[0.08] hover:border-[#000000]/40 text-xs transition">⚖️ Velayet &amp; Aile Delili</button>
-                    <button type="button" onclick="selectAIChatPreset('dedektif-tutmak')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#000000]/15 text-white/85 hover:text-[#000000] border border-black/[0.08] hover:border-[#000000]/40 text-xs transition">🕵️‍♂️ Dedektif Tutmak Yasal mı?</button>
-                    <button type="button" onclick="selectAIChatPreset('dedektif-ucretleri')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#000000]/15 text-white/85 hover:text-[#000000] border border-black/[0.08] hover:border-[#000000]/40 text-xs transition">💳 Ücretler Nasıl Belirlenir?</button>
-                    <button type="button" onclick="selectAIChatPreset('delil-gecerliligi')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#000000]/15 text-white/85 hover:text-[#000000] border border-black/[0.08] hover:border-[#000000]/40 text-xs transition">⚖️ Deliller Mahkemede Geçerli mi?</button>
-                    <button type="button" onclick="selectAIChatPreset('almanya-es-takibi')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#000000]/15 text-white/85 hover:text-[#000000] border border-black/[0.08] hover:border-[#000000]/40 text-xs transition">🇩🇪 Almanya/Avrupa Eş Takibi</button>
-                    <button type="button" onclick="selectAIChatPreset('aldatan-erkek')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#000000]/15 text-white/85 hover:text-[#000000] border border-black/[0.08] hover:border-[#000000]/40 text-xs transition">💔 Eş Takibi &amp; Aldatma Tespiti</button>
+                    <button type="button" onclick="selectAIChatPreset('cocuk-velayeti')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#000000]/15 text-white/85 hover:text-[#000000] border border-black/[0.08] hover:border-[#000000]/40 text-xs transition"><i class="hgi hgi-stroke hgi-justice-scale-01 w-3.5 h-3.5 inline-block align-middle mr-1"></i>Velayet &amp; Aile Delili</button>
+                    <button type="button" onclick="selectAIChatPreset('dedektif-tutmak')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#000000]/15 text-white/85 hover:text-[#000000] border border-black/[0.08] hover:border-[#000000]/40 text-xs transition"><i class="hgi hgi-stroke hgi-user-shield-01 w-3.5 h-3.5 inline-block align-middle mr-1"></i>Dedektif Tutmak Yasal mı?</button>
+                    <button type="button" onclick="selectAIChatPreset('dedektif-ucretleri')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#000000]/15 text-white/85 hover:text-[#000000] border border-black/[0.08] hover:border-[#000000]/40 text-xs transition"><i class="hgi hgi-stroke hgi-credit-card w-3.5 h-3.5 inline-block align-middle mr-1"></i>Ücretler Nasıl Belirlenir?</button>
+                    <button type="button" onclick="selectAIChatPreset('delil-gecerliligi')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#000000]/15 text-white/85 hover:text-[#000000] border border-black/[0.08] hover:border-[#000000]/40 text-xs transition"><i class="hgi hgi-stroke hgi-file-check-02 w-3.5 h-3.5 inline-block align-middle mr-1"></i>Deliller Mahkemede Geçerli mi?</button>
+                    <button type="button" onclick="selectAIChatPreset('almanya-es-takibi')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#000000]/15 text-white/85 hover:text-[#000000] border border-black/[0.08] hover:border-[#000000]/40 text-xs transition"><i class="hgi hgi-stroke hgi-globe-02 w-3.5 h-3.5 inline-block align-middle mr-1"></i>Almanya/Avrupa Eş Takibi</button>
+                    <button type="button" onclick="selectAIChatPreset('aldatan-erkek')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#000000]/15 text-white/85 hover:text-[#000000] border border-black/[0.08] hover:border-[#000000]/40 text-xs transition"><i class="hgi hgi-stroke hgi-search-01 w-3.5 h-3.5 inline-block align-middle mr-1"></i>Eş Takibi &amp; Aldatma Tespiti</button>
                 </div>
             </div>
         </div>
@@ -2163,7 +2163,7 @@ function formatTL(num) {
 function filterShop(cat) {
     document.querySelectorAll('.shop-filter-btn').forEach(btn => {
         if (btn.getAttribute('data-shop-filter') === cat) {
-            btn.className = 'shop-filter-btn px-3.5 py-1.5 rounded-full bg-[#111111] text-[#000000] font-medium transition';
+            btn.className = 'shop-filter-btn px-3.5 py-1.5 rounded-full bg-[#111111] text-white font-medium transition';
         } else {
             btn.className = 'shop-filter-btn px-3.5 py-1.5 rounded-full text-[#3A3E42] hover:text-[#111111] font-regular transition';
         }
@@ -2258,7 +2258,7 @@ function renderCart() {
     if (shopCart.length === 0) {
         container.innerHTML = `
             <div class="h-full flex flex-col items-center justify-center text-center py-12 space-y-3 text-[#3A3E42]/70">
-                <div class="w-12 h-12 rounded-full bg-[#111111] flex items-center justify-center text-[#000000]">
+                <div class="w-12 h-12 rounded-full bg-[#111111] flex items-center justify-center text-white">
                     <i class="hgi hgi-stroke hgi-shopping-bag-02 w-5 h-5"></i>
                 </div>
                 <div class="text-xs font-medium text-[#111111]">${_getUI('cartEmptyTitle', 'Sepetiniz Şu An Boş')}</div>
