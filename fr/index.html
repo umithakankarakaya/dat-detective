@@ -2429,50 +2429,63 @@
                         </ul>
                     </div>
 
-                    <!-- Bento 3 (5 Cols - Obsidian Card + 3x3 Interactive Crosshair Key Visual from Screenshot 4 & 7) -->
-                    <div class="lg:col-span-5 bg-[#111111] text-[#FFFFFF] rounded-[28px] p-6 sm:p-8 flex flex-col justify-between space-y-5 shadow-xl">
+                    <!-- Bento 3 (5 Cols - Sektörel Başarı & Kristal Onur Ödülü) -->
+                    <div class="lg:col-span-5 bg-[#F7F7F8] text-[#000000] rounded-[28px] p-6 sm:p-8 flex flex-col justify-between space-y-5 shadow-xl">
                         <div class="flex items-center justify-between gap-2">
-                            <span class="px-3 py-1 rounded-full bg-[#FA7E61] text-[#111111] font-mono text-[10.5px] font-medium">PRIX MEILLEURS DE L'ANNÉE</span>
-                            <span class="text-[10px] font-mono text-white/55">DAT GROUP</span>
+                            <span class="px-3 py-1 rounded-full bg-[#FFFFFF] border border-black/[0.08] text-black font-mono text-[10.5px] font-medium flex items-center gap-1.5 shadow-2xs">
+                                <i class="hgi hgi-stroke hgi-award-02 w-3.5 h-3.5 text-black"></i>
+                                <span>PRIX MEILLEURS DE L'ANNÉE</span>
+                            </span>
+                            <span class="text-[10px] font-mono text-neutral-500 uppercase tracking-wider">DAT GROUP</span>
                         </div>
 
-                        <!-- 3x3 Crosshair Key Visual Micro-Widget (Matches Screenshot 4 & 7) -->
-                        <div class="py-3 flex flex-col items-center">
-                            <div class="grid grid-cols-3 gap-x-8 gap-y-5">
-                                <span class="crosshair-node"></span>
-                                <span class="crosshair-node"></span>
-                                <span class="crosshair-node is-coral-h"></span>
-                                <span class="crosshair-node"></span>
-                                <span class="crosshair-node is-coral-h"></span>
-                                <span class="crosshair-node is-coral-v"></span>
-                                <span class="crosshair-node is-lime-h"></span>
-                                <span class="crosshair-node"></span>
-                                <span class="crosshair-node"></span>
+                        <!-- Kristal Zirve Onur Ödülü Spotlight Vitrini -->
+                        <div class="p-4 rounded-2xl bg-[#FFFFFF] border border-black/[0.08] flex items-center gap-4 shadow-xs">
+                            <div onclick="openPhotoModal('../assets/photos/zirve-odul-toreni-kristal.jpg', 'Sommet de l\'Année — Remise du Prix d\'Honneur Cristal (Ümit Hakan Karakaya)')" class="group/kristal relative w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden bg-[#000000] shrink-0 cursor-pointer flex items-center justify-center border border-black/10 shadow-sm" title="Cliquer pour agrandir">
+                                <img src="../assets/photos/zirve-odul-toreni-kristal.jpg" alt="Prix d'Honneur Cristal — DAT Group" class="w-full h-full object-contain p-1 group-hover/kristal:scale-110 transition duration-300" loading="lazy" decoding="async">
+                                <span class="absolute inset-0 bg-black/30 opacity-0 group-hover/kristal:opacity-100 transition flex items-center justify-center text-white">
+                                    <i class="hgi hgi-stroke hgi-maximize-01 w-4 h-4"></i>
+                                </span>
                             </div>
-                            <span class="text-[11px] text-white/55 mt-3">Réseau de renseignement &amp; recoupement</span>
+                            <div class="space-y-1.5 flex-1 min-w-0">
+                                <div class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-black text-white text-[9.5px] font-mono font-medium">
+                                    <i class="hgi hgi-stroke hgi-award-01 w-3 h-3 text-white"></i>
+                                    <span>PRIX D'HONNEUR CRISTAL</span>
+                                </div>
+                                <div class="text-[14.5px] sm:text-[15.5px] font-semibold text-black tracking-tight leading-snug">
+                                    Agence d'Investigation de l'Année
+                                </div>
+                                <div class="text-[11px] text-neutral-600 truncate">
+                                    Certifié par Ekonomize &amp; Ankara Sesi
+                                </div>
+                            </div>
                         </div>
 
                         <div class="space-y-2">
-                            <h3 class="apple-subhead text-lg sm:text-xl font-medium text-[#FFFFFF]">
+                            <h3 class="apple-subhead text-lg sm:text-xl font-medium text-[#000000]">
                                 Prix « Agence d'Investigation de l'Année » : DAT Group
                             </h3>
-                            <p data-i18n-html="bento3_p" class="text-[13.5px] text-white/75 font-regular leading-relaxed">Lors des prix <em>Meilleurs de l'Année</em> organisés par Ekonomize Magazine et Ankara Sesi, le trophée d'<strong>« Agence d'Investigation et de Filature de l'Année »</strong> a été décerné à <strong>DAT Group</strong> et à notre fondateur <strong>Ümit Hakan Karakaya</strong>, fort de plus de <strong>4 000 dossiers résolus</strong>.</p>
+                            <p data-i18n-html="bento3_p" class="text-[13.5px] text-neutral-800 font-regular leading-relaxed">
+                                Lors des prix <em>Meilleurs de l'Année</em> organisés par Ekonomize Magazine et Ankara Sesi, le trophée d'<strong>« Agence d'Investigation et de Filature de l'Année »</strong> a été décerné à <strong>DAT Group</strong> et à notre fondateur <strong>Ümit Hakan Karakaya</strong>, fort de plus de <strong>4 000 dossiers résolus</strong>.
+                            </p>
                         </div>
 
                         <div class="grid grid-cols-2 gap-3">
-                            <div onclick="openPhotoModal(&#x27;assets/photos/yilin-enleri-odul-1.jpg&#x27;, &#x27;Yılın En&#x27;leri Ödül Töreni — DAT Group &amp; Ümit Hakan Karakaya&#x27;)" class="group relative h-32 rounded-2xl overflow-hidden border border-white/15 cursor-pointer">
-                                <img src="../assets/photos/yilin-enleri-odul-1.jpg" alt="Yılın En&#x27;leri Ödül Töreni Ümit Hakan Karakaya" class="w-full h-full object-contain p-1 object-top group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
-                                <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-transparent to-transparent flex items-end p-2.5">
-                                    <span class="text-[10px] font-mono text-[#FFFFFF] font-medium">REMISE DU TROPHÉE</span>
-                                </div>
+                            <div onclick="openPhotoModal('../assets/photos/yilin-enleri-odul-1.jpg', 'Yılın En\'leri Ödül Töreni — DAT Group & Ümit Hakan Karakaya')" class="group relative aspect-[4/3] rounded-2xl overflow-hidden border border-black/[0.08] cursor-pointer bg-[#000000] flex items-center justify-center">
+                                <img src="../assets/photos/yilin-enleri-odul-1.jpg" alt="Yılın En'leri Ödül Töreni Ümit Hakan Karakaya" class="w-full h-full object-contain p-1 group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+                                <span class="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-black/85 backdrop-blur-md font-mono text-[10px] font-semibold tracking-wider border border-white/20 z-10" style="color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important;">REMISE DU TROPHÉE</span>
                             </div>
-                            <div onclick="openPhotoModal(&#x27;assets/photos/kanal24-odul-haber.jpg&#x27;, &#x27;Kanal 24 Ana Haber — Yılın En&#x27;leri Ödül Töreni (DAT Group &amp; Ümit Hakan Karakaya)&#x27;)" class="group relative h-32 rounded-2xl overflow-hidden border border-white/15 cursor-pointer">
-                                <img src="../assets/photos/kanal24-odul-haber.jpg" alt="Kanal 24 Yılın En&#x27;leri Ödül Haberi" class="w-full h-full object-contain p-1 group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
-                                <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-transparent to-transparent flex items-end p-2.5">
-                                    <span class="text-[10px] font-mono text-[#FFFFFF] font-medium">REPORTAGE KANAL 24 TV</span>
-                                </div>
+                            <div onclick="openPhotoModal('../assets/photos/kanal24-odul-haber.jpg', 'Kanal 24 Ana Haber — Yılın En\'leri Ödül Töreni (DAT Group & Ümit Hakan Karakaya)')" class="group relative aspect-[4/3] rounded-2xl overflow-hidden border border-black/[0.08] cursor-pointer bg-[#000000] flex items-center justify-center">
+                                <img src="../assets/photos/kanal24-odul-haber.jpg" alt="Kanal 24 Yılın En'leri Ödül Haberi" class="w-full h-full object-contain p-1 group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+                                <span class="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-black/85 backdrop-blur-md font-mono text-[10px] font-semibold tracking-wider border border-white/20 z-10" style="color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important;">REPORTAGE KANAL 24 TV</span>
                             </div>
                         </div>
+
+                        <ul class="p-3.5 sm:p-4 rounded-2xl bg-[#FFFFFF] border border-black/[0.08] space-y-1.5 text-xs text-neutral-900 font-regular">
+                            <li class="flex items-center gap-2"><i class="hgi hgi-stroke hgi-tick-02 w-3.5 h-3.5 text-black"></i> Remise officielle de prix devant la presse nationale</li>
+                            <li class="flex items-center gap-2"><i class="hgi hgi-stroke hgi-tick-02 w-3.5 h-3.5 text-black"></i> Plus de 4 000 dossiers d'enquête résolus avec succès</li>
+                            <li class="flex items-center gap-2"><i class="hgi hgi-stroke hgi-tick-02 w-3.5 h-3.5 text-black"></i> Représentation en direct du secteur à la télévision (Kanal 24)</li>
+                        </ul>
                     </div>
 
                     <!-- Bento 4 (7 Cols - Pure White Sheet + Segmented Equalizer Chart from Screenshots 4 & 6) -->
