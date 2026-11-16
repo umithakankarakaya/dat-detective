@@ -812,8 +812,32 @@
         }
 
         html[data-theme="dark"] .text-\[\#111111\] {
-            color: #000000 !important;
+            color: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
         }
+
+        /* Invert neutral text in dark mode for Bento & Cards */
+        html[data-theme="dark"] :where(
+            .text-neutral-900,
+            .text-neutral-800,
+            .text-neutral-700
+        ) {
+            color: #E4E4E7 !important;
+            -webkit-text-fill-color: #E4E4E7 !important;
+        }
+        html[data-theme="dark"] :where(
+            .text-neutral-900 strong,
+            .text-neutral-800 strong,
+            .text-neutral-700 strong
+        ) {
+            color: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
+        }
+        html[data-theme="dark"] .bg-\[\#F7F7F8\] {
+            background-color: #18181A !important;
+            border-color: rgba(255, 255, 255, 0.12) !important;
+        }
+
 
         html[data-theme="dark"] .border-black\/5,
         html[data-theme="dark"] .border-black\/10,
@@ -980,7 +1004,7 @@
         html[data-theme="dark"] button.bg-\[\#111111\].text-\[\#FFFFFF\]:not(.theme-keep-dark),
         html[data-theme="dark"] a.bg-\[\#111111\].text-\[\#FFFFFF\]:not(.theme-keep-dark),
         html[data-theme="dark"] button[type="submit"].bg-\[\#111111\]:not(.theme-keep-dark) {
-            background-color: #000000 !important;
+            background-color: #FFFFFF !important;
             color: #111111 !important;
             border-color: transparent !important;
         }
@@ -988,6 +1012,7 @@
         html[data-theme="dark"] a.bg-\[\#111111\].text-\[\#FFFFFF\]:not(.theme-keep-dark) *,
         html[data-theme="dark"] button[type="submit"].bg-\[\#111111\]:not(.theme-keep-dark) * {
             color: #111111 !important;
+            -webkit-text-fill-color: #111111 !important;
         }
         html[data-theme="dark"] .bg-\[\#F2F2F2\]:hover,
         html[data-theme="dark"] button.bg-\[\#F2F2F2\]:hover,
@@ -996,12 +1021,13 @@
         }
         html[data-theme="dark"] a.hover\:bg-\[\#111111\]:hover,
         html[data-theme="dark"] button.hover\:bg-\[\#111111\]:hover {
-            background-color: #000000 !important;
+            background-color: #FFFFFF !important;
             color: #111111 !important;
         }
         html[data-theme="dark"] a.hover\:bg-\[\#111111\]:hover *,
         html[data-theme="dark"] button.hover\:bg-\[\#111111\]:hover * {
             color: #111111 !important;
+            -webkit-text-fill-color: #111111 !important;
         }
 
         /* =========================================================
@@ -3782,7 +3808,7 @@
         </section>
 
         <!-- 6. 4 ADIMDA DEDEKTİFLİK İŞLEMİ TAMAM (#vaka-sureci - Gallery Light #F2F2F2 + 4 Folder-Tab Steps) -->
-        <section id="vaka-sureci" class="py-12 sm:py-16 bg-[#FFFFFF] border-t border-black/[0.06]">
+        <section id="vaka-sureci" class="py-12 sm:py-16 bg-[#FFFFFF] border-t border-black/[0.06] dark:bg-[#111111] dark:border-white/10">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 <div class="text-center max-w-3xl mx-auto space-y-2.5 mb-7 sm:mb-9">
@@ -3790,23 +3816,23 @@
                         <i class="hgi hgi-stroke hgi-route-01 w-3.5 h-3.5"></i>
                         <span>NOTRE PROTOCOLE OPÉRATIONNEL</span>
                     </div>
-                    <h2 class="apple-heading text-3xl sm:text-4xl font-medium text-[#111111]">
+                    <h2 class="apple-heading text-3xl sm:text-4xl font-medium text-[#111111] dark:text-white">
                         Votre enquête bouclée en 4 étapes !
                     </h2>
                 </div>
 
                 <div class="grid md:grid-cols-4 gap-5">
                     <!-- Step 01 -->
-                    <div class="bg-[#FFFFFF] rounded-[24px] border border-black/[0.08] p-6 flex flex-col justify-between space-y-4 hover:border-black/40 transition studio-shadow">
+                    <div class="bg-[#FFFFFF] dark:bg-[#18181A] rounded-[24px] border border-black/[0.08] dark:border-white/10 p-6 flex flex-col justify-between space-y-4 hover:border-black/40 dark:hover:border-white/30 transition studio-shadow">
                         <div class="flex items-center justify-between">
-                            <span class="inline-flex items-center px-3 py-1 rounded-full bg-[#F7F7F8] border border-black/[0.06] font-mono text-[11px] font-semibold text-neutral-800">01 • CONTACT</span>
-                            <div class="w-8 h-8 rounded-xl bg-[#F7F7F8] text-black flex items-center justify-center">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full bg-[#F7F7F8] dark:bg-white/10 border border-black/[0.06] dark:border-white/15 font-mono text-[11px] font-semibold text-neutral-800 dark:text-white">01 • CONTACT</span>
+                            <div class="w-8 h-8 rounded-xl bg-[#F7F7F8] dark:bg-white/10 text-black dark:text-white flex items-center justify-center">
                                 <i class="hgi hgi-stroke hgi-call-02 w-4 h-4"></i>
                             </div>
                         </div>
                         <div class="space-y-2 flex-1">
-                            <h4 class="text-base font-semibold text-[#111111]">Contactez-nous</h4>
-                            <p class="text-[13px] font-regular text-[#3A3E42] leading-relaxed">
+                            <h4 class="text-base font-semibold text-[#111111] dark:text-white">Contactez-nous</h4>
+                            <p class="text-[13px] font-regular text-[#3A3E42] dark:text-neutral-300 leading-relaxed">
                                 Ne restez pas dans le doute : échangez avec nos spécialistes au <strong>+90 312 284 02 99</strong> ou sur WhatsApp au <strong>+90 532 666 77 49</strong>.
                             </p>
                         </div>
@@ -3817,16 +3843,16 @@
                     </div>
 
                     <!-- Step 02 -->
-                    <div class="bg-[#FFFFFF] rounded-[24px] border border-black/[0.08] p-6 flex flex-col justify-between space-y-4 hover:border-black/40 transition studio-shadow">
+                    <div class="bg-[#FFFFFF] dark:bg-[#18181A] rounded-[24px] border border-black/[0.08] dark:border-white/10 p-6 flex flex-col justify-between space-y-4 hover:border-black/40 dark:hover:border-white/30 transition studio-shadow">
                         <div class="flex items-center justify-between">
-                            <span class="inline-flex items-center px-3 py-1 rounded-full bg-[#F7F7F8] border border-black/[0.06] font-mono text-[11px] font-semibold text-neutral-800">02 • ÉVALUATION</span>
-                            <div class="w-8 h-8 rounded-xl bg-[#F7F7F8] text-black flex items-center justify-center">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full bg-[#F7F7F8] dark:bg-white/10 border border-black/[0.06] dark:border-white/15 font-mono text-[11px] font-semibold text-neutral-800 dark:text-white">02 • ÉVALUATION</span>
+                            <div class="w-8 h-8 rounded-xl bg-[#F7F7F8] dark:bg-white/10 text-black dark:text-white flex items-center justify-center">
                                 <i class="hgi hgi-stroke hgi-file-02 w-4 h-4"></i>
                             </div>
                         </div>
                         <div class="space-y-2 flex-1">
-                            <h4 class="text-base font-semibold text-[#111111]">Évaluation Préalable & Accord</h4>
-                            <p class="text-[13px] font-regular text-[#3A3E42] leading-relaxed">
+                            <h4 class="text-base font-semibold text-[#111111] dark:text-white">Évaluation Préalable & Accord</h4>
+                            <p class="text-[13px] font-regular text-[#3A3E42] dark:text-neutral-300 leading-relaxed">
                                 Partagez les éléments de votre dossier sous le sceau de la confidentialité pour définir la stratégie d'action.
                             </p>
                         </div>
@@ -3837,16 +3863,16 @@
                     </div>
 
                     <!-- Step 03 -->
-                    <div class="bg-[#FFFFFF] rounded-[24px] border border-black/[0.08] p-6 flex flex-col justify-between space-y-4 hover:border-black/40 transition studio-shadow">
+                    <div class="bg-[#FFFFFF] dark:bg-[#18181A] rounded-[24px] border border-black/[0.08] dark:border-white/10 p-6 flex flex-col justify-between space-y-4 hover:border-black/40 dark:hover:border-white/30 transition studio-shadow">
                         <div class="flex items-center justify-between">
-                            <span class="inline-flex items-center px-3 py-1 rounded-full bg-[#F7F7F8] border border-black/[0.06] font-mono text-[11px] font-semibold text-neutral-800">03 • ENQUÊTE</span>
-                            <div class="w-8 h-8 rounded-xl bg-[#F7F7F8] text-black flex items-center justify-center">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full bg-[#F7F7F8] dark:bg-white/10 border border-black/[0.06] dark:border-white/15 font-mono text-[11px] font-semibold text-neutral-800 dark:text-white">03 • ENQUÊTE</span>
+                            <div class="w-8 h-8 rounded-xl bg-[#F7F7F8] dark:bg-white/10 text-black dark:text-white flex items-center justify-center">
                                 <i class="hgi hgi-stroke hgi-search-01 w-4 h-4"></i>
                             </div>
                         </div>
                         <div class="space-y-2 flex-1">
-                            <h4 class="text-base font-semibold text-[#111111]">Recherche de Terrain & Preuves</h4>
-                            <p class="text-[13px] font-regular text-[#3A3E42] leading-relaxed">
+                            <h4 class="text-base font-semibold text-[#111111] dark:text-white">Recherche de Terrain & Preuves</h4>
+                            <p class="text-[13px] font-regular text-[#3A3E42] dark:text-neutral-300 leading-relaxed">
                                 Nos détectives certifiés collectent des preuves légales et exploitables en justice dans le strict respect de la loi.
                             </p>
                         </div>
@@ -3857,16 +3883,16 @@
                     </div>
 
                     <!-- Step 04 -->
-                    <div class="bg-[#FFFFFF] rounded-[24px] border border-black/[0.08] p-6 flex flex-col justify-between space-y-4 hover:border-black/40 transition studio-shadow">
+                    <div class="bg-[#FFFFFF] dark:bg-[#18181A] rounded-[24px] border border-black/[0.08] dark:border-white/10 p-6 flex flex-col justify-between space-y-4 hover:border-black/40 dark:hover:border-white/30 transition studio-shadow">
                         <div class="flex items-center justify-between">
-                            <span class="inline-flex items-center px-3 py-1 rounded-full bg-[#F7F7F8] border border-black/[0.06] font-mono text-[11px] font-semibold text-neutral-800">04 • SATISFACTION</span>
-                            <div class="w-8 h-8 rounded-xl bg-[#F7F7F8] text-black flex items-center justify-center">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full bg-[#F7F7F8] dark:bg-white/10 border border-black/[0.06] dark:border-white/15 font-mono text-[11px] font-semibold text-neutral-800 dark:text-white">04 • SATISFACTION</span>
+                            <div class="w-8 h-8 rounded-xl bg-[#F7F7F8] dark:bg-white/10 text-black dark:text-white flex items-center justify-center">
                                 <i class="hgi hgi-stroke hgi-security-check w-4 h-4"></i>
                             </div>
                         </div>
                         <div class="space-y-2 flex-1">
-                            <h4 class="text-base font-semibold text-[#111111]">Résultat Prouvé & Satisfaction</h4>
-                            <p class="text-[13px] font-regular text-[#3A3E42] leading-relaxed">
+                            <h4 class="text-base font-semibold text-[#111111] dark:text-white">Résultat Prouvé & Satisfaction</h4>
+                            <p class="text-[13px] font-regular text-[#3A3E42] dark:text-neutral-300 leading-relaxed">
                                 Recevez votre dossier officiel de preuves certifiées à l'issue d'une mission menée avec rigueur et discrétion.
                             </p>
                         </div>
@@ -5120,7 +5146,7 @@
                             </div>
 
                             <button type="submit" id="submitBtn" class="w-full py-4 bg-[#111111] hover:bg-[#000000] text-[#FFFFFF] hover:text-white rounded-full font-medium text-[13px] sm:text-sm tracking-tight transition flex items-center justify-center gap-2 active:scale-[0.99]">
-                                <i class="hgi hgi-stroke hgi-square-lock-02 w-4 h-4"></i>
+                                <i class="hgi hgi-stroke hgi-square-lock-02 w-4 h-4" style="color: #FFFFFF !important;"></i>
                                 <span>Envoyer la demande chiffrée</span>
                             </button>
                         </form>
@@ -5682,7 +5708,7 @@
                     <span>WhatsApp : +90 532 666 77 49</span>
                 </a>
                 <button type="button" onclick="applySelectedService()" class="w-full sm:w-auto px-6 py-3 rounded-full bg-[#111111] hover:bg-[#000000] text-[#FFFFFF] hover:text-white text-xs font-medium transition inline-flex items-center justify-center gap-1.5">
-                    <i class="hgi hgi-stroke hgi-square-lock-02 w-4 h-4"></i>
+                    <i class="hgi hgi-stroke hgi-square-lock-02 w-4 h-4" style="color: #FFFFFF !important;"></i>
                     <span>Demander un devis pour ce service</span>
                 </button>
             </div>

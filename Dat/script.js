@@ -738,8 +738,8 @@ async function handleFormSubmit(e) {
 
     submitBtn.disabled = true;
     submitBtn.innerHTML = `
-        <span class="inline-block animate-spin mr-2">⟳</span>
-        ${_getUI('encryptingBtn', 'Şifreleniyor & E-Posta İletiliyor...')}
+        <span class="inline-block animate-spin mr-2" style="color: #FFFFFF !important;">⟳</span>
+        <span style="color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important;">${_getUI('encryptingBtn', 'Şifreleniyor & E-Posta İletiliyor...')}</span>
     `;
 
     const isEmailContact = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(clientContact);
