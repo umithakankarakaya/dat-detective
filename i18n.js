@@ -152,16 +152,16 @@
             var active = optLang === lang;
             if (btn.closest('#mobileLangBar')) {
                 if (active) {
-                    btn.className = 'lang-opt-btn py-1.5 rounded-lg bg-[#93F051] text-[#111111] font-mono text-[11px] font-medium text-center transition';
+                    btn.className = 'lang-opt-btn py-1.5 rounded-lg bg-black text-white font-mono text-[11px] font-medium text-center transition';
                 } else {
                     btn.className = 'lang-opt-btn py-1.5 rounded-lg bg-[#222224] text-white/75 font-mono text-[11px] text-center transition';
                 }
             } else {
                 if (active) {
-                    btn.classList.add('bg-[#111111]', 'text-[#93F051]', 'font-medium');
+                    btn.classList.add('bg-black', 'text-white', 'font-medium');
                     btn.classList.remove('text-white/75', 'text-[#3A3E42]', 'text-[#000000]', 'hover:bg-white/10', 'hover:bg-[#F3F4F4]');
                 } else {
-                    btn.classList.remove('bg-[#111111]', 'text-[#93F051]', 'bg-[#FFF7ED]', 'text-[#F48120]', 'font-medium', 'text-[#000000]');
+                    btn.classList.remove('bg-black', 'bg-[#111111]', 'bg-[#FFF7ED]', 'text-[#F48120]', 'font-medium', 'text-[#000000]');
                     btn.classList.add('text-white/75', 'hover:bg-white/10');
                 }
             }

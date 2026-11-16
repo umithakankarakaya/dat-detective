@@ -469,17 +469,22 @@ function selectSimulatorCase(caseKey) {
 
     document.querySelectorAll('.sim-btn').forEach(btn => {
         if (btn.getAttribute('data-sim') === currentSimTabKey) {
-            btn.className = "sim-btn w-full text-left px-4 py-3.5 rounded-2xl bg-[#FA7E61] text-[#111111] font-medium text-xs sm:text-sm flex items-center justify-between transition";
+            btn.className = "sim-btn w-full text-left px-4 py-3.5 rounded-2xl bg-black text-white font-medium text-xs sm:text-sm flex items-center justify-between transition";
         } else {
-            btn.className = "sim-btn w-full text-left px-4 py-3.5 rounded-2xl bg-[#1D1D1F] hover:bg-[#2A2A2D] text-[#FFFFFF] border border-black/[0.08] font-regular text-xs sm:text-sm flex items-center justify-between transition";
+            btn.className = "sim-btn w-full text-left px-4 py-3.5 rounded-2xl bg-[#1D1D1F] hover:bg-[#2A2A2D] text-white border border-white/10 font-regular text-xs sm:text-sm flex items-center justify-between transition";
         }
     });
 
-    document.getElementById('simTitle').textContent = data.title;
-    document.getElementById('simDuration').textContent = data.duration;
-    document.getElementById('simDesc').textContent = data.desc;
-    document.getElementById('simDeliverables').textContent = data.deliverables;
-    document.getElementById('simLegal').textContent = data.legal;
+    const simTitle = document.getElementById('simTitle');
+    if (simTitle) simTitle.textContent = data.title;
+    const simDuration = document.getElementById('simDuration');
+    if (simDuration) simDuration.textContent = data.duration;
+    const simDesc = document.getElementById('simDesc');
+    if (simDesc) simDesc.textContent = data.desc;
+    const simDeliverables = document.getElementById('simDeliverables');
+    if (simDeliverables) simDeliverables.textContent = data.deliverables;
+    const simLegal = document.getElementById('simLegal');
+    if (simLegal) simLegal.textContent = data.legal;
 }
 
 function applySimulatedCase() {
@@ -693,7 +698,7 @@ let _lastCaseSubmitAt = 0;
 function _renderDeliveryStatus(delivery) {
     const statusBox = document.getElementById('formDeliveryStatus');
     if (!statusBox) return;
-    statusBox.classList.remove('hidden', 'bg-[#000000]/20', 'border-[#15803D]/30', 'text-[#111111]', 'bg-[#FA7E61]/20', 'border-[#FA7E61]/40');
+    statusBox.classList.remove('hidden', 'bg-black/5', 'border-black/10', 'text-neutral-900', 'dark:bg-white/10', 'dark:border-white/20', 'dark:text-white');
     if (delivery && delivery.pending) {
         statusBox.classList.add('bg-[#000000]/20', 'border-[#15803D]/30', 'text-[#111111]');
         statusBox.innerHTML = '<i class="hgi hgi-stroke hgi-loading-02 animate-spin w-4 h-4 inline-block align-middle mr-1.5"></i>Talebiniz şifrelenerek uzman inceleme ekibimize iletiliyor...';
