@@ -1357,142 +1357,79 @@
         }
 
         /* ==================================================== */
+        
+        /* Elsa Chat Studio Strict White Contrast in Dark Bubble */
+        #aiChatMessages,
+        #aiChatMessages .theme-keep-dark,
+        #aiChatMessages .theme-keep-dark *,
+        #aiChatMessages .bg-\[\#111111\],
+        #aiChatMessages .bg-\[\#111111\] p,
+        #aiChatMessages .bg-\[\#111111\] span,
+        #aiChatMessages .bg-\[\#111111\] strong,
+        #aiChatMessages .bg-\[\#111111\] button {
+            color: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
+        }
+        #aiChatMessages .bg-\[\#111111\] button {
+            background-color: rgba(255, 255, 255, 0.15) !important;
+            border-color: rgba(255, 255, 255, 0.20) !important;
+        }
+        #aiChatMessages .bg-\[\#111111\] button:hover {
+            background-color: rgba(255, 255, 255, 0.25) !important;
+        }
+
         /* BULLETPROOF CARD & TYPOGRAPHY ISOLATION GUARD (DUAL-MODE APPLE SPEC) */
         /* Any card on a white or light gray surface MUST have crisp black text IN LIGHT MODE ONLY */
-        html:not([data-theme="dark"]) .bg-\[\#FFFFFF\],
-        html:not([data-theme="dark"]) .bg-\[\#FFFFFF\] h1,
-        html:not([data-theme="dark"]) .bg-\[\#FFFFFF\] h2,
-        html:not([data-theme="dark"]) .bg-\[\#FFFFFF\] h3,
-        html:not([data-theme="dark"]) .bg-\[\#FFFFFF\] h4,
-        html:not([data-theme="dark"]) .bg-\[\#FFFFFF\] h5,
-        html:not([data-theme="dark"]) .bg-\[\#FFFFFF\] h6,
-        html:not([data-theme="dark"]) .bg-\[\#FFFFFF\] p,
-        html:not([data-theme="dark"]) .bg-\[\#FFFFFF\] li,
-        html:not([data-theme="dark"]) .bg-white,
-        html:not([data-theme="dark"]) .bg-white h1,
-        html:not([data-theme="dark"]) .bg-white h2,
-        html:not([data-theme="dark"]) .bg-white h3,
-        html:not([data-theme="dark"]) .bg-white h4,
-        html:not([data-theme="dark"]) .bg-white h5,
-        html:not([data-theme="dark"]) .bg-white h6,
-        html:not([data-theme="dark"]) .bg-white p,
-        html:not([data-theme="dark"]) .bg-white li,
-        html:not([data-theme="dark"]) .bg-\[\#F7F7F8\],
-        html:not([data-theme="dark"]) .bg-\[\#F7F7F8\] h1,
-        html:not([data-theme="dark"]) .bg-\[\#F7F7F8\] h2,
-        html:not([data-theme="dark"]) .bg-\[\#F7F7F8\] h3,
-        html:not([data-theme="dark"]) .bg-\[\#F7F7F8\] h4,
-        html:not([data-theme="dark"]) .bg-\[\#F7F7F8\] h5,
-        html:not([data-theme="dark"]) .bg-\[\#F7F7F8\] h6,
-        html:not([data-theme="dark"]) .bg-\[\#F7F7F8\] p,
-        html:not([data-theme="dark"]) .bg-\[\#F7F7F8\] li,
-        html:not([data-theme="dark"]) .bg-\[\#FAFAFA\],
-        html:not([data-theme="dark"]) .bg-\[\#FAFAFA\] h1,
-        html:not([data-theme="dark"]) .bg-\[\#FAFAFA\] h2,
-        html:not([data-theme="dark"]) .bg-\[\#FAFAFA\] h3,
-        html:not([data-theme="dark"]) .bg-\[\#FAFAFA\] h4,
-        html:not([data-theme="dark"]) .bg-\[\#FAFAFA\] p,
-        html:not([data-theme="dark"]) .bg-\[\#FAFAFA\] li,
-        html:not([data-theme="dark"]) .bg-\[\#F2F2F2\],
-        html:not([data-theme="dark"]) .bg-\[\#F2F2F2\] h1,
-        html:not([data-theme="dark"]) .bg-\[\#F2F2F2\] h2,
-        html:not([data-theme="dark"]) .bg-\[\#F2F2F2\] h3,
-        html:not([data-theme="dark"]) .bg-\[\#F2F2F2\] h4,
-        html:not([data-theme="dark"]) .bg-\[\#F2F2F2\] p,
-        html:not([data-theme="dark"]) .bg-\[\#F2F2F2\] li {
+        html:not([data-theme="dark"]) :where(.bg-\[\#FFFFFF\], .bg-white, .bg-\[\#F7F7F8\], .bg-\[\#FAFAFA\], .bg-\[\#F2F2F2\]) {
+            color: #111111 !important;
+        }
+
+        html:not([data-theme="dark"]) :where(.bg-\[\#FFFFFF\], .bg-white, .bg-\[\#F7F7F8\], .bg-\[\#FAFAFA\], .bg-\[\#F2F2F2\]) :where(h1, h2, h3, h4, h5, h6, p, li, div, span):not([class*="bg-black"]):not([class*="bg-\[\#000000\]"]):not([class*="bg-\[\#111111\]"]):not([class*="bg-\[\#161618\]"]):not([class*="bg-\[\#18181A\]"]):not([class*="bg-\[\#242426\]"]):not([class*="bg-\[\#262626\]"]):not([class*="bg-\[\#1D1D1F\]"]):not(.text-white):not([class*="text-white"]):not(.badge-dark):not(.pill-dark) {
             color: #111111 !important;
             -webkit-text-fill-color: #111111 !important;
         }
 
-        /* Span texts inside light cards in light mode */
-        html:not([data-theme="dark"]) .bg-\[\#FFFFFF\] span:not(.text-white):not([class*="bg-black"]):not([class*="bg-[#000000]"]):not([class*="bg-[#111111]"]),
-        html:not([data-theme="dark"]) .bg-white span:not(.text-white):not([class*="bg-black"]):not([class*="bg-[#000000]"]):not([class*="bg-[#111111]"]),
-        html:not([data-theme="dark"]) .bg-\[\#F7F7F8\] span:not(.text-white):not([class*="bg-black"]):not([class*="bg-[#000000]"]):not([class*="bg-[#111111]"]) {
-            color: #111111 !important;
-            -webkit-text-fill-color: #111111 !important;
+        html:not([data-theme="dark"]) :where(.bg-\[\#FFFFFF\], .bg-white, .bg-\[\#F7F7F8\], .bg-\[\#FAFAFA\], .bg-\[\#F2F2F2\]) .text-\[\#3A3E42\],
+        html:not([data-theme="dark"]) .text-\[\#3A3E42\] {
+            color: #3A3E42 !important;
+            -webkit-text-fill-color: #3A3E42 !important;
         }
 
         /* Hugeicons and svg strokes inside light containers must be dark in light mode */
-        html:not([data-theme="dark"]) .bg-\[\#F7F7F8\] i:not(.text-white),
-        html:not([data-theme="dark"]) .bg-\[\#F7F7F8\] .hgi:not(.text-white),
-        html:not([data-theme="dark"]) .bg-\[\#FFFFFF\] i:not(.text-white),
-        html:not([data-theme="dark"]) .bg-\[\#FFFFFF\] .hgi:not(.text-white),
-        html:not([data-theme="dark"]) .bg-white i:not(.text-white),
-        html:not([data-theme="dark"]) .bg-white .hgi:not(.text-white) {
+        html:not([data-theme="dark"]) :where(.bg-\[\#F7F7F8\], .bg-\[\#F2F2F2\], .bg-\[\#FFFFFF\], .bg-white) i:not(.text-white):not([class*="text-white"]),
+        html:not([data-theme="dark"]) :where(.bg-\[\#F7F7F8\], .bg-\[\#F2F2F2\], .bg-\[\#FFFFFF\], .bg-white) .hgi:not(.text-white):not([class*="text-white"]) {
             color: #111111 !important;
             stroke: #111111 !important;
         }
 
         /* Explicit Dark buttons, badges & overlays inside light containers MUST have white text */
-        .bg-\[\#FFFFFF\] .bg-black, .bg-\[\#FFFFFF\] .bg-black *,
-        .bg-\[\#FFFFFF\] button.bg-black, .bg-\[\#FFFFFF\] button.bg-black *,
-        .bg-\[\#FFFFFF\] a.bg-black, .bg-\[\#FFFFFF\] a.bg-black *,
-        .bg-\[\#FFFFFF\] [class*="bg-black/"], .bg-\[\#FFFFFF\] [class*="bg-black/"] *,
-        .bg-\[\#FFFFFF\] .bg-\[\#000000\], .bg-\[\#FFFFFF\] .bg-\[\#000000\] *,
-        .bg-\[\#FFFFFF\] .bg-\[\#111111\], .bg-\[\#FFFFFF\] .bg-\[\#111111\] *,
-        .bg-\[\#F7F7F8\] .bg-black, .bg-\[\#F7F7F8\] .bg-black *,
-        .bg-\[\#F7F7F8\] button.bg-black, .bg-\[\#F7F7F8\] button.bg-black *,
-        .bg-\[\#F7F7F8\] a.bg-black, .bg-\[\#F7F7F8\] a.bg-black *,
-        .bg-\[\#F7F7F8\] [class*="bg-black/"], .bg-\[\#F7F7F8\] [class*="bg-black/"] *,
-        .bg-\[\#F7F7F8\] .bg-\[\#000000\], .bg-\[\#F7F7F8\] .bg-\[\#000000\] *,
-        .bg-\[\#F7F7F8\] .bg-\[\#111111\], .bg-\[\#F7F7F8\] .bg-\[\#111111\] * {
+        html:not([data-theme="dark"]) :where(.bg-black, [class*="bg-black"], .bg-\[\#000000\], .bg-\[\#111111\], .bg-\[\#161618\], .bg-\[\#18181A\], .bg-\[\#242426\], .bg-\[\#262626\], .bg-\[\#1D1D1F\]) :where(span, div, p, i, .hgi, b, strong) {
             color: #FFFFFF !important;
             -webkit-text-fill-color: #FFFFFF !important;
-        }
-
-        .bg-\[\#FFFFFF\] .bg-black i, .bg-\[\#FFFFFF\] .bg-black .hgi,
-        .bg-\[\#F7F7F8\] .bg-black i, .bg-\[\#F7F7F8\] .bg-black .hgi,
-        .bg-\[\#FFFFFF\] [class*="bg-black/"] i, .bg-\[\#FFFFFF\] [class*="bg-black/"] .hgi,
-        .bg-\[\#F7F7F8\] [class*="bg-black/"] i, .bg-\[\#F7F7F8\] [class*="bg-black/"] .hgi {
-            color: #FFFFFF !important;
             stroke: #FFFFFF !important;
         }
 
         /* In Dark Mode, explicit light typography for all cards */
-        html[data-theme="dark"] .bg-\[\#FFFFFF\] p,
-        html[data-theme="dark"] .bg-\[\#FFFFFF\] li,
-        html[data-theme="dark"] .bg-\[\#F7F7F8\] p,
-        html[data-theme="dark"] .bg-\[\#F7F7F8\] li,
-        html[data-theme="dark"] .bg-white p,
-        html[data-theme="dark"] .bg-white li,
-        html[data-theme="dark"] .text-\[\#3A3E42\] {
+        html[data-theme="dark"] :where(.bg-\[\#FFFFFF\], .bg-white, .bg-\[\#F7F7F8\], .bg-\[\#FAFAFA\], .bg-\[\#F2F2F2\]):not(.iphone-keep-white) {
+            background-color: #18181A !important;
+            border-color: rgba(255, 255, 255, 0.12) !important;
+        }
+
+        html[data-theme="dark"] :where(.bg-\[\#FFFFFF\], .bg-white, .bg-\[\#F7F7F8\], .bg-\[\#FAFAFA\], .bg-\[\#F2F2F2\]):not(.iphone-keep-white) :where(p, li, div, span):not([class*="bg-white"]):not(.text-black) {
             color: #D4D4D8 !important;
             -webkit-text-fill-color: #D4D4D8 !important;
         }
 
-        html[data-theme="dark"] .bg-\[\#FFFFFF\] h1,
-        html[data-theme="dark"] .bg-\[\#FFFFFF\] h2,
-        html[data-theme="dark"] .bg-\[\#FFFFFF\] h3,
-        html[data-theme="dark"] .bg-\[\#FFFFFF\] h4,
-        html[data-theme="dark"] .bg-\[\#FFFFFF\] h5,
-        html[data-theme="dark"] .bg-\[\#FFFFFF\] h6,
-        html[data-theme="dark"] .bg-\[\#F7F7F8\] h1,
-        html[data-theme="dark"] .bg-\[\#F7F7F8\] h2,
-        html[data-theme="dark"] .bg-\[\#F7F7F8\] h3,
-        html[data-theme="dark"] .bg-\[\#F7F7F8\] h4,
-        html[data-theme="dark"] .bg-\[\#F7F7F8\] h5,
-        html[data-theme="dark"] .bg-\[\#F7F7F8\] h6,
-        html[data-theme="dark"] .apple-heading,
-        html[data-theme="dark"] .apple-subhead {
+        html[data-theme="dark"] :where(.bg-\[\#FFFFFF\], .bg-white, .bg-\[\#F7F7F8\], .bg-\[\#FAFAFA\], .bg-\[\#F2F2F2\]):not(.iphone-keep-white) :where(h1, h2, h3, h4, h5, h6, strong, b, .apple-heading, .apple-subhead) {
             color: #FFFFFF !important;
             -webkit-text-fill-color: #FFFFFF !important;
         }
 
-        html[data-theme="dark"] .bg-\[\#FFFFFF\] span:not(.text-white):not([class*="bg-black"]):not([class*="bg-[#000000]"]):not([class*="bg-[#111111]"]),
-        html[data-theme="dark"] .bg-\[\#F7F7F8\] span:not(.text-white):not([class*="bg-black"]):not([class*="bg-[#000000]"]):not([class*="bg-[#111111]"]) {
-            color: #D4D4D8 !important;
-            -webkit-text-fill-color: #D4D4D8 !important;
+        html[data-theme="dark"] .text-\[\#3A3E42\] {
+            color: #A1A1AA !important;
+            -webkit-text-fill-color: #A1A1AA !important;
         }
-
-        html[data-theme="dark"] .bg-\[\#F7F7F8\] i:not(.text-white),
-        html[data-theme="dark"] .bg-\[\#F7F7F8\] .hgi:not(.text-white),
-        html[data-theme="dark"] .bg-\[\#FFFFFF\] i:not(.text-white),
-        html[data-theme="dark"] .bg-\[\#FFFFFF\] .hgi:not(.text-white),
-        html[data-theme="dark"] .bg-white i:not(.text-white),
-        html[data-theme="dark"] .bg-white .hgi:not(.text-white) {
-            color: #FFFFFF !important;
-            stroke: #FFFFFF !important;
-        }
+        /* ==================================================== */
 
         /* ==================================================== */
         /* Any card on a white or light gray surface MUST have crisp black text */
@@ -1853,142 +1790,79 @@
         }
 
         /* ==================================================== */
+        
+        /* Elsa Chat Studio Strict White Contrast in Dark Bubble */
+        #aiChatMessages,
+        #aiChatMessages .theme-keep-dark,
+        #aiChatMessages .theme-keep-dark *,
+        #aiChatMessages .bg-\[\#111111\],
+        #aiChatMessages .bg-\[\#111111\] p,
+        #aiChatMessages .bg-\[\#111111\] span,
+        #aiChatMessages .bg-\[\#111111\] strong,
+        #aiChatMessages .bg-\[\#111111\] button {
+            color: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
+        }
+        #aiChatMessages .bg-\[\#111111\] button {
+            background-color: rgba(255, 255, 255, 0.15) !important;
+            border-color: rgba(255, 255, 255, 0.20) !important;
+        }
+        #aiChatMessages .bg-\[\#111111\] button:hover {
+            background-color: rgba(255, 255, 255, 0.25) !important;
+        }
+
         /* BULLETPROOF CARD & TYPOGRAPHY ISOLATION GUARD (DUAL-MODE APPLE SPEC) */
         /* Any card on a white or light gray surface MUST have crisp black text IN LIGHT MODE ONLY */
-        html:not([data-theme="dark"]) .bg-\[\#FFFFFF\],
-        html:not([data-theme="dark"]) .bg-\[\#FFFFFF\] h1,
-        html:not([data-theme="dark"]) .bg-\[\#FFFFFF\] h2,
-        html:not([data-theme="dark"]) .bg-\[\#FFFFFF\] h3,
-        html:not([data-theme="dark"]) .bg-\[\#FFFFFF\] h4,
-        html:not([data-theme="dark"]) .bg-\[\#FFFFFF\] h5,
-        html:not([data-theme="dark"]) .bg-\[\#FFFFFF\] h6,
-        html:not([data-theme="dark"]) .bg-\[\#FFFFFF\] p,
-        html:not([data-theme="dark"]) .bg-\[\#FFFFFF\] li,
-        html:not([data-theme="dark"]) .bg-white,
-        html:not([data-theme="dark"]) .bg-white h1,
-        html:not([data-theme="dark"]) .bg-white h2,
-        html:not([data-theme="dark"]) .bg-white h3,
-        html:not([data-theme="dark"]) .bg-white h4,
-        html:not([data-theme="dark"]) .bg-white h5,
-        html:not([data-theme="dark"]) .bg-white h6,
-        html:not([data-theme="dark"]) .bg-white p,
-        html:not([data-theme="dark"]) .bg-white li,
-        html:not([data-theme="dark"]) .bg-\[\#F7F7F8\],
-        html:not([data-theme="dark"]) .bg-\[\#F7F7F8\] h1,
-        html:not([data-theme="dark"]) .bg-\[\#F7F7F8\] h2,
-        html:not([data-theme="dark"]) .bg-\[\#F7F7F8\] h3,
-        html:not([data-theme="dark"]) .bg-\[\#F7F7F8\] h4,
-        html:not([data-theme="dark"]) .bg-\[\#F7F7F8\] h5,
-        html:not([data-theme="dark"]) .bg-\[\#F7F7F8\] h6,
-        html:not([data-theme="dark"]) .bg-\[\#F7F7F8\] p,
-        html:not([data-theme="dark"]) .bg-\[\#F7F7F8\] li,
-        html:not([data-theme="dark"]) .bg-\[\#FAFAFA\],
-        html:not([data-theme="dark"]) .bg-\[\#FAFAFA\] h1,
-        html:not([data-theme="dark"]) .bg-\[\#FAFAFA\] h2,
-        html:not([data-theme="dark"]) .bg-\[\#FAFAFA\] h3,
-        html:not([data-theme="dark"]) .bg-\[\#FAFAFA\] h4,
-        html:not([data-theme="dark"]) .bg-\[\#FAFAFA\] p,
-        html:not([data-theme="dark"]) .bg-\[\#FAFAFA\] li,
-        html:not([data-theme="dark"]) .bg-\[\#F2F2F2\],
-        html:not([data-theme="dark"]) .bg-\[\#F2F2F2\] h1,
-        html:not([data-theme="dark"]) .bg-\[\#F2F2F2\] h2,
-        html:not([data-theme="dark"]) .bg-\[\#F2F2F2\] h3,
-        html:not([data-theme="dark"]) .bg-\[\#F2F2F2\] h4,
-        html:not([data-theme="dark"]) .bg-\[\#F2F2F2\] p,
-        html:not([data-theme="dark"]) .bg-\[\#F2F2F2\] li {
+        html:not([data-theme="dark"]) :where(.bg-\[\#FFFFFF\], .bg-white, .bg-\[\#F7F7F8\], .bg-\[\#FAFAFA\], .bg-\[\#F2F2F2\]) {
+            color: #111111 !important;
+        }
+
+        html:not([data-theme="dark"]) :where(.bg-\[\#FFFFFF\], .bg-white, .bg-\[\#F7F7F8\], .bg-\[\#FAFAFA\], .bg-\[\#F2F2F2\]) :where(h1, h2, h3, h4, h5, h6, p, li, div, span):not([class*="bg-black"]):not([class*="bg-\[\#000000\]"]):not([class*="bg-\[\#111111\]"]):not([class*="bg-\[\#161618\]"]):not([class*="bg-\[\#18181A\]"]):not([class*="bg-\[\#242426\]"]):not([class*="bg-\[\#262626\]"]):not([class*="bg-\[\#1D1D1F\]"]):not(.text-white):not([class*="text-white"]):not(.badge-dark):not(.pill-dark) {
             color: #111111 !important;
             -webkit-text-fill-color: #111111 !important;
         }
 
-        /* Span texts inside light cards in light mode */
-        html:not([data-theme="dark"]) .bg-\[\#FFFFFF\] span:not(.text-white):not([class*="bg-black"]):not([class*="bg-[#000000]"]):not([class*="bg-[#111111]"]),
-        html:not([data-theme="dark"]) .bg-white span:not(.text-white):not([class*="bg-black"]):not([class*="bg-[#000000]"]):not([class*="bg-[#111111]"]),
-        html:not([data-theme="dark"]) .bg-\[\#F7F7F8\] span:not(.text-white):not([class*="bg-black"]):not([class*="bg-[#000000]"]):not([class*="bg-[#111111]"]) {
-            color: #111111 !important;
-            -webkit-text-fill-color: #111111 !important;
+        html:not([data-theme="dark"]) :where(.bg-\[\#FFFFFF\], .bg-white, .bg-\[\#F7F7F8\], .bg-\[\#FAFAFA\], .bg-\[\#F2F2F2\]) .text-\[\#3A3E42\],
+        html:not([data-theme="dark"]) .text-\[\#3A3E42\] {
+            color: #3A3E42 !important;
+            -webkit-text-fill-color: #3A3E42 !important;
         }
 
         /* Hugeicons and svg strokes inside light containers must be dark in light mode */
-        html:not([data-theme="dark"]) .bg-\[\#F7F7F8\] i:not(.text-white),
-        html:not([data-theme="dark"]) .bg-\[\#F7F7F8\] .hgi:not(.text-white),
-        html:not([data-theme="dark"]) .bg-\[\#FFFFFF\] i:not(.text-white),
-        html:not([data-theme="dark"]) .bg-\[\#FFFFFF\] .hgi:not(.text-white),
-        html:not([data-theme="dark"]) .bg-white i:not(.text-white),
-        html:not([data-theme="dark"]) .bg-white .hgi:not(.text-white) {
+        html:not([data-theme="dark"]) :where(.bg-\[\#F7F7F8\], .bg-\[\#F2F2F2\], .bg-\[\#FFFFFF\], .bg-white) i:not(.text-white):not([class*="text-white"]),
+        html:not([data-theme="dark"]) :where(.bg-\[\#F7F7F8\], .bg-\[\#F2F2F2\], .bg-\[\#FFFFFF\], .bg-white) .hgi:not(.text-white):not([class*="text-white"]) {
             color: #111111 !important;
             stroke: #111111 !important;
         }
 
         /* Explicit Dark buttons, badges & overlays inside light containers MUST have white text */
-        .bg-\[\#FFFFFF\] .bg-black, .bg-\[\#FFFFFF\] .bg-black *,
-        .bg-\[\#FFFFFF\] button.bg-black, .bg-\[\#FFFFFF\] button.bg-black *,
-        .bg-\[\#FFFFFF\] a.bg-black, .bg-\[\#FFFFFF\] a.bg-black *,
-        .bg-\[\#FFFFFF\] [class*="bg-black/"], .bg-\[\#FFFFFF\] [class*="bg-black/"] *,
-        .bg-\[\#FFFFFF\] .bg-\[\#000000\], .bg-\[\#FFFFFF\] .bg-\[\#000000\] *,
-        .bg-\[\#FFFFFF\] .bg-\[\#111111\], .bg-\[\#FFFFFF\] .bg-\[\#111111\] *,
-        .bg-\[\#F7F7F8\] .bg-black, .bg-\[\#F7F7F8\] .bg-black *,
-        .bg-\[\#F7F7F8\] button.bg-black, .bg-\[\#F7F7F8\] button.bg-black *,
-        .bg-\[\#F7F7F8\] a.bg-black, .bg-\[\#F7F7F8\] a.bg-black *,
-        .bg-\[\#F7F7F8\] [class*="bg-black/"], .bg-\[\#F7F7F8\] [class*="bg-black/"] *,
-        .bg-\[\#F7F7F8\] .bg-\[\#000000\], .bg-\[\#F7F7F8\] .bg-\[\#000000\] *,
-        .bg-\[\#F7F7F8\] .bg-\[\#111111\], .bg-\[\#F7F7F8\] .bg-\[\#111111\] * {
+        html:not([data-theme="dark"]) :where(.bg-black, [class*="bg-black"], .bg-\[\#000000\], .bg-\[\#111111\], .bg-\[\#161618\], .bg-\[\#18181A\], .bg-\[\#242426\], .bg-\[\#262626\], .bg-\[\#1D1D1F\]) :where(span, div, p, i, .hgi, b, strong) {
             color: #FFFFFF !important;
             -webkit-text-fill-color: #FFFFFF !important;
-        }
-
-        .bg-\[\#FFFFFF\] .bg-black i, .bg-\[\#FFFFFF\] .bg-black .hgi,
-        .bg-\[\#F7F7F8\] .bg-black i, .bg-\[\#F7F7F8\] .bg-black .hgi,
-        .bg-\[\#FFFFFF\] [class*="bg-black/"] i, .bg-\[\#FFFFFF\] [class*="bg-black/"] .hgi,
-        .bg-\[\#F7F7F8\] [class*="bg-black/"] i, .bg-\[\#F7F7F8\] [class*="bg-black/"] .hgi {
-            color: #FFFFFF !important;
             stroke: #FFFFFF !important;
         }
 
         /* In Dark Mode, explicit light typography for all cards */
-        html[data-theme="dark"] .bg-\[\#FFFFFF\] p,
-        html[data-theme="dark"] .bg-\[\#FFFFFF\] li,
-        html[data-theme="dark"] .bg-\[\#F7F7F8\] p,
-        html[data-theme="dark"] .bg-\[\#F7F7F8\] li,
-        html[data-theme="dark"] .bg-white p,
-        html[data-theme="dark"] .bg-white li,
-        html[data-theme="dark"] .text-\[\#3A3E42\] {
+        html[data-theme="dark"] :where(.bg-\[\#FFFFFF\], .bg-white, .bg-\[\#F7F7F8\], .bg-\[\#FAFAFA\], .bg-\[\#F2F2F2\]):not(.iphone-keep-white) {
+            background-color: #18181A !important;
+            border-color: rgba(255, 255, 255, 0.12) !important;
+        }
+
+        html[data-theme="dark"] :where(.bg-\[\#FFFFFF\], .bg-white, .bg-\[\#F7F7F8\], .bg-\[\#FAFAFA\], .bg-\[\#F2F2F2\]):not(.iphone-keep-white) :where(p, li, div, span):not([class*="bg-white"]):not(.text-black) {
             color: #D4D4D8 !important;
             -webkit-text-fill-color: #D4D4D8 !important;
         }
 
-        html[data-theme="dark"] .bg-\[\#FFFFFF\] h1,
-        html[data-theme="dark"] .bg-\[\#FFFFFF\] h2,
-        html[data-theme="dark"] .bg-\[\#FFFFFF\] h3,
-        html[data-theme="dark"] .bg-\[\#FFFFFF\] h4,
-        html[data-theme="dark"] .bg-\[\#FFFFFF\] h5,
-        html[data-theme="dark"] .bg-\[\#FFFFFF\] h6,
-        html[data-theme="dark"] .bg-\[\#F7F7F8\] h1,
-        html[data-theme="dark"] .bg-\[\#F7F7F8\] h2,
-        html[data-theme="dark"] .bg-\[\#F7F7F8\] h3,
-        html[data-theme="dark"] .bg-\[\#F7F7F8\] h4,
-        html[data-theme="dark"] .bg-\[\#F7F7F8\] h5,
-        html[data-theme="dark"] .bg-\[\#F7F7F8\] h6,
-        html[data-theme="dark"] .apple-heading,
-        html[data-theme="dark"] .apple-subhead {
+        html[data-theme="dark"] :where(.bg-\[\#FFFFFF\], .bg-white, .bg-\[\#F7F7F8\], .bg-\[\#FAFAFA\], .bg-\[\#F2F2F2\]):not(.iphone-keep-white) :where(h1, h2, h3, h4, h5, h6, strong, b, .apple-heading, .apple-subhead) {
             color: #FFFFFF !important;
             -webkit-text-fill-color: #FFFFFF !important;
         }
 
-        html[data-theme="dark"] .bg-\[\#FFFFFF\] span:not(.text-white):not([class*="bg-black"]):not([class*="bg-[#000000]"]):not([class*="bg-[#111111]"]),
-        html[data-theme="dark"] .bg-\[\#F7F7F8\] span:not(.text-white):not([class*="bg-black"]):not([class*="bg-[#000000]"]):not([class*="bg-[#111111]"]) {
-            color: #D4D4D8 !important;
-            -webkit-text-fill-color: #D4D4D8 !important;
+        html[data-theme="dark"] .text-\[\#3A3E42\] {
+            color: #A1A1AA !important;
+            -webkit-text-fill-color: #A1A1AA !important;
         }
-
-        html[data-theme="dark"] .bg-\[\#F7F7F8\] i:not(.text-white),
-        html[data-theme="dark"] .bg-\[\#F7F7F8\] .hgi:not(.text-white),
-        html[data-theme="dark"] .bg-\[\#FFFFFF\] i:not(.text-white),
-        html[data-theme="dark"] .bg-\[\#FFFFFF\] .hgi:not(.text-white),
-        html[data-theme="dark"] .bg-white i:not(.text-white),
-        html[data-theme="dark"] .bg-white .hgi:not(.text-white) {
-            color: #FFFFFF !important;
-            stroke: #FFFFFF !important;
-        }
+        /* ==================================================== */
 
         /* ==================================================== */
         /* Any card on a white or light gray surface MUST have crisp black text */
@@ -2044,7 +1918,7 @@
 
     </style>
 </head>
-<body id="top" class="bg-[#111111] text-white font-sans antialiased selection:bg-black selection:text-white relative overflow-x-clip transition-colors duration-200">
+<body id="top" class="bg-[#FFFFFF] text-[#000000] font-sans antialiased selection:bg-black selection:text-white relative overflow-x-clip transition-colors duration-200">
 
     <!-- Studio Top Accent Line (Crisp Signal Lime) -->
     <div class="h-[3px] w-full bg-[#000000] relative z-50"></div>
@@ -2748,8 +2622,8 @@
             </div>
         </section>
 
-        <!-- 2. STUDIO MICRO-WIDGET BENTO (#mimari - Gallery Light #F2F2F2 Canvas - Reference Images 4, 5, 7) -->
-        <section id="dedektife-sor" class="py-12 sm:py-16 bg-[#F2F2F2] text-[#111111]">
+        <!-- 2. STUDIO MICRO-WIDGET BENTO (#mimari - Gallery Light #FFFFFF Canvas - Reference Images 4, 5, 7) -->
+        <section id="mimari" class="py-12 sm:py-16 bg-[#FFFFFF] text-[#111111]">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10">
 
                 <!-- Header Row + Metaball Gooey Dual-Pill Stat Widget (Reference Image 5 Top-Left) -->
@@ -2994,7 +2868,7 @@
                         <div class="space-y-4">
                             <div class="flex flex-wrap items-center justify-between gap-2">
                                 <span class="px-3 py-1 rounded-full bg-[#F2F2F2] text-[#111111] font-mono text-[10.5px] font-medium">COUVERTURE NATIONALE &amp; INTERNATIONALE</span>
-                                <span class="font-mono text-[11px] font-medium text-[#111111] bg-[#262626] px-2.5 py-0.5 rounded-full">81 PROVINCES • 4 CENTRES</span>
+                                <span class="font-mono text-[11px] font-medium text-white bg-[#000000] px-2.5 py-0.5 rounded-full">81 PROVINCES • 4 CENTRES</span>
                             </div>
 
                             <!-- Segmented Equalizer Chart Block (Reference Screenshot 4 "Progress tracking") -->
@@ -3032,28 +2906,29 @@
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-                            <div class="p-3 rounded-2xl bg-[#F2F2F2] space-y-0.5">
-                                <div class="text-[10px] font-mono text-[#111111] font-medium">SIÈGE ISTANBUL</div>
-                                <div class="text-xs font-medium text-[#111111]">Helis Metro Tower</div>
-                                <div class="text-[10px] text-[#3A3E42]">N°19 Ét.16 Bur.67 Kartal</div>
+                                                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                            <div class="p-3 rounded-2xl bg-[#FFFFFF] border border-black/[0.08] space-y-0.5">
+                                <div class="text-[10px] font-mono text-[#111111] font-semibold" style="color: #111111 !important; -webkit-text-fill-color: #111111 !important;">SIÈGE ISTANBUL</div>
+                                <div class="text-xs font-semibold text-[#111111]" style="color: #111111 !important; -webkit-text-fill-color: #111111 !important;">Helis Metro Tower</div>
+                                <div class="text-[10px] text-[#3A3E42]" style="color: #3A3E42 !important; -webkit-text-fill-color: #3A3E42 !important;">N°19 Ét.16 Bur.67 Kartal</div>
                             </div>
-                            <div class="p-3 rounded-2xl bg-[#F2F2F2] space-y-0.5">
-                                <div class="text-[10px] font-mono text-[#111111] font-medium">BUREAU ANKARA</div>
-                                <div class="text-xs font-medium text-[#111111]">Konutkent / Çankaya</div>
-                                <div class="text-[10px] text-[#3A3E42]">Rue 3029 N°3 Ét.21 Bur.107</div>
+                            <div class="p-3 rounded-2xl bg-[#FFFFFF] border border-black/[0.08] space-y-0.5">
+                                <div class="text-[10px] font-mono text-[#111111] font-semibold" style="color: #111111 !important; -webkit-text-fill-color: #111111 !important;">BUREAU ANKARA</div>
+                                <div class="text-xs font-semibold text-[#111111]" style="color: #111111 !important; -webkit-text-fill-color: #111111 !important;">Konutkent / Çankaya</div>
+                                <div class="text-[10px] text-[#3A3E42]" style="color: #3A3E42 !important; -webkit-text-fill-color: #3A3E42 !important;">Rue 3029 N°3 Ét.21 Bur.107</div>
                             </div>
-                            <div class="p-3 rounded-2xl bg-[#F2F2F2] space-y-0.5">
-                                <div class="text-[10px] font-mono text-[#111111] font-medium">WPYB GLOBAL</div>
-                                <div class="text-xs font-medium text-[#111111]">Podgorica, Monténégro</div>
-                                <div class="text-[10px] text-[#3A3E42]">Ul. Ilije Plamenca Br. 8</div>
+                            <div class="p-3 rounded-2xl bg-[#FFFFFF] border border-black/[0.08] space-y-0.5">
+                                <div class="text-[10px] font-mono text-[#111111] font-semibold" style="color: #111111 !important; -webkit-text-fill-color: #111111 !important;">WPYB GLOBAL</div>
+                                <div class="text-xs font-semibold text-[#111111]" style="color: #111111 !important; -webkit-text-fill-color: #111111 !important;">Podgorica, Monténégro</div>
+                                <div class="text-[10px] text-[#3A3E42]" style="color: #3A3E42 !important; -webkit-text-fill-color: #3A3E42 !important;">Ul. Ilije Plamenca Br. 8</div>
                             </div>
-                            <div class="p-3 rounded-2xl bg-[#F2F2F2] space-y-0.5">
-                                <div class="text-[10px] font-mono text-[#111111] font-medium">BUREAU USA</div>
-                                <div class="text-xs font-medium text-[#111111]">Las Vegas, NV</div>
-                                <div class="text-[10px] text-[#3A3E42]">1180 N Town Center Dr</div>
+                            <div class="p-3 rounded-2xl bg-[#FFFFFF] border border-black/[0.08] space-y-0.5">
+                                <div class="text-[10px] font-mono text-[#111111] font-semibold" style="color: #111111 !important; -webkit-text-fill-color: #111111 !important;">BUREAU USA</div>
+                                <div class="text-xs font-semibold text-[#111111]" style="color: #111111 !important; -webkit-text-fill-color: #111111 !important;">Las Vegas, NV</div>
+                                <div class="text-[10px] text-[#3A3E42]" style="color: #3A3E42 !important; -webkit-text-fill-color: #3A3E42 !important;">1180 N Town Center Dr</div>
                             </div>
                         </div>
+                    </div>
                     </div>
 
                 </div>
@@ -3061,7 +2936,7 @@
         </section>
 
         <!-- 3. YENİ NESİL DEDEKTİF / DEDEKTİF'E SOR (#dedektife-sor - Studio Obsidian Dark #111111) -->
-        <section id="mimari" class="py-12 sm:py-16 bg-[#FFFFFF] text-[#111111]">
+        <section id="dedektife-sor" class="py-12 sm:py-16 bg-[#111111] text-white">
             <!-- Subtle Radial Ambient Glow -->
             <div class="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-[#000000]/10 rounded-full blur-[120px]"></div>
 
@@ -3069,20 +2944,20 @@
 
                 <!-- Header -->
                 <div class="text-center max-w-4xl mx-auto space-y-3.5">
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1D1D1F] border border-[#000000]/30 text-xs font-medium text-[#FFFFFF]">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/[0.05] dark:bg-[#1D1D1F] border border-black/10 dark:border-white/10 text-xs font-medium text-[#111111] dark:text-[#FFFFFF]">
                         <span class="w-2 h-2 rounded-full bg-[#000000] animate-pulse"></span>
-                        <span class="text-[#000000] font-mono uppercase tracking-wider text-[11px]">DÉTECTIVE NOUVELLE GÉNÉRATION • CHAT LIVE FORENSIQUE</span>
+                        <span class="text-[#111111] dark:text-white font-mono uppercase tracking-wider text-[11px]">DÉTECTIVE NOUVELLE GÉNÉRATION • CHAT LIVE FORENSIQUE</span>
                     </div>
-                    <h2 class="apple-heading text-3xl sm:text-4xl lg:text-5xl font-medium text-[#FFFFFF] tracking-tight">
+                    <h2 class="apple-heading text-3xl sm:text-4xl lg:text-5xl font-medium text-[#111111] dark:text-white tracking-tight">
                         Demandez au Détective Nouvelle Génération
                     </h2>
-                    <p class="text-sm sm:text-base text-white/75 leading-relaxed font-regular max-w-3xl mx-auto">
+                    <p class="text-sm sm:text-base text-[#3A3E42] dark:text-white/75 leading-relaxed font-regular max-w-3xl mx-auto">
                         Pas de fausse panique ni d'effet de bulle d'écho. Sous la direction du fondateur <strong>Ümit Hakan Karakaya</strong> (20+ ans d'expérience) et de l'assistante IA <strong>Elsa</strong>, nous répondons à vos interrogations de manière honnête, rationnelle et recevable en justice (CPC art. 199).
                     </p>
                 </div>
 
                 <!-- Chat Studio Card (Apple-style Dark Frame) -->
-                <div class="rounded-[28px] sm:rounded-[32px] bg-[#161618] border border-white/10 overflow-hidden shadow-2xl grid lg:grid-cols-12 items-stretch">
+                <div class="theme-keep-dark rounded-[28px] sm:rounded-[32px] bg-[#161618] border border-white/10 overflow-hidden shadow-2xl grid lg:grid-cols-12 items-stretch" style="background-color: #161618 !important;">
                     
                     <!-- Left Sidebar (lg:col-span-4): Advisor Profile + Quick Topic Chips + Direct Contacts -->
                     <div class="lg:col-span-4 bg-[#121214] p-5 sm:p-6 border-b lg:border-b-0 lg:border-r border-white/10 flex flex-col justify-between space-y-5">
