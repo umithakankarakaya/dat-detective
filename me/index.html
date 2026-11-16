@@ -395,7 +395,7 @@
                 extend: {
                     colors: {
                         surface: { base: '#F2F2F2', sheet: '#FFFFFF', dark: '#111111', elevated: '#1D1D1F' },
-                        studio: { lime: '#000000', coral: '#FA7E61', volt: '#262626' },
+                        studio: { lime: '#000000', coral: '#111111', volt: '#262626' },
                         text: { primary: '#3A3E42' },
                         neutral: { black: '#111111' }
                     },
@@ -523,11 +523,11 @@
             left: 50%; top: 0; bottom: 0; width: 1px; transform: translateX(-50%);
         }
         .crosshair-node.is-coral-h::before {
-            background: linear-gradient(90deg, transparent 5%, #FA7E61 50%, transparent 95%);
+            background: linear-gradient(90deg, transparent 5%, #111111 50%, transparent 95%);
             height: 1.5px;
         }
         .crosshair-node.is-coral-v::after {
-            background: linear-gradient(180deg, transparent 5%, #FA7E61 50%, transparent 95%);
+            background: linear-gradient(180deg, transparent 5%, #111111 50%, transparent 95%);
             width: 1.5px;
         }
         .crosshair-node.is-lime-h::before {
@@ -887,15 +887,15 @@
         html[data-theme="dark"] .bg-\[\#262626\] .text-\[\#3A3E42\],
         html[data-theme="dark"] .bg-\[\#262626\] [class*="text-\[\#111111\]"],
         html[data-theme="dark"] .bg-\[\#262626\] *:not(.preserve-light),
-        html[data-theme="dark"] .bg-\[\#FA7E61\],
-        html[data-theme="dark"] .bg-\[\#FA7E61\].text-\[\#111111\],
-        html[data-theme="dark"] .bg-\[\#FA7E61\].text-\[\#1D1D1F\],
-        html[data-theme="dark"] .bg-\[\#FA7E61\].text-\[\#3A3E42\],
-        html[data-theme="dark"] .bg-\[\#FFFFFF\]:not(.iphone-keep-white) .bg-\[\#FA7E61\].text-\[\#111111\],
-        html[data-theme="dark"] .bg-\[\#FA7E61\] .text-\[\#111111\],
-        html[data-theme="dark"] .bg-\[\#FA7E61\] .text-\[\#3A3E42\],
-        html[data-theme="dark"] .bg-\[\#FA7E61\] [class*="text-\[\#111111\]"],
-        html[data-theme="dark"] .bg-\[\#FA7E61\] *:not(.preserve-light),
+        html[data-theme="dark"] .bg-\[\#111111\],
+        html[data-theme="dark"] .bg-\[\#111111\].text-\[\#111111\],
+        html[data-theme="dark"] .bg-\[\#111111\].text-\[\#1D1D1F\],
+        html[data-theme="dark"] .bg-\[\#111111\].text-\[\#3A3E42\],
+        html[data-theme="dark"] .bg-\[\#FFFFFF\]:not(.iphone-keep-white) .bg-\[\#111111\].text-\[\#111111\],
+        html[data-theme="dark"] .bg-\[\#111111\] .text-\[\#111111\],
+        html[data-theme="dark"] .bg-\[\#111111\] .text-\[\#3A3E42\],
+        html[data-theme="dark"] .bg-\[\#111111\] [class*="text-\[\#111111\]"],
+        html[data-theme="dark"] .bg-\[\#111111\] *:not(.preserve-light),
         html[data-theme="dark"] .bg-\[\#E6FAD8\],
         html[data-theme="dark"] .bg-\[\#E6FAD8\].text-\[\#111111\],
         html[data-theme="dark"] .bg-\[\#E6FAD8\] *:not(.preserve-light),
@@ -907,8 +907,8 @@
         html[data-theme="dark"] .bg-\[\#FDE2DB\] *:not(.preserve-light),
         html[data-theme="dark"] [style*="background:#000000"],
         html[data-theme="dark"] [style*="background:#000000"] *:not(.preserve-light),
-        html[data-theme="dark"] [style*="background:#FA7E61"],
-        html[data-theme="dark"] [style*="background:#FA7E61"] *:not(.preserve-light),
+        html[data-theme="dark"] [style*="background:#111111"],
+        html[data-theme="dark"] [style*="background:#111111"] *:not(.preserve-light),
         html[data-theme="dark"] [style*="background:#262626"],
         html[data-theme="dark"] [style*="background:#262626"] *:not(.preserve-light),
         html[data-theme="dark"] article[onclick^="openArticleModal"]:not(.bg-\[\#1D1D1F\]) .text-\[\#111111\],
@@ -932,14 +932,14 @@
 
         html[data-theme="dark"] .bg-\[\#000000\] .bg-\[\#111111\],
         html[data-theme="dark"] .bg-\[\#000000\] .bg-\[\#111111\] *,
-        html[data-theme="dark"] .bg-\[\#FA7E61\] .bg-\[\#111111\],
-        html[data-theme="dark"] .bg-\[\#FA7E61\] .bg-\[\#111111\] *,
+        html[data-theme="dark"] .bg-\[\#111111\] .bg-\[\#111111\],
+        html[data-theme="dark"] .bg-\[\#111111\] .bg-\[\#111111\] *,
         html[data-theme="dark"] .bg-\[\#262626\] .bg-\[\#111111\],
         html[data-theme="dark"] .bg-\[\#262626\] .bg-\[\#111111\] *,
         html[data-theme="dark"] [style*="background:#000000"] .bg-\[\#111111\],
         html[data-theme="dark"] [style*="background:#000000"] .bg-\[\#111111\] *,
-        html[data-theme="dark"] [style*="background:#FA7E61"] .bg-\[\#111111\],
-        html[data-theme="dark"] [style*="background:#FA7E61"] .bg-\[\#111111\] *,
+        html[data-theme="dark"] [style*="background:#111111"] .bg-\[\#111111\],
+        html[data-theme="dark"] [style*="background:#111111"] .bg-\[\#111111\] *,
         html[data-theme="dark"] [style*="background:#262626"] .bg-\[\#111111\],
         html[data-theme="dark"] [style*="background:#262626"] .bg-\[\#111111\] *,
         html[data-theme="dark"] .bg-\[\#E6FAD8\] .bg-\[\#111111\],
@@ -964,7 +964,7 @@
         html[data-theme="dark"] article[onclick^="openArticleModal"] .bg-\[\#111111\] .text-\[\#000000\],
         html[data-theme="dark"] .keep-dark-ink .bg-\[\#111111\].text-\[\#000000\],
         html[data-theme="dark"] .keep-dark-ink .bg-\[\#111111\].text-\[\#000000\] *,
-        html[data-theme="dark"] .bg-\[\#FA7E61\] .bg-\[\#111111\] .text-\[\#FA7E61\],
+        html[data-theme="dark"] .bg-\[\#111111\] .bg-\[\#111111\] .text-\[\#111111\],
         html[data-theme="dark"] .bg-\[\#000000\] .bg-\[\#111111\] .text-\[\#000000\] {
             color: #000000 !important;
         }
@@ -1204,7 +1204,7 @@
         html[data-theme="light"] label:has(input:checked).has-\[\:checked\]\:bg-\[\#111111\],
         html[data-theme="light"] article[onclick^="openArticleModal"].bg-\[\#1D1D1F\],
         html[data-theme="light"] .bg-\[\#000000\] .bg-\[\#111111\],
-        html[data-theme="light"] .bg-\[\#FA7E61\] .bg-\[\#111111\],
+        html[data-theme="light"] .bg-\[\#111111\] .bg-\[\#111111\],
         html[data-theme="light"] .bg-\[\#262626\] .bg-\[\#111111\] {
             background-color: #111111 !important;
             color: #FFFFFF !important;
@@ -1263,26 +1263,26 @@
         html[data-theme="light"] article[onclick^="openArticleModal"].bg-\[\#1D1D1F\] .text-\[\#000000\] {
             color: #000000 !important;
         }
-        html[data-theme="light"] .theme-keep-dark .text-\[\#FA7E61\] {
-            color: #FA7E61 !important;
+        html[data-theme="light"] .theme-keep-dark .text-\[\#111111\] {
+            color: #111111 !important;
         }
         html[data-theme="light"] .theme-keep-dark .bg-\[\#000000\],
         html[data-theme="light"] .theme-keep-dark .bg-\[\#000000\] *,
         html[data-theme="light"] .bg-\[\#000000\],
         html[data-theme="light"] .bg-\[\#000000\] *,
-        html[data-theme="light"] .bg-\[\#FA7E61\],
-        html[data-theme="light"] .bg-\[\#FA7E61\] *,
+        html[data-theme="light"] .bg-\[\#111111\],
+        html[data-theme="light"] .bg-\[\#111111\] *,
         html[data-theme="light"] .bg-\[\#262626\],
         html[data-theme="light"] .bg-\[\#262626\] *,
         html[data-theme="light"] [style*="background:#000000"] *,
-        html[data-theme="light"] [style*="background:#FA7E61"] *,
+        html[data-theme="light"] [style*="background:#111111"] *,
         html[data-theme="light"] [style*="background:#262626"] * {
             color: #111111 !important;
         }
         html[data-theme="light"] .bg-\[\#000000\] .bg-\[\#111111\],
         html[data-theme="light"] .bg-\[\#000000\] .bg-\[\#111111\] *,
-        html[data-theme="light"] .bg-\[\#FA7E61\] .bg-\[\#111111\],
-        html[data-theme="light"] .bg-\[\#FA7E61\] .bg-\[\#111111\] *,
+        html[data-theme="light"] .bg-\[\#111111\] .bg-\[\#111111\],
+        html[data-theme="light"] .bg-\[\#111111\] .bg-\[\#111111\] *,
         html[data-theme="light"] .bg-\[\#262626\] .bg-\[\#111111\],
         html[data-theme="light"] .bg-\[\#262626\] .bg-\[\#111111\] * {
             color: #FFFFFF !important;
@@ -1490,34 +1490,71 @@
         }
 
         /* Tüm yeşil öğeleri siyaha ve beyaza zorla */
-        .text-green-500, .text-green-600, .text-emerald-500, .text-emerald-600,
-        [class*="text-[#000000]"], [class*="text-[#25D366]"], [class*="text-[#262626]"] {
+                /* ==================================================== */
+        /* OPENAI STRICT MONOCHROME & HIGH-CONTRAST TYPOGRAPHY  */
+        /* ==================================================== */
+        body {
+            background-color: #FFFFFF !important;
+            color: #111111 !important;
+        }
+        strong, b {
+            color: #000000 !important;
+            font-weight: 600 !important;
+        }
+        p {
+            color: #1F2937 !important;
+        }
+        html[data-theme="light"] h1:not(.text-white):not([class*="text-white"]),
+        html[data-theme="light"] h2:not(.text-white):not([class*="text-white"]),
+        html[data-theme="light"] h3:not(.text-white):not([class*="text-white"]),
+        html[data-theme="light"] h4:not(.text-white):not([class*="text-white"]),
+        html[data-theme="light"] h5, html[data-theme="light"] h6 {
             color: #000000 !important;
         }
-
-        .bg-green-500, .bg-green-600, .bg-emerald-500, .bg-emerald-600,
-        
-        /* High-contrast safety: dark text must NEVER apply inside dark elements */
-        .theme-keep-dark [class*="text-[#000000]"],
-        .bg-black [class*="text-[#000000]"],
-        .bg-\[#000000\] [class*="text-[#000000]"],
-        .bg-\[#111111\] [class*="text-[#000000]"],
-        .bg-\[#18181A\] [class*="text-[#000000]"],
-        .bg-\[#1D1D1F\] [class*="text-[#000000]"],
-        .bg-\[#222226\] [class*="text-[#000000]"],
-        .bg-\[#26262B\] [class*="text-[#000000]"] {
+        /* All dark buttons and dark surfaces MUST have crisp white text & icons */
+        .bg-black,
+        .bg-\[\#000000\],
+        .bg-\[\#111111\],
+        .bg-\[\#0B0B0C\],
+        .bg-\[\#0E0E10\],
+        .bg-neutral-900 {
             color: #FFFFFF !important;
-            -webkit-text-fill-color: #FFFFFF !important;
+        }
+        .bg-black:not(:has(.bg-white, .bg-\[\#FFFFFF\], .bg-\[\#F7F7F8\])) *,
+        .bg-\[\#000000\]:not(:has(.bg-white, .bg-\[\#FFFFFF\], .bg-\[\#F7F7F8\])) *,
+        .bg-\[\#111111\]:not(:has(.bg-white, .bg-\[\#FFFFFF\], .bg-\[\#F7F7F8\])) *,
+        .bg-\[\#0B0B0C\]:not(:has(.bg-white, .bg-\[\#FFFFFF\], .bg-\[\#F7F7F8\])) *,
+        .bg-\[\#0E0E10\]:not(:has(.bg-white, .bg-\[\#FFFFFF\], .bg-\[\#F7F7F8\])) * {
+            color: #FFFFFF !important;
+            stroke: #FFFFFF !important;
+        }
+        /* Explicit white child containers within dark areas retain dark text */
+        .bg-black .bg-white, .bg-black .bg-white *,
+        .bg-black .bg-\[\#FFFFFF\], .bg-black .bg-\[\#FFFFFF\] *,
+        .bg-black .bg-\[\#F7F7F8\], .bg-black .bg-\[\#F7F7F8\] * {
+            color: #111111 !important;
+            stroke: #111111 !important;
         }
 
-        [class*="bg-[#000000]"], [class*="bg-[#25D366]"], [class*="bg-[#262626]"] {
+        /* Guaranteed white contrast on all hover-black elements */
+        .group:hover .group-hover\:bg-black,
+        .group:hover .group-hover\:bg-\[\#000000\],
+        .group:hover .group-hover\:bg-\[\#111111\] {
             background-color: #000000 !important;
             color: #FFFFFF !important;
         }
+        .group:hover .group-hover\:bg-black *,
+        .group:hover .group-hover\:bg-\[\#000000\] *,
+        .group:hover .group-hover\:bg-\[\#111111\] * {
+            color: #FFFFFF !important;
+            stroke: #FFFFFF !important;
+        }
+        .group:hover .group-hover\:text-white {
+            color: #FFFFFF !important;
+        }
 
-        /* Pulse Dot yeşil olamaz, monokrom siyah */
         .pulse-dot {
-            background-color: #000000 !important;
+            background-color: #FFFFFF !important;
         }
 
         /* Konsol Kutusu ve Haplar */
@@ -1587,7 +1624,7 @@
             <span>Poziv 24/7: 0312 284 02 99</span>
         </a>
 
-        <button id="panicBtn" title="Brzi izlaz: Odmah preusmjerava na Google (Prečica: ESC)" class="theme-keep-dark group inline-flex items-center gap-2 bg-[#242426] hover:bg-[#FA7E61] text-[#FFFFFF] hover:text-[#111111] text-[11px] font-medium py-2 px-3.5 rounded-full shadow-lg transition-all duration-200 border border-white/15 whitespace-nowrap">
+        <button id="panicBtn" title="Brzi izlaz: Odmah preusmjerava na Google (Prečica: ESC)" class="theme-keep-dark group inline-flex items-center gap-2 bg-[#242426] hover:bg-neutral-800 text-white hover:text-white text-[11px] font-medium py-2 px-3.5 rounded-full shadow-lg transition-all duration-200 border border-white/15 whitespace-nowrap">
             <i class="hgi hgi-stroke hgi-view-off w-3.5 h-3.5 shrink-0"></i>
             <span>Brzo sakrij</span>
             <kbd class="bg-[#111111] text-[#FFFFFF] px-1.5 py-0.5 rounded-md text-[10px] font-mono border border-white/15">ESC</kbd>
@@ -1600,7 +1637,7 @@
             <i class="hgi hgi-stroke hgi-call-02 w-3.5 h-3.5 shrink-0"></i>
             <span>Poziv</span>
         </a>
-        <button id="panicBtnMobile" type="button" title="Acil Çıkış: Sayfayı anında Google&#x27;a yönlendirir" class="theme-keep-dark pointer-events-auto inline-flex items-center gap-1 bg-[#242426]/95 backdrop-blur-md hover:bg-[#FA7E61] text-[#FFFFFF] hover:text-[#111111] text-[11px] font-medium py-1.5 px-2.5 rounded-full shadow-[0_8px_22px_rgba(0,0,0,0.32)] border border-white/15 active:scale-95 transition whitespace-nowrap">
+        <button id="panicBtnMobile" type="button" title="Acil Çıkış: Sayfayı anında Google&#x27;a yönlendirir" class="theme-keep-dark pointer-events-auto inline-flex items-center gap-1 bg-[#242426]/95 backdrop-blur-md hover:bg-neutral-800 text-white hover:text-white text-[11px] font-medium py-1.5 px-2.5 rounded-full shadow-[0_8px_22px_rgba(0,0,0,0.32)] border border-white/15 active:scale-95 transition whitespace-nowrap">
             <i class="hgi hgi-stroke hgi-view-off w-3.5 h-3.5 shrink-0"></i>
             <span>Sakrij</span>
         </button>
@@ -1624,7 +1661,7 @@
             <a href="#magaza" data-tab-target="magaza" class="mobile-tab-item relative flex flex-col items-center justify-center gap-0.5 py-1.5 px-1 text-[9.5px] font-medium text-white/75 transition" title="DAT Güvenlik ve Anti-Casusluk Donanım Mağazası — Profesyonel Böcek Arama Dedektörleri">
                 <span class="relative inline-flex items-center justify-center h-4">
                     <i class="hgi hgi-stroke hgi-shopping-bag-02 text-[17px] leading-none"></i>
-                    <span id="mobileTabCartBadge" class="hidden absolute -top-1.5 -right-2.5 min-w-[15px] h-[15px] px-1 rounded-full bg-[#FA7E61] text-[#111111] text-[8.5px] font-bold flex items-center justify-center leading-none">0</span>
+                    <span id="mobileTabCartBadge" class="hidden absolute -top-1.5 -right-2.5 min-w-[15px] h-[15px] px-1 rounded-full bg-black text-white text-[8.5px] font-bold flex items-center justify-center leading-none">0</span>
                 </span>
                 <span class="truncate max-w-[56px] leading-tight">Prodavnica</span>
             </a>
@@ -1674,7 +1711,7 @@
                                 <i class="hgi hgi-stroke hgi-radar-01 w-3.5 h-3.5 text-[#000000]"></i>
                                 Posjetioci uživo
                             </span>
-                            <span class="font-mono text-[10px] px-2 py-0.5 rounded-full bg-[#000000] text-[#111111] font-medium">UŽIVO</span>
+                            <span class="font-mono text-[10px] px-2 py-0.5 rounded-full bg-[#000000] text-[#FFFFFF] font-medium">UŽIVO</span>
                         </div>
                         <div class="flex items-center justify-between text-[11px] text-white/75">
                             <span>Trenutno na sajtu:</span>
@@ -1745,7 +1782,7 @@
                         <span>Prodavnica</span>
                     </a>
                     <a href="../elsa-vaka-paneli" class="px-2.5 py-1.5 rounded-full hover:bg-white/10 text-[#FFFFFF] font-medium transition inline-flex items-center gap-1.5 whitespace-nowrap" title="Elsa Dijital Dedektif Asistanı ve Canlı Vaka Takip Paneli — DAT Detective">
-                        <span class="w-1.5 h-1.5 rounded-full bg-[#FA7E61] shrink-0"></span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0"></span>
                         <span>Elsa</span>
                     </a>
                     <a href="#ofislerimiz" class="px-2.5 py-1.5 rounded-full hover:bg-white/10 hover:text-[#FFFFFF] transition whitespace-nowrap" title="DAT Özel Dedektiflik Bürosu Merkez ve Bölge Büroları — Ankara, İstanbul, İzmir, Mersin, Konya, Antalya">Bürolar &amp; Şehirler</a>
@@ -1762,7 +1799,7 @@
                             <i class="hgi hgi-stroke hgi-arrow-down-01 w-3 h-3 opacity-60"></i>
                         </button>
                         <div id="langDropdownMenu" class="hidden absolute right-0 rtl:right-auto rtl:left-0 mt-2 w-48 rounded-2xl bg-[#1D1D1F] border border-white/15 shadow-2xl p-1.5 z-50 space-y-0.5 text-xs text-white/80">
-                            <button type="button" onclick="setSiteLanguage(&#x27;tr&#x27;)" data-lang-opt="tr" class="lang-opt-btn w-full text-left rtl:text-right px-3 py-2 rounded-xl flex items-center justify-between bg-[#111111] text-[#000000] font-medium transition"><span>Türkçe</span><span class="font-mono text-[10px] opacity-80">TR</span></button>
+                            <button type="button" onclick="setSiteLanguage(&#x27;tr&#x27;)" data-lang-opt="tr" class="lang-opt-btn w-full text-left rtl:text-right px-3 py-2 rounded-xl flex items-center justify-between bg-[#111111] text-[#FFFFFF] font-medium transition"><span>Türkçe</span><span class="font-mono text-[10px] opacity-80">TR</span></button>
                             <button type="button" onclick="setSiteLanguage(&#x27;en&#x27;)" data-lang-opt="en" class="lang-opt-btn w-full text-left rtl:text-right px-3 py-2 rounded-xl flex items-center justify-between hover:bg-white/10 transition text-white/75"><span>English</span><span class="font-mono text-[10px] opacity-60">EN</span></button>
                             <button type="button" onclick="setSiteLanguage(&#x27;de&#x27;)" data-lang-opt="de" class="lang-opt-btn w-full text-left rtl:text-right px-3 py-2 rounded-xl flex items-center justify-between hover:bg-white/10 transition text-white/75"><span>Deutsch</span><span class="font-mono text-[10px] opacity-60">DE</span></button>
                             <button type="button" onclick="setSiteLanguage(&#x27;fr&#x27;)" data-lang-opt="fr" class="lang-opt-btn w-full text-left rtl:text-right px-3 py-2 rounded-xl flex items-center justify-between hover:bg-white/10 transition text-white/75"><span>Français</span><span class="font-mono text-[10px] opacity-60">FR</span></button>
@@ -1779,7 +1816,7 @@
                     <button type="button" onclick="openCartDrawer()" id="headerCartBtn" title="Otvori korpu (DAT Prodavnica opreme)" class="theme-header-pill relative px-2 sm:px-3 py-1.5 sm:py-2 rounded-full bg-[#1D1D1F] hover:bg-[#2A2A2D] text-[#FFFFFF] text-xs font-medium transition flex items-center gap-1 sm:gap-1.5 border border-white/10">
                         <i class="hgi hgi-stroke hgi-shopping-bag-02 w-3.5 h-3.5 text-[#000000]"></i>
                         <span class="hidden xl:inline">Korpa</span>
-                        <span id="cartCountBadge" class="inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 rounded-full bg-[#000000] text-[#111111] text-[10px] font-mono font-medium">0</span>
+                        <span id="cartCountBadge" class="inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 rounded-full bg-[#000000] text-[#FFFFFF] text-[10px] font-mono font-medium">0</span>
                     </button>
 
                     <a href="#vaka-bildir" class="hidden sm:flex px-4 py-2 rounded-full bg-[#000000] hover:bg-[#262626] text-[#111111] text-xs font-medium tracking-tight transition items-center gap-1.5 active:scale-95" title="Ücretsiz Ön Görüşme, Vaka Bildirimi ve Dedektif Fiyat Teklifi Formu — DAT Detective">
@@ -1809,7 +1846,7 @@
                 </button>
             </div>
             <div id="mobileLangBar" data-no-i18n="true" class="grid grid-cols-7 gap-1 pb-2.5 border-b border-white/10">
-                <button type="button" onclick="setSiteLanguage(&#x27;tr&#x27;)" data-lang-opt="tr" class="lang-opt-btn py-1.5 rounded-lg bg-[#000000] text-[#111111] font-mono text-[11px] font-medium text-center transition">TR</button>
+                <button type="button" onclick="setSiteLanguage(&#x27;tr&#x27;)" data-lang-opt="tr" class="lang-opt-btn py-1.5 rounded-lg bg-[#000000] text-[#FFFFFF] font-mono text-[11px] font-medium text-center transition">TR</button>
                 <button type="button" onclick="setSiteLanguage(&#x27;en&#x27;)" data-lang-opt="en" class="lang-opt-btn py-1.5 rounded-lg bg-[#222224] text-white/75 font-mono text-[11px] text-center transition">EN</button>
                 <button type="button" onclick="setSiteLanguage(&#x27;de&#x27;)" data-lang-opt="de" class="lang-opt-btn py-1.5 rounded-lg bg-[#222224] text-white/75 font-mono text-[11px] text-center transition">DE</button>
                 <button type="button" onclick="setSiteLanguage(&#x27;fr&#x27;)" data-lang-opt="fr" class="lang-opt-btn py-1.5 rounded-lg bg-[#222224] text-white/75 font-mono text-[11px] text-center transition">FR</button>
@@ -1834,7 +1871,7 @@
             </a>
             <a href="../elsa-vaka-paneli" class="flex items-center justify-between py-2 text-xs text-[#FFFFFF] font-medium border-b border-white/[0.07]" title="Elsa Dijital Dedektif Asistanı ve Canlı Vaka Takip Paneli — DAT Detective">
                 <span>Elsa</span>
-                <span class="text-[10px] font-mono text-[#FA7E61]">ELSA PANELİ</span>
+                <span class="text-[10px] font-mono text-neutral-500">ELSA PANELİ</span>
             </a>
             <a href="#mimari" class="block py-2 text-xs text-white/75 hover:text-[#FFFFFF] border-b border-white/[0.07]" title="DAT Özel Dedektiflik Bürosu — 7/24 Yasal ve Gizli Özel Dedektiflik Hizmetleri">O nama, UÖDED i pravna usklađenost</a>
             <a href="#hizmetler" class="block py-2 text-xs text-white/75 hover:text-[#FFFFFF] border-b border-white/[0.07]" title="Özel Dedektiflik Hizmetlerimiz — Eş Takibi, Evlilik Öncesi, Adres Tespiti ve Kurumsal Araştırma">Naših 12 zvaničnih istražnih usluga</a>
@@ -1846,7 +1883,7 @@
                     <i class="hgi hgi-stroke hgi-call w-3.5 h-3.5 text-[#000000]"></i>
                     <span>0532 666 77 49</span>
                 </a>
-                <a href="tel:+903122840299" class="flex items-center justify-center gap-1.5 py-3 bg-[#000000] text-[#111111] rounded-xl text-xs font-medium" title="DAT Detective Ankara Merkez Büro Sabit Telefon: 0312 284 02 99">
+                <a href="tel:+903122840299" class="flex items-center justify-center gap-1.5 py-3 bg-[#000000] text-[#FFFFFF] rounded-xl text-xs font-medium" title="DAT Detective Ankara Merkez Büro Sabit Telefon: 0312 284 02 99">
                     <i class="hgi hgi-stroke hgi-call-02 w-3.5 h-3.5"></i>
                     <span>0312 284 02 99</span>
                 </a>
@@ -1868,7 +1905,7 @@
                 <div class="grid lg:grid-cols-12 gap-6 lg:gap-8 items-end">
                     <div class="lg:col-span-7 space-y-4 text-center lg:text-left rtl:lg:text-right">
                         <div class="inline-flex flex-wrap items-center justify-center lg:justify-start gap-2 px-3.5 py-1.5 rounded-full bg-[#1D1D1F] border border-white/10 text-[10px] sm:text-[11px] font-medium text-white/85">
-                            <span class="px-2.5 py-0.5 rounded-full bg-[#000000] text-[#111111] text-[9px] font-mono font-medium shrink-0">NAGRAĐIVANA AGENCIJA</span>
+                            <span class="px-2.5 py-0.5 rounded-full bg-[#000000] text-[#FFFFFF] text-[9px] font-mono font-medium shrink-0">NAGRAĐIVANA AGENCIJA</span>
                             <span>NAJBOLJA ISTRAŽIVAČKA AGENCIJA GODINE — DAT GROUP</span>
                         </div>
 
@@ -1947,7 +1984,7 @@
                                             <img decoding="async" src="../dat-logo.png" alt="DAT Logo" class="w-full h-full rounded-lg object-contain p-1">
                                         </div>
                                         <div class="grid grid-cols-3 gap-0.5 p-0.5 bg-[#1D1D1F] rounded-full border border-white/10 text-[10px]" id="heroCaseTabs">
-                                            <button type="button" onclick="switchHeroCase(&#x27;sadakat&#x27;)" data-tab="sadakat" class="hero-tab-btn px-2.5 py-1.5 rounded-full bg-[#000000] text-[#111111] font-medium transition">
+                                            <button type="button" onclick="switchHeroCase(&#x27;sadakat&#x27;)" data-tab="sadakat" class="hero-tab-btn px-2.5 py-1.5 rounded-full bg-[#000000] text-[#FFFFFF] font-medium transition">
                                                 Praćenje supružnika
                                             </button>
                                             <button type="button" onclick="switchHeroCase(&#x27;tscm&#x27;)" data-tab="tscm" class="hero-tab-btn px-2.5 py-1.5 rounded-full text-white/70 hover:text-white font-regular transition">
@@ -1978,13 +2015,13 @@
                                                     <path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#000000" />
                                                 </svg>
                                                 <div class="flex-1 flex items-center justify-end pr-3 pl-1">
-                                                    <span class="px-2 py-0.5 rounded-full bg-[#111111] text-[#000000] font-mono text-[9.5px] font-medium truncate" id="hcLawBadge">PZ čl. 161 / ZPP čl. 199</span>
+                                                    <span class="px-2 py-0.5 rounded-full bg-[#111111] text-[#FFFFFF] font-mono text-[9.5px] font-medium truncate" id="hcLawBadge">PZ čl. 161 / ZPP čl. 199</span>
                                                 </div>
                                             </div>
                                             <div class="bg-[#000000] -mt-px rounded-tr-[20px] rounded-b-[20px] p-3.5 text-[#111111] space-y-2.5">
                                                 <div class="flex items-center justify-between gap-2">
                                                     <div class="flex items-center gap-2.5 min-w-0">
-                                                        <span class="w-8 h-8 rounded-full bg-[#111111] text-[#000000] flex items-center justify-center shrink-0">
+                                                        <span class="w-8 h-8 rounded-full bg-[#111111] text-[#FFFFFF] flex items-center justify-center shrink-0">
                                                             <i class="hgi hgi-stroke hgi-security-check w-4 h-4"></i>
                                                         </span>
                                                         <div class="min-w-0">
@@ -2021,13 +2058,13 @@
                                                     <p class="text-[#3A3E42] font-regular text-[11.5px] leading-snug">Nadzor isključivo na javnim površinama uz puno poštovanje privatnosti i nepovredivosti doma.</p>
                                                 </div>
                                                 <div class="flex items-start gap-2.5">
-                                                    <span class="font-mono text-[10px] bg-[#111111] text-[#000000] px-2 py-0.5 rounded-md font-medium mt-0.5 shrink-0">FAZA 03</span>
+                                                    <span class="font-mono text-[10px] bg-[#111111] text-[#FFFFFF] px-2 py-0.5 rounded-md font-medium mt-0.5 shrink-0">FAZA 03</span>
                                                     <p class="text-[#111111] font-medium text-[11.5px] leading-snug">Predaja zvaničnog dosijea sa vremenski žigosanim 4K dokazima direktno vašem advokatu.</p>
                                                 </div>
                                             </div>
                                             <div class="pt-2 border-t border-black/[0.07] flex items-center justify-between gap-2">
                                                 <span data-i18n-html="hero_consult_line" class="text-[10.5px] text-[#3A3E42] truncate">Konsultacije 24/7: <strong>0312 284 02 99</strong> • <strong>0532 666 77 49</strong></span>
-                                                <a href="#vaka-bildir" class="shrink-0 px-3 py-1.5 rounded-full bg-[#111111] text-[#000000] text-[10px] font-medium hover:bg-[#000000] hover:text-white transition" title="Ücretsiz Ön Görüşme, Vaka Bildirimi ve Dedektif Fiyat Teklifi Formu — DAT Detective">Ponuda</a>
+                                                <a href="#vaka-bildir" class="shrink-0 px-3 py-1.5 rounded-full bg-[#111111] text-[#FFFFFF] text-[10px] font-medium hover:bg-[#000000] hover:text-white transition" title="Ücretsiz Ön Görüşme, Vaka Bildirimi ve Dedektif Fiyat Teklifi Formu — DAT Detective">Ponuda</a>
                                             </div>
                                         </div>
 
@@ -2082,7 +2119,7 @@
                         <span>4.000+ predmeta</span>
                     </div>
                     <div class="bg-[#242426] border border-white/10 rounded-2xl p-3 text-xs text-white/85 flex items-center gap-2">
-                        <span class="w-2 h-2 rounded-full border border-[#FA7E61] shrink-0"></span>
+                        <span class="w-2 h-2 rounded-full border border-black/40 shrink-0"></span>
                         <span>Usklađeno sa čl. 199 ZPP</span>
                     </div>
                     <div class="bg-[#242426] border border-white/10 rounded-2xl p-3 text-xs text-white/85 flex items-center gap-2">
@@ -2107,7 +2144,7 @@
                             <div class="text-xs text-white/65 mt-0.5">IST • ANK • MNE • SAD</div>
                         </div>
                         <div class="px-2">
-                            <div class="text-xl sm:text-2xl font-medium text-[#FA7E61] apple-heading">%100</div>
+                            <div class="text-xl sm:text-2xl font-medium text-[#000000] apple-heading">%100</div>
                             <div class="text-xs text-white/65 mt-0.5">Garancija dokaza i povraćaja</div>
                         </div>
                     </div>
@@ -2136,7 +2173,7 @@
                             <button type="button" onclick="openServiceModal(&#x27;es-takibi&#x27;)" class="group relative w-[210px] sm:w-[230px] h-[152px] shrink-0 snap-start rounded-[20px] overflow-hidden border border-white/10 hover:border-[#000000]/60 bg-[#1D1D1F] transition text-left">
                                     <img src="../assets/services/es-takibi.jpg" alt="Eş Takibi" class="w-full h-full object-contain p-1 opacity-80 group-hover:scale-105 group-hover:opacity-95 transition duration-500" loading="lazy" decoding="async">
                                     <div class="absolute inset-0 bg-gradient-to-t from-[#111111] via-[#111111]/45 to-transparent"></div>
-                                    <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-[#000000] text-[#111111] font-mono text-[10px] font-medium">01</span>
+                                    <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-[#000000] text-[#FFFFFF] font-mono text-[10px] font-medium">01</span>
                                     <span class="absolute top-2.5 right-2.5 w-6 h-6 rounded-full bg-[#111111]/80 text-white border border-white/15 flex items-center justify-center group-hover:bg-[#000000] group-hover:text-[#111111] transition">
                                         <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3 h-3"></i>
                                     </span>
@@ -2147,7 +2184,7 @@
                                 </button><button type="button" onclick="openServiceModal(&#x27;evlilik-oncesi&#x27;)" class="group relative w-[210px] sm:w-[230px] h-[152px] shrink-0 snap-start rounded-[20px] overflow-hidden border border-white/10 hover:border-[#000000]/60 bg-[#1D1D1F] transition text-left">
                                     <img src="../assets/services/evlilik-oncesi.jpg" alt="Evlilik Öncesi Araştırma" class="w-full h-full object-contain p-1 opacity-80 group-hover:scale-105 group-hover:opacity-95 transition duration-500" loading="lazy" decoding="async">
                                     <div class="absolute inset-0 bg-gradient-to-t from-[#111111] via-[#111111]/45 to-transparent"></div>
-                                    <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-[#000000] text-[#111111] font-mono text-[10px] font-medium">02</span>
+                                    <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-[#000000] text-[#FFFFFF] font-mono text-[10px] font-medium">02</span>
                                     <span class="absolute top-2.5 right-2.5 w-6 h-6 rounded-full bg-[#111111]/80 text-white border border-white/15 flex items-center justify-center group-hover:bg-[#000000] group-hover:text-[#111111] transition">
                                         <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3 h-3"></i>
                                     </span>
@@ -2158,7 +2195,7 @@
                                 </button><button type="button" onclick="openServiceModal(&#x27;velayet-bosanma&#x27;)" class="group relative w-[210px] sm:w-[230px] h-[152px] shrink-0 snap-start rounded-[20px] overflow-hidden border border-white/10 hover:border-[#000000]/60 bg-[#1D1D1F] transition text-left">
                                     <img src="../assets/services/velayet-bosanma.jpg" alt="Velayet ve Boşanma Davaları" class="w-full h-full object-contain p-1 opacity-80 group-hover:scale-105 group-hover:opacity-95 transition duration-500" loading="lazy" decoding="async">
                                     <div class="absolute inset-0 bg-gradient-to-t from-[#111111] via-[#111111]/45 to-transparent"></div>
-                                    <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-[#000000] text-[#111111] font-mono text-[10px] font-medium">03</span>
+                                    <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-[#000000] text-[#FFFFFF] font-mono text-[10px] font-medium">03</span>
                                     <span class="absolute top-2.5 right-2.5 w-6 h-6 rounded-full bg-[#111111]/80 text-white border border-white/15 flex items-center justify-center group-hover:bg-[#000000] group-hover:text-[#111111] transition">
                                         <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3 h-3"></i>
                                     </span>
@@ -2169,7 +2206,7 @@
                                 </button><button type="button" onclick="openServiceModal(&#x27;ogrenci-takibi&#x27;)" class="group relative w-[210px] sm:w-[230px] h-[152px] shrink-0 snap-start rounded-[20px] overflow-hidden border border-white/10 hover:border-[#000000]/60 bg-[#1D1D1F] transition text-left">
                                     <img src="../assets/services/ogrenci-takibi.jpg" alt="Öğrenci Takibi" class="w-full h-full object-contain p-1 opacity-80 group-hover:scale-105 group-hover:opacity-95 transition duration-500" loading="lazy" decoding="async">
                                     <div class="absolute inset-0 bg-gradient-to-t from-[#111111] via-[#111111]/45 to-transparent"></div>
-                                    <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-[#000000] text-[#111111] font-mono text-[10px] font-medium">04</span>
+                                    <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-[#000000] text-[#FFFFFF] font-mono text-[10px] font-medium">04</span>
                                     <span class="absolute top-2.5 right-2.5 w-6 h-6 rounded-full bg-[#111111]/80 text-white border border-white/15 flex items-center justify-center group-hover:bg-[#000000] group-hover:text-[#111111] transition">
                                         <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3 h-3"></i>
                                     </span>
@@ -2180,7 +2217,7 @@
                                 </button><button type="button" onclick="openServiceModal(&#x27;adres-tespiti&#x27;)" class="group relative w-[210px] sm:w-[230px] h-[152px] shrink-0 snap-start rounded-[20px] overflow-hidden border border-white/10 hover:border-[#000000]/60 bg-[#1D1D1F] transition text-left">
                                     <img src="../assets/services/adres-tespiti.jpg" alt="Adres Tespiti" class="w-full h-full object-contain p-1 opacity-80 group-hover:scale-105 group-hover:opacity-95 transition duration-500" loading="lazy" decoding="async">
                                     <div class="absolute inset-0 bg-gradient-to-t from-[#111111] via-[#111111]/45 to-transparent"></div>
-                                    <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-[#000000] text-[#111111] font-mono text-[10px] font-medium">05</span>
+                                    <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-[#000000] text-[#FFFFFF] font-mono text-[10px] font-medium">05</span>
                                     <span class="absolute top-2.5 right-2.5 w-6 h-6 rounded-full bg-[#111111]/80 text-white border border-white/15 flex items-center justify-center group-hover:bg-[#000000] group-hover:text-[#111111] transition">
                                         <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3 h-3"></i>
                                     </span>
@@ -2191,7 +2228,7 @@
                                 </button><button type="button" onclick="openServiceModal(&#x27;bilisim-dolandiriciligi&#x27;)" class="group relative w-[210px] sm:w-[230px] h-[152px] shrink-0 snap-start rounded-[20px] overflow-hidden border border-white/10 hover:border-[#000000]/60 bg-[#1D1D1F] transition text-left">
                                     <img src="../assets/services/bilisim-dolandiriciligi.jpg" alt="Bilişim Dolandırıcılığı Tespiti" class="w-full h-full object-contain p-1 opacity-80 group-hover:scale-105 group-hover:opacity-95 transition duration-500" loading="lazy" decoding="async">
                                     <div class="absolute inset-0 bg-gradient-to-t from-[#111111] via-[#111111]/45 to-transparent"></div>
-                                    <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-[#000000] text-[#111111] font-mono text-[10px] font-medium">06</span>
+                                    <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-[#000000] text-[#FFFFFF] font-mono text-[10px] font-medium">06</span>
                                     <span class="absolute top-2.5 right-2.5 w-6 h-6 rounded-full bg-[#111111]/80 text-white border border-white/15 flex items-center justify-center group-hover:bg-[#000000] group-hover:text-[#111111] transition">
                                         <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3 h-3"></i>
                                     </span>
@@ -2202,7 +2239,7 @@
                                 </button><button type="button" onclick="openServiceModal(&#x27;borclu-takibi&#x27;)" class="group relative w-[210px] sm:w-[230px] h-[152px] shrink-0 snap-start rounded-[20px] overflow-hidden border border-white/10 hover:border-[#000000]/60 bg-[#1D1D1F] transition text-left">
                                     <img src="../assets/services/borclu-takibi.jpg" alt="Borçlu Takibi" class="w-full h-full object-contain p-1 opacity-80 group-hover:scale-105 group-hover:opacity-95 transition duration-500" loading="lazy" decoding="async">
                                     <div class="absolute inset-0 bg-gradient-to-t from-[#111111] via-[#111111]/45 to-transparent"></div>
-                                    <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-[#000000] text-[#111111] font-mono text-[10px] font-medium">07</span>
+                                    <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-[#000000] text-[#FFFFFF] font-mono text-[10px] font-medium">07</span>
                                     <span class="absolute top-2.5 right-2.5 w-6 h-6 rounded-full bg-[#111111]/80 text-white border border-white/15 flex items-center justify-center group-hover:bg-[#000000] group-hover:text-[#111111] transition">
                                         <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3 h-3"></i>
                                     </span>
@@ -2213,7 +2250,7 @@
                                 </button><button type="button" onclick="openServiceModal(&#x27;dolandiricilik-davalari&#x27;)" class="group relative w-[210px] sm:w-[230px] h-[152px] shrink-0 snap-start rounded-[20px] overflow-hidden border border-white/10 hover:border-[#000000]/60 bg-[#1D1D1F] transition text-left">
                                     <img src="../assets/services/dolandiricilik-davalari.jpg" alt="Dolandırıcılık Davaları" class="w-full h-full object-contain p-1 opacity-80 group-hover:scale-105 group-hover:opacity-95 transition duration-500" loading="lazy" decoding="async">
                                     <div class="absolute inset-0 bg-gradient-to-t from-[#111111] via-[#111111]/45 to-transparent"></div>
-                                    <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-[#000000] text-[#111111] font-mono text-[10px] font-medium">08</span>
+                                    <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-[#000000] text-[#FFFFFF] font-mono text-[10px] font-medium">08</span>
                                     <span class="absolute top-2.5 right-2.5 w-6 h-6 rounded-full bg-[#111111]/80 text-white border border-white/15 flex items-center justify-center group-hover:bg-[#000000] group-hover:text-[#111111] transition">
                                         <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3 h-3"></i>
                                     </span>
@@ -2224,7 +2261,7 @@
                                 </button><button type="button" onclick="openServiceModal(&#x27;kurumsal-teftis&#x27;)" class="group relative w-[210px] sm:w-[230px] h-[152px] shrink-0 snap-start rounded-[20px] overflow-hidden border border-white/10 hover:border-[#000000]/60 bg-[#1D1D1F] transition text-left">
                                     <img src="../assets/services/firma-arastirmalari.jpg" alt="Firma Araştırmaları" class="w-full h-full object-contain p-1 opacity-80 group-hover:scale-105 group-hover:opacity-95 transition duration-500" loading="lazy" decoding="async">
                                     <div class="absolute inset-0 bg-gradient-to-t from-[#111111] via-[#111111]/45 to-transparent"></div>
-                                    <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-[#000000] text-[#111111] font-mono text-[10px] font-medium">09</span>
+                                    <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-[#000000] text-[#FFFFFF] font-mono text-[10px] font-medium">09</span>
                                     <span class="absolute top-2.5 right-2.5 w-6 h-6 rounded-full bg-[#111111]/80 text-white border border-white/15 flex items-center justify-center group-hover:bg-[#000000] group-hover:text-[#111111] transition">
                                         <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3 h-3"></i>
                                     </span>
@@ -2235,7 +2272,7 @@
                                 </button><button type="button" onclick="openServiceModal(&#x27;hirsizlik-arastirma&#x27;)" class="group relative w-[210px] sm:w-[230px] h-[152px] shrink-0 snap-start rounded-[20px] overflow-hidden border border-white/10 hover:border-[#000000]/60 bg-[#1D1D1F] transition text-left">
                                     <img src="../assets/services/hirsizlik-arastirma.jpg" alt="Hırsızlık Araştırmaları" class="w-full h-full object-contain p-1 opacity-80 group-hover:scale-105 group-hover:opacity-95 transition duration-500" loading="lazy" decoding="async">
                                     <div class="absolute inset-0 bg-gradient-to-t from-[#111111] via-[#111111]/45 to-transparent"></div>
-                                    <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-[#000000] text-[#111111] font-mono text-[10px] font-medium">10</span>
+                                    <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-[#000000] text-[#FFFFFF] font-mono text-[10px] font-medium">10</span>
                                     <span class="absolute top-2.5 right-2.5 w-6 h-6 rounded-full bg-[#111111]/80 text-white border border-white/15 flex items-center justify-center group-hover:bg-[#000000] group-hover:text-[#111111] transition">
                                         <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3 h-3"></i>
                                     </span>
@@ -2246,7 +2283,7 @@
                                 </button><button type="button" onclick="openServiceModal(&#x27;bocek-tarama&#x27;)" class="group relative w-[210px] sm:w-[230px] h-[152px] shrink-0 snap-start rounded-[20px] overflow-hidden border border-white/10 hover:border-[#000000]/60 bg-[#1D1D1F] transition text-left">
                                     <img src="../assets/services/izleme-raporlama.jpg" alt="İzleme ve Raporlama" class="w-full h-full object-contain p-1 opacity-80 group-hover:scale-105 group-hover:opacity-95 transition duration-500" loading="lazy" decoding="async">
                                     <div class="absolute inset-0 bg-gradient-to-t from-[#111111] via-[#111111]/45 to-transparent"></div>
-                                    <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-[#000000] text-[#111111] font-mono text-[10px] font-medium">11</span>
+                                    <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-[#000000] text-[#FFFFFF] font-mono text-[10px] font-medium">11</span>
                                     <span class="absolute top-2.5 right-2.5 w-6 h-6 rounded-full bg-[#111111]/80 text-white border border-white/15 flex items-center justify-center group-hover:bg-[#000000] group-hover:text-[#111111] transition">
                                         <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3 h-3"></i>
                                     </span>
@@ -2257,7 +2294,7 @@
                                 </button><button type="button" onclick="openServiceModal(&#x27;marka-taklidi&#x27;)" class="group relative w-[210px] sm:w-[230px] h-[152px] shrink-0 snap-start rounded-[20px] overflow-hidden border border-white/10 hover:border-[#000000]/60 bg-[#1D1D1F] transition text-left">
                                     <img src="../assets/services/marka-taklidi.jpg" alt="Marka Taklidi Araştırması" class="w-full h-full object-contain p-1 opacity-80 group-hover:scale-105 group-hover:opacity-95 transition duration-500" loading="lazy" decoding="async">
                                     <div class="absolute inset-0 bg-gradient-to-t from-[#111111] via-[#111111]/45 to-transparent"></div>
-                                    <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-[#000000] text-[#111111] font-mono text-[10px] font-medium">12</span>
+                                    <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-[#000000] text-[#FFFFFF] font-mono text-[10px] font-medium">12</span>
                                     <span class="absolute top-2.5 right-2.5 w-6 h-6 rounded-full bg-[#111111]/80 text-white border border-white/15 flex items-center justify-center group-hover:bg-[#000000] group-hover:text-[#111111] transition">
                                         <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3 h-3"></i>
                                     </span>
@@ -2298,7 +2335,7 @@
                                 <div class="text-[10px] font-medium text-[#111111]/80 mt-1">Godina osnivanja</div>
                             </div>
                             <div class="col-span-2 flex justify-center">
-                                <span class="w-7 h-7 rounded-full bg-[#111111] text-[#000000] flex items-center justify-center shadow-sm">
+                                <span class="w-7 h-7 rounded-full bg-[#111111] text-[#FFFFFF] flex items-center justify-center shadow-sm">
                                     <i class="hgi hgi-stroke hgi-security-check w-3.5 h-3.5 text-[#000000]"></i>
                                 </span>
                             </div>
@@ -2324,27 +2361,55 @@
                                 <p data-i18n-html="bento1_p" class="text-[13.5px] sm:text-[14.5px] text-[#3A3E42] font-regular leading-relaxed">Detektivski posao nije poput filmskih scena; na snazi su strogi propisi i Krivični zakonik. Jedan pogrešan korak nestručne osobe može ugroziti vaš opravdani spor. <strong>DAT Agencija</strong> poštuje zakonske granice i prikuplja <strong>materijalne dokaze priznate na sudu u punom zakonskom okviru</strong>.</p>
                             </div>
 
-                            <!-- 2x2 Domain Mapping Tile Micro-Widget (Reference Screenshots 4 & 7) -->
-                            <div class="sm:col-span-5 flex flex-col items-center">
-                                <div class="grid grid-cols-2 gap-2.5 w-full max-w-[230px] p-2.5 rounded-[22px] bg-[#F2F2F2]">
-                                    <div class="aspect-square rounded-[16px] bg-[#FA7E61] p-3 flex flex-col justify-between text-[#111111]">
-                                        <span class="w-6 h-6 rounded-full bg-[#111111] text-[#FA7E61] flex items-center justify-center"><i class="hgi hgi-stroke hgi-justice-scale-01 w-3.5 h-3.5"></i></span>
-                                        <span class="text-[11px] font-medium leading-tight">Porodica i PZ</span>
+                            <!-- 2x2 Domain Mapping Tile Micro-Widget (Proportionally Balanced Bento Tile) -->
+                            <div class="sm:col-span-5 flex flex-col items-center justify-center">
+                                <div class="w-full max-w-[270px] bg-[#F7F7F8] p-3 rounded-[24px] border border-black/[0.06] shadow-xs">
+                                    <div class="flex items-center justify-between px-1.5 pb-2.5">
+                                        <span class="text-[10px] font-mono tracking-wider uppercase text-neutral-600 font-semibold flex items-center gap-1.5">
+                                            <i class="hgi hgi-stroke hgi-shield-tick w-3 h-3 text-black"></i>
+                                            <span>Karta Sudske Nadležnosti</span>
+                                        </span>
+                                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
                                     </div>
-                                    <div class="aspect-square rounded-[16px] bg-[#111111] p-3 flex flex-col justify-between text-[#FFFFFF]">
-                                        <span class="w-6 h-6 rounded-full bg-[#FA7E61] text-[#111111] flex items-center justify-center"><i class="hgi hgi-stroke hgi-tick-02 w-3.5 h-3.5"></i></span>
-                                        <span class="text-[11px] font-medium leading-tight">HMK m.199</span>
-                                    </div>
-                                    <div class="aspect-square rounded-[16px] bg-[#FA7E61] p-3 flex flex-col justify-between text-[#111111]">
-                                        <span class="w-6 h-6 rounded-full bg-[#111111] text-[#FA7E61] flex items-center justify-center"><i class="hgi hgi-stroke hgi-shield-01 w-3.5 h-3.5"></i></span>
-                                        <span class="text-[11px] font-medium leading-tight">TSCM Privatnost</span>
-                                    </div>
-                                    <div class="aspect-square rounded-[16px] bg-[#FA7E61] p-3 flex flex-col justify-between text-[#111111]">
-                                        <span class="w-6 h-6 rounded-full bg-[#111111] text-[#FA7E61] flex items-center justify-center"><i class="hgi hgi-stroke hgi-briefcase-01 w-3.5 h-3.5"></i></span>
-                                        <span class="text-[11px] font-medium leading-tight">Korporativni dokazi</span>
+                                    <div class="grid grid-cols-2 gap-2">
+                                        <div class="rounded-xl bg-[#FFFFFF] border border-black/[0.08] p-3 flex flex-col justify-between hover:border-black/30 transition shadow-xs aspect-[4/3]">
+                                            <div class="w-7 h-7 rounded-lg bg-[#F7F7F8] text-black flex items-center justify-center">
+                                                <i class="hgi hgi-stroke hgi-justice-scale-01 w-3.5 h-3.5"></i>
+                                            </div>
+                                            <div class="pt-1.5">
+                                                <div class="text-[11.5px] font-semibold text-black leading-tight">Porodica i Zakon</div>
+                                                <div class="text-[9.5px] font-mono text-neutral-500">Porodično Pravo</div>
+                                            </div>
+                                        </div>
+                                        <div class="rounded-xl bg-[#FFFFFF] border border-black/[0.08] p-3 flex flex-col justify-between hover:border-black/30 transition shadow-xs aspect-[4/3]">
+                                            <div class="w-7 h-7 rounded-lg bg-[#F7F7F8] text-black flex items-center justify-center">
+                                                <i class="hgi hgi-stroke hgi-tick-02 w-3.5 h-3.5"></i>
+                                            </div>
+                                            <div class="pt-1.5">
+                                                <div class="text-[11.5px] font-semibold text-black leading-tight">ZPP Čl.199</div>
+                                                <div class="text-[9.5px] font-mono text-neutral-500">Sudski Dokaz</div>
+                                            </div>
+                                        </div>
+                                        <div class="rounded-xl bg-[#FFFFFF] border border-black/[0.08] p-3 flex flex-col justify-between hover:border-black/30 transition shadow-xs aspect-[4/3]">
+                                            <div class="w-7 h-7 rounded-lg bg-[#F7F7F8] text-black flex items-center justify-center">
+                                                <i class="hgi hgi-stroke hgi-shield-01 w-3.5 h-3.5"></i>
+                                            </div>
+                                            <div class="pt-1.5">
+                                                <div class="text-[11.5px] font-semibold text-black leading-tight">TSCM Privatnost</div>
+                                                <div class="text-[9.5px] font-mono text-neutral-500">Detekcija Prisluškivanja</div>
+                                            </div>
+                                        </div>
+                                        <div class="rounded-xl bg-[#FFFFFF] border border-black/[0.08] p-3 flex flex-col justify-between hover:border-black/30 transition shadow-xs aspect-[4/3]">
+                                            <div class="w-7 h-7 rounded-lg bg-[#F7F7F8] text-black flex items-center justify-center">
+                                                <i class="hgi hgi-stroke hgi-briefcase-01 w-3.5 h-3.5"></i>
+                                            </div>
+                                            <div class="pt-1.5">
+                                                <div class="text-[11.5px] font-semibold text-black leading-tight">Korporativni Dokaz</div>
+                                                <div class="text-[9.5px] font-mono text-neutral-500">Poslovna Zaštita</div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <span class="text-[11px] text-[#3A3E42] font-medium mt-2">Mapa pravne nadležnosti</span>
                             </div>
                         </div>
 
@@ -2383,49 +2448,46 @@
                     </div>
 
                     <!-- Bento 2 (5 Cols - Obsidian Dark Tile + 60-Tick Radial Progress Dial from Screenshots 4 & 7) -->
-                    <div class="lg:col-span-5 bg-[#111111] text-[#FFFFFF] rounded-[28px] p-6 sm:p-8 flex flex-col justify-between space-y-5 shadow-2xl">
+                    <div class="lg:col-span-5 bg-[#F7F7F8] text-[#000000] rounded-[28px] p-6 sm:p-8 flex flex-col justify-between space-y-5 shadow-2xl">
                         <div class="flex items-center justify-between gap-2">
-                            <span class="px-3 py-1 rounded-full bg-[#1D1D1F] text-[#000000] border border-white/10 font-mono text-[10.5px] font-medium">VAŽNE INFORMACIJE I UÖDED</span>
-                            <span class="font-mono text-[10px] text-[#FA7E61]">VERIFIKOVANO</span>
+                            <span class="px-3 py-1 rounded-full bg-[#F7F7F8] text-black border border-black/[0.08] font-mono text-[10.5px] font-medium">VAŽNO OBAVJEŠTENJE I UÖDED</span>
+                            <span class="font-mono text-[10px] text-neutral-700">VERIFIKOVANO</span>
                         </div>
 
-                        <!-- Radial Tick Ring Widget (Matches Screenshot 4 "98% processing") -->
                         <div class="relative flex flex-col items-center justify-center py-2">
-                            <svg viewbox="0 0 200 200" class="w-40 h-40 sm:w-44 sm:h-44 mx-auto" aria-hidden="true">
-    <line x1="100" y1="12" x2="100" y2="29" stroke="#FA7E61" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.35" transform="rotate(0 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#FA7E61" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.39" transform="rotate(6 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#FA7E61" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.44" transform="rotate(12 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#FA7E61" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.48" transform="rotate(18 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#FA7E61" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.52" transform="rotate(24 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#FA7E61" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.57" transform="rotate(30 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#FA7E61" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.61" transform="rotate(36 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#FA7E61" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.65" transform="rotate(42 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#FA7E61" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.70" transform="rotate(48 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#FA7E61" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.74" transform="rotate(54 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#FA7E61" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.78" transform="rotate(60 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#FA7E61" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.83" transform="rotate(66 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#FA7E61" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.87" transform="rotate(72 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#FA7E61" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.91" transform="rotate(78 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#FA7E61" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.96" transform="rotate(84 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#FA7E61" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.35" transform="rotate(90 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#FA7E61" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.39" transform="rotate(96 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#FA7E61" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.44" transform="rotate(102 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#FA7E61" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.48" transform="rotate(108 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#FA7E61" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.52" transform="rotate(114 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#FA7E61" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.57" transform="rotate(120 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#FA7E61" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.61" transform="rotate(126 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#FA7E61" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.65" transform="rotate(132 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#FA7E61" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.70" transform="rotate(138 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#FA7E61" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.74" transform="rotate(144 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#FA7E61" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.78" transform="rotate(150 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#FA7E61" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.83" transform="rotate(156 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#FA7E61" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.87" transform="rotate(162 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#FA7E61" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.91" transform="rotate(168 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#FA7E61" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.96" transform="rotate(174 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#FA7E61" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.35" transform="rotate(180 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#FA7E61" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.39" transform="rotate(186 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#FA7E61" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.44" transform="rotate(192 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#FA7E61" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.48" transform="rotate(198 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#FA7E61" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.52" transform="rotate(204 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#FA7E61" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.57" transform="rotate(210 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#FA7E61" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.61" transform="rotate(216 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#FA7E61" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.65" transform="rotate(222 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#FA7E61" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.70" transform="rotate(228 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#FA7E61" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.74" transform="rotate(234 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#FA7E61" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.78" transform="rotate(240 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#FA7E61" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.83" transform="rotate(246 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.87" transform="rotate(252 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.91" transform="rotate(258 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.96" transform="rotate(264 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.35" transform="rotate(270 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.39" transform="rotate(276 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.44" transform="rotate(282 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.48" transform="rotate(288 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.52" transform="rotate(294 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.57" transform="rotate(300 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.61" transform="rotate(306 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.65" transform="rotate(312 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.70" transform="rotate(318 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.74" transform="rotate(324 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.78" transform="rotate(330 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.83" transform="rotate(336 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="rgba(255,255,255,0.16)" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.25" transform="rotate(342 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="rgba(255,255,255,0.16)" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.25" transform="rotate(348 100 100)" /><line x1="100" y1="12" x2="100" y2="29" stroke="rgba(255,255,255,0.16)" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.25" transform="rotate(354 100 100)" />
+                            <svg viewBox="0 0 200 200" class="w-40 h-40 sm:w-44 sm:h-44 mx-auto" aria-hidden="true">
+    <line x1="100" y1="12" x2="100" y2="29" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.35" transform="rotate(0 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.39" transform="rotate(6 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.44" transform="rotate(12 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.48" transform="rotate(18 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.52" transform="rotate(24 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.57" transform="rotate(30 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.61" transform="rotate(36 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.65" transform="rotate(42 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.70" transform="rotate(48 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.74" transform="rotate(54 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.78" transform="rotate(60 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.83" transform="rotate(66 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.87" transform="rotate(72 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.91" transform="rotate(78 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.96" transform="rotate(84 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.35" transform="rotate(90 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.39" transform="rotate(96 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.44" transform="rotate(102 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.48" transform="rotate(108 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.52" transform="rotate(114 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.57" transform="rotate(120 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.61" transform="rotate(126 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.65" transform="rotate(132 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.70" transform="rotate(138 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.74" transform="rotate(144 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.78" transform="rotate(150 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.83" transform="rotate(156 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.87" transform="rotate(162 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.91" transform="rotate(168 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.96" transform="rotate(174 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.35" transform="rotate(180 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.39" transform="rotate(186 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.44" transform="rotate(192 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.48" transform="rotate(198 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.52" transform="rotate(204 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.57" transform="rotate(210 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.61" transform="rotate(216 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.65" transform="rotate(222 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.70" transform="rotate(228 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.74" transform="rotate(234 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.78" transform="rotate(240 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.83" transform="rotate(246 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.87" transform="rotate(252 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.91" transform="rotate(258 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.96" transform="rotate(264 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.35" transform="rotate(270 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.39" transform="rotate(276 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.44" transform="rotate(282 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.48" transform="rotate(288 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.52" transform="rotate(294 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.57" transform="rotate(300 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.61" transform="rotate(306 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.65" transform="rotate(312 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.70" transform="rotate(318 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.74" transform="rotate(324 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.78" transform="rotate(330 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.83" transform="rotate(336 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="rgba(255,255,255,0.16)" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.25" transform="rotate(342 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="rgba(255,255,255,0.16)" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.25" transform="rotate(348 100 100)"/><line x1="100" y1="12" x2="100" y2="29" stroke="rgba(255,255,255,0.16)" stroke-width="2.2" stroke-linecap="round" stroke-opacity="0.25" transform="rotate(354 100 100)"/>
 </svg>
                             <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-                                <span class="text-3xl font-normal text-[#FFFFFF] tracking-tight">%100</span>
-                                <span class="text-[10px] font-mono text-white/60 uppercase">Dokazi i tajnost</span>
+                                <span class="text-3xl font-normal text-[#000000] tracking-tight">%100</span>
+                                <span class="text-[10px] font-mono text-neutral-700 uppercase">Dokaz i Tajnost</span>
                             </div>
                         </div>
 
                         <div class="space-y-2">
-                            <h3 class="apple-subhead text-lg sm:text-xl font-medium text-[#FFFFFF]">
-                                Osnivač Međunarodnog udruženja za obuku privatnih detektiva (UÖDED)
+                            <h3 class="apple-subhead text-lg sm:text-xl font-medium text-[#000000]">
+                                Osnivač Međunarodnog Udruženja za Obuku Privatnih Detektiva (UÖDED)
                             </h3>
-                            <p data-i18n-html="bento2_p" class="text-[13.5px] text-white/75 font-regular leading-relaxed">Čuvajte se anonimnih sajtova bez stvarne adrese kancelarije i fiksnog broja telefona. Naše osnovano <strong>Međunarodno udruženje za obuku privatnih detektiva (UÖDED)</strong> zvanično unapređuje profesionalne standarde.</p>
+                            <p class="text-[13.5px] text-neutral-800 font-regular leading-relaxed">
+                                Pazite se lažnih web sajtova koji rade bez stvarne adrese kancelarije i fiksnog telefona. Naše osnovano <strong>Međunarodno udruženje UÖDED</strong> sprovodi zvanične aktivnosti na regulisanju i napretku detektivske profesije.
+                            </p>
                         </div>
 
                         <div class="grid grid-cols-2 gap-3">
-                            <div onclick="openPhotoModal(&#x27;assets/photos/uoded-imza-toreni.jpg&#x27;, &#x27;UÖDED Başkanı Ümit Hakan Karakaya — Yuvarlak Masa Çalıştayı &amp; Sertifika İmza Töreni&#x27;)" class="group relative h-24 rounded-2xl overflow-hidden border border-white/15 cursor-pointer">
-                                <img src="../assets/photos/uoded-imza-toreni.jpg" alt="UÖDED Başkanı Ümit Hakan Karakaya İmza Töreni" class="w-full h-full object-contain p-1 group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
-                                <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-black/20 to-transparent flex items-end p-2">
-                                    <span class="text-[10px] font-mono text-[#FFFFFF] font-medium">OSNIVANJE UÖDED</span>
-                                </div>
+                            <div onclick="openPhotoModal('../assets/photos/uoded-imza-toreni.jpg', 'POTPISIVANJE POVELJE UÖDED')" class="group relative aspect-[4/3] rounded-2xl overflow-hidden border border-black/[0.08] cursor-pointer bg-[#000000] flex items-center justify-center">
+                                <img src="../assets/photos/uoded-imza-toreni.jpg" alt="UÖDED" class="w-full h-full object-contain p-1 group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+                                <span class="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-black/85 backdrop-blur-md font-mono text-[10px] font-semibold tracking-wider border border-white/20 z-10" style="color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important;">POTPISIVANJE POVELJE UÖDED</span>
                             </div>
-                            <div onclick="openPhotoModal(&#x27;assets/photos/sertifika-toreni-2022.jpg&#x27;, &#x27;01 Ekim 2022 — DAT Detective 1. Dönem Özel Dedektiflik Eğitimi Sertifika Töreni&#x27;)" class="group relative h-24 rounded-2xl overflow-hidden border border-white/15 cursor-pointer">
-                                <img src="../assets/photos/sertifika-toreni-2022.jpg" alt="DAT Detective Eğitimi Sertifika Töreni" class="w-full h-full object-contain p-1 group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
-                                <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-black/20 to-transparent flex items-end p-2">
-                                    <span class="text-[10px] font-mono text-[#FFFFFF] font-medium">DODJELA SERTIFIKATA</span>
-                                </div>
+                            <div onclick="openPhotoModal('../assets/photos/sertifika-toreni-2022.jpg', 'KİÜ SERTIFIKACIJA')" class="group relative aspect-[4/3] rounded-2xl overflow-hidden border border-black/[0.08] cursor-pointer bg-[#000000] flex items-center justify-center">
+                                <img src="../assets/photos/sertifika-toreni-2022.jpg" alt="DAT Detective" class="w-full h-full object-contain p-1 group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+                                <span class="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-black/85 backdrop-blur-md font-mono text-[10px] font-semibold tracking-wider border border-white/20 z-10" style="color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important;">KİÜ SERTIFIKACIJA</span>
                             </div>
                         </div>
 
-                        <ul class="p-4 rounded-2xl bg-[#1D1D1F] border border-white/10 space-y-1.5 text-xs text-white/85 font-regular">
-                            <li class="flex items-center gap-2"><i class="hgi hgi-stroke hgi-tick-02 w-3.5 h-3.5 text-[#000000]"></i> Pisani zvanični ugovor i stvarne adrese biroa</li>
-                            <li class="flex items-center gap-2"><i class="hgi hgi-stroke hgi-tick-02 w-3.5 h-3.5 text-[#000000]"></i> Dokazan kredibilitet u nacionalnim medijima</li>
-                            <li class="flex items-center gap-2"><i class="hgi hgi-stroke hgi-tick-02 w-3.5 h-3.5 text-[#000000]"></i> Sertifikovani privatni detektivi i istražitelji</li>
+                        <ul class="p-4 rounded-2xl bg-[#FFFFFF] border border-black/[0.08] space-y-1.5 text-xs text-neutral-900 font-regular">
+                            <li class="flex items-center gap-2"><i class="hgi hgi-stroke hgi-tick-02 w-3.5 h-3.5 text-black"></i> Zvanični pisani ugovor i transparentne adrese kancelarija</li>
+                            <li class="flex items-center gap-2"><i class="hgi hgi-stroke hgi-tick-02 w-3.5 h-3.5 text-black"></i> Dokazani autoritet u televizijskim i pisanim medijima</li>
+                            <li class="flex items-center gap-2"><i class="hgi hgi-stroke hgi-tick-02 w-3.5 h-3.5 text-black"></i> Sertifikovani privatni detektivi i specijalni istražitelji</li>
                         </ul>
                     </div>
 
@@ -2500,12 +2562,12 @@
                             <div class="p-4 sm:p-5 rounded-2xl bg-[#F2F2F2] space-y-3">
                                 <div class="flex items-baseline justify-between gap-2">
                                     <div>
-                                        <span class="text-[11px] font-medium text-[#FA7E61]">Operativni domet</span>
+                                        <span class="text-[11px] font-medium text-[#111111]">Operativni domet</span>
                                         <div class="text-2xl sm:text-3xl font-normal text-[#111111] tracking-tight"><span>81 provincija</span> <span class="text-xs text-[#3A3E42] font-regular">/ Širom svijeta</span></div>
                                     </div>
                                     <span class="text-xs font-mono text-[#111111]">Aktivno 24/7</span>
                                 </div>
-                                <div class="h-14 sm:h-16 flex items-end gap-[3px] sm:gap-1"><span class="flex-1 rounded-full block transition-all duration-500" style="height:24%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:24%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:26%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:27%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:29%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:31%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:33%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:36%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:38%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:41%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:43%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:46%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:49%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:52%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:55%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:58%; background:#FA7E61;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:61%; background:rgba(250, 126, 97, 0.38);"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:64%; background:rgba(250, 126, 97, 0.38);"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:67%; background:rgba(250, 126, 97, 0.38);"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:71%; background:rgba(250, 126, 97, 0.38);"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:74%; background:rgba(250, 126, 97, 0.38);"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:78%; background:rgba(250, 126, 97, 0.38);"></span><span class="eq-bar-muted flex-1 rounded-full block transition-all duration-500" style="height:81%; background:rgba(17, 17, 17, 0.14);"></span><span class="eq-bar-muted flex-1 rounded-full block transition-all duration-500" style="height:85%; background:rgba(17, 17, 17, 0.14);"></span><span class="eq-bar-muted flex-1 rounded-full block transition-all duration-500" style="height:88%; background:rgba(17, 17, 17, 0.14);"></span><span class="eq-bar-muted flex-1 rounded-full block transition-all duration-500" style="height:92%; background:rgba(17, 17, 17, 0.14);"></span><span class="eq-bar-muted flex-1 rounded-full block transition-all duration-500" style="height:96%; background:rgba(17, 17, 17, 0.14);"></span><span class="eq-bar-muted flex-1 rounded-full block transition-all duration-500" style="height:100%; background:rgba(17, 17, 17, 0.14);"></span></div>
+                                <div class="h-14 sm:h-16 flex items-end gap-[3px] sm:gap-1"><span class="flex-1 rounded-full block transition-all duration-500" style="height:24%; background:#111111;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:24%; background:#111111;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:26%; background:#111111;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:27%; background:#111111;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:29%; background:#111111;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:31%; background:#111111;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:33%; background:#111111;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:36%; background:#111111;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:38%; background:#111111;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:41%; background:#111111;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:43%; background:#111111;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:46%; background:#111111;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:49%; background:#111111;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:52%; background:#111111;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:55%; background:#111111;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:58%; background:#111111;"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:61%; background:rgba(250, 126, 97, 0.38);"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:64%; background:rgba(250, 126, 97, 0.38);"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:67%; background:rgba(250, 126, 97, 0.38);"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:71%; background:rgba(250, 126, 97, 0.38);"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:74%; background:rgba(250, 126, 97, 0.38);"></span><span class="flex-1 rounded-full block transition-all duration-500" style="height:78%; background:rgba(250, 126, 97, 0.38);"></span><span class="eq-bar-muted flex-1 rounded-full block transition-all duration-500" style="height:81%; background:rgba(17, 17, 17, 0.14);"></span><span class="eq-bar-muted flex-1 rounded-full block transition-all duration-500" style="height:85%; background:rgba(17, 17, 17, 0.14);"></span><span class="eq-bar-muted flex-1 rounded-full block transition-all duration-500" style="height:88%; background:rgba(17, 17, 17, 0.14);"></span><span class="eq-bar-muted flex-1 rounded-full block transition-all duration-500" style="height:92%; background:rgba(17, 17, 17, 0.14);"></span><span class="eq-bar-muted flex-1 rounded-full block transition-all duration-500" style="height:96%; background:rgba(17, 17, 17, 0.14);"></span><span class="eq-bar-muted flex-1 rounded-full block transition-all duration-500" style="height:100%; background:rgba(17, 17, 17, 0.14);"></span></div>
                             </div>
 
                             <h3 class="apple-subhead text-xl sm:text-2xl font-medium text-[#111111]">
@@ -2785,7 +2847,7 @@
 
                     <!-- Segmented Category Filter (Matches script.js filterServices dark/lime active states) -->
                     <div class="flex flex-wrap justify-center lg:justify-start gap-1.5 p-1.5 rounded-3xl sm:rounded-full bg-[#FFFFFF] border border-black/[0.07] self-center lg:self-auto" id="serviceFilters">
-                        <button type="button" onclick="filterServices(&#x27;all&#x27;)" data-filter="all" class="srv-filter-btn px-4 py-1.5 rounded-full bg-[#111111] text-[#000000] text-xs font-medium transition">
+                        <button type="button" onclick="filterServices(&#x27;all&#x27;)" data-filter="all" class="srv-filter-btn px-4 py-1.5 rounded-full bg-[#111111] text-[#FFFFFF] text-xs font-medium transition">
                             Sve (12)
                         </button>
                         <button type="button" onclick="filterServices(&#x27;bireysel&#x27;)" data-filter="bireysel" class="srv-filter-btn px-4 py-1.5 rounded-full text-[#3A3E42] hover:text-[#111111] text-xs font-regular transition">
@@ -2962,17 +3024,17 @@
                         <div>
                             <!-- Studio Folder-Tab Notch Header -->
                             <div class="bg-[#111111] flex items-stretch">
-                                <div style="background:#FA7E61" class="rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center gap-2 shrink-0">
+                                <div class="bg-black" class="rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center gap-2 shrink-0">
                                     <span class="font-mono text-[11px] font-medium text-[#111111]"><span>05</span> • <span>PRAVO I DOKAZI</span></span>
                                 </div>
                                 <svg class="w-7 h-[32px] shrink-0 block -ml-px -mb-px" viewbox="0 0 32 34" preserveaspectratio="none" fill="none" aria-hidden="true">
-                                    <path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#FA7E61" />
+                                    <path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#000000" />
                                 </svg>
                                 <div class="flex-1 flex items-center justify-end pr-4 pl-2">
                                     <span class="font-mono text-[10px] text-white/85 px-2.5 py-0.5 rounded-full bg-white/10 truncate max-w-[170px]">05 • LOKACIJA I NESTALI</span>
                                 </div>
                             </div>
-                            <div style="background:#FA7E61" class="h-1.5 w-full -mt-px"></div>
+                            <div class="bg-black" class="h-1.5 w-full -mt-px"></div>
 
                             <div class="p-6 sm:p-7 pb-4">
                                 <div class="w-11 h-11 rounded-2xl bg-[#111111] text-[#FFFFFF] flex items-center justify-center mb-4 group-hover:scale-105 transition">
@@ -3001,17 +3063,17 @@
                         <div>
                             <!-- Studio Folder-Tab Notch Header -->
                             <div class="bg-[#111111] flex items-stretch">
-                                <div style="background:#FA7E61" class="rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center gap-2 shrink-0">
+                                <div class="bg-black" class="rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center gap-2 shrink-0">
                                     <span class="font-mono text-[11px] font-medium text-[#111111]"><span>06</span> • <span>PRAVO I DOKAZI</span></span>
                                 </div>
                                 <svg class="w-7 h-[32px] shrink-0 block -ml-px -mb-px" viewbox="0 0 32 34" preserveaspectratio="none" fill="none" aria-hidden="true">
-                                    <path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#FA7E61" />
+                                    <path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#000000" />
                                 </svg>
                                 <div class="flex-1 flex items-center justify-end pr-4 pl-2">
                                     <span class="font-mono text-[10px] text-white/85 px-2.5 py-0.5 rounded-full bg-white/10 truncate max-w-[170px]">06 • ZIO čl. 277</span>
                                 </div>
                             </div>
-                            <div style="background:#FA7E61" class="h-1.5 w-full -mt-px"></div>
+                            <div class="bg-black" class="h-1.5 w-full -mt-px"></div>
 
                             <div class="p-6 sm:p-7 pb-4">
                                 <div class="w-11 h-11 rounded-2xl bg-[#111111] text-[#FFFFFF] flex items-center justify-center mb-4 group-hover:scale-105 transition">
@@ -3040,17 +3102,17 @@
                         <div>
                             <!-- Studio Folder-Tab Notch Header -->
                             <div class="bg-[#111111] flex items-stretch">
-                                <div style="background:#FA7E61" class="rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center gap-2 shrink-0">
+                                <div class="bg-black" class="rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center gap-2 shrink-0">
                                     <span class="font-mono text-[11px] font-medium text-[#111111]"><span>07</span> • <span>PRAVO I DOKAZI</span></span>
                                 </div>
                                 <svg class="w-7 h-[32px] shrink-0 block -ml-px -mb-px" viewbox="0 0 32 34" preserveaspectratio="none" fill="none" aria-hidden="true">
-                                    <path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#FA7E61" />
+                                    <path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#000000" />
                                 </svg>
                                 <div class="flex-1 flex items-center justify-end pr-4 pl-2">
                                     <span class="font-mono text-[10px] text-white/85 px-2.5 py-0.5 rounded-full bg-white/10 truncate max-w-[170px]">07 • KZ čl. 157-158</span>
                                 </div>
                             </div>
-                            <div style="background:#FA7E61" class="h-1.5 w-full -mt-px"></div>
+                            <div class="bg-black" class="h-1.5 w-full -mt-px"></div>
 
                             <div class="p-6 sm:p-7 pb-4">
                                 <div class="w-11 h-11 rounded-2xl bg-[#111111] text-[#FFFFFF] flex items-center justify-center mb-4 group-hover:scale-105 transition">
@@ -3079,17 +3141,17 @@
                         <div>
                             <!-- Studio Folder-Tab Notch Header -->
                             <div class="bg-[#111111] flex items-stretch">
-                                <div style="background:#FA7E61" class="rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center gap-2 shrink-0">
+                                <div class="bg-black" class="rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center gap-2 shrink-0">
                                     <span class="font-mono text-[11px] font-medium text-[#111111]"><span>08</span> • <span>PRAVO I DOKAZI</span></span>
                                 </div>
                                 <svg class="w-7 h-[32px] shrink-0 block -ml-px -mb-px" viewbox="0 0 32 34" preserveaspectratio="none" fill="none" aria-hidden="true">
-                                    <path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#FA7E61" />
+                                    <path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#000000" />
                                 </svg>
                                 <div class="flex-1 flex items-center justify-end pr-4 pl-2">
                                     <span class="font-mono text-[10px] text-white/85 px-2.5 py-0.5 rounded-full bg-white/10 truncate max-w-[170px]">08 • ISTRAGE KRAĐA</span>
                                 </div>
                             </div>
-                            <div style="background:#FA7E61" class="h-1.5 w-full -mt-px"></div>
+                            <div class="bg-black" class="h-1.5 w-full -mt-px"></div>
 
                             <div class="p-6 sm:p-7 pb-4">
                                 <div class="w-11 h-11 rounded-2xl bg-[#111111] text-[#FFFFFF] flex items-center justify-center mb-4 group-hover:scale-105 transition">
@@ -3295,7 +3357,7 @@
 
                     <div class="flex flex-wrap items-center justify-center lg:justify-end gap-2.5">
                         <div class="inline-flex flex-wrap items-center justify-center gap-1 p-1 rounded-3xl sm:rounded-full bg-[#F2F2F2] border border-black/[0.06] text-xs">
-                            <button type="button" onclick="filterShop(&#x27;all&#x27;)" data-shop-filter="all" class="shop-filter-btn px-3.5 py-1.5 rounded-full bg-[#111111] text-[#000000] font-medium transition">Sve (8)</button>
+                            <button type="button" onclick="filterShop(&#x27;all&#x27;)" data-shop-filter="all" class="shop-filter-btn px-3.5 py-1.5 rounded-full bg-[#111111] text-[#FFFFFF] font-medium transition">Sve (8)</button>
                             <button type="button" onclick="filterShop(&#x27;takip&#x27;)" data-shop-filter="takip" class="shop-filter-btn px-3.5 py-1.5 rounded-full text-[#3A3E42] hover:text-[#111111] font-regular transition">GPS, Djeca i AirTag</button>
                             <button type="button" onclick="filterShop(&#x27;ses-guvenlik&#x27;)" data-shop-filter="ses-guvenlik" class="shop-filter-btn px-3.5 py-1.5 rounded-full text-[#3A3E42] hover:text-[#111111] font-regular transition">Audio i Kamere</button>
                             <button type="button" onclick="filterShop(&#x27;bocek-arama&#x27;)" data-shop-filter="bocek-arama" class="shop-filter-btn px-3.5 py-1.5 rounded-full text-[#3A3E42] hover:text-[#111111] font-regular transition">Detekcija buba (TSCM)</button>
@@ -3336,7 +3398,7 @@
                             <div class="flex items-center justify-between pt-1">
                                 <span class="text-sm font-medium text-[#111111] font-mono">₺4.850</span>
                                 <div class="flex items-center gap-1.5" title="Izbor boje / finiša">
-                                    <button type="button" onclick="selectSwatch(&#x27;DAT-GPS-01&#x27;, &#x27;Mat Siyah&#x27;, this)" class="swatch-btn w-3 h-3 rounded-full bg-[#111111] ring-2 ring-[#111111] ring-offset-1" aria-label="Mat crna"></button><button type="button" onclick="selectSwatch(&#x27;DAT-GPS-01&#x27;, &#x27;Titanyum Gri&#x27;, this)" class="swatch-btn w-3 h-3 rounded-full bg-[#6B7280] border border-black/15" aria-label="Titanijum siva"></button><button type="button" onclick="selectSwatch(&#x27;DAT-GPS-01&#x27;, &#x27;Taktik Turuncu&#x27;, this)" class="swatch-btn w-3 h-3 rounded-full bg-[#FA7E61] border border-black/15" aria-label="Taktička narandžasta"></button>
+                                    <button type="button" onclick="selectSwatch(&#x27;DAT-GPS-01&#x27;, &#x27;Mat Siyah&#x27;, this)" class="swatch-btn w-3 h-3 rounded-full bg-[#111111] ring-2 ring-[#111111] ring-offset-1" aria-label="Mat crna"></button><button type="button" onclick="selectSwatch(&#x27;DAT-GPS-01&#x27;, &#x27;Titanyum Gri&#x27;, this)" class="swatch-btn w-3 h-3 rounded-full bg-[#6B7280] border border-black/15" aria-label="Titanijum siva"></button><button type="button" onclick="selectSwatch(&#x27;DAT-GPS-01&#x27;, &#x27;Taktik Turuncu&#x27;, this)" class="swatch-btn w-3 h-3 rounded-full bg-[#D1D1D6] border border-black/15" aria-label="Taktička narandžasta"></button>
                                 </div>
                             </div>
                         </div>
@@ -3344,7 +3406,7 @@
                     <article data-shop-cat="takip" class="shop-card group flex flex-col bg-[#FFFFFF] rounded-[24px] p-3 border border-black/[0.06] hover:border-[#111111]/25 transition studio-shadow">
                         <div onclick="openProductModal(&#x27;DAT-KID-05&#x27;)" class="relative aspect-square rounded-[18px] bg-[#F2F2F2] overflow-hidden cursor-pointer">
                             <img src="../assets/shop/kid-safety-tracker.jpg" loading="lazy" decoding="async" alt="DAT KidGuard 4G Çocuk ve Aile Güvenliği Akıllı Takip Saati" class="w-full h-full object-contain p-1 group-hover:scale-105 transition duration-500">
-                            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-[#000000] text-[#111111] font-mono text-[10px] font-medium">SOS + GEO-FENCE</span>
+                            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-[#000000] text-[#FFFFFF] font-mono text-[10px] font-medium">SOS + GEO-FENCE</span>
                             <!-- Minimalist Çapraz Örnek Görsel Şeridi -->
                             <div class="absolute inset-0 pointer-events-none flex items-center justify-center overflow-hidden z-10 select-none">
                                 <div class="transform -rotate-12 w-[135%] py-1 px-3 bg-black/85 backdrop-blur-md border-y border-white/20 text-white font-mono text-[9px] sm:text-[10px] tracking-wider font-semibold text-center shadow-lg flex items-center justify-center gap-1.5 uppercase" style="color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important;">
@@ -3368,7 +3430,7 @@
                             <div class="flex items-center justify-between pt-1">
                                 <span class="text-sm font-medium text-[#111111] font-mono">₺3.950</span>
                                 <div class="flex items-center gap-1.5" title="Izbor boje">
-                                    <button type="button" onclick="selectSwatch(&#x27;DAT-KID-05&#x27;, &#x27;Grafit Siyah&#x27;, this)" class="swatch-btn w-3 h-3 rounded-full bg-[#111111] ring-2 ring-[#111111] ring-offset-1" aria-label="Grafit crna"></button><button type="button" onclick="selectSwatch(&#x27;DAT-KID-05&#x27;, &#x27;Lacivert&#x27;, this)" class="swatch-btn w-3 h-3 rounded-full bg-[#1E3A8A] border border-black/15" aria-label="Tamno plava"></button><button type="button" onclick="selectSwatch(&#x27;DAT-KID-05&#x27;, &#x27;Turuncu Spor&#x27;, this)" class="swatch-btn w-3 h-3 rounded-full bg-[#FA7E61] border border-black/15" aria-label="Narandžasta sport"></button>
+                                    <button type="button" onclick="selectSwatch(&#x27;DAT-KID-05&#x27;, &#x27;Grafit Siyah&#x27;, this)" class="swatch-btn w-3 h-3 rounded-full bg-[#111111] ring-2 ring-[#111111] ring-offset-1" aria-label="Grafit crna"></button><button type="button" onclick="selectSwatch(&#x27;DAT-KID-05&#x27;, &#x27;Lacivert&#x27;, this)" class="swatch-btn w-3 h-3 rounded-full bg-[#1E3A8A] border border-black/15" aria-label="Tamno plava"></button><button type="button" onclick="selectSwatch(&#x27;DAT-KID-05&#x27;, &#x27;Turuncu Spor&#x27;, this)" class="swatch-btn w-3 h-3 rounded-full bg-[#D1D1D6] border border-black/15" aria-label="Narandžasta sport"></button>
                                 </div>
                             </div>
                         </div>
@@ -3400,7 +3462,7 @@
                             <div class="flex items-center justify-between pt-1">
                                 <span class="text-sm font-medium text-[#111111] font-mono">₺1.850</span>
                                 <div class="flex items-center gap-1.5" title="Izbor boje">
-                                    <button type="button" onclick="selectSwatch(&#x27;DAT-AIR-04&#x27;, &#x27;Obsidyen Siyah&#x27;, this)" class="swatch-btn w-3 h-3 rounded-full bg-[#111111] ring-2 ring-[#111111] ring-offset-1" aria-label="Obsidijan crna"></button><button type="button" onclick="selectSwatch(&#x27;DAT-AIR-04&#x27;, &#x27;Gümüş Karabin&#x27;, this)" class="swatch-btn w-3 h-3 rounded-full bg-[#D1D5DB] border border-black/15" aria-label="Srebrni karabiner"></button><button type="button" onclick="selectSwatch(&#x27;DAT-AIR-04&#x27;, &#x27;Turuncu Halka&#x27;, this)" class="swatch-btn w-3 h-3 rounded-full bg-[#FA7E61] border border-black/15" aria-label="Narandžasti prsten"></button>
+                                    <button type="button" onclick="selectSwatch(&#x27;DAT-AIR-04&#x27;, &#x27;Obsidyen Siyah&#x27;, this)" class="swatch-btn w-3 h-3 rounded-full bg-[#111111] ring-2 ring-[#111111] ring-offset-1" aria-label="Obsidijan crna"></button><button type="button" onclick="selectSwatch(&#x27;DAT-AIR-04&#x27;, &#x27;Gümüş Karabin&#x27;, this)" class="swatch-btn w-3 h-3 rounded-full bg-[#D1D5DB] border border-black/15" aria-label="Srebrni karabiner"></button><button type="button" onclick="selectSwatch(&#x27;DAT-AIR-04&#x27;, &#x27;Turuncu Halka&#x27;, this)" class="swatch-btn w-3 h-3 rounded-full bg-[#D1D1D6] border border-black/15" aria-label="Narandžasti prsten"></button>
                                 </div>
                             </div>
                         </div>
@@ -3408,7 +3470,7 @@
                     <article data-shop-cat="ses-guvenlik" class="shop-card group flex flex-col bg-[#FFFFFF] rounded-[24px] p-3 border border-black/[0.06] hover:border-[#111111]/25 transition studio-shadow">
                         <div onclick="openProductModal(&#x27;DAT-REC-06&#x27;)" class="relative aspect-square rounded-[18px] bg-[#F2F2F2] overflow-hidden cursor-pointer">
                             <img src="../assets/shop/voice-recorder-pro.jpg" loading="lazy" decoding="async" alt="DAT Voice Vault S1 Şifreli Toplantı ve Not Ses Kayıt Cihazı" class="w-full h-full object-contain p-1 group-hover:scale-105 transition duration-500">
-                            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-[#000000] text-[#111111] font-mono text-[10px] font-medium">AES-256 PIN ŠIFROVANO</span>
+                            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-[#000000] text-[#FFFFFF] font-mono text-[10px] font-medium">AES-256 PIN ŠIFROVANO</span>
                             <!-- Minimalist Çapraz Örnek Görsel Şeridi -->
                             <div class="absolute inset-0 pointer-events-none flex items-center justify-center overflow-hidden z-10 select-none">
                                 <div class="transform -rotate-12 w-[135%] py-1 px-3 bg-black/85 backdrop-blur-md border-y border-white/20 text-white font-mono text-[9px] sm:text-[10px] tracking-wider font-semibold text-center shadow-lg flex items-center justify-center gap-1.5 uppercase" style="color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important;">
@@ -3440,7 +3502,7 @@
                     <article data-shop-cat="bocek-arama" class="shop-card group flex flex-col bg-[#FFFFFF] rounded-[24px] p-3 border border-black/[0.06] hover:border-[#111111]/25 transition studio-shadow">
                         <div onclick="openProductModal(&#x27;DAT-SVC-TSCM&#x27;)" class="relative aspect-square rounded-[18px] bg-[#F2F2F2] overflow-hidden cursor-pointer">
                             <img src="../assets/shop/tscm-service-kit.jpg" loading="lazy" decoding="async" alt="DAT Yerinde Böcek ve Gizli Kamera Tarama Hizmeti Paketi" class="w-full h-full object-contain p-1 group-hover:scale-105 transition duration-500">
-                            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-[#000000] text-[#111111] font-mono text-[10px] font-medium">STRUČNI IZLAZAK NA TEREN</span>
+                            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-[#000000] text-[#FFFFFF] font-mono text-[10px] font-medium">STRUČNI IZLAZAK NA TEREN</span>
                             <!-- Minimalist Çapraz Örnek Görsel Şeridi -->
                             <div class="absolute inset-0 pointer-events-none flex items-center justify-center overflow-hidden z-10 select-none">
                                 <div class="transform -rotate-12 w-[135%] py-1 px-3 bg-black/85 backdrop-blur-md border-y border-white/20 text-white font-mono text-[9px] sm:text-[10px] tracking-wider font-semibold text-center shadow-lg flex items-center justify-center gap-1.5 uppercase" style="color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important;">
@@ -3464,7 +3526,7 @@
                             <div class="flex items-center justify-between pt-1">
                                 <span class="text-sm font-medium text-[#111111] font-mono">₺9.500</span>
                                 <div class="flex items-center gap-1.5" title="Izbor lokacije">
-                                    <button type="button" onclick="selectSwatch(&#x27;DAT-SVC-TSCM&#x27;, &#x27;Konut / Daire Taraması&#x27;, this)" class="swatch-btn w-3 h-3 rounded-full bg-[#111111] ring-2 ring-[#111111] ring-offset-1" aria-label="Pregled stana / kuće"></button><button type="button" onclick="selectSwatch(&#x27;DAT-SVC-TSCM&#x27;, &#x27;Ofis &amp; Makam Odası&#x27;, this)" class="swatch-btn w-3 h-3 rounded-full bg-[#FA7E61] border border-black/15" aria-label="Pregled kancelarije"></button><button type="button" onclick="selectSwatch(&#x27;DAT-SVC-TSCM&#x27;, &#x27;VIP Araç GPS/Dinleme&#x27;, this)" class="swatch-btn w-3 h-3 rounded-full bg-[#6B7280] border border-black/15" aria-label="Pregled VIP vozila"></button>
+                                    <button type="button" onclick="selectSwatch(&#x27;DAT-SVC-TSCM&#x27;, &#x27;Konut / Daire Taraması&#x27;, this)" class="swatch-btn w-3 h-3 rounded-full bg-[#111111] ring-2 ring-[#111111] ring-offset-1" aria-label="Pregled stana / kuće"></button><button type="button" onclick="selectSwatch(&#x27;DAT-SVC-TSCM&#x27;, &#x27;Ofis &amp; Makam Odası&#x27;, this)" class="swatch-btn w-3 h-3 rounded-full bg-[#D1D1D6] border border-black/15" aria-label="Pregled kancelarije"></button><button type="button" onclick="selectSwatch(&#x27;DAT-SVC-TSCM&#x27;, &#x27;VIP Araç GPS/Dinleme&#x27;, this)" class="swatch-btn w-3 h-3 rounded-full bg-[#6B7280] border border-black/15" aria-label="Pregled VIP vozila"></button>
                                 </div>
                             </div>
                         </div>
@@ -3560,7 +3622,7 @@
                             <div class="flex items-center justify-between pt-1">
                                 <span class="text-sm font-medium text-[#111111] font-mono">₺1.650</span>
                                 <div class="flex items-center gap-1.5" title="Izbor boje">
-                                    <button type="button" onclick="selectSwatch(&#x27;DAT-SHIELD-03&#x27;, &#x27;Karbon &amp; Turuncu&#x27;, this)" class="swatch-btn w-3 h-3 rounded-full bg-[#111111] ring-2 ring-[#111111] ring-offset-1" aria-label="Karbon &amp; Narandžasta"></button><button type="button" onclick="selectSwatch(&#x27;DAT-SHIELD-03&#x27;, &#x27;Cloudflare Orange Edition&#x27;, this)" class="swatch-btn w-3 h-3 rounded-full bg-[#FA7E61] border border-black/15" aria-label="Orange Edition"></button>
+                                    <button type="button" onclick="selectSwatch(&#x27;DAT-SHIELD-03&#x27;, &#x27;Karbon &amp; Turuncu&#x27;, this)" class="swatch-btn w-3 h-3 rounded-full bg-[#111111] ring-2 ring-[#111111] ring-offset-1" aria-label="Karbon &amp; Narandžasta"></button><button type="button" onclick="selectSwatch(&#x27;DAT-SHIELD-03&#x27;, &#x27;Cloudflare Orange Edition&#x27;, this)" class="swatch-btn w-3 h-3 rounded-full bg-[#D1D1D6] border border-black/15" aria-label="Orange Edition"></button>
                                 </div>
                             </div>
                         </div>
@@ -3593,72 +3655,87 @@
                 </div>
 
                 <div class="grid md:grid-cols-4 gap-5">
-                    <!-- Step 01: White Folder-Tab -->
-                    <div class="rounded-[26px] overflow-hidden bg-[#E5E5E7] flex flex-col studio-shadow">
-                        <div class="flex items-stretch">
-                            <div class="bg-[#FFFFFF] rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center shrink-0">
-                                <span class="font-mono text-[11px] font-medium text-[#111111]">01 • KONTAKT</span>
+                    <!-- Step 01 -->
+                    <div class="bg-[#FFFFFF] rounded-[24px] border border-black/[0.08] p-6 flex flex-col justify-between space-y-4 hover:border-black/40 transition studio-shadow">
+                        <div class="flex items-center justify-between">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full bg-[#F7F7F8] border border-black/[0.06] font-mono text-[11px] font-semibold text-neutral-800">01 • KONTAKT</span>
+                            <div class="w-8 h-8 rounded-xl bg-[#F7F7F8] text-black flex items-center justify-center">
+                                <i class="hgi hgi-stroke hgi-call-02 w-4 h-4"></i>
                             </div>
-                            <svg class="notch-match-surface w-7 h-[32px] shrink-0 block -ml-px -mb-px" viewbox="0 0 32 34" preserveaspectratio="none" fill="none" aria-hidden="true"><path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#FFFFFF" /></svg>
-                            <div class="flex-1 flex items-center justify-end pr-4"><i class="hgi hgi-stroke hgi-call-02 w-4 h-4 text-[#111111]"></i></div>
                         </div>
-                        <div class="bg-[#FFFFFF] -mt-px rounded-tr-[24px] rounded-b-[24px] p-6 flex-1 space-y-2.5">
-                            <h4 class="text-base font-medium text-[#111111]">Kontaktirajte nas</h4>
-                            <p data-i18n-html="step1_p" class="text-[13px] font-regular text-[#3A3E42] leading-relaxed">Ne živite u neizvjesnosti; razgovarajte sa našim stručnjacima putem <strong>0312 284 02 99</strong> ili WhatsApp <strong>0532 666 77 49</strong>.</p>
+                        <div class="space-y-2 flex-1">
+                            <h4 class="text-base font-semibold text-[#111111]">Kontaktirajte nas</h4>
+                            <p class="text-[13px] font-regular text-[#3A3E42] leading-relaxed">
+                                Ne prepuštajte se sumnjama; razgovarajte s našim stručnjacima na <strong>+90 312 284 02 99</strong> ili WhatsApp <strong>+90 532 666 77 49</strong>.
+                            </p>
+                        </div>
+                        <div class="pt-2 border-t border-black/[0.05] flex items-center gap-1.5 text-[11px] font-mono text-neutral-500">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                            <span>Direktna linija 24/7</span>
                         </div>
                     </div>
 
-                    <!-- Step 02: Volt Chartreuse Folder-Tab -->
-                    <div class="rounded-[26px] overflow-hidden bg-[#EEFBC5] flex flex-col studio-shadow">
-                        <div class="flex items-stretch">
-                            <div class="bg-[#262626] rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center shrink-0">
-                                <span class="font-mono text-[11px] font-medium text-[#111111]">02 • KONSULTACIJA I UGOVOR</span>
+                    <!-- Step 02 -->
+                    <div class="bg-[#FFFFFF] rounded-[24px] border border-black/[0.08] p-6 flex flex-col justify-between space-y-4 hover:border-black/40 transition studio-shadow">
+                        <div class="flex items-center justify-between">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full bg-[#F7F7F8] border border-black/[0.06] font-mono text-[11px] font-semibold text-neutral-800">02 • KONSULTACIJE</span>
+                            <div class="w-8 h-8 rounded-xl bg-[#F7F7F8] text-black flex items-center justify-center">
+                                <i class="hgi hgi-stroke hgi-file-02 w-4 h-4"></i>
                             </div>
-                            <svg class="w-7 h-[32px] shrink-0 block -ml-px -mb-px" viewbox="0 0 32 34" preserveaspectratio="none" fill="none" aria-hidden="true"><path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#262626" /></svg>
-                            <div class="flex-1 flex items-center justify-end pr-4"><i class="hgi hgi-stroke hgi-file-02 w-4 h-4 text-[#111111]"></i></div>
                         </div>
-                        <div class="bg-[#262626] -mt-px rounded-tr-[24px] rounded-b-[24px] p-6 flex-1 space-y-2.5">
-                            <h4 class="text-base font-medium text-[#111111]">Uvodna procjena i ugovor</h4>
-                            <p class="text-[13px] font-regular text-[#111111]/85 leading-relaxed">
-                                Podijelite detalje predmeta pod ugovorom o povjerljivosti kako bismo odredili precizan plan rada.
+                        <div class="space-y-2 flex-1">
+                            <h4 class="text-base font-semibold text-[#111111]">Procjena i ugovor</h4>
+                            <p class="text-[13px] font-regular text-[#3A3E42] leading-relaxed">
+                                Podijelite informacije pod okriljem ugovora o povjerljivosti kako bismo odredili plan akcije.
                             </p>
+                        </div>
+                        <div class="pt-2 border-t border-black/[0.05] flex items-center gap-1.5 text-[11px] font-mono text-neutral-500">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                            <span>Zvanična povjerljivost</span>
                         </div>
                     </div>
 
-                    <!-- Step 03: Cyber Coral Folder-Tab -->
-                    <div class="rounded-[26px] overflow-hidden bg-[#F7F7F8] border border-black/[0.08] flex flex-col studio-shadow">
-                        <div class="flex items-stretch">
-                            <div class="bg-[#FFFFFF] rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center shrink-0">
-                                <span class="font-mono text-[11px] font-medium text-[#111111]">03 • TERENSKA ISTRAGA</span>
+                    <!-- Step 03 -->
+                    <div class="bg-[#FFFFFF] rounded-[24px] border border-black/[0.08] p-6 flex flex-col justify-between space-y-4 hover:border-black/40 transition studio-shadow">
+                        <div class="flex items-center justify-between">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full bg-[#F7F7F8] border border-black/[0.06] font-mono text-[11px] font-semibold text-neutral-800">03 • ISTRAGA</span>
+                            <div class="w-8 h-8 rounded-xl bg-[#F7F7F8] text-black flex items-center justify-center">
+                                <i class="hgi hgi-stroke hgi-search-01 w-4 h-4"></i>
                             </div>
-                            <svg class="w-7 h-[32px] shrink-0 block -ml-px -mb-px" viewbox="0 0 32 34" preserveaspectratio="none" fill="none" aria-hidden="true"><path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#FFFFFF" /></svg>
-                            <div class="flex-1 flex items-center justify-end pr-4"><i class="hgi hgi-stroke hgi-search-01 w-4 h-4 text-[#111111]"></i></div>
                         </div>
-                        <div class="bg-[#FFFFFF] -mt-px rounded-tr-[24px] rounded-b-[24px] p-6 flex-1 space-y-2.5">
-                            <h4 class="text-base font-medium text-[#111111]">Terenski rad i prikupljanje dokaza</h4>
-                            <p class="text-[13px] font-regular text-[#111111]/85 leading-relaxed">
-                                Naši sertifikovani detektivi zakonito prikupljaju dokaze u skladu sa vašim informacijama.
+                        <div class="space-y-2 flex-1">
+                            <h4 class="text-base font-semibold text-[#111111]">Terensko prikupljanje dokaza</h4>
+                            <p class="text-[13px] font-regular text-[#3A3E42] leading-relaxed">
+                                Sertifikovani detektivi prikupljaju zakonski važeće dokaze uz potpuno poštovanje pravnih normi.
                             </p>
+                        </div>
+                        <div class="pt-2 border-t border-black/[0.05] flex items-center gap-1.5 text-[11px] font-mono text-neutral-500">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                            <span>4K sudski validni dokazi</span>
                         </div>
                     </div>
 
-                    <!-- Step 04: Signal Lime Folder-Tab on Obsidian outer -->
-                    <div class="theme-keep-dark rounded-[26px] overflow-hidden bg-[#1D1D1F] flex flex-col shadow-xl">
-                        <div class="flex items-stretch">
-                            <div class="bg-[#000000] rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center shrink-0">
-                                <span class="font-mono text-[11px] font-medium text-[#111111]">04 • REZULTAT</span>
+                    <!-- Step 04 -->
+                    <div class="bg-[#FFFFFF] rounded-[24px] border border-black/[0.08] p-6 flex flex-col justify-between space-y-4 hover:border-black/40 transition studio-shadow">
+                        <div class="flex items-center justify-between">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full bg-[#F7F7F8] border border-black/[0.06] font-mono text-[11px] font-semibold text-neutral-800">04 • REZULTAT</span>
+                            <div class="w-8 h-8 rounded-xl bg-[#F7F7F8] text-black flex items-center justify-center">
+                                <i class="hgi hgi-stroke hgi-security-check w-4 h-4"></i>
                             </div>
-                            <svg class="w-7 h-[32px] shrink-0 block -ml-px -mb-px" viewbox="0 0 32 34" preserveaspectratio="none" fill="none" aria-hidden="true"><path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#000000" /></svg>
-                            <div class="flex-1 flex items-center justify-end pr-4"><i class="theme-keep-lime hgi hgi-stroke hgi-security-check w-4 h-4 text-[#000000]"></i></div>
                         </div>
-                        <div class="bg-[#000000] -mt-px rounded-tr-[24px] rounded-b-[24px] p-6 flex-1 space-y-2.5">
-                            <h4 class="text-base font-medium text-[#111111]">Dokazani rezultati i zadovoljstvo</h4>
-                            <p class="text-[13px] font-regular text-[#111111]/85 leading-relaxed">
-                                Preuzmite zvanični dokazni dosije spreman za upotrebu sa garancijom.
+                        <div class="space-y-2 flex-1">
+                            <h4 class="text-base font-semibold text-[#111111]">Dokazan rezultat i zadovoljstvo</h4>
+                            <p class="text-[13px] font-regular text-[#3A3E42] leading-relaxed">
+                                Preuzmite zvanični dosije sa materijalnim dokazima nakon završetka operacije.
                             </p>
+                        </div>
+                        <div class="pt-2 border-t border-black/[0.05] flex items-center gap-1.5 text-[11px] font-mono text-neutral-500">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                            <span>Izvještaj za sudski postupak</span>
                         </div>
                     </div>
                 </div>
+            </div>
 
                 <!-- 48 Saatte Sadakat Analizi Süreci İnfografik Görseli -->
                 <div onclick="openPhotoModal(&#x27;assets/photos/48-saatte-sadakat-analizi.jpg&#x27;, &#x27;DAT Özel Dedektiflik — 48 Saatte Evlilikte Sadakat Analizi Süreci (0 Saat → 12 Saat → 24 Saat → 48 Saat)&#x27;)" class="theme-keep-dark mt-8 bg-[#18181A] text-[#FFFFFF] rounded-[28px] p-5 sm:p-8 cursor-pointer group border border-white/15 shadow-2xl">
@@ -3756,10 +3833,10 @@
                                 <img src="../assets/photos/wpyb-marka-dedektifligi-panel.jpg" loading="lazy" decoding="async" alt="Ümit Hakan Karakaya — DAT Özel Dedektiflik Kurucusu" class="w-full h-full object-contain p-1 object-top group-hover:scale-105 transition duration-500">
                                 <div class="absolute inset-0 bg-gradient-to-t from-[#111111]/90 via-black/15 to-transparent flex items-end justify-between p-4">
                                     <div>
-                                        <div class="text-[10px] font-mono text-[#FA7E61] uppercase">1973 Ankara • Osnovano 2005.</div>
+                                        <div class="text-[10px] font-mono text-neutral-300 uppercase">1973 Ankara • Osnovano 2005.</div>
                                         <div class="text-sm sm:text-base font-medium text-[#FFFFFF]">Ümit Hakan Karakaya</div>
                                     </div>
-                                    <span class="px-2.5 py-1 rounded-full bg-[#000000] text-[#111111] font-mono text-[10px] font-medium shrink-0">4.000+ SLUČAJEVA</span>
+                                    <span class="px-2.5 py-1 rounded-full bg-[#000000] text-[#FFFFFF] font-mono text-[10px] font-medium shrink-0">4.000+ SLUČAJEVA</span>
                                 </div>
                             </div>
                             <p class="text-[11px] font-mono text-white/55 text-center">
@@ -3769,7 +3846,7 @@
 
                         <div class="lg:col-span-7 min-w-0 space-y-5">
                             <div class="space-y-2.5 text-center lg:text-left rtl:lg:text-right">
-                                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FA7E61] text-xs font-medium text-[#111111]">
+                                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white text-xs font-medium text-black">
                                     <i class="hgi hgi-stroke hgi-user-check-01 w-3.5 h-3.5"></i>
                                     <span>OSNIVAČ I GLAVNI ISTRAŽITELJ • BIOGRAFIJA</span>
                                 </div>
@@ -3789,7 +3866,7 @@
                                 </div>
                                 <div class="p-3.5 rounded-2xl bg-[#111111] border border-white/[0.08] space-y-1">
                                     <div class="text-xs font-medium text-[#FFFFFF] flex items-center gap-1.5">
-                                        <i class="hgi hgi-stroke hgi-shield-02 w-4 h-4 text-[#FA7E61] shrink-0"></i>
+                                        <i class="hgi hgi-stroke hgi-shield-02 w-4 h-4 text-neutral-700 shrink-0"></i>
                                         <span>Udruženja i WPYB Global</span>
                                     </div>
                                     <p class="text-xs text-white/65 leading-relaxed">Osnivač i predsjednik TÜDED-a i UÖDED-a; borba protiv falsifikata putem WPYB platforme.</p>
@@ -3803,7 +3880,7 @@
                                 </div>
                                 <div class="p-3.5 rounded-2xl bg-[#111111] border border-white/[0.08] space-y-1">
                                     <div class="text-xs font-medium text-[#FFFFFF] flex items-center gap-1.5">
-                                        <i class="hgi hgi-stroke hgi-favourite w-4 h-4 text-[#FA7E61] shrink-0"></i>
+                                        <i class="hgi hgi-stroke hgi-favourite w-4 h-4 text-neutral-700 shrink-0"></i>
                                         <span>Društvena odgovornost i UKAİM</span>
                                     </div>
                                     <p class="text-xs text-white/65 leading-relaxed">Biblioteka igračaka Hayalime Renk Ver i projekti UKAİM za zaštitu i pronalazak djece.</p>
@@ -3849,7 +3926,7 @@
                                 <span class="theme-keep-dark theme-keep-lime absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#111111]/85 backdrop-blur-md text-[#000000] border border-white/10 font-mono text-[10px] font-medium">DODJELA NAGRADA</span>
                                 <span class="theme-keep-dark theme-keep-light absolute top-3 right-3 px-2 py-0.5 rounded-full bg-[#111111]/85 backdrop-blur-md text-white font-mono text-[10px] font-medium">0:34</span>
                                 <span class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                                    <span class="w-12 h-12 rounded-full bg-[#000000] text-[#111111] shadow-[0_8px_24px_rgba(0,0,0,0.45)] flex items-center justify-center group-hover:scale-110 transition">
+                                    <span class="w-12 h-12 rounded-full bg-[#000000] text-[#FFFFFF] shadow-[0_8px_24px_rgba(0,0,0,0.45)] flex items-center justify-center group-hover:scale-110 transition">
                                         <svg class="w-5 h-5 ml-0.5" viewbox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v14l11-7-11-7z" /></svg>
                                     </span>
                                 </span>
@@ -3867,7 +3944,7 @@
                                 <span class="theme-keep-dark theme-keep-lime absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#111111]/85 backdrop-blur-md text-[#000000] border border-white/10 font-mono text-[10px] font-medium">KANAL C TV</span>
                                 <span class="theme-keep-dark theme-keep-light absolute top-3 right-3 px-2 py-0.5 rounded-full bg-[#111111]/85 backdrop-blur-md text-white font-mono text-[10px] font-medium">1:44</span>
                                 <span class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                                    <span class="w-12 h-12 rounded-full bg-[#000000] text-[#111111] shadow-[0_8px_24px_rgba(0,0,0,0.45)] flex items-center justify-center group-hover:scale-110 transition">
+                                    <span class="w-12 h-12 rounded-full bg-[#000000] text-[#FFFFFF] shadow-[0_8px_24px_rgba(0,0,0,0.45)] flex items-center justify-center group-hover:scale-110 transition">
                                         <svg class="w-5 h-5 ml-0.5" viewbox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v14l11-7-11-7z" /></svg>
                                     </span>
                                 </span>
@@ -3885,7 +3962,7 @@
                                 <span class="theme-keep-dark theme-keep-lime absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#111111]/85 backdrop-blur-md text-[#000000] border border-white/10 font-mono text-[10px] font-medium">DIGITALNA BEZBJEDNOST</span>
                                 <span class="theme-keep-dark theme-keep-light absolute top-3 right-3 px-2 py-0.5 rounded-full bg-[#111111]/85 backdrop-blur-md text-white font-mono text-[10px] font-medium">0:50</span>
                                 <span class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                                    <span class="w-12 h-12 rounded-full bg-[#000000] text-[#111111] shadow-[0_8px_24px_rgba(0,0,0,0.45)] flex items-center justify-center group-hover:scale-110 transition">
+                                    <span class="w-12 h-12 rounded-full bg-[#000000] text-[#FFFFFF] shadow-[0_8px_24px_rgba(0,0,0,0.45)] flex items-center justify-center group-hover:scale-110 transition">
                                         <svg class="w-5 h-5 ml-0.5" viewbox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v14l11-7-11-7z" /></svg>
                                     </span>
                                 </span>
@@ -3903,7 +3980,7 @@
                                 <span class="theme-keep-dark theme-keep-lime absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#111111]/85 backdrop-blur-md text-[#000000] border border-white/10 font-mono text-[10px] font-medium">WPYB TURKEY</span>
                                 <span class="theme-keep-dark theme-keep-light absolute top-3 right-3 px-2 py-0.5 rounded-full bg-[#111111]/85 backdrop-blur-md text-white font-mono text-[10px] font-medium">0:15</span>
                                 <span class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                                    <span class="w-12 h-12 rounded-full bg-[#000000] text-[#111111] shadow-[0_8px_24px_rgba(0,0,0,0.45)] flex items-center justify-center group-hover:scale-110 transition">
+                                    <span class="w-12 h-12 rounded-full bg-[#000000] text-[#FFFFFF] shadow-[0_8px_24px_rgba(0,0,0,0.45)] flex items-center justify-center group-hover:scale-110 transition">
                                         <svg class="w-5 h-5 ml-0.5" viewbox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v14l11-7-11-7z" /></svg>
                                     </span>
                                 </span>
@@ -4278,121 +4355,85 @@
                     </div>
                 </div>
 
-                <!-- 4 Rehber Makale Kartları (Signature Multi-Color Folder-Tab Cards matching Reference Image 8) -->
+                <!-- 4 Rehber Makale Kartları (Signature Apple Cards) -->
                 <div>
                     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6">
-                        <h3 class="apple-subhead text-xl sm:text-2xl font-medium text-[#FFFFFF]">
-                            Stručni vodiči i pravni savjeti
+                        <h3 class="apple-subhead text-xl sm:text-2xl font-medium text-[#000000]">
+                            Vodiči i Pravne Informacije
                         </h3>
-                        <span class="text-[13px] text-white/60 font-regular">Kliknite na karticu članka za detaljno čitanje</span>
+                        <span class="text-[13px] text-neutral-700 font-regular">Kliknite na karticu članka za detaljno čitanje</span>
                     </div>
                     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-                        
-                        <article onclick="openArticleModal(&#x27;yilin-enleri&#x27;)" class="group rounded-[26px] overflow-hidden bg-[#E6FAD8] cursor-pointer transition hover:-translate-y-1 flex flex-col shadow-xl">
-                            <div class="flex items-stretch">
-                                <div style="background:#000000" class="rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center shrink-0">
-                                    <span class="font-mono text-[10px] font-medium text-[#111111]">NAGRADE I MEDIJI</span>
+                        <article onclick="openArticleModal('yilin-enleri')" class="group rounded-[22px] bg-[#FFFFFF] border border-black/[0.08] hover:border-black/60 cursor-pointer transition-all duration-300 flex flex-col justify-between p-6 space-y-5 shadow-sm hover:shadow-md">
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between">
+                                    <span class="px-2.5 py-0.5 rounded-full bg-black/[0.05] border border-black/[0.1] text-black font-mono text-[10px] font-medium">NAGRADE I MEDIJI</span>
+                                    <span class="font-mono text-[10px] text-neutral-500">DAT GROUP</span>
                                 </div>
-                                <svg class="w-7 h-[32px] shrink-0 block -ml-px -mb-px" viewbox="0 0 32 34" preserveaspectratio="none" fill="none" aria-hidden="true">
-                                    <path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#000000" />
-                                </svg>
-                                <div class="flex-1 flex items-center justify-end pr-4 pl-2">
-                                    <span class="font-mono text-[10px] font-medium px-2 py-0.5 rounded-full bg-[#111111]/10 text-[#111111] truncate">DAT GROUP</span>
+                                <div class="w-10 h-10 rounded-xl bg-black/[0.04] text-black flex items-center justify-center">
+                                    <i class="hgi hgi-stroke hgi-champion w-4 h-4"></i>
                                 </div>
+                                <h3 class="text-base font-medium text-black leading-snug group-hover:text-black transition">Nagrada godine — Najbolja istražna agencija godine</h3>
+                                <p class="text-[13px] text-[#3A3E42] font-regular leading-relaxed">Na svečanoj dodjeli Ekonomize i Ankara Sesi, DAT Group je proglašena za "Najbolju istražnu agenciju godine".</p>
                             </div>
-                            <div style="background:#000000" class="-mt-px rounded-tr-[24px] rounded-b-[24px] p-6 flex-1 flex flex-col justify-between space-y-5">
-                                <div class="space-y-3">
-                                    <div class="w-10 h-10 rounded-xl bg-[#111111] text-[#FFFFFF] flex items-center justify-center">
-                                        <i class="hgi hgi-stroke hgi-champion w-4 h-4"></i>
-                                    </div>
-                                    <h3 class="text-base font-medium text-[#111111] leading-snug">Best of the Year — Najbolja istražna agencija godine</h3>
-                                    <p class="text-[13px] text-[#111111]/80 font-regular leading-relaxed">DAT Group je na svečanosti Ekonomize i Ankara Sesi osvojio nagradu za najuspješniju istražnu agenciju.</p>
-                                </div>
-                                <div class="w-full py-2.5 px-4 rounded-full bg-[#111111] group-hover:bg-[#000000] text-[#FFFFFF] text-xs font-medium flex items-center justify-between transition">
-                                    <span>Pročitaj članak</span>
-                                    <i class="hgi hgi-stroke hgi-arrow-right-02 w-3.5 h-3.5 text-[#000000]"></i>
-                                </div>
+                            <div class="w-full py-2.5 px-4 rounded-full bg-black/[0.04] group-hover:bg-black text-black group-hover:text-white text-xs font-medium flex items-center justify-between transition">
+                                <span>Pročitaj članak</span>
+                                <i class="hgi hgi-stroke hgi-arrow-right-02 w-3.5 h-3.5 text-black group-hover:text-white transition"></i>
                             </div>
                         </article>
-                        <article onclick="openArticleModal(&#x27;es-takibi-rehberi&#x27;)" class="group rounded-[26px] overflow-hidden bg-[#E9E9EC] cursor-pointer transition hover:-translate-y-1 flex flex-col shadow-xl">
-                            <div class="flex items-stretch">
-                                <div style="background:#FFFFFF" class="rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center shrink-0">
-                                    <span class="font-mono text-[10px] font-medium text-[#111111]">VODIČ ZA VJERNNOST</span>
+                        <article onclick="openArticleModal('es-takibi-rehberi')" class="group rounded-[22px] bg-[#FFFFFF] border border-black/[0.08] hover:border-black/60 cursor-pointer transition-all duration-300 flex flex-col justify-between p-6 space-y-5 shadow-sm hover:shadow-md">
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between">
+                                    <span class="px-2.5 py-0.5 rounded-full bg-black/[0.05] border border-black/[0.1] text-black font-mono text-[10px] font-medium">VODIČ ZA PRELJUBU</span>
+                                    <span class="font-mono text-[10px] text-neutral-500">SUDSKI DOKAZI</span>
                                 </div>
-                                <svg class="w-7 h-[32px] shrink-0 block -ml-px -mb-px" viewbox="0 0 32 34" preserveaspectratio="none" fill="none" aria-hidden="true">
-                                    <path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#FFFFFF" />
-                                </svg>
-                                <div class="flex-1 flex items-center justify-end pr-4 pl-2">
-                                    <span class="font-mono text-[10px] font-medium px-2 py-0.5 rounded-full bg-[#111111]/10 text-[#111111] truncate">PZ čl. 161 &amp; DOKAZI</span>
+                                <div class="w-10 h-10 rounded-xl bg-black/[0.04] text-black flex items-center justify-center">
+                                    <i class="hgi hgi-stroke hgi-user-check-01 w-4 h-4"></i>
                                 </div>
+                                <h3 class="text-base font-medium text-black leading-snug group-hover:text-black transition">Sumnjate u partnera? Znakovi preljube i zakoniti dokazi</h3>
+                                <p class="text-[13px] text-[#3A3E42] font-regular leading-relaxed">Promjene ponašanja i zlatna pravila za prikupljanje dokaza koji važe na sudu.</p>
                             </div>
-                            <div style="background:#FFFFFF" class="-mt-px rounded-tr-[24px] rounded-b-[24px] p-6 flex-1 flex flex-col justify-between space-y-5">
-                                <div class="space-y-3">
-                                    <div class="w-10 h-10 rounded-xl bg-[#111111] text-[#FFFFFF] flex items-center justify-center">
-                                        <i class="hgi hgi-stroke hgi-user-check-01 w-4 h-4"></i>
-                                    </div>
-                                    <h3 class="text-base font-medium text-[#111111] leading-snug">Sumnjate u partnera? Znaci nevjerstva i zakoniti dokazi</h3>
-                                    <p class="text-[13px] text-[#111111]/80 font-regular leading-relaxed">Promjene ponašanja koje ukazuju na nevjerstvo i zlatna pravila zakonitog dokazivanja.</p>
-                                </div>
-                                <div class="w-full py-2.5 px-4 rounded-full bg-[#111111] group-hover:bg-[#000000] text-[#FFFFFF] text-xs font-medium flex items-center justify-between transition">
-                                    <span>Pročitaj članak</span>
-                                    <i class="hgi hgi-stroke hgi-arrow-right-02 w-3.5 h-3.5 text-[#000000]"></i>
-                                </div>
+                            <div class="w-full py-2.5 px-4 rounded-full bg-black/[0.04] group-hover:bg-black text-black group-hover:text-white text-xs font-medium flex items-center justify-between transition">
+                                <span>Pročitaj članak</span>
+                                <i class="hgi hgi-stroke hgi-arrow-right-02 w-3.5 h-3.5 text-black group-hover:text-white transition"></i>
                             </div>
                         </article>
-                        <article onclick="openArticleModal(&#x27;nisanli-arastirmasi&#x27;)" class="group rounded-[26px] overflow-hidden bg-[#EEFBC5] cursor-pointer transition hover:-translate-y-1 flex flex-col shadow-xl">
-                            <div class="flex items-stretch">
-                                <div style="background:#262626" class="rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center shrink-0">
-                                    <span class="font-mono text-[10px] font-medium text-[#111111]">PRIJE BRAKA</span>
+                        <article onclick="openArticleModal('nisanli-arastirmasi')" class="group rounded-[22px] bg-[#FFFFFF] border border-black/[0.08] hover:border-black/60 cursor-pointer transition-all duration-300 flex flex-col justify-between p-6 space-y-5 shadow-sm hover:shadow-md">
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between">
+                                    <span class="px-2.5 py-0.5 rounded-full bg-black/[0.05] border border-black/[0.1] text-black font-mono text-[10px] font-medium">PROVJERA PRIJE BRAKA</span>
+                                    <span class="font-mono text-[10px] text-neutral-500">PREVENTIVNA ISTRAGA</span>
                                 </div>
-                                <svg class="w-7 h-[32px] shrink-0 block -ml-px -mb-px" viewbox="0 0 32 34" preserveaspectratio="none" fill="none" aria-hidden="true">
-                                    <path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#262626" />
-                                </svg>
-                                <div class="flex-1 flex items-center justify-end pr-4 pl-2">
-                                    <span class="font-mono text-[10px] font-medium px-2 py-0.5 rounded-full bg-[#111111]/10 text-[#111111] truncate">PREVENTIVNA PROVJERA</span>
+                                <div class="w-10 h-10 rounded-xl bg-black/[0.04] text-black flex items-center justify-center">
+                                    <i class="hgi hgi-stroke hgi-agreement-01 w-4 h-4"></i>
                                 </div>
+                                <h3 class="text-base font-medium text-black leading-snug group-hover:text-black transition">Provjera vjerenika: provjera prošlosti prije braka</h3>
+                                <p class="text-[13px] text-[#3A3E42] font-regular leading-relaxed">Značaj povjerljive provjere identiteta, dugova i društvenog kruga prije sklapanja braka.</p>
                             </div>
-                            <div style="background:#262626" class="-mt-px rounded-tr-[24px] rounded-b-[24px] p-6 flex-1 flex flex-col justify-between space-y-5">
-                                <div class="space-y-3">
-                                    <div class="w-10 h-10 rounded-xl bg-[#111111] text-[#FFFFFF] flex items-center justify-center">
-                                        <i class="hgi hgi-stroke hgi-agreement-01 w-4 h-4"></i>
-                                    </div>
-                                    <h3 class="text-base font-medium text-[#111111] leading-snug">Provjera partnera prije vjenčanja: Šta treba znati</h3>
-                                    <p class="text-[13px] text-[#111111]/80 font-regular leading-relaxed">Zašto je diskretna provjera dugova, prošlosti i okruženja važna prije braka.</p>
-                                </div>
-                                <div class="w-full py-2.5 px-4 rounded-full bg-[#111111] group-hover:bg-[#000000] text-[#FFFFFF] text-xs font-medium flex items-center justify-between transition">
-                                    <span>Pročitaj članak</span>
-                                    <i class="hgi hgi-stroke hgi-arrow-right-02 w-3.5 h-3.5 text-[#000000]"></i>
-                                </div>
+                            <div class="w-full py-2.5 px-4 rounded-full bg-black/[0.04] group-hover:bg-black text-black group-hover:text-white text-xs font-medium flex items-center justify-between transition">
+                                <span>Pročitaj članak</span>
+                                <i class="hgi hgi-stroke hgi-arrow-right-02 w-3.5 h-3.5 text-black group-hover:text-white transition"></i>
                             </div>
                         </article>
-                        <article onclick="openArticleModal(&#x27;ogrenci-takibi-rehberi&#x27;)" class="group rounded-[26px] overflow-hidden bg-[#F7F7F8] border border-black/[0.08] cursor-pointer transition hover:-translate-y-1 flex flex-col shadow-xl">
-                            <div class="flex items-stretch">
-                                <div style="background:#FA7E61" class="rounded-tl-[24px] pt-2.5 pb-1.5 pl-5 pr-3 flex items-center shrink-0">
-                                    <span class="font-mono text-[10px] font-medium text-[#111111]">MLADI I PORODICA</span>
+                        <article onclick="openArticleModal('ogrenci-takibi-rehberi')" class="group rounded-[22px] bg-[#FFFFFF] border border-black/[0.08] hover:border-black/60 cursor-pointer transition-all duration-300 flex flex-col justify-between p-6 space-y-5 shadow-sm hover:shadow-md">
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between">
+                                    <span class="px-2.5 py-0.5 rounded-full bg-black/[0.05] border border-black/[0.1] text-black font-mono text-[10px] font-medium">MLADI I PORODICA</span>
+                                    <span class="font-mono text-[10px] text-neutral-500">ZAŠTITA PORODICE</span>
                                 </div>
-                                <svg class="w-7 h-[32px] shrink-0 block -ml-px -mb-px" viewbox="0 0 32 34" preserveaspectratio="none" fill="none" aria-hidden="true">
-                                    <path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#FA7E61" />
-                                </svg>
-                                <div class="flex-1 flex items-center justify-end pr-4 pl-2">
-                                    <span class="font-mono text-[10px] font-medium px-2 py-0.5 rounded-full bg-[#111111]/10 text-[#111111] truncate">ZAŠTITA PORODICE</span>
+                                <div class="w-10 h-10 rounded-xl bg-black/[0.04] text-black flex items-center justify-center">
+                                    <i class="hgi hgi-stroke hgi-shield-02 w-4 h-4"></i>
                                 </div>
+                                <h3 class="text-base font-medium text-black leading-snug group-hover:text-black transition">Kako prepoznati znakove opasnosti kod adolescenata</h3>
+                                <p class="text-[13px] text-[#3A3E42] font-regular leading-relaxed">Mjere diskretnog profesionalnog osmatranja pri sumnjivom ponašanju i neobjašnjivim troškovima.</p>
                             </div>
-                            <div style="background:#FA7E61" class="-mt-px rounded-tr-[24px] rounded-b-[24px] p-6 flex-1 flex flex-col justify-between space-y-5">
-                                <div class="space-y-3">
-                                    <div class="w-10 h-10 rounded-xl bg-[#111111] text-[#FFFFFF] flex items-center justify-center">
-                                        <i class="hgi hgi-stroke hgi-shield-02 w-4 h-4"></i>
-                                    </div>
-                                    <h3 class="text-base font-medium text-[#111111] leading-snug">Kako prepoznati rizične navike i zaštititi dijete?</h3>
-                                    <p class="text-[13px] text-[#111111]/80 font-regular leading-relaxed">Pravovremene mjere stručnog opažanja kod rizičnih promjena ponašanja mladih.</p>
-                                </div>
-                                <div class="w-full py-2.5 px-4 rounded-full bg-[#111111] group-hover:bg-[#000000] text-[#FFFFFF] text-xs font-medium flex items-center justify-between transition">
-                                    <span>Pročitaj članak</span>
-                                    <i class="hgi hgi-stroke hgi-arrow-right-02 w-3.5 h-3.5 text-[#000000]"></i>
-                                </div>
+                            <div class="w-full py-2.5 px-4 rounded-full bg-black/[0.04] group-hover:bg-black text-black group-hover:text-white text-xs font-medium flex items-center justify-between transition">
+                                <span>Pročitaj članak</span>
+                                <i class="hgi hgi-stroke hgi-arrow-right-02 w-3.5 h-3.5 text-black group-hover:text-white transition"></i>
                             </div>
                         </article>
                     </div>
+                </div>
                 </div>
 
             </div>
@@ -4422,7 +4463,7 @@
                     <div class="avrupa-item bg-[#F2F2F2]/80 border border-black/[0.06] rounded-2xl overflow-hidden transition">
                         <button type="button" class="avrupa-trigger w-full px-5 sm:px-6 py-4 sm:py-5 text-left rtl:text-right flex items-center justify-between gap-4 text-[#111111] font-medium text-sm sm:text-base hover:bg-black/[0.02] transition">
                             <span class="flex items-center gap-3">
-                                <span class="w-8 h-8 rounded-full bg-[#FA7E61]/15 text-[#FA7E61] flex items-center justify-center shrink-0 font-mono text-xs font-bold">01</span>
+                                <span class="w-8 h-8 rounded-full bg-[#F7F7F8] border border-black/[0.08] text-neutral-700 flex items-center justify-center shrink-0 font-mono text-xs font-bold">01</span>
                                 <span>Aldatan Erkek ve Eş Nasıl Anlaşılır? (12 Somut Davranış Değişikliği)</span>
                             </span>
                             <span class="w-8 h-8 rounded-full bg-[#FFFFFF] flex items-center justify-center shrink-0 border border-black/[0.06] transition-transform">
@@ -4493,7 +4534,7 @@
                     <div class="avrupa-item bg-[#F2F2F2]/80 border border-black/[0.06] rounded-2xl overflow-hidden transition">
                         <button type="button" class="avrupa-trigger w-full px-5 sm:px-6 py-4 sm:py-5 text-left rtl:text-right flex items-center justify-between gap-4 text-[#111111] font-medium text-sm sm:text-base hover:bg-black/[0.02] transition">
                             <span class="flex items-center gap-3">
-                                <span class="w-8 h-8 rounded-full bg-[#111111] text-[#000000] flex items-center justify-center shrink-0 font-mono text-xs font-bold">03</span>
+                                <span class="w-8 h-8 rounded-full bg-[#111111] text-[#FFFFFF] flex items-center justify-center shrink-0 font-mono text-xs font-bold">03</span>
                                 <span>Toplanan Dedektif Delilleri Türk ve Avrupa Mahkemelerinde (Almanya FamFG) Geçerli midir?</span>
                             </span>
                             <span class="w-8 h-8 rounded-full bg-[#FFFFFF] flex items-center justify-center shrink-0 border border-black/[0.06] transition-transform">
@@ -4506,15 +4547,15 @@
                             </p>
                             <ul class="space-y-2 text-xs sm:text-sm">
                                 <li class="flex items-start gap-2">
-                                    <span class="text-[#000000] font-bold">✓</span>
+                                    <i class="hgi hgi-stroke hgi-tick-02 w-4 h-4 text-black shrink-0 mt-0.5"></i>
                                     <span><strong>Kamusal Alan Gözlemi (Hukuki):</strong> Sokakta, restoranda, otel lobisinde, plajda veya havalimanında çekilen tarih-saat damgalı fotoğraf ve videolar TCK m.134 ihlali oluşturmaz; HMK m.199 uyarınca geçerli delildir.</span>
                                 </li>
                                 <li class="flex items-start gap-2">
-                                    <span class="text-[#000000] font-bold">✓</span>
+                                    <i class="hgi hgi-stroke hgi-tick-02 w-4 h-4 text-black shrink-0 mt-0.5"></i>
                                     <span><strong>Almanya Familiengericht (FamFG § 29 / ZPO § 286):</strong> Alman mahkemeleri, özel dedektiflerin hazırladığı gözlem tutanaklarını (Detektivbericht) aldatma, kusur ve nafaka hesaplamasında delil serbestisi kapsamında değerlendirir.</span>
                                 </li>
                                 <li class="flex items-start gap-2">
-                                    <span class="text-rose-500 font-bold">✕</span>
+                                    <i class="hgi hgi-stroke hgi-cancel-01 w-4 h-4 text-black shrink-0 mt-0.5"></i>
                                     <span><strong>Yasak Yöntemler (Geçersiz &amp; Suç):</strong> Telefon dinleme, casus yazılım atma veya yatak odasına kamera koyma suçtur; DAT Detective asla yasak usul kullanmaz.</span>
                                 </li>
                             </ul>
@@ -4525,7 +4566,7 @@
                     <div class="avrupa-item bg-[#F2F2F2]/80 border border-black/[0.06] rounded-2xl overflow-hidden transition">
                         <button type="button" class="avrupa-trigger w-full px-5 sm:px-6 py-4 sm:py-5 text-left rtl:text-right flex items-center justify-between gap-4 text-[#111111] font-medium text-sm sm:text-base hover:bg-black/[0.02] transition">
                             <span class="flex items-center gap-3">
-                                <span class="w-8 h-8 rounded-full bg-[#FA7E61]/15 text-[#FA7E61] flex items-center justify-center shrink-0 font-mono text-xs font-bold">04</span>
+                                <span class="w-8 h-8 rounded-full bg-[#F7F7F8] border border-black/[0.08] text-neutral-700 flex items-center justify-center shrink-0 font-mono text-xs font-bold">04</span>
                                 <span>Yurt Dışında Yaşayıp Türkiye'de Miras Kaçırma ve Gizli Gelir Tespiti Nasıl Yaptırılır?</span>
                             </span>
                             <span class="w-8 h-8 rounded-full bg-[#FFFFFF] flex items-center justify-center shrink-0 border border-black/[0.06] transition-transform">
@@ -4569,7 +4610,7 @@
                     <div class="bg-[#111111] text-[#FFFFFF] rounded-[24px] p-6 flex flex-col justify-between space-y-5 shadow-xl">
                         <div class="space-y-3">
                             <div class="flex items-center justify-between">
-                                <span class="px-2.5 py-0.5 rounded-full bg-[#000000] text-[#111111] font-mono text-[10px] font-medium">KANCELARIJA ISTANBUL (CENTRALA)</span>
+                                <span class="px-2.5 py-0.5 rounded-full bg-[#000000] text-[#FFFFFF] font-mono text-[10px] font-medium">KANCELARIJA ISTANBUL (CENTRALA)</span>
                                 <i class="hgi hgi-stroke hgi-building-03 w-4 h-4 text-[#000000]"></i>
                             </div>
                             <h4 class="text-base font-medium text-[#FFFFFF]">Centrala Istanbul</h4>
@@ -4682,7 +4723,7 @@
                 <div class="mt-10 pt-8 border-t border-black/[0.08] space-y-6">
                     <div class="flex flex-col md:flex-row md:items-end justify-between gap-3 text-center md:text-left rtl:md:text-right">
                         <div class="space-y-2">
-                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#111111] text-[#000000] font-mono text-[10.5px] font-medium">
+                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#111111] text-[#FFFFFF] font-mono text-[10.5px] font-medium">
                                 <span class="w-1.5 h-1.5 rounded-full bg-[#000000] animate-pulse"></span>
                                 <span>ŞEHİR &amp; İLÇE REHBERLERİ • TIKLAYIN VE SAYFAYI AÇIN</span>
                             </div>
@@ -4700,8 +4741,8 @@
                         <a href="../ankara-ozel-dedektif" class="group bg-[#FFFFFF] hover:bg-[#111111] text-[#111111] hover:text-[#FFFFFF] rounded-[22px] p-5 border border-black/[0.08] hover:border-[#000000]/60 transition-all duration-300 flex flex-col justify-between space-y-4 studio-shadow" title="Ankara Dedektif &amp; Özel Dedektiflik Bürosu — Çankaya Merkez ve 25 İlçede Eş Takibi, Boşanma Delili">
                             <div class="space-y-2.5">
                                 <div class="flex items-center justify-between gap-2">
-                                    <span class="px-2.5 py-0.5 rounded-full bg-[#000000] text-[#111111] font-mono text-[10px] font-medium">06 • ANKARA MERKEZ OFİS</span>
-                                    <span class="w-7 h-7 rounded-full bg-[#F2F2F2] group-hover:bg-[#000000] text-[#111111] flex items-center justify-center transition">
+                                    <span class="px-2.5 py-0.5 rounded-full bg-[#000000] text-[#FFFFFF] font-mono text-[10px] font-medium">06 • ANKARA MERKEZ OFİS</span>
+                                    <span class="w-7 h-7 rounded-full bg-[#F2F2F2] group-hover:bg-[#000000] text-[#FFFFFF] flex items-center justify-center transition">
                                         <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3.5 h-3.5"></i>
                                     </span>
                                 </div>
@@ -4721,7 +4762,7 @@
                             <div class="space-y-2.5">
                                 <div class="flex items-center justify-between gap-2">
                                     <span class="px-2.5 py-0.5 rounded-full bg-[#111111] group-hover:bg-[#000000] text-[#FFFFFF] group-hover:text-white font-mono text-[10px] font-medium transition">35 • EGE BÖLGE OPERASYON</span>
-                                    <span class="w-7 h-7 rounded-full bg-[#F2F2F2] group-hover:bg-[#000000] text-[#111111] flex items-center justify-center transition">
+                                    <span class="w-7 h-7 rounded-full bg-[#F2F2F2] group-hover:bg-[#000000] text-[#FFFFFF] flex items-center justify-center transition">
                                         <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3.5 h-3.5"></i>
                                     </span>
                                 </div>
@@ -4740,8 +4781,8 @@
                         <a href="../mersin-ozel-dedektif" class="group bg-[#FFFFFF] hover:bg-[#111111] text-[#111111] hover:text-[#FFFFFF] rounded-[22px] p-5 border border-black/[0.08] hover:border-[#000000]/60 transition-all duration-300 flex flex-col justify-between space-y-4 studio-shadow" title="Mersin Dedektif &amp; Özel Dedektiflik Bürosu — Yenişehir, Mezitli, Tarsus, Erdemli ve 13 İlçede Özel Dedektif">
                             <div class="space-y-2.5">
                                 <div class="flex items-center justify-between gap-2">
-                                    <span class="px-2.5 py-0.5 rounded-full bg-[#FA7E61] text-[#111111] font-mono text-[10px] font-medium">33 • AKDENİZ &amp; LİMAN HATTI</span>
-                                    <span class="w-7 h-7 rounded-full bg-[#F2F2F2] group-hover:bg-[#000000] text-[#111111] flex items-center justify-center transition">
+                                    <span class="px-2.5 py-0.5 rounded-full bg-black/[0.05] border border-black/[0.08] text-neutral-800 font-mono text-[10px] font-medium">33 • AKDENİZ &amp; LİMAN HATTI</span>
+                                    <span class="w-7 h-7 rounded-full bg-[#F2F2F2] group-hover:bg-[#000000] text-[#FFFFFF] flex items-center justify-center transition">
                                         <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3.5 h-3.5"></i>
                                     </span>
                                 </div>
@@ -4761,7 +4802,7 @@
                             <div class="space-y-2.5">
                                 <div class="flex items-center justify-between gap-2">
                                     <span class="px-2.5 py-0.5 rounded-full bg-[#262626] text-[#111111] font-mono text-[10px] font-medium">42 • İÇ ANADOLU SAHA MERKEZİ</span>
-                                    <span class="w-7 h-7 rounded-full bg-[#F2F2F2] group-hover:bg-[#000000] text-[#111111] flex items-center justify-center transition">
+                                    <span class="w-7 h-7 rounded-full bg-[#F2F2F2] group-hover:bg-[#000000] text-[#FFFFFF] flex items-center justify-center transition">
                                         <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3.5 h-3.5"></i>
                                     </span>
                                 </div>
@@ -4780,8 +4821,8 @@
                         <a href="../istanbul-ozel-dedektif" class="group bg-[#FFFFFF] hover:bg-[#111111] text-[#111111] hover:text-[#FFFFFF] rounded-[22px] p-5 border border-black/[0.08] hover:border-[#000000]/60 transition-all duration-300 flex flex-col justify-between space-y-4 studio-shadow" title="İstanbul Dedektif &amp; Özel Dedektiflik Bürosu — Kartal Merkez ve 39 İlçede Eş Takibi, Hukuki Araştırma">
                             <div class="space-y-2.5">
                                 <div class="flex items-center justify-between gap-2">
-                                    <span class="px-2.5 py-0.5 rounded-full bg-[#000000] text-[#111111] font-mono text-[10px] font-medium">34 • İSTANBUL MERKEZ BÜRO</span>
-                                    <span class="w-7 h-7 rounded-full bg-[#F2F2F2] group-hover:bg-[#000000] text-[#111111] flex items-center justify-center transition">
+                                    <span class="px-2.5 py-0.5 rounded-full bg-[#000000] text-[#FFFFFF] font-mono text-[10px] font-medium">34 • İSTANBUL MERKEZ BÜRO</span>
+                                    <span class="w-7 h-7 rounded-full bg-[#F2F2F2] group-hover:bg-[#000000] text-[#FFFFFF] flex items-center justify-center transition">
                                         <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3.5 h-3.5"></i>
                                     </span>
                                 </div>
@@ -4801,7 +4842,7 @@
                             <div class="space-y-2.5">
                                 <div class="flex items-center justify-between gap-2">
                                     <span class="px-2.5 py-0.5 rounded-full bg-[#111111] group-hover:bg-[#000000] text-[#FFFFFF] group-hover:text-white font-mono text-[10px] font-medium transition">07 • AKDENİZ &amp; TURİZM MASASI</span>
-                                    <span class="w-7 h-7 rounded-full bg-[#F2F2F2] group-hover:bg-[#000000] text-[#111111] flex items-center justify-center transition">
+                                    <span class="w-7 h-7 rounded-full bg-[#F2F2F2] group-hover:bg-[#000000] text-[#FFFFFF] flex items-center justify-center transition">
                                         <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3.5 h-3.5"></i>
                                     </span>
                                 </div>
@@ -4847,7 +4888,7 @@
                             <path d="M0 0 C14 0 18 34 32 34 L0 34 Z" fill="#FFFFFF" />
                         </svg>
                         <div class="flex-1 flex items-center justify-end pr-6 pl-2">
-                            <span class="font-mono text-[10px] font-medium px-2.5 py-0.5 rounded-full bg-[#111111] text-[#000000]">Potpuna povjerljivost</span>
+                            <span class="font-mono text-[10px] font-medium px-2.5 py-0.5 rounded-full bg-[#111111] text-[#FFFFFF]">Potpuna povjerljivost</span>
                         </div>
                     </div>
 
@@ -5101,7 +5142,7 @@
                 <!-- SEO & AI Search Engine Direct-Answer Heading Matrix (#seo-ai-rehberi) -->
                 <div id="seo-ai-rehberi" class="mt-8 p-5 sm:p-7 rounded-3xl bg-[#F2F2F2] border border-black/[0.06] space-y-5 text-left rtl:text-right">
                     <div class="space-y-1.5 border-b border-black/[0.06] pb-3.5">
-                        <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#111111] text-[#000000] font-mono text-[10px] font-medium">
+                        <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#111111] text-[#FFFFFF] font-mono text-[10px] font-medium">
                             <span>GOOGLE TRENDS &amp; YAPAY ZEKA ARAMALARI REHBERİ</span>
                         </div>
                         <h2 class="text-lg sm:text-xl font-medium text-[#111111] tracking-tight">
@@ -5251,7 +5292,7 @@
                         <div><strong class="text-[#FFFFFF]">24/7 EMAIL:</strong> <a href="mailto:info@datdetective.com" class="hover:underline" title="DAT Detective Resmi E-Posta İletişimi: info@datdetective.com">info@datdetective.com</a></div>
                     </div>
                     <div class="flex flex-wrap items-center justify-center md:justify-start gap-2.5 pt-1">
-                        <a href="https://www.instagram.com/datdedektiflik" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-full bg-[#000000] text-[#111111] text-[11px] font-medium hover:bg-[#262626] transition inline-flex items-center gap-1.5" title="DAT Özel Dedektiflik Bürosu Resmi Instagram Hesabı (@datdedektiflik)">
+                        <a href="https://www.instagram.com/datdedektiflik" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-full bg-[#000000] text-[#FFFFFF] text-[11px] font-medium hover:bg-[#262626] transition inline-flex items-center gap-1.5" title="DAT Özel Dedektiflik Bürosu Resmi Instagram Hesabı (@datdedektiflik)">
                             <i class="hgi hgi-stroke hgi-instagram w-3.5 h-3.5 shrink-0"></i>
                             <span>Instagram (@datdedektiflik)</span>
                         </a>
@@ -5357,7 +5398,7 @@
     <!-- Case Submission Success Modal -->
     <div id="successModal" class="fixed inset-0 z-50 hidden bg-[#000000]/75 backdrop-blur-md flex items-center justify-center p-4">
         <div class="bg-[#FFFFFF] border border-black/10 rounded-[28px] max-w-md w-full p-7 sm:p-8 text-center space-y-5 shadow-2xl">
-            <div class="w-14 h-14 mx-auto rounded-full bg-[#000000] text-[#111111] flex items-center justify-center">
+            <div class="w-14 h-14 mx-auto rounded-full bg-[#000000] text-[#FFFFFF] flex items-center justify-center">
                 <i class="hgi hgi-stroke hgi-tick-02 w-6 h-6"></i>
             </div>
             <h3 id="successModalTitle" class="text-xl font-medium tracking-tight text-[#111111]">Vaš zahtjev je poslat</h3>
@@ -5408,7 +5449,7 @@
         <div class="relative max-w-2xl w-full bg-[#FFFFFF] rounded-[28px] p-6 sm:p-8 shadow-2xl space-y-5 max-h-[88vh] overflow-y-auto" onclick="event.stopPropagation()">
             <div class="flex items-start justify-between gap-4 border-b border-black/[0.08] pb-4">
                 <div class="space-y-1.5">
-                    <span id="articleModalBadge" class="inline-block font-mono text-[10px] px-2.5 py-0.5 rounded-full bg-[#000000] text-[#111111] font-medium">STRUČNI VODIČ</span>
+                    <span id="articleModalBadge" class="inline-block font-mono text-[10px] px-2.5 py-0.5 rounded-full bg-[#000000] text-[#FFFFFF] font-medium">STRUČNI VODIČ</span>
                     <h3 id="articleModalTitle" class="text-lg sm:text-xl font-medium text-[#111111] leading-snug">Naslov članka</h3>
                     <div id="articleModalMeta" class="text-[10px] font-mono text-[#3A3E42] uppercase">DAT DETEKTIV</div>
                 </div>
@@ -5437,7 +5478,7 @@
         <div class="relative max-w-2xl w-full bg-[#FFFFFF] rounded-[28px] p-6 sm:p-8 shadow-2xl space-y-5 max-h-[88vh] overflow-y-auto" onclick="event.stopPropagation()">
             <div class="flex items-start justify-between gap-4 border-b border-black/[0.08] pb-4">
                 <div class="space-y-1">
-                    <span class="inline-block font-mono text-[10px] px-2.5 py-0.5 rounded-full bg-[#111111] text-[#000000] font-medium">ZAŠTITA PODATAKA I PROTOKOL TAJNOSTI</span>
+                    <span class="inline-block font-mono text-[10px] px-2.5 py-0.5 rounded-full bg-[#111111] text-[#FFFFFF] font-medium">ZAŠTITA PODATAKA I PROTOKOL TAJNOSTI</span>
                     <h3 class="text-lg sm:text-xl font-medium text-[#111111]">Politika privatnosti i zaštita podataka</h3>
                 </div>
                 <button type="button" onclick="closePrivacyModal()" class="w-8 h-8 shrink-0 rounded-full bg-[#F2F2F2] hover:bg-[#111111] text-white hover:text-[#000000] flex items-center justify-center transition">
@@ -5463,7 +5504,7 @@
         <div class="relative max-w-2xl w-full bg-[#FFFFFF] rounded-[28px] p-6 sm:p-8 shadow-2xl space-y-5 max-h-[88vh] overflow-y-auto" onclick="event.stopPropagation()">
             <div class="flex items-start justify-between gap-4 border-b border-black/[0.08] pb-4">
                 <div class="space-y-1.5">
-                    <span id="serviceModalBadge" class="inline-block font-mono text-[10px] px-2.5 py-0.5 rounded-full bg-[#111111] text-[#000000] font-medium">OBIM USLUGE</span>
+                    <span id="serviceModalBadge" class="inline-block font-mono text-[10px] px-2.5 py-0.5 rounded-full bg-[#111111] text-[#FFFFFF] font-medium">OBIM USLUGE</span>
                     <h3 id="serviceModalTitle" class="text-lg sm:text-xl font-medium text-[#111111] leading-snug">Naziv usluge</h3>
                     <div id="serviceModalLaw" class="text-[11px] font-mono text-[#3A3E42] font-medium">PRAVNI OSNOV: ZPP čl. 199</div>
                 </div>
@@ -5511,7 +5552,7 @@
     <div id="productModal" class="fixed inset-0 z-50 hidden bg-[#000000]/75 backdrop-blur-md flex items-center justify-center p-4" onclick="closeProductModal()">
         <div class="relative max-w-2xl w-full bg-[#FFFFFF] rounded-[28px] p-5 sm:p-8 shadow-2xl max-h-[90vh] overflow-y-auto" onclick="event.stopPropagation()">
             <div class="flex items-center justify-between pb-4 border-b border-black/[0.08]">
-                <span id="pmSkuBadge" class="font-mono text-[10px] px-2.5 py-1 rounded-full bg-[#111111] text-[#000000] font-medium">DAT-SKU</span>
+                <span id="pmSkuBadge" class="font-mono text-[10px] px-2.5 py-1 rounded-full bg-[#111111] text-[#FFFFFF] font-medium">DAT-SKU</span>
                 <button type="button" onclick="closeProductModal()" class="w-8 h-8 rounded-full bg-[#F2F2F2] hover:bg-[#111111] text-white hover:text-[#000000] flex items-center justify-center transition">
                     <i class="hgi hgi-stroke hgi-cancel-01 w-4 h-4"></i>
                 </button>
@@ -5544,7 +5585,7 @@
         <div class="w-full max-w-md bg-[#FFFFFF] h-full flex flex-col justify-between shadow-2xl" onclick="event.stopPropagation()">
             <div class="p-5 sm:p-6 border-b border-black/[0.08] flex items-center justify-between">
                 <div class="flex items-center gap-2.5">
-                    <div class="w-9 h-9 rounded-full bg-[#111111] text-[#000000] flex items-center justify-center">
+                    <div class="w-9 h-9 rounded-full bg-[#111111] text-[#FFFFFF] flex items-center justify-center">
                         <i class="hgi hgi-stroke hgi-shopping-bag-02 w-4 h-4"></i>
                     </div>
                     <div>
@@ -5589,7 +5630,7 @@
         <div class="relative max-w-2xl w-full bg-[#FFFFFF] rounded-[28px] p-6 sm:p-8 shadow-2xl space-y-5 max-h-[88vh] overflow-y-auto" onclick="event.stopPropagation()">
             <div class="flex items-start justify-between gap-4 border-b border-black/[0.08] pb-4">
                 <div class="space-y-1">
-                    <span id="legalModalBadge" class="inline-block font-mono text-[10px] px-2.5 py-0.5 rounded-full bg-[#111111] text-[#000000] font-medium">ZVANIČNI USLOVI PRODAJE I ZAKONITOSTI</span>
+                    <span id="legalModalBadge" class="inline-block font-mono text-[10px] px-2.5 py-0.5 rounded-full bg-[#111111] text-[#FFFFFF] font-medium">ZVANIČNI USLOVI PRODAJE I ZAKONITOSTI</span>
                     <h3 id="legalModalTitle" class="text-lg sm:text-xl font-medium text-[#111111]">Uslovi prodaje na daljinu, isporuke i povraćaja</h3>
                 </div>
                 <button type="button" onclick="closeLegalModal()" class="w-8 h-8 shrink-0 rounded-full bg-[#F2F2F2] hover:bg-[#111111] text-white hover:text-[#000000] flex items-center justify-center transition">

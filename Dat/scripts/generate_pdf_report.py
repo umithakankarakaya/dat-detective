@@ -1,0 +1,610 @@
+import os
+import subprocess
+import shutil
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+HTML_FILE = os.path.join(ROOT, "scripts", "report_template.html")
+OUTPUT_PDF = os.path.join(ROOT, "DAT-Ozel-Dedektiflik-SEO-ve-Yapay-Zeka-Raporu.pdf")
+
+html_content = """<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>DAT Özel Dedektiflik — SEO & Yapay Zeka Raporu</title>
+<style>
+    @page {
+        size: A4;
+        margin: 15mm 15mm 18mm 15mm;
+        @bottom-right {
+            content: "Sayfa " counter(page);
+            font-size: 9pt;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            color: #666;
+        }
+    }
+    * {
+        box-sizing: border-box;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        color: #1a1a1a;
+        background: #ffffff;
+        line-height: 1.5;
+        font-size: 10pt;
+        margin: 0;
+        padding: 0;
+    }
+    .page {
+        page-break-after: always;
+        position: relative;
+        min-height: 260mm;
+    }
+    .page:last-child {
+        page-break-after: auto;
+    }
+    
+    /* Header & Branding */
+    .header-bar {
+        border-bottom: 2px solid #111111;
+        padding-bottom: 12px;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .brand-left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    .logo-badge {
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        background: #111111;
+        color: #93F051;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        font-size: 14pt;
+        letter-spacing: -0.5px;
+    }
+    .brand-title {
+        font-size: 14pt;
+        font-weight: 800;
+        color: #111111;
+        letter-spacing: -0.3px;
+        line-height: 1.1;
+    }
+    .brand-sub {
+        font-size: 8pt;
+        color: #555555;
+        font-family: ui-monospace, Menlo, Consolas, monospace;
+        text-transform: uppercase;
+        margin-top: 2px;
+    }
+    .meta-right {
+        text-align: right;
+        font-size: 8.5pt;
+        color: #444444;
+        line-height: 1.35;
+    }
+    .meta-right strong {
+        color: #111111;
+    }
+    
+    /* Report Title Box */
+    .report-title-box {
+        background: #111111;
+        color: #ffffff;
+        border-radius: 12px;
+        padding: 18px 22px;
+        margin-bottom: 20px;
+    }
+    .badge-pill {
+        display: inline-block;
+        background: rgba(147, 240, 81, 0.2);
+        border: 1px solid #93F051;
+        color: #93F051;
+        font-family: ui-monospace, monospace;
+        font-size: 8pt;
+        font-weight: 700;
+        padding: 3px 10px;
+        border-radius: 20px;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+    }
+    .report-h1 {
+        font-size: 17pt;
+        font-weight: 700;
+        margin: 0 0 6px 0;
+        color: #ffffff;
+        letter-spacing: -0.4px;
+    }
+    .report-subtitle {
+        font-size: 9.5pt;
+        color: rgba(255, 255, 255, 0.85);
+        margin: 0;
+        line-height: 1.45;
+    }
+    
+    /* Target & Info Grid */
+    .info-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        margin-bottom: 22px;
+    }
+    .info-card {
+        background: #f5f6f8;
+        border: 1px solid #e2e5e9;
+        border-radius: 8px;
+        padding: 10px 12px;
+    }
+    .info-label {
+        font-size: 7.5pt;
+        font-family: ui-monospace, monospace;
+        color: #666;
+        text-transform: uppercase;
+        margin-bottom: 3px;
+    }
+    .info-value {
+        font-size: 9.5pt;
+        font-weight: 700;
+        color: #111;
+    }
+
+    /* Headings */
+    h2 {
+        font-size: 12pt;
+        font-weight: 700;
+        color: #111111;
+        border-left: 4px solid #93F051;
+        padding-left: 10px;
+        margin: 22px 0 10px 0;
+        letter-spacing: -0.2px;
+    }
+    h3 {
+        font-size: 10.5pt;
+        font-weight: 700;
+        color: #222222;
+        margin: 14px 0 6px 0;
+    }
+    p {
+        margin: 0 0 10px 0;
+        color: #333333;
+        font-size: 9.5pt;
+        line-height: 1.55;
+    }
+    
+    /* Table Styling */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 12px 0 18px 0;
+        font-size: 8.5pt;
+    }
+    th {
+        background: #111111;
+        color: #ffffff;
+        font-weight: 600;
+        text-align: left;
+        padding: 8px 10px;
+        font-size: 8pt;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+    }
+    th:first-child { border-top-left-radius: 6px; }
+    th:last-child { border-top-right-radius: 6px; }
+    td {
+        padding: 7px 10px;
+        border-bottom: 1px solid #e5e7eb;
+        color: #2a2a2a;
+    }
+    tr:nth-child(even) td {
+        background: #f9fafb;
+    }
+    .badge-count {
+        background: #93F051;
+        color: #111111;
+        font-weight: 700;
+        padding: 2px 7px;
+        border-radius: 12px;
+        font-size: 8pt;
+    }
+
+    /* Highlight Cards */
+    .feature-card {
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        padding: 12px 14px;
+        margin-bottom: 12px;
+    }
+    .feature-card h4 {
+        margin: 0 0 4px 0;
+        font-size: 9.5pt;
+        font-weight: 700;
+        color: #0f172a;
+    }
+    .feature-card p {
+        margin: 0;
+        font-size: 8.8pt;
+        color: #475569;
+        line-height: 1.45;
+    }
+    .feature-card .tag {
+        font-family: ui-monospace, monospace;
+        font-size: 7.5pt;
+        color: #15803d;
+        font-weight: 600;
+    }
+
+    /* Metric Grid */
+    .metric-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+        margin: 14px 0 20px 0;
+    }
+    .metric-box {
+        background: #111111;
+        color: #ffffff;
+        border-radius: 10px;
+        padding: 14px;
+        text-align: center;
+    }
+    .metric-num {
+        font-size: 18pt;
+        font-weight: 800;
+        color: #93F051;
+        line-height: 1;
+        margin-bottom: 4px;
+    }
+    .metric-title {
+        font-size: 8pt;
+        text-transform: uppercase;
+        font-family: ui-monospace, monospace;
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* Sign-off Box */
+    .sign-box {
+        margin-top: 30px;
+        border-top: 1px solid #cbd5e1;
+        padding-top: 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+    .sign-block {
+        line-height: 1.4;
+    }
+    .sign-block .role {
+        font-size: 8pt;
+        color: #64748b;
+        text-transform: uppercase;
+        font-family: ui-monospace, monospace;
+    }
+    .sign-block .name {
+        font-size: 11pt;
+        font-weight: 700;
+        color: #0f172a;
+    }
+    .sign-stamp {
+        border: 2px dashed #93F051;
+        border-radius: 8px;
+        padding: 8px 16px;
+        text-align: center;
+        background: #f0fdf4;
+    }
+    .stamp-text {
+        font-family: ui-monospace, monospace;
+        font-size: 8pt;
+        font-weight: 700;
+        color: #166534;
+        text-transform: uppercase;
+    }
+</style>
+</head>
+<body>
+
+<!-- ================= PAGE 1 ================= -->
+<div class="page">
+    <div class="header-bar">
+        <div class="brand-left">
+            <div class="logo-badge">DAT</div>
+            <div>
+                <div class="brand-title">DAT ÖZEL DEDEKTİFLİK BÜROSU</div>
+                <div class="brand-sub">Yönetim Kurulu Raporu • Gizli & Kurumsal</div>
+            </div>
+        </div>
+        <div class="meta-right">
+            <strong>Rapor No:</strong> DAT-STR-2026-09<br>
+            <strong>Tarih:</strong> 14 Kasım 2026<br>
+            <strong>Durum:</strong> Tamamlandı (Yayında)
+        </div>
+    </div>
+
+    <div class="report-title-box">
+        <div class="badge-pill">Stratejik Dijital Rapor</div>
+        <h1 class="report-h1">SEO, Google Trends & Yapay Zeka (GEO) Entegrasyon Raporu</h1>
+        <p class="report-subtitle">
+            Türkiye genelinde Google Trends aramaları, 7 büyükşehirde 174 ilçe kapsamı ve yapay zeka arama motorları (ChatGPT, Perplexity, Gemini, Claude) kaynak otoritesi altyapı raporu.
+        </p>
+    </div>
+
+    <div class="info-grid">
+        <div class="info-card">
+            <div class="info-label">Muhatap</div>
+            <div class="info-value">Ümit Hakan Karakaya</div>
+        </div>
+        <div class="info-card">
+            <div class="info-label">Kurum</div>
+            <div class="info-value">DAT Group / UÖDED</div>
+        </div>
+        <div class="info-card">
+            <div class="info-label">Kapsam</div>
+            <div class="info-value">33 Sayfa • 174 İlçe</div>
+        </div>
+        <div class="info-card">
+            <div class="info-label">Altyapı Standardı</div>
+            <div class="info-value">GEO + SERP + llms.txt</div>
+        </div>
+    </div>
+
+    <div class="metric-grid">
+        <div class="metric-box">
+            <div class="metric-num">33</div>
+            <div class="metric-title">Toplam İndeks URL'i</div>
+        </div>
+        <div class="metric-box">
+            <div class="metric-num">174</div>
+            <div class="metric-title">Kapsanan İlçe Sayısı</div>
+        </div>
+        <div class="metric-box">
+            <div class="metric-num">100%</div>
+            <div class="metric-title">SEO Link Title Uyum</div>
+        </div>
+        <div class="metric-box">
+            <div class="metric-num">0</div>
+            <div class="metric-title">Hiyerarşi / SERP Hatası</div>
+        </div>
+    </div>
+
+    <h2>1. Yönetici Özeti (Executive Summary)</h2>
+    <p>
+        Bu rapor, <strong>DAT Özel Dedektiflik Bürosu</strong>’nun web platformunda (<strong>www.datdetective.com</strong>) hayata geçirilen kapsamlı arama motoru optimizasyonu (SEO), Google Trends sorgu yakalama mimarisi ve yeni nesil <strong>Yapay Zeka Arama Motorları (GEO - Generative Engine Optimization)</strong> entegrasyonunun detaylarını sunmaktadır.
+    </p>
+    <p>
+        Yürütülen çalışma ile DAT Dedektiflik yalnızca klasik anahtar kelimelerde değil; <strong>Google Trends verilerinde Türkiye'de en çok sorulan ve hukuki hassasiyet taşıyan doğrudan aramalarda</strong> rakiplerini geride bırakacak otoriter yanıt yapısına kavuşturulmuştur. Aynı zamanda <strong>ChatGPT, Perplexity, Google Gemini ve Claude</strong> gibi yapay zeka sistemlerinin Türkiye'de özel dedektiflik sorgularında doğrudan DAT Dedektiflik ve Ümit Hakan Karakaya'yı referans göstermesi için resmi <code>/llms.txt</code> ve semantik veri şemaları tamamlanmıştır.
+    </p>
+
+    <h2>2. Google Trends & Kullanıcı Arama Hacmi Mimarisi</h2>
+    <p>
+        Google Trends Türkiye verileri analiz edilmiş ve dedektiflik arayan kişilerin arama motoruna yazdığı en yüksek hacimli 4 ana soru doğrudan sitenin merkezine taşınmıştır:
+    </p>
+
+    <div class="feature-card">
+        <h4>1. "Özel Dedektif Fiyatları & Dedektif Ücretleri Ne Kadar?"</h4>
+        <p>
+            İnternette ucuz fiyat vadeden dolandırıcılara karşı; vaka türü, gün süresi (48 saat ekspres / 5–7 gün) ve ekip yoğunluğuna göre şeffaf, sözleşmeli ve faturaya dayalı fiyatlandırma rehberi.
+        </p>
+    </div>
+
+    <div class="feature-card">
+        <h4>2. "Dedektif Tutmak Yasal mı & Toplanan Deliller Mahkemede Geçerli mi?"</h4>
+        <p>
+            TCK m.134 (özel hayatın gizliliği), TMK m.161 (zina/sadakatsizlik) ve HMK m.199 standartlarında Aile Mahkemelerinde kesin delil geçerliliği; yasadışı yöntemlerden uzak kurumsal güvence.
+        </p>
+    </div>
+
+    <div class="feature-card">
+        <h4>3. "Özel Dedektif Nasıl Olunur?"</h4>
+        <p>
+            UÖDED (Uluslararası Özel Dedektif Eğitimleri Derneği) ve TÜDED Başkanı kimliğiyle mesleki etik kurallar, adli bilimler eğitimi ve resmi sertifikasyon otoritesi.
+        </p>
+    </div>
+</div>
+
+<!-- ================= PAGE 2 ================= -->
+<div class="page">
+    <div class="header-bar">
+        <div class="brand-left">
+            <div class="logo-badge">DAT</div>
+            <div>
+                <div class="brand-title">DAT ÖZEL DEDEKTİFLİK BÜROSU</div>
+                <div class="brand-sub">Bölgesel İlçe Ağı & Yapay Zeka Mimarisi</div>
+            </div>
+        </div>
+        <div class="meta-right">
+            <strong>Rapor No:</strong> DAT-STR-2026-09<br>
+            <strong>Sayfa:</strong> 2 / 3
+        </div>
+    </div>
+
+    <h2>3. 7 Büyükşehir ve 174 İlçe Kapsamlı Bölgesel SEO Hâkimiyeti</h2>
+    <p>
+        Rakiplerin yalnızca il isimleriyle sınırlı kaldığı sektörde, DAT Dedektiflik için her ilin <strong>tüm resmi mülki ilçelerini</strong> kapsayan özel sayfalar açılmıştır. Her sayfa içerisinde ilçe rozetleri, bölgesel operasyon yazısı ve Google harita/yerel aramalarda okunan <code>areaServed</code> şemaları yer almaktadır:
+    </p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>İl / Sayfa</th>
+                <th>İlçe Sayısı</th>
+                <th>Öne Çıkan İlçe & Operasyon Aksları</th>
+                <th>Yasal / Hukuki Standart</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>İstanbul Dedektif</strong><br><span style="font-size:7.5pt; color:#666;">istanbul-ozel-dedektif</span></td>
+                <td><span class="badge-count">39 İlçe</span></td>
+                <td>Kartal Merkez, Kadıköy, Beşiktaş, Şişli, Bakırköy, Ataşehir, Üsküdar, Beylikdüzü</td>
+                <td>Çağlayan & Kartal Anadolu Adliyesi HMK m.199</td>
+            </tr>
+            <tr>
+                <td><strong>Ankara Dedektif</strong><br><span style="font-size:7.5pt; color:#666;">ankara-ozel-dedektif</span></td>
+                <td><span class="badge-count">25 İlçe</span></td>
+                <td>Çankaya Konutkent Merkez, Yenimahalle, Keçiören, Gölbaşı, Etimesgut, Sincan</td>
+                <td>Sıhhiye & Batı Adliyesi HMK m.199</td>
+            </tr>
+            <tr>
+                <td><strong>İzmir Dedektif</strong><br><span style="font-size:7.5pt; color:#666;">izmir-ozel-dedektif</span></td>
+                <td><span class="badge-count">30 İlçe</span></td>
+                <td>Konak, Alsancak, Karşıyaka, Bornova, Bayraklı, Çeşme, Urla, Alaçatı, Torbalı</td>
+                <td>Bayraklı İzmir Adliyesi HMK m.199</td>
+            </tr>
+            <tr>
+                <td><strong>Mersin Dedektif</strong> <em>(Yeni)</em><br><span style="font-size:7.5pt; color:#666;">mersin-ozel-dedektif</span></td>
+                <td><span class="badge-count">13 İlçe</span></td>
+                <td>Yenişehir, Mezitli, Toroslar, Akdeniz, Tarsus, Erdemli, Silifke, Anamur</td>
+                <td>Mersin & Tarsus Adliyeleri HMK m.199</td>
+            </tr>
+            <tr>
+                <td><strong>Konya Dedektif</strong> <em>(Yeni)</em><br><span style="font-size:7.5pt; color:#666;">konya-ozel-dedektif</span></td>
+                <td><span class="badge-count">31 İlçe</span></td>
+                <td>Selçuklu, Meram, Karatay, Ereğli, Akşehir, Beyşehir, Kulu, Cihanbeyli</td>
+                <td>Konya Aile & Ticaret Mahkemeleri</td>
+            </tr>
+            <tr>
+                <td><strong>Antalya Dedektiflik</strong><br><span style="font-size:7.5pt; color:#666;">antalya-ozel-dedektif</span></td>
+                <td><span class="badge-count">19 İlçe</span></td>
+                <td>Muratpaşa (Lara), Konyaaltı, Alanya, Manavgat (Side), Belek, Kemer, Kaş</td>
+                <td>Çok Dilli (TR/EN/RU/DE) & MÖHUK Uyumlu</td>
+            </tr>
+            <tr>
+                <td><strong>Bursa Dedektif</strong><br><span style="font-size:7.5pt; color:#666;">bursa-ozel-dedektif</span></td>
+                <td><span class="badge-count">17 İlçe</span></td>
+                <td>Nilüfer, Osmangazi, Yıldırım, Mudanya, Gemlik, İnegöl OSB</td>
+                <td>Bursa Aile Mahkemesi & SMK m.29</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>4. Yapay Zeka Arama Motorları (GEO) ve <code>llms.txt</code> Mimarisi</h2>
+    <p>
+        Yapay zeka asistanlarının (ChatGPT, Perplexity, Gemini, Claude) internet sitelerini tarayıp bilgi üretirken kullandığı yeni küresel standartlar sitemize eksiksiz entegre edilmiştir:
+    </p>
+
+    <div class="feature-card">
+        <h4>1. Resmi <code>/llms.txt</code> Belgesi Yayına Alındı</h4>
+        <p>
+            Yapay zeka botlarının siteleri tararken doğrudan okuduğu resmi belgedir. DAT Özel Dedektiflik’in kurucusu <strong>Ümit Hakan Karakaya</strong>’nın TSK ve Uluslararası Hukuk geçmişi, 4.000+ vaka tecrübesi, 7 il ve 12 hizmet alanı doğrudan LLM formatında sunulmuştur.
+        </p>
+    </div>
+
+    <div class="feature-card">
+        <h4>2. AI Botlarına Özel Taranabilirlik İzni (robots.txt)</h4>
+        <p>
+            <code>GPTBot</code>, <code>OAI-SearchBot</code>, <code>ChatGPT-User</code>, <code>Google-Extended</code>, <code>PerplexityBot</code> ve <code>ClaudeBot</code> arama robotlarının sitemizi eksiksiz taraması ve cevaplarında kaynak göstermesi için izinler güncellenmiştir.
+        </p>
+    </div>
+
+    <div class="feature-card">
+        <h4>3. Doğrudan Yanıt Başlık Matrisi (#seo-ai-rehberi)</h4>
+        <p>
+            Ana sayfada yer alan bu bölümde, yapay zekanın aramalarda doğrudan "snippet" (özet yanıt) olarak alıntılayabileceği 40–55 kelimelik otoriter yanıt blokları hazırlanmıştır.
+        </p>
+    </div>
+</div>
+
+<!-- ================= PAGE 3 ================= -->
+<div class="page">
+    <div class="header-bar">
+        <div class="brand-left">
+            <div class="logo-badge">DAT</div>
+            <div>
+                <div class="brand-title">DAT ÖZEL DEDEKTİFLİK BÜROSU</div>
+                <div class="brand-sub">Teknik SERP Standartları & Sonraki Adımlar</div>
+            </div>
+        </div>
+        <div class="meta-right">
+            <strong>Rapor No:</strong> DAT-STR-2026-09<br>
+            <strong>Sayfa:</strong> 3 / 3
+        </div>
+    </div>
+
+    <h2>5. Teknik SERP, Başlık Hiyerarşisi ve Temiz URL Yapısı</h2>
+    <p>
+        Google algoritmasının bir web sitesini "otoriter" kabul etmesi için gereken tüm teknik gereksinimler sıfır hata ile tamamlanmıştır:
+    </p>
+    <ul>
+        <li><strong>Meta Title Karakter Uyumu (53–64 Karakter):</strong> Google arama sonuçlarında hiçbir sayfa başlığı üç nokta (<code>...</code>) ile kesilmeyecek şekilde en kritik kelimeler başa alınmıştır.</li>
+        <li><strong>Meta Description (140–159 Karakter):</strong> Tıklama oranını (CTR) en üst seviyeye çıkaracak güven sinyalleri (4.000+ vaka, TMK m.161, HMK m.199, %100 memnuniyet garantisi) eklenmiştir.</li>
+        <li><strong>Kusursuz H1 &rarr; H2 &rarr; H3 &rarr; H4 Hiyerarşisi:</strong> Her sayfada kesinlikle tek bir ana <code>H1</code> başlığı bulunmakta, alt başlıklar semantik olarak sıralanmaktadır.</li>
+        <li><strong>130+ Bağlantıda Anahtar Kelimeli <code>title="..."</code> Etiketleri:</strong> Sitedeki tüm bağlantıların üzerine gelindiğinde Google robotuna sayfanın içeriğini anlatan SEO açıklamaları tanımlanmıştır.</li>
+        <li><strong>Temiz URL (Cloudflare Pages 308 Optimizasyonu):</strong> Sitedeki <code>.html</code> uzantıları iç linklerden ve sitemap'ten temizlenerek arama motorlarının sayfaları yönlendirmeye takılmadan hızlı indekslemesi sağlanmıştır.</li>
+    </ul>
+
+    <h2>6. Kullanıcı Dönüşümü (CRO): "Dedektif'e Sor" ve "Elsa Paneli" Ayrımı</h2>
+    <p>
+        Ziyaretçilerin sitede kafasının karışmaması ve hızlıca iletişime geçmesi için iki kritik ayrım yapılmıştır:
+    </p>
+    <ul>
+        <li><strong>Ana Sayfa (Dedektif'e Sor):</strong> Karmaşık yazılım/analizör terimleri ana sayfadan temizlenmiş; doğrudan Ümit Hakan Karakaya'ya soru sorulan sıcak ve kurumsal bir soru-cevap alanı yerleştirilmiştir.</li>
+        <li><strong>Elsa Paneli (elsa-vaka-paneli):</strong> Gerçek zamanlı adli delil duvarı, şüpheli matrisi ve teknik analizör yalnızca üst menüdeki <em>"Elsa"</em> sekmesine tıklandığında açılacak şekilde profesyonelce konumlandırılmıştır.</li>
+    </ul>
+
+    <h2>7. Sıradaki Medya & Basın Genişletmeleri</h2>
+    <p>
+        İlerleme planı doğrultusunda hazır bekletilen sonraki adımlar:
+    </p>
+    <ul>
+        <li><strong>ÜSTAD Dergisi Röportajı:</strong> 3 dergi sayfası fotoğrafı + 1 kurucu fotoğrafı ile tam metin olarak basın bölümüne işlenecektir.</li>
+        <li><strong>Beyaz TV Ana Haber Videosu:</strong> Instagram videosu yerel arşive indirilerek video galerisine eklenecektir.</li>
+        <li><strong>Google Search Console Doğrulaması:</strong> Mülk doğrulama kodu iletildiğinde anında <code>head</code> etiketine eklenecek ve <code>sitemap.xml</code> taranmaya gönderilecektir.</li>
+    </ul>
+
+    <div class="sign-box">
+        <div class="sign-block">
+            <div class="role">Hazırlayan ve Onaylayan</div>
+            <div class="name">Antigravity AI &amp; Web Sistemleri</div>
+            <div style="font-size: 8.5pt; color: #64748b; margin-top: 2px;">
+                DAT Özel Dedektiflik Bürosu Dijital Altyapı Yönetimi
+            </div>
+        </div>
+        <div class="sign-stamp">
+            <div class="stamp-text">SEO &amp; GEO ONAYLI</div>
+            <div style="font-size: 7.5pt; color: #15803d; margin-top: 1px;">33 SAYFA • %100 YAYINDA</div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+"""
+
+with open(HTML_FILE, "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+print("HTML template written to:", HTML_FILE)
+
+# Render to PDF via Headless Chrome
+chrome_path = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+cmd = [
+    chrome_path,
+    "--headless=new",
+    "--disable-gpu",
+    "--no-sandbox",
+    "--user-data-dir=/tmp/chrome-pdf-data",
+    f"--print-to-pdf={OUTPUT_PDF}",
+    "--virtual-time-budget=2000",
+    f"file://{HTML_FILE}"
+]
+
+print("Executing Chrome headless print...")
+res = subprocess.run(cmd, capture_output=True, text=True)
+if os.path.exists(OUTPUT_PDF) and os.path.getsize(OUTPUT_PDF) > 0:
+    print(f"SUCCESS: PDF generated at {OUTPUT_PDF} ({os.path.getsize(OUTPUT_PDF)} bytes)")
+    # Also sync to Dat mirror directory
+    mirror_pdf = os.path.join(ROOT, "Dat", "DAT-Ozel-Dedektiflik-SEO-ve-Yapay-Zeka-Raporu.pdf")
+    os.makedirs(os.path.dirname(mirror_pdf), exist_ok=True)
+    shutil.copy2(OUTPUT_PDF, mirror_pdf)
+    print("Mirrored to:", mirror_pdf)
+else:
+    print("FAILURE: PDF could not be generated:", res.stderr)

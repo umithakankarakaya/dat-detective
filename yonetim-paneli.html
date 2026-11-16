@@ -252,7 +252,7 @@
                         <p class="text-[11px] text-[#7B7B7B] leading-tight">Cloudflare Edge &amp; SSL şifreli operasyon.</p>
                     </div>
                     <button type="button" onclick="createRealTestLead()" class="w-full py-2.5 rounded-full bg-[#062F28] hover:bg-[#041F1A] text-[#FFFFFF] text-xs font-bold flex items-center justify-center gap-1.5 transition">
-                        <span>🧪 Siteden Test Gönder</span>
+                        <span><i class="hgi hgi-stroke hgi-test-tube w-4 h-4"></i> Siteden Test Gönder</span>
                         <i class="hgi hgi-stroke hgi-arrow-up-right-01 w-3.5 h-3.5 text-[#9FE870]"></i>
                     </button>
                 </div>
@@ -376,7 +376,7 @@
                         <div id="gasSetupGuideBox" class="hidden p-4 rounded-2xl bg-[#F4F5F7] border border-[#E2E8F0] text-xs text-[#062F28] space-y-1.5 leading-relaxed">
                             <div class="font-extrabold">60 Saniyede Kalıcı Gmail Bağlantısı Adımları:</div>
                             <div>1. Yukarıdaki <strong>"1. Kodu Kopyala &amp; Google Apps Script'i Aç"</strong> butonuna tıklayın (kod panoya kopyalanır ve <code>script.google.com</code> açılır).</div>
-                            <div>2. Açılan sayfada <strong>Yeni proje</strong> → içindeki her şeyi silip kopyaladığınız kodu yapıştırın (Cmd/Ctrl+V) → 💾 Kaydet.</div>
+                            <div>2. Açılan sayfada <strong>Yeni proje</strong> → içindeki her şeyi silip kopyaladığınız kodu yapıştırın (Cmd/Ctrl+V) → <i class="hgi hgi-stroke hgi-floppy-disk w-4 h-4"></i> Kaydet.</div>
                             <div>3. Üst menüden <strong>testWebhookEmail</strong> seçip <strong>Çalıştır</strong>'a basın → çıkan Google ekranında Gmail gönderim iznini onaylayın (İzinler → Gelişmiş → Projeye git → İzin ver).</div>
                             <div>4. Sağ üstten <strong>Dağıt → Yeni dağıtım</strong> → Tür: <strong>Web uygulaması</strong> → Yürütme: <strong>Ben</strong> → Erişimi olanlar: <strong>Herkes (Anyone)</strong> → <strong>Dağıt</strong> deyip çıkan <code>https://script.google.com/macros/s/.../exec</code> linkini aşağıya yapıştırın.</div>
                         </div>
@@ -443,7 +443,7 @@
                             <div class="text-center py-2 space-y-3">
                                 <div class="w-16 h-16 rounded-full bg-gradient-to-br from-[#9FE870] via-[#8BD85B] to-[#062F28] mx-auto shadow-md flex items-center justify-center p-0.5">
                                     <div class="w-full h-full rounded-full bg-[#FFFFFF] flex items-center justify-center text-xl">
-                                        🤖
+                                        <i class="hgi hgi-stroke hgi-cpu w-4 h-4"></i>
                                     </div>
                                 </div>
 
@@ -454,13 +454,13 @@
 
                                 <div class="flex flex-wrap justify-center gap-1.5 text-[11px]">
                                     <button type="button" onclick="askAiAssistant('Gerçek ziyaretçi durumunu özetle')" class="px-2.5 py-1 rounded-full bg-[#F4F5F7] hover:bg-[#EAF9DE] text-[#062F28] border border-[#E2E8F0] transition font-medium">
-                                        📊 Gerçek Trafik
+                                        <i class="hgi hgi-stroke hgi-chart-bar-line w-4 h-4"></i> Gerçek Trafik
                                     </button>
                                     <button type="button" onclick="askAiAssistant('Yeni gelen vaka başvurusu var mı?')" class="px-2.5 py-1 rounded-full bg-[#F4F5F7] hover:bg-[#EAF9DE] text-[#062F28] border border-[#E2E8F0] transition font-medium">
-                                        📋 Vaka Durumu
+                                        <i class="hgi hgi-stroke hgi-clipboard w-4 h-4"></i> Vaka Durumu
                                     </button>
                                     <button type="button" onclick="askAiAssistant('Bugün en çok hangi hizmet incelendi?')" class="px-2.5 py-1 rounded-full bg-[#F4F5F7] hover:bg-[#EAF9DE] text-[#062F28] border border-[#E2E8F0] transition font-medium">
-                                        🔎 En çok hangi hizmet?
+                                        <i class="hgi hgi-stroke hgi-search-01 w-4 h-4"></i> En çok hangi hizmet?
                                     </button>
                                 </div>
                             </div>
@@ -577,14 +577,14 @@
 
                             <select id="crmStatusSelect" onchange="filterFullLeads()" class="px-3.5 py-2 rounded-full bg-[#F4F5F7] border border-[#E2E8F0] text-xs font-bold outline-none cursor-pointer">
                                 <option value="all">Tüm Durumlar</option>
-                                <option value="new">🔴 Yeni</option>
+                                <option value="new"><span class="inline-block w-2 h-2 rounded-full bg-red-500"></span> Yeni</option>
                                 <option value="reviewing">🟡 İnceleniyor</option>
                                 <option value="contacted">🟢 Görüşüldü</option>
-                                <option value="closed">⚪ Tamamlandı</option>
+                                <option value="closed"><span class="inline-block w-2 h-2 rounded-full bg-neutral-400"></span> Tamamlandı</option>
                             </select>
 
                             <button type="button" onclick="createRealTestLead()" class="px-4 py-2 rounded-full bg-[#EAF9DE] text-[#062F28] font-extrabold hover:bg-[#9FE870] transition">
-                                🧪 Siteden Test Gönder
+                                <i class="hgi hgi-stroke hgi-test-tube w-4 h-4"></i> Siteden Test Gönder
                             </button>
 
                             <button type="button" onclick="exportLeadsCSV()" class="px-4 py-2 rounded-full bg-[#062F28] text-[#FFFFFF] font-bold hover:bg-[#041F1A] transition flex items-center gap-1.5">
@@ -788,10 +788,10 @@
                     <div class="flex items-center gap-2">
                         <span class="text-xs font-bold text-[#062F28]">Durum:</span>
                         <select id="modalStatusSelect" onchange="updateLeadStatusFromModal()" class="px-3 py-1.5 rounded-xl bg-[#F4F5F7] border border-[#E2E8F0] text-xs font-bold text-[#062F28] outline-none">
-                            <option value="new">🔴 Yeni</option>
+                            <option value="new"><span class="inline-block w-2 h-2 rounded-full bg-red-500"></span> Yeni</option>
                             <option value="reviewing">🟡 İnceleniyor</option>
                             <option value="contacted">🟢 Görüşüldü</option>
-                            <option value="closed">⚪ Tamamlandı</option>
+                            <option value="closed"><span class="inline-block w-2 h-2 rounded-full bg-neutral-400"></span> Tamamlandı</option>
                         </select>
                     </div>
 
@@ -857,7 +857,7 @@
                         <select id="manualUrgency" class="w-full px-3.5 py-2.5 rounded-2xl bg-[#F4F5F7] border border-[#E2E8F0] text-[#062F28] outline-none focus:border-[#9FE870]">
                             <option value="normal">Normal</option>
                             <option value="high">Yüksek</option>
-                            <option value="critical">🔴 Çok Acil (24 Saat)</option>
+                            <option value="critical"><span class="inline-block w-2 h-2 rounded-full bg-red-500"></span> Çok Acil (24 Saat)</option>
                         </select>
                     </div>
                     <div>
@@ -1037,7 +1037,7 @@
                 if (card) card.style.borderLeftColor = '#9FE870';
             } else {
                 pill.className = 'px-2.5 py-0.5 rounded-full bg-[#FEF3C7] text-[#92400E] font-mono text-[10px] font-bold';
-                pill.textContent = '⚠ BAĞLI DEĞİL (SADECE FORMSUBMIT YEDEK)';
+                pill.textContent = '<i class="hgi hgi-stroke hgi-alert-circle w-4 h-4"></i> BAĞLI DEĞİL (SADECE FORMSUBMIT YEDEK)';
                 if (card) card.style.borderLeftColor = '#F59E0B';
             }
 
@@ -1047,8 +1047,8 @@
                     const dt = new Date(st.at).toLocaleString('tr-TR');
                     logEl.classList.remove('hidden');
                     logEl.innerHTML = st.ok
-                        ? `✅ Son mail: <strong>${esc(st.code || '')}</strong> • ${esc(dt)} (${esc(st.provider || 'Gmail')})`
-                        : `❌ Son mail hatası (${esc(st.code || '')} • ${esc(dt)}): <span class="text-[#DC2626]">${esc(st.error || 'Bilinmeyen hata')}</span>`;
+                        ? `<i class="hgi hgi-stroke hgi-tick-02 w-4 h-4"></i> Son mail: <strong>${esc(st.code || '')}</strong> • ${esc(dt)} (${esc(st.provider || 'Gmail')})`
+                        : `<i class="hgi hgi-stroke hgi-cancel-01 w-4 h-4"></i> Son mail hatası (${esc(st.code || '')} • ${esc(dt)}): <span class="text-[#DC2626]">${esc(st.error || 'Bilinmeyen hata')}</span>`;
                 } else {
                     logEl.classList.add('hidden');
                 }
@@ -1083,7 +1083,7 @@
             const fb = document.getElementById('gasSaveFeedback');
             if (fb) {
                 fb.className = 'p-3 rounded-2xl text-xs font-medium bg-[#EAF9DE] text-[#062F28] border border-[#9FE870]';
-                fb.textContent = '✓ Apps Script kodu panoya kopyalandı! Açılan script.google.com sekmesinde yapıştırıp Web App (/exec) olarak dağıtın ve oluşan linki yukarıdaki kutuya yapıştırın.';
+                fb.textContent = '<i class="hgi hgi-stroke hgi-tick-02 w-3.5 h-3.5"></i> Apps Script kodu panoya kopyalandı! Açılan script.google.com sekmesinde yapıştırıp Web App (/exec) olarak dağıtın ve oluşan linki yukarıdaki kutuya yapıştırın.';
             }
             window.open('https://script.google.com/home/start', '_blank', 'noopener');
         }
@@ -1116,17 +1116,17 @@
                 if (fb) {
                     if (tr.ok) {
                         fb.className = 'p-3 rounded-2xl text-xs font-bold bg-[#EAF9DE] text-[#062F28] border border-[#9FE870]';
-                        fb.textContent = '✅ BAŞARILI! Bağlantı kaydedildi ve test e-postası Google Apps Script üzerinden uhakankarakaya@gmail.com + umithakankarakaya@gmail.com adreslerine gönderildi. Gelen kutunuzu kontrol edin!';
+                        fb.textContent = '<i class="hgi hgi-stroke hgi-tick-02 w-4 h-4"></i> BAŞARILI! Bağlantı kaydedildi ve test e-postası Google Apps Script üzerinden uhakankarakaya@gmail.com + umithakankarakaya@gmail.com adreslerine gönderildi. Gelen kutunuzu kontrol edin!';
                     } else {
                         fb.className = 'p-3 rounded-2xl text-xs font-bold bg-[#FEE2E2] text-[#991B1B] border border-[#FCA5A5]';
-                        fb.textContent = `❌ Google Apps Script yanıt hatası: ${tr.error || 'Bilinmeyen hata'}`;
+                        fb.textContent = `<i class="hgi hgi-stroke hgi-cancel-01 w-4 h-4"></i> Google Apps Script yanıt hatası: ${tr.error || 'Bilinmeyen hata'}`;
                     }
                 }
                 await loadAllData();
             } catch (err) {
                 if (fb) {
                     fb.className = 'p-3 rounded-2xl text-xs font-bold bg-[#FEE2E2] text-[#991B1B] border border-[#FCA5A5]';
-                    fb.textContent = `❌ Hata: ${err?.message || 'Sunucuya ulaşılamadı'}`;
+                    fb.textContent = `<i class="hgi hgi-stroke hgi-cancel-01 w-4 h-4"></i> Hata: ${err?.message || 'Sunucuya ulaşılamadı'}`;
                 }
             } finally {
                 btn.disabled = false;
@@ -1163,7 +1163,7 @@
             } catch (err) {
                 if (fb) {
                     fb.className = 'p-3 rounded-2xl text-xs font-bold bg-[#FEE2E2] text-[#991B1B] border border-[#FCA5A5]';
-                    fb.textContent = `❌ Kontrol hatası: ${err?.message || 'Sunucuya ulaşılamadı'}`;
+                    fb.textContent = `<i class="hgi hgi-stroke hgi-cancel-01 w-4 h-4"></i> Kontrol hatası: ${err?.message || 'Sunucuya ulaşılamadı'}`;
                 }
             } finally {
                 btn.disabled = false;
@@ -1183,7 +1183,7 @@
             if (d.pinIsDefault) items.push('Yönetici PIN\'i varsayılan değerde. Cloudflare Pages → Settings → Environment variables bölümüne güçlü bir <code>ADMIN_PIN</code> ekleyin.');
             if (!d.durable) items.push('Veriler kalıcı veritabanında değil (Edge Cache). Kayıtlar her Cloudflare veri merkezinde ayrı tutulur ve silinebilir. Kalıcılık için <code>ANALYTICS_KV</code> KV bağlantısı ekleyin. Vaka formları ayrıca e-posta ile gelmeye devam eder.');
             box.className = items.length ? 'p-4 rounded-2xl bg-[#FEF3C7] border border-[#FCD34D] text-xs text-[#78350F] space-y-1' : 'hidden';
-            box.innerHTML = items.map(t => `<div>⚠️ ${t}</div>`).join('');
+            box.innerHTML = items.map(t => `<div><i class="hgi hgi-stroke hgi-alert-circle w-4 h-4"></i>️ ${t}</div>`).join('');
         }
 
         // ---------- hero metrics ----------
@@ -1268,23 +1268,23 @@
         }
 
         const STATUS_BADGES = {
-            new: '<span class="px-2.5 py-0.5 rounded-full bg-[#FEE2E2] text-[#DC2626] font-mono text-[10px] font-bold">🔴 Yeni</span>',
+            new: '<span class="px-2.5 py-0.5 rounded-full bg-[#FEE2E2] text-[#DC2626] font-mono text-[10px] font-bold"><span class="inline-block w-2 h-2 rounded-full bg-red-500"></span> Yeni</span>',
             reviewing: '<span class="px-2.5 py-0.5 rounded-full bg-[#FEF3C7] text-[#D97706] font-mono text-[10px] font-bold">🟡 İnceleniyor</span>',
             contacted: '<span class="px-2.5 py-0.5 rounded-full bg-[#EAF9DE] text-[#062F28] font-mono text-[10px] font-extrabold">🟢 Görüşüldü</span>',
-            closed: '<span class="px-2.5 py-0.5 rounded-full bg-[#F4F5F7] text-[#7B7B7B] font-mono text-[10px] font-bold">⚪ Tamamlandı</span>'
+            closed: '<span class="px-2.5 py-0.5 rounded-full bg-[#F4F5F7] text-[#7B7B7B] font-mono text-[10px] font-bold"><span class="inline-block w-2 h-2 rounded-full bg-neutral-400"></span> Tamamlandı</span>'
         };
         const URGENCY_BADGES = {
-            critical: '<span class="px-2.5 py-0.5 rounded-full bg-[#FEE2E2] text-[#DC2626] font-mono text-[10px] font-bold">🔴 24s ACİL</span>',
+            critical: '<span class="px-2.5 py-0.5 rounded-full bg-[#FEE2E2] text-[#DC2626] font-mono text-[10px] font-bold"><span class="inline-block w-2 h-2 rounded-full bg-red-500"></span> 24s ACİL</span>',
             high: '<span class="px-2.5 py-0.5 rounded-full bg-[#FEF3C7] text-[#D97706] font-mono text-[10px] font-bold">🟡 YÜKSEK</span>',
             normal: '<span class="px-2.5 py-0.5 rounded-full bg-[#F4F5F7] text-[#7B7B7B] font-mono text-[10px]">NORMAL</span>'
         };
 
         function emptyLeadsRow(colspan) {
             return `<tr><td colspan="${colspan}" class="py-10 text-center"><div class="space-y-2">
-                <div class="text-3xl">📭</div>
+                <div class="text-3xl"><i class="hgi hgi-stroke hgi-mail-01 w-4 h-4"></i></div>
                 <div class="text-xs font-extrabold text-[#062F28]">Henüz Gelen Vaka Talebi Yok</div>
                 <p class="text-[11px] text-[#7B7B7B] max-w-xs mx-auto">Sitedeki vaka formu doldurulduğunda talep e-postanıza gider ve burada da listelenir.</p>
-                <button type="button" onclick="createRealTestLead()" class="mt-2 px-3.5 py-1.5 rounded-full bg-[#EAF9DE] text-[#062F28] font-extrabold text-xs hover:bg-[#9FE870] transition shadow-sm">🧪 Test kaydı oluştur</button>
+                <button type="button" onclick="createRealTestLead()" class="mt-2 px-3.5 py-1.5 rounded-full bg-[#EAF9DE] text-[#062F28] font-extrabold text-xs hover:bg-[#9FE870] transition shadow-sm"><i class="hgi hgi-stroke hgi-test-tube w-4 h-4"></i> Test kaydı oluştur</button>
             </div></td></tr>`;
         }
 
@@ -1323,7 +1323,7 @@
                     <td class="py-3.5 px-3 font-mono text-[11px] text-[#7B7B7B]">${esc(l.dateStr)}</td>
                     <td class="py-3.5 px-3">
                         <select data-status-for="${esc(l.id)}" class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-[#F4F5F7] border border-[#E2E8F0] outline-none cursor-pointer">
-                            ${['new', 'reviewing', 'contacted', 'closed'].map(s => `<option value="${s}" ${l.status === s ? 'selected' : ''}>${{ new: '🔴 Yeni', reviewing: '🟡 İnceleniyor', contacted: '🟢 Görüşüldü', closed: '⚪ Tamamlandı' }[s]}</option>`).join('')}
+                            ${['new', 'reviewing', 'contacted', 'closed'].map(s => `<option value="${s}" ${l.status === s ? 'selected' : ''}>${{ new: '<span class="inline-block w-2 h-2 rounded-full bg-red-500"></span> Yeni', reviewing: '🟡 İnceleniyor', contacted: '🟢 Görüşüldü', closed: '<span class="inline-block w-2 h-2 rounded-full bg-neutral-400"></span> Tamamlandı' }[s]}</option>`).join('')}
                         </select>
                     </td>
                     <td class="py-3.5 px-3 text-right"><div class="flex items-center justify-end gap-1.5">

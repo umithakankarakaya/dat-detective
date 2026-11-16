@@ -280,7 +280,7 @@
                     <!-- Brand & Elsa AI Beacon -->
                     <div class="h-16 flex items-center justify-between px-4 lg:px-5 border-b border-[rgba(0,0,0,0.08)]">
                         <div class="flex items-center gap-3 min-w-0">
-                            <div class="h-9 w-9 rounded-xl bg-[#000000] text-[#FFFFFF] flex items-center justify-center shadow-sm shrink-0 relative overflow-hidden ring-1 ring-black/10/60">
+                            <div class="h-9 w-9 rounded-xl bg-[#000000] text-[#FFFFFF] flex items-center justify-center shadow-sm shrink-0 relative overflow-hidden ring-1 ring-white/20">
                                 <img src="assets/photos/elsa-dedektif-asistan.jpg" alt="Elsa — DAT Detective Dijital Asistanı" class="w-9 h-9 object-contain p-2 object-top">
                                 <span class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-[#111111] ring-2 ring-white"></span>
                             </div>
@@ -463,7 +463,7 @@
                             <div class="elsa-stat-grid font-mono text-xs min-w-0">
                                 <div class="p-3.5 rounded-xl bg-white/5 border border-white/10 min-w-0 overflow-hidden">
                                     <div class="text-slate-400 text-[10px] truncate">ANOMALİ İNDEKSİ</div>
-                                    <div id="metricAnomaly" class="text-base sm:text-lg font-medium text-[#FA7E61] mt-1 whitespace-nowrap">%99.4</div>
+                                    <div id="metricAnomaly" class="text-base sm:text-lg font-medium text-white mt-1 whitespace-nowrap">%99.4</div>
                                     <div class="text-[10px] text-slate-400 mt-0.5 truncate">Yüksek Öncelikli</div>
                                 </div>
                                 <div class="p-3.5 rounded-xl bg-white/5 border border-white/10 min-w-0 overflow-hidden">
@@ -587,7 +587,7 @@
                                     <div class="font-medium text-[#000000]">Saha &amp; Teknik Gözlem</div>
                                     <p class="text-[11px] text-[#3A3E42]/75">Zaman damgalı 4K görüntüleme ve güzergâh kaydı.</p>
                                 </div>
-                                <div class="elsa-card p-3.5 rounded-xl bg-white border border-black/20/60 space-y-1 ring-1 ring-black/20">
+                                <div class="elsa-card p-3.5 rounded-xl bg-white border border-white/20 space-y-1 ring-1 ring-black/20">
                                     <div class="font-mono text-[10px] elsa-accent-text text-[#111111]">FAZ 03 • 24-36 SAAT</div>
                                     <div class="font-medium text-[#000000]">SHA-256 Delil Doğrulama</div>
                                     <p class="text-[11px] text-[#3A3E42]/75">Elsa AI çapraz kontrol ve kriptografik mühürleme sürüyor.</p>
@@ -1168,8 +1168,8 @@
             document.getElementById('inspHash').textContent = item.sha256;
             document.getElementById('inspSource').textContent = item.source;
             document.getElementById('inspTime').textContent = item.timestamp;
-            document.getElementById('inspSealStatus').textContent = item.sealed ? 'HMK Mühürlü ✓' : 'Onay Bekliyor';
-            document.getElementById('inspSealStatus').className = item.sealed ? 'text-[#111111] font-medium' : 'text-[#FA7E61] font-medium';
+            document.getElementById('inspSealStatus').textContent = item.sealed ? 'HMK Mühürlü (Onaylandı)' : 'Onay Bekliyor';
+            document.getElementById('inspSealStatus').className = item.sealed ? 'text-[#111111] font-medium' : 'text-neutral-400 font-medium';
             document.getElementById('inspSuspectInitials').textContent = item.suspect.initials;
             document.getElementById('inspSuspectName').textContent = item.suspect.name;
             document.getElementById('inspSuspectRole').textContent = item.suspect.role;
