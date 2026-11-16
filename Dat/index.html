@@ -1759,6 +1759,76 @@
             color: #FFFFFF !important;
         }
 
+    
+        
+        /* Adaptive Dark Mode for #F7F7F8 light pill boxes */
+        html[data-theme="dark"] .bg-\[\#F7F7F8\] {
+            background-color: rgba(255, 255, 255, 0.08) !important;
+            color: #FFFFFF !important;
+            border-color: rgba(255, 255, 255, 0.12) !important;
+        }
+        html[data-theme="dark"] .bg-\[\#F7F7F8\] i,
+        html[data-theme="dark"] .bg-\[\#F7F7F8\] .hgi,
+        html[data-theme="dark"] .bg-\[\#F7F7F8\] span {
+            color: #FFFFFF !important;
+            stroke: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
+        }
+
+        /* ==================================================== */
+        /* BULLETPROOF CARD & TYPOGRAPHY ISOLATION GUARD         */
+        /* ==================================================== */
+        /* Any card on a white or light gray surface MUST have crisp black text */
+        .bg-\[\#FFFFFF\], .bg-\[\#FFFFFF\] h1, .bg-\[\#FFFFFF\] h2, .bg-\[\#FFFFFF\] h3, .bg-\[\#FFFFFF\] h4, .bg-\[\#FFFFFF\] h5, .bg-\[\#FFFFFF\] h6, .bg-\[\#FFFFFF\] p, .bg-\[\#FFFFFF\] li,
+        .bg-white, .bg-white h1, .bg-white h2, .bg-white h3, .bg-white h4, .bg-white h5, .bg-white h6, .bg-white p, .bg-white li,
+        .bg-\[\#F7F7F8\], .bg-\[\#F7F7F8\] h1, .bg-\[\#F7F7F8\] h2, .bg-\[\#F7F7F8\] h3, .bg-\[\#F7F7F8\] h4, .bg-\[\#F7F7F8\] h5, .bg-\[\#F7F7F8\] h6, .bg-\[\#F7F7F8\] p, .bg-\[\#F7F7F8\] li,
+        .bg-\[\#FAFAFA\], .bg-\[\#FAFAFA\] h1, .bg-\[\#FAFAFA\] h2, .bg-\[\#FAFAFA\] h3, .bg-\[\#FAFAFA\] h4, .bg-\[\#FAFAFA\] p, .bg-\[\#FAFAFA\] li,
+        .bg-\[\#F2F2F2\], .bg-\[\#F2F2F2\] h1, .bg-\[\#F2F2F2\] h2, .bg-\[\#F2F2F2\] h3, .bg-\[\#F2F2F2\] h4, .bg-\[\#F2F2F2\] p, .bg-\[\#F2F2F2\] li {
+            color: #111111 !important;
+            -webkit-text-fill-color: #111111 !important;
+        }
+
+        /* Span texts inside light cards (excluding explicit dark badges) */
+        .bg-\[\#FFFFFF\] span:not(.text-white):not([class*="bg-black"]):not([class*="bg-[#000000]"]):not([class*="bg-[#111111]"]),
+        .bg-white span:not(.text-white):not([class*="bg-black"]):not([class*="bg-[#000000]"]):not([class*="bg-[#111111]"]),
+        .bg-\[\#F7F7F8\] span:not(.text-white):not([class*="bg-black"]):not([class*="bg-[#000000]"]):not([class*="bg-[#111111]"]) {
+            color: #111111 !important;
+            -webkit-text-fill-color: #111111 !important;
+        }
+
+        /* Hugeicons and svg strokes inside light containers must be dark */
+        .bg-\[\#F7F7F8\] i:not(.text-white), .bg-\[\#F7F7F8\] .hgi:not(.text-white),
+        .bg-\[\#FFFFFF\] i:not(.text-white), .bg-\[\#FFFFFF\] .hgi:not(.text-white),
+        .bg-white i:not(.text-white), .bg-white .hgi:not(.text-white) {
+            color: #111111 !important;
+            stroke: #111111 !important;
+        }
+
+        /* Explicit Dark buttons, badges & overlays inside light containers MUST have white text */
+        .bg-\[\#FFFFFF\] .bg-black, .bg-\[\#FFFFFF\] .bg-black *,
+        .bg-\[\#FFFFFF\] button.bg-black, .bg-\[\#FFFFFF\] button.bg-black *,
+        .bg-\[\#FFFFFF\] a.bg-black, .bg-\[\#FFFFFF\] a.bg-black *,
+        .bg-\[\#FFFFFF\] [class*="bg-black/"], .bg-\[\#FFFFFF\] [class*="bg-black/"] *,
+        .bg-\[\#FFFFFF\] .bg-\[\#000000\], .bg-\[\#FFFFFF\] .bg-\[\#000000\] *,
+        .bg-\[\#FFFFFF\] .bg-\[\#111111\], .bg-\[\#FFFFFF\] .bg-\[\#111111\] *,
+        .bg-\[\#F7F7F8\] .bg-black, .bg-\[\#F7F7F8\] .bg-black *,
+        .bg-\[\#F7F7F8\] button.bg-black, .bg-\[\#F7F7F8\] button.bg-black *,
+        .bg-\[\#F7F7F8\] a.bg-black, .bg-\[\#F7F7F8\] a.bg-black *,
+        .bg-\[\#F7F7F8\] [class*="bg-black/"], .bg-\[\#F7F7F8\] [class*="bg-black/"] *,
+        .bg-\[\#F7F7F8\] .bg-\[\#000000\], .bg-\[\#F7F7F8\] .bg-\[\#000000\] *,
+        .bg-\[\#F7F7F8\] .bg-\[\#111111\], .bg-\[\#F7F7F8\] .bg-\[\#111111\] * {
+            color: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
+        }
+
+        .bg-\[\#FFFFFF\] .bg-black i, .bg-\[\#FFFFFF\] .bg-black .hgi,
+        .bg-\[\#F7F7F8\] .bg-black i, .bg-\[\#F7F7F8\] .bg-black .hgi,
+        .bg-\[\#FFFFFF\] [class*="bg-black/"] i, .bg-\[\#FFFFFF\] [class*="bg-black/"] .hgi,
+        .bg-\[\#F7F7F8\] [class*="bg-black/"] i, .bg-\[\#F7F7F8\] [class*="bg-black/"] .hgi {
+            color: #FFFFFF !important;
+            stroke: #FFFFFF !important;
+        }
+
     </style>
 
     <!-- OpenAI Exact Typography & Color System -->
@@ -1797,6 +1867,76 @@
             border-color: rgba(0, 0, 0, 0.24) !important;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
         }
+    
+        
+        /* Adaptive Dark Mode for #F7F7F8 light pill boxes */
+        html[data-theme="dark"] .bg-\[\#F7F7F8\] {
+            background-color: rgba(255, 255, 255, 0.08) !important;
+            color: #FFFFFF !important;
+            border-color: rgba(255, 255, 255, 0.12) !important;
+        }
+        html[data-theme="dark"] .bg-\[\#F7F7F8\] i,
+        html[data-theme="dark"] .bg-\[\#F7F7F8\] .hgi,
+        html[data-theme="dark"] .bg-\[\#F7F7F8\] span {
+            color: #FFFFFF !important;
+            stroke: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
+        }
+
+        /* ==================================================== */
+        /* BULLETPROOF CARD & TYPOGRAPHY ISOLATION GUARD         */
+        /* ==================================================== */
+        /* Any card on a white or light gray surface MUST have crisp black text */
+        .bg-\[\#FFFFFF\], .bg-\[\#FFFFFF\] h1, .bg-\[\#FFFFFF\] h2, .bg-\[\#FFFFFF\] h3, .bg-\[\#FFFFFF\] h4, .bg-\[\#FFFFFF\] h5, .bg-\[\#FFFFFF\] h6, .bg-\[\#FFFFFF\] p, .bg-\[\#FFFFFF\] li,
+        .bg-white, .bg-white h1, .bg-white h2, .bg-white h3, .bg-white h4, .bg-white h5, .bg-white h6, .bg-white p, .bg-white li,
+        .bg-\[\#F7F7F8\], .bg-\[\#F7F7F8\] h1, .bg-\[\#F7F7F8\] h2, .bg-\[\#F7F7F8\] h3, .bg-\[\#F7F7F8\] h4, .bg-\[\#F7F7F8\] h5, .bg-\[\#F7F7F8\] h6, .bg-\[\#F7F7F8\] p, .bg-\[\#F7F7F8\] li,
+        .bg-\[\#FAFAFA\], .bg-\[\#FAFAFA\] h1, .bg-\[\#FAFAFA\] h2, .bg-\[\#FAFAFA\] h3, .bg-\[\#FAFAFA\] h4, .bg-\[\#FAFAFA\] p, .bg-\[\#FAFAFA\] li,
+        .bg-\[\#F2F2F2\], .bg-\[\#F2F2F2\] h1, .bg-\[\#F2F2F2\] h2, .bg-\[\#F2F2F2\] h3, .bg-\[\#F2F2F2\] h4, .bg-\[\#F2F2F2\] p, .bg-\[\#F2F2F2\] li {
+            color: #111111 !important;
+            -webkit-text-fill-color: #111111 !important;
+        }
+
+        /* Span texts inside light cards (excluding explicit dark badges) */
+        .bg-\[\#FFFFFF\] span:not(.text-white):not([class*="bg-black"]):not([class*="bg-[#000000]"]):not([class*="bg-[#111111]"]),
+        .bg-white span:not(.text-white):not([class*="bg-black"]):not([class*="bg-[#000000]"]):not([class*="bg-[#111111]"]),
+        .bg-\[\#F7F7F8\] span:not(.text-white):not([class*="bg-black"]):not([class*="bg-[#000000]"]):not([class*="bg-[#111111]"]) {
+            color: #111111 !important;
+            -webkit-text-fill-color: #111111 !important;
+        }
+
+        /* Hugeicons and svg strokes inside light containers must be dark */
+        .bg-\[\#F7F7F8\] i:not(.text-white), .bg-\[\#F7F7F8\] .hgi:not(.text-white),
+        .bg-\[\#FFFFFF\] i:not(.text-white), .bg-\[\#FFFFFF\] .hgi:not(.text-white),
+        .bg-white i:not(.text-white), .bg-white .hgi:not(.text-white) {
+            color: #111111 !important;
+            stroke: #111111 !important;
+        }
+
+        /* Explicit Dark buttons, badges & overlays inside light containers MUST have white text */
+        .bg-\[\#FFFFFF\] .bg-black, .bg-\[\#FFFFFF\] .bg-black *,
+        .bg-\[\#FFFFFF\] button.bg-black, .bg-\[\#FFFFFF\] button.bg-black *,
+        .bg-\[\#FFFFFF\] a.bg-black, .bg-\[\#FFFFFF\] a.bg-black *,
+        .bg-\[\#FFFFFF\] [class*="bg-black/"], .bg-\[\#FFFFFF\] [class*="bg-black/"] *,
+        .bg-\[\#FFFFFF\] .bg-\[\#000000\], .bg-\[\#FFFFFF\] .bg-\[\#000000\] *,
+        .bg-\[\#FFFFFF\] .bg-\[\#111111\], .bg-\[\#FFFFFF\] .bg-\[\#111111\] *,
+        .bg-\[\#F7F7F8\] .bg-black, .bg-\[\#F7F7F8\] .bg-black *,
+        .bg-\[\#F7F7F8\] button.bg-black, .bg-\[\#F7F7F8\] button.bg-black *,
+        .bg-\[\#F7F7F8\] a.bg-black, .bg-\[\#F7F7F8\] a.bg-black *,
+        .bg-\[\#F7F7F8\] [class*="bg-black/"], .bg-\[\#F7F7F8\] [class*="bg-black/"] *,
+        .bg-\[\#F7F7F8\] .bg-\[\#000000\], .bg-\[\#F7F7F8\] .bg-\[\#000000\] *,
+        .bg-\[\#F7F7F8\] .bg-\[\#111111\], .bg-\[\#F7F7F8\] .bg-\[\#111111\] * {
+            color: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
+        }
+
+        .bg-\[\#FFFFFF\] .bg-black i, .bg-\[\#FFFFFF\] .bg-black .hgi,
+        .bg-\[\#F7F7F8\] .bg-black i, .bg-\[\#F7F7F8\] .bg-black .hgi,
+        .bg-\[\#FFFFFF\] [class*="bg-black/"] i, .bg-\[\#FFFFFF\] [class*="bg-black/"] .hgi,
+        .bg-\[\#F7F7F8\] [class*="bg-black/"] i, .bg-\[\#F7F7F8\] [class*="bg-black/"] .hgi {
+            color: #FFFFFF !important;
+            stroke: #FFFFFF !important;
+        }
+
     </style>
     
 
@@ -1877,6 +2017,76 @@
             border-color: rgba(0, 0, 0, 0.22) !important;
             box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04) !important;
         }
+    
+        
+        /* Adaptive Dark Mode for #F7F7F8 light pill boxes */
+        html[data-theme="dark"] .bg-\[\#F7F7F8\] {
+            background-color: rgba(255, 255, 255, 0.08) !important;
+            color: #FFFFFF !important;
+            border-color: rgba(255, 255, 255, 0.12) !important;
+        }
+        html[data-theme="dark"] .bg-\[\#F7F7F8\] i,
+        html[data-theme="dark"] .bg-\[\#F7F7F8\] .hgi,
+        html[data-theme="dark"] .bg-\[\#F7F7F8\] span {
+            color: #FFFFFF !important;
+            stroke: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
+        }
+
+        /* ==================================================== */
+        /* BULLETPROOF CARD & TYPOGRAPHY ISOLATION GUARD         */
+        /* ==================================================== */
+        /* Any card on a white or light gray surface MUST have crisp black text */
+        .bg-\[\#FFFFFF\], .bg-\[\#FFFFFF\] h1, .bg-\[\#FFFFFF\] h2, .bg-\[\#FFFFFF\] h3, .bg-\[\#FFFFFF\] h4, .bg-\[\#FFFFFF\] h5, .bg-\[\#FFFFFF\] h6, .bg-\[\#FFFFFF\] p, .bg-\[\#FFFFFF\] li,
+        .bg-white, .bg-white h1, .bg-white h2, .bg-white h3, .bg-white h4, .bg-white h5, .bg-white h6, .bg-white p, .bg-white li,
+        .bg-\[\#F7F7F8\], .bg-\[\#F7F7F8\] h1, .bg-\[\#F7F7F8\] h2, .bg-\[\#F7F7F8\] h3, .bg-\[\#F7F7F8\] h4, .bg-\[\#F7F7F8\] h5, .bg-\[\#F7F7F8\] h6, .bg-\[\#F7F7F8\] p, .bg-\[\#F7F7F8\] li,
+        .bg-\[\#FAFAFA\], .bg-\[\#FAFAFA\] h1, .bg-\[\#FAFAFA\] h2, .bg-\[\#FAFAFA\] h3, .bg-\[\#FAFAFA\] h4, .bg-\[\#FAFAFA\] p, .bg-\[\#FAFAFA\] li,
+        .bg-\[\#F2F2F2\], .bg-\[\#F2F2F2\] h1, .bg-\[\#F2F2F2\] h2, .bg-\[\#F2F2F2\] h3, .bg-\[\#F2F2F2\] h4, .bg-\[\#F2F2F2\] p, .bg-\[\#F2F2F2\] li {
+            color: #111111 !important;
+            -webkit-text-fill-color: #111111 !important;
+        }
+
+        /* Span texts inside light cards (excluding explicit dark badges) */
+        .bg-\[\#FFFFFF\] span:not(.text-white):not([class*="bg-black"]):not([class*="bg-[#000000]"]):not([class*="bg-[#111111]"]),
+        .bg-white span:not(.text-white):not([class*="bg-black"]):not([class*="bg-[#000000]"]):not([class*="bg-[#111111]"]),
+        .bg-\[\#F7F7F8\] span:not(.text-white):not([class*="bg-black"]):not([class*="bg-[#000000]"]):not([class*="bg-[#111111]"]) {
+            color: #111111 !important;
+            -webkit-text-fill-color: #111111 !important;
+        }
+
+        /* Hugeicons and svg strokes inside light containers must be dark */
+        .bg-\[\#F7F7F8\] i:not(.text-white), .bg-\[\#F7F7F8\] .hgi:not(.text-white),
+        .bg-\[\#FFFFFF\] i:not(.text-white), .bg-\[\#FFFFFF\] .hgi:not(.text-white),
+        .bg-white i:not(.text-white), .bg-white .hgi:not(.text-white) {
+            color: #111111 !important;
+            stroke: #111111 !important;
+        }
+
+        /* Explicit Dark buttons, badges & overlays inside light containers MUST have white text */
+        .bg-\[\#FFFFFF\] .bg-black, .bg-\[\#FFFFFF\] .bg-black *,
+        .bg-\[\#FFFFFF\] button.bg-black, .bg-\[\#FFFFFF\] button.bg-black *,
+        .bg-\[\#FFFFFF\] a.bg-black, .bg-\[\#FFFFFF\] a.bg-black *,
+        .bg-\[\#FFFFFF\] [class*="bg-black/"], .bg-\[\#FFFFFF\] [class*="bg-black/"] *,
+        .bg-\[\#FFFFFF\] .bg-\[\#000000\], .bg-\[\#FFFFFF\] .bg-\[\#000000\] *,
+        .bg-\[\#FFFFFF\] .bg-\[\#111111\], .bg-\[\#FFFFFF\] .bg-\[\#111111\] *,
+        .bg-\[\#F7F7F8\] .bg-black, .bg-\[\#F7F7F8\] .bg-black *,
+        .bg-\[\#F7F7F8\] button.bg-black, .bg-\[\#F7F7F8\] button.bg-black *,
+        .bg-\[\#F7F7F8\] a.bg-black, .bg-\[\#F7F7F8\] a.bg-black *,
+        .bg-\[\#F7F7F8\] [class*="bg-black/"], .bg-\[\#F7F7F8\] [class*="bg-black/"] *,
+        .bg-\[\#F7F7F8\] .bg-\[\#000000\], .bg-\[\#F7F7F8\] .bg-\[\#000000\] *,
+        .bg-\[\#F7F7F8\] .bg-\[\#111111\], .bg-\[\#F7F7F8\] .bg-\[\#111111\] * {
+            color: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
+        }
+
+        .bg-\[\#FFFFFF\] .bg-black i, .bg-\[\#FFFFFF\] .bg-black .hgi,
+        .bg-\[\#F7F7F8\] .bg-black i, .bg-\[\#F7F7F8\] .bg-black .hgi,
+        .bg-\[\#FFFFFF\] [class*="bg-black/"] i, .bg-\[\#FFFFFF\] [class*="bg-black/"] .hgi,
+        .bg-\[\#F7F7F8\] [class*="bg-black/"] i, .bg-\[\#F7F7F8\] [class*="bg-black/"] .hgi {
+            color: #FFFFFF !important;
+            stroke: #FFFFFF !important;
+        }
+
     </style>
 
 
@@ -1919,6 +2129,76 @@
         #aiSendBtn:hover {
             background-color: #262626 !important;
         }
+    
+        
+        /* Adaptive Dark Mode for #F7F7F8 light pill boxes */
+        html[data-theme="dark"] .bg-\[\#F7F7F8\] {
+            background-color: rgba(255, 255, 255, 0.08) !important;
+            color: #FFFFFF !important;
+            border-color: rgba(255, 255, 255, 0.12) !important;
+        }
+        html[data-theme="dark"] .bg-\[\#F7F7F8\] i,
+        html[data-theme="dark"] .bg-\[\#F7F7F8\] .hgi,
+        html[data-theme="dark"] .bg-\[\#F7F7F8\] span {
+            color: #FFFFFF !important;
+            stroke: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
+        }
+
+        /* ==================================================== */
+        /* BULLETPROOF CARD & TYPOGRAPHY ISOLATION GUARD         */
+        /* ==================================================== */
+        /* Any card on a white or light gray surface MUST have crisp black text */
+        .bg-\[\#FFFFFF\], .bg-\[\#FFFFFF\] h1, .bg-\[\#FFFFFF\] h2, .bg-\[\#FFFFFF\] h3, .bg-\[\#FFFFFF\] h4, .bg-\[\#FFFFFF\] h5, .bg-\[\#FFFFFF\] h6, .bg-\[\#FFFFFF\] p, .bg-\[\#FFFFFF\] li,
+        .bg-white, .bg-white h1, .bg-white h2, .bg-white h3, .bg-white h4, .bg-white h5, .bg-white h6, .bg-white p, .bg-white li,
+        .bg-\[\#F7F7F8\], .bg-\[\#F7F7F8\] h1, .bg-\[\#F7F7F8\] h2, .bg-\[\#F7F7F8\] h3, .bg-\[\#F7F7F8\] h4, .bg-\[\#F7F7F8\] h5, .bg-\[\#F7F7F8\] h6, .bg-\[\#F7F7F8\] p, .bg-\[\#F7F7F8\] li,
+        .bg-\[\#FAFAFA\], .bg-\[\#FAFAFA\] h1, .bg-\[\#FAFAFA\] h2, .bg-\[\#FAFAFA\] h3, .bg-\[\#FAFAFA\] h4, .bg-\[\#FAFAFA\] p, .bg-\[\#FAFAFA\] li,
+        .bg-\[\#F2F2F2\], .bg-\[\#F2F2F2\] h1, .bg-\[\#F2F2F2\] h2, .bg-\[\#F2F2F2\] h3, .bg-\[\#F2F2F2\] h4, .bg-\[\#F2F2F2\] p, .bg-\[\#F2F2F2\] li {
+            color: #111111 !important;
+            -webkit-text-fill-color: #111111 !important;
+        }
+
+        /* Span texts inside light cards (excluding explicit dark badges) */
+        .bg-\[\#FFFFFF\] span:not(.text-white):not([class*="bg-black"]):not([class*="bg-[#000000]"]):not([class*="bg-[#111111]"]),
+        .bg-white span:not(.text-white):not([class*="bg-black"]):not([class*="bg-[#000000]"]):not([class*="bg-[#111111]"]),
+        .bg-\[\#F7F7F8\] span:not(.text-white):not([class*="bg-black"]):not([class*="bg-[#000000]"]):not([class*="bg-[#111111]"]) {
+            color: #111111 !important;
+            -webkit-text-fill-color: #111111 !important;
+        }
+
+        /* Hugeicons and svg strokes inside light containers must be dark */
+        .bg-\[\#F7F7F8\] i:not(.text-white), .bg-\[\#F7F7F8\] .hgi:not(.text-white),
+        .bg-\[\#FFFFFF\] i:not(.text-white), .bg-\[\#FFFFFF\] .hgi:not(.text-white),
+        .bg-white i:not(.text-white), .bg-white .hgi:not(.text-white) {
+            color: #111111 !important;
+            stroke: #111111 !important;
+        }
+
+        /* Explicit Dark buttons, badges & overlays inside light containers MUST have white text */
+        .bg-\[\#FFFFFF\] .bg-black, .bg-\[\#FFFFFF\] .bg-black *,
+        .bg-\[\#FFFFFF\] button.bg-black, .bg-\[\#FFFFFF\] button.bg-black *,
+        .bg-\[\#FFFFFF\] a.bg-black, .bg-\[\#FFFFFF\] a.bg-black *,
+        .bg-\[\#FFFFFF\] [class*="bg-black/"], .bg-\[\#FFFFFF\] [class*="bg-black/"] *,
+        .bg-\[\#FFFFFF\] .bg-\[\#000000\], .bg-\[\#FFFFFF\] .bg-\[\#000000\] *,
+        .bg-\[\#FFFFFF\] .bg-\[\#111111\], .bg-\[\#FFFFFF\] .bg-\[\#111111\] *,
+        .bg-\[\#F7F7F8\] .bg-black, .bg-\[\#F7F7F8\] .bg-black *,
+        .bg-\[\#F7F7F8\] button.bg-black, .bg-\[\#F7F7F8\] button.bg-black *,
+        .bg-\[\#F7F7F8\] a.bg-black, .bg-\[\#F7F7F8\] a.bg-black *,
+        .bg-\[\#F7F7F8\] [class*="bg-black/"], .bg-\[\#F7F7F8\] [class*="bg-black/"] *,
+        .bg-\[\#F7F7F8\] .bg-\[\#000000\], .bg-\[\#F7F7F8\] .bg-\[\#000000\] *,
+        .bg-\[\#F7F7F8\] .bg-\[\#111111\], .bg-\[\#F7F7F8\] .bg-\[\#111111\] * {
+            color: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
+        }
+
+        .bg-\[\#FFFFFF\] .bg-black i, .bg-\[\#FFFFFF\] .bg-black .hgi,
+        .bg-\[\#F7F7F8\] .bg-black i, .bg-\[\#F7F7F8\] .bg-black .hgi,
+        .bg-\[\#FFFFFF\] [class*="bg-black/"] i, .bg-\[\#FFFFFF\] [class*="bg-black/"] .hgi,
+        .bg-\[\#F7F7F8\] [class*="bg-black/"] i, .bg-\[\#F7F7F8\] [class*="bg-black/"] .hgi {
+            color: #FFFFFF !important;
+            stroke: #FFFFFF !important;
+        }
+
     </style>
 
 
@@ -2016,6 +2296,76 @@
         #aiSendBtn i {
             color: #FFFFFF !important;
         }
+    
+        
+        /* Adaptive Dark Mode for #F7F7F8 light pill boxes */
+        html[data-theme="dark"] .bg-\[\#F7F7F8\] {
+            background-color: rgba(255, 255, 255, 0.08) !important;
+            color: #FFFFFF !important;
+            border-color: rgba(255, 255, 255, 0.12) !important;
+        }
+        html[data-theme="dark"] .bg-\[\#F7F7F8\] i,
+        html[data-theme="dark"] .bg-\[\#F7F7F8\] .hgi,
+        html[data-theme="dark"] .bg-\[\#F7F7F8\] span {
+            color: #FFFFFF !important;
+            stroke: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
+        }
+
+        /* ==================================================== */
+        /* BULLETPROOF CARD & TYPOGRAPHY ISOLATION GUARD         */
+        /* ==================================================== */
+        /* Any card on a white or light gray surface MUST have crisp black text */
+        .bg-\[\#FFFFFF\], .bg-\[\#FFFFFF\] h1, .bg-\[\#FFFFFF\] h2, .bg-\[\#FFFFFF\] h3, .bg-\[\#FFFFFF\] h4, .bg-\[\#FFFFFF\] h5, .bg-\[\#FFFFFF\] h6, .bg-\[\#FFFFFF\] p, .bg-\[\#FFFFFF\] li,
+        .bg-white, .bg-white h1, .bg-white h2, .bg-white h3, .bg-white h4, .bg-white h5, .bg-white h6, .bg-white p, .bg-white li,
+        .bg-\[\#F7F7F8\], .bg-\[\#F7F7F8\] h1, .bg-\[\#F7F7F8\] h2, .bg-\[\#F7F7F8\] h3, .bg-\[\#F7F7F8\] h4, .bg-\[\#F7F7F8\] h5, .bg-\[\#F7F7F8\] h6, .bg-\[\#F7F7F8\] p, .bg-\[\#F7F7F8\] li,
+        .bg-\[\#FAFAFA\], .bg-\[\#FAFAFA\] h1, .bg-\[\#FAFAFA\] h2, .bg-\[\#FAFAFA\] h3, .bg-\[\#FAFAFA\] h4, .bg-\[\#FAFAFA\] p, .bg-\[\#FAFAFA\] li,
+        .bg-\[\#F2F2F2\], .bg-\[\#F2F2F2\] h1, .bg-\[\#F2F2F2\] h2, .bg-\[\#F2F2F2\] h3, .bg-\[\#F2F2F2\] h4, .bg-\[\#F2F2F2\] p, .bg-\[\#F2F2F2\] li {
+            color: #111111 !important;
+            -webkit-text-fill-color: #111111 !important;
+        }
+
+        /* Span texts inside light cards (excluding explicit dark badges) */
+        .bg-\[\#FFFFFF\] span:not(.text-white):not([class*="bg-black"]):not([class*="bg-[#000000]"]):not([class*="bg-[#111111]"]),
+        .bg-white span:not(.text-white):not([class*="bg-black"]):not([class*="bg-[#000000]"]):not([class*="bg-[#111111]"]),
+        .bg-\[\#F7F7F8\] span:not(.text-white):not([class*="bg-black"]):not([class*="bg-[#000000]"]):not([class*="bg-[#111111]"]) {
+            color: #111111 !important;
+            -webkit-text-fill-color: #111111 !important;
+        }
+
+        /* Hugeicons and svg strokes inside light containers must be dark */
+        .bg-\[\#F7F7F8\] i:not(.text-white), .bg-\[\#F7F7F8\] .hgi:not(.text-white),
+        .bg-\[\#FFFFFF\] i:not(.text-white), .bg-\[\#FFFFFF\] .hgi:not(.text-white),
+        .bg-white i:not(.text-white), .bg-white .hgi:not(.text-white) {
+            color: #111111 !important;
+            stroke: #111111 !important;
+        }
+
+        /* Explicit Dark buttons, badges & overlays inside light containers MUST have white text */
+        .bg-\[\#FFFFFF\] .bg-black, .bg-\[\#FFFFFF\] .bg-black *,
+        .bg-\[\#FFFFFF\] button.bg-black, .bg-\[\#FFFFFF\] button.bg-black *,
+        .bg-\[\#FFFFFF\] a.bg-black, .bg-\[\#FFFFFF\] a.bg-black *,
+        .bg-\[\#FFFFFF\] [class*="bg-black/"], .bg-\[\#FFFFFF\] [class*="bg-black/"] *,
+        .bg-\[\#FFFFFF\] .bg-\[\#000000\], .bg-\[\#FFFFFF\] .bg-\[\#000000\] *,
+        .bg-\[\#FFFFFF\] .bg-\[\#111111\], .bg-\[\#FFFFFF\] .bg-\[\#111111\] *,
+        .bg-\[\#F7F7F8\] .bg-black, .bg-\[\#F7F7F8\] .bg-black *,
+        .bg-\[\#F7F7F8\] button.bg-black, .bg-\[\#F7F7F8\] button.bg-black *,
+        .bg-\[\#F7F7F8\] a.bg-black, .bg-\[\#F7F7F8\] a.bg-black *,
+        .bg-\[\#F7F7F8\] [class*="bg-black/"], .bg-\[\#F7F7F8\] [class*="bg-black/"] *,
+        .bg-\[\#F7F7F8\] .bg-\[\#000000\], .bg-\[\#F7F7F8\] .bg-\[\#000000\] *,
+        .bg-\[\#F7F7F8\] .bg-\[\#111111\], .bg-\[\#F7F7F8\] .bg-\[\#111111\] * {
+            color: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
+        }
+
+        .bg-\[\#FFFFFF\] .bg-black i, .bg-\[\#FFFFFF\] .bg-black .hgi,
+        .bg-\[\#F7F7F8\] .bg-black i, .bg-\[\#F7F7F8\] .bg-black .hgi,
+        .bg-\[\#FFFFFF\] [class*="bg-black/"] i, .bg-\[\#FFFFFF\] [class*="bg-black/"] .hgi,
+        .bg-\[\#F7F7F8\] [class*="bg-black/"] i, .bg-\[\#F7F7F8\] [class*="bg-black/"] .hgi {
+            color: #FFFFFF !important;
+            stroke: #FFFFFF !important;
+        }
+
     </style>
 
 
@@ -2281,6 +2631,76 @@
             background-color: rgba(255, 255, 255, 0.95) !important;
             border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
         }
+    
+        
+        /* Adaptive Dark Mode for #F7F7F8 light pill boxes */
+        html[data-theme="dark"] .bg-\[\#F7F7F8\] {
+            background-color: rgba(255, 255, 255, 0.08) !important;
+            color: #FFFFFF !important;
+            border-color: rgba(255, 255, 255, 0.12) !important;
+        }
+        html[data-theme="dark"] .bg-\[\#F7F7F8\] i,
+        html[data-theme="dark"] .bg-\[\#F7F7F8\] .hgi,
+        html[data-theme="dark"] .bg-\[\#F7F7F8\] span {
+            color: #FFFFFF !important;
+            stroke: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
+        }
+
+        /* ==================================================== */
+        /* BULLETPROOF CARD & TYPOGRAPHY ISOLATION GUARD         */
+        /* ==================================================== */
+        /* Any card on a white or light gray surface MUST have crisp black text */
+        .bg-\[\#FFFFFF\], .bg-\[\#FFFFFF\] h1, .bg-\[\#FFFFFF\] h2, .bg-\[\#FFFFFF\] h3, .bg-\[\#FFFFFF\] h4, .bg-\[\#FFFFFF\] h5, .bg-\[\#FFFFFF\] h6, .bg-\[\#FFFFFF\] p, .bg-\[\#FFFFFF\] li,
+        .bg-white, .bg-white h1, .bg-white h2, .bg-white h3, .bg-white h4, .bg-white h5, .bg-white h6, .bg-white p, .bg-white li,
+        .bg-\[\#F7F7F8\], .bg-\[\#F7F7F8\] h1, .bg-\[\#F7F7F8\] h2, .bg-\[\#F7F7F8\] h3, .bg-\[\#F7F7F8\] h4, .bg-\[\#F7F7F8\] h5, .bg-\[\#F7F7F8\] h6, .bg-\[\#F7F7F8\] p, .bg-\[\#F7F7F8\] li,
+        .bg-\[\#FAFAFA\], .bg-\[\#FAFAFA\] h1, .bg-\[\#FAFAFA\] h2, .bg-\[\#FAFAFA\] h3, .bg-\[\#FAFAFA\] h4, .bg-\[\#FAFAFA\] p, .bg-\[\#FAFAFA\] li,
+        .bg-\[\#F2F2F2\], .bg-\[\#F2F2F2\] h1, .bg-\[\#F2F2F2\] h2, .bg-\[\#F2F2F2\] h3, .bg-\[\#F2F2F2\] h4, .bg-\[\#F2F2F2\] p, .bg-\[\#F2F2F2\] li {
+            color: #111111 !important;
+            -webkit-text-fill-color: #111111 !important;
+        }
+
+        /* Span texts inside light cards (excluding explicit dark badges) */
+        .bg-\[\#FFFFFF\] span:not(.text-white):not([class*="bg-black"]):not([class*="bg-[#000000]"]):not([class*="bg-[#111111]"]),
+        .bg-white span:not(.text-white):not([class*="bg-black"]):not([class*="bg-[#000000]"]):not([class*="bg-[#111111]"]),
+        .bg-\[\#F7F7F8\] span:not(.text-white):not([class*="bg-black"]):not([class*="bg-[#000000]"]):not([class*="bg-[#111111]"]) {
+            color: #111111 !important;
+            -webkit-text-fill-color: #111111 !important;
+        }
+
+        /* Hugeicons and svg strokes inside light containers must be dark */
+        .bg-\[\#F7F7F8\] i:not(.text-white), .bg-\[\#F7F7F8\] .hgi:not(.text-white),
+        .bg-\[\#FFFFFF\] i:not(.text-white), .bg-\[\#FFFFFF\] .hgi:not(.text-white),
+        .bg-white i:not(.text-white), .bg-white .hgi:not(.text-white) {
+            color: #111111 !important;
+            stroke: #111111 !important;
+        }
+
+        /* Explicit Dark buttons, badges & overlays inside light containers MUST have white text */
+        .bg-\[\#FFFFFF\] .bg-black, .bg-\[\#FFFFFF\] .bg-black *,
+        .bg-\[\#FFFFFF\] button.bg-black, .bg-\[\#FFFFFF\] button.bg-black *,
+        .bg-\[\#FFFFFF\] a.bg-black, .bg-\[\#FFFFFF\] a.bg-black *,
+        .bg-\[\#FFFFFF\] [class*="bg-black/"], .bg-\[\#FFFFFF\] [class*="bg-black/"] *,
+        .bg-\[\#FFFFFF\] .bg-\[\#000000\], .bg-\[\#FFFFFF\] .bg-\[\#000000\] *,
+        .bg-\[\#FFFFFF\] .bg-\[\#111111\], .bg-\[\#FFFFFF\] .bg-\[\#111111\] *,
+        .bg-\[\#F7F7F8\] .bg-black, .bg-\[\#F7F7F8\] .bg-black *,
+        .bg-\[\#F7F7F8\] button.bg-black, .bg-\[\#F7F7F8\] button.bg-black *,
+        .bg-\[\#F7F7F8\] a.bg-black, .bg-\[\#F7F7F8\] a.bg-black *,
+        .bg-\[\#F7F7F8\] [class*="bg-black/"], .bg-\[\#F7F7F8\] [class*="bg-black/"] *,
+        .bg-\[\#F7F7F8\] .bg-\[\#000000\], .bg-\[\#F7F7F8\] .bg-\[\#000000\] *,
+        .bg-\[\#F7F7F8\] .bg-\[\#111111\], .bg-\[\#F7F7F8\] .bg-\[\#111111\] * {
+            color: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
+        }
+
+        .bg-\[\#FFFFFF\] .bg-black i, .bg-\[\#FFFFFF\] .bg-black .hgi,
+        .bg-\[\#F7F7F8\] .bg-black i, .bg-\[\#F7F7F8\] .bg-black .hgi,
+        .bg-\[\#FFFFFF\] [class*="bg-black/"] i, .bg-\[\#FFFFFF\] [class*="bg-black/"] .hgi,
+        .bg-\[\#F7F7F8\] [class*="bg-black/"] i, .bg-\[\#F7F7F8\] [class*="bg-black/"] .hgi {
+            color: #FFFFFF !important;
+            stroke: #FFFFFF !important;
+        }
+
     </style>
 </head>
 <body id="top" class="bg-[#FFFFFF] text-[#000000] font-sans antialiased selection:bg-black selection:text-white relative overflow-x-clip transition-colors duration-200">
@@ -2432,7 +2852,7 @@
 
         <!-- 1. HERO SECTION: OPENAI EXACT "NASIL YARDIMCI OLABİLİRİM?" KONSOLU -->
         <!-- 1. HERO SECTION: OPENAI EXACT "NASIL YARDIMCI OLABİLİRİM?" (Screenshot 1) -->
-        <section id="dedektife-sor" class="relative bg-[#FFFFFF] text-[#000000] pt-14 sm:pt-20 pb-12 sm:pb-16 overflow-hidden">
+        <section id="mimari" class="py-12 sm:py-16 bg-[#FFFFFF] text-[#111111]">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
 
                 <!-- OpenAI Exact Centered Headline ("Nasıl yardımcı olabilirim?") -->
@@ -2924,7 +3344,7 @@
                     </div>
 
                     <!-- Bento 4 (7 Cols - Pure White Sheet + Segmented Equalizer Chart from Screenshots 4 & 6) -->
-                    <div class="lg:col-span-7 bg-[#FFFFFF] rounded-[28px] p-6 sm:p-8 border border-black/[0.06] studio-shadow flex flex-col justify-between space-y-6">
+                    <div id="delil-standartlari" class="lg:col-span-7 bg-[#FFFFFF] rounded-[28px] p-6 sm:p-8 border border-black/[0.06] studio-shadow flex flex-col justify-between space-y-6 scroll-mt-24">
                         <div class="space-y-4">
                             <div class="flex flex-wrap items-center justify-between gap-2">
                                 <span class="px-3 py-1 rounded-full bg-[#FFFFFF] text-[#111111] font-mono text-[10.5px] font-medium">ULUSAL &amp; ULUSLARARASI HİZMET BÖLGELERİMİZ</span>

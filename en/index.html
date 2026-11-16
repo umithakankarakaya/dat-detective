@@ -1314,6 +1314,76 @@
             direction: ltr;
             unicode-bidi: isolate;
         }
+    
+        
+        /* Adaptive Dark Mode for #F7F7F8 light pill boxes */
+        html[data-theme="dark"] .bg-\[\#F7F7F8\] {
+            background-color: rgba(255, 255, 255, 0.08) !important;
+            color: #FFFFFF !important;
+            border-color: rgba(255, 255, 255, 0.12) !important;
+        }
+        html[data-theme="dark"] .bg-\[\#F7F7F8\] i,
+        html[data-theme="dark"] .bg-\[\#F7F7F8\] .hgi,
+        html[data-theme="dark"] .bg-\[\#F7F7F8\] span {
+            color: #FFFFFF !important;
+            stroke: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
+        }
+
+        /* ==================================================== */
+        /* BULLETPROOF CARD & TYPOGRAPHY ISOLATION GUARD         */
+        /* ==================================================== */
+        /* Any card on a white or light gray surface MUST have crisp black text */
+        .bg-\[\#FFFFFF\], .bg-\[\#FFFFFF\] h1, .bg-\[\#FFFFFF\] h2, .bg-\[\#FFFFFF\] h3, .bg-\[\#FFFFFF\] h4, .bg-\[\#FFFFFF\] h5, .bg-\[\#FFFFFF\] h6, .bg-\[\#FFFFFF\] p, .bg-\[\#FFFFFF\] li,
+        .bg-white, .bg-white h1, .bg-white h2, .bg-white h3, .bg-white h4, .bg-white h5, .bg-white h6, .bg-white p, .bg-white li,
+        .bg-\[\#F7F7F8\], .bg-\[\#F7F7F8\] h1, .bg-\[\#F7F7F8\] h2, .bg-\[\#F7F7F8\] h3, .bg-\[\#F7F7F8\] h4, .bg-\[\#F7F7F8\] h5, .bg-\[\#F7F7F8\] h6, .bg-\[\#F7F7F8\] p, .bg-\[\#F7F7F8\] li,
+        .bg-\[\#FAFAFA\], .bg-\[\#FAFAFA\] h1, .bg-\[\#FAFAFA\] h2, .bg-\[\#FAFAFA\] h3, .bg-\[\#FAFAFA\] h4, .bg-\[\#FAFAFA\] p, .bg-\[\#FAFAFA\] li,
+        .bg-\[\#F2F2F2\], .bg-\[\#F2F2F2\] h1, .bg-\[\#F2F2F2\] h2, .bg-\[\#F2F2F2\] h3, .bg-\[\#F2F2F2\] h4, .bg-\[\#F2F2F2\] p, .bg-\[\#F2F2F2\] li {
+            color: #111111 !important;
+            -webkit-text-fill-color: #111111 !important;
+        }
+
+        /* Span texts inside light cards (excluding explicit dark badges) */
+        .bg-\[\#FFFFFF\] span:not(.text-white):not([class*="bg-black"]):not([class*="bg-[#000000]"]):not([class*="bg-[#111111]"]),
+        .bg-white span:not(.text-white):not([class*="bg-black"]):not([class*="bg-[#000000]"]):not([class*="bg-[#111111]"]),
+        .bg-\[\#F7F7F8\] span:not(.text-white):not([class*="bg-black"]):not([class*="bg-[#000000]"]):not([class*="bg-[#111111]"]) {
+            color: #111111 !important;
+            -webkit-text-fill-color: #111111 !important;
+        }
+
+        /* Hugeicons and svg strokes inside light containers must be dark */
+        .bg-\[\#F7F7F8\] i:not(.text-white), .bg-\[\#F7F7F8\] .hgi:not(.text-white),
+        .bg-\[\#FFFFFF\] i:not(.text-white), .bg-\[\#FFFFFF\] .hgi:not(.text-white),
+        .bg-white i:not(.text-white), .bg-white .hgi:not(.text-white) {
+            color: #111111 !important;
+            stroke: #111111 !important;
+        }
+
+        /* Explicit Dark buttons, badges & overlays inside light containers MUST have white text */
+        .bg-\[\#FFFFFF\] .bg-black, .bg-\[\#FFFFFF\] .bg-black *,
+        .bg-\[\#FFFFFF\] button.bg-black, .bg-\[\#FFFFFF\] button.bg-black *,
+        .bg-\[\#FFFFFF\] a.bg-black, .bg-\[\#FFFFFF\] a.bg-black *,
+        .bg-\[\#FFFFFF\] [class*="bg-black/"], .bg-\[\#FFFFFF\] [class*="bg-black/"] *,
+        .bg-\[\#FFFFFF\] .bg-\[\#000000\], .bg-\[\#FFFFFF\] .bg-\[\#000000\] *,
+        .bg-\[\#FFFFFF\] .bg-\[\#111111\], .bg-\[\#FFFFFF\] .bg-\[\#111111\] *,
+        .bg-\[\#F7F7F8\] .bg-black, .bg-\[\#F7F7F8\] .bg-black *,
+        .bg-\[\#F7F7F8\] button.bg-black, .bg-\[\#F7F7F8\] button.bg-black *,
+        .bg-\[\#F7F7F8\] a.bg-black, .bg-\[\#F7F7F8\] a.bg-black *,
+        .bg-\[\#F7F7F8\] [class*="bg-black/"], .bg-\[\#F7F7F8\] [class*="bg-black/"] *,
+        .bg-\[\#F7F7F8\] .bg-\[\#000000\], .bg-\[\#F7F7F8\] .bg-\[\#000000\] *,
+        .bg-\[\#F7F7F8\] .bg-\[\#111111\], .bg-\[\#F7F7F8\] .bg-\[\#111111\] * {
+            color: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
+        }
+
+        .bg-\[\#FFFFFF\] .bg-black i, .bg-\[\#FFFFFF\] .bg-black .hgi,
+        .bg-\[\#F7F7F8\] .bg-black i, .bg-\[\#F7F7F8\] .bg-black .hgi,
+        .bg-\[\#FFFFFF\] [class*="bg-black/"] i, .bg-\[\#FFFFFF\] [class*="bg-black/"] .hgi,
+        .bg-\[\#F7F7F8\] [class*="bg-black/"] i, .bg-\[\#F7F7F8\] [class*="bg-black/"] .hgi {
+            color: #FFFFFF !important;
+            stroke: #FFFFFF !important;
+        }
+
     </style>
 <style id="openai-master-system">
         
@@ -1604,6 +1674,76 @@
             background-color: rgba(255, 255, 255, 0.95) !important;
             border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
         }
+    
+        
+        /* Adaptive Dark Mode for #F7F7F8 light pill boxes */
+        html[data-theme="dark"] .bg-\[\#F7F7F8\] {
+            background-color: rgba(255, 255, 255, 0.08) !important;
+            color: #FFFFFF !important;
+            border-color: rgba(255, 255, 255, 0.12) !important;
+        }
+        html[data-theme="dark"] .bg-\[\#F7F7F8\] i,
+        html[data-theme="dark"] .bg-\[\#F7F7F8\] .hgi,
+        html[data-theme="dark"] .bg-\[\#F7F7F8\] span {
+            color: #FFFFFF !important;
+            stroke: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
+        }
+
+        /* ==================================================== */
+        /* BULLETPROOF CARD & TYPOGRAPHY ISOLATION GUARD         */
+        /* ==================================================== */
+        /* Any card on a white or light gray surface MUST have crisp black text */
+        .bg-\[\#FFFFFF\], .bg-\[\#FFFFFF\] h1, .bg-\[\#FFFFFF\] h2, .bg-\[\#FFFFFF\] h3, .bg-\[\#FFFFFF\] h4, .bg-\[\#FFFFFF\] h5, .bg-\[\#FFFFFF\] h6, .bg-\[\#FFFFFF\] p, .bg-\[\#FFFFFF\] li,
+        .bg-white, .bg-white h1, .bg-white h2, .bg-white h3, .bg-white h4, .bg-white h5, .bg-white h6, .bg-white p, .bg-white li,
+        .bg-\[\#F7F7F8\], .bg-\[\#F7F7F8\] h1, .bg-\[\#F7F7F8\] h2, .bg-\[\#F7F7F8\] h3, .bg-\[\#F7F7F8\] h4, .bg-\[\#F7F7F8\] h5, .bg-\[\#F7F7F8\] h6, .bg-\[\#F7F7F8\] p, .bg-\[\#F7F7F8\] li,
+        .bg-\[\#FAFAFA\], .bg-\[\#FAFAFA\] h1, .bg-\[\#FAFAFA\] h2, .bg-\[\#FAFAFA\] h3, .bg-\[\#FAFAFA\] h4, .bg-\[\#FAFAFA\] p, .bg-\[\#FAFAFA\] li,
+        .bg-\[\#F2F2F2\], .bg-\[\#F2F2F2\] h1, .bg-\[\#F2F2F2\] h2, .bg-\[\#F2F2F2\] h3, .bg-\[\#F2F2F2\] h4, .bg-\[\#F2F2F2\] p, .bg-\[\#F2F2F2\] li {
+            color: #111111 !important;
+            -webkit-text-fill-color: #111111 !important;
+        }
+
+        /* Span texts inside light cards (excluding explicit dark badges) */
+        .bg-\[\#FFFFFF\] span:not(.text-white):not([class*="bg-black"]):not([class*="bg-[#000000]"]):not([class*="bg-[#111111]"]),
+        .bg-white span:not(.text-white):not([class*="bg-black"]):not([class*="bg-[#000000]"]):not([class*="bg-[#111111]"]),
+        .bg-\[\#F7F7F8\] span:not(.text-white):not([class*="bg-black"]):not([class*="bg-[#000000]"]):not([class*="bg-[#111111]"]) {
+            color: #111111 !important;
+            -webkit-text-fill-color: #111111 !important;
+        }
+
+        /* Hugeicons and svg strokes inside light containers must be dark */
+        .bg-\[\#F7F7F8\] i:not(.text-white), .bg-\[\#F7F7F8\] .hgi:not(.text-white),
+        .bg-\[\#FFFFFF\] i:not(.text-white), .bg-\[\#FFFFFF\] .hgi:not(.text-white),
+        .bg-white i:not(.text-white), .bg-white .hgi:not(.text-white) {
+            color: #111111 !important;
+            stroke: #111111 !important;
+        }
+
+        /* Explicit Dark buttons, badges & overlays inside light containers MUST have white text */
+        .bg-\[\#FFFFFF\] .bg-black, .bg-\[\#FFFFFF\] .bg-black *,
+        .bg-\[\#FFFFFF\] button.bg-black, .bg-\[\#FFFFFF\] button.bg-black *,
+        .bg-\[\#FFFFFF\] a.bg-black, .bg-\[\#FFFFFF\] a.bg-black *,
+        .bg-\[\#FFFFFF\] [class*="bg-black/"], .bg-\[\#FFFFFF\] [class*="bg-black/"] *,
+        .bg-\[\#FFFFFF\] .bg-\[\#000000\], .bg-\[\#FFFFFF\] .bg-\[\#000000\] *,
+        .bg-\[\#FFFFFF\] .bg-\[\#111111\], .bg-\[\#FFFFFF\] .bg-\[\#111111\] *,
+        .bg-\[\#F7F7F8\] .bg-black, .bg-\[\#F7F7F8\] .bg-black *,
+        .bg-\[\#F7F7F8\] button.bg-black, .bg-\[\#F7F7F8\] button.bg-black *,
+        .bg-\[\#F7F7F8\] a.bg-black, .bg-\[\#F7F7F8\] a.bg-black *,
+        .bg-\[\#F7F7F8\] [class*="bg-black/"], .bg-\[\#F7F7F8\] [class*="bg-black/"] *,
+        .bg-\[\#F7F7F8\] .bg-\[\#000000\], .bg-\[\#F7F7F8\] .bg-\[\#000000\] *,
+        .bg-\[\#F7F7F8\] .bg-\[\#111111\], .bg-\[\#F7F7F8\] .bg-\[\#111111\] * {
+            color: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
+        }
+
+        .bg-\[\#FFFFFF\] .bg-black i, .bg-\[\#FFFFFF\] .bg-black .hgi,
+        .bg-\[\#F7F7F8\] .bg-black i, .bg-\[\#F7F7F8\] .bg-black .hgi,
+        .bg-\[\#FFFFFF\] [class*="bg-black/"] i, .bg-\[\#FFFFFF\] [class*="bg-black/"] .hgi,
+        .bg-\[\#F7F7F8\] [class*="bg-black/"] i, .bg-\[\#F7F7F8\] [class*="bg-black/"] .hgi {
+            color: #FFFFFF !important;
+            stroke: #FFFFFF !important;
+        }
+
     </style>
 </head>
 <body id="top" class="bg-[#111111] text-white font-sans antialiased selection:bg-black selection:text-white relative overflow-x-clip transition-colors duration-200">
@@ -1898,29 +2038,29 @@
     <main>
 
         <!-- 1. HERO SECTION: OBSIDIAN STUDIO STAGE + ANNOTATED TITANIUM IPHONE (Reference Image 1) -->
-        <section class="relative bg-[#111111] text-[#FFFFFF] pt-7 pb-10 sm:pt-10 sm:pb-12 overflow-hidden">
+        <section class="relative bg-[#FFFFFF] text-[#000000] pt-14 sm:pt-20 pb-12 sm:pb-16 overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10">
 
                 <!-- Top Studio Editorial Row (Modeled on Reference Screenshot 1 Headline Geometry) -->
                 <div class="grid lg:grid-cols-12 gap-6 lg:gap-8 items-end">
                     <div class="lg:col-span-7 space-y-4 text-center lg:text-left rtl:lg:text-right">
-                        <div class="inline-flex flex-wrap items-center justify-center lg:justify-start gap-2 px-3.5 py-1.5 rounded-full bg-[#1D1D1F] border border-white/10 text-[10px] sm:text-[11px] font-medium text-white/85">
+                        <div class="inline-flex flex-wrap items-center justify-center lg:justify-start gap-2 px-3.5 py-1.5 rounded-full bg-[#F7F7F8] border border-black/[0.08] text-[10px] sm:text-[11px] font-medium text-black">
                             <span class="px-2.5 py-0.5 rounded-full bg-[#000000] text-[#FFFFFF] text-[9px] font-mono font-medium shrink-0">AWARD-WINNING AGENCY</span>
                             <span>INVESTIGATION &amp; SURVEILLANCE FIRM OF THE YEAR — DAT GROUP</span>
                         </div>
 
-                        <h1 data-i18n-html="hero_h1" class="apple-heading text-[32px] sm:text-[46px] lg:text-[54px] font-normal text-[#FFFFFF] leading-[1.08]">Don't surrender to doubts. <span class="cf-text-gradient">Prove the truth with evidence.</span></h1>
+                        <h1 data-i18n-html="hero_h1" class="apple-heading text-[32px] sm:text-[46px] lg:text-[54px] font-medium text-[#000000] leading-[1.08]">Don't surrender to doubts. <span class="cf-text-gradient">Prove the truth with evidence.</span></h1>
                     </div>
 
                     <div class="lg:col-span-5 space-y-4 text-center lg:text-left rtl:lg:text-right">
-                        <p data-i18n-html="hero_lead" class="text-[13.5px] sm:text-[15px] font-regular text-white/70 leading-[1.6]"><strong>Since 2005</strong>, led by founder <strong>Ümit Hakan Karakaya</strong> with over <strong>4,000 successfully resolved cases</strong> to date, <strong>DAT Private Detective Agency</strong> stands by your side across Turkey and worldwide with a <strong>100% proof, court evidence, and satisfaction guarantee</strong> in spouse surveillance, pre-marital checks, custody and divorce cases, and address & debtor tracing.</p>
+                        <p data-i18n-html="hero_lead" class="text-[13.5px] sm:text-[15px] font-regular text-neutral-700 leading-[1.6]"><strong>Since 2005</strong>, led by founder <strong>Ümit Hakan Karakaya</strong> with over <strong>4,000 successfully resolved cases</strong> to date, <strong>DAT Private Detective Agency</strong> stands by your side across Turkey and worldwide with a <strong>100% proof, court evidence, and satisfaction guarantee</strong> in spouse surveillance, pre-marital checks, custody and divorce cases, and address & debtor tracing.</p>
 
                         <div class="flex flex-col sm:flex-row gap-2.5 justify-center lg:justify-start">
                             <a href="#vaka-bildir" class="px-5 py-3.5 rounded-full bg-[#000000] hover:bg-[#262626] text-[#111111] font-medium text-xs sm:text-[13px] tracking-tight sm:whitespace-nowrap transition flex items-center justify-center gap-2 active:scale-[0.98]" title="Ücretsiz Ön Görüşme, Vaka Bildirimi ve Dedektif Fiyat Teklifi Formu — DAT Detective">
                                 <i class="hgi hgi-stroke hgi-security-check w-4 h-4"></i>
                                 <span>Get Instant Quote &amp; Consultation</span>
                             </a>
-                            <a href="https://wa.me/905326667749?text=Merhaba%2C%20DAT%20Dedektiflik%20hizmetleri%20ve%20fiyat%20teklifi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 rounded-full bg-[#1D1D1F] hover:bg-[#2A2A2D] text-[#FFFFFF] font-medium text-xs sm:text-[13px] tracking-tight sm:whitespace-nowrap transition flex items-center justify-center gap-2 border border-white/15 active:scale-[0.98]" title="7/24 WhatsApp Özel Dedektif Danışma Hattı: 0532 666 77 49 — DAT Detective">
+                            <a href="https://wa.me/905326667749?text=Merhaba%2C%20DAT%20Dedektiflik%20hizmetleri%20ve%20fiyat%20teklifi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 rounded-full bg-black hover:bg-neutral-800 text-white font-medium text-xs sm:text-[13px] tracking-tight sm:whitespace-nowrap transition flex items-center justify-center gap-2 active:scale-[0.98]" title="7/24 WhatsApp Özel Dedektif Danışma Hattı: 0532 666 77 49 — DAT Detective">
                                 <i class="hgi hgi-stroke hgi-whatsapp w-4 h-4 text-[#000000]"></i>
                                 <span>WhatsApp Line: 0532 666 77 49</span>
                             </a>
@@ -2329,29 +2469,30 @@
                         <svg viewbox="0 0 360 110" class="w-full h-full drop-shadow-[0_14px_28px_rgba(147,240,81,0.28)]" aria-hidden="true">
                             <path d="M55 8 H108 C142 8 156 32 180 32 C204 32 218 8 252 8 H305 C334 8 355 29 355 55 C355 81 334 102 305 102 H252 C218 102 204 78 180 78 C156 78 142 102 108 102 H55 C26 102 5 81 5 55 C5 29 26 8 55 8 Z" fill="#000000" />
                         </svg>
-                        <div class="keep-dark-ink absolute inset-0 grid grid-cols-12 items-center px-5">
+                        <div class="absolute inset-0 grid grid-cols-12 items-center px-5">
                             <div class="col-span-5 text-center">
-                                <div class="text-2xl sm:text-[28px] font-normal text-[#111111] leading-none tracking-tight">2005</div>
-                                <div class="text-[10px] font-medium text-[#111111]/80 mt-1">Founded</div>
+                                <div class="text-2xl sm:text-[28px] font-normal leading-none tracking-tight" style="color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important;">2005</div>
+                                <div class="text-[10px] font-medium mt-1" style="color: rgba(255, 255, 255, 0.75) !important; -webkit-text-fill-color: rgba(255, 255, 255, 0.75) !important;">Founded</div>
                             </div>
                             <div class="col-span-2 flex justify-center">
-                                <span class="w-7 h-7 rounded-full bg-[#111111] text-[#FFFFFF] flex items-center justify-center shadow-sm">
-                                    <i class="hgi hgi-stroke hgi-security-check w-3.5 h-3.5 text-[#000000]"></i>
+                                <span class="w-7 h-7 rounded-full bg-white/15 text-white flex items-center justify-center shadow-sm">
+                                    <i class="hgi hgi-stroke hgi-security-check w-3.5 h-3.5" style="color: #FFFFFF !important;"></i>
                                 </span>
                             </div>
                             <div class="col-span-5 text-center">
-                                <div class="text-2xl sm:text-[28px] font-normal text-[#111111] leading-none tracking-tight">4,000+</div>
-                                <div class="text-[10px] font-medium text-[#111111]/80 mt-1">Cases Resolved</div>
+                                <div class="text-2xl sm:text-[28px] font-normal leading-none tracking-tight" style="color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important;">4,000+</div>
+                                <div class="text-[10px] font-medium mt-1" style="color: rgba(255, 255, 255, 0.75) !important; -webkit-text-fill-color: rgba(255, 255, 255, 0.75) !important;">Cases Resolved</div>
                             </div>
                         </div>
                     </div>
+                </div>
                 </div>
 
                 <!-- 12-Column Studio Bento Grid -->
                 <div class="grid lg:grid-cols-12 gap-5">
 
                     <!-- Bento 1 (7 Cols - Crisp Pure White Sheet + 2x2 Coral Domain Mapping Widget from Screenshot 4) -->
-                    <div class="lg:col-span-7 bg-[#FFFFFF] rounded-[28px] p-6 sm:p-8 border border-black/[0.06] studio-shadow flex flex-col justify-between space-y-6">
+                    <div id="delil-standartlari" class="lg:col-span-7 bg-[#FFFFFF] rounded-[28px] p-6 sm:p-8 border border-black/[0.06] studio-shadow flex flex-col justify-between space-y-6 scroll-mt-24">
                         <div class="grid sm:grid-cols-12 gap-6 items-center">
                             <div class="sm:col-span-7 space-y-3">
                                 <span class="inline-block px-3 py-1 rounded-full bg-[#F2F2F2] text-[#111111] font-mono text-[10.5px] font-medium">PRIVATE INVESTIGATION &amp; LEGAL COMPLIANCE</span>
@@ -2551,7 +2692,7 @@
                     </div>
 
                     <!-- Bento 4 (7 Cols - Pure White Sheet + Segmented Equalizer Chart from Screenshots 4 & 6) -->
-                    <div class="lg:col-span-7 bg-[#FFFFFF] rounded-[28px] p-6 sm:p-8 border border-black/[0.06] studio-shadow flex flex-col justify-between space-y-6">
+                    <div id="delil-standartlari" class="lg:col-span-7 bg-[#FFFFFF] rounded-[28px] p-6 sm:p-8 border border-black/[0.06] studio-shadow flex flex-col justify-between space-y-6 scroll-mt-24">
                         <div class="space-y-4">
                             <div class="flex flex-wrap items-center justify-between gap-2">
                                 <span class="px-3 py-1 rounded-full bg-[#F2F2F2] text-[#111111] font-mono text-[10.5px] font-medium">NATIONAL &amp; INTERNATIONAL COVERAGE</span>
@@ -2622,7 +2763,7 @@
         </section>
 
         <!-- 3. YENİ NESİL DEDEKTİF / DEDEKTİF'E SOR (#dedektife-sor - Studio Obsidian Dark #111111) -->
-        <section id="dedektife-sor" class="py-14 sm:py-20 bg-[#111111] text-[#FFFFFF] border-y border-white/10 relative overflow-hidden">
+        <section id="mimari" class="py-12 sm:py-16 bg-[#FFFFFF] text-[#111111]">
             <!-- Subtle Radial Ambient Glow -->
             <div class="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-[#000000]/10 rounded-full blur-[120px]"></div>
 
@@ -2831,7 +2972,7 @@
         </section>
 
         <!-- 4. 12 OFFICIAL SERVICES (#hizmetler - Gallery Light #F2F2F2 + Folder-Tab Notched Cards) -->
-        <section id="hizmetler" class="py-12 sm:py-16 bg-[#F2F2F2]">
+        <section id="hizmetler" class="py-12 sm:py-16 bg-[#FFFFFF]">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 <div class="flex flex-col lg:flex-row items-center lg:items-end justify-between gap-5 mb-7 sm:mb-9 text-center lg:text-left rtl:lg:text-right">
@@ -3641,7 +3782,7 @@
         </section>
 
         <!-- 6. 4 ADIMDA DEDEKTİFLİK İŞLEMİ TAMAM (#vaka-sureci - Gallery Light #F2F2F2 + 4 Folder-Tab Steps) -->
-        <section id="vaka-sureci" class="py-12 sm:py-16 bg-[#F2F2F2] border-t border-black/[0.06]">
+        <section id="vaka-sureci" class="py-12 sm:py-16 bg-[#FFFFFF] border-t border-black/[0.06]">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 <div class="text-center max-w-3xl mx-auto space-y-2.5 mb-7 sm:mb-9">
@@ -3822,7 +3963,7 @@
         </section>
 
         <!-- 7. FOUNDER SPOTLIGHT, PRESS GALLERY & FOLDER-TAB GUIDE ARTICLES (#makaleler - Obsidian Dark Showcase, Reference Images 6, 8, 9) -->
-        <section id="makaleler" class="py-12 sm:py-16 bg-[#111111] text-[#FFFFFF]">
+        <section id="makaleler" class="py-14 sm:py-20 bg-[#FFFFFF] text-[#000000] border-t border-black/[0.08]">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
 
                 <!-- Kurucu Biyografisi Spotlight Kartı: Ümit Hakan Karakaya -->
@@ -4589,7 +4730,7 @@
         </section>
 
         <!-- 8. INTERNATIONAL OFFICES (#ofislerimiz - Gallery Light #F2F2F2) -->
-        <section id="ofislerimiz" class="py-12 sm:py-16 bg-[#F2F2F2]">
+        <section id="ofislerimiz" class="py-12 sm:py-16 bg-[#FFFFFF]">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 <div class="text-center max-w-3xl mx-auto space-y-2.5 mb-7 sm:mb-9">
@@ -4863,7 +5004,7 @@
         </section>
 
         <!-- 9. ENCRYPTED CASE SUBMISSION (#vaka-bildir - Obsidian Surround + Pure White Precision Application Sheet) -->
-        <section id="vaka-bildir" class="py-12 sm:py-16 bg-[#111111] text-[#FFFFFF]">
+        <section id="vaka-bildir" class="py-14 sm:py-20 bg-[#FFFFFF] text-[#000000] border-t border-black/[0.08]">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 <div class="text-center space-y-3 mb-7 sm:mb-9">
