@@ -1684,9 +1684,6 @@
             color: #111111 !important;
             -webkit-text-fill-color: #111111 !important;
         }
-        :where(html:not([data-theme="dark"])) :where(.bg-\[\#FFFFFF\], .bg-white, .bg-white\/95, .bg-\[\#F7F7F8\], .bg-\[\#FAFAFA\], .bg-\[\#F2F2F2\]) :where(svg, i, .hgi) {
-            stroke: currentColor;
-        }
 
         /* --- L1: Muted Secondary Text & Subtle Light-Tint Pills in Light Mode (0,1,0) --- */
         :where(html:not([data-theme="dark"])) .text-\[\#3A3E42\] {
@@ -1725,7 +1722,7 @@
             .bg-black\/\[0\.04\], .bg-black\/\[0\.05\], .bg-black\/\[0\.06\], .bg-black\/\[0\.08\],
             .bg-black\/5, .bg-black\/10,
             .hover\:bg-black\/\[0\.04\], .hover\:bg-black\/\[0\.05\], .hover\:bg-black\/\[0\.08\]
-        ):not(.bg-black):not([href*="wa.me"]):not([href*="whatsapp"]) svg {
+        ):not(.bg-black):not([href*="wa.me"]):not([href*="whatsapp"]) svg[stroke="currentColor"] {
             stroke: #111111 !important;
         }
 
@@ -1751,7 +1748,7 @@
             color: #FFFFFF !important;
             -webkit-text-fill-color: #FFFFFF !important;
         }
-        .theme-keep-dark :is(svg, i, .hgi) {
+        .theme-keep-dark :is(svg[stroke="currentColor"], i, .hgi) {
             stroke: #FFFFFF !important;
         }
 
@@ -1784,7 +1781,7 @@
             button.bg-\[\#111111\], a.bg-\[\#111111\], span.bg-\[\#111111\],
             .openai-cta-btn, .theme-keep-dark, .theme-dark-feature-banner,
             [class*="from-[#111111]"], [class*="from-black"]
-        ) :is(svg, i, .hgi) {
+        ) :is(svg[stroke="currentColor"], i, .hgi) {
             stroke: #FFFFFF !important;
         }
 
@@ -1815,7 +1812,7 @@
             .bg-black, .bg-black\/80, .bg-black\/85, .bg-black\/90, .bg-black\/95,
             .bg-\[\#000000\], .bg-\[\#111111\], .theme-keep-dark, .theme-dark-feature-banner,
             [class*="from-[#111111]"], [class*="from-black"]
-        ) :is(.bg-white, .bg-\[\#FFFFFF\], .bg-\[\#F7F7F8\], .bg-\[\#F2F2F2\]) svg {
+        ) :is(.bg-white, .bg-\[\#FFFFFF\], .bg-\[\#F7F7F8\], .bg-\[\#F2F2F2\]) svg[stroke="currentColor"] {
             stroke: #111111 !important;
         }
 
@@ -1849,7 +1846,7 @@
             color: #FFFFFF !important;
             -webkit-text-fill-color: #FFFFFF !important;
         }
-        html[data-theme="dark"] :where(.bg-\[\#FFFFFF\], .bg-white, .bg-white\/95, .bg-\[\#F7F7F8\], .bg-\[\#FAFAFA\], .bg-\[\#F2F2F2\]):not(.iphone-keep-white) :where(i, .hgi, svg) {
+        html[data-theme="dark"] :where(.bg-\[\#FFFFFF\], .bg-white, .bg-white\/95, .bg-\[\#F7F7F8\], .bg-\[\#FAFAFA\], .bg-\[\#F2F2F2\]):not(.iphone-keep-white) :where(i, .hgi, svg[stroke="currentColor"]) {
             color: #FFFFFF !important;
             stroke: #FFFFFF !important;
         }
@@ -1882,7 +1879,7 @@
         html[data-theme="dark"] :is(
             .bg-black\/\[0\.04\], .bg-black\/\[0\.05\], .bg-black\/\[0\.06\], .bg-black\/\[0\.08\],
             .bg-black\/5, .bg-black\/10
-        ):not(.bg-black):not([href*="wa.me"]):not([href*="whatsapp"]) svg {
+        ):not(.bg-black):not([href*="wa.me"]):not([href*="whatsapp"]) svg[stroke="currentColor"] {
             stroke: #FFFFFF !important;
         }
         html[data-theme="dark"] :is(a.bg-black, button.bg-black, a[href*="wa.me"], a[href*="whatsapp"]) {
@@ -1895,7 +1892,7 @@
             color: #111111 !important;
             -webkit-text-fill-color: #111111 !important;
         }
-        html[data-theme="dark"] :is(a.bg-black, button.bg-black, a[href*="wa.me"], a[href*="whatsapp"]) svg {
+        html[data-theme="dark"] :is(a.bg-black, button.bg-black, a[href*="wa.me"], a[href*="whatsapp"]) svg[stroke="currentColor"] {
             stroke: #111111 !important;
         }
         /* Dark mode nested white pills inside dark containers (e.g. 12-36h pill) */
@@ -1905,7 +1902,17 @@
             color: #111111 !important;
             -webkit-text-fill-color: #111111 !important;
         }
-    </style>
+    
+        /* Never draw strokes on decorative filled SVGs (folder-tab notches, metaball pills, wave dividers) */
+        svg.notch-match-surface,
+        svg.notch-match-surface path,
+        svg[preserveAspectRatio="none"],
+        svg[preserveAspectRatio="none"] path,
+        svg[aria-hidden="true"]:not([stroke="currentColor"]),
+        svg[aria-hidden="true"]:not([stroke="currentColor"]) path {
+            stroke: none !important;
+        }
+</style>
 </head>
 <body id="top" class="bg-[#FFFFFF] text-[#000000] font-sans antialiased selection:bg-black selection:text-white relative overflow-x-clip transition-colors duration-200">
 
