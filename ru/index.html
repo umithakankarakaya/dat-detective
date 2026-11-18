@@ -1357,133 +1357,7 @@
         }
 
         /* ==================================================== */
-        
-        /* Elsa Chat Studio Strict White Contrast in Dark Bubble */
-        #aiChatMessages,
-        #aiChatMessages .theme-keep-dark,
-        #aiChatMessages .theme-keep-dark *,
-        #aiChatMessages .bg-\[\#111111\],
-        #aiChatMessages .bg-\[\#111111\] p,
-        #aiChatMessages .bg-\[\#111111\] span,
-        #aiChatMessages .bg-\[\#111111\] strong,
-        #aiChatMessages .bg-\[\#111111\] button {
-            color: #FFFFFF !important;
-            -webkit-text-fill-color: #FFFFFF !important;
-        }
-        #aiChatMessages .bg-\[\#111111\] button {
-            background-color: rgba(255, 255, 255, 0.15) !important;
-            border-color: rgba(255, 255, 255, 0.20) !important;
-        }
-        #aiChatMessages .bg-\[\#111111\] button:hover {
-            background-color: rgba(255, 255, 255, 0.25) !important;
-        }
-
-        /* BULLETPROOF CARD & TYPOGRAPHY ISOLATION GUARD (DUAL-MODE APPLE SPEC) */
-        /* Any card on a white or light gray surface MUST have crisp black text IN LIGHT MODE ONLY */
-        html:not([data-theme="dark"]) :where(.bg-\[\#FFFFFF\], .bg-white, .bg-\[\#F7F7F8\], .bg-\[\#FAFAFA\], .bg-\[\#F2F2F2\]) {
-            color: #111111 !important;
-        }
-
-        html:not([data-theme="dark"]) :where(.bg-\[\#FFFFFF\], .bg-white, .bg-\[\#F7F7F8\], .bg-\[\#FAFAFA\], .bg-\[\#F2F2F2\]) :where(h1, h2, h3, h4, h5, h6, p, li, div, span):not([class*="bg-black"]):not([class*="bg-\[\#000000\]"]):not([class*="bg-\[\#111111\]"]):not([class*="bg-\[\#161618\]"]):not([class*="bg-\[\#18181A\]"]):not([class*="bg-\[\#242426\]"]):not([class*="bg-\[\#262626\]"]):not([class*="bg-\[\#1D1D1F\]"]):not(.text-white):not([class*="text-white"]):not(.badge-dark):not(.pill-dark) {
-            color: #111111 !important;
-            -webkit-text-fill-color: #111111 !important;
-        }
-
-        html:not([data-theme="dark"]) :where(.bg-\[\#FFFFFF\], .bg-white, .bg-\[\#F7F7F8\], .bg-\[\#FAFAFA\], .bg-\[\#F2F2F2\]) .text-\[\#3A3E42\],
-        html:not([data-theme="dark"]) .text-\[\#3A3E42\] {
-            color: #3A3E42 !important;
-            -webkit-text-fill-color: #3A3E42 !important;
-        }
-
-        /* Hugeicons and svg strokes inside light containers must be dark in light mode */
-        html:not([data-theme="dark"]) :where(.bg-\[\#F7F7F8\], .bg-\[\#F2F2F2\], .bg-\[\#FFFFFF\], .bg-white) i:not(.text-white):not([class*="text-white"]),
-        html:not([data-theme="dark"]) :where(.bg-\[\#F7F7F8\], .bg-\[\#F2F2F2\], .bg-\[\#FFFFFF\], .bg-white) .hgi:not(.text-white):not([class*="text-white"]) {
-            color: #111111 !important;
-            stroke: #111111 !important;
-        }
-
-        /* Explicit Dark buttons, badges & overlays inside light containers MUST have white text */
-        html:not([data-theme="dark"]) :where(.bg-black, [class*="bg-black"], .bg-\[\#000000\], .bg-\[\#111111\], .bg-\[\#161618\], .bg-\[\#18181A\], .bg-\[\#242426\], .bg-\[\#262626\], .bg-\[\#1D1D1F\]) :where(span, div, p, i, .hgi, b, strong) {
-            color: #FFFFFF !important;
-            -webkit-text-fill-color: #FFFFFF !important;
-            stroke: #FFFFFF !important;
-        }
-
-        /* In Dark Mode, explicit light typography for all cards */
-        html[data-theme="dark"] :where(.bg-\[\#FFFFFF\], .bg-white, .bg-\[\#F7F7F8\], .bg-\[\#FAFAFA\], .bg-\[\#F2F2F2\]):not(.iphone-keep-white) {
-            background-color: #18181A !important;
-            border-color: rgba(255, 255, 255, 0.12) !important;
-        }
-
-        html[data-theme="dark"] :where(.bg-\[\#FFFFFF\], .bg-white, .bg-\[\#F7F7F8\], .bg-\[\#FAFAFA\], .bg-\[\#F2F2F2\]):not(.iphone-keep-white) :where(p, li, div, span):not([class*="bg-white"]):not(.text-black) {
-            color: #D4D4D8 !important;
-            -webkit-text-fill-color: #D4D4D8 !important;
-        }
-
-        html[data-theme="dark"] :where(.bg-\[\#FFFFFF\], .bg-white, .bg-\[\#F7F7F8\], .bg-\[\#FAFAFA\], .bg-\[\#F2F2F2\]):not(.iphone-keep-white) :where(h1, h2, h3, h4, h5, h6, strong, b, .apple-heading, .apple-subhead) {
-            color: #FFFFFF !important;
-            -webkit-text-fill-color: #FFFFFF !important;
-        }
-
-        html[data-theme="dark"] .text-\[\#3A3E42\] {
-            color: #A1A1AA !important;
-            -webkit-text-fill-color: #A1A1AA !important;
-        }
-        /* ==================================================== */
-
-        /* ==================================================== */
-        /* Any card on a white or light gray surface MUST have crisp black text */
-        .bg-\[\#FFFFFF\], .bg-\[\#FFFFFF\] h1, .bg-\[\#FFFFFF\] h2, .bg-\[\#FFFFFF\] h3, .bg-\[\#FFFFFF\] h4, .bg-\[\#FFFFFF\] h5, .bg-\[\#FFFFFF\] h6, .bg-\[\#FFFFFF\] p, .bg-\[\#FFFFFF\] li,
-        .bg-white, .bg-white h1, .bg-white h2, .bg-white h3, .bg-white h4, .bg-white h5, .bg-white h6, .bg-white p, .bg-white li,
-        .bg-\[\#F7F7F8\], .bg-\[\#F7F7F8\] h1, .bg-\[\#F7F7F8\] h2, .bg-\[\#F7F7F8\] h3, .bg-\[\#F7F7F8\] h4, .bg-\[\#F7F7F8\] h5, .bg-\[\#F7F7F8\] h6, .bg-\[\#F7F7F8\] p, .bg-\[\#F7F7F8\] li,
-        .bg-\[\#FAFAFA\], .bg-\[\#FAFAFA\] h1, .bg-\[\#FAFAFA\] h2, .bg-\[\#FAFAFA\] h3, .bg-\[\#FAFAFA\] h4, .bg-\[\#FAFAFA\] p, .bg-\[\#FAFAFA\] li,
-        .bg-\[\#F2F2F2\], .bg-\[\#F2F2F2\] h1, .bg-\[\#F2F2F2\] h2, .bg-\[\#F2F2F2\] h3, .bg-\[\#F2F2F2\] h4, .bg-\[\#F2F2F2\] p, .bg-\[\#F2F2F2\] li {
-            color: #111111 !important;
-            -webkit-text-fill-color: #111111 !important;
-        }
-
-        /* Span texts inside light cards (excluding explicit dark badges) */
-        .bg-\[\#FFFFFF\] span:not(.text-white):not([class*="bg-black"]):not([class*="bg-[#000000]"]):not([class*="bg-[#111111]"]),
-        .bg-white span:not(.text-white):not([class*="bg-black"]):not([class*="bg-[#000000]"]):not([class*="bg-[#111111]"]),
-        .bg-\[\#F7F7F8\] span:not(.text-white):not([class*="bg-black"]):not([class*="bg-[#000000]"]):not([class*="bg-[#111111]"]) {
-            color: #111111 !important;
-            -webkit-text-fill-color: #111111 !important;
-        }
-
-        /* Hugeicons and svg strokes inside light containers must be dark */
-        .bg-\[\#F7F7F8\] i:not(.text-white), .bg-\[\#F7F7F8\] .hgi:not(.text-white),
-        .bg-\[\#FFFFFF\] i:not(.text-white), .bg-\[\#FFFFFF\] .hgi:not(.text-white),
-        .bg-white i:not(.text-white), .bg-white .hgi:not(.text-white) {
-            color: #111111 !important;
-            stroke: #111111 !important;
-        }
-
-        /* Explicit Dark buttons, badges & overlays inside light containers MUST have white text */
-        .bg-\[\#FFFFFF\] .bg-black, .bg-\[\#FFFFFF\] .bg-black *,
-        .bg-\[\#FFFFFF\] button.bg-black, .bg-\[\#FFFFFF\] button.bg-black *,
-        .bg-\[\#FFFFFF\] a.bg-black, .bg-\[\#FFFFFF\] a.bg-black *,
-        .bg-\[\#FFFFFF\] [class*="bg-black/"], .bg-\[\#FFFFFF\] [class*="bg-black/"] *,
-        .bg-\[\#FFFFFF\] .bg-\[\#000000\], .bg-\[\#FFFFFF\] .bg-\[\#000000\] *,
-        .bg-\[\#FFFFFF\] .bg-\[\#111111\], .bg-\[\#FFFFFF\] .bg-\[\#111111\] *,
-        .bg-\[\#F7F7F8\] .bg-black, .bg-\[\#F7F7F8\] .bg-black *,
-        .bg-\[\#F7F7F8\] button.bg-black, .bg-\[\#F7F7F8\] button.bg-black *,
-        .bg-\[\#F7F7F8\] a.bg-black, .bg-\[\#F7F7F8\] a.bg-black *,
-        .bg-\[\#F7F7F8\] [class*="bg-black/"], .bg-\[\#F7F7F8\] [class*="bg-black/"] *,
-        .bg-\[\#F7F7F8\] .bg-\[\#000000\], .bg-\[\#F7F7F8\] .bg-\[\#000000\] *,
-        .bg-\[\#F7F7F8\] .bg-\[\#111111\], .bg-\[\#F7F7F8\] .bg-\[\#111111\] * {
-            color: #FFFFFF !important;
-            -webkit-text-fill-color: #FFFFFF !important;
-        }
-
-        .bg-\[\#FFFFFF\] .bg-black i, .bg-\[\#FFFFFF\] .bg-black .hgi,
-        .bg-\[\#F7F7F8\] .bg-black i, .bg-\[\#F7F7F8\] .bg-black .hgi,
-        .bg-\[\#FFFFFF\] [class*="bg-black/"] i, .bg-\[\#FFFFFF\] [class*="bg-black/"] .hgi,
-        .bg-\[\#F7F7F8\] [class*="bg-black/"] i, .bg-\[\#F7F7F8\] [class*="bg-black/"] .hgi {
-            color: #FFFFFF !important;
-            stroke: #FFFFFF !important;
-        }
-
-    </style>
+</style>
 <style id="openai-master-system">
         
         /* EXPLICIT WHITE TEXT DEFINITIONS FOR DARK ELEMENTS */
@@ -1619,13 +1493,13 @@
             stroke: #FFFFFF !important;
         }
 
-        /* Ensure all card containers in sections render cleanly */
-        .card-dark,
-        section:not(.theme-dark-feature-banner) .bg-\[\#1D1D1F\],
-        section:not(.theme-dark-feature-banner) .bg-\[\#1A1A1D\],
-        section:not(.theme-dark-feature-banner) .bg-\[\#18181A\],
-        section:not(.theme-dark-feature-banner) .bg-\[\#141416\],
-        section:not(.theme-dark-feature-banner) .bg-\[\#111111\] {
+        /* Ensure dark-origin card containers lighten cleanly ONLY in Light Mode (never Dark Mode, never .theme-keep-dark) */
+        html:not([data-theme="dark"]) .card-dark:not(.theme-keep-dark),
+        html:not([data-theme="dark"]) section:not(.theme-dark-feature-banner) .bg-\[\#1D1D1F\]:not(.theme-keep-dark):not(.theme-keep-dark *),
+        html:not([data-theme="dark"]) section:not(.theme-dark-feature-banner) .bg-\[\#1A1A1D\]:not(.theme-keep-dark):not(.theme-keep-dark *),
+        html:not([data-theme="dark"]) section:not(.theme-dark-feature-banner) .bg-\[\#18181A\]:not(.theme-keep-dark):not(.theme-keep-dark *),
+        html:not([data-theme="dark"]) section:not(.theme-dark-feature-banner) .bg-\[\#141416\]:not(.theme-keep-dark):not(.theme-keep-dark *),
+        html:not([data-theme="dark"]) section:not(.theme-dark-feature-banner) .bg-\[\#111111\]:not(.theme-keep-dark):not(.theme-keep-dark *):not(a):not(button):not(span) {
             background-color: #F7F7F8 !important;
             color: #111111 !important;
             border: 1px solid rgba(0, 0, 0, 0.08) !important;
@@ -1790,132 +1664,247 @@
         }
 
         /* ==================================================== */
-        
-        /* Elsa Chat Studio Strict White Contrast in Dark Bubble */
-        #aiChatMessages,
+</style>
+    <style id="dat-contrast-system">
+        /* =====================================================================
+           DAT DETECTIVE — AUTHORITATIVE DUAL-MODE CONTRAST SYSTEM (ZERO COLLISION)
+           Strict specificity ladder:
+             L0 (0,0,0): Light surface default ink (#111111)
+             L1 (0,1,0): Muted grays (#3A3E42, #595959) & light-tint pills (bg-black/[0.04..0.10])
+             L2 (0,2,1): Solid dark surfaces/buttons/badges/WhatsApp CTAs/photo gradients (#FFFFFF ink)
+             L3 (0,3,1): Nested light pills inside dark containers or photo gradients (#111111 ink)
+           ===================================================================== */
+
+        /* --- L0: Light Mode Baseline for Light Surfaces (0,0,0 specificity) --- */
+        :where(html:not([data-theme="dark"])) :where(.bg-\[\#FFFFFF\], .bg-white, .bg-white\/95, .bg-\[\#F7F7F8\], .bg-\[\#FAFAFA\], .bg-\[\#F2F2F2\]) {
+            color: #111111 !important;
+            -webkit-text-fill-color: #111111 !important;
+        }
+        :where(html:not([data-theme="dark"])) :where(.bg-\[\#FFFFFF\], .bg-white, .bg-white\/95, .bg-\[\#F7F7F8\], .bg-\[\#FAFAFA\], .bg-\[\#F2F2F2\]) :where(h1, h2, h3, h4, h5, h6, p, li, div, span, a, button, i, .hgi, svg) {
+            color: #111111 !important;
+            -webkit-text-fill-color: #111111 !important;
+        }
+        :where(html:not([data-theme="dark"])) :where(.bg-\[\#FFFFFF\], .bg-white, .bg-white\/95, .bg-\[\#F7F7F8\], .bg-\[\#FAFAFA\], .bg-\[\#F2F2F2\]) :where(svg, i, .hgi) {
+            stroke: currentColor;
+        }
+
+        /* --- L1: Muted Secondary Text & Subtle Light-Tint Pills in Light Mode (0,1,0) --- */
+        :where(html:not([data-theme="dark"])) .text-\[\#3A3E42\] {
+            color: #3A3E42 !important;
+            -webkit-text-fill-color: #3A3E42 !important;
+        }
+        :where(html:not([data-theme="dark"])) .text-\[\#595959\] {
+            color: #595959 !important;
+            -webkit-text-fill-color: #595959 !important;
+        }
+        :where(html:not([data-theme="dark"])) .text-neutral-500,
+        :where(html:not([data-theme="dark"])) .text-neutral-600 {
+            color: #525252 !important;
+            -webkit-text-fill-color: #525252 !important;
+        }
+        :where(html:not([data-theme="dark"])) .text-neutral-700 {
+            color: #404040 !important;
+            -webkit-text-fill-color: #404040 !important;
+        }
+
+        /* Subtle light-gray tint pills (bg-black/[0.04], hover:bg-black/[0.05], etc.) MUST have dark ink & icons */
+        :where(html:not([data-theme="dark"])) :is(
+            .bg-black\/\[0\.04\], .bg-black\/\[0\.05\], .bg-black\/\[0\.06\], .bg-black\/\[0\.08\],
+            .bg-black\/5, .bg-black\/10,
+            .hover\:bg-black\/\[0\.04\], .hover\:bg-black\/\[0\.05\], .hover\:bg-black\/\[0\.08\]
+        ):not(.bg-black):not([href*="wa.me"]):not([href*="whatsapp"]),
+        :where(html:not([data-theme="dark"])) :is(
+            .bg-black\/\[0\.04\], .bg-black\/\[0\.05\], .bg-black\/\[0\.06\], .bg-black\/\[0\.08\],
+            .bg-black\/5, .bg-black\/10,
+            .hover\:bg-black\/\[0\.04\], .hover\:bg-black\/\[0\.05\], .hover\:bg-black\/\[0\.08\]
+        ):not(.bg-black):not([href*="wa.me"]):not([href*="whatsapp"]) :is(span, svg, i, .hgi, p, div) {
+            color: #111111 !important;
+            -webkit-text-fill-color: #111111 !important;
+        }
+        :where(html:not([data-theme="dark"])) :is(
+            .bg-black\/\[0\.04\], .bg-black\/\[0\.05\], .bg-black\/\[0\.06\], .bg-black\/\[0\.08\],
+            .bg-black\/5, .bg-black\/10,
+            .hover\:bg-black\/\[0\.04\], .hover\:bg-black\/\[0\.05\], .hover\:bg-black\/\[0\.08\]
+        ):not(.bg-black):not([href*="wa.me"]):not([href*="whatsapp"]) svg {
+            stroke: #111111 !important;
+        }
+
+        /* Explicit dark surface protection for .theme-keep-dark cards (48h Protocol, Chat Studio, Dark Pills) in BOTH modes */
+        .theme-keep-dark.bg-\[\#18181A\] {
+            background-color: #18181A !important;
+            border-color: rgba(255, 255, 255, 0.14) !important;
+        }
+        .theme-keep-dark.bg-\[\#161618\] {
+            background-color: #161618 !important;
+            border-color: rgba(255, 255, 255, 0.12) !important;
+        }
+        .theme-keep-dark.bg-\[\#111111\] {
+            background-color: #111111 !important;
+            border-color: rgba(255, 255, 255, 0.15) !important;
+        }
+        .theme-keep-dark.bg-\[\#1D1D1F\] {
+            background-color: #1D1D1F !important;
+            border-color: rgba(255, 255, 255, 0.15) !important;
+        }
+        .theme-keep-dark,
+        .theme-keep-dark :is(h1, h2, h3, h4, h5, h6, p, span, div, li, strong, b, a, button, i, .hgi, svg) {
+            color: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
+        }
+        .theme-keep-dark :is(svg, i, .hgi) {
+            stroke: #FFFFFF !important;
+        }
+
+        /* --- L2: Explicit SOLID DARK Buttons, Badges, Overlays & Photo Gradients (0,2,1) --- */
+        html:not([data-theme="dark"]) :is(
+            .bg-black, .bg-black\/80, .bg-black\/85, .bg-black\/90, .bg-black\/95,
+            .bg-\[\#000000\],
+            a[href*="wa.me"], a[href*="whatsapp"],
+            button.bg-\[\#111111\], a.bg-\[\#111111\], span.bg-\[\#111111\],
+            .openai-cta-btn, .theme-keep-dark, .theme-dark-feature-banner,
+            .photo-overlay-label, #aiChatMessages .bg-\[\#111111\],
+            [class*="from-[#111111]"], [class*="from-black"]
+        ),
+        html:not([data-theme="dark"]) :is(
+            .bg-black, .bg-black\/80, .bg-black\/85, .bg-black\/90, .bg-black\/95,
+            .bg-\[\#000000\],
+            a[href*="wa.me"], a[href*="whatsapp"],
+            button.bg-\[\#111111\], a.bg-\[\#111111\], span.bg-\[\#111111\],
+            .openai-cta-btn, .theme-keep-dark, .theme-dark-feature-banner,
+            .photo-overlay-label, #aiChatMessages .bg-\[\#111111\],
+            [class*="from-[#111111]"], [class*="from-black"]
+        ) :is(span, p, div, h1, h2, h3, h4, h5, h6, li, strong, b, i, .hgi, svg, a, button) {
+            color: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
+        }
+        html:not([data-theme="dark"]) :is(
+            .bg-black, .bg-black\/80, .bg-black\/85, .bg-black\/90, .bg-black\/95,
+            .bg-\[\#000000\],
+            a[href*="wa.me"], a[href*="whatsapp"],
+            button.bg-\[\#111111\], a.bg-\[\#111111\], span.bg-\[\#111111\],
+            .openai-cta-btn, .theme-keep-dark, .theme-dark-feature-banner,
+            [class*="from-[#111111]"], [class*="from-black"]
+        ) :is(svg, i, .hgi) {
+            stroke: #FFFFFF !important;
+        }
+
+        /* Hover state for city-arrow pill */
+        html:not([data-theme="dark"]) .group:hover .city-arrow,
+        html:not([data-theme="dark"]) .group:hover .city-arrow * {
+            background-color: #000000 !important;
+            color: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
+            stroke: #FFFFFF !important;
+        }
+
+        /* --- L3: Nested Light Pills / Cards Inside ANY Dark Container or Photo Gradient (0,3,1) --- */
+        html:not([data-theme="dark"]) :is(
+            .bg-black, .bg-black\/80, .bg-black\/85, .bg-black\/90, .bg-black\/95,
+            .bg-\[\#000000\], .bg-\[\#111111\], .theme-keep-dark, .theme-dark-feature-banner,
+            [class*="from-[#111111]"], [class*="from-black"]
+        ) :is(.bg-white, .bg-\[\#FFFFFF\], .bg-\[\#F7F7F8\], .bg-\[\#F2F2F2\]),
+        html:not([data-theme="dark"]) :is(
+            .bg-black, .bg-black\/80, .bg-black\/85, .bg-black\/90, .bg-black\/95,
+            .bg-\[\#000000\], .bg-\[\#111111\], .theme-keep-dark, .theme-dark-feature-banner,
+            [class*="from-[#111111]"], [class*="from-black"]
+        ) :is(.bg-white, .bg-\[\#FFFFFF\], .bg-\[\#F7F7F8\], .bg-\[\#F2F2F2\]) * {
+            color: #111111 !important;
+            -webkit-text-fill-color: #111111 !important;
+        }
+        html:not([data-theme="dark"]) :is(
+            .bg-black, .bg-black\/80, .bg-black\/85, .bg-black\/90, .bg-black\/95,
+            .bg-\[\#000000\], .bg-\[\#111111\], .theme-keep-dark, .theme-dark-feature-banner,
+            [class*="from-[#111111]"], [class*="from-black"]
+        ) :is(.bg-white, .bg-\[\#FFFFFF\], .bg-\[\#F7F7F8\], .bg-\[\#F2F2F2\]) svg {
+            stroke: #111111 !important;
+        }
+
+        /* Elsa Chat Studio Dark Bubble Strict Protection */
         #aiChatMessages .theme-keep-dark,
         #aiChatMessages .theme-keep-dark *,
         #aiChatMessages .bg-\[\#111111\],
-        #aiChatMessages .bg-\[\#111111\] p,
-        #aiChatMessages .bg-\[\#111111\] span,
-        #aiChatMessages .bg-\[\#111111\] strong,
-        #aiChatMessages .bg-\[\#111111\] button {
+        #aiChatMessages .bg-\[\#111111\] * {
             color: #FFFFFF !important;
             -webkit-text-fill-color: #FFFFFF !important;
         }
         #aiChatMessages .bg-\[\#111111\] button {
             background-color: rgba(255, 255, 255, 0.15) !important;
-            border-color: rgba(255, 255, 255, 0.20) !important;
+            border-color: rgba(255, 255, 255, 0.22) !important;
         }
         #aiChatMessages .bg-\[\#111111\] button:hover {
             background-color: rgba(255, 255, 255, 0.25) !important;
         }
 
-        /* BULLETPROOF CARD & TYPOGRAPHY ISOLATION GUARD (DUAL-MODE APPLE SPEC) */
-        /* Any card on a white or light gray surface MUST have crisp black text IN LIGHT MODE ONLY */
-        html:not([data-theme="dark"]) :where(.bg-\[\#FFFFFF\], .bg-white, .bg-\[\#F7F7F8\], .bg-\[\#FAFAFA\], .bg-\[\#F2F2F2\]) {
-            color: #111111 !important;
-        }
-
-        html:not([data-theme="dark"]) :where(.bg-\[\#FFFFFF\], .bg-white, .bg-\[\#F7F7F8\], .bg-\[\#FAFAFA\], .bg-\[\#F2F2F2\]) :where(h1, h2, h3, h4, h5, h6, p, li, div, span):not([class*="bg-black"]):not([class*="bg-\[\#000000\]"]):not([class*="bg-\[\#111111\]"]):not([class*="bg-\[\#161618\]"]):not([class*="bg-\[\#18181A\]"]):not([class*="bg-\[\#242426\]"]):not([class*="bg-\[\#262626\]"]):not([class*="bg-\[\#1D1D1F\]"]):not(.text-white):not([class*="text-white"]):not(.badge-dark):not(.pill-dark) {
-            color: #111111 !important;
-            -webkit-text-fill-color: #111111 !important;
-        }
-
-        html:not([data-theme="dark"]) :where(.bg-\[\#FFFFFF\], .bg-white, .bg-\[\#F7F7F8\], .bg-\[\#FAFAFA\], .bg-\[\#F2F2F2\]) .text-\[\#3A3E42\],
-        html:not([data-theme="dark"]) .text-\[\#3A3E42\] {
-            color: #3A3E42 !important;
-            -webkit-text-fill-color: #3A3E42 !important;
-        }
-
-        /* Hugeicons and svg strokes inside light containers must be dark in light mode */
-        html:not([data-theme="dark"]) :where(.bg-\[\#F7F7F8\], .bg-\[\#F2F2F2\], .bg-\[\#FFFFFF\], .bg-white) i:not(.text-white):not([class*="text-white"]),
-        html:not([data-theme="dark"]) :where(.bg-\[\#F7F7F8\], .bg-\[\#F2F2F2\], .bg-\[\#FFFFFF\], .bg-white) .hgi:not(.text-white):not([class*="text-white"]) {
-            color: #111111 !important;
-            stroke: #111111 !important;
-        }
-
-        /* Explicit Dark buttons, badges & overlays inside light containers MUST have white text */
-        html:not([data-theme="dark"]) :where(.bg-black, [class*="bg-black"], .bg-\[\#000000\], .bg-\[\#111111\], .bg-\[\#161618\], .bg-\[\#18181A\], .bg-\[\#242426\], .bg-\[\#262626\], .bg-\[\#1D1D1F\]) :where(span, div, p, i, .hgi, b, strong) {
-            color: #FFFFFF !important;
-            -webkit-text-fill-color: #FFFFFF !important;
-            stroke: #FFFFFF !important;
-        }
-
-        /* In Dark Mode, explicit light typography for all cards */
-        html[data-theme="dark"] :where(.bg-\[\#FFFFFF\], .bg-white, .bg-\[\#F7F7F8\], .bg-\[\#FAFAFA\], .bg-\[\#F2F2F2\]):not(.iphone-keep-white) {
+        /* --- DARK MODE: Full Obsidian Adaptive Polarity --- */
+        html[data-theme="dark"] :where(.bg-\[\#FFFFFF\], .bg-white, .bg-white\/95, .bg-\[\#F7F7F8\], .bg-\[\#FAFAFA\], .bg-\[\#F2F2F2\]):not(.iphone-keep-white) {
             background-color: #18181A !important;
             border-color: rgba(255, 255, 255, 0.12) !important;
+            color: #F4F4F5 !important;
         }
-
-        html[data-theme="dark"] :where(.bg-\[\#FFFFFF\], .bg-white, .bg-\[\#F7F7F8\], .bg-\[\#FAFAFA\], .bg-\[\#F2F2F2\]):not(.iphone-keep-white) :where(p, li, div, span):not([class*="bg-white"]):not(.text-black) {
-            color: #D4D4D8 !important;
-            -webkit-text-fill-color: #D4D4D8 !important;
+        html[data-theme="dark"] :where(.bg-\[\#FFFFFF\], .bg-white, .bg-white\/95, .bg-\[\#F7F7F8\], .bg-\[\#FAFAFA\], .bg-\[\#F2F2F2\]):not(.iphone-keep-white) :where(p, li, div, span, a, button) {
+            color: #E4E4E7 !important;
+            -webkit-text-fill-color: #E4E4E7 !important;
         }
-
-        html[data-theme="dark"] :where(.bg-\[\#FFFFFF\], .bg-white, .bg-\[\#F7F7F8\], .bg-\[\#FAFAFA\], .bg-\[\#F2F2F2\]):not(.iphone-keep-white) :where(h1, h2, h3, h4, h5, h6, strong, b, .apple-heading, .apple-subhead) {
+        html[data-theme="dark"] :where(.bg-\[\#FFFFFF\], .bg-white, .bg-white\/95, .bg-\[\#F7F7F8\], .bg-\[\#FAFAFA\], .bg-\[\#F2F2F2\]):not(.iphone-keep-white) :where(h1, h2, h3, h4, h5, h6, strong, b, .apple-heading, .apple-subhead) {
             color: #FFFFFF !important;
             -webkit-text-fill-color: #FFFFFF !important;
         }
-
-        html[data-theme="dark"] .text-\[\#3A3E42\] {
+        html[data-theme="dark"] :where(.bg-\[\#FFFFFF\], .bg-white, .bg-white\/95, .bg-\[\#F7F7F8\], .bg-\[\#FAFAFA\], .bg-\[\#F2F2F2\]):not(.iphone-keep-white) :where(i, .hgi, svg) {
+            color: #FFFFFF !important;
+            stroke: #FFFFFF !important;
+        }
+        html[data-theme="dark"] .text-\[\#3A3E42\],
+        html[data-theme="dark"] .text-\[\#595959\] {
             color: #A1A1AA !important;
             -webkit-text-fill-color: #A1A1AA !important;
         }
-        /* ==================================================== */
-
-        /* ==================================================== */
-        /* Any card on a white or light gray surface MUST have crisp black text */
-        .bg-\[\#FFFFFF\], .bg-\[\#FFFFFF\] h1, .bg-\[\#FFFFFF\] h2, .bg-\[\#FFFFFF\] h3, .bg-\[\#FFFFFF\] h4, .bg-\[\#FFFFFF\] h5, .bg-\[\#FFFFFF\] h6, .bg-\[\#FFFFFF\] p, .bg-\[\#FFFFFF\] li,
-        .bg-white, .bg-white h1, .bg-white h2, .bg-white h3, .bg-white h4, .bg-white h5, .bg-white h6, .bg-white p, .bg-white li,
-        .bg-\[\#F7F7F8\], .bg-\[\#F7F7F8\] h1, .bg-\[\#F7F7F8\] h2, .bg-\[\#F7F7F8\] h3, .bg-\[\#F7F7F8\] h4, .bg-\[\#F7F7F8\] h5, .bg-\[\#F7F7F8\] h6, .bg-\[\#F7F7F8\] p, .bg-\[\#F7F7F8\] li,
-        .bg-\[\#FAFAFA\], .bg-\[\#FAFAFA\] h1, .bg-\[\#FAFAFA\] h2, .bg-\[\#FAFAFA\] h3, .bg-\[\#FAFAFA\] h4, .bg-\[\#FAFAFA\] p, .bg-\[\#FAFAFA\] li,
-        .bg-\[\#F2F2F2\], .bg-\[\#F2F2F2\] h1, .bg-\[\#F2F2F2\] h2, .bg-\[\#F2F2F2\] h3, .bg-\[\#F2F2F2\] h4, .bg-\[\#F2F2F2\] p, .bg-\[\#F2F2F2\] li {
-            color: #111111 !important;
-            -webkit-text-fill-color: #111111 !important;
-        }
-
-        /* Span texts inside light cards (excluding explicit dark badges) */
-        .bg-\[\#FFFFFF\] span:not(.text-white):not([class*="bg-black"]):not([class*="bg-[#000000]"]):not([class*="bg-[#111111]"]),
-        .bg-white span:not(.text-white):not([class*="bg-black"]):not([class*="bg-[#000000]"]):not([class*="bg-[#111111]"]),
-        .bg-\[\#F7F7F8\] span:not(.text-white):not([class*="bg-black"]):not([class*="bg-[#000000]"]):not([class*="bg-[#111111]"]) {
-            color: #111111 !important;
-            -webkit-text-fill-color: #111111 !important;
-        }
-
-        /* Hugeicons and svg strokes inside light containers must be dark */
-        .bg-\[\#F7F7F8\] i:not(.text-white), .bg-\[\#F7F7F8\] .hgi:not(.text-white),
-        .bg-\[\#FFFFFF\] i:not(.text-white), .bg-\[\#FFFFFF\] .hgi:not(.text-white),
-        .bg-white i:not(.text-white), .bg-white .hgi:not(.text-white) {
-            color: #111111 !important;
-            stroke: #111111 !important;
-        }
-
-        /* Explicit Dark buttons, badges & overlays inside light containers MUST have white text */
-        .bg-\[\#FFFFFF\] .bg-black, .bg-\[\#FFFFFF\] .bg-black *,
-        .bg-\[\#FFFFFF\] button.bg-black, .bg-\[\#FFFFFF\] button.bg-black *,
-        .bg-\[\#FFFFFF\] a.bg-black, .bg-\[\#FFFFFF\] a.bg-black *,
-        .bg-\[\#FFFFFF\] [class*="bg-black/"], .bg-\[\#FFFFFF\] [class*="bg-black/"] *,
-        .bg-\[\#FFFFFF\] .bg-\[\#000000\], .bg-\[\#FFFFFF\] .bg-\[\#000000\] *,
-        .bg-\[\#FFFFFF\] .bg-\[\#111111\], .bg-\[\#FFFFFF\] .bg-\[\#111111\] *,
-        .bg-\[\#F7F7F8\] .bg-black, .bg-\[\#F7F7F8\] .bg-black *,
-        .bg-\[\#F7F7F8\] button.bg-black, .bg-\[\#F7F7F8\] button.bg-black *,
-        .bg-\[\#F7F7F8\] a.bg-black, .bg-\[\#F7F7F8\] a.bg-black *,
-        .bg-\[\#F7F7F8\] [class*="bg-black/"], .bg-\[\#F7F7F8\] [class*="bg-black/"] *,
-        .bg-\[\#F7F7F8\] .bg-\[\#000000\], .bg-\[\#F7F7F8\] .bg-\[\#000000\] *,
-        .bg-\[\#F7F7F8\] .bg-\[\#111111\], .bg-\[\#F7F7F8\] .bg-\[\#111111\] * {
+        html[data-theme="dark"] input:not([type="checkbox"]):not([type="radio"]),
+        html[data-theme="dark"] textarea,
+        html[data-theme="dark"] select {
             color: #FFFFFF !important;
             -webkit-text-fill-color: #FFFFFF !important;
         }
-
-        .bg-\[\#FFFFFF\] .bg-black i, .bg-\[\#FFFFFF\] .bg-black .hgi,
-        .bg-\[\#F7F7F8\] .bg-black i, .bg-\[\#F7F7F8\] .bg-black .hgi,
-        .bg-\[\#FFFFFF\] [class*="bg-black/"] i, .bg-\[\#FFFFFF\] [class*="bg-black/"] .hgi,
-        .bg-\[\#F7F7F8\] [class*="bg-black/"] i, .bg-\[\#F7F7F8\] [class*="bg-black/"] .hgi {
+        html[data-theme="dark"] :is(
+            .bg-black\/\[0\.04\], .bg-black\/\[0\.05\], .bg-black\/\[0\.06\], .bg-black\/\[0\.08\],
+            .bg-black\/5, .bg-black\/10
+        ):not(.bg-black):not([href*="wa.me"]):not([href*="whatsapp"]) {
+            background-color: rgba(255, 255, 255, 0.10) !important;
             color: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
+        }
+        html[data-theme="dark"] :is(
+            .bg-black\/\[0\.04\], .bg-black\/\[0\.05\], .bg-black\/\[0\.06\], .bg-black\/\[0\.08\],
+            .bg-black\/5, .bg-black\/10
+        ):not(.bg-black):not([href*="wa.me"]):not([href*="whatsapp"]) * {
+            color: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
+        }
+        html[data-theme="dark"] :is(
+            .bg-black\/\[0\.04\], .bg-black\/\[0\.05\], .bg-black\/\[0\.06\], .bg-black\/\[0\.08\],
+            .bg-black\/5, .bg-black\/10
+        ):not(.bg-black):not([href*="wa.me"]):not([href*="whatsapp"]) svg {
             stroke: #FFFFFF !important;
         }
-
+        html[data-theme="dark"] :is(a.bg-black, button.bg-black, a[href*="wa.me"], a[href*="whatsapp"]) {
+            background-color: #FFFFFF !important;
+            color: #111111 !important;
+            -webkit-text-fill-color: #111111 !important;
+            border-color: #FFFFFF !important;
+        }
+        html[data-theme="dark"] :is(a.bg-black, button.bg-black, a[href*="wa.me"], a[href*="whatsapp"]) * {
+            color: #111111 !important;
+            -webkit-text-fill-color: #111111 !important;
+        }
+        html[data-theme="dark"] :is(a.bg-black, button.bg-black, a[href*="wa.me"], a[href*="whatsapp"]) svg {
+            stroke: #111111 !important;
+        }
+        /* Dark mode nested white pills inside dark containers (e.g. 12-36h pill) */
+        html[data-theme="dark"] .theme-keep-dark :is(.bg-white, .bg-\[\#FFFFFF\]),
+        html[data-theme="dark"] .theme-keep-dark :is(.bg-white, .bg-\[\#FFFFFF\]) * {
+            background-color: #FFFFFF !important;
+            color: #111111 !important;
+            -webkit-text-fill-color: #111111 !important;
+        }
     </style>
 </head>
 <body id="top" class="bg-[#FFFFFF] text-[#000000] font-sans antialiased selection:bg-black selection:text-white relative overflow-x-clip transition-colors duration-200">
@@ -4171,33 +4160,33 @@
                             </div>
 
                             <div class="grid sm:grid-cols-2 gap-3 text-left rtl:text-right">
-                                <div class="p-3.5 rounded-2xl bg-[#111111] border border-white/[0.08] space-y-1">
-                                    <div class="text-xs font-medium text-[#FFFFFF] flex items-center gap-1.5">
+                                <div class="p-3.5 rounded-2xl bg-[#F7F7F8] border border-black/[0.08] space-y-1">
+                                    <div class="text-xs font-medium text-[#111111] flex items-center gap-1.5">
                                         <i class="hgi hgi-stroke hgi-justice-scale-01 w-4 h-4 text-[#000000] shrink-0"></i>
                                         <span>Военная выправка и право</span>
                                     </div>
-                                    <p class="text-xs text-white/65 leading-relaxed">Опыт техника F-16 в ВВС Турции, диплом международного права, сертификаты TÜRAVAK и KİÜ.</p>
+                                    <p class="text-xs text-[#3A3E42] leading-relaxed">Опыт техника F-16 в ВВС Турции, диплом международного права, сертификаты TÜRAVAK и KİÜ.</p>
                                 </div>
-                                <div class="p-3.5 rounded-2xl bg-[#111111] border border-white/[0.08] space-y-1">
-                                    <div class="text-xs font-medium text-[#FFFFFF] flex items-center gap-1.5">
+                                <div class="p-3.5 rounded-2xl bg-[#F7F7F8] border border-black/[0.08] space-y-1">
+                                    <div class="text-xs font-medium text-[#111111] flex items-center gap-1.5">
                                         <i class="hgi hgi-stroke hgi-shield-02 w-4 h-4 text-neutral-700 shrink-0"></i>
                                         <span>Ассоциации и WPYB Global</span>
                                     </div>
-                                    <p class="text-xs text-white/65 leading-relaxed">Основатель и глава TÜDED и UÖDED; борьба с контрафактом на платформе WPYB.</p>
+                                    <p class="text-xs text-[#3A3E42] leading-relaxed">Основатель и глава TÜDED и UÖDED; борьба с контрафактом на платформе WPYB.</p>
                                 </div>
-                                <div class="p-3.5 rounded-2xl bg-[#111111] border border-white/[0.08] space-y-1">
-                                    <div class="text-xs font-medium text-[#FFFFFF] flex items-center gap-1.5">
+                                <div class="p-3.5 rounded-2xl bg-[#F7F7F8] border border-black/[0.08] space-y-1">
+                                    <div class="text-xs font-medium text-[#111111] flex items-center gap-1.5">
                                         <i class="hgi hgi-stroke hgi-book-open-01 w-4 h-4 text-[#262626] shrink-0"></i>
                                         <span>Книга, журнал и пресса</span>
                                     </div>
-                                    <p class="text-xs text-white/65 leading-relaxed">Книга «The Detective's Eye», Özel Dedektif Dergisi, ÜSTAD, Kanal 24, TV8 и премии года.</p>
+                                    <p class="text-xs text-[#3A3E42] leading-relaxed">Книга «The Detective's Eye», Özel Dedektif Dergisi, ÜSTAD, Kanal 24, TV8 и премии года.</p>
                                 </div>
-                                <div class="p-3.5 rounded-2xl bg-[#111111] border border-white/[0.08] space-y-1">
-                                    <div class="text-xs font-medium text-[#FFFFFF] flex items-center gap-1.5">
+                                <div class="p-3.5 rounded-2xl bg-[#F7F7F8] border border-black/[0.08] space-y-1">
+                                    <div class="text-xs font-medium text-[#111111] flex items-center gap-1.5">
                                         <i class="hgi hgi-stroke hgi-favourite w-4 h-4 text-neutral-700 shrink-0"></i>
                                         <span>Социальные проекты и UKAİM</span>
                                     </div>
-                                    <p class="text-xs text-white/65 leading-relaxed">Библиотека игрушек Hayalime Renk Ver и работа в UKAİM по защите и поиску детей.</p>
+                                    <p class="text-xs text-[#3A3E42] leading-relaxed">Библиотека игрушек Hayalime Renk Ver и работа в UKAİM по защите и поиску детей.</p>
                                 </div>
                             </div>
 
@@ -5575,7 +5564,7 @@
                                 <a href="../hizmetler/marka-taklidi-arastirmasi" class="px-3 py-1.5 rounded-full bg-[#FFFFFF] hover:bg-[#111111] text-[#111111] hover:text-[#000000] border border-black/[0.07] text-xs font-medium transition" title="Marka Taklidi, Sahte Ürün Tespiti ve SMK m.29 Baskın Delili — WPYB &amp; DAT Detective">Борьба с контрафактом</a>
                                 <a href="../hizmetler/bocek-tarama-tscm" class="px-3 py-1.5 rounded-full bg-[#FFFFFF] hover:bg-[#111111] text-[#111111] hover:text-[#000000] border border-black/[0.07] text-xs font-medium transition" title="Profesyonel Böcek Arama, Dinleme Cihazı ve Gizli Kamera Tespiti (TSCM) — DAT Detective">Поиск жучков (TSCM)</a>
                                 <a href="../hizmetler/kurumsal-ve-marka-koruma" class="px-3 py-1.5 rounded-full bg-[#FFFFFF] hover:bg-[#111111] text-[#111111] hover:text-[#000000] border border-black/[0.07] text-xs font-medium transition" title="Kurumsal Araştırma, Marka Koruma ve WPYB Global Hizmetleri — DAT Detective">Бизнес и WPYB</a>
-                                <a href="../umit-hakan-karakaya" class="px-3 py-1.5 rounded-full bg-[#111111] hover:bg-[#000000] text-[#000000] hover:text-white text-xs font-medium transition" title="Ümit Hakan Karakaya Kimdir? — DAT Özel Dedektiflik Kurucusu, UÖDED &amp; TÜDED Başkanı">Кто такой Юмит Хакан Каракая?</a>
+                                <a href="../umit-hakan-karakaya" class="px-3 py-1.5 rounded-full bg-black hover:bg-neutral-800 text-white text-xs font-medium transition" title="Ümit Hakan Karakaya Kimdir? — DAT Özel Dedektiflik Kurucusu, UÖDED &amp; TÜDED Başkanı">Кто такой Юмит Хакан Каракая?</a>
                             </div>
                         </div>
                     </div>
